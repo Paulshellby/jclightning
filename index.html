@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JC Lightning – Illuminate Your World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #faf6f0;
+    --warm-white: #fff9f2;
+    --amber: #c8763a;
+    --amber-light: #e8a86a;
+    --amber-pale: #f5dfc0;
+    --brown: #3d2b1a;
+    --brown-mid: #6b4226;
+    --brown-light: #a0714f;
+    --charcoal: #2a1f16;
+    --sand: #e8d5bb;
+    --sand-dark: #d4b896;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 60px;
+    background: rgba(250,246,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,118,58,0.15);
+    transition: padding .3s;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600;
+    color: var(--brown);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .logo span { color: var(--amber); }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--brown-mid);
+    text-decoration: none; transition: color .2s;
+  }
+  nav a:hover { color: var(--amber); }
+  .nav-cta {
+    background: var(--amber); color: #fff !important;
+    padding: 10px 24px; border-radius: 2px;
+    transition: background .2s !important;
+  }
+  .nav-cta:hover { background: var(--brown-mid) !important; color: #fff !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 60px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 80% 50%, rgba(200,118,58,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 10% 80%, rgba(200,118,58,0.06) 0%, transparent 60%);
+  }
+  /* warm light glow circles */
+  .glow {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,168,106,0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .glow-1 { width: 600px; height: 600px; top: -100px; right: -80px; }
+  .glow-2 { width: 300px; height: 300px; bottom: 60px; left: 5%; }
+
+  .hero-text { position: relative; z-index: 1; max-width: 520px; }
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--amber);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--amber);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    font-weight: 600; line-height: 1.08;
+    color: var(--brown); margin-bottom: 28px;
+  }
+  h1 em { font-style: italic; color: var(--amber); }
+  .hero-sub {
+    font-size: 1rem; line-height: 1.75; color: var(--brown-light);
+    margin-bottom: 44px; font-weight: 300;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--amber); color: #fff;
+    padding: 16px 36px; border-radius: 2px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: background .25s, transform .2s;
+  }
+  .btn-primary:hover { background: var(--brown-mid); transform: translateY(-1px); }
+  .btn-primary svg { transition: transform .2s; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--brown-mid); font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    padding: 16px 24px; border: 1px solid var(--sand-dark); border-radius: 2px;
+    transition: border-color .2s, color .2s;
+    margin-left: 16px;
+  }
+  .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+  .hero-visual { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
+  /* decorative lamp illustration */
+  .lamp-wrap {
+    position: relative; width: 360px; height: 460px;
+  }
+  .lamp-glow-bg {
+    position: absolute; bottom: 60px; left: 50%;
+    transform: translateX(-50%);
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(232,168,106,0.5) 0%, rgba(200,118,58,0.15) 40%, transparent 70%);
+    border-radius: 50%; animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:.8;transform:translateX(-50%) scale(1)} 50%{opacity:1;transform:translateX(-50%) scale(1.08)} }
+  .lamp-svg { position: relative; z-index: 1; width: 100%; }
+
+  /* stats row */
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 52px; padding-top: 40px;
+    border-top: 1px solid var(--sand);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600;
+    color: var(--brown); line-height: 1;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--brown-light); margin-top: 4px; letter-spacing: 0.06em; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 100px 60px; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--amber);
+    display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  }
+  .section-label::before { content:''; width:24px; height:1px; background:var(--amber); }
+  h2 {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600; color: var(--brown); line-height: 1.18; margin-bottom: 16px;
+  }
+  .section-sub { font-size: 0.95rem; color: var(--brown-light); line-height: 1.8; max-width: 480px; font-weight: 300; }
+
+  /* ── CATEGORIES ── */
+  .categories { background: var(--warm-white); }
+  .cat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 56px;
+  }
+  .cat-card {
+    background: var(--cream); border: 1px solid var(--sand);
+    border-radius: 4px; padding: 40px 32px 36px;
+    transition: border-color .25s, transform .25s, box-shadow .25s;
+    cursor: default; position: relative; overflow: hidden;
+  }
+  .cat-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--amber); transform: scaleX(0); transform-origin: left;
+    transition: transform .3s;
+  }
+  .cat-card:hover { border-color: var(--amber-pale); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(61,43,26,0.08); }
+  .cat-card:hover::after { transform: scaleX(1); }
+  .cat-icon {
+    width: 56px; height: 56px; background: var(--amber-pale);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+  }
+  .cat-icon svg { width: 28px; height: 28px; }
+  .cat-card h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600;
+    color: var(--brown); margin-bottom: 10px;
+  }
+  .cat-card p { font-size: 0.88rem; color: var(--brown-light); line-height: 1.7; font-weight: 300; }
+
+  /* ── PRODUCTS ── */
+  .products { background: var(--cream); }
+  .prod-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+  .prod-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  .prod-card {
+    border: 1px solid var(--sand); border-radius: 4px; overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .prod-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(61,43,26,0.10); }
+  .prod-img {
+    aspect-ratio: 1; background: var(--warm-white);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .prod-img svg { width: 80px; height: 80px; opacity: .5; }
+  .prod-badge {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--amber); color: #fff;
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 2px;
+  }
+  .prod-info { padding: 20px; }
+  .prod-info h4 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600;
+    color: var(--brown); margin-bottom: 6px;
+  }
+  .prod-info p { font-size: 0.8rem; color: var(--brown-light); line-height: 1.6; margin-bottom: 16px; font-weight: 300; }
+  .prod-inquiry {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--amber); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap .2s;
+  }
+  .prod-inquiry:hover { gap: 10px; }
+
+  /* color swatches on cards */
+  .prod-colors { display: flex; gap: 6px; margin-bottom: 12px; }
+  .prod-colors span {
+    width: 12px; height: 12px; border-radius: 50%; display: block;
+    border: 1px solid rgba(0,0,0,.1);
+  }
+
+  /* ── WHY US ── */
+  .why { background: var(--brown); color: var(--cream); }
+  .why .section-label { color: var(--amber-light); }
+  .why .section-label::before { background: var(--amber-light); }
+  .why h2 { color: var(--cream); }
+  .why .section-sub { color: var(--sand); }
+  .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    margin-top: 60px; border: 1px solid rgba(255,255,255,0.1);
+  }
+  .why-item {
+    padding: 44px 48px; border: 1px solid rgba(255,255,255,0.08);
+    transition: background .2s;
+  }
+  .why-item:hover { background: rgba(255,255,255,0.03); }
+  .why-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 400;
+    color: rgba(200,118,58,0.3); line-height: 1; margin-bottom: 20px;
+  }
+  .why-item h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600;
+    color: var(--amber-light); margin-bottom: 10px;
+  }
+  .why-item p { font-size: 0.88rem; color: var(--sand); line-height: 1.75; font-weight: 300; }
+
+  /* ── CERTIFICATIONS ── */
+  .certs { background: var(--warm-white); text-align: center; padding: 70px 60px; }
+  .certs h3 { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brown-light); margin-bottom: 36px; }
+  .cert-logos { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .cert-badge {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    opacity: .5; transition: opacity .2s;
+  }
+  .cert-badge:hover { opacity: .85; }
+  .cert-badge .cbig {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600;
+    color: var(--brown); letter-spacing: .05em;
+  }
+  .cert-badge .csmall { font-size: 0.65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--brown-light); }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
+  .contact-info h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600;
+    color: var(--brown); margin-bottom: 20px;
+  }
+  .contact-info p { font-size: 0.9rem; color: var(--brown-light); line-height: 1.8; margin-bottom: 32px; font-weight: 300; }
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 20px; font-size: 0.88rem; color: var(--brown-mid);
+  }
+  .contact-detail svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: var(--amber); }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brown-mid); }
+  input, textarea, select {
+    background: var(--warm-white); border: 1px solid var(--sand-dark);
+    border-radius: 2px; padding: 14px 16px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--charcoal);
+    transition: border-color .2s, box-shadow .2s; outline: none; resize: vertical;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(200,118,58,0.12);
+  }
+  textarea { min-height: 120px; }
+  .form-submit {
+    background: var(--amber); color: #fff;
+    padding: 16px 36px; border: none; border-radius: 2px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    transition: background .2s; align-self: flex-start;
+  }
+  .form-submit:hover { background: var(--brown-mid); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal); color: var(--sand);
+    padding: 60px 60px 36px;
+  }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600;
+    color: #fff; margin-bottom: 16px; display: block; text-decoration: none;
+  }
+  .footer-logo span { color: var(--amber); }
+  .footer-desc { font-size: 0.85rem; line-height: 1.8; color: var(--sand-dark); font-weight: 300; max-width: 280px; }
+  .footer-col h4 {
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--amber-light); margin-bottom: 20px; font-weight: 500;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { font-size: 0.85rem; color: var(--sand-dark); text-decoration: none; transition: color .2s; }
+  .footer-col a:hover { color: var(--amber-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem; color: rgba(212,184,150,0.5);
+  }
+
+  /* ── SCROLL ANIMATION ── */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
+    .hero-visual { display: none; }
+    section { padding: 70px 24px; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .prod-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    footer { padding: 48px 24px 28px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .cert-logos { gap: 28px; }
+    .prod-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .hero-stats { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">JC <span>Lightning</span></a>
+  <ul>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#about">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <div class="hero-text reveal">
+    <div class="hero-eyebrow">Quality Lighting Solutions</div>
+    <h1>Light that makes a home feel <em>alive</em></h1>
+    <p class="hero-sub">
+      From solar garden lights to designer bathroom fixtures — we supply premium lighting products for homes, hotels, and retailers worldwide.
+    </p>
+    <div>
+      <a href="#contact" class="btn-primary">
+        Request a Quote
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#products" class="btn-secondary">View Products</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Products</div>
+      </div>
+      <div>
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Countries Served</div>
+      </div>
+      <div>
+        <div class="stat-num">10yr</div>
+        <div class="stat-label">Experience</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="lamp-wrap">
+      <div class="lamp-glow-bg"></div>
+      <svg class="lamp-svg" viewBox="0 0 360 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- pendant cord -->
+        <line x1="180" y1="0" x2="180" y2="80" stroke="#a0714f" stroke-width="2" stroke-dasharray="4 3"/>
+        <!-- lamp shade -->
+        <path d="M120 80 Q100 140 80 180 H280 Q260 140 240 80 Z" fill="#e8d5bb" stroke="#c8763a" stroke-width="1.5"/>
+        <path d="M120 80 H240" stroke="#c8763a" stroke-width="2" stroke-linecap="round"/>
+        <!-- inner shade detail -->
+        <path d="M125 100 Q110 140 95 170 H265 Q250 140 235 100 Z" fill="#f5dfc0" opacity=".7"/>
+        <!-- bulb glow -->
+        <circle cx="180" cy="190" r="18" fill="#f5a623" opacity=".9"/>
+        <circle cx="180" cy="190" r="10" fill="#fff7e0"/>
+        <circle cx="180" cy="190" r="36" fill="#f5a623" opacity=".15"/>
+        <circle cx="180" cy="190" r="55" fill="#e8a86a" opacity=".08"/>
+        <!-- light cone -->
+        <path d="M80 180 L30 400 H330 L280 180 Z" fill="url(#cone)" opacity=".6"/>
+        <defs>
+          <linearGradient id="cone" x1="180" y1="180" x2="180" y2="400" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f5a623" stop-opacity=".4"/>
+            <stop offset="100%" stop-color="#f5a623" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- table surface -->
+        <rect x="20" y="400" width="320" height="6" rx="3" fill="#d4b896" opacity=".6"/>
+        <!-- decorative rings on shade -->
+        <ellipse cx="180" cy="80" rx="60" ry="8" fill="#c8763a" opacity=".3"/>
+        <ellipse cx="180" cy="155" rx="96" ry="6" fill="#c8763a" opacity=".12"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-label reveal">What We Offer</div>
+  <h2 class="reveal">Three categories, <em>endless possibilities</em></h2>
+  <p class="section-sub reveal">Every product is carefully selected for quality, efficiency, and design. Whether you're stocking a retail store or outfitting a hotel, we have a solution.</p>
+
+  <div class="cat-grid">
+    <div class="cat-card reveal">
+      <div class="cat-icon">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="5" stroke="#c8763a" stroke-width="1.5"/>
+          <path d="M14 3v3M14 22v3M3 14h3M22 14h3M6.22 6.22l2.12 2.12M19.66 19.66l2.12 2.12M6.22 21.78l2.12-2.12M19.66 8.34l2.12-2.12" stroke="#c8763a" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Solar Lighting</h3>
+      <p>Garden path lights, security floodlights, and decorative solar lanterns. Energy-saving, weather-resistant, and CE certified for international markets.</p>
+    </div>
+    <div class="cat-card reveal" style="transition-delay:.1s">
+      <div class="cat-icon">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="4" width="16" height="20" rx="3" stroke="#c8763a" stroke-width="1.5"/>
+          <path d="M10 10h8M10 14h8M10 18h5" stroke="#c8763a" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="14" cy="4" r="2" fill="#c8763a"/>
+        </svg>
+      </div>
+      <h3>Bathroom Fixtures</h3>
+      <p>Mirror lights, vanity bars, and wall sconces with IP44–IP65 ratings. Modern finishes including matte black, brushed gold, and chrome.</p>
+    </div>
+    <div class="cat-card reveal" style="transition-delay:.2s">
+      <div class="cat-icon">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 4L8 14h12L14 4z" stroke="#c8763a" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 14v8a2 2 0 002 2h8a2 2 0 002-2v-8" stroke="#c8763a" stroke-width="1.5"/>
+          <path d="M11 18h6" stroke="#c8763a" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Hardware & Décor</h3>
+      <p>Pendant lights, chandeliers, track lighting, and under-cabinet strips. Suitable for residential, hospitality, and commercial interiors.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="prod-header">
+    <div>
+      <div class="section-label reveal">Featured Products</div>
+      <h2 class="reveal">Our bestsellers</h2>
+    </div>
+    <a href="#contact" class="btn-secondary reveal">Request Full Catalog →</a>
+  </div>
+
+  <div class="prod-grid">
+    <!-- card 1 -->
+    <div class="prod-card reveal">
+      <div class="prod-img" style="background: linear-gradient(135deg,#f5ede0,#e8d5bb)">
+        <div class="prod-badge">Bestseller</div>
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="16" fill="#f5a623" opacity=".8"/>
+          <circle cx="40" cy="40" r="8" fill="#fff7e0"/>
+          <path d="M40 10v8M40 62v8M10 40h8M62 40h8M18.7 18.7l5.6 5.6M55.7 55.7l5.6 5.6M18.7 61.3l5.6-5.6M55.7 24.3l5.6-5.6" stroke="#c8763a" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="prod-info">
+        <div class="prod-colors">
+          <span style="background:#2c2c2c"></span>
+          <span style="background:#d4af6a"></span>
+          <span style="background:#c0c0c0"></span>
+        </div>
+        <h4>Solar Path Light Pro</h4>
+        <p>6W, IP65, 8h battery life. Auto dusk-to-dawn sensor. CE & RoHS certified.</p>
+        <a href="#contact" class="prod-inquiry">Enquire Now →</a>
+      </div>
+    </div>
+
+    <!-- card 2 -->
+    <div class="prod-card reveal" style="transition-delay:.08s">
+      <div class="prod-img" style="background: linear-gradient(135deg,#eef2f7,#dde6f0)">
+        <div class="prod-badge" style="background:#6b4226">New</div>
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="24" y="16" width="32" height="48" rx="4" fill="#c8d8e8" stroke="#a0714f" stroke-width="1.5"/>
+          <rect x="28" y="20" width="24" height="32" rx="2" fill="#e8f0f8" opacity=".7"/>
+          <path d="M32 28h16M32 33h16M32 38h10" stroke="#a0714f" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="40" cy="54" r="4" fill="#f5a623" opacity=".7"/>
+        </svg>
+      </div>
+      <div class="prod-info">
+        <div class="prod-colors">
+          <span style="background:#2c2c2c"></span>
+          <span style="background:#e8e8e8"></span>
+          <span style="background:#d4af6a"></span>
+        </div>
+        <h4>Vanity Mirror Light</h4>
+        <p>12W LED, IP44, 3-colour temperature. Hollywood-style for bathroom & dressing.</p>
+        <a href="#contact" class="prod-inquiry">Enquire Now →</a>
+      </div>
+    </div>
+
+    <!-- card 3 -->
+    <div class="prod-card reveal" style="transition-delay:.16s">
+      <div class="prod-img" style="background: linear-gradient(135deg,#f7f0e6,#ede0cc)">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="40" y1="8" x2="40" y2="24" stroke="#a0714f" stroke-width="2"/>
+          <path d="M24 24 Q18 42 14 52 H66 Q62 42 56 24 Z" fill="#e8d5bb" stroke="#c8763a" stroke-width="1.5"/>
+          <ellipse cx="40" cy="52" rx="26" ry="5" fill="#c8763a" opacity=".15"/>
+          <circle cx="40" cy="36" r="6" fill="#f5a623" opacity=".9"/>
+        </svg>
+      </div>
+      <div class="prod-info">
+        <div class="prod-colors">
+          <span style="background:#c8763a"></span>
+          <span style="background:#2c2c2c"></span>
+          <span style="background:#f0f0f0"></span>
+        </div>
+        <h4>Nordic Pendant Lamp</h4>
+        <p>E27, max 60W. Fabric shade, brass/black/white finish. Dining & living room.</p>
+        <a href="#contact" class="prod-inquiry">Enquire Now →</a>
+      </div>
+    </div>
+
+    <!-- card 4 -->
+    <div class="prod-card reveal" style="transition-delay:.24s">
+      <div class="prod-img" style="background: linear-gradient(135deg,#f0f5ea,#ddecd0)">
+        <div class="prod-badge" style="background:#3d7a3a">Eco</div>
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="16" y="28" width="48" height="28" rx="5" fill="#c8ddb0" stroke="#6b9a3a" stroke-width="1.5"/>
+          <rect x="20" y="32" width="40" height="20" rx="3" fill="#e8f0d8" opacity=".7"/>
+          <path d="M28 42h24M32 38h16" stroke="#6b9a3a" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M28 56v6M52 56v6M24 62h8M48 62h8" stroke="#6b9a3a" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="prod-info">
+        <div class="prod-colors">
+          <span style="background:#c0d890"></span>
+          <span style="background:#2c2c2c"></span>
+          <span style="background:#c0c0c0"></span>
+        </div>
+        <h4>Solar Flood Security Light</h4>
+        <p>30W, motion sensor, IP66, 270° coverage. Ideal for garages & gardens.</p>
+        <a href="#contact" class="prod-inquiry">Enquire Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="about">
+  <div class="section-label reveal">Why Choose JC Lightning</div>
+  <h2 class="reveal">Built on quality,<br><em>driven by service</em></h2>
+  <p class="section-sub reveal">We work directly with manufacturers and pass the savings and quality assurance to you.</p>
+
+  <div class="why-grid">
+    <div class="why-item reveal">
+      <div class="why-num">01</div>
+      <h3>Certified Products</h3>
+      <p>All export products carry CE, RoHS, and relevant safety certifications. Full documentation provided for customs and retail compliance.</p>
+    </div>
+    <div class="why-item reveal" style="transition-delay:.08s">
+      <div class="why-num">02</div>
+      <h3>Direct Factory Pricing</h3>
+      <p>No middlemen. We source directly from verified manufacturers, giving you competitive wholesale pricing with consistent quality control.</p>
+    </div>
+    <div class="why-item reveal" style="transition-delay:.16s">
+      <div class="why-num">03</div>
+      <h3>Flexible MOQ</h3>
+      <p>Small business or large retailer — we accommodate mixed orders and low minimum quantities to help you test new products without risk.</p>
+    </div>
+    <div class="why-item reveal" style="transition-delay:.24s">
+      <div class="why-num">04</div>
+      <h3>Reliable Shipping</h3>
+      <p>Experienced in sea, air, and express freight to Europe, North America, Southeast Asia, and Australia. Full tracking and insurance available.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs reveal">
+  <h3>Recognised Certifications</h3>
+  <div class="cert-logos">
+    <div class="cert-badge"><span class="cbig">CE</span><span class="csmall">European Standard</span></div>
+    <div class="cert-badge"><span class="cbig">RoHS</span><span class="csmall">Hazardous-Free</span></div>
+    <div class="cert-badge"><span class="cbig">IP65</span><span class="csmall">Weatherproof</span></div>
+    <div class="cert-badge"><span class="cbig">IP66</span><span class="csmall">High Protection</span></div>
+    <div class="cert-badge"><span class="cbig">ETL</span><span class="csmall">North America</span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label reveal">Get In Touch</div>
+  <h2 class="reveal">Request a quote or <em>ask anything</em></h2>
+
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>We respond within 24 hours</h3>
+      <p>Tell us what you're looking for — product type, quantity, destination — and we'll come back with a tailored quote. No obligation, no hassle.</p>
+
+      <div class="contact-detail">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M2 5l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>enquiries@jclightning.com</span>
+      </div>
+      <div class="contact-detail">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M16.5 14.3l-2.3 2.3a14.5 14.5 0 01-10.8-10.8l2.3-2.3a1 1 0 011.4 0l2 2a1 1 0 010 1.4l-1 1a8.5 8.5 0 004.5 4.5l1-1a1 1 0 011.4 0l2 2a1 1 0 010 1.4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>WhatsApp: +86 xxx xxxx xxxx</span>
+      </div>
+      <div class="contact-detail">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Mon – Fri, 9:00 – 18:00 CST</span>
+      </div>
+    </div>
+
+    <form class="contact-form reveal" style="transition-delay:.1s" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company (optional)</label>
+          <input type="text" id="company" placeholder="ABC Retail Ltd">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="jane@company.com" required>
+      </div>
+      <div class="form-group">
+        <label for="product">Product Interest</label>
+        <select id="product">
+          <option value="">Select a category…</option>
+          <option>Solar Lighting</option>
+          <option>Bathroom Fixtures</option>
+          <option>Hardware & Décor</option>
+          <option>Mixed / Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message / Requirements</label>
+        <textarea id="message" placeholder="Tell us about quantities, target market, certifications needed…"></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="submit-btn">Send Enquiry →</button>
+      <p id="form-success" style="display:none;font-size:.88rem;color:#3d7a3a;margin-top:4px;">✓ Message sent! We'll be in touch within 24 hours.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="footer-logo">JC <span>Lightning</span></a>
+      <p class="footer-desc">Premium lighting solutions for homes, hotels, and retailers worldwide. Quality products, honest pricing, reliable service.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="#categories">Solar Lighting</a></li>
+        <li><a href="#categories">Bathroom Fixtures</a></li>
+        <li><a href="#categories">Hardware & Décor</a></li>
+        <li><a href="#contact">Request Catalog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">Why Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#contact">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 JC Lightning. All rights reserved.</span>
+    <span>Serving Europe · North America · Southeast Asia · Australia</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth form submit (demo)
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    setTimeout(() => {
+      btn.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }, 1200);
+  }
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.padding = scrollY > 40 ? '14px 60px' : '22px 60px';
+  });
+</script>
+</body>
+</html>
