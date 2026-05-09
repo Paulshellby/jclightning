@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JC Lightning — Solar Lighting Manufacturer Since 2009</title>
+<title>JC Lightning — Solar Security & Garden Lighting | Factory-Direct Supply</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -25,8 +25,6 @@
 html { scroll-behavior: smooth; }
 body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink); overflow-x:hidden; }
 ::selection { background:var(--brass); color:#fff; }
-
-/* ── NAV ─────────────────────────────────────────────────── */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
@@ -35,129 +33,64 @@ nav {
 nav.dark  { background:transparent; }
 nav.solid { background:rgba(14,12,10,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--bdk); }
 nav.light { background:rgba(247,243,236,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--blt); }
-
 .logo { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:400; letter-spacing:0.03em; text-decoration:none; }
 nav.dark .logo, nav.solid .logo { color:#fff; }
 nav.light .logo { color:var(--ink); }
 .logo em { font-style:italic; color:var(--brass-lt); }
-
 nav ul { list-style:none; display:flex; gap:40px; }
 .nav-link { font-size:0.67rem; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; text-decoration:none; transition:color .2s; }
 nav.dark .nav-link, nav.solid .nav-link { color:var(--mist); }
 nav.dark .nav-link:hover, nav.solid .nav-link:hover { color:#fff; }
 nav.light .nav-link { color:var(--stone); }
 nav.light .nav-link:hover { color:var(--ink); }
-
 .nav-r { display:flex; align-items:center; gap:18px; }
 .lang-sw { display:flex; gap:3px; }
-.lang-btn {
-  font-family:'Outfit',sans-serif; font-size:0.63rem; font-weight:400; letter-spacing:0.1em;
-  text-transform:uppercase; padding:5px 9px; border:1px solid transparent;
-  background:transparent; cursor:pointer; transition:all .2s;
-}
+.lang-btn { font-family:'Outfit',sans-serif; font-size:0.63rem; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; padding:5px 9px; border:1px solid transparent; background:transparent; cursor:pointer; transition:all .2s; }
 nav.dark .lang-btn, nav.solid .lang-btn { color:var(--stone-lt); border-color:rgba(255,255,255,0.18); }
 nav.dark .lang-btn:hover, nav.solid .lang-btn:hover { color:#fff; border-color:rgba(255,255,255,0.5); }
 nav.dark .lang-btn.active, nav.solid .lang-btn.active { background:var(--brass); border-color:var(--brass); color:#fff; }
 nav.light .lang-btn { color:var(--stone); border-color:var(--blt); }
 nav.light .lang-btn:hover { color:var(--ink); border-color:var(--stone); }
 nav.light .lang-btn.active { background:var(--ink); border-color:var(--ink); color:#fff; }
-
-.nav-cta {
-  font-size:0.65rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase;
-  padding:10px 22px; border:1px solid; text-decoration:none; transition:all .25s;
-}
+.nav-cta { font-size:0.65rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; padding:10px 22px; border:1px solid; text-decoration:none; transition:all .25s; }
 nav.dark .nav-cta, nav.solid .nav-cta { color:#fff; border-color:rgba(255,255,255,0.35); }
 nav.dark .nav-cta:hover, nav.solid .nav-cta:hover { background:var(--brass); border-color:var(--brass); }
 nav.light .nav-cta { color:var(--ink); border-color:var(--ink); }
 nav.light .nav-cta:hover { background:var(--ink); color:var(--chalk); }
-
-/* ── HERO ────────────────────────────────────────────────── */
-.hero {
-  min-height:100vh; background:var(--ink);
-  display:grid; grid-template-columns:1fr 1fr;
-  align-items:center; padding:120px 56px 80px;
-  position:relative; overflow:hidden;
-}
-.hero-bg {
-  position:absolute; inset:0; pointer-events:none;
-  background:
-    radial-gradient(ellipse 55% 60% at 75% 40%, rgba(168,125,42,0.13) 0%, transparent 65%),
-    radial-gradient(ellipse 30% 40% at 5% 85%, rgba(168,125,42,0.07) 0%, transparent 60%);
-}
-.hero-grain {
-  position:absolute; inset:0; pointer-events:none; opacity:0.03;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-size:200px 200px;
-}
+.hero { min-height:100vh; background:var(--ink); display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:120px 56px 80px; position:relative; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; pointer-events:none; background: radial-gradient(ellipse 55% 60% at 75% 40%, rgba(168,125,42,0.13) 0%, transparent 65%), radial-gradient(ellipse 30% 40% at 5% 85%, rgba(168,125,42,0.07) 0%, transparent 60%); }
+.hero-grain { position:absolute; inset:0; pointer-events:none; opacity:0.03; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size:200px 200px; }
 .hero-left { position:relative; z-index:1; }
-.hero-eyebrow {
-  font-size:0.65rem; font-weight:400; letter-spacing:0.28em; text-transform:uppercase;
-  color:var(--brass-lt); margin-bottom:30px; display:flex; align-items:center; gap:14px;
-}
+.hero-eyebrow { font-size:0.65rem; font-weight:400; letter-spacing:0.28em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:30px; display:flex; align-items:center; gap:14px; }
 .hero-eyebrow::before { content:''; width:24px; height:1px; background:var(--brass-lt); }
-h1 {
-  font-family:'Playfair Display',serif; font-weight:400;
-  font-size:clamp(3rem,5.5vw,6.4rem); line-height:1.05;
-  color:#fff; margin-bottom:32px; letter-spacing:-0.015em;
-}
+h1 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(3rem,5.5vw,6.4rem); line-height:1.05; color:#fff; margin-bottom:32px; letter-spacing:-0.015em; }
 h1 em { font-style:italic; color:var(--brass-lt); }
-.hero-sub {
-  font-size:0.9rem; font-weight:300; line-height:1.9; color:var(--mist);
-  max-width:420px; margin-bottom:48px;
-}
+.hero-sub { font-size:0.9rem; font-weight:300; line-height:1.9; color:var(--mist); max-width:420px; margin-bottom:48px; }
 .hero-btns { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
-.btn-fill {
-  font-size:0.67rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase;
-  padding:14px 36px; background:var(--brass); color:#fff; text-decoration:none;
-  transition:background .25s, transform .2s; display:inline-block;
-}
+.btn-fill { font-size:0.67rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; padding:14px 36px; background:var(--brass); color:#fff; text-decoration:none; transition:background .25s, transform .2s; display:inline-block; }
 .btn-fill:hover { background:var(--brass-lt); transform:translateY(-1px); }
-.btn-text {
-  font-size:0.67rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase;
-  color:var(--stone-lt); text-decoration:none; transition:color .2s;
-}
+.btn-text { font-size:0.67rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone-lt); text-decoration:none; transition:color .2s; }
 .btn-text:hover { color:#fff; }
-.hero-stats {
-  position:relative; z-index:1; grid-column:1/-1;
-  margin-top:72px; padding-top:40px; border-top:1px solid var(--bdk);
-  display:flex; gap:0;
-}
+.hero-stats { position:relative; z-index:1; grid-column:1/-1; margin-top:72px; padding-top:40px; border-top:1px solid var(--bdk); display:flex; gap:0; }
 .stat-item { flex:1; padding-right:32px; border-right:1px solid var(--bdk); margin-right:32px; }
 .stat-item:last-child { border-right:none; margin-right:0; padding-right:0; }
 .stat-n { font-family:'Playfair Display',serif; font-size:2.1rem; font-weight:400; color:#fff; line-height:1; }
 .stat-l { font-size:0.62rem; font-weight:300; letter-spacing:0.1em; text-transform:uppercase; color:var(--stone-lt); margin-top:7px; }
-
-/* hero right: lamp illustration */
 .hero-right { position:relative; z-index:1; display:flex; align-items:center; justify-content:center; }
 .lamp-scene { position:relative; width:340px; height:440px; }
-.lamp-glow-orb {
-  position:absolute; left:50%; top:44%; transform:translate(-50%,-50%);
-  width:220px; height:220px; border-radius:50%;
-  background:radial-gradient(circle, rgba(200,162,78,0.35) 0%, rgba(168,125,42,0.1) 40%, transparent 70%);
-  animation:breathe 3.5s ease-in-out infinite;
-}
+.lamp-glow-orb { position:absolute; left:50%; top:44%; transform:translate(-50%,-50%); width:220px; height:220px; border-radius:50%; background:radial-gradient(circle, rgba(200,162,78,0.35) 0%, rgba(168,125,42,0.1) 40%, transparent 70%); animation:breathe 3.5s ease-in-out infinite; }
 @keyframes breathe { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.8} 50%{transform:translate(-50%,-50%) scale(1.12);opacity:1} }
 .lamp-svg { position:relative; z-index:1; width:100%; }
-
-/* ── MARQUEE ─────────────────────────────────────────────── */
 .marquee-wrap { background:var(--brass); overflow:hidden; padding:13px 0; }
 .marquee-track { display:inline-flex; animation:scroll-l 30s linear infinite; white-space:nowrap; }
 .mi { font-size:0.63rem; font-weight:400; letter-spacing:0.24em; text-transform:uppercase; color:#fff; padding:0 36px; }
 .md { opacity:0.45; }
 @keyframes scroll-l { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-/* ── BRAND STATEMENT ─────────────────────────────────────── */
 .brand { background:var(--ink-soft); padding:120px 56px; text-align:center; }
-.brand-q {
-  font-family:'Playfair Display',serif; font-style:italic; font-weight:400;
-  font-size:clamp(1.7rem,3vw,2.9rem); color:#fff; line-height:1.35;
-  max-width:780px; margin:0 auto 16px; letter-spacing:-0.01em;
-}
+.brand-q { font-family:'Playfair Display',serif; font-style:italic; font-weight:400; font-size:clamp(1.7rem,3vw,2.9rem); color:#fff; line-height:1.35; max-width:780px; margin:0 auto 16px; letter-spacing:-0.01em; }
 .brand-q span { color:var(--brass-lt); }
 .brand-rule { width:52px; height:1px; background:var(--brass); margin:44px auto; }
-.brand-b { font-size:0.88rem; font-weight:300; line-height:2; color:var(--mist); max-width:580px; margin:0 auto; }
-
-/* ── PRODUCTS ────────────────────────────────────────────── */
+.brand-b { font-size:0.88rem; font-weight:300; line-height:2; color:var(--mist); max-width:600px; margin:0 auto; }
 .products { padding:110px 56px; background:var(--chalk-w); }
 .prod-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px; }
 .sec-label { font-size:0.63rem; font-weight:400; letter-spacing:0.26em; text-transform:uppercase; color:var(--brass); display:flex; align-items:center; gap:12px; margin-bottom:14px; }
@@ -168,11 +101,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .prod-card { background:#fff; cursor:pointer; transition:transform .35s; }
 .prod-card:hover { transform:translateY(-8px); }
 .prod-img { aspect-ratio:1; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
-.prod-badge {
-  position:absolute; top:14px; left:14px;
-  font-size:0.57rem; font-weight:400; letter-spacing:0.16em; text-transform:uppercase;
-  padding:4px 10px; color:#fff;
-}
+.prod-badge { position:absolute; top:14px; left:14px; font-size:0.57rem; font-weight:400; letter-spacing:0.16em; text-transform:uppercase; padding:4px 10px; color:#fff; }
 .bg-brass { background:var(--brass); }
 .bg-ink   { background:var(--ink); }
 .bg-eco   { background:#4a7a40; }
@@ -181,20 +110,12 @@ h2 em { font-style:italic; color:var(--brass); }
 .prod-info p { font-size:0.73rem; font-weight:300; color:var(--stone); line-height:1.6; margin-bottom:13px; }
 .prod-enq { font-size:0.61rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); text-decoration:none; transition:letter-spacing .2s; }
 .prod-enq:hover { letter-spacing:0.26em; }
-
-/* ── CATEGORIES ──────────────────────────────────────────── */
 .categories { display:grid; grid-template-columns:repeat(3,1fr); min-height:560px; }
-.cat-p {
-  padding:64px 44px 56px; display:flex; flex-direction:column; justify-content:space-between;
-  position:relative; overflow:hidden; transition:background .3s;
-}
+.cat-p { padding:64px 44px 56px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; transition:background .3s; }
 .cat-p:nth-child(1){ background:#18140f; }
 .cat-p:nth-child(2){ background:var(--ink); }
 .cat-p:nth-child(3){ background:#12100d; }
-.cat-top-line {
-  position:absolute; left:44px; top:0; height:2px; width:0;
-  background:var(--brass); transition:width .45s ease;
-}
+.cat-top-line { position:absolute; left:44px; top:0; height:2px; width:0; background:var(--brass); transition:width .45s ease; }
 .cat-p:hover .cat-top-line { width:calc(100% - 88px); }
 .cat-num-bg { font-family:'Playfair Display',serif; font-size:5rem; font-weight:400; color:rgba(255,255,255,0.04); line-height:1; margin-bottom:auto; }
 .cat-icon-box { width:42px; height:42px; border:1px solid rgba(168,125,42,0.35); display:flex; align-items:center; justify-content:center; margin-bottom:22px; }
@@ -202,20 +123,14 @@ h2 em { font-style:italic; color:var(--brass); }
 .cat-p p { font-size:0.8rem; font-weight:300; color:var(--stone-lt); line-height:1.85; margin-bottom:30px; }
 .cat-a { font-size:0.6rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; color:var(--brass-lt); text-decoration:none; transition:letter-spacing .2s; }
 .cat-a:hover { letter-spacing:0.28em; }
-
-/* ── FACTORY / WHY ───────────────────────────────────────── */
 .factory { padding:120px 56px; background:var(--chalk); display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:start; }
-.fac-l {}
 .fac-l h2 { color:var(--ink); margin-bottom:24px; }
 .fac-l p { font-size:0.9rem; font-weight:300; line-height:1.95; color:var(--stone); margin-bottom:36px; max-width:400px; }
-.fac-r {}
 .why-row { padding:28px 0; border-top:1px solid var(--blt); }
 .why-row:last-child { border-bottom:1px solid var(--blt); }
 .why-n { font-family:'Playfair Display',serif; font-size:0.7rem; font-style:italic; color:var(--brass); margin-bottom:9px; }
 .why-row h4 { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:400; color:var(--ink); margin-bottom:7px; }
 .why-row p { font-size:0.8rem; font-weight:300; color:var(--stone); line-height:1.85; }
-
-/* ── CERTS ───────────────────────────────────────────────── */
 .certs { background:var(--ink-soft); padding:52px 56px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:28px; border-top:1px solid var(--bdk); }
 .cert-lbl { font-size:0.6rem; font-weight:300; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone-lt); }
 .cert-row { display:flex; gap:44px; flex-wrap:wrap; }
@@ -223,8 +138,6 @@ h2 em { font-style:italic; color:var(--brass); }
 .cert-b:hover { opacity:1; }
 .cert-b .cn { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:400; color:#fff; }
 .cert-b .cs { font-size:0.57rem; font-weight:300; letter-spacing:0.1em; text-transform:uppercase; color:var(--mist); display:block; margin-top:4px; }
-
-/* ── CONTACT ─────────────────────────────────────────────── */
 .contact { padding:120px 56px; background:var(--chalk-w); display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:start; }
 .con-l h2 { color:var(--ink); margin-bottom:22px; }
 .con-l > p { font-size:0.88rem; font-weight:300; color:var(--stone); line-height:1.95; margin-bottom:40px; max-width:380px; }
@@ -234,23 +147,12 @@ h2 em { font-style:italic; color:var(--brass); }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
 .form-g { display:flex; flex-direction:column; gap:6px; }
 label { font-size:0.6rem; font-weight:400; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone); }
-input, textarea, select {
-  background:#fff; border:1px solid rgba(14,12,10,0.14);
-  padding:12px 14px; font-family:'Outfit',sans-serif; font-size:0.86rem; font-weight:300;
-  color:var(--ink); outline:none; resize:vertical; border-radius:0; transition:border-color .2s;
-}
+input, textarea, select { background:#fff; border:1px solid rgba(14,12,10,0.14); padding:12px 14px; font-family:'Outfit',sans-serif; font-size:0.86rem; font-weight:300; color:var(--ink); outline:none; resize:vertical; border-radius:0; transition:border-color .2s; }
 input:focus, textarea:focus, select:focus { border-color:var(--brass); }
 textarea { min-height:105px; }
-.btn-submit {
-  background:var(--ink); color:#fff; padding:14px 34px; border:none;
-  font-family:'Outfit',sans-serif; font-size:0.65rem; font-weight:400;
-  letter-spacing:0.2em; text-transform:uppercase; cursor:pointer;
-  align-self:flex-start; transition:background .2s;
-}
+.btn-submit { background:var(--ink); color:#fff; padding:14px 34px; border:none; font-family:'Outfit',sans-serif; font-size:0.65rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer; align-self:flex-start; transition:background .2s; }
 .btn-submit:hover { background:var(--brass); }
 #form-ok { display:none; font-size:0.82rem; font-weight:300; color:#3d7a3a; margin-top:4px; }
-
-/* ── FOOTER ──────────────────────────────────────────────── */
 footer { background:var(--ink); padding:70px 56px 34px; }
 .ft-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px; padding-bottom:52px; border-bottom:1px solid var(--bdk); margin-bottom:32px; }
 .ft-logo { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:400; color:#fff; text-decoration:none; display:block; margin-bottom:18px; }
@@ -261,16 +163,14 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 .ft-col a { font-size:0.78rem; font-weight:300; color:rgba(191,182,168,0.55); text-decoration:none; transition:color .2s; }
 .ft-col a:hover { color:#fff; }
 .ft-btm { display:flex; justify-content:space-between; align-items:center; font-size:0.66rem; font-weight:300; letter-spacing:0.03em; color:rgba(107,96,88,0.65); }
-
-/* ── WA BUTTON ───────────────────────────────────────────── */
 .wa { position:fixed; bottom:26px; right:26px; z-index:999; width:50px; height:50px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.3); transition:transform .2s; text-decoration:none; }
 .wa:hover { transform:scale(1.1); }
-
-/* ── REVEAL ──────────────────────────────────────────────── */
+.social-row { display:flex; gap:12px; margin-top:20px; }
+.soc-btn { width:36px; height:36px; border:1px solid rgba(255,255,255,0.15); border-radius:2px; display:flex; align-items:center; justify-content:center; text-decoration:none; opacity:0.45; transition:opacity .2s, border-color .2s; }
+.soc-btn:hover { opacity:1; border-color:var(--brass-lt); }
+.soc-btn svg { width:16px; height:16px; fill:#fff; }
 .reveal { opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease; }
 .reveal.on { opacity:1; transform:translateY(0); }
-
-/* ── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:960px){
   nav { padding:15px 22px; }
   nav ul { display:none; }
@@ -295,14 +195,13 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="dark" id="mainnav">
   <a href="#" class="logo">JC <em>Lightning</em></a>
   <ul>
-    <li><a href="#products"  class="nav-link" data-i18n="nav_products">Products</a></li>
+    <li><a href="#products"   class="nav-link" data-i18n="nav_products">Products</a></li>
     <li><a href="#categories" class="nav-link" data-i18n="nav_cat">Categories</a></li>
-    <li><a href="#factory"   class="nav-link" data-i18n="nav_about">Manufacturer</a></li>
-    <li><a href="#contact"   class="nav-link" data-i18n="nav_contact">Contact</a></li>
+    <li><a href="#factory"    class="nav-link" data-i18n="nav_about">Our Approach</a></li>
+    <li><a href="#contact"    class="nav-link" data-i18n="nav_contact">Contact</a></li>
   </ul>
   <div class="nav-r">
     <div class="lang-sw">
@@ -314,21 +213,18 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
-
   <div class="hero-left reveal">
-    <div class="hero-eyebrow" data-i18n="hero_eye">Solar Outdoor Lighting Manufacturer · Since 2009</div>
-    <h1 data-i18n="hero_h1">Engineered for<br>Professional<br><em>Buyers.</em></h1>
-    <p class="hero-sub" data-i18n="hero_sub">Fifteen years of focused solar lighting manufacturing. Security lights, garden pillars, and outdoor wall lanterns — from R&D through to mass production, fully managed in-house. Serving distributors, project contractors, and OEM partners across six continents.</p>
+    <div class="hero-eyebrow" data-i18n="hero_eye">Solar Outdoor Lighting · Factory-Direct Supply</div>
+    <h1 data-i18n="hero_h1">Solar Lighting<br>Specified for<br><em>Your Market.</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">We operate at factory level — specifying LiFePO4 battery chemistry, validating third-party certifications, and controlling production quality before your order ships. Security lights, garden pillars, and outdoor wall lanterns, built for Africa, Oceania, and Latin America.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-fill" data-i18n="hero_cta1">Request a Quote</a>
       <a href="#products" class="btn-text" data-i18n="hero_cta2">View Products →</a>
     </div>
   </div>
-
   <div class="hero-right">
     <div class="lamp-scene">
       <div class="lamp-glow-orb"></div>
@@ -338,7 +234,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <line x1="98" y1="90" x2="242" y2="90" stroke="white" stroke-width="1.2" opacity=".5"/>
         <path d="M102 108 Q82 158 66 194 H274 Q258 158 238 108 Z" fill="white" opacity=".04"/>
         <circle cx="170" cy="220" r="16" stroke="white" stroke-width="1" fill="none" opacity=".5"/>
-        <circle cx="170" cy="220" r="5"  fill="white" opacity=".6"/>
+        <circle cx="170" cy="220" r="5" fill="white" opacity=".6"/>
         <circle cx="170" cy="220" r="34" stroke="white" stroke-width=".6" fill="none" opacity=".2"/>
         <circle cx="170" cy="220" r="60" stroke="white" stroke-width=".4" fill="none" opacity=".1"/>
         <path d="M52 206 L8 430 H332 L288 206 Z" stroke="white" stroke-width=".8" fill="none" opacity=".2"/>
@@ -347,53 +243,48 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       </svg>
     </div>
   </div>
-
   <div class="hero-stats">
-    <div class="stat-item"><div class="stat-n">15+</div><div class="stat-l" data-i18n="stat1">Years Manufacturing</div></div>
-    <div class="stat-item"><div class="stat-n">CE</div><div class="stat-l" data-i18n="stat2">Third-Party Certified</div></div>
-    <div class="stat-item"><div class="stat-n">OEM</div><div class="stat-l" data-i18n="stat3">& ODM Available</div></div>
-    <div class="stat-item"><div class="stat-n">6</div><div class="stat-l" data-i18n="stat4">Continents Served</div></div>
+    <div class="stat-item"><div class="stat-n">CE</div><div class="stat-l" data-i18n="stat1">Third-Party Certified</div></div>
+    <div class="stat-item"><div class="stat-n">LiFePO4</div><div class="stat-l" data-i18n="stat2">Battery Specification</div></div>
+    <div class="stat-item"><div class="stat-n">IP65</div><div class="stat-l" data-i18n="stat3">All Security Products</div></div>
+    <div class="stat-item"><div class="stat-n">200</div><div class="stat-l" data-i18n="stat4">Pcs Minimum Trial Order</div></div>
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="mi">15 Years Manufacturing</span><span class="mi md">·</span>
+    <span class="mi">Factory-Direct Supply</span><span class="mi md">·</span>
     <span class="mi">CE &amp; RoHS Certified</span><span class="mi md">·</span>
     <span class="mi">LiFePO4 Specialist</span><span class="mi md">·</span>
     <span class="mi">OEM / ODM</span><span class="mi md">·</span>
     <span class="mi">IP65 &amp; IP66</span><span class="mi md">·</span>
-    <span class="mi">Global Export</span><span class="mi md">·</span>
-    <span class="mi">8,000 m² Factory</span><span class="mi md">·</span>
-    <span class="mi">15 Years Manufacturing</span><span class="mi md">·</span>
+    <span class="mi">South Africa &amp; Oceania</span><span class="mi md">·</span>
+    <span class="mi">200 Pcs Trial Order</span><span class="mi md">·</span>
+    <span class="mi">Factory-Direct Supply</span><span class="mi md">·</span>
     <span class="mi">CE &amp; RoHS Certified</span><span class="mi md">·</span>
     <span class="mi">LiFePO4 Specialist</span><span class="mi md">·</span>
     <span class="mi">OEM / ODM</span><span class="mi md">·</span>
     <span class="mi">IP65 &amp; IP66</span><span class="mi md">·</span>
-    <span class="mi">Global Export</span><span class="mi md">·</span>
-    <span class="mi">8,000 m² Factory</span><span class="mi md">·</span>
+    <span class="mi">South Africa &amp; Oceania</span><span class="mi md">·</span>
+    <span class="mi">200 Pcs Trial Order</span><span class="mi md">·</span>
   </div>
 </div>
 
-<!-- BRAND STATEMENT -->
 <div class="brand">
-  <p class="brand-q reveal" data-i18n="brand_q">"We don't source lights.<br><span>We build them."</span></p>
+  <p class="brand-q reveal" data-i18n="brand_q">"We don't just supply to specification.<br><span>We write it."</span></p>
   <div class="brand-rule"></div>
-  <p class="brand-b reveal" data-i18n="brand_b">Established in 2009, JC Lightning specialises in the manufacture of solar outdoor lighting, delivering security lights, garden pillar lights, and outdoor wall lanterns to customers worldwide. With our own production facility and engineering team, we manage the entire process in-house — from product development and assembly to quality inspection — ensuring our products meet international market requirements in performance, durability, and delivery consistency.</p>
+  <p class="brand-b reveal" data-i18n="brand_b">JC Lightning is a factory-direct solar lighting supplier with deep roots in battery technology. We work at specification level — defining LiFePO4 cell requirements, setting photometric output standards, and establishing IP test criteria — before partnering with verified manufacturers in China's Pearl River Delta to deliver. The result is solar security lights, garden pillars, and outdoor wall lanterns that arrive with third-party documentation, hold their output in the field, and carry a warranty you can offer your clients with confidence.</p>
 </div>
 
-<!-- PRODUCTS -->
 <section class="products" id="products">
   <div class="prod-head reveal">
     <div>
       <div class="sec-label" data-i18n="prod_lbl">Featured Products</div>
-      <h2 data-i18n="prod_h2">Factory <em>Bestsellers</em></h2>
+      <h2 data-i18n="prod_h2">Verified <em>Product Range</em></h2>
     </div>
-    <a href="#contact" class="btn-text" style="color:var(--stone)" data-i18n="prod_cat">Request Full Catalog →</a>
+    <a href="#contact" class="btn-text" style="color:var(--stone)" data-i18n="prod_cat">Request Full Specification Sheet →</a>
   </div>
   <div class="prod-grid">
-
     <div class="prod-card reveal">
       <div class="prod-img" style="background:linear-gradient(150deg,#f3ede4,#e6ddd0)">
         <div class="prod-badge bg-brass" data-i18n="b_best">Bestseller</div>
@@ -405,14 +296,13 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       </div>
       <div class="prod-info">
         <h4 data-i18n="p1_n">Solar Pathway Light Pro</h4>
-        <p data-i18n="p1_d">6W · IP65 · 3000K/6000K · 8h runtime · CE &amp; RoHS</p>
+        <p data-i18n="p1_d">6W · IP65 · 3000K / 6000K · 8h runtime · CE &amp; RoHS</p>
         <a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a>
       </div>
     </div>
-
     <div class="prod-card reveal" style="transition-delay:.07s">
       <div class="prod-img" style="background:linear-gradient(150deg,#edf0f6,#dce4ef)">
-        <div class="prod-badge bg-ink" data-i18n="b_new">New Model</div>
+        <div class="prod-badge bg-ink" data-i18n="b_new">Recommended</div>
         <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
           <rect x="17" y="13" width="36" height="44" rx="4" stroke="#4a5568" stroke-width="1.4" fill="none"/>
           <circle cx="35" cy="27" r="9" stroke="#a87d2a" stroke-width="1.4" fill="none"/>
@@ -422,11 +312,10 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       </div>
       <div class="prod-info">
         <h4 data-i18n="p2_n">PIR Motion Sensor Wall Light</h4>
-        <p data-i18n="p2_d">120 LED · 800lm · 4000mAh LiFePO4 · IP65 · 8–12h · CE+RoHS</p>
+        <p data-i18n="p2_d">120 LED · 800lm · 4000mAh LiFePO4 · IP65 · 8–12h · CE + RoHS</p>
         <a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a>
       </div>
     </div>
-
     <div class="prod-card reveal" style="transition-delay:.14s">
       <div class="prod-img" style="background:linear-gradient(150deg,#f5f0e8,#ede5d8)">
         <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
@@ -438,14 +327,13 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       </div>
       <div class="prod-info">
         <h4 data-i18n="p3_n">Sphere Gate Pillar Light</h4>
-        <p data-i18n="p3_d">5W · 304 SS + Acrylic Globe · 3000mAh LiFePO4 · IP65 · Ø250/300mm</p>
+        <p data-i18n="p3_d">5W · 304 SS + Acrylic Globe · 3000mAh LiFePO4 · IP65 · Ø250 / 300mm</p>
         <a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a>
       </div>
     </div>
-
     <div class="prod-card reveal" style="transition-delay:.21s">
       <div class="prod-img" style="background:linear-gradient(150deg,#eef3e8,#dcebd1)">
-        <div class="prod-badge bg-eco" data-i18n="b_eco">Eco</div>
+        <div class="prod-badge bg-eco" data-i18n="b_eco">IP66</div>
         <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
           <rect x="13" y="25" width="44" height="26" rx="4" stroke="#4a7a40" stroke-width="1.4" fill="none"/>
           <rect x="17" y="29" width="36" height="18" rx="2" stroke="#4a7a40" stroke-width="1" fill="none" opacity=".4"/>
@@ -459,11 +347,9 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- CATEGORIES -->
 <section class="categories" id="categories">
   <div class="cat-p reveal">
     <div class="cat-top-line"></div>
@@ -473,7 +359,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3.5" stroke="#a87d2a" stroke-width="1.1"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.1 4.1l1.4 1.4M14.5 14.5l1.4 1.4M4.1 15.9l1.4-1.4M14.5 5.5l1.4-1.4" stroke="#a87d2a" stroke-width="1.1" stroke-linecap="round"/></svg>
       </div>
       <h3 data-i18n="cat1_t">Solar Security Lighting</h3>
-      <p data-i18n="cat1_d">PIR wall lights and floodlights for perimeter security and commercial properties. Die-cast aluminium, IP65/IP66, 800–3000lm, –20°C to +60°C operating range.</p>
+      <p data-i18n="cat1_d">PIR wall lights and floodlights for perimeter security and commercial properties. Die-cast aluminium housing, IP65 / IP66, genuine 800–3000lm output, operating range –20°C to +60°C. Specified for Southern African and Pacific climates.</p>
       <a href="#contact" class="cat-a" data-i18n="cat_lnk">Enquire About This Range →</a>
     </div>
   </div>
@@ -485,7 +371,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="5" y="3" width="10" height="14" rx="2" stroke="#a87d2a" stroke-width="1.1"/><path d="M7 7h6M7 10h6M7 13h4" stroke="#a87d2a" stroke-width="1.1" stroke-linecap="round"/></svg>
       </div>
       <h3 data-i18n="cat2_t">Outdoor Wall &amp; Lantern Lights</h3>
-      <p data-i18n="cat2_d">Classic and contemporary outdoor wall lanterns for hotels, estates, and developments. AC and solar versions, E27 base, CE/EMC/LVD certified, OEM available.</p>
+      <p data-i18n="cat2_d">Classic and contemporary outdoor wall lanterns for estates, guesthouses, and new residential developments. Available in AC and solar configurations. E27 base, CE / EMC / LVD documentation supplied, OEM packaging available on request.</p>
       <a href="#contact" class="cat-a" data-i18n="cat_lnk">Enquire About This Range →</a>
     </div>
   </div>
@@ -497,47 +383,45 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3L5 10h10L10 3z" stroke="#a87d2a" stroke-width="1.1" stroke-linejoin="round"/><path d="M5 10v5a2 2 0 002 2h6a2 2 0 002-2v-5" stroke="#a87d2a" stroke-width="1.1"/><path d="M7.5 14h5" stroke="#a87d2a" stroke-width="1.1" stroke-linecap="round"/></svg>
       </div>
       <h3 data-i18n="cat3_t">Solar Garden &amp; Gate Lights</h3>
-      <p data-i18n="cat3_d">Sphere pillar lights, bollards, and pathway lights for residential and landscaping projects. 304 SS or aluminium, IP65, LiFePO4, 2,000+ cycle lifespan.</p>
+      <p data-i18n="cat3_d">Sphere pillar lights, bollards, and pathway lights for residential and landscaping projects. 304 stainless steel or aluminium construction, IP65 rated, LiFePO4 battery with verified 2,000+ cycle lifespan. Multiple globe diameters available.</p>
       <a href="#contact" class="cat-a" data-i18n="cat_lnk">Enquire About This Range →</a>
     </div>
   </div>
 </section>
 
-<!-- FACTORY / WHY US -->
 <section class="factory" id="factory">
   <div class="fac-l reveal">
     <div class="sec-label" data-i18n="why_lbl">Why JC Lightning</div>
-    <h2 data-i18n="why_h2">Factory-Direct.<br><em>No Intermediaries.</em></h2>
-    <p data-i18n="why_intro">We are a manufacturer, not a distributor. Every product is designed by our R&amp;D team, produced in our own facility, and tested to standards most resellers never encounter. When you work with JC Lightning, you deal directly with the people who build the lights.</p>
-    <a href="#contact" class="btn-fill" data-i18n="why_cta">Discuss Your Project</a>
+    <h2 data-i18n="why_h2">Specification-Led.<br><em>Quality Verified.</em></h2>
+    <p data-i18n="why_intro">We operate at the intersection of battery technology and outdoor lighting. Before a product enters our range, we define its specification — battery chemistry, actual lumen output, IP test standard, and operating temperature range. Every claim is supported by documentation you can verify before committing to an order.</p>
+    <a href="#contact" class="btn-fill" data-i18n="why_cta">Request a Specification Sheet</a>
   </div>
   <div class="fac-r reveal" style="transition-delay:.1s">
     <div class="why-row">
       <div class="why-n">01</div>
-      <h4 data-i18n="w1_t">15+ Years of In-House Manufacturing</h4>
-      <p data-i18n="w1_d">Founded in 2009. 8,000 m² facility. 200+ production staff. Dedicated R&amp;D engineering team. PCB drivers designed, LiFePO4 packs assembled, and photometric + waterproof tests conducted entirely in-house.</p>
+      <h4 data-i18n="w1_t">LiFePO4 Battery Specification</h4>
+      <p data-i18n="w1_d">Battery quality is where most solar products fail in the field. We specify LiFePO4 chemistry — not standard lithium-ion — across our security and pillar light range. Rated capacity and internal resistance are confirmed before acceptance. Your clients receive lights that hold their stated output through 2,000+ discharge cycles, not products that fade within a season.</p>
     </div>
     <div class="why-row">
       <div class="why-n">02</div>
-      <h4 data-i18n="w2_t">LiFePO4 Battery Integration</h4>
-      <p data-i18n="w2_d">Every cell tested for actual capacity and internal resistance before assembly. LiFePO4 delivers 2,000+ charge cycles, zero memory effect, and stable discharge from –20°C to +60°C — double the lifespan of standard lithium batteries.</p>
+      <h4 data-i18n="w2_t">Built for African &amp; Pacific Conditions</h4>
+      <p data-i18n="w2_d">Product selection is driven by the conditions your clients operate in: high UV index, temperatures from 5°C to 45°C, unreliable grid supply, and the physical security demands of properties across Southern Africa and Oceania. Battery capacity, panel wattage, housing material, and IP rating are all specified accordingly — not chosen for a showroom.</p>
     </div>
     <div class="why-row">
       <div class="why-n">03</div>
-      <h4 data-i18n="w3_t">Full OEM &amp; ODM Capability</h4>
-      <p data-i18n="w3_d">Custom housing design, private label branding, PCB modification, bespoke packaging. Concept to prototype in 30 days. Prototype to mass production in 45–60 days.</p>
+      <h4 data-i18n="w3_t">Factory-Direct Partnerships</h4>
+      <p data-i18n="w3_d">We source through established factory partnerships in Zhongshan and the Pearl River Delta — China's core outdoor lighting manufacturing region. Direct relationships give us access to specification-level negotiation, pre-shipment inspection, and consistent pricing without distributor markups. Trial order minimums of 200 pcs allow you to validate quality before scaling.</p>
     </div>
     <div class="why-row">
       <div class="why-n">04</div>
-      <h4 data-i18n="w4_t">Third-Party Verified Certifications</h4>
-      <p data-i18n="w4_d">CE and RoHS certificates issued by accredited labs — test report number and date included. Independently verifiable. No self-declared compliance. No recycled certificates from unrelated products.</p>
+      <h4 data-i18n="w4_t">Certifications You Can Verify</h4>
+      <p data-i18n="w4_d">CE and RoHS documentation is provided with every product quotation — including the issuing laboratory, test report reference number, and date of issue. Every certificate is independently verifiable. We do not self-declare compliance, list certifications we cannot produce on request, or recycle documents from unrelated product lines.</p>
     </div>
   </div>
 </section>
 
-<!-- CERTS -->
 <div class="certs reveal">
-  <span class="cert-lbl" data-i18n="cert_t">Product Certifications</span>
+  <span class="cert-lbl" data-i18n="cert_t">Third-Party Verified</span>
   <div class="cert-row">
     <div class="cert-b"><div class="cn">CE</div><span class="cs" data-i18n="c_ce">European Standard</span></div>
     <div class="cert-b"><div class="cn">RoHS</div><span class="cs" data-i18n="c_ro">Hazardous-Free</span></div>
@@ -546,12 +430,11 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </div>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="con-l reveal">
     <div class="sec-label" data-i18n="con_lbl">Get In Touch</div>
-    <h2 data-i18n="con_h2">Request a quote or <em>discuss your project</em></h2>
-    <p data-i18n="con_p">Share your product requirements, target quantity, and destination port. We respond within 24 hours with a full quotation including unit price, lead time, and shipping estimate.</p>
+    <h2 data-i18n="con_h2">Request a quote or <em>discuss your requirements</em></h2>
+    <p data-i18n="con_p">Share your product type, target quantity, and destination port. We respond within 24 hours with a full quotation including unit FOB price, specification sheet, lead time, and available certification documents.</p>
     <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><path d="M2 5l8 6 8-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/></svg><span>enquiries@jclightning.com</span></div>
     <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><path d="M16.5 14.3l-2.3 2.3a14.5 14.5 0 01-10.8-10.8l2.3-2.3a1 1 0 011.4 0l2 2a1 1 0 010 1.4l-1 1a8.5 8.5 0 004.5 4.5l1-1a1 1 0 011.4 0l2 2a1 1 0 010 1.4z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>WhatsApp: +86 131 3818 9642</span></div>
     <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span data-i18n="con_hrs">Mon–Fri, 9:00–18:00 CST (UTC+8)</span></div>
@@ -565,26 +448,36 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     <div class="form-g">
       <label data-i18n="f_prod">Product Interest</label>
       <select>
-        <option value="">Select a category…</option>
-        <option>Solar Security Lights (PIR / Floodlight)</option>
-        <option>Solar Garden &amp; Gate Lights</option>
+        <option value="" data-i18n="f_sel">Select a category…</option>
+        <option>Solar Security Lights (PIR / Motion Sensor)</option>
+        <option>Solar Garden &amp; Gate Lights (Pillar / Bollard)</option>
         <option>Outdoor Wall Lanterns</option>
         <option>Mixed / Multiple Products</option>
         <option>OEM / ODM Enquiry</option>
       </select>
     </div>
-    <div class="form-g"><label data-i18n="f_msg">Requirements / Destination / Quantity</label><textarea></textarea></div>
+    <div class="form-g"><label data-i18n="f_msg">Product Type · Quantity · Destination Port</label><textarea></textarea></div>
     <button type="submit" class="btn-submit" id="sub-btn" data-i18n="f_send">Send Enquiry</button>
-    <p id="form-ok" data-i18n="f_ok">✓ Enquiry received. We'll respond within 24 hours.</p>
+    <p id="form-ok" data-i18n="f_ok">✓ Enquiry received. We'll respond within 24 hours with a full quotation.</p>
   </form>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="ft-top">
     <div>
       <a href="#" class="ft-logo">JC <em>Lightning</em></a>
-      <p class="ft-desc" data-i18n="ft_desc">Professional solar security and garden lighting manufacturer. In-house LiFePO4 integration · CE/RoHS certified · OEM/ODM · Global export since 2009.</p>
+      <p class="ft-desc" data-i18n="ft_desc">Factory-direct solar security and garden lighting. LiFePO4 battery specification · CE / RoHS third-party certified · OEM available · Serving South Africa, Australia, Colombia and Spain.</p>
+      <div class="social-row">
+        <a href="https://www.facebook.com/" target="_blank" class="soc-btn" title="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" class="soc-btn" title="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="#fff" stroke-width="1.8"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" class="soc-btn" title="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
     </div>
     <div class="ft-col">
       <h5 data-i18n="ft_prod">Products</h5>
@@ -592,13 +485,13 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <li><a href="#categories" data-i18n="cat1_t">Solar Security Lights</a></li>
         <li><a href="#categories" data-i18n="cat3_t">Solar Garden &amp; Gate Lights</a></li>
         <li><a href="#categories" data-i18n="cat2_t">Outdoor Wall Lanterns</a></li>
-        <li><a href="#contact" data-i18n="prod_cat">Request Catalog →</a></li>
+        <li><a href="#contact" data-i18n="prod_cat">Request Spec Sheet →</a></li>
       </ul>
     </div>
     <div class="ft-col">
       <h5 data-i18n="ft_co">Company</h5>
       <ul>
-        <li><a href="#factory" data-i18n="nav_about">Manufacturer</a></li>
+        <li><a href="#factory" data-i18n="nav_about">Our Approach</a></li>
         <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
         <li><a href="https://wa.me/8613138189642" target="_blank">WhatsApp</a></li>
       </ul>
@@ -606,123 +499,153 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
   <div class="ft-btm">
     <span>© 2025 JC Lightning. All rights reserved.</span>
-    <span data-i18n="ft_srv">Exporting to Africa · Asia · Oceania · Europe · The Americas</span>
+    <span data-i18n="ft_srv">South Africa · Australia · Colombia · Spain</span>
   </div>
 </footer>
 
-<a href="https://wa.me/8613138189642?text=Hi%20JC%20Lightning%2C%20I%27m%20interested%20in%20your%20products." target="_blank" class="wa">
+<a href="https://wa.me/8613138189642?text=Hi%20JC%20Lightning%2C%20I%27d%20like%20to%20enquire%20about%20your%20solar%20lighting%20products." target="_blank" class="wa">
   <svg width="26" height="26" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.88 1.92 7.02L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.1 19.42c-.3.84-1.76 1.6-2.42 1.66-.66.06-1.28.3-4.32-.9-3.66-1.44-6-5.18-6.18-5.42-.18-.24-1.44-1.92-1.44-3.66s.9-2.58 1.24-2.94c.34-.36.72-.44.96-.44l.7.01c.22 0 .52-.08.8.62l1.14 2.8c.1.22.04.48-.06.66l-.42.52-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.6-.08l.82-1c.16-.2.32-.14.54-.06l2.72 1.28c.28.14.46.2.52.32.06.48-.22 1.96-.52 2.8z"/></svg>
 </a>
 
 <script>
 const T = {
   en:{
-    nav_products:'Products', nav_cat:'Categories', nav_about:'Manufacturer', nav_contact:'Contact', nav_quote:'Get a Quote',
-    hero_eye:'Solar Outdoor Lighting Manufacturer · Since 2009',
-    hero_h1:'Engineered for<br>Professional<br><em>Buyers.</em>',
-    hero_sub:'Fifteen years of focused solar lighting manufacturing. Security lights, garden pillars, and outdoor wall lanterns — from R&D through to mass production, fully managed in-house. Serving distributors, project contractors, and OEM partners across six continents.',
+    nav_products:'Products', nav_cat:'Categories', nav_about:'Our Approach', nav_contact:'Contact', nav_quote:'Get a Quote',
+    hero_eye:'Solar Outdoor Lighting · Factory-Direct Supply',
+    hero_h1:'Solar Lighting<br>Specified for<br><em>Your Market.</em>',
+    hero_sub:'We operate at factory level — specifying LiFePO4 battery chemistry, validating third-party certifications, and controlling production quality before your order ships. Security lights, garden pillars, and outdoor wall lanterns, built for Africa, Oceania, and Latin America.',
     hero_cta1:'Request a Quote', hero_cta2:'View Products →',
-    stat1:'Years Manufacturing', stat2:'Third-Party Certified', stat3:'& ODM Available', stat4:'Continents Served',
-    brand_q:'"We don\'t source lights.<br><span>We build them."</span>',
-    brand_b:'Established in 2009, JC Lightning specialises in the manufacture of solar outdoor lighting, delivering security lights, garden pillar lights, and outdoor wall lanterns to customers worldwide. With our own production facility and engineering team, we manage the entire process in-house — from product development and assembly to quality inspection — ensuring our products meet international market requirements in performance, durability, and delivery consistency.',
-    prod_lbl:'Featured Products', prod_h2:'Factory <em>Bestsellers</em>', prod_cat:'Request Full Catalog →',
-    b_best:'Bestseller', b_new:'New Model', b_eco:'Eco',
-    p1_n:'Solar Pathway Light Pro', p1_d:'6W · IP65 · 3000K/6000K · 8h runtime · CE & RoHS',
-    p2_n:'PIR Motion Sensor Wall Light', p2_d:'120 LED · 800lm · 4000mAh LiFePO4 · IP65 · 8–12h · CE+RoHS',
-    p3_n:'Sphere Gate Pillar Light', p3_d:'5W · 304 SS + Acrylic Globe · 3000mAh LiFePO4 · IP65 · Ø250/300mm',
+    stat1:'Third-Party Certified', stat2:'Battery Specification', stat3:'All Security Products', stat4:'Pcs Minimum Trial Order',
+    brand_q:'"We don\'t just supply to specification.<br><span>We write it."</span>',
+    brand_b:'JC Lightning is a factory-direct solar lighting supplier with deep roots in battery technology. We work at specification level — defining LiFePO4 cell requirements, setting photometric output standards, and establishing IP test criteria — before partnering with verified manufacturers in China\'s Pearl River Delta to deliver. The result is solar security lights, garden pillars, and outdoor wall lanterns that arrive with third-party documentation, hold their output in the field, and carry a warranty you can offer your clients with confidence.',
+    prod_lbl:'Featured Products', prod_h2:'Verified <em>Product Range</em>', prod_cat:'Request Full Specification Sheet →',
+    b_best:'Bestseller', b_new:'Recommended', b_eco:'IP66',
+    p1_n:'Solar Pathway Light Pro', p1_d:'6W · IP65 · 3000K / 6000K · 8h runtime · CE & RoHS',
+    p2_n:'PIR Motion Sensor Wall Light', p2_d:'120 LED · 800lm · 4000mAh LiFePO4 · IP65 · 8–12h · CE + RoHS',
+    p3_n:'Sphere Gate Pillar Light', p3_d:'5W · 304 SS + Acrylic Globe · 3000mAh LiFePO4 · IP65 · Ø250 / 300mm',
     p4_n:'Solar Flood Security Light', p4_d:'30W · 2400lm · PIR 10m · IP66 · 270° · –20°C to +50°C',
     enq:'Enquire →',
-    cat1_t:'Solar Security Lighting', cat1_d:'PIR wall lights and floodlights for perimeter security and commercial properties. Die-cast aluminium, IP65/IP66, 800–3000lm, –20°C to +60°C operating range.',
-    cat2_t:'Outdoor Wall & Lantern Lights', cat2_d:'Classic and contemporary outdoor wall lanterns for hotels, estates, and developments. AC and solar versions, E27 base, CE/EMC/LVD certified, OEM available.',
-    cat3_t:'Solar Garden & Gate Lights', cat3_d:'Sphere pillar lights, bollards, and pathway lights for residential and landscaping projects. 304 SS or aluminium, IP65, LiFePO4, 2,000+ cycle lifespan.',
+    cat1_t:'Solar Security Lighting',
+    cat1_d:'PIR wall lights and floodlights for perimeter security and commercial properties. Die-cast aluminium housing, IP65 / IP66, genuine 800–3000lm output, operating range –20°C to +60°C. Specified for Southern African and Pacific climates.',
+    cat2_t:'Outdoor Wall & Lantern Lights',
+    cat2_d:'Classic and contemporary outdoor wall lanterns for estates, guesthouses, and new residential developments. AC and solar configurations available. E27 base, CE / EMC / LVD documentation supplied, OEM packaging available on request.',
+    cat3_t:'Solar Garden & Gate Lights',
+    cat3_d:'Sphere pillar lights, bollards, and pathway lights for residential and landscaping projects. 304 stainless steel or aluminium, IP65, LiFePO4 battery with verified 2,000+ cycle lifespan. Multiple globe diameters available.',
     cat_lnk:'Enquire About This Range →',
-    why_lbl:'Why JC Lightning', why_h2:'Factory-Direct.<br><em>No Intermediaries.</em>',
-    why_intro:'We are a manufacturer, not a distributor. Every product is designed by our R&D team, produced in our own facility, and tested to standards most resellers never encounter. When you work with JC Lightning, you deal directly with the people who build the lights.',
-    why_cta:'Discuss Your Project',
-    w1_t:'15+ Years of In-House Manufacturing', w1_d:'Founded in 2009. 8,000 m² facility. 200+ production staff. Dedicated R&D engineering team. PCB drivers designed, LiFePO4 packs assembled, and photometric + waterproof tests conducted entirely in-house.',
-    w2_t:'LiFePO4 Battery Integration', w2_d:'Every cell tested for actual capacity and internal resistance before assembly. LiFePO4 delivers 2,000+ charge cycles, zero memory effect, and stable discharge from –20°C to +60°C — double the lifespan of standard lithium batteries.',
-    w3_t:'Full OEM & ODM Capability', w3_d:'Custom housing design, private label branding, PCB modification, bespoke packaging. Concept to prototype in 30 days. Prototype to mass production in 45–60 days.',
-    w4_t:'Third-Party Verified Certifications', w4_d:'CE and RoHS certificates issued by accredited labs — test report number and date included. Independently verifiable. No self-declared compliance. No recycled certificates from unrelated products.',
-    cert_t:'Product Certifications', c_ce:'European Standard', c_ro:'Hazardous-Free', c_65:'Weatherproof', c_66:'High Protection',
-    con_lbl:'Get In Touch', con_h2:'Request a quote or <em>discuss your project</em>',
-    con_p:'Share your product requirements, target quantity, and destination port. We respond within 24 hours with a full quotation including unit price, lead time, and shipping estimate.',
+    why_lbl:'Why JC Lightning', why_h2:'Specification-Led.<br><em>Quality Verified.</em>',
+    why_intro:'We operate at the intersection of battery technology and outdoor lighting. Before a product enters our range, we define its specification — battery chemistry, actual lumen output, IP test standard, and operating temperature range. Every claim is supported by documentation you can verify before committing to an order.',
+    why_cta:'Request a Specification Sheet',
+    w1_t:'LiFePO4 Battery Specification',
+    w1_d:'Battery quality is where most solar products fail in the field. We specify LiFePO4 chemistry — not standard lithium-ion — across our security and pillar light range. Rated capacity and internal resistance are confirmed before acceptance. Your clients receive lights that hold their stated output through 2,000+ discharge cycles, not products that fade within a season.',
+    w2_t:'Built for African & Pacific Conditions',
+    w2_d:'Product selection is driven by the conditions your clients operate in: high UV index, temperatures from 5°C to 45°C, unreliable grid supply, and the physical security demands of properties across Southern Africa and Oceania. Battery capacity, panel wattage, housing material, and IP rating are all specified accordingly — not chosen for a showroom.',
+    w3_t:'Factory-Direct Partnerships',
+    w3_d:'We source through established factory partnerships in Zhongshan and the Pearl River Delta — China\'s core outdoor lighting manufacturing region. Direct relationships give us access to specification-level negotiation, pre-shipment inspection, and consistent pricing without distributor markups. Trial order minimums of 200 pcs allow you to validate quality before scaling.',
+    w4_t:'Certifications You Can Verify',
+    w4_d:'CE and RoHS documentation is provided with every product quotation — including the issuing laboratory, test report reference number, and date of issue. Every certificate is independently verifiable. We do not self-declare compliance, list certifications we cannot produce on request, or recycle documents from unrelated product lines.',
+    cert_t:'Third-Party Verified', c_ce:'European Standard', c_ro:'Hazardous-Free', c_65:'Weatherproof', c_66:'High Protection',
+    con_lbl:'Get In Touch', con_h2:'Request a quote or <em>discuss your requirements</em>',
+    con_p:'Share your product type, target quantity, and destination port. We respond within 24 hours with a full quotation including unit FOB price, specification sheet, lead time, and available certification documents.',
     con_hrs:'Mon–Fri, 9:00–18:00 CST (UTC+8)',
-    f_name:'Your Name', f_co:'Company', f_email:'Email Address', f_prod:'Product Interest', f_msg:'Requirements / Destination / Quantity', f_send:'Send Enquiry',
-    f_ok:"✓ Enquiry received. We'll respond within 24 hours.",
-    ft_desc:'Professional solar security and garden lighting manufacturer. In-house LiFePO4 integration · CE/RoHS certified · OEM/ODM · Global export since 2009.',
-    ft_prod:'Products', ft_co:'Company', ft_srv:'Exporting to Africa · Asia · Oceania · Europe · The Americas',
+    f_name:'Your Name', f_co:'Company', f_email:'Email Address', f_prod:'Product Interest',
+    f_sel:'Select a category…',
+    f_msg:'Product Type · Quantity · Destination Port',
+    f_send:'Send Enquiry',
+    f_ok:"✓ Enquiry received. We'll respond within 24 hours with a full quotation.",
+    ft_desc:'Factory-direct solar security and garden lighting. LiFePO4 battery specification · CE / RoHS third-party certified · OEM available · Serving South Africa, Australia, Colombia and Spain.',
+    ft_prod:'Products', ft_co:'Company', ft_srv:'South Africa · Australia · Colombia · Spain',
   },
   zh:{
-    nav_products:'产品', nav_cat:'品类', nav_about:'制造商', nav_contact:'联系我们', nav_quote:'立即询价',
-    hero_eye:'太阳能户外照明制造商 · 自2009年',
-    hero_h1:'深耕制造，<br><em>服务专业</em><br>采购商。',
-    hero_sub:'十五年专注太阳能户外照明制造。安防感应灯、景观柱头灯与户外壁灯，从研发设计到量产交付，全流程自主管控。服务全球分销商、工程承包商与OEM合作伙伴。',
+    nav_products:'产品', nav_cat:'品类', nav_about:'我们的优势', nav_contact:'联系我们', nav_quote:'立即询价',
+    hero_eye:'太阳能户外照明 · 工厂直供',
+    hero_h1:'专业规格定制<br>太阳能户外照明<br><em>精准服务采购商。</em>',
+    hero_sub:'我们深入工厂层面——制定磷酸铁锂电池规格、核查第三方认证文件，以及在出货前全程管控生产质量。安防感应灯、花园柱头灯与户外壁灯，专为非洲、大洋洲及拉丁美洲市场精准配置。',
     hero_cta1:'立即询价', hero_cta2:'查看产品 →',
-    stat1:'年自主制造经验', stat2:'第三方实验室认证', stat3:'OEM/ODM可定制', stat4:'大洲出货覆盖',
-    brand_q:'"我们不采购灯具。<br><span>我们制造它们。"</span>',
-    brand_b:'嘉晨灯饰自2009年起专注于太阳能户外照明制造，为全球客户提供安防灯、花园柱头灯及户外壁灯等产品解决方案。依托自有生产基地与工程团队，我们实现从产品开发、组装到品质检测的全流程内部管控，确保产品在性能、耐用性与交付一致性方面满足国际市场需求。',
-    prod_lbl:'热销产品', prod_h2:'工厂<em>主力出口款</em>', prod_cat:'申请完整产品目录 →',
-    b_best:'热销爆款', b_new:'新款上市', b_eco:'节能认证',
-    p1_n:'太阳能路径灯 Pro系列', p1_d:'6W · IP65 · 3000K/6000K可选 · 续航8小时 · CE & RoHS认证',
-    p2_n:'太阳能PIR感应壁灯', p2_d:'120颗LED · 800lm · 4000mAh磷酸铁锂 · IP65 · 8–12小时续航 · CE+RoHS',
-    p3_n:'太阳能球形门柱灯', p3_d:'5W · 304不锈钢+亚克力球罩 · 3000mAh磷酸铁锂 · IP65 · 直径250/300mm',
+    stat1:'第三方实验室认证', stat2:'磷酸铁锂电池规格', stat3:'安防产品IP65起', stat4:'只起订，灵活试单',
+    brand_q:'"我们不只是供应规格内的灯具。<br><span>我们制定规格标准。"</span>',
+    brand_b:'嘉晨灯饰是一家深耕电池技术的太阳能户外照明直供采购商。我们介入到规格层面——界定磷酸铁锂电芯技术要求、制定光学输出标准、确立IP防水测试指标——再联合珠三角经认证工厂落地交付。最终呈现的产品：安防感应灯、花园柱头灯与户外壁灯，每一件均配备可核查的第三方认证文件，在现场保持额定输出，并提供可向您客户承诺的质保保障。',
+    prod_lbl:'精选产品', prod_h2:'已验证<em>产品系列</em>', prod_cat:'申请完整产品规格说明书 →',
+    b_best:'热销爆款', b_new:'主推款', b_eco:'IP66',
+    p1_n:'太阳能路径灯 Pro系列', p1_d:'6W · IP65 · 3000K / 6000K可选 · 续航8小时 · CE & RoHS认证',
+    p2_n:'太阳能PIR感应壁灯', p2_d:'120颗LED · 800lm · 4000mAh磷酸铁锂 · IP65 · 续航8–12小时 · CE + RoHS',
+    p3_n:'太阳能球形门柱灯', p3_d:'5W · 304不锈钢 + 亚克力球罩 · 3000mAh磷酸铁锂 · IP65 · 直径250 / 300mm可选',
     p4_n:'太阳能泛光安防灯', p4_d:'30W · 2400lm · PIR感应10m · IP66 · 270°广角 · –20°C至+50°C',
     enq:'发送询盘 →',
-    cat1_t:'太阳能安防感应灯', cat1_d:'PIR壁挂感应灯与泛光灯，适用于围界安防及商业地产。压铸铝合金外壳，IP65/IP66，800–3000lm，工作温度–20°C至+60°C。',
-    cat2_t:'户外壁灯与仿古灯笼', cat2_d:'古典与现代两大系列，适配酒店、别墅及地产项目。交流电与太阳能版本，E27灯头，CE/EMC/LVD三证，支持OEM定制。',
-    cat3_t:'太阳能花园与门柱灯', cat3_d:'球形柱头灯、路径灯及草坪灯，适合住宅与景观工程。304不锈钢或铝合金，IP65，磷酸铁锂，循环寿命≥2000次。',
+    cat1_t:'太阳能安防感应灯',
+    cat1_d:'PIR壁挂感应灯与泛光灯，适用于围界安防及商业物业。压铸铝合金外壳，IP65 / IP66，实测800–3000lm输出，工作温度–20°C至+60°C。专为南非及太平洋地区气候条件配置。',
+    cat2_t:'户外壁灯与仿古灯笼',
+    cat2_d:'古典与现代两大系列户外壁灯，适配别墅庄园、精品酒店及地产开发项目。提供市电与太阳能两种版本，E27灯头，随附CE / EMC / LVD认证文件，支持OEM专属包装定制。',
+    cat3_t:'太阳能花园与门柱灯',
+    cat3_d:'球形柱头灯、路障灯及路径灯，适合住宅景观与工程项目。304不锈钢或铝合金材质，IP65防护等级，磷酸铁锂电池，经验证循环寿命≥2000次。多种球罩直径规格可选。',
     cat_lnk:'询问该系列产品 →',
-    why_lbl:'为什么选择嘉晨灯饰', why_h2:'工厂直供，<br><em>无中间商。</em>',
-    why_intro:'我们是制造商，不是经销商。每款产品由我方研发团队设计，在自有工厂生产，依照大多数经销商从未见过的标准完成检测。与嘉晨灯饰合作，就是直接与造灯的人打交道。',
-    why_cta:'探讨您的项目',
-    w1_t:'15年以上自主制造经验', w1_d:'创立于2009年，自有厂房8000平方米以上，生产员工200余人，设立独立研发工程团队。PCB驱动自主设计，磷酸铁锂电池组自主装配，光学与防水性能全程厂内检测，不依赖外包。',
-    w2_t:'磷酸铁锂电池自主集成', w2_d:'每颗电芯组装前均经实际容量与内阻检测。磷酸铁锂循环寿命≥2000次，零记忆效应，–20°C至+60°C稳定放电，综合寿命是普通锂电池的两倍。',
-    w3_t:'OEM/ODM全程定制服务', w3_d:'外壳开模设计、私标品牌定制、PCB电路修改、专属包装方案，全部由我方工程团队内部完成。需求至样品约30天，样品至批量生产约45–60天。',
-    w4_t:'第三方实验室认证，可独立核查', w4_d:'CE、RoHS检测报告均由认可实验室出具，含测试机构编号与出具日期，客户可独立核查真实性。不出具自我声明文件，不套用其他产品证书。',
-    cert_t:'产品认证资质', c_ce:'CE欧洲认证', c_ro:'RoHS无害化', c_65:'IP65防水防尘', c_66:'IP66高等级防护',
-    con_lbl:'联系我们', con_h2:'发送询盘，<em>探讨您的项目</em>',
-    con_p:'请告知所需产品型号、目标数量及目的地港口，我们将在24小时内回复含单价、交期及运费预估的完整报价单（FOB / CIF可选）。',
-    con_hrs:'周一至周五，9:00–18:00（北京时间 CST）',
-    f_name:'您的姓名', f_co:'公司名称', f_email:'电子邮箱', f_prod:'感兴趣的产品', f_msg:'产品型号 / 目的地港口 / 目标数量', f_send:'发送询盘',
-    f_ok:'✓ 询盘已收到，我们将在24小时内回复含报价的邮件。',
-    ft_desc:'太阳能安防与景观灯源头制造商，磷酸铁锂自主集成 · CE/RoHS第三方认证 · OEM/ODM定制 · 全球出口，创立于2009年。',
-    ft_prod:'产品系列', ft_co:'公司信息', ft_srv:'出货至：非洲 · 亚洲 · 大洋洲 · 欧洲 · 美洲',
+    why_lbl:'为什么选择嘉晨灯饰', why_h2:'规格先行，<br><em>品质验证。</em>',
+    why_intro:'我们深耕电池技术与户外照明的交汇领域。产品纳入供货体系之前，必须完成规格定义——电芯化学体系、实测流明输出、IP防水测试标准及工作温度区间。每一项声明，均有可供核查的认证文件支撑，让您在下单前即可完成尽调。',
+    why_cta:'申请产品规格说明书',
+    w1_t:'磷酸铁锂电池规格管控',
+    w1_d:'电池品质是太阳能产品在现场最常见的失效点。我们在安防灯与柱头灯全系列产品中明确指定磷酸铁锂（LiFePO4）电芯，而非普通锂离子。额定容量与内阻均在验收前逐一确认。您的客户获得的，是真正能经历2000次以上完整放电循环并持续保持额定输出的灯具，而非用一个季度就衰减的产品。',
+    w2_t:'专为非洲与太平洋地区气候条件打造',
+    w2_d:'产品选型完全由您客户的实际使用环境决定：高紫外线辐射、5°C至45°C宽幅温度变化、电网供应不稳定，以及南非与大洋洲住宅和商业物业的实际安防需求。电池容量、太阳能板功率、外壳材质与IP防护等级，均依此标准配置，而非为展厅陈列而设计。',
+    w3_t:'工厂直接合作，无中间层',
+    w3_d:'我们通过在中山及珠三角建立的长期工厂合作关系进行直采——这是中国户外照明的核心制造产区。直接合作赋予我们规格层面的谈判权、出货前驻厂检验权限，以及无经销商加价的稳定报价体系。200只起的低门槛试单，让您在扩量之前能够先行验证产品实际品质。',
+    w4_t:'认证文件，可独立核查',
+    w4_d:'每份产品报价均随附CE、RoHS认证文件——包含出具实验室名称、检测报告编号及签发日期。每份证书均可由客户独立核查真实性。我们不出具自我声明合规文件，不列示无法应需提供的认证，不将其他产品线的证书套用于当前产品。',
+    cert_t:'第三方认证资质', c_ce:'CE欧洲认证', c_ro:'RoHS无害化认证', c_65:'IP65防水防尘', c_66:'IP66高等级防护',
+    con_lbl:'联系我们', con_h2:'发送询盘，<em>探讨您的采购需求</em>',
+    con_p:'请告知所需产品类型、目标数量及目的地港口。我们将在24小时内回复完整报价，内容包含单件FOB价格、产品规格说明书、交期及可提供的认证文件清单。',
+    con_hrs:'周一至周五，9:00–18:00（北京时间 UTC+8）',
+    f_name:'您的姓名', f_co:'公司名称', f_email:'电子邮箱', f_prod:'感兴趣的产品',
+    f_sel:'请选择产品类别…',
+    f_msg:'产品类型 · 目标数量 · 目的地港口',
+    f_send:'发送询盘',
+    f_ok:'✓ 询盘已收到，我们将在24小时内回复含完整报价的邮件。',
+    ft_desc:'太阳能安防与景观灯工厂直供采购商。磷酸铁锂电池规格管控 · CE / RoHS第三方认证 · 支持OEM定制 · 聚焦南非、澳洲、哥伦比亚与西班牙市场。',
+    ft_prod:'产品系列', ft_co:'公司信息', ft_srv:'南非 · 澳洲 · 哥伦比亚 · 西班牙',
   },
   es:{
-    nav_products:'Productos', nav_cat:'Categorías', nav_about:'Fabricante', nav_contact:'Contacto', nav_quote:'Solicitar Cotización',
-    hero_eye:'Fabricante de Iluminación Solar para Exteriores · Desde 2009',
-    hero_h1:'Fabricación de<br>Precisión para<br><em>Compradores Profesionales.</em>',
-    hero_sub:'Quince años de fabricación especializada en iluminación solar para exteriores. Luces de seguridad, pilares de jardín y apliques — desde I+D hasta producción en serie, gestionado íntegramente en fábrica. Al servicio de distribuidores globales, contratistas de proyectos y socios OEM.',
+    nav_products:'Productos', nav_cat:'Categorías', nav_about:'Nuestro Enfoque', nav_contact:'Contacto', nav_quote:'Solicitar Cotización',
+    hero_eye:'Iluminación Solar para Exteriores · Suministro Directo de Fábrica',
+    hero_h1:'Iluminación Solar<br>Especificada para<br><em>Su Mercado.</em>',
+    hero_sub:'Operamos a nivel de fábrica — especificando la química de baterías LiFePO4, validando certificaciones de terceros y controlando la calidad de producción antes del envío. Luces de seguridad, pilares de jardín y apliques exteriores, diseñados para África, Oceanía y América Latina.',
     hero_cta1:'Solicitar Cotización', hero_cta2:'Ver Productos →',
-    stat1:'Años de Fabricación', stat2:'Certificado por Terceros', stat3:'OEM y ODM Disponibles', stat4:'Continentes Servidos',
-    brand_q:'"No distribuimos luminarias.<br><span>Las fabricamos."</span>',
-    brand_b:'Desde 2009, JC Lightning se especializa en la fabricación de iluminación solar para exteriores, ofreciendo a clientes de todo el mundo soluciones en luces de seguridad, pilares de jardín y apliques exteriores. Con instalaciones de producción e ingeniería propias, gestionamos internamente todo el proceso — desde el desarrollo del producto y el ensamblaje hasta la inspección de calidad — garantizando que nuestros productos cumplan los requisitos del mercado internacional en rendimiento, durabilidad y consistencia de entrega.',
-    prod_lbl:'Productos Destacados', prod_h2:'<em>Superventas</em> de Fábrica', prod_cat:'Solicitar Catálogo Completo →',
-    b_best:'Superventas', b_new:'Nuevo Modelo', b_eco:'Eco Cert.',
-    p1_n:'Luz Solar de Camino Pro', p1_d:'6W · IP65 · 3000K/6000K · Autonomía 8h · CE y RoHS',
-    p2_n:'Luz Solar PIR con Sensor de Movimiento', p2_d:'120 LED · 800lm · 4000mAh LiFePO4 · IP65 · 8–12h · CE+RoHS',
-    p3_n:'Luz Solar Esférica para Pilar', p3_d:'5W · Acero inox 304 + Globo acrílico · 3000mAh LiFePO4 · IP65 · Ø250/300mm',
+    stat1:'Certificado por Terceros', stat2:'Especificación de Batería', stat3:'Productos de Seguridad IP65', stat4:'Uds. Pedido de Prueba Mínimo',
+    brand_q:'"No solo suministramos según especificación.<br><span>La redactamos nosotros."</span>',
+    brand_b:'JC Lightning es un proveedor de iluminación solar con suministro directo de fábrica y profundas raíces en tecnología de baterías. Trabajamos a nivel de especificación — definiendo los requisitos de celda LiFePO4, estableciendo estándares de rendimiento fotométrico y criterios de prueba IP — antes de asociarnos con fabricantes verificados en el Delta del Río Perla para la entrega. El resultado son luces de seguridad solar, pilares de jardín y apliques exteriores que llegan con documentación de terceros, mantienen su rendimiento en campo y ofrecen una garantía que puede trasladar a sus clientes con confianza.',
+    prod_lbl:'Productos Destacados', prod_h2:'Gama de Productos <em>Verificados</em>', prod_cat:'Solicitar Ficha Técnica Completa →',
+    b_best:'Superventas', b_new:'Recomendado', b_eco:'IP66',
+    p1_n:'Luz Solar de Camino Pro', p1_d:'6W · IP65 · 3000K / 6000K · Autonomía 8h · CE y RoHS',
+    p2_n:'Aplique Solar PIR con Sensor de Movimiento', p2_d:'120 LED · 800lm · 4000mAh LiFePO4 · IP65 · 8–12h · CE + RoHS',
+    p3_n:'Pilar de Portón Solar Esférico', p3_d:'5W · Acero inox 304 + Globo acrílico · 3000mAh LiFePO4 · IP65 · Ø250 / 300mm',
     p4_n:'Foco Solar de Seguridad', p4_d:'30W · 2400lm · PIR 10m · IP66 · 270° · –20°C a +50°C',
     enq:'Consultar →',
-    cat1_t:'Iluminación Solar de Seguridad', cat1_d:'Luces PIR de pared y focos para seguridad perimetral y propiedades comerciales. Aluminio fundido, IP65/IP66, 800–3000lm, rango operativo –20°C a +60°C.',
-    cat2_t:'Apliques y Faroles Exteriores', cat2_d:'Faroles exteriores clásicos y contemporáneos para hoteles, fincas y urbanizaciones. Versiones AC y solar, casquillo E27, certificación CE/EMC/LVD, OEM disponible.',
-    cat3_t:'Luces Solares de Jardín y Portón', cat3_d:'Pilares esféricos, balizas y luces de camino para proyectos residenciales y de paisajismo. Acero inox 304 o aluminio, IP65, LiFePO4, vida útil ≥2.000 ciclos.',
+    cat1_t:'Iluminación Solar de Seguridad',
+    cat1_d:'Apliques PIR y focos para seguridad perimetral y propiedades comerciales. Carcasa de aluminio fundido, IP65 / IP66, salida real de 800–3000lm, rango operativo –20°C a +60°C. Especificados para climas de África Austral y el Pacífico.',
+    cat2_t:'Apliques y Faroles Exteriores',
+    cat2_d:'Faroles exteriores clásicos y contemporáneos para fincas, casas rurales y nuevas urbanizaciones. Disponibles en configuraciones AC y solar. Casquillo E27, documentación CE / EMC / LVD incluida, embalaje OEM disponible bajo solicitud.',
+    cat3_t:'Luces Solares de Jardín y Portón',
+    cat3_d:'Pilares esféricos, balizas y luces de camino para proyectos residenciales y de paisajismo. Acero inox 304 o aluminio, IP65, batería LiFePO4 con vida útil verificada de más de 2.000 ciclos. Múltiples diámetros disponibles.',
     cat_lnk:'Consultar Esta Gama →',
-    why_lbl:'Por Qué JC Lightning', why_h2:'Directo de Fábrica.<br><em>Sin Intermediarios.</em>',
-    why_intro:'Somos fabricantes, no distribuidores. Cada producto es diseñado por nuestro equipo de I+D, producido en nuestras instalaciones y probado según estándares que la mayoría de distribuidores nunca llega a conocer. Al trabajar con JC Lightning, trata directamente con quienes fabrican las luminarias.',
-    why_cta:'Hable de Su Proyecto',
-    w1_t:'15+ Años de Fabricación Propia', w1_d:'Fundados en 2009. Instalación de 8.000 m². Más de 200 operarios. Equipo de ingeniería de I+D dedicado. Drivers PCB diseñados, packs LiFePO4 ensamblados y pruebas fotométricas e impermeabilidad realizadas íntegramente en fábrica.',
-    w2_t:'Integración de Batería LiFePO4', w2_d:'Cada celda comprobada para capacidad real y resistencia interna antes del ensamblaje. LiFePO4 ofrece ≥2.000 ciclos de carga, cero efecto memoria y descarga estable de –20°C a +60°C — el doble de vida útil de las baterías estándar.',
-    w3_t:'Capacidad OEM y ODM Completa', w3_d:'Diseño de carcasa personalizado, marca propia, modificación de PCB, embalaje a medida. Del concepto al prototipo en 30 días. Del prototipo a producción en serie en 45–60 días.',
-    w4_t:'Certificaciones Verificables por Terceros', w4_d:'Certificados CE y RoHS emitidos por laboratorios acreditados — número de informe y fecha incluidos. Verificables de forma independiente. Sin declaraciones de conformidad propias. Sin certificados reutilizados.',
-    cert_t:'Certificaciones del Producto', c_ce:'Norma Europea CE', c_ro:'Sin Sustancias Peligrosas', c_65:'IP65 Resistente', c_66:'IP66 Alta Protección',
-    con_lbl:'Contáctenos', con_h2:'Solicite cotización o <em>comente su proyecto</em>',
-    con_p:'Comparta sus requisitos de producto, cantidad objetivo y puerto de destino. Responderemos en 24 horas con una cotización completa que incluye precio unitario, plazo de entrega y estimación de flete.',
+    why_lbl:'Por Qué JC Lightning', why_h2:'Liderado por Especificación.<br><em>Calidad Verificada.</em>',
+    why_intro:'Operamos en la intersección de la tecnología de baterías y la iluminación exterior. Antes de que un producto entre en nuestra gama, definimos su especificación — química de batería, salida lumínica real, estándar de prueba IP y rango de temperatura operativa. Cada afirmación está respaldada por documentación que puede verificar antes de comprometerse con un pedido.',
+    why_cta:'Solicitar Ficha Técnica',
+    w1_t:'Especificación de Batería LiFePO4',
+    w1_d:'La calidad de la batería es donde fallan la mayoría de los productos solares en campo. Especificamos química LiFePO4 — no ión-litio estándar — en toda nuestra gama de luces de seguridad y pilares. La capacidad nominal y la resistencia interna se confirman antes de la aceptación. Sus clientes reciben luces que mantienen su salida declarada durante más de 2.000 ciclos completos de descarga, no productos que se degradan en pocos meses.',
+    w2_t:'Diseñado para Condiciones Africanas y del Pacífico',
+    w2_d:'La selección de productos está impulsada por las condiciones en que operan sus clientes: alto índice UV, temperaturas de 5°C a 45°C, suministro eléctrico poco fiable y las exigencias de seguridad de propiedades en África Austral y Oceanía. La capacidad de batería, la potencia del panel, el material de la carcasa y la clasificación IP se especifican en consecuencia — no se eligen para un showroom.',
+    w3_t:'Alianzas Directas con Fábrica',
+    w3_d:'Aprovisionamos a través de alianzas fabriles consolidadas en Zhongshan y el Delta del Río Perla — la región manufacturera central de China para iluminación exterior. Las relaciones directas nos dan acceso a negociación a nivel de especificación, inspección previa al envío y precios consistentes sin márgenes de distribuidores intermedios. Pedidos de prueba desde 200 uds. para que valide la calidad antes de escalar.',
+    w4_t:'Certificaciones que Puede Verificar',
+    w4_d:'La documentación CE y RoHS se proporciona con cada cotización de producto — incluyendo el laboratorio emisor, el número de referencia del informe de prueba y la fecha de emisión. Cada certificado es verificable de forma independiente. No declaramos conformidad propia, no listamos certificaciones que no podemos producir bajo solicitud, ni reutilizamos documentos de otras líneas de producto.',
+    cert_t:'Verificado por Terceros', c_ce:'Norma Europea CE', c_ro:'Sin Sustancias Peligrosas', c_65:'IP65 Resistente', c_66:'IP66 Alta Protección',
+    con_lbl:'Contáctenos', con_h2:'Solicite cotización o <em>comente sus requisitos</em>',
+    con_p:'Comparta el tipo de producto, la cantidad objetivo y el puerto de destino. Respondemos en 24 horas con una cotización completa que incluye precio FOB unitario, ficha técnica, plazo de entrega y documentos de certificación disponibles.',
     con_hrs:'Lun–Vie, 9:00–18:00 CST (UTC+8)',
-    f_name:'Su Nombre', f_co:'Empresa', f_email:'Correo Electrónico', f_prod:'Producto de Interés', f_msg:'Requisitos / Puerto de Destino / Cantidad', f_send:'Enviar Consulta',
+    f_name:'Su Nombre', f_co:'Empresa', f_email:'Correo Electrónico', f_prod:'Producto de Interés',
+    f_sel:'Seleccione una categoría…',
+    f_msg:'Tipo de Producto · Cantidad · Puerto de Destino',
+    f_send:'Enviar Consulta',
     f_ok:'✓ Consulta recibida. Le responderemos en 24 horas con una cotización completa.',
-    ft_desc:'Fabricante de iluminación solar de seguridad y jardín. LiFePO4 integrada en fábrica · CE/RoHS por terceros · OEM/ODM · Exportación global desde 2009.',
-    ft_prod:'Productos', ft_co:'Empresa', ft_srv:'Exportando a África · Asia · Oceanía · Europa · Las Américas',
+    ft_desc:'Iluminación solar de seguridad y jardín con suministro directo de fábrica. Especificación LiFePO4 · CE / RoHS certificado por terceros · OEM disponible · Sudáfrica, Australia, Colombia y España.',
+    ft_prod:'Productos', ft_co:'Empresa', ft_srv:'Sudáfrica · Australia · Colombia · España',
   }
 };
 
@@ -739,21 +662,17 @@ function setLang(l){
   document.documentElement.lang=l==='zh'?'zh-CN':l;
 }
 
-// nav scroll
 const nav=document.getElementById('mainnav');
 let heroH=document.querySelector('.hero').offsetHeight;
 window.addEventListener('scroll',()=>{
   const y=window.scrollY;
-  if(y<heroH-70){ nav.className='dark'; }
-  else { nav.className='solid'; }
+  nav.className=y<heroH-70?'dark':'solid';
   nav.style.padding=y>40?'13px 56px':'20px 56px';
 });
 
-// reveal
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// form
 function handleSubmit(e){
   e.preventDefault();
   const b=document.getElementById('sub-btn');
