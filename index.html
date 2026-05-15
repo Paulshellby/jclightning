@@ -176,72 +176,18 @@ h2 em { font-style:italic; color:var(--brass); }
 .faq-item { padding:28px 0; border-top:1px solid var(--blt); }
 .faq-item h4 { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:400; color:var(--ink); margin-bottom:12px; line-height:1.4; }
 .faq-item p { font-size:0.86rem; font-weight:300; color:var(--stone); line-height:1.85; }
-.anatomy { background:var(--ink); padding:130px 56px 120px; position:relative; overflow:hidden; }
-.anatomy::before { content:''; position:absolute; top:30%; left:20%; width:700px; height:700px; background:radial-gradient(circle, rgba(168,125,42,0.13) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
-.ana-head { margin-bottom:64px; max-width:720px; position:relative; z-index:1; }
-.ana-head .sec-label { color:var(--brass-lt); }
-.ana-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2rem,3.4vw,2.8rem); line-height:1.18; color:#fff; margin-bottom:20px; letter-spacing:-0.01em; }
-.ana-head h2 em { font-style:italic; color:var(--brass-lt); }
-.ana-sub { font-size:0.95rem; font-weight:300; color:var(--mist); line-height:1.85; max-width:580px; }
-.ana-stage { position:relative; z-index:1; max-width:1200px; margin:0 auto; min-height:780px; }
-.ana-scene { position:absolute; inset:0; opacity:0; visibility:hidden; transition:opacity .55s ease, visibility 0s linear .55s; pointer-events:none; }
-.anatomy[data-state="assembled"] .ana-scene-svg, .anatomy[data-state="overview"] .ana-scene-svg, .anatomy[data-state^="detail-"] .ana-scene-detail { opacity:1; visibility:visible; transition:opacity .55s ease .15s; pointer-events:auto; }
-.anatomy[data-state^="detail-"] .ana-scene-svg { opacity:0; }
-.anatomy-svg { width:100%; height:auto; display:block; }
-.anatomy[data-state="assembled"] .anatomy-svg { cursor:pointer; }
-.ana-toggle { position:absolute; top:18px; right:18px; z-index:3; font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; padding:11px 22px; background:rgba(14,12,10,0.65); border:1px solid rgba(201,162,78,0.4); color:var(--brass-lt); cursor:pointer; transition:all .3s ease; backdrop-filter:blur(6px); }
-.anatomy[data-state="assembled"] .ana-toggle { animation:anaPulse 2.6s ease-in-out infinite; }
-.ana-toggle:hover { border-color:var(--brass-lt); background:rgba(168,125,42,0.15); color:#fff; }
-.tog-assemble { display:none; }
-.anatomy[data-state="overview"] .tog-explode, .anatomy[data-state^="detail-"] .tog-explode { display:none; }
-.anatomy[data-state="overview"] .tog-assemble, .anatomy[data-state^="detail-"] .tog-assemble { display:inline; }
-@keyframes anaPulse { 0%, 100% { border-color:rgba(201,162,78,0.32); } 50% { border-color:rgba(201,162,78,0.85); } }
-.ana-layer { opacity:0; transform:translateY(24px); transition:opacity .9s ease, transform 1s cubic-bezier(.18,1,.3,1); }
-.anatomy.is-on .ana-layer { opacity:1; transform:translateY(0); }
-.anatomy.is-on .ana-layer[data-i="1"] { transition-delay:.15s; }
-.anatomy.is-on .ana-layer[data-i="2"] { transition-delay:.32s; }
-.anatomy.is-on .ana-layer[data-i="3"] { transition-delay:.49s; }
-.anatomy.is-on .ana-layer[data-i="4"] { transition-delay:.66s; }
-.anatomy.is-on .ana-layer[data-i="5"] { transition-delay:.83s; }
-.anatomy.is-on .ana-layer[data-i="6"] { transition-delay:1s; }
-.ana-layer .ana-draw { transition:transform 1.15s cubic-bezier(.34, 1.42, .55, 1); }
-.anatomy[data-state="assembled"] .ana-layer[data-i="1"] .ana-draw { transform:translateY(119px); }
-.anatomy[data-state="assembled"] .ana-layer[data-i="2"] .ana-draw { transform:translateY(45px); }
-.anatomy[data-state="assembled"] .ana-layer[data-i="3"] .ana-draw { transform:translateY(-17px); }
-.anatomy[data-state="assembled"] .ana-layer[data-i="4"] .ana-draw { transform:translateY(-70px); }
-.anatomy[data-state="assembled"] .ana-layer[data-i="5"] .ana-draw { transform:translateY(-169px); }
-.anatomy[data-state="assembled"] .ana-layer[data-i="6"] .ana-draw { transform:translateY(-290px); }
-.anatomy[data-state="overview"] .ana-layer .ana-draw, .anatomy[data-state^="detail-"] .ana-layer .ana-draw { transform:translateY(0); }
-.ana-layer > line, .ana-layer > circle, .ana-layer > text { opacity:0; transition:opacity .5s ease; }
-.anatomy[data-state="overview"] .ana-layer > line,
-.anatomy[data-state="overview"] .ana-layer > circle,
-.anatomy[data-state="overview"] .ana-layer > text { opacity:1; transition-delay:.85s; }
-.anatomy-guide { stroke:var(--brass); stroke-width:1; stroke-dasharray:3 6; opacity:0; transition:opacity .6s ease .85s; }
-.anatomy[data-state="overview"] .anatomy-guide { opacity:0.22; }
-.ana-hit { fill:transparent; cursor:pointer; transition:fill .25s ease; }
-.anatomy[data-state="assembled"] .ana-hit, .anatomy[data-state^="detail-"] .ana-hit { pointer-events:none; }
-.ana-hit:hover { fill:rgba(201,162,78,0.05); }
-.ana-layer:hover .ana-draw rect, .ana-layer:hover .ana-draw circle, .ana-layer:hover .ana-draw line, .ana-layer:hover .ana-draw path, .ana-layer:hover .ana-draw ellipse { stroke:var(--brass-lt); }
-.ana-layer .ana-draw * { transition:stroke .3s ease, stroke-width .3s ease, opacity .3s ease; }
-.ana-burst circle { opacity:0; }
-.anatomy.is-bursting .ana-burst circle { animation:burstRing 1s cubic-bezier(.2,.6,.3,1) forwards; }
-.anatomy.is-bursting .ana-burst circle:nth-child(2) { animation-delay:0.08s; }
-.anatomy.is-bursting .ana-burst circle:nth-child(3) { animation-delay:0.16s; }
-@keyframes burstRing { 0% { r:8; opacity:0; stroke-width:0.5; } 18% { opacity:0.85; stroke-width:2.5; } 100% { r:280; opacity:0; stroke-width:0.2; } }
-.ana-scene-detail { padding:50px 24px 40px; }
-.ana-back { position:absolute; top:18px; left:18px; z-index:3; font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; padding:11px 22px; background:rgba(14,12,10,0.65); border:1px solid rgba(201,162,78,0.4); color:var(--brass-lt); cursor:pointer; transition:all .3s ease; backdrop-filter:blur(6px); }
-.ana-back:hover { border-color:var(--brass-lt); background:rgba(168,125,42,0.15); color:#fff; }
-.detail-content { display:none; opacity:0; transform:translateY(20px); transition:opacity .6s ease .25s, transform .6s ease .25s; padding-top:60px; }
-.detail-content.is-active { display:grid; grid-template-columns:240px 1fr; gap:60px; }
-.anatomy[data-state^="detail-"] .detail-content.is-active { opacity:1; transform:translateY(0); }
-.detail-num { font-family:'Playfair Display',serif; font-style:italic; font-weight:400; font-size:clamp(5rem,9vw,8.5rem); color:var(--brass-lt); line-height:0.85; letter-spacing:-0.04em; }
-.detail-info h3 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(1.7rem,2.8vw,2.4rem); color:#fff; margin-bottom:18px; letter-spacing:-0.01em; line-height:1.15; }
-.detail-info > p { font-size:0.95rem; font-weight:300; color:var(--mist); line-height:1.85; max-width:580px; margin-bottom:38px; }
-.detail-specs { display:grid; grid-template-columns:200px 1fr; gap:0; max-width:680px; }
-.detail-specs > div { padding:14px 18px 14px 0; border-top:1px solid rgba(255,255,255,0.07); }
-.detail-specs > div:last-child, .detail-specs > div:nth-last-child(2) { border-bottom:1px solid rgba(255,255,255,0.07); }
-.detail-specs > div:nth-child(odd) { font-size:0.62rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone-lt); }
-.detail-specs > div:nth-child(even) { font-size:0.86rem; font-weight:300; color:#d8cfc0; line-height:1.55; }
+.why { background:var(--ink); padding:130px 56px 120px; position:relative; overflow:hidden; }
+.why::before { content:''; position:absolute; top:30%; left:20%; width:700px; height:700px; background:radial-gradient(circle, rgba(168,125,42,0.13) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
+.why-head { margin-bottom:80px; max-width:720px; position:relative; z-index:1; }
+.why-head .sec-label { color:var(--brass-lt); }
+.why-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2rem,3.4vw,2.8rem); line-height:1.18; color:#fff; margin-bottom:24px; letter-spacing:-0.01em; }
+.why-head h2 em { font-style:italic; color:var(--brass-lt); }
+.why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; position:relative; z-index:1; max-width:1200px; margin:0 auto; }
+.why-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:2px; padding:40px 32px 36px; transition:border-color .35s ease, background .35s ease, transform .35s ease; }
+.why-card:hover { border-color:rgba(168,125,42,0.25); background:rgba(168,125,42,0.04); transform:translateY(-4px); }
+.why-icon { width:44px; height:44px; margin-bottom:28px; color:var(--brass); }
+.why-card h3 { font-family:'Playfair Display',serif; font-weight:400; font-size:1.25rem; color:#fff; margin-bottom:16px; letter-spacing:-0.01em; }
+.why-card p { font-size:0.88rem; font-weight:300; color:var(--mist); line-height:1.75; }
 .cursor-glow { position:fixed; width:380px; height:380px; border-radius:50%; background:radial-gradient(circle, rgba(168,125,42,0.18) 0%, rgba(168,125,42,0.06) 35%, transparent 70%); pointer-events:none; z-index:1; opacity:0; transition:opacity .5s ease; mix-blend-mode:screen; filter:blur(8px); top:0; left:0; }
 .cursor-glow.on { opacity:1; }
 .contact { padding:120px 56px; background:var(--chalk-w); display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:start; }
@@ -309,14 +255,10 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .proc-step p { min-height:auto; }
   .faq { padding:64px 22px; }
   .faq-grid { grid-template-columns:1fr; gap:0; }
-  .anatomy { padding:64px 22px 56px; }
-  .ana-head { margin-bottom:36px; }
-  .ana-sub { font-size:0.88rem; }
-  .ana-stage { min-height:auto; }
-  .ana-scene-detail { padding:60px 8px 20px; }
-  .detail-content.is-active { grid-template-columns:1fr; gap:24px; }
-  .detail-num { font-size:4.5rem; }
-  .detail-specs { grid-template-columns:140px 1fr; }
+  .why { padding:64px 22px 56px; }
+  .why-head { margin-bottom:48px; }
+  .why-grid { grid-template-columns:1fr; gap:16px; }
+  .why-card { padding:28px 22px 24px; }
   .cursor-glow { display:none; }
 }
 </style>
@@ -606,39 +548,35 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </section>
 
-<section class="anatomy" id="anatomy" data-state="assembled">
-  <div class="ana-head reveal">
-    <div class="sec-label" data-i18n="ana_lbl">The Anatomy</div>
-    <h2 data-i18n="ana_h2">Inside the Solar Motion <em>Flood Light.</em></h2>
-    <p class="ana-sub" data-i18n="ana_sub">Six engineered components delivering 2,500–3,500 lumens. Click the product to explode it apart, then click any component to inspect.</p>
+<section class="why" id="why">
+  <div class="why-head reveal">
+    <div class="sec-label" data-i18n="why_lbl">Why Choose Us</div>
+    <h2 data-i18n="why_h2">Built for importers.<br><em>Trusted by distributors.</em></h2>
+    <p class="section-sub" data-i18n="why_sub">Four reasons procurement managers across 30+ countries choose JC Lightning as their solar lighting partner.</p>
   </div>
-  <div class="ana-stage">
-    <button class="ana-toggle" type="button"><span class="tog-explode" data-i18n="ana_btn_explode">▸ Click to Explode</span><span class="tog-assemble" data-i18n="ana_btn_assemble">↺ Reassemble</span></button>
-    <button class="ana-back" type="button" data-i18n="ana_back">← Back to Overview</button>
-    <div class="ana-scene ana-scene-svg">
-      <svg class="anatomy-svg" viewBox="0 0 1100 880" xmlns="http://www.w3.org/2000/svg">
-        <line class="anatomy-guide" x1="280" y1="100" x2="280" y2="780"/>
-        <g class="ana-burst" pointer-events="none"><circle cx="280" cy="400" r="20" fill="none" stroke="#c9a24e" stroke-width="2"/><circle cx="280" cy="400" r="20" fill="none" stroke="#c9a24e" stroke-width="1.5"/><circle cx="280" cy="400" r="20" fill="none" stroke="#c9a24e" stroke-width="1"/></g>
-        <g class="ana-layer" data-i="1" data-cx="280" data-cy="81"><rect class="ana-hit" x="170" y="50" width="860" height="80"/><g class="ana-draw"><rect x="200" y="60" width="160" height="42" rx="3" stroke="#a87d2a" stroke-width="1.6" fill="none"/><line x1="240" y1="60" x2="240" y2="102" stroke="#a87d2a" stroke-width="0.6" opacity="0.5"/><line x1="280" y1="60" x2="280" y2="102" stroke="#a87d2a" stroke-width="0.6" opacity="0.5"/><line x1="320" y1="60" x2="320" y2="102" stroke="#a87d2a" stroke-width="0.6" opacity="0.5"/><line x1="200" y1="81" x2="360" y2="81" stroke="#a87d2a" stroke-width="0.6" opacity="0.5"/><line x1="280" y1="102" x2="280" y2="118" stroke="#a87d2a" stroke-width="1.4"/></g><line x1="365" y1="80" x2="540" y2="80" stroke="#a87d2a" stroke-width="0.7" stroke-dasharray="2 3" opacity="0.45"/><circle cx="540" cy="80" r="2.5" fill="#c9a24e"/><text x="555" y="76" fill="#c9a24e" font-family="Outfit, sans-serif" font-size="11" font-weight="400" letter-spacing="2.2">01 — SOLAR PANEL</text><text x="555" y="94" fill="#bfb6a8" font-family="Outfit, sans-serif" font-size="12" font-weight="300">Monocrystalline silicon · 6V 3W</text><text x="555" y="111" fill="#978d82" font-family="Outfit, sans-serif" font-size="10.5" font-weight="300">UV-stable encapsulant · IP65 sealed</text></g>
-        <g class="ana-layer" data-i="2" data-cx="280" data-cy="220"><rect class="ana-hit" x="170" y="170" width="860" height="90"/><g class="ana-draw"><rect x="220" y="180" width="120" height="22" rx="3" stroke="#a87d2a" stroke-width="1.5" fill="none"/><ellipse cx="280" cy="226" rx="22" ry="14" stroke="#a87d2a" stroke-width="1.5" fill="none"/><ellipse cx="280" cy="226" rx="14" ry="8" stroke="#a87d2a" stroke-width="0.7" fill="none" opacity="0.55"/><circle cx="280" cy="226" r="3" fill="#c9a24e" opacity="0.85"/></g><line x1="345" y1="220" x2="540" y2="220" stroke="#a87d2a" stroke-width="0.7" stroke-dasharray="2 3" opacity="0.45"/><circle cx="540" cy="220" r="2.5" fill="#c9a24e"/><text x="555" y="216" fill="#c9a24e" font-family="Outfit, sans-serif" font-size="11" font-weight="400" letter-spacing="2.2">02 — PIR SENSOR</text><text x="555" y="234" fill="#bfb6a8" font-family="Outfit, sans-serif" font-size="12" font-weight="300">Dual-element pyroelectric · 270°</text><text x="555" y="251" fill="#978d82" font-family="Outfit, sans-serif" font-size="10.5" font-weight="300">8–12m detection range</text></g>
-        <g class="ana-layer" data-i="3" data-cx="280" data-cy="340"><rect class="ana-hit" x="120" y="295" width="910" height="90"/><g class="ana-draw"><rect x="245" y="320" width="70" height="44" rx="3" stroke="#a87d2a" stroke-width="1.6" fill="none"/><circle cx="260" cy="335" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="270" cy="335" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="280" cy="335" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="290" cy="335" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="300" cy="335" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="260" cy="345" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="270" cy="345" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="280" cy="345" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="290" cy="345" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="300" cy="345" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="270" cy="355" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="280" cy="355" r="2" fill="#c9a24e" opacity="0.7"/><circle cx="290" cy="355" r="2" fill="#c9a24e" opacity="0.7"/><rect x="155" y="305" width="60" height="38" rx="3" stroke="#a87d2a" stroke-width="1.5" fill="none" transform="rotate(-15 185 324)"/><rect x="345" y="305" width="60" height="38" rx="3" stroke="#a87d2a" stroke-width="1.5" fill="none" transform="rotate(15 375 324)"/></g><line x1="410" y1="340" x2="540" y2="340" stroke="#a87d2a" stroke-width="0.7" stroke-dasharray="2 3" opacity="0.45"/><circle cx="540" cy="340" r="2.5" fill="#c9a24e"/><text x="555" y="336" fill="#c9a24e" font-family="Outfit, sans-serif" font-size="11" font-weight="400" letter-spacing="2.2">03 — LED HEADS ×3</text><text x="555" y="354" fill="#bfb6a8" font-family="Outfit, sans-serif" font-size="12" font-weight="300">70–150 LEDs per head · independently adjustable</text><text x="555" y="371" fill="#978d82" font-family="Outfit, sans-serif" font-size="10.5" font-weight="300">Total output 2,500–3,500 lumens</text></g>
-        <g class="ana-layer" data-i="4" data-cx="280" data-cy="460"><rect class="ana-hit" x="170" y="420" width="860" height="80"/><g class="ana-draw"><rect x="220" y="430" width="120" height="60" rx="3" stroke="#a87d2a" stroke-width="1.7" fill="none"/><rect x="232" y="442" width="96" height="36" rx="1" stroke="#a87d2a" stroke-width="0.7" fill="none" opacity="0.4"/><text x="280" y="465" fill="#c9a24e" font-family="Outfit, sans-serif" font-size="9" text-anchor="middle" opacity="0.65" letter-spacing="1.5">CONTROL</text></g><line x1="345" y1="460" x2="540" y2="460" stroke="#a87d2a" stroke-width="0.7" stroke-dasharray="2 3" opacity="0.45"/><circle cx="540" cy="460" r="2.5" fill="#c9a24e"/><text x="555" y="456" fill="#c9a24e" font-family="Outfit, sans-serif" font-size="11" font-weight="400" letter-spacing="2.2">04 — MAIN BODY</text><text x="555" y="474" fill="#bfb6a8" font-family="Outfit, sans-serif" font-size="12" font-weight="300">Cast aluminium · IP65 sealed</text><text x="555" y="491" fill="#978d82" font-family="Outfit, sans-serif" font-size="10.5" font-weight="300">Houses control board + battery</text></g>
-        <g class="ana-layer" data-i="5" data-cx="280" data-cy="568"><rect class="ana-hit" x="170" y="540" width="860" height="80"/><g class="ana-draw"><rect x="225" y="550" width="110" height="38" rx="3" stroke="#a87d2a" stroke-width="1.5" fill="none"/><rect x="235" y="558" width="28" height="22" rx="2" stroke="#a87d2a" stroke-width="0.7" fill="none" opacity="0.7"/><rect x="266" y="558" width="28" height="22" rx="2" stroke="#a87d2a" stroke-width="0.7" fill="none" opacity="0.7"/><rect x="297" y="558" width="28" height="22" rx="2" stroke="#a87d2a" stroke-width="0.7" fill="none" opacity="0.7"/></g><line x1="340" y1="568" x2="540" y2="568" stroke="#a87d2a" stroke-width="0.7" stroke-dasharray="2 3" opacity="0.45"/><circle cx="540" cy="568" r="2.5" fill="#c9a24e"/><text x="555" y="564" fill="#c9a24e" font-family="Outfit, sans-serif" font-size="11" font-weight="400" letter-spacing="2.2">05 — LiFePO4 BATTERY</text><text x="555" y="582" fill="#bfb6a8" font-family="Outfit, sans-serif" font-size="12" font-weight="300">18650 cells · 1,200–2,000mAh</text><text x="555" y="599" fill="#978d82" font-family="Outfit, sans-serif" font-size="10.5" font-weight="300">2,000+ discharge cycles</text></g>
-        <g class="ana-layer" data-i="6" data-cx="280" data-cy="690"><rect class="ana-hit" x="170" y="650" width="860" height="80"/><g class="ana-draw"><path d="M210 660 L210 720 L350 720 L350 660" stroke="#a87d2a" stroke-width="1.7" fill="none"/><rect x="240" y="675" width="80" height="35" rx="2" stroke="#a87d2a" stroke-width="0.8" fill="none" opacity="0.5"/><circle cx="225" cy="690" r="3" stroke="#a87d2a" stroke-width="1" fill="none"/><circle cx="335" cy="690" r="3" stroke="#a87d2a" stroke-width="1" fill="none"/></g><line x1="358" y1="690" x2="540" y2="690" stroke="#a87d2a" stroke-width="0.7" stroke-dasharray="2 3" opacity="0.45"/><circle cx="540" cy="690" r="2.5" fill="#c9a24e"/><text x="555" y="686" fill="#c9a24e" font-family="Outfit, sans-serif" font-size="11" font-weight="400" letter-spacing="2.2">06 — WALL BRACKET</text><text x="555" y="704" fill="#bfb6a8" font-family="Outfit, sans-serif" font-size="12" font-weight="300">Stainless steel · 4× M6 fixings</text><text x="555" y="721" fill="#978d82" font-family="Outfit, sans-serif" font-size="10.5" font-weight="300">Adjustable angle pivot</text></g>
-      </svg>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 4L6 14v10c0 12.1 7.7 23.4 18 26 10.3-2.6 18-13.9 18-26V14L24 4z" stroke="currentColor" stroke-width="1.4"/><path d="M16 24l5 5 11-11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3 data-i18n="why1_t">QC You Can Trust</h3>
+      <p data-i18n="why1_d">Every order passes a pre-shipment inspection with a detailed report issued before you pay the balance. CE and RoHS test certificates provided upfront — no waiting, no chasing.</p>
     </div>
-    <div class="ana-scene ana-scene-detail">
-      <div class="detail-content" data-comp="1"><div class="detail-num">01</div><div class="detail-info"><h3 data-i18n="d1_n">Solar Panel</h3><p data-i18n="d1_d">Monocrystalline silicon photovoltaic array, top-mounted with UV-stable encapsulant. Captures daylight and charges the integrated battery throughout the day, even in overcast conditions.</p><div class="detail-specs"><div data-i18n="d_mat">Material</div><div>Monocrystalline silicon</div><div data-i18n="d_out">Output</div><div>6V · 3W</div><div data-i18n="d_enc">Encapsulation</div><div>EVA + tempered glass</div><div data-i18n="d_seal">Sealing</div><div>IP65 rated</div><div data-i18n="d_cable">Cable</div><div>1.5m DC connector</div><div data-i18n="d_life">Lifespan</div><div>25,000 hours typical</div></div></div></div>
-      <div class="detail-content" data-comp="2"><div class="detail-num">02</div><div class="detail-info"><h3 data-i18n="d2_n">PIR Motion Sensor</h3><p data-i18n="d2_d">Dual-element pyroelectric sensor with 270° detection cone. Triggers full light activation within 0.5 seconds when human-sized motion is detected within range.</p><div class="detail-specs"><div data-i18n="d_type">Type</div><div>Dual-element pyroelectric</div><div data-i18n="d_cov">Coverage</div><div>270° horizontal</div><div data-i18n="d_range">Range</div><div>8–12 metres</div><div data-i18n="d_trig">Trigger Time</div><div>&lt; 0.5 seconds</div><div data-i18n="d_modes">Modes</div><div>Auto / Always-on / Off</div><div data-i18n="d_temp">Operating Temp</div><div>–20°C to +50°C</div></div></div></div>
-      <div class="detail-content" data-comp="3"><div class="detail-num">03</div><div class="detail-info"><h3 data-i18n="d3_n">LED Lighting Heads · ×3</h3><p data-i18n="d3_d">Three independently adjustable LED arrays. Each head can be aimed individually to illuminate driveways, perimeters, and entryways. Combined output reaches 3,500 lumens.</p><div class="detail-specs"><div data-i18n="d_conf">Configuration</div><div>3 adjustable heads</div><div data-i18n="d_count">LED Count</div><div>70–150 SMD LEDs per head</div><div data-i18n="d_total">Total Output</div><div>2,500–3,500 lumens</div><div data-i18n="d_cct">Color Temperature</div><div>6000K cool white</div><div data-i18n="d_beam">Beam Angle</div><div>120° per head</div><div data-i18n="d_led">LED Type</div><div>SMD2835</div></div></div></div>
-      <div class="detail-content" data-comp="4"><div class="detail-num">04</div><div class="detail-info"><h3 data-i18n="d4_n">Main Housing</h3><p data-i18n="d4_d">Cast aluminium body protecting the internal control board, battery, and PCB. Designed for sustained outdoor exposure across global climate zones from arctic to tropical.</p><div class="detail-specs"><div data-i18n="d_mat">Material</div><div>Cast aluminium alloy</div><div data-i18n="d_surf">Surface</div><div>Powder-coated weatherproof finish</div><div data-i18n="d_ip">IP Rating</div><div>IP65</div><div data-i18n="d_int">Internal</div><div>Control PCB + battery compartment</div><div data-i18n="d_heat">Heat Dissipation</div><div>Integrated cooling fins</div><div data-i18n="d_mount">Mount Type</div><div>4-point wall fixing</div></div></div></div>
-      <div class="detail-content" data-comp="5"><div class="detail-num">05</div><div class="detail-info"><h3 data-i18n="d5_n">LiFePO4 Battery</h3><p data-i18n="d5_d">Lithium iron phosphate battery selected for thermal stability and extended cycle life. Three 18650 cells deliver overnight runtime with consistent output across the operating temperature range.</p><div class="detail-specs"><div data-i18n="d_chem">Chemistry</div><div>LiFePO4 (Lithium Iron Phosphate)</div><div data-i18n="d_cells">Cells</div><div>3 × 18650</div><div data-i18n="d_cap">Capacity</div><div>1,200–2,000mAh per cell</div><div data-i18n="d_volt">Voltage</div><div>3.2V nominal per cell</div><div data-i18n="d_cyc">Cycle Life</div><div>2,000+ cycles at 80% DoD</div><div data-i18n="d_temp">Operating Temp</div><div>–20°C to +60°C</div></div></div></div>
-      <div class="detail-content" data-comp="6"><div class="detail-num">06</div><div class="detail-info"><h3 data-i18n="d6_n">Wall Mount Bracket</h3><p data-i18n="d6_d">304 stainless steel L-bracket with adjustable pivot mechanism. Secures the unit to vertical surfaces with four standard M6 fixings, suitable for brick, concrete, and stone.</p><div class="detail-specs"><div data-i18n="d_mat">Material</div><div>304 stainless steel</div><div data-i18n="d_holes">Mount Holes</div><div>4 × M6</div><div data-i18n="d_adj">Adjustment</div><div>180° pivot range</div><div data-i18n="d_dist">Distance to Wall</div><div>35mm</div><div data-i18n="d_fit">Wall Fittings</div><div>Included (concrete + drywall)</div><div data-i18n="d_load">Max Load</div><div>8kg</div></div></div></div>
+    <div class="why-card reveal" style="transition-delay:.1s">
+      <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.4"/><path d="M16 28c0 0 4 4 8 0 4-4 8 0 8 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 22c0 0 4-4 8 0 4 4 8 0 8 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M16 16c0 0 4-4 8 0 4 4 8 0 8 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <h3 data-i18n="why2_t">Competitive FOB Pricing</h3>
+      <p data-i18n="why2_d">Direct from our manufacturing base in China's solar lighting hub. No middlemen. Transparent FOB quotes include full spec sheets, lead time confirmation, and all certification documents.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.2s">
+      <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="6" y="12" width="36" height="24" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="M6 20h36" stroke="currentColor" stroke-width="1.4"/><rect x="18" y="28" width="12" height="4" rx="1" stroke="currentColor" stroke-width="1"/></svg></div>
+      <h3 data-i18n="why3_t">Flexible Trial Orders</h3>
+      <p data-i18n="why3_t">Start small. Trial orders from just 200 units on most product lines. 30% T/T to start, 70% after inspection. Sample fees fully refunded against your first order. OEM and ODM programmes available.</p>
+    </div>
+    <div class="why-card reveal" style="transition-delay:.3s">
+      <div class="why-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="18" r="4" stroke="currentColor" stroke-width="1.4"/><circle cx="14" cy="26" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="34" cy="26" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M24 22v8M14 28.5v4M34 28.5v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M8 38h32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <h3 data-i18n="why4_t">Export Expertise</h3>
+      <p data-i18n="why4_t">FOB Shenzhen, Yantian, and Guangzhou. Full export documentation: B/L, Certificate of Origin, commercial invoice, and packing list included with every shipment. We speak the language of international trade.</p>
     </div>
   </div>
-</section>
-
-<div class="certs reveal">
+</section><div class="certs reveal">
   <span class="cert-lbl" data-i18n="cert_t">Certifications</span>
   <div class="cert-row">
     <div class="cert-b"><div class="cn">CE</div><span class="cs" data-i18n="c_ce">European Standard</span></div>
@@ -810,20 +748,11 @@ const T = {
     proc_2_t:'Sample & Approval',proc_2_d:'1–3 units shipped via DHL or FedEx for physical evaluation. Sample fee fully refunded against your first order.',proc_2_time:'7–15 days',
     proc_3_t:'Production & QC',proc_3_d:'30% T/T deposit locks the order. Production at verified factories. Pre-shipment inspection report issued before final balance payment.',proc_3_time:'30–45 days',
     proc_4_t:'Shipment & Documents',proc_4_d:'FOB Shenzhen, Yantian, or Guangzhou. Full export documentation: B/L, Certificate of Origin, CE certificate, packing list, commercial invoice.',proc_4_time:'25–40 days transit',
-    ana_lbl:'The Anatomy',ana_h2:'Inside the Solar Motion <em>Flood Light.</em>',ana_sub:'Six engineered components delivering 2,500–3,500 lumens. Click the product to explode it apart, then click any component to inspect.',
-    ana_btn_explode:'▸ Click to Explode',ana_btn_assemble:'↺ Reassemble',ana_back:'← Back to Overview',
-    d_mat:'Material',d_out:'Output',d_enc:'Encapsulation',d_seal:'Sealing',d_cable:'Cable',d_life:'Lifespan',
-    d_type:'Type',d_cov:'Coverage',d_range:'Range',d_trig:'Trigger Time',d_modes:'Modes',d_temp:'Operating Temp',
-    d_conf:'Configuration',d_count:'LED Count',d_total:'Total Output',d_cct:'Color Temperature',d_beam:'Beam Angle',d_led:'LED Type',
-    d_surf:'Surface',d_ip:'IP Rating',d_int:'Internal',d_heat:'Heat Dissipation',d_mount:'Mount Type',
-    d_chem:'Chemistry',d_cells:'Cells',d_cap:'Capacity',d_volt:'Voltage',d_cyc:'Cycle Life',
-    d_holes:'Mount Holes',d_adj:'Adjustment',d_dist:'Distance to Wall',d_fit:'Wall Fittings',d_load:'Max Load',
-    d1_n:'Solar Panel',d1_d:'Monocrystalline silicon photovoltaic array, top-mounted with UV-stable encapsulant. Captures daylight and charges the integrated battery throughout the day, even in overcast conditions.',
-    d2_n:'PIR Motion Sensor',d2_d:'Dual-element pyroelectric sensor with 270° detection cone. Triggers full light activation within 0.5 seconds when human-sized motion is detected within range.',
-    d3_n:'LED Lighting Heads · ×3',d3_d:'Three independently adjustable LED arrays. Each head can be aimed individually to illuminate driveways, perimeters, and entryways. Combined output reaches 3,500 lumens.',
-    d4_n:'Main Housing',d4_d:'Cast aluminium body protecting the internal control board, battery, and PCB. Designed for sustained outdoor exposure across global climate zones from arctic to tropical.',
-    d5_n:'LiFePO4 Battery',d5_d:'Lithium iron phosphate battery selected for thermal stability and extended cycle life. Three 18650 cells deliver overnight runtime with consistent output across the operating temperature range.',
-    d6_n:'Wall Mount Bracket',d6_d:'304 stainless steel L-bracket with adjustable pivot mechanism. Secures the unit to vertical surfaces with four standard M6 fixings, suitable for brick, concrete, and stone.',
+    why_lbl:'Why Choose Us',why_h2:'Built for importers.<br><em>Trusted by distributors.</em>',why_sub:'Four reasons procurement managers across 30+ countries choose JC Lightning as their solar lighting partner.',
+    why1_t:'QC You Can Trust',why1_d:'Every order passes a pre-shipment inspection with a detailed report issued before you pay the balance. CE and RoHS test certificates provided upfront — no waiting, no chasing.',
+    why2_t:'Competitive FOB Pricing',why2_d:'Direct from our manufacturing base in China''s solar lighting hub. No middlemen. Transparent FOB quotes include full spec sheets, lead time confirmation, and all certification documents.',
+    why3_t:'Flexible Trial Orders',why3_d:'Start small. Trial orders from just 200 units on most product lines. 30% T/T to start, 70% after inspection. Sample fees fully refunded against your first order. OEM and ODM programmes available.',
+    why4_t:'Export Expertise',why4_d:'FOB Shenzhen, Yantian, and Guangzhou. Full export documentation: B/L, Certificate of Origin, commercial invoice, and packing list included with every shipment. We speak the language of international trade.',
     faq_lbl:'Common Questions',faq_h2:'Answers before <em>you ask.</em>',
     faq_1_q:'Do your products work during power cuts?',faq_1_a:'Yes — that\'s the point. Every solar product charges independently during daylight and operates through the night without any connection to the grid. In markets like Colombia, Ecuador, and South Africa where outages are frequent or extended, this is the core selling argument to your end customers.',
     faq_2_q:'What is your typical MOQ?',faq_2_a:'From 200 units for trial orders on most products, scaling to 1,000+ for retail-pack programmes. We work with SOHO buyers, small distributors, and large importers alike.',
@@ -885,20 +814,11 @@ const T = {
     proc_2_t:'样品与确认',proc_2_d:'1–3只样品DHL或FedEx国际快递发出，供您实物评估。样品费在首单中全额返还。',proc_2_time:'7–15 天',
     proc_3_t:'生产与品控',proc_3_d:'30% T/T订金锁单。在认证工厂生产。出货前提供驻厂检验报告，确认后再支付尾款。',proc_3_time:'30–45 天',
     proc_4_t:'出货与文件',proc_4_d:'FOB深圳/盐田/广州装柜。提供完整出口文件：B/L提单、产地证、CE证书、装箱单、商业发票。',proc_4_time:'海运 25–40 天',
-    ana_lbl:'产品解剖',ana_h2:'三头太阳能感应投光灯<em>内部一览。</em>',ana_sub:'六个核心组件协同工作，输出2,500–3,500流明。点击产品炸开，再点任一组件切换至详情视图。',
-    ana_btn_explode:'▸ 点击炸开',ana_btn_assemble:'↺ 重新组装',ana_back:'← 返回总览',
-    d_mat:'材质',d_out:'输出',d_enc:'封装',d_seal:'密封',d_cable:'线缆',d_life:'寿命',
-    d_type:'类型',d_cov:'覆盖角度',d_range:'感应距离',d_trig:'触发时间',d_modes:'工作模式',d_temp:'工作温度',
-    d_conf:'配置',d_count:'LED数量',d_total:'总流明',d_cct:'色温',d_beam:'光束角',d_led:'LED类型',
-    d_surf:'表面处理',d_ip:'防护等级',d_int:'内部结构',d_heat:'散热',d_mount:'安装方式',
-    d_chem:'化学体系',d_cells:'电芯',d_cap:'容量',d_volt:'电压',d_cyc:'循环寿命',
-    d_holes:'安装孔',d_adj:'调节范围',d_dist:'距墙距离',d_fit:'壁面附件',d_load:'最大负载',
-    d1_n:'太阳能板',d1_d:'单晶硅光伏板，顶部安装，配抗紫外封装层。全天捕捉日光为内置电池充电，阴天条件下仍可工作。',
-    d2_n:'PIR人体感应器',d2_d:'双元热释电感应器，配270°检测扇区。在感应范围内检测到人体大小运动时，0.5秒内触发全亮模式。',
-    d3_n:'LED灯头 · ×3',d3_d:'三组独立可调LED阵列。每个灯头可单独调向，照亮车道、围界与门口。三头合计输出可达3,500流明。',
-    d4_n:'主壳体',d4_d:'压铸铝合金机身，保护内部控制板、电池与PCB。专为从寒带到热带的全球气候条件下的长期户外使用而设计。',
-    d5_n:'磷酸铁锂电池',d5_d:'磷酸铁锂电池，因热稳定性与超长循环寿命被选用。三只18650电芯整夜续航，在工作温度范围内输出稳定。',
-    d6_n:'壁挂支架',d6_d:'304不锈钢L型支架，配可调铰链结构。通过四颗标准M6螺丝将灯具固定到垂直面，适配砖墙、混凝土与石材。',
+    why_lbl:'为何选择我们',why_h2:'为进口商而生。<br><em>被分销商信赖。</em>',why_sub:'遍布30多个国家的采购经理选择JC Lightning作为其太阳能照明合作伙伴的四个理由。',
+    why1_t:'值得信赖的品质管控',why1_d:'每笔订单均通过出货前检验并出具详细报告，您在支付尾款前即可查看。CE和RoHS测试证书随询价一并提供——无需等待，无需催促。',
+    why2_t:'有竞争力的FOB价格',why2_d:'直接来自中国太阳能照明制造中心。无中间商。透明的FOB报价包含完整规格书、交期确认及所有认证文件。',
+    why3_t:'灵活的试单政策',why3_d:'从小批量开始。多数产品线试单仅需200件起订。30%电汇定金启动生产，验货后付清70%。样品费在首单中全额退还。支持OEM和ODM。',
+    why4_t:'出口专长',why4_d:'FOB深圳盐田港和广州港。全套出口单证——提单、原产地证、商业发票和装箱单一并交付。我们深谙国际贸易。',
     faq_lbl:'常见问题',faq_h2:'您还没问，<em>答案就在这里。</em>',
     faq_1_q:'停电时产品还能正常工作吗？',faq_1_a:'可以——这正是产品的核心价值所在。每款太阳能产品白天独立充电，整夜运行，完全不依赖电网。在哥伦比亚、厄瓜多尔、南非等停电频繁或持续时间长的市场，这正是你向终端客户最有力的销售论点。',
     faq_2_q:'您的最低起订量是多少？',faq_2_a:'大部分产品试单200只起，零售装项目1000只起。我们同时服务SOHO买家、中小分销商及大型进口商。',
@@ -960,20 +880,11 @@ const T = {
     proc_2_t:'Muestra y Aprobación',proc_2_d:'1–3 unidades por DHL o FedEx para evaluación física. Tarifa de muestra totalmente reembolsada con tu primer pedido.',proc_2_time:'7–15 días',
     proc_3_t:'Producción y QC',proc_3_d:'30% depósito T/T confirma el pedido. Producción en fábricas verificadas. Informe de inspección antes del pago final.',proc_3_time:'30–45 días',
     proc_4_t:'Envío y Documentos',proc_4_d:'FOB Shenzhen, Yantian o Guangzhou. Documentación completa: B/L, Certificado de Origen, CE, packing list, factura comercial.',proc_4_time:'Tránsito 25–40 días',
-    ana_lbl:'La Anatomía',ana_h2:'Dentro del Foco Solar <em>de 3 Cabezales.</em>',ana_sub:'Seis componentes de ingeniería que entregan 2.500–3.500 lúmenes. Haga clic en el producto para explotarlo, luego en cualquier componente para ver su detalle.',
-    ana_btn_explode:'▸ Clic para Explotar',ana_btn_assemble:'↺ Reensamblar',ana_back:'← Volver a la Vista General',
-    d_mat:'Material',d_out:'Salida',d_enc:'Encapsulación',d_seal:'Sellado',d_cable:'Cable',d_life:'Vida útil',
-    d_type:'Tipo',d_cov:'Cobertura',d_range:'Alcance',d_trig:'Tiempo de Disparo',d_modes:'Modos',d_temp:'Temperatura Operativa',
-    d_conf:'Configuración',d_count:'Cantidad de LED',d_total:'Salida Total',d_cct:'Temperatura de Color',d_beam:'Ángulo del Haz',d_led:'Tipo de LED',
-    d_surf:'Superficie',d_ip:'Clasificación IP',d_int:'Interior',d_heat:'Disipación de Calor',d_mount:'Tipo de Montaje',
-    d_chem:'Química',d_cells:'Celdas',d_cap:'Capacidad',d_volt:'Voltaje',d_cyc:'Vida Cíclica',
-    d_holes:'Orificios de Montaje',d_adj:'Ajuste',d_dist:'Distancia a la Pared',d_fit:'Accesorios de Pared',d_load:'Carga Máxima',
-    d1_n:'Panel Solar',d1_d:'Conjunto fotovoltaico de silicio monocristalino con encapsulante estable a UV. Carga la batería integrada durante todo el día, incluso en condiciones nubladas.',
-    d2_n:'Sensor PIR de Movimiento',d2_d:'Sensor piroeléctrico de doble elemento con cono de detección de 270°. Activa la iluminación en menos de 0,5 segundos al detectar movimiento humano.',
-    d3_n:'Cabezales LED · ×3',d3_d:'Tres conjuntos de LED ajustables independientemente. Cada cabezal puede orientarse para iluminar accesos, perímetros y entradas. Salida combinada de 3.500 lúmenes.',
-    d4_n:'Carcasa Principal',d4_d:'Cuerpo de aluminio fundido que protege la placa de control, la batería y el PCB. Diseñado para exposición exterior sostenida en todas las zonas climáticas.',
-    d5_n:'Batería LiFePO4',d5_d:'Batería de fosfato de hierro y litio por su estabilidad térmica y larga vida cíclica. Tres celdas 18650 para autonomía nocturna con salida constante en todo el rango operativo.',
-    d6_n:'Soporte de Pared',d6_d:'Soporte en L de acero inoxidable 304 con pivote ajustable. Se fija con cuatro fijaciones M6 estándar, apto para ladrillo, hormigón y piedra.',
+    why_lbl:'Por Qué Elegirnos',why_h2:'Hecho para importadores.<br><em>Confiable para distribuidores.</em>',why_sub:'Cuatro razones por las que gerentes de compras en más de 30 países eligen JC Lightning como su proveedor de iluminación solar.',
+    why1_t:'Control de Calidad Confiable',why1_d:'Cada pedido pasa una inspección previa al embarque con un informe detallado antes de que pague el saldo. Certificados CE y RoHS proporcionados por adelantado — sin esperas.',
+    why2_t:'Precios FOB Competitivos',why2_d:'Directamente desde nuestra base de fabricación en el centro de iluminación solar de China. Sin intermediarios. Cotizaciones FOB transparentes con especificaciones completas y certificaciones.',
+    why3_t:'Pedidos Iniciales Flexibles',why3_d:'Comience con poco. Pedidos de prueba desde solo 200 unidades en la mayoría de las líneas. 30% T/T para iniciar, 70% después de la inspección. Costo de muestras reembolsable. OEM y ODM disponibles.',
+    why4_t:'Experiencia en Exportación',why4_d:'FOB Shenzhen, Yantian y Guangzhou. Documentación completa de exportación: B/L, Certificado de Origen, factura comercial y lista de empaque incluidos en cada envío.',
     faq_lbl:'Preguntas Frecuentes',faq_h2:'Respuestas antes de <em>que pregunte.</em>',
     faq_1_q:'¿Funcionan sus productos durante los cortes de luz?',faq_1_a:'Sí — ese es precisamente el punto. Cada producto solar se carga de forma independiente durante el día y funciona toda la noche sin conexión a la red. En mercados como Colombia, Ecuador y Sudáfrica, este es el argumento de venta principal ante tus clientes finales.',
     faq_2_q:'¿Cuál es su MOQ típico?',faq_2_a:'Desde 200 unidades en pedidos de prueba, escalando a 1.000+ para programas de retail. Trabajamos con compradores SOHO, pequeños distribuidores y grandes importadores.',
@@ -1039,46 +950,11 @@ window.addEventListener('scroll',()=>{
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// 产品解剖图
-const anaSec=document.querySelector('.anatomy');
-const anaSvg=document.querySelector('.anatomy-svg');
-const anaTog=document.querySelector('.ana-toggle');
-const anaBack=document.querySelector('.ana-back');
-if(anaSec){
-  const anaObs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){anaSec.classList.add('is-on');anaObs.disconnect();}}),{threshold:0.15});
-  anaObs.observe(anaSec);
-  function triggerBurstAt(cx,cy){
-    document.querySelectorAll('.ana-burst circle').forEach(c=>{c.setAttribute('cx',cx);c.setAttribute('cy',cy);});
-    anaSec.classList.remove('is-bursting');void anaSec.offsetWidth;anaSec.classList.add('is-bursting');
-    setTimeout(()=>anaSec.classList.remove('is-bursting'),1100);
-  }
-  function setState(state){
-    anaSec.dataset.state=state;
-    document.querySelectorAll('.detail-content').forEach(el=>el.classList.remove('is-active'));
-    if(state.startsWith('detail-')){
-      const i=state.replace('detail-','');
-      const target=document.querySelector(`.detail-content[data-comp="${i}"]`);
-      if(target) target.classList.add('is-active');
-    }
-  }
-  anaSvg.addEventListener('click',e=>{
-    if(anaSec.dataset.state==='assembled'){setState('overview');triggerBurstAt(280,400);return;}
-    const layer=e.target.closest('.ana-layer');
-    if(layer){triggerBurstAt(parseFloat(layer.dataset.cx),parseFloat(layer.dataset.cy));setState('detail-'+layer.dataset.i);}
-  });
-  anaTog.addEventListener('click',e=>{
-    e.stopPropagation();
-    anaSec.dataset.state==='assembled'?setState('overview'):setState('assembled');
-    triggerBurstAt(280,400);
-  });
-  if(anaBack){anaBack.addEventListener('click',e=>{e.stopPropagation();triggerBurstAt(280,400);setState('overview');});}
-}
-
 // 鼠标光晕
 const glow=document.querySelector('.cursor-glow');
 let mx=0,my=0,gx=0,gy=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-document.querySelectorAll('.hero,.anatomy,.brand,.contact').forEach(s=>{
+document.querySelectorAll('.hero,.why,.brand,.contact').forEach(s=>{
   s.addEventListener('mouseenter',()=>glow.classList.add('on'));
   s.addEventListener('mouseleave',()=>glow.classList.remove('on'));
 });
