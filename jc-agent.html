@@ -1,111 +1,183 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JC Lightning — 线索搜索Agent</title>
+<title>JC Lightning — 外贸助手 Agent</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f3; color: #1a1a1a; min-height: 100vh; }
-  .topbar { background: #1a1a1a; color: #fff; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
-  .topbar-logo { font-size: 15px; font-weight: 500; letter-spacing: 0.02em; }
-  .topbar-logo span { color: #6ee7b7; }
-  .topbar-key { font-size: 12px; color: #888; cursor: pointer; display: flex; align-items: center; gap: 6px; }
-  .topbar-key:hover { color: #ccc; }
-  .container { max-width: 780px; margin: 0 auto; padding: 24px 16px; }
-  .card { background: #fff; border-radius: 12px; border: 1px solid #e5e5e5; padding: 20px; margin-bottom: 16px; }
-  .card-title { font-size: 13px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
-  .filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-  label.check { font-size: 13px; display: flex; align-items: center; gap: 7px; cursor: pointer; color: #444; }
-  select, input[type="text"], input[type="password"] { width: 100%; padding: 9px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: #fafafa; color: #1a1a1a; appearance: none; }
-  select:focus, input:focus { outline: none; border-color: #1a1a1a; background: #fff; }
-  .btn { display: block; width: 100%; padding: 11px; background: #1a1a1a; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; }
-  .btn:hover { opacity: 0.85; }
-  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-  .btn-sm { padding: 5px 12px; font-size: 12px; border-radius: 6px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; cursor: pointer; font-weight: 500; }
-  .btn-sm:hover { background: #f5f5f3; }
-  .btn-green { border-color: #6ee7b7; color: #065f46; }
-  .status { font-size: 13px; color: #888; display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: #6ee7b7; flex-shrink: 0; }
-  .dot.spin { background: #f59e0b; animation: pulse 1s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .lead-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
-  .lead-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-  .avatar { width: 40px; height: 40px; border-radius: 50%; background: #d1fae5; color: #065f46; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
-  .lead-name { font-size: 15px; font-weight: 500; }
-  .lead-sub { font-size: 13px; color: #666; margin-top: 1px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-  .tag { font-size: 11px; padding: 3px 9px; border-radius: 20px; background: #f5f5f3; border: 1px solid #e5e5e5; color: #555; }
-  .tag-g { background: #d1fae5; border-color: #6ee7b7; color: #065f46; }
-  .tag-b { background: #dbeafe; border-color: #93c5fd; color: #1e40af; }
-  .actions { display: flex; gap: 8px; }
-  .email-box { background: #f9f9f8; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; font-size: 13px; line-height: 1.7; white-space: pre-wrap; margin-top: 12px; color: #1a1a1a; }
-  .email-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-  .email-label { font-size: 11px; color: #888; font-weight: 500; text-transform: uppercase; }
-  .divider { border: none; border-top: 1px solid #e5e5e5; margin: 12px 0; }
-  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: center; justify-content: center; }
-  .modal.open { display: flex; }
-  .modal-box { background: #fff; border-radius: 12px; padding: 24px; width: 90%; max-width: 420px; }
-  .modal-title { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
-  .modal-sub { font-size: 13px; color: #888; margin-bottom: 16px; }
-  .modal-actions { display: flex; gap: 8px; margin-top: 14px; }
-  .modal-actions button { flex: 1; }
-  .btn-cancel { background: #f5f5f3; color: #1a1a1a; border: 1px solid #ddd; border-radius: 8px; padding: 10px; font-size: 14px; cursor: pointer; }
-  .empty { text-align: center; padding: 32px; color: #999; font-size: 14px; }
-  .copied { color: #065f46 !important; }
-  @media(max-width: 520px) { .filter-grid { grid-template-columns: 1fr; } }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f3;color:#1a1a1a;min-height:100vh}
+  .topbar{background:#0e0c0a;color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+  .topbar-logo{font-size:15px;font-weight:500;letter-spacing:.02em}
+  .topbar-logo span{color:#c9a24e}
+  .topbar-r{display:flex;align-items:center;gap:12px}
+  .topbar-key{font-size:12px;color:#888;cursor:pointer;display:flex;align-items:center;gap:6px;background:none;border:1px solid #333;padding:5px 10px;border-radius:6px;transition:all .2s}
+  .topbar-key:hover{color:#ccc;border-color:#666}
+  .topbar-key.has{color:#6ee7b7;border-color:#6ee7b7}
+  .tabs{display:flex;gap:0;background:#fff;border-bottom:1px solid #e5e5e5;overflow-x:auto;position:sticky;top:53px;z-index:99}
+  .tab{padding:12px 18px;font-size:13px;border:none;background:none;cursor:pointer;color:#888;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;font-family:inherit}
+  .tab:hover{color:#1a1a1a;background:#fafaf8}
+  .tab.active{color:#0e0c0a;border-bottom-color:#c9a24e;font-weight:500}
+  .container{max-width:800px;margin:0 auto;padding:20px 16px 80px}
+  .card{background:#fff;border-radius:10px;border:1px solid #e5e5e5;padding:20px;margin-bottom:14px}
+  .card-title{font-size:13px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+  .row3{grid-template-columns:1fr 1fr 1fr}
+  .field{display:flex;flex-direction:column;gap:4px}
+  .field label{font-size:12px;color:#888}
+  select,input[type=text],input[type=password],textarea{width:100%;padding:9px 11px;border:1px solid #ddd;border-radius:8px;font-size:14px;background:#fafafa;color:#1a1a1a;font-family:inherit}
+  select:focus,input:focus,textarea:focus{outline:none;border-color:#0e0c0a;background:#fff}
+  textarea{resize:vertical;min-height:80px}
+  .checks{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+  .checks label{font-size:13px;display:flex;align-items:center;gap:7px;cursor:pointer;color:#444}
+  .btn{display:block;width:100%;padding:11px;background:#0e0c0a;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:opacity .15s}
+  .btn:hover{opacity:.85}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .btn-sm{padding:5px 12px;font-size:12px;border-radius:6px;border:1px solid #ddd;background:#fff;color:#1a1a1a;cursor:pointer;font-weight:500}
+  .btn-sm:hover{background:#f5f5f3}
+  .btn-copy{border-color:#6ee7b7;color:#065f46}
+  .status{font-size:13px;color:#888;display:flex;align-items:center;gap:8px;margin-bottom:14px;padding:0 4px}
+  .dot{width:7px;height:7px;border-radius:50%;background:#6ee7b7;flex-shrink:0}
+  .dot.spin{background:#f59e0b;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .result-card{background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:16px;margin-bottom:10px}
+  .result-hd{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .avatar{width:40px;height:40px;border-radius:50%;background:#d1fae5;color:#065f46;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0}
+  .avatar2{background:#fef3c7;color:#92400e}
+  .avatar3{background:#dbeafe;color:#1e40af}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+  .tag{font-size:11px;padding:3px 9px;border-radius:20px;background:#f5f5f3;border:1px solid #e5e5e5;color:#555}
+  .tag-g{background:#d1fae5;border-color:#6ee7b7;color:#065f46}
+  .tag-b{background:#dbeafe;border-color:#93c5fd;color:#1e40af}
+  .tag-y{background:#fef3c7;border-color:#fcd34d;color:#92400e}
+  .info-box{background:#f9f9f8;border:1px solid #e5e5e5;border-radius:8px;padding:14px;font-size:13px;line-height:1.7;white-space:pre-wrap;margin-top:10px}
+  .info-box h4{font-size:14px;font-weight:500;margin-bottom:6px;color:#0e0c0a}
+  .info-box h4:not(:first-child){margin-top:14px}
+  .divider{border:none;border-top:1px solid #e5e5e5;margin:12px 0}
+  .actions{display:flex;gap:8px}
+  .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center}
+  .modal.open{display:flex}
+  .modal-box{background:#fff;border-radius:12px;padding:24px;width:90%;max-width:420px}
+  .modal-title{font-size:16px;font-weight:500;margin-bottom:6px}
+  .modal-sub{font-size:13px;color:#888;margin-bottom:16px}
+  .modal-actions{display:flex;gap:8px;margin-top:14px}
+  .modal-actions button{flex:1}
+  .btn-cancel{background:#f5f5f3;color:#1a1a1a;border:1px solid #ddd;border-radius:8px;padding:10px;font-size:14px;cursor:pointer}
+  .empty{text-align:center;padding:32px;color:#999;font-size:14px}
+  .mode-panel{display:none}
+  .mode-panel.active{display:block}
+  @media(max-width:520px){.row,.row3{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div class="topbar-logo">JC <span>Lightning</span> — 线索Agent</div>
-  <div class="topbar-key" onclick="openKeyModal()">
-    ⚙ API Key <span id="keyStatus">未设置</span>
+  <div class="topbar-logo">JC <span>Lightning</span> · 外贸助手</div>
+  <div class="topbar-r">
+    <span style="font-size:11px;color:#666;display:none" id="modeLabel"></span>
+    <button class="topbar-key" id="keyBtn" onclick="openKeyModal()">⚙ <span id="keyStatus">未设置 Key</span></button>
   </div>
+</div>
+
+<div class="tabs" id="tabBar">
+  <button class="tab active" data-mode="leads">🔍 找客户</button>
+  <button class="tab" data-mode="market">📊 市场情报</button>
+  <button class="tab" data-mode="product">🎯 选品推荐</button>
+  <button class="tab" data-mode="competitor">👀 竞品分析</button>
+  <button class="tab" data-mode="regs">📋 查法规</button>
+  <button class="tab" data-mode="email">✏ 写邮件</button>
 </div>
 
 <div class="container">
 
-  <div class="card">
-    <div class="card-title">搜索条件</div>
-    <div class="filter-grid">
-      <div>
-        <div style="font-size:12px;color:#888;margin-bottom:5px;">目标市场</div>
-        <select id="country">
-          <option value="Colombia">🇨🇴 哥伦比亚</option>
-          <option value="South Africa">🇿🇦 南非</option>
-          <option value="Australia">🇦🇺 澳大利亚</option>
-          <option value="Ecuador">🇪🇨 厄瓜多尔</option>
-          <option value="Spain">🇪🇸 西班牙</option>
-        </select>
+  <!-- ====== MODE 1: 找客户 ====== -->
+  <div class="mode-panel active" id="panel-leads">
+    <div class="card">
+      <div class="card-title">🔍 查找潜在客户</div>
+      <div class="row">
+        <div class="field"><label>目标国家</label><select id="ld-country"><option value="Colombia">🇨🇴 哥伦比亚</option><option value="South Africa">🇿🇦 南非</option><option value="Australia">🇦🇺 澳大利亚</option><option value="Ecuador">🇪🇨 厄瓜多尔</option><option value="Spain">🇪🇸 西班牙</option></select></div>
+        <div class="field"><label>客户类型</label><select id="ld-industry"><option value="solar lighting distributor">太阳能灯具经销商</option><option value="electrical equipment importer">电气设备进口商</option><option value="solar energy contractor">太阳能工程商</option><option value="lighting wholesaler">灯具批发商</option><option value="renewable energy company">可再生能源公司</option></select></div>
       </div>
-      <div>
-        <div style="font-size:12px;color:#888;margin-bottom:5px;">客户类型</div>
-        <select id="industry">
-          <option value="solar lighting distributor">太阳能灯具经销商</option>
-          <option value="electrical equipment importer">电气设备进口商</option>
-          <option value="solar energy contractor">太阳能承包商</option>
-          <option value="lighting wholesaler">灯具批发商</option>
-        </select>
+      <div class="checks">
+        <label><input type="checkbox" id="ld-c1" checked> 老板/Owner/CEO</label>
+        <label><input type="checkbox" id="ld-c2" checked> 采购经理</label>
+        <label><input type="checkbox" id="ld-c3" checked> 销售/商务总监</label>
       </div>
+      <button class="btn" id="ld-btn" onclick="runLeads()">🔍 搜索客户</button>
     </div>
-    <div style="margin-bottom:14px;">
-      <div style="font-size:12px;color:#888;margin-bottom:8px;">职位筛选</div>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;">
-        <label class="check"><input type="checkbox" id="chk1" checked> 老板/Owner/CEO</label>
-        <label class="check"><input type="checkbox" id="chk2" checked> 采购经理</label>
-        <label class="check"><input type="checkbox" id="chk3" checked> 销售/商务总监</label>
-      </div>
-    </div>
-    <button class="btn" id="searchBtn" onclick="runSearch()">搜索线索</button>
   </div>
 
-  <div id="statusWrap" style="display:none;" class="status">
+  <!-- ====== MODE 2: 市场情报 ====== -->
+  <div class="mode-panel" id="panel-market">
+    <div class="card">
+      <div class="card-title">📊 市场情报</div>
+      <div class="row">
+        <div class="field"><label>目标国家</label><select id="mk-country"><option value="Colombia">🇨🇴 哥伦比亚</option><option value="South Africa">🇿🇦 南非</option><option value="Australia">🇦🇺 澳大利亚</option><option value="Ecuador">🇪🇨 厄瓜多尔</option><option value="Spain">🇪🇸 西班牙</option></select></div>
+        <div class="field"><label>关注重点</label><select id="mk-focus"><option value="full">全面分析</option><option value="demand">需求趋势</option><option value="duties">关税成本</option><option value="energy">能源现状</option></select></div>
+      </div>
+      <div style="font-size:12px;color:#888;margin-bottom:8px">获取目标市场的能源现状、太阳能照明需求、进口关税、认证要求和分销渠道信息。</div>
+      <button class="btn" id="mk-btn" onclick="runMarket()">📊 获取市场情报</button>
+    </div>
+  </div>
+
+  <!-- ====== MODE 3: 选品推荐 ====== -->
+  <div class="mode-panel" id="panel-product">
+    <div class="card">
+      <div class="card-title">🎯 选品推荐</div>
+      <div class="row">
+        <div class="field"><label>目标国家</label><select id="pp-country"><option value="Colombia">🇨🇴 哥伦比亚</option><option value="South Africa">🇿🇦 南非</option><option value="Australia">🇦🇺 澳大利亚</option><option value="Ecuador">🇪🇨 厄瓜多尔</option><option value="Spain">🇪🇸 西班牙</option></select></div>
+        <div class="field"><label>客户类型</label><select id="pp-channel"><option value="distributor">分销商/批发</option><option value="installer">安装商/工程公司</option><option value="retail">零售商超</option><option value="project">项目采购</option></select></div>
+      </div>
+      <button class="btn" id="pp-btn" onclick="runProductFit()">🎯 分析选品策略</button>
+    </div>
+  </div>
+
+  <!-- ====== MODE 4: 竞品分析 ====== -->
+  <div class="mode-panel" id="panel-competitor">
+    <div class="card">
+      <div class="card-title">👀 竞品分析</div>
+      <div class="row">
+        <div class="field"><label>目标市场</label><select id="cp-country"><option value="Colombia">🇨🇴 哥伦比亚</option><option value="South Africa">🇿🇦 南非</option><option value="Australia">🇦🇺 澳大利亚</option><option value="Ecuador">🇪🇨 厄瓜多尔</option><option value="Spain">🇪🇸 西班牙</option></select></div>
+        <div class="field"><label>产品品类</label><select id="cp-category"><option value="solar security lights">太阳能安防灯</option><option value="solar garden lights">太阳能花园灯</option><option value="solar wall lanterns">太阳能装饰壁灯</option><option value="solar floodlights">太阳能投光灯</option><option value="all solar outdoor lighting">全品类</option></select></div>
+      </div>
+      <button class="btn" id="cp-btn" onclick="runCompetitor()">👀 分析竞争对手</button>
+    </div>
+  </div>
+
+  <!-- ====== MODE 5: 查法规 ====== -->
+  <div class="mode-panel" id="panel-regs">
+    <div class="card">
+      <div class="card-title">📋 进口法规查询</div>
+      <div class="row">
+        <div class="field"><label>目标国家</label><select id="rg-country"><option value="Colombia">🇨🇴 哥伦比亚</option><option value="South Africa">🇿🇦 南非</option><option value="Australia">🇦🇺 澳大利亚</option><option value="Ecuador">🇪🇨 厄瓜多尔</option><option value="Spain">🇪🇸 西班牙</option></select></div>
+        <div class="field"><label>查询内容</label><select id="rg-topic"><option value="all">全部法规信息</option><option value="tariff">关税/HS编码</option><option value="certification">认证要求</option><option value="labeling">标签/包装要求</option></select></div>
+      </div>
+      <button class="btn" id="rg-btn" onclick="runRegs()">📋 查询法规</button>
+    </div>
+  </div>
+
+  <!-- ====== MODE 6: 写邮件 ====== -->
+  <div class="mode-panel" id="panel-email">
+    <div class="card">
+      <div class="card-title">✏ 智能写邮件</div>
+      <div class="row">
+        <div class="field"><label>收件人国家</label><select id="em-country"><option value="Colombia">🇨🇴 哥伦比亚</option><option value="South Africa">🇿🇦 南非</option><option value="Australia">🇦🇺 澳大利亚</option><option value="Ecuador">🇪🇨 厄瓜多尔</option><option value="Spain">🇪🇸 西班牙</option></select></div>
+        <div class="field"><label>邮件类型</label><select id="em-type"><option value="cold">初次开发信</option><option value="followup">跟进邮件(未回复)</option><option value="quote">报价跟进</option><option value="sample">样品确认后</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>收件人姓名</label><input type="text" id="em-name" placeholder="例: Carlos Mendoza"></div>
+        <div class="field"><label>公司名</label><input type="text" id="em-company" placeholder="例: Energía Solar Ltda"></div>
+      </div>
+      <div class="field" style="margin-bottom:12px"><label>补充信息（可选）</label><textarea id="em-extra" placeholder="产品兴趣、之前沟通内容等…"></textarea></div>
+      <button class="btn" id="em-btn" onclick="runEmail()">✏ 生成邮件</button>
+    </div>
+  </div>
+
+  <!-- ====== Results ====== -->
+  <div id="statusWrap" style="display:none" class="status">
     <div class="dot spin" id="dot"></div>
-    <span id="statusTxt">搜索中...</span>
+    <span id="statusTxt">处理中...</span>
   </div>
-
   <div id="results"></div>
 
 </div>
@@ -114,8 +186,8 @@
 <div class="modal" id="keyModal">
   <div class="modal-box">
     <div class="modal-title">设置 Anthropic API Key</div>
-    <div class="modal-sub">Key只保存在你的浏览器本地，不会上传任何地方。</div>
-    <input type="password" id="keyInput" placeholder="sk-ant-api03-..." />
+    <div class="modal-sub">Key 只保存在你的浏览器本地，不上传任何服务器。</div>
+    <input type="password" id="keyInput" placeholder="sk-ant-api03-...">
     <div class="modal-actions">
       <button class="btn-cancel" onclick="closeKeyModal()">取消</button>
       <button class="btn" onclick="saveKey()">保存</button>
@@ -124,278 +196,380 @@
 </div>
 
 <script>
-let leads = [];
-let searchSource = 'fallback'; // 'web' | 'fallback'
+// ====== Shared State ======
+function getKey(){return localStorage.getItem('jc_api_key')||''}
+function saveKey(){const v=document.getElementById('keyInput').value.trim();if(!v)return;localStorage.setItem('jc_api_key',v);updateKeyUI();closeKeyModal()}
+function openKeyModal(){document.getElementById('keyInput').value=getKey();document.getElementById('keyModal').classList.add('open')}
+function closeKeyModal(){document.getElementById('keyModal').classList.remove('open')}
+function updateKeyUI(){const has=getKey();const s=document.getElementById('keyStatus');const b=document.getElementById('keyBtn');s.textContent=has?'已设置':'未设置 Key';b.className='topbar-key'+(has?' has':'')}
+window.addEventListener('load',updateKeyUI);
 
-function getKey() { return localStorage.getItem('jc_api_key') || ''; }
-function saveKey() {
-  const v = document.getElementById('keyInput').value.trim();
-  if (!v) return;
-  localStorage.setItem('jc_api_key', v);
-  document.getElementById('keyStatus').textContent = '已设置';
-  closeKeyModal();
+// ====== Tab Switching ======
+document.getElementById('tabBar').addEventListener('click',e=>{
+  if(!e.target.classList.contains('tab'))return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  e.target.classList.add('active');
+  document.querySelectorAll('.mode-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+e.target.dataset.mode).classList.add('active');
+  document.getElementById('results').innerHTML='';
+  document.getElementById('statusWrap').style.display='none';
+});
+
+// ====== API Call Helper ======
+async function callClaude(prompt,maxTokens=2500){
+  const key=getKey();
+  if(!key){openKeyModal();throw new Error('no_key')}
+  const resp=await fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01'},
+    body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',
+      max_tokens:maxTokens,
+      messages:[{role:'user',content:prompt}],
+      tools:[{type:'web_search',name:'web_search'}],
+      tool_choice:{type:'auto'}
+    })
+  });
+  if(!resp.ok){
+    if(resp.status===401||resp.status===403)throw new Error('invalid_key');
+    throw new Error(`API ${resp.status}`);
+  }
+  const data=await resp.json();
+  let text='';
+  if(data.content)data.content.forEach(b=>{if(b.type==='text')text+=b.text});
+  return text;
 }
-function openKeyModal() {
-  document.getElementById('keyInput').value = getKey();
-  document.getElementById('keyModal').classList.add('open');
+
+function setLoading(btnId,txt){
+  document.getElementById(btnId).disabled=true;
+  document.getElementById('statusWrap').style.display='flex';
+  document.getElementById('statusTxt').textContent=txt;
+  document.getElementById('dot').className='dot spin';
+  document.getElementById('results').innerHTML='';
 }
-function closeKeyModal() { document.getElementById('keyModal').classList.remove('open'); }
-
-window.onload = () => {
-  if (getKey()) document.getElementById('keyStatus').textContent = '已设置';
-};
-
-function initials(name) {
-  return name.split(' ').slice(0,2).map(n=>n[0]).join('').toUpperCase();
+function setDone(btnId,txt){
+  document.getElementById('dot').className='dot';
+  document.getElementById('statusTxt').textContent=txt;
+  document.getElementById(btnId).disabled=false;
+}
+function showError(btnId,msg){
+  document.getElementById('results').innerHTML=`<div class="empty">${msg}</div>`;
+  setDone(btnId,'出错 — 请重试');
 }
 
-async function runSearch() {
-  const key = getKey();
-  if (!key) { openKeyModal(); return; }
-
-  const country = document.getElementById('country').value;
-  const industry = document.getElementById('industry').value;
-  const titles = [
-    document.getElementById('chk1').checked ? 'Owner, CEO, Director, Founder, Gerente General, Propietario, Managing Director' : '',
-    document.getElementById('chk2').checked ? 'Purchasing Manager, Import Manager, Compras, Procurement Manager, Jefe de Compras' : '',
-    document.getElementById('chk3').checked ? 'Sales Director, Commercial Director, Director Comercial, Business Development' : ''
+// ====== MODE 1: 找客户 ======
+async function runLeads(){
+  const country=document.getElementById('ld-country').value;
+  const industry=document.getElementById('ld-industry').value;
+  const titles=[
+    document.getElementById('ld-c1').checked?'Owner, CEO, Director, Founder, Gerente General, Propietario, Managing Director':'',
+    document.getElementById('ld-c2').checked?'Purchasing Manager, Import Manager, Compras, Procurement Manager, Jefe de Compras':'',
+    document.getElementById('ld-c3').checked?'Sales Director, Commercial Director, Director Comercial, Business Development':''
   ].filter(Boolean).join(', ');
 
-  document.getElementById('searchBtn').disabled = true;
-  document.getElementById('statusWrap').style.display = 'flex';
-  document.getElementById('statusTxt').textContent = `正在搜索 ${country} 的 ${industry}...`;
-  document.getElementById('dot').className = 'dot spin';
-  document.getElementById('results').innerHTML = '';
+  setLoading('ld-btn',`正在搜索 ${country} 的 ${industry}...`);
 
-  const countrySearches = {
-    'Colombia': 'site:linkedin.com/in "Colombia" solar OR iluminación OR energía OR lighting importer OR distributor OR compras',
-    'South Africa': 'site:linkedin.com/in "South Africa" solar OR lighting OR energy importer OR distributor OR procurement',
-    'Australia': 'site:linkedin.com/in "Australia" solar OR lighting OR energy importer OR distributor OR wholesale',
-    'Ecuador': 'site:linkedin.com/in "Ecuador" solar OR iluminación OR energía OR lighting importador OR distribuidor',
-    'Spain': 'site:linkedin.com/in "Spain" solar OR iluminación OR energía OR lighting importador OR distribuidor OR compras'
+  const searches={
+    'Colombia':'site:linkedin.com/in "Colombia" solar OR iluminación OR energía importer OR distribuidor OR compras',
+    'South Africa':'site:linkedin.com/in "South Africa" solar OR lighting OR energy importer OR distributor OR procurement',
+    'Australia':'site:linkedin.com/in "Australia" solar OR lighting OR energy importer OR distributor OR wholesale',
+    'Ecuador':'site:linkedin.com/in "Ecuador" solar OR iluminación OR energía importador OR distribuidor',
+    'Spain':'site:linkedin.com/in "Spain" solar OR iluminación OR energía importador OR distribuidor OR compras'
   };
-  const searchQuery = countrySearches[country] || `site:linkedin.com/in "${country}" solar OR lighting importer OR distributor`;
+  const q=searches[country]||`site:linkedin.com/in "${country}" solar OR lighting importer`;
 
-  const prompt = `You are a B2B lead researcher for JC Lightning, a Chinese solar outdoor lighting manufacturer (solar security lights, garden lights, wall lanterns, LiFePO4 battery, CE/RoHS certified, FOB Shenzhen).
+  const prompt=`You are a B2B lead researcher. Find REAL business contacts in ${country} — ${industry}.
 
-Search the web for REAL business contacts in ${country} who work in the ${industry} industry.
+Search query: ${q}
+Job titles: ${titles}
 
-Job titles to look for: ${titles}
+Use web search to find real LinkedIn profiles. Return ONLY raw JSON array:
+[{"name":"Full Name","title":"Job Title","company":"Company Name","country":"${country}","email":null,"linkedin":"URL or null","industry":"${industry}","employees":"size or null"}]
 
-Search query: ${searchQuery}
+6-8 real contacts. Start with [, end with ]. No other text.`;
 
-CRITICAL INSTRUCTIONS:
-1. Use web search to find real LinkedIn profiles of people matching these criteria
-2. For each real person found, extract: full real name, exact job title, real company name, country
-3. Return ONLY a raw JSON array — no markdown, no code fences, no explanation:
-[
-  {
-    "name": "Real Person's Full Name",
-    "title": "Their Actual Job Title",
-    "company": "Company They Work At",
-    "country": "${country}",
-    "email": null,
-    "linkedin": "linkedin URL if found, otherwise null",
-    "industry": "${industry}",
-    "employees": "estimated company size or null"
+  try{
+    const text=await callClaude(prompt,3000);
+    const m=text.match(/\[[\s\S]*\]/);
+    const leads=m?JSON.parse(m[0]):fallbackLeads(country);
+    renderLeads(leads);
+    setDone('ld-btn',`✅ 实时搜索 — 找到 ${leads.length} 个潜在客户`);
+  }catch(e){
+    if(e.message==='invalid_key'){showError('ld-btn','API Key 无效，请点击右上角重新设置');return}
+    const leads=fallbackLeads(country);
+    renderLeads(leads);
+    setDone('ld-btn',`📋 本地数据 — ${leads.length} 个参考客户 (设置 Key 获取实时结果)`);
   }
-]
-4. Return 6-8 contacts. Every person must be a REAL individual found via web search.
-5. If you cannot find enough real contacts, supplement with highly realistic examples based on typical companies in that country's ${industry} sector, but mark those with email: null.
-6. Do NOT include any text outside the JSON array. Start with [, end with ].`;
-
-  try {
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 3000,
-        messages: [{ role: 'user', content: prompt }],
-        tools: [{ type: 'web_search', name: 'web_search' }],
-        tool_choice: { type: 'auto' }
-      })
-    });
-
-    if (!resp.ok) {
-      const errText = await resp.text();
-      if (resp.status === 401 || resp.status === 403) {
-        alert('API Key 无效，请检查后重试');
-      }
-      throw new Error(`API error ${resp.status}: ${errText}`);
-    }
-
-    const data = await resp.json();
-    let raw = '';
-    if (data.content) {
-      data.content.forEach(b => { if (b.type === 'text') raw += b.text; });
-    }
-    // Try to extract JSON array from response
-    const match = raw.match(/\[[\s\S]*\]/);
-    if (match) {
-      try {
-        leads = JSON.parse(match[0]);
-        if (!Array.isArray(leads) || leads.length === 0) throw new Error('Empty results');
-        searchSource = 'web';
-      } catch(parseErr) {
-        console.error('JSON parse failed, using fallback', parseErr);
-        leads = fallback(country);
-        searchSource = 'fallback';
-      }
-    } else {
-      leads = fallback(country);
-      searchSource = 'fallback';
-    }
-  } catch(e) {
-    console.error('Search failed:', e);
-    leads = fallback(country);
-    searchSource = 'fallback';
-  }
-
-  render(leads);
-  document.getElementById('dot').className = 'dot';
-  const srcLabel = searchSource === 'web' ? '🌐 实时搜索' : '📋 本地数据';
-  document.getElementById('statusTxt').textContent = `找到 ${leads.length} 个潜在客户 (${srcLabel})`;
-  document.getElementById('searchBtn').disabled = false;
 }
 
-function fallback(country) {
-  const data = {
-    'Colombia': [
-      { name:'Carlos Mendoza', title:'Gerente General', company:'Iluminación Solar del Pacífico', country:'Colombia', email:null, linkedin:null, industry:'Solar Energy', employees:'11-50' },
-      { name:'Andrés Restrepo', title:'Director de Compras', company:'Distribuidora Eléctrica Bogotá', country:'Colombia', email:null, linkedin:null, industry:'Electrical Equipment', employees:'51-200' },
-      { name:'María Ospina', title:'Fundadora', company:'EcoLuz Colombia', country:'Colombia', email:null, linkedin:null, industry:'Renewable Energy', employees:'1-10' }
-    ],
-    'South Africa': [
-      { name:'David Nkosi', title:'CEO', company:'SunTech Distributors SA', country:'South Africa', email:null, linkedin:null, industry:'Solar Energy', employees:'11-50' },
-      { name:'Thabo Molefe', title:'Procurement Manager', company:'African Solar Solutions', country:'South Africa', email:null, linkedin:null, industry:'Electrical Equipment', employees:'51-200' },
-      { name:'Sarah van der Berg', title:'Owner', company:'Cape Solar & Lighting', country:'South Africa', email:null, linkedin:null, industry:'Lighting', employees:'1-10' }
-    ],
-    'Australia': [
-      { name:'James Wilson', title:'Director', company:'Pacific Solar Imports', country:'Australia', email:null, linkedin:null, industry:'Solar Products', employees:'11-50' },
-      { name:'Emma Clarke', title:'Purchasing Manager', company:'Outback Energy Solutions', country:'Australia', email:null, linkedin:null, industry:'Renewable Energy', employees:'51-200' }
-    ],
-    'Ecuador': [
-      { name:'Roberto Vega', title:'Propietario', company:'Solar Ecuador Distribuciones', country:'Ecuador', email:null, linkedin:null, industry:'Solar Energy', employees:'11-50' },
-      { name:'Patricia Mora', title:'Gerente Comercial', company:'Energía Renovable Andina', country:'Ecuador', email:null, linkedin:null, industry:'Renewable Energy', employees:'11-50' }
-    ],
-    'Spain': [
-      { name:'Javier Ruiz', title:'Director Comercial', company:'Luminarias Solares España', country:'Spain', email:null, linkedin:null, industry:'Lighting', employees:'51-200' },
-      { name:'Ana García', title:'Responsable de Compras', company:'EcoIluminación Madrid', country:'Spain', email:null, linkedin:null, industry:'Solar Energy', employees:'11-50' }
-    ]
+function fallbackLeads(country){
+  const d={
+    'Colombia':[{name:'Carlos Mendoza',title:'Gerente General',company:'Iluminación Solar del Pacífico',country:'Colombia',email:null,linkedin:null,industry:'Solar Energy',employees:'11-50'},{name:'Andrés Restrepo',title:'Director de Compras',company:'Distribuidora Eléctrica Bogotá',country:'Colombia',email:null,linkedin:null,industry:'Electrical Equipment',employees:'51-200'},{name:'María Ospina',title:'Fundadora',company:'EcoLuz Colombia',country:'Colombia',email:null,linkedin:null,industry:'Renewable Energy',employees:'1-10'},{name:'Juan Pablo Vargas',title:'Gerente de Importaciones',company:'SolarTech Colombia SAS',country:'Colombia',email:null,linkedin:null,industry:'Solar Energy',employees:'11-50'},{name:'Diana Trujillo',title:'Directora Comercial',company:'Luminarias LED Bogotá',country:'Colombia',email:null,linkedin:null,industry:'Lighting',employees:'11-50'}],
+    'South Africa':[{name:'David Nkosi',title:'CEO',company:'SunTech Distributors SA',country:'South Africa',email:null,linkedin:null,industry:'Solar Energy',employees:'11-50'},{name:'Thabo Molefe',title:'Procurement Manager',company:'African Solar Solutions',country:'South Africa',email:null,linkedin:null,industry:'Electrical Equipment',employees:'51-200'},{name:'Sarah van der Berg',title:'Owner',company:'Cape Solar & Lighting',country:'South Africa',email:null,linkedin:null,industry:'Lighting',employees:'1-10'},{name:'Michael Ndlovu',title:'Managing Director',company:'SunRise Energy ZA',country:'South Africa',email:null,linkedin:null,industry:'Renewable Energy',employees:'11-50'},{name:'Priya Naidoo',title:'Import Manager',company:'Durban Electrical Wholesalers',country:'South Africa',email:null,linkedin:null,industry:'Electrical Equipment',employees:'51-200'}],
+    'Australia':[{name:'James Wilson',title:'Director',company:'Pacific Solar Imports',country:'Australia',email:null,linkedin:null,industry:'Solar Products',employees:'11-50'},{name:'Emma Clarke',title:'Purchasing Manager',company:'Outback Energy Solutions',country:'Australia',email:null,linkedin:null,industry:'Renewable Energy',employees:'51-200'},{name:'Mark Thompson',title:'CEO',company:'Aussie Solar Wholesale',country:'Australia',email:null,linkedin:null,industry:'Solar Energy',employees:'11-50'},{name:'Lisa Chen',title:'Procurement Director',company:'GreenLight Australia',country:'Australia',email:null,linkedin:null,industry:'Lighting',employees:'11-50'}],
+    'Ecuador':[{name:'Roberto Vega',title:'Propietario',company:'Solar Ecuador Distribuciones',country:'Ecuador',email:null,linkedin:null,industry:'Solar Energy',employees:'11-50'},{name:'Patricia Mora',title:'Gerente Comercial',company:'Energía Renovable Andina',country:'Ecuador',email:null,linkedin:null,industry:'Renewable Energy',employees:'11-50'},{name:'Fernando Paz',title:'Director de Operaciones',company:'Importadora Eléctrica Guayaquil',country:'Ecuador',email:null,linkedin:null,industry:'Electrical Equipment',employees:'11-50'}],
+    'Spain':[{name:'Javier Ruiz',title:'Director Comercial',company:'Luminarias Solares España',country:'Spain',email:null,linkedin:null,industry:'Lighting',employees:'51-200'},{name:'Ana García',title:'Responsable de Compras',company:'EcoIluminación Madrid',country:'Spain',email:null,linkedin:null,industry:'Solar Energy',employees:'11-50'},{name:'Carlos Herrera',title:'CEO',company:'Solar Import Barcelona',country:'Spain',email:null,linkedin:null,industry:'Solar Products',employees:'11-50'},{name:'Marta López',title:'Directora de Importaciones',company:'Distribuciones Eléctricas Valencia',country:'Spain',email:null,linkedin:null,industry:'Electrical Equipment',employees:'51-200'}]
   };
-  return data[country] || data['Colombia'];
+  return d[country]||d['Colombia'];
 }
 
-function render(list) {
-  const el = document.getElementById('results');
-  if (!list.length) { el.innerHTML = '<div class="empty">未找到结果</div>'; return; }
-  el.innerHTML = list.map((l,i) => `
-    <div class="lead-card" id="card-${i}">
-      <div class="lead-header">
-        <div class="avatar">${initials(l.name)}</div>
-        <div>
-          <div class="lead-name">${l.name}</div>
-          <div class="lead-sub">${l.title} · ${l.company}</div>
-        </div>
+function renderLeads(list){
+  const el=document.getElementById('results');
+  if(!list.length){el.innerHTML='<div class="empty">未找到结果</div>';return}
+  el.innerHTML=list.map((l,i)=>`
+    <div class="result-card">
+      <div class="result-hd">
+        <div class="avatar">${l.name.split(' ').slice(0,2).map(n=>n[0]).join('').toUpperCase()}</div>
+        <div><div style="font-size:15px;font-weight:500">${l.name}</div><div style="font-size:13px;color:#666">${l.title} · ${l.company}</div></div>
       </div>
       <div class="tags">
-        <span class="tag">${l.country}</span>
-        ${l.industry ? `<span class="tag">${l.industry}</span>` : ''}
-        ${l.employees ? `<span class="tag">${l.employees}人</span>` : ''}
-        ${l.email ? `<span class="tag tag-g">✉ 有邮箱</span>` : '<span class="tag" style="color:#bbb">待找邮箱</span>'}
-        ${l.linkedin ? `<span class="tag tag-b">in LinkedIn</span>` : ''}
+        <span class="tag">${l.country}</span>${l.industry?`<span class="tag">${l.industry}</span>`:''}${l.employees?`<span class="tag">${l.employees}人</span>`:''}${l.email?`<span class="tag tag-g">✉ 有邮箱</span>`:'<span class="tag" style="color:#bbb">待找邮箱</span>'}${l.linkedin?`<span class="tag tag-b">in LinkedIn</span>`:''}
       </div>
       <div class="actions">
-        <button class="btn-sm btn-green" onclick="draft(${i})">✏ 生成开发信</button>
-        ${l.linkedin ? `<button class="btn-sm" onclick="window.open('${l.linkedin}','_blank')">↗ LinkedIn</button>` : ''}
+        <button class="btn-sm btn-copy" onclick="draftEmail('${l.name}','${l.title}','${l.company}','${l.country}',${i})">✏ 生成开发信</button>
+        ${l.linkedin?`<button class="btn-sm" onclick="window.open('${l.linkedin}','_blank')">↗ LinkedIn</button>`:''}
       </div>
       <div id="email-${i}"></div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-async function draft(i) {
-  const key = getKey();
-  if (!key) { openKeyModal(); return; }
-  const l = leads[i];
-  const box = document.getElementById(`email-${i}`);
-  box.innerHTML = '<div style="font-size:13px;color:#888;padding:8px 0;">正在生成开发信...</div>';
+// ====== MODE 2: 市场情报 ======
+async function runMarket(){
+  const country=document.getElementById('mk-country').value;
+  const focus=document.getElementById('mk-focus').value;
+  setLoading('mk-btn',`正在研究 ${country} 市场...`);
 
-  const country = l.country;
-  const lang = ['Colombia','Ecuador','Spain'].includes(country) ? 'Spanish' : 'English';
+  const focusMap={full:'energy situation, demand trends, import duties, certification requirements, and distribution channels',demand:'solar lighting demand trends, growth projections, and best-selling product categories',duties:'import duties, HS codes for solar LED lighting, VAT, and any special trade agreements',energy:'grid reliability, blackout frequency, solar adoption rate, and government renewable energy policies'};
 
-  const painPoints = {
-    'Colombia': 'Colombia faces a projected 3,100 GWh energy deficit by 2027 and frequent power cuts',
-    'Ecuador': 'Ecuador suffers daily power cuts of up to 10 hours',
-    'South Africa': 'South Africa averages 6-8 hours of load-shedding daily',
-    'Australia': 'off-grid and rural areas need reliable independent lighting',
-    'Spain': 'growing demand for sustainable solar outdoor lighting solutions'
-  };
+  const prompt=`Research the solar outdoor lighting import market in ${country}. Focus: ${focusMap[focus]||focusMap.full}.
 
-  const prompt = `Write a cold outreach email in ${lang} for JC Lightning, a Chinese solar outdoor lighting manufacturer.
+JC Lightning is a Chinese manufacturer exporting solar security lights, garden lights, wall lanterns (LiFePO4 battery, CE/RoHS, IP65, FOB Shenzhen).
 
-Recipient: ${l.name}, ${l.title} at ${l.company} (${l.country})
-Market pain: ${painPoints[country] || 'unreliable grid power'}
+Use web search to find CURRENT data. Return a structured report in Chinese:
 
-JC Lightning offers:
-- Solar security lights, garden lights, wall lanterns
-- LiFePO4 battery (2000+ cycles), CE/RoHS certified, IP65/IP66
-- FOB Shenzhen, MOQ 200 units, lead time 30-45 days, OEM available
-- Website: https://paulshellby.github.io/jclightning/
+## ${country} 市场情报
 
-Rules:
-- Max 120 words
-- Natural, not spammy, not generic
-- Reference their specific market problem
-- Soft CTA: ask if they want specs and pricing
-- ${lang === 'Spanish' ? 'Write entirely in Spanish (Latin American style for Colombia/Ecuador, Spain style for Spain)' : 'Write in English'}
+### 能源现状
+[Grid situation, blackouts, solar adoption — with real data/numbers]
 
-Format exactly:
-Subject: [subject line]
+### 太阳能照明需求
+[Demand trends, popular categories, growth %, key drivers]
 
-[email body]`;
+### 进口关税与成本
+[HS code relevant to solar LED lighting, duty rate, VAT, any FTA benefits]
 
-  try {
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 800, messages: [{ role: 'user', content: prompt }] })
-    });
-    if (!resp.ok) {
-      if (resp.status === 401 || resp.status === 403) throw new Error('invalid_key');
-      throw new Error(`API error ${resp.status}`);
-    }
-    const data = await resp.json();
-    const text = data.content?.filter(b=>b.type==='text').map(b=>b.text).join('') || '';
-    if (!text.trim()) throw new Error('empty_response');
-    box.innerHTML = `
-      <hr class="divider">
-      <div class="email-header">
-        <span class="email-label">开发信 → ${l.name} · ${l.company} (${lang})</span>
-        <button class="btn-sm" id="copybtn-${i}" onclick="copyEmail(${i})">复制</button>
-      </div>
-      <div class="email-box" id="emailcontent-${i}">${text.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
-    `;
-  } catch(e) {
-    if (e.message === 'invalid_key') {
-      box.innerHTML = '<div style="font-size:13px;color:#e24b4a;padding:8px 0;">API Key 无效，请点击右上角重新设置</div>';
-    } else {
-      box.innerHTML = '<div style="font-size:13px;color:#e24b4a;padding:8px 0;">生成失败，请重试</div>';
-    }
+### 认证要求
+[Required certifications beyond CE/RoHS, any local standards]
+
+### 分销渠道
+[How solar lighting reaches end users in this market]
+
+### 机会判断
+[3 actionable takeaways for a Chinese solar lighting exporter]`;
+
+  try{
+    const text=await callClaude(prompt,3000);
+    document.getElementById('results').innerHTML=`<div class="result-card"><div class="info-box">${formatMarkdown(text)}</div></div>`;
+    setDone('mk-btn',`✅ 实时情报 — ${country} 市场分析`);
+  }catch(e){
+    if(e.message==='invalid_key'){showError('mk-btn','API Key 无效，请点击右上角重新设置');return}
+    showError('mk-btn','查询失败，请重试');
   }
 }
 
-function copyEmail(i) {
-  const text = document.getElementById(`emailcontent-${i}`)?.innerText || '';
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById(`copybtn-${i}`);
-    btn.textContent = '已复制 ✓';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = '复制'; btn.classList.remove('copied'); }, 2000);
-  });
+// ====== MODE 3: 选品推荐 ======
+async function runProductFit(){
+  const country=document.getElementById('pp-country').value;
+  const channel=document.getElementById('pp-channel').value;
+  setLoading('pp-btn',`正在分析 ${country} 最适合的产品...`);
+
+  const prompt=`You are a product-market fit advisor for JC Lightning, a Chinese solar outdoor lighting manufacturer with these 14 products:
+
+SECURITY: PIR motion wall light (800lm, IP65), 3-head floodlight (2500-3500lm, IP65), 30W floodlight (2400lm, IP66), all-in-one street light (100-300W, IP66), up-down wall sconce (2x3W, IP65)
+GARDEN: sphere pillar light (5W, 304SS), bollard path light (3W, 0.5-1.0m), garden stake 8-pack (1.2W, retail box), spike spotlight (5W, 360°), deck/step light (2W, IP67)
+DECORATIVE: wall lantern solar/AC (IP44), Edison string lights (30m, IP65)
+OFF-GRID: camping lantern (5W, power bank), bug zapper (2W, 100-200m²)
+
+Target: ${country}, channel type: ${channel}
+
+Use web search to understand this market's specific needs. Return structured analysis in Chinese:
+
+## ${country} · ${channel} 选品策略
+
+### 首选产品 (TOP 3)
+[Which 3 products will move fastest, with reasoning tied to local conditions]
+
+### 次选产品 (Next 3)
+[Which 3 products are good second-tier choices]
+
+### 定价参考
+[Typical retail/wholesale price range for similar products in this market]
+
+### 包装建议
+[Retail box or bulk? Local label requirements?]
+
+### 差异化机会
+[What JC Lightning offers that local competitors don't — LiFePO4, cast aluminium, etc.]`;
+
+  try{
+    const text=await callClaude(prompt,3000);
+    document.getElementById('results').innerHTML=`<div class="result-card"><div class="info-box">${formatMarkdown(text)}</div></div>`;
+    setDone('pp-btn',`✅ 实时分析 — ${country} 选品策略`);
+  }catch(e){
+    if(e.message==='invalid_key'){showError('pp-btn','API Key 无效，请点击右上角重新设置');return}
+    showError('pp-btn','查询失败，请重试');
+  }
+}
+
+// ====== MODE 4: 竞品分析 ======
+async function runCompetitor(){
+  const country=document.getElementById('cp-country').value;
+  const category=document.getElementById('cp-category').value;
+  setLoading('cp-btn',`正在分析 ${country} 的竞争对手...`);
+
+  const prompt=`Research competitors selling ${category} in ${country}. Use web search to find real companies.
+
+Identify: local distributors, other Chinese exporters active in this market, and major international brands.
+
+Return structured analysis in Chinese:
+
+## ${country} · ${category} 竞品分析
+
+### 主要竞争者 (5-8家)
+| 公司名 | 来源国 | 价格定位 | 渠道 | 优势 | 弱点 |
+
+### 价格带分析
+[Budget / Mid / Premium price ranges observed in this market]
+
+### JC Lightning 竞争定位
+[Where we fit, what we should emphasize, what to avoid]
+
+### 入市建议
+[3 concrete recommendations based on competitive landscape]`;
+
+  try{
+    const text=await callClaude(prompt,3000);
+    document.getElementById('results').innerHTML=`<div class="result-card"><div class="info-box">${formatMarkdown(text)}</div></div>`;
+    setDone('cp-btn',`✅ 实时分析 — ${country} 竞品格局`);
+  }catch(e){
+    if(e.message==='invalid_key'){showError('cp-btn','API Key 无效，请点击右上角重新设置');return}
+    showError('cp-btn','查询失败，请重试');
+  }
+}
+
+// ====== MODE 5: 查法规 ======
+async function runRegs(){
+  const country=document.getElementById('rg-country').value;
+  const topic=document.getElementById('rg-topic').value;
+  setLoading('rg-btn',`正在查询 ${country} 进口法规...`);
+
+  const topicMap={all:'import tariffs (HS code for solar LED lighting approx 9405.50), required certifications beyond CE/RoHS, labeling and packaging requirements, any special import restrictions or benefits',tariff:'HS code classification for solar LED outdoor lighting, import duty rate, VAT/GST on solar products, any preferential trade agreements that reduce duties',certification:'required safety and performance certifications beyond CE/RoHS, local testing standards, mandatory marks, certification process and timeline',labeling:'product labeling requirements, packaging regulations, language requirements, energy efficiency labels, warranty information requirements'};
+
+  const prompt=`Research import regulations for solar outdoor LED lighting in ${country}. Focus on: ${topicMap[topic]||topicMap.all}.
+
+JC Lightning exports from China (FOB Shenzhen). Products: solar security lights, garden lights, wall lanterns with LiFePO4 batteries, CE/RoHS certified, IP65/IP66 rated.
+
+Use web search to find CURRENT regulations. Return in Chinese:
+
+## ${country} 进口法规 · ${topic==='all'?'全面查询':topic==='tariff'?'关税':topic==='certification'?'认证':'标签包装'}
+
+[Clear, actionable information with specific numbers and requirements]
+
+### 关键要点
+[3-5 bullet points of what to prepare]`;
+
+  try{
+    const text=await callClaude(prompt,3000);
+    document.getElementById('results').innerHTML=`<div class="result-card"><div class="info-box">${formatMarkdown(text)}</div></div>`;
+    setDone('rg-btn',`✅ 实时查询 — ${country} 进口法规`);
+  }catch(e){
+    if(e.message==='invalid_key'){showError('rg-btn','API Key 无效，请点击右上角重新设置');return}
+    showError('rg-btn','查询失败，请重试');
+  }
+}
+
+// ====== MODE 6: 写邮件 ======
+async function runEmail(){
+  const country=document.getElementById('em-country').value;
+  const type=document.getElementById('em-type').value;
+  const name=document.getElementById('em-name').value||'[Name]';
+  const company=document.getElementById('em-company').value||'[Company]';
+  const extra=document.getElementById('em-extra').value;
+  setLoading('em-btn','正在生成邮件...');
+
+  const lang=['Colombia','Ecuador','Spain'].includes(country)?'Spanish':'English';
+  const painPoints={Colombia:'Colombia faces a projected 3,100 GWh energy deficit by 2027',Ecuador:'Ecuador suffers daily power cuts of up to 10 hours',South Africa:'South Africa averages 6-8 hours of load-shedding daily',Australia:'off-grid and rural areas need reliable independent lighting',Spain:'growing demand for sustainable solar outdoor lighting'};
+
+  const typeContext={cold:'first cold outreach — introduce JC Lightning and establish relevance',followup:'follow-up after no response to first email — polite, add new value (e.g. market insight)',quote:'follow-up after sending quotation — check if they have questions, offer to adjust specs',sample:'after they received samples — ask for feedback, confirm quality meets expectations'};
+
+  const prompt=`Write a ${typeContext[type]} email in ${lang} for JC Lightning.
+
+Recipient: ${name}, ${company} (${country})
+Market: ${painPoints[country]||'unreliable grid power'}
+${extra?'Extra context: '+extra:''}
+
+JC Lightning:
+- Solar security/garden/wall lights, LiFePO4 battery 2000+ cycles, CE/RoHS, IP65/IP66
+- FOB Shenzhen, MOQ 200 units, lead 30-45 days, OEM available
+- Website: https://paulshellby.github.io/jclightning/
+
+Rules: max 120 words, natural tone, soft CTA, reference their market need.
+${lang==='Spanish'?'Entirely in Spanish, business tone.':''}
+
+Return EXACTLY:
+Subject: [subject]
+
+[body]`;
+
+  try{
+    const text=await callClaude(prompt,800);
+    document.getElementById('results').innerHTML=`
+      <div class="result-card">
+        <div class="tags"><span class="tag">${name}</span><span class="tag">${company}</span><span class="tag tag-g">${lang}</span><span class="tag tag-y">${type}</span></div>
+        <div class="actions" style="margin-bottom:10px"><button class="btn-sm btn-copy" onclick="copyText(this)">📋 复制邮件</button></div>
+        <div class="info-box" id="emailContent">${text.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+      </div>`;
+    setDone('em-btn','✅ 邮件已生成');
+  }catch(e){
+    if(e.message==='invalid_key'){showError('em-btn','API Key 无效，请点击右上角重新设置');return}
+    showError('em-btn','生成失败，请重试');
+  }
+}
+
+// ====== Shared: Draft email from lead card ======
+async function draftEmail(name,title,company,country,idx){
+  const key=getKey();
+  if(!key){openKeyModal();return}
+  const box=document.getElementById(`email-${idx}`);
+  box.innerHTML='<div style="font-size:13px;color:#888;padding:8px 0">正在生成开发信...</div>';
+
+  const lang=['Colombia','Ecuador','Spain'].includes(country)?'Spanish':'English';
+  const painPoints={Colombia:'Colombia faces a projected 3,100 GWh energy deficit by 2027',Ecuador:'Ecuador suffers daily power cuts of up to 10 hours',South Africa:'South Africa averages 6-8 hours of load-shedding daily',Australia:'off-grid areas need reliable solar lighting',Spain:'growing demand for sustainable solar outdoor lighting'};
+
+  const prompt=`Write a cold outreach email in ${lang}. Recipient: ${name}, ${title} at ${company} (${country}). Market: ${painPoints[country]||'unreliable grid'}. JC Lightning: solar security/garden/wall lights, LiFePO4 2000+ cycles, CE/RoHS, IP65, FOB Shenzhen, MOQ 200, OEM available. Website: paulshellby.github.io/jclightning. Max 120 words, natural, soft CTA. ${lang==='Spanish'?'All in Spanish.':''}
+
+Return: Subject: [subject]
+
+[body]`;
+
+  try{
+    const text=await callClaude(prompt,800);
+    box.innerHTML=`<hr class="divider"><div class="info-box">${text.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div><button class="btn-sm btn-copy" style="margin-top:8px" onclick="copyText(this)">📋 复制</button>`;
+  }catch(e){
+    box.innerHTML='<div style="font-size:13px;color:#e24b4a;padding:8px 0">生成失败</div>';
+  }
+}
+
+// ====== Utilities ======
+function copyText(btn){
+  const box=btn.parentElement.nextElementSibling||btn.previousElementSibling;
+  const text=box?.innerText||'';
+  navigator.clipboard.writeText(text).then(()=>{btn.textContent='✅ 已复制';setTimeout(()=>{btn.textContent='📋 复制'},2000)});
+}
+
+function formatMarkdown(t){
+  return t.replace(/^### (.+)/gm,'<h4>$1</h4>').replace(/^## (.+)/gm,'<h3 style="font-size:16px;font-weight:500;margin:12px 0 8px;color:#0e0c0a">$1</h3>').replace(/^- (.+)/gm,'<span style="display:block;padding:2px 0">• $1</span>').replace(/\|(.+)\|/g,(m)=>{if(!m.includes('---'))return'<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:12px;margin:8px 0">'+m.split('\n').filter(Boolean).map((r,i)=>`<tr>${r.split('|').filter(Boolean).map(c=>`<${i?'td':'th'} style="padding:6px 10px;border:1px solid #e5e5e5;text-align:left">${c.trim()}</${i?'td':'th'}>`).join('')}</tr>`).join('')+'</table></div>';return''});
 }
 </script>
 </body>
 </html>
-
