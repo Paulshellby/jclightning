@@ -170,12 +170,15 @@ h2 em { font-style:italic; color:var(--brass); }
 .proc-step h4 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:400; color:var(--ink); margin-bottom:14px; line-height:1.3; }
 .proc-step p { font-size:0.83rem; font-weight:300; color:var(--stone); line-height:1.8; margin-bottom:22px; min-height:90px; }
 .proc-time { font-size:0.6rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); padding-top:16px; border-top:1px solid var(--blt); }
-.faq { background:var(--chalk); padding:120px 56px; }
-.faq-head { margin-bottom:60px; }
-.faq-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0 64px; }
-.faq-item { padding:28px 0; border-top:1px solid var(--blt); }
-.faq-item h4 { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:400; color:var(--ink); margin-bottom:12px; line-height:1.4; }
-.faq-item p { font-size:0.86rem; font-weight:300; color:var(--stone); line-height:1.85; }
+.promise { background:var(--chalk); padding:120px 56px; }
+.promise-head { margin-bottom:64px; }
+.promise-head h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.6rem); font-weight:400; line-height:1.18; color:var(--ink); letter-spacing:-0.01em; }
+.promise-head h2 em { font-style:italic; color:var(--brass); }
+.promise-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px 56px; }
+.promise-card { display:flex; gap:20px; align-items:flex-start; }
+.promise-check { flex-shrink:0; width:28px; height:28px; margin-top:1px; color:var(--brass); }
+.promise-body h4 { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:400; color:var(--ink); margin-bottom:10px; line-height:1.4; }
+.promise-body p { font-size:0.88rem; font-weight:300; color:var(--stone); line-height:1.78; }
 .why { background:var(--ink); padding:130px 56px 120px; position:relative; overflow:hidden; }
 .why::before { content:''; position:absolute; top:30%; left:20%; width:700px; height:700px; background:radial-gradient(circle, rgba(168,125,42,0.13) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
 .why-head { margin-bottom:80px; max-width:720px; position:relative; z-index:1; }
@@ -253,8 +256,9 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .proc-step { border-left:none; border-top:1px solid var(--blt); padding:28px 0; }
   .proc-step:first-child { border-top:none; padding-top:0; }
   .proc-step p { min-height:auto; }
-  .faq { padding:64px 22px; }
-  .faq-grid { grid-template-columns:1fr; gap:0; }
+  .promise { padding:64px 22px; }
+  .promise-grid { grid-template-columns:1fr; gap:20px; }
+  .promise-card { gap:14px; }
   .why { padding:64px 22px 56px; }
   .why-head { margin-bottom:48px; }
   .why-grid { grid-template-columns:1fr; gap:16px; }
@@ -600,20 +604,40 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </section>
 
-<section class="faq">
-  <div class="faq-head reveal">
-    <div class="sec-label" data-i18n="faq_lbl">Common Questions</div>
-    <h2 data-i18n="faq_h2">Answers before <em>you ask.</em></h2>
+<section class="promise" id="promise">
+  <div class="promise-head reveal">
+    <div class="sec-label" data-i18n="prm_lbl">What You Can Count On</div>
+    <h2 data-i18n="prm_h2">Importing from 12,000 km away<br><em>shouldn't be a gamble.</em></h2>
   </div>
-  <div class="faq-grid">
-    <div class="faq-item reveal"><h4 data-i18n="faq_1_q">Do your products work during power cuts?</h4><p data-i18n="faq_1_a">Yes — that's the point. Every solar product charges independently during daylight and operates through the night without any connection to the grid. In markets like Colombia, Ecuador, and South Africa where outages are frequent or extended, this is the core selling argument to your end customers.</p></div>
-    <div class="faq-item reveal"><h4 data-i18n="faq_2_q">What is your typical MOQ?</h4><p data-i18n="faq_2_a">From 200 units for trial orders on most products, scaling to 1,000+ for retail-pack programmes. We work with SOHO buyers, small distributors, and large importers alike.</p></div>
-    <div class="faq-item reveal"><h4 data-i18n="faq_3_q">What payment terms do you accept?</h4><p data-i18n="faq_3_a">30% T/T deposit and 70% before shipment is standard. Letter of Credit (L/C at sight) accepted for orders above USD 30,000. Custom terms negotiable for repeat clients.</p></div>
-    <div class="faq-item reveal"><h4 data-i18n="faq_4_q">What is the standard lead time?</h4><p data-i18n="faq_4_a">30–45 days for standard products. 45–60 days for OEM and custom packaging. Sea freight adds 25–40 days depending on destination port.</p></div>
-    <div class="faq-item reveal"><h4 data-i18n="faq_5_q">Do you provide samples?</h4><p data-i18n="faq_5_a">Yes. Sample fees typically USD 50–150 per unit including international DHL or FedEx shipping. Sample cost is fully refunded against your first order.</p></div>
-    <div class="faq-item reveal"><h4 data-i18n="faq_6_q">Can you handle OEM and ODM?</h4><p data-i18n="faq_6_a">Yes. Custom finishes, private-label packaging, brand printing, and PCB modification all available. MOQ for custom branding starts at 500–1,000 units.</p></div>
-    <div class="faq-item reveal"><h4 data-i18n="faq_7_q">What certifications come with your products?</h4><p data-i18n="faq_7_a">CE and RoHS as standard, with documentation issued by accredited laboratories. FCC, SAA, IC, and other regional certifications available on request.</p></div>
-    <div class="faq-item reveal"><h4 data-i18n="faq_8_q">Which ports do you ship from?</h4><p data-i18n="faq_8_a">Shenzhen (Yantian), Guangzhou (Nansha), and Shanghai are our standard FOB ports. CIF and DDP arrangements also available on request.</p></div>
+  <div class="promise-grid">
+    <div class="promise-card reveal">
+      <div class="promise-check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.4"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="promise-body">
+        <h4 data-i18n="prm1_t">Specs, not marketing words</h4>
+        <p data-i18n="prm1_d">Every quotation includes measured lumen output, exact battery capacity per cell, material grades, and accredited test reports. No adjectives. No vague claims. Just data your customers can verify.</p>
+      </div>
+    </div>
+    <div class="promise-card reveal" style="transition-delay:.1s">
+      <div class="promise-check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.4"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="promise-body">
+        <h4 data-i18n="prm2_t">Photos before you pay</h4>
+        <p data-i18n="prm2_d">Pre-shipment photos and a detailed inspection checklist land in your inbox before the final balance is due. You see exactly what's on that pallet before your money leaves your account.</p>
+      </div>
+    </div>
+    <div class="promise-card reveal" style="transition-delay:.2s">
+      <div class="promise-check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.4"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="promise-body">
+        <h4 data-i18n="prm3_t">Documents included, every time</h4>
+        <p data-i18n="prm3_d">CE and RoHS certificates from accredited labs. Certificate of Origin. Bill of Lading. Packing list. Commercial invoice. Everything your customs broker needs, sent in a single email before the container arrives.</p>
+      </div>
+    </div>
+    <div class="promise-card reveal" style="transition-delay:.3s">
+      <div class="promise-check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.4"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="promise-body">
+        <h4 data-i18n="prm4_t">We're still here after delivery</h4>
+        <p data-i18n="prm4_d">End customers have questions? Need spare parts? Technical issue six months in? WhatsApp still goes to the same person. Contact doesn't end when the container leaves the port.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -753,15 +777,11 @@ const T = {
     why2_t:'We Respond. Fast.',why2_d:'WhatsApp direct to someone who can decide — not a chatbot, not a ticket queue, not a 48-hour SLA. When your container hits the port and your customer needs papers, you get them today. Most questions answered within hours.',
     why3_t:'Your Market, Understood',why3_d:'Colombia runs on solar flood lights. South Africa wants wall-mounted security. Spain prefers warm-white decorative. After years shipping to 30+ markets, we know what moves where. We help you stock the products your customers actually ask for.',
     why4_t:'Same Quality, Every Order',why4_d:'The sample you approve is the spec we lock. Same LEDs, same battery cells, same aluminium grade — documented at order confirmation, inspected before shipment, verified before final payment. No substitutions without your written approval.',
-    faq_lbl:'Common Questions',faq_h2:'Answers before <em>you ask.</em>',
-    faq_1_q:'Do your products work during power cuts?',faq_1_a:'Yes — that\'s the point. Every solar product charges independently during daylight and operates through the night without any connection to the grid. In markets like Colombia, Ecuador, and South Africa where outages are frequent or extended, this is the core selling argument to your end customers.',
-    faq_2_q:'What is your typical MOQ?',faq_2_a:'From 200 units for trial orders on most products, scaling to 1,000+ for retail-pack programmes. We work with SOHO buyers, small distributors, and large importers alike.',
-    faq_3_q:'What payment terms do you accept?',faq_3_a:'30% T/T deposit and 70% before shipment is standard. Letter of Credit (L/C at sight) accepted for orders above USD 30,000. Custom terms negotiable for repeat clients.',
-    faq_4_q:'What is the standard lead time?',faq_4_a:'30–45 days for standard products. 45–60 days for OEM and custom packaging. Sea freight adds 25–40 days depending on destination port.',
-    faq_5_q:'Do you provide samples?',faq_5_a:'Yes. Sample fees typically USD 50–150 per unit including international DHL or FedEx shipping. Sample cost is fully refunded against your first order.',
-    faq_6_q:'Can you handle OEM and ODM?',faq_6_a:'Yes. Custom finishes, private-label packaging, brand printing, and PCB modification all available. MOQ for custom branding starts at 500–1,000 units.',
-    faq_7_q:'What certifications come with your products?',faq_7_a:'CE and RoHS as standard, with documentation issued by accredited laboratories. FCC, SAA, IC, and other regional certifications available on request.',
-    faq_8_q:'Which ports do you ship from?',faq_8_a:'Shenzhen (Yantian), Guangzhou (Nansha), and Shanghai are our standard FOB ports. CIF and DDP arrangements also available on request.',
+    prm_lbl:'What You Can Count On',prm_h2:'Importing from 12,000 km away<br><em>shouldn\'t be a gamble.</em>',
+    prm1_t:'Specs, not marketing words',prm1_d:'Every quotation includes measured lumen output, exact battery capacity per cell, material grades, and accredited test reports. No adjectives. No vague claims. Just data your customers can verify.',
+    prm2_t:'Photos before you pay',prm2_d:'Pre-shipment photos and a detailed inspection checklist land in your inbox before the final balance is due. You see exactly what\'s on that pallet before your money leaves your account.',
+    prm3_t:'Documents included, every time',prm3_d:'CE and RoHS certificates from accredited labs. Certificate of Origin. Bill of Lading. Packing list. Commercial invoice. Everything your customs broker needs, sent in a single email before the container arrives.',
+    prm4_t:'We\'re still here after delivery',prm4_d:'End customers have questions? Need spare parts? Technical issue six months in? WhatsApp still goes to the same person. Contact doesn\'t end when the container leaves the port.',
     con_lbl:'Get In Touch',con_h2:'Tell us your market. <em>We\'ll tell you what works there.</em>',
     con_p:'Share product type, target quantity, and destination port. We respond within 24 hours — FOB price, spec sheet, lead time, and certification documents included.',
     con_hrs:'Mon–Fri, 9:00–18:00 CST (UTC+8)',
@@ -819,15 +839,11 @@ const T = {
     why2_t:'响应快，不踢皮球',why2_d:'WhatsApp直达能做决定的人——不是聊天机器人，不是工单系统，不是48小时服务协议。货柜到港客户催单时，当天拿到文件。大部分问题数小时内答复。',
     why3_t:'懂你的市场',why3_d:'哥伦比亚卖得动的是太阳能投光灯。南非要的是壁挂安防灯。西班牙偏好暖白装饰灯。深耕30多个市场多年，我们知道哪里该卖什么。帮你选品，只推市场真正需要的。',
     why4_t:'每次出货，品质如一',why4_d:'你确认的样品就是我们的生产标准。一样的灯珠，一样的电芯，一样的铝材牌号——下订单时锁定，出货前检验，付尾款前核实。未经你书面同意，绝不偷换任何元器件。',
-    faq_lbl:'常见问题',faq_h2:'您还没问，<em>答案就在这里。</em>',
-    faq_1_q:'停电时产品还能正常工作吗？',faq_1_a:'可以——这正是产品的核心价值所在。每款太阳能产品白天独立充电，整夜运行，完全不依赖电网。在哥伦比亚、厄瓜多尔、南非等停电频繁或持续时间长的市场，这正是你向终端客户最有力的销售论点。',
-    faq_2_q:'您的最低起订量是多少？',faq_2_a:'大部分产品试单200只起，零售装项目1000只起。我们同时服务SOHO买家、中小分销商及大型进口商。',
-    faq_3_q:'您接受哪些付款方式？',faq_3_a:'标准条款为30%订金（T/T） + 70%发货前结清。L/C（即期信用证）适用于USD 30,000以上订单。老客户可协商专项条款。',
-    faq_4_q:'标准交期多久？',faq_4_a:'标准产品30–45天。OEM定制与专属包装45–60天。海运另需25–40天，视目的地港口而定。',
-    faq_5_q:'是否提供样品？',faq_5_a:'提供。样品费通常USD 50–150/只，含DHL或FedEx国际快递。样品费在首单中全额返还。',
-    faq_6_q:'是否支持OEM/ODM？',faq_6_a:'支持。提供外壳定制饰面、专属品牌包装、品牌印刷、PCB修改等服务。专属品牌起订量500–1000只起。',
-    faq_7_q:'产品配备哪些认证？',faq_7_a:'CE与RoHS为标配，由认可实验室出具检测报告。可应需提供FCC、SAA、IC等区域性认证。',
-    faq_8_q:'从哪些港口发货？',faq_8_a:'标准FOB港为深圳盐田、广州南沙、上海。也可安排CIF与DDP出运方案。',
+    prm_lbl:'我们的承诺',prm_h2:'远隔重洋采购<br><em>不该是一场赌博。</em>',
+    prm1_t:'用数据说话，不靠形容词',prm1_d:'每份报价单包含实测流明值、单颗电芯精准容量、材料牌号和认可实验室检测报告。没有形容词，没有模糊表述。只有你客户可以验证的数据。',
+    prm2_t:'先验货，再付尾款',prm2_d:'出货前的实拍照片和详细验货清单，在你支付尾款前发到你的邮箱。钱还在你账上，你就能看到托盘上到底放了什么。',
+    prm3_t:'单证齐全，一个不少',prm3_d:'认可实验室出具的CE和RoHS证书。原产地证。提单。装箱单。商业发票。你的报关行需要的一切，货柜到港前一次性发到邮箱。',
+    prm4_t:'货到了，我们还在',prm4_d:'终端客户有疑问？需要配件？用了半年出了问题？WhatsApp那头还是同一个人。货柜离港不代表我们的服务结束。',
     con_lbl:'联系我们',con_h2:'告诉我们你的市场，<em>我们来告诉你什么产品最适合。</em>',
     con_p:'提供产品类型、目标数量及目的地港口，24小时内回复完整报价，含FOB单价、规格说明书、交期及认证文件。',
     con_hrs:'周一至周五，9:00–18:00（北京时间 UTC+8）',
@@ -885,15 +901,11 @@ const T = {
     why2_t:'Respondemos. Rápido.',why2_d:'WhatsApp directo con quien toma decisiones — no un chatbot, ni un ticket, ni un SLA de 48 horas. Cuando tu contenedor llega al puerto y tu cliente necesita documentos, los obtienes hoy. La mayoría de las preguntas se responden en horas.',
     why3_t:'Conocemos Tu Mercado',why3_d:'Colombia funciona con reflectores solares. Sudáfrica quiere luces de seguridad de pared. España prefiere decorativas en blanco cálido. Tras años enviando a más de 30 mercados, sabemos qué se vende dónde. Te ayudamos a elegir lo que tus clientes realmente buscan.',
     why4_t:'Misma Calidad, Cada Pedido',why4_d:'La muestra que apruebas es la especificación que bloqueamos. Mismos LEDs, mismas celdas de batería, mismo grado de aluminio — documentado al confirmar el pedido, inspeccionado antes del envío, verificado antes del pago final. Sin sustituciones sin tu aprobación por escrito.',
-    faq_lbl:'Preguntas Frecuentes',faq_h2:'Respuestas antes de <em>que pregunte.</em>',
-    faq_1_q:'¿Funcionan sus productos durante los cortes de luz?',faq_1_a:'Sí — ese es precisamente el punto. Cada producto solar se carga de forma independiente durante el día y funciona toda la noche sin conexión a la red. En mercados como Colombia, Ecuador y Sudáfrica, este es el argumento de venta principal ante tus clientes finales.',
-    faq_2_q:'¿Cuál es su MOQ típico?',faq_2_a:'Desde 200 unidades en pedidos de prueba, escalando a 1.000+ para programas de retail. Trabajamos con compradores SOHO, pequeños distribuidores y grandes importadores.',
-    faq_3_q:'¿Qué condiciones de pago aceptan?',faq_3_a:'30% depósito T/T y 70% antes del envío es lo estándar. L/C a la vista para pedidos superiores a USD 30.000. Condiciones especiales para clientes recurrentes.',
-    faq_4_q:'¿Cuál es el plazo de entrega estándar?',faq_4_a:'30–45 días para productos estándar. 45–60 días para OEM y embalaje personalizado. El flete marítimo añade 25–40 días según el puerto de destino.',
-    faq_5_q:'¿Proporcionan muestras?',faq_5_a:'Sí. Las tarifas de muestra suelen ser USD 50–150 por unidad incluyendo DHL o FedEx. El coste de la muestra se reembolsa totalmente con su primer pedido.',
-    faq_6_q:'¿Pueden hacer OEM y ODM?',faq_6_a:'Sí. Acabados personalizados, embalaje de marca propia, impresión de marca y modificación de PCB disponibles. MOQ desde 500–1.000 unidades.',
-    faq_7_q:'¿Qué certificaciones traen sus productos?',faq_7_a:'CE y RoHS estándar, con documentación de laboratorios acreditados. FCC, SAA, IC y otras certificaciones regionales disponibles bajo solicitud.',
-    faq_8_q:'¿Desde qué puertos envían?',faq_8_a:'Shenzhen (Yantian), Guangzhou (Nansha) y Shanghai son nuestros puertos FOB estándar. Acuerdos CIF y DDP también disponibles.',
+    prm_lbl:'Con Lo Que Puedes Contar',prm_h2:'Importar desde 12.000 km<br><em>no debería ser una apuesta.</em>',
+    prm1_t:'Especificaciones, no palabrería',prm1_d:'Cada cotización incluye lúmenes medidos, capacidad exacta de batería por celda, grados de material e informes de pruebas acreditadas. Sin adjetivos. Sin afirmaciones vagas. Solo datos que tus clientes pueden verificar.',
+    prm2_t:'Fotos antes de pagar',prm2_d:'Las fotos previas al embarque y una lista de inspección detallada llegan a tu bandeja de entrada antes del pago final. Ves exactamente lo que hay en ese palé antes de que tu dinero salga de tu cuenta.',
+    prm3_t:'Documentos incluidos, siempre',prm3_d:'Certificados CE y RoHS de laboratorios acreditados. Certificado de Origen. Conocimiento de Embarque. Lista de empaque. Factura comercial. Todo lo que tu agente de aduanas necesita, en un solo correo antes de que llegue el contenedor.',
+    prm4_t:'Seguimos aquí después de la entrega',prm4_d:'¿Tus clientes tienen preguntas? ¿Necesitan repuestos? ¿Problema técnico a los seis meses? El mismo WhatsApp, la misma persona. El contacto no termina cuando el contenedor sale del puerto.',
     con_lbl:'Contáctenos',con_h2:'Cuéntanos tu mercado. <em>Nosotros te decimos qué funciona allí.</em>',
     con_p:'Comparte tipo de producto, cantidad objetivo y puerto de destino. Respuesta en 24 horas — precio FOB, ficha técnica, plazo y certificaciones incluidos.',
     con_hrs:'Lun–Vie, 9:00–18:00 CST (UTC+8)',
