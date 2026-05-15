@@ -220,8 +220,29 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 .ft-col a { font-size:0.78rem; font-weight:300; color:rgba(191,182,168,0.55); text-decoration:none; transition:color .2s; }
 .ft-col a:hover { color:#fff; }
 .ft-btm { display:flex; justify-content:space-between; align-items:center; font-size:0.66rem; font-weight:300; letter-spacing:0.03em; color:rgba(107,96,88,0.65); }
-.wa { position:fixed; bottom:26px; right:26px; z-index:999; width:50px; height:50px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.3); transition:transform .2s; text-decoration:none; }
-.wa:hover { transform:scale(1.1); }
+.chat-widget { position:fixed; bottom:26px; right:26px; z-index:999; font-family:'Outfit',sans-serif; }
+.chat-btn { width:52px; height:52px; border-radius:50%; border:none; background:var(--brass); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(168,125,42,0.35); transition:transform .25s ease, box-shadow .25s ease; position:relative; }
+.chat-btn:hover { transform:scale(1.08); box-shadow:0 6px 28px rgba(168,125,42,0.5); }
+.chat-btn svg { width:22px; height:22px; }
+.chat-btn .chat-close-icon { display:none; }
+.chat-widget.open .chat-btn { background:var(--ink); box-shadow:0 4px 20px rgba(0,0,0,0.4); }
+.chat-widget.open .chat-btn .chat-open-icon { display:none; }
+.chat-widget.open .chat-btn .chat-close-icon { display:block; }
+.chat-panel { position:absolute; bottom:70px; right:0; width:310px; background:#fff; border-radius:14px; box-shadow:0 8px 40px rgba(0,0,0,0.18); overflow:hidden; opacity:0; visibility:hidden; transform:translateY(12px); transition:opacity .25s ease, transform .25s ease, visibility 0s linear .25s; }
+.chat-widget.open .chat-panel { opacity:1; visibility:visible; transform:translateY(0); transition:opacity .25s ease, transform .25s ease, visibility 0s linear 0s; }
+.chat-panel-hd { background:var(--ink); padding:20px 22px; display:flex; align-items:center; gap:12px; }
+.chat-panel-hd .chat-avatar { width:40px; height:40px; border-radius:50%; background:var(--brass); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.chat-panel-hd .chat-avatar svg { width:18px; height:18px; color:#fff; }
+.chat-panel-hd .chat-title { font-size:0.92rem; font-weight:500; color:#fff; letter-spacing:-0.01em; }
+.chat-panel-hd .chat-sub { font-size:0.7rem; font-weight:300; color:var(--mist); margin-top:2px; letter-spacing:0.02em; }
+.chat-panel-body { padding:18px 22px 22px; display:flex; flex-direction:column; gap:10px; }
+.chat-opt { display:flex; align-items:center; gap:12px; padding:13px 16px; border-radius:10px; text-decoration:none; font-size:0.88rem; font-weight:400; transition:background .2s; border:1px solid transparent; }
+.chat-opt.opt-wa { background:#e8f5e9; color:#1b5e20; }
+.chat-opt.opt-wa:hover { background:#c8e6c9; }
+.chat-opt.opt-email { background:#f5f5f5; color:var(--ink); }
+.chat-opt.opt-email:hover { background:#eee; }
+.chat-opt svg { width:20px; height:20px; flex-shrink:0; }
+.chat-panel-note { font-size:0.7rem; color:var(--stone-lt); text-align:center; margin-top:6px; letter-spacing:0.02em; }
 .social-row { display:flex; gap:12px; margin-top:20px; }
 .soc-btn { width:36px; height:36px; border:1px solid rgba(255,255,255,0.15); border-radius:2px; display:flex; align-items:center; justify-content:center; text-decoration:none; opacity:0.45; transition:opacity .2s, border-color .2s; }
 .soc-btn:hover { opacity:1; border-color:var(--brass-lt); }
@@ -263,6 +284,9 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .why-head { margin-bottom:48px; }
   .why-grid { grid-template-columns:1fr; gap:16px; }
   .why-card { padding:28px 22px 24px; }
+  .chat-panel { width:280px; right:-6px; }
+  .chat-widget { bottom:18px; right:18px; }
+  .chat-btn { width:46px; height:46px; }
   .cursor-glow { display:none; }
 }
 </style>
@@ -720,9 +744,29 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </footer>
 
-<a href="https://wa.me/8613138189642?text=Hi%20JC%20Lightning%2C%20I%27d%20like%20to%20enquire%20about%20your%20solar%20lighting%20products." target="_blank" class="wa">
-  <svg width="26" height="26" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.88 1.92 7.02L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.1 19.42c-.3.84-1.76 1.6-2.42 1.66-.66.06-1.28.3-4.32-.9-3.66-1.44-6-5.18-6.18-5.42-.18-.24-1.44-1.92-1.44-3.66s.9-2.58 1.24-2.94c.34-.36.72-.44.96-.44l.7.01c.22 0 .52-.08.8.62l1.14 2.8c.1.22.04.48-.06.66l-.42.52-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.6-.08l.82-1c.16-.2.32-.14.54-.06l2.72 1.28c.28.14.46.2.52.32.06.48-.22 1.96-.52 2.8z"/></svg>
-</a>
+<div class="chat-widget" id="chatWidget">
+  <button class="chat-btn" id="chatBtn" aria-label="Chat with us">
+    <svg class="chat-open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 9h8"/><path d="M8 13h4"/></svg>
+    <svg class="chat-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-panel-hd">
+      <div class="chat-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <div><div class="chat-title" data-i18n="chat_title">Need Help?</div><div class="chat-sub" data-i18n="chat_sub">We reply within hours</div></div>
+    </div>
+    <div class="chat-panel-body">
+      <a href="https://wa.me/8613138189642?text=Hi%20JC%20Lightning%2C%20I%27d%20like%20to%20enquire%20about%20your%20solar%20lighting%20products." target="_blank" class="chat-opt opt-wa">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.88 1.92 7.02L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.1 19.42c-.3.84-1.76 1.6-2.42 1.66-.66.06-1.28.3-4.32-.9-3.66-1.44-6-5.18-6.18-5.42-.18-.24-1.44-1.92-1.44-3.66s.9-2.58 1.24-2.94c.34-.36.72-.44.96-.44l.7.01c.22 0 .52-.08.8.62l1.14 2.8c.1.22.04.48-.06.66l-.42.52-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.6-.08l.82-1c.16-.2.32-.14.54-.06l2.72 1.28c.28.14.46.2.52.32.06.48-.22 1.96-.52 2.8z"/></svg>
+        <span data-i18n="chat_wa">Chat on WhatsApp</span>
+      </a>
+      <a href="mailto:info@jclightning.com" class="chat-opt opt-email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        <span data-i18n="chat_email">Send us an email</span>
+      </a>
+      <p class="chat-panel-note" data-i18n="chat_note">Mon–Fri, 9:00–18:00 CST (UTC+8)</p>
+    </div>
+  </div>
+</div>
 
 <div class="cursor-glow"></div>
 
@@ -788,6 +832,7 @@ const T = {
     f_name:'Your Name',f_co:'Company',f_email:'Email Address',f_prod:'Product Interest',f_sel:'Select a category…',f_msg:'Product Type · Quantity · Destination Port',f_send:'Send Enquiry',
     f_ok:'✓ Enquiry received. We\'ll respond within 24 hours with a full quotation.',
     ft_desc:'Solar outdoor lighting for markets where the grid isn\'t enough. Security · Garden · Decorative. CE / RoHS · IP65 · OEM available. Colombia · Ecuador · South Africa · Australia · Spain.',
+    chat_title:'Need Help?',chat_sub:'We reply within hours',chat_wa:'Chat on WhatsApp',chat_email:'Send us an email',chat_note:'Mon–Fri, 9:00–18:00 CST (UTC+8)',
     ft_prod:'Products',ft_co:'Company',ft_srv:'Colombia · Ecuador · South Africa · Australia · Spain',
   },
   zh:{
@@ -850,6 +895,7 @@ const T = {
     f_name:'您的姓名',f_co:'公司名称',f_email:'电子邮箱',f_prod:'感兴趣的产品',f_sel:'请选择产品类别…',f_msg:'产品类型 · 目标数量 · 目的地港口',f_send:'发送询盘',
     f_ok:'✓ 询盘已收到，我们将在24小时内回复含完整报价的邮件。',
     ft_desc:'为电网不可靠的市场提供太阳能户外照明。安防系列 · 花园系列 · 装饰壁灯 · CE / RoHS · IP65 · 支持OEM。哥伦比亚 · 厄瓜多尔 · 南非 · 澳洲 · 西班牙。',
+    chat_title:'需要帮助？',chat_sub:'数小时内回复',chat_wa:'WhatsApp 在线咨询',chat_email:'发送邮件',chat_note:'周一至周五 9:00–18:00 (UTC+8)',
     ft_prod:'产品系列',ft_co:'公司信息',ft_srv:'哥伦比亚 · 厄瓜多尔 · 南非 · 澳洲 · 西班牙',
   },
   es:{
@@ -912,6 +958,7 @@ const T = {
     f_name:'Su Nombre',f_co:'Empresa',f_email:'Correo Electrónico',f_prod:'Producto de Interés',f_sel:'Seleccione una categoría…',f_msg:'Tipo de Producto · Cantidad · Puerto de Destino',f_send:'Enviar Consulta',
     f_ok:'✓ Consulta recibida. Le responderemos en 24 horas con una cotización completa.',
     ft_desc:'Iluminación solar para exteriores en mercados donde la red no es suficiente. Seguridad · Jardín · Decorativo. CE / RoHS · IP65 · OEM disponible. Colombia · Ecuador · Sudáfrica · Australia · España.',
+    chat_title:'¿Necesita Ayuda?',chat_sub:'Respondemos en horas',chat_wa:'Chatear por WhatsApp',chat_email:'Enviar un correo',chat_note:'Lun–Vie, 9:00–18:00 CST (UTC+8)',
     ft_prod:'Productos',ft_co:'Empresa',ft_srv:'Colombia · Ecuador · Sudáfrica · Australia · España',
   }
 };
@@ -961,6 +1008,20 @@ window.addEventListener('scroll',()=>{
 // 滚动显示动画
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// 在线客服弹窗
+const chatWidget=document.getElementById('chatWidget');
+const chatBtn=document.getElementById('chatBtn');
+const chatPanel=document.getElementById('chatPanel');
+if(chatBtn){
+  chatBtn.addEventListener('click',e=>{
+    e.stopPropagation();
+    chatWidget.classList.toggle('open');
+  });
+  document.addEventListener('click',e=>{
+    if(!chatWidget.contains(e.target)) chatWidget.classList.remove('open');
+  });
+}
 
 // 鼠标光晕
 const glow=document.querySelector('.cursor-glow');
