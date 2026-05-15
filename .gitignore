@@ -1,2 +1,6 @@
 *.bak
 .claude/
+~$*
+*.tmp
+.DS_Store
+Thumbs.db
