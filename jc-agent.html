@@ -86,6 +86,7 @@
   <button class="tab" data-mode="competitor">👀 竞品分析</button>
   <button class="tab" data-mode="regs">📋 查法规</button>
   <button class="tab" data-mode="email">✏ 写邮件</button>
+  <button class="tab" data-mode="social">📱 社媒内容</button>
 </div>
 
 <div class="container">
@@ -170,6 +171,54 @@
       </div>
       <div class="field" style="margin-bottom:12px"><label>补充信息（可选）</label><textarea id="em-extra" placeholder="产品兴趣、之前沟通内容等…"></textarea></div>
       <button class="btn" id="em-btn" onclick="runEmail()">✏ 生成邮件</button>
+    </div>
+  </div>
+
+  <!-- ====== MODE 7: 社媒内容 ====== -->
+  <div class="mode-panel" id="panel-social">
+    <div class="card">
+      <div class="card-title">📱 社媒内容生成</div>
+      <div class="row">
+        <div class="field"><label>产品</label><select id="sm-product">
+          <option value="PIR motion sensor wall light">PIR 感应壁灯</option>
+          <option value="3-head solar floodlight">三头投光灯</option>
+          <option value="30W solar floodlight">30W 泛光灯</option>
+          <option value="all-in-one solar street light">一体化路灯</option>
+          <option value="up-down solar wall light">上下出光壁灯</option>
+          <option value="sphere gate pillar light">球形门柱灯</option>
+          <option value="solar bollard path light">立柱草坪灯</option>
+          <option value="garden stake light 8-pack">花园插地灯8只装</option>
+          <option value="spike spotlight">景观聚光灯</option>
+          <option value="solar wall lantern">户外装饰壁灯</option>
+          <option value="solar Edison string lights">爱迪生串灯</option>
+          <option value="solar deck step light">台阶甲板灯</option>
+          <option value="portable camping lantern">手提露营灯</option>
+          <option value="solar bug zapper">太阳能灭蚊灯</option>
+        </select></div>
+        <div class="field"><label>目标市场</label><select id="sm-country">
+          <option value="Colombia">🇨🇴 哥伦比亚</option>
+          <option value="South Africa">🇿🇦 南非</option>
+          <option value="Australia">🇦🇺 澳大利亚</option>
+          <option value="Ecuador">🇪🇨 厄瓜多尔</option>
+          <option value="Spain">🇪🇸 西班牙</option>
+          <option value="通用">🌍 通用</option>
+        </select></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>内容类型</label><select id="sm-type">
+          <option value="post">📝 帖子文案 (EN+ES)</option>
+          <option value="image-prompt">🎨 AI 图片提示词</option>
+          <option value="video-script">🎬 短视频脚本 (Reels/TikTok)</option>
+          <option value="weekly-plan">📅 一周内容计划</option>
+        </select></div>
+        <div class="field"><label>风格</label><select id="sm-tone">
+          <option value="professional">专业/B2B</option>
+          <option value="story">故事性/场景化</option>
+          <option value="data">数据驱动/痛点</option>
+          <option value="mixed">混合风格</option>
+        </select></div>
+      </div>
+      <button class="btn" id="sm-btn" onclick="runSocial()">📱 生成内容</button>
     </div>
   </div>
 
@@ -533,6 +582,138 @@ Subject: [subject]
   }catch(e){
     if(e.message==='invalid_key'){showError('em-btn','API Key 无效，请点击右上角重新设置');return}
     showError('em-btn','生成失败，请重试');
+  }
+}
+
+// ====== MODE 7: 社媒内容生成 ======
+async function runSocial(){
+  const product=document.getElementById('sm-product').value;
+  const country=document.getElementById('sm-country').value;
+  const type=document.getElementById('sm-type').value;
+  const tone=document.getElementById('sm-tone').value;
+  setLoading('sm-btn',`正在生成 ${product} 的社媒内容...`);
+
+  const toneMap={professional:'professional B2B tone — specs, certifications, business value. No hype.',story:'story-driven — paint a scene, show the light in use, emotional but not cheesy.',data:'data-driven — lead with market stats, energy crisis numbers, technical comparisons.',mixed:'mix of professional and story-telling — specs with context, facts with feeling.'};
+  const langNote=country==='Colombia'||country==='Ecuador'||country==='Spain'?'Generate in Spanish (Latin American style) AND English':'Generate in English';
+  const countryContext=country==='通用'?'general global markets' : `${country} — ${ {Colombia:'energy deficit, frequent blackouts, high demand for solar security',Ecuador:'daily power cuts up to 10 hours, growing solar adoption',SouthAfrica:'6-8h load-shedding daily, solar security is essential',Australia:'off-grid reliability, outdoor living culture, premium quality expected',Spain:'warm-white preference, decorative + aesthetic, sustainability-conscious'} [country] || 'solar outdoor lighting market'}`;
+
+  const typePrompts={
+    post:`Write 2 social media posts (Facebook/Instagram) about JC Lightning's "${product}" for the ${countryContext} market.
+
+${langNote}. Tone: ${toneMap[tone]}
+
+Each post must include:
+- Engaging headline/hook
+- Key specs (lumens, battery type, IP rating, materials)
+- Why it matters for ${country==='通用'?'off-grid markets':country}
+- Hashtags (mix of #SolarLighting #SolarSecurity #LiFePO4 #B2BSourcing and market-specific tags)
+- Soft CTA (WhatsApp/website)
+
+Return EXACTLY:
+### POST 1 (EN)
+[post]
+
+### POST 1 (ES)
+[post]${country==='通用'?`
+### POST 2 (EN)
+[post]`:`
+### POST 2 (EN)
+[post]
+
+### POST 2 (ES)
+[post]`}`,
+
+    'image-prompt':`Generate 3 AI image prompts for "${product}" targeting the ${countryContext} market.
+
+JC Lightning brand: premium solar outdoor lighting, cast aluminium, LiFePO4 battery, CE/RoHS. Brand colors: brass gold (#a87d2a), deep charcoal (#0e0c0a), warm chalk (#f0ebe2).
+
+Create prompts for Midjourney AND DALL-E:
+1. Product hero shot (studio quality, product on dark background with dramatic lighting)
+2. Scene/lifestyle shot (product installed in a real setting — gate, garden, wall, pathway)
+3. Comparison/infographic style (illustrating a technical advantage like LiFePO4 vs Li-ion)
+
+Each prompt should be:
+- Specific about lighting, composition, camera angle, mood
+- Include brand-appropriate color palette notes
+- Specify "no text, no watermark, photorealistic"
+
+Return EXACTLY:
+### Prompt 1 — 产品主图
+**Midjourney:** [prompt --ar 1:1 --style raw]
+**DALL-E:** [prompt]
+
+### Prompt 2 — 场景图
+**Midjourney:** [prompt --ar 4:5 --style raw]
+**DALL-E:** [prompt]
+
+### Prompt 3 — 技术对比图
+**Midjourney:** [prompt --ar 1:1]
+**DALL-E:** [prompt]`,
+
+    'video-script':`Write a short video script (15-30 seconds) for Instagram Reels / TikTok featuring JC Lightning's "${product}" for ${countryContext}.
+
+${langNote==='Generate in Spanish (Latin American style) AND English'?'Generate BOTH an English version and a Spanish version.':'Generate in English.'}
+Tone: ${toneMap[tone]}
+
+Structure each script as:
+- Hook (first 2 seconds — text overlay + visual)
+- Problem (3 seconds — what pain does this solve?)
+- Solution (5 seconds — how the product works)
+- Proof (5 seconds — key spec on screen)
+- CTA (3 seconds — what to do next)
+
+Return EXACTLY:
+### English Version
+| Time | Visual | Text Overlay | Audio/Voiceover |
+|------|--------|-------------|-----------------|
+[table rows]
+
+### Shooting Tips
+[2-3 practical tips for filming this product with a phone]`,
+
+    'weekly-plan':`Create a 7-day social media content plan for JC Lightning, promoting "${product}" to the ${countryContext} market.
+
+${langNote}. Tone: ${toneMap[tone]}
+
+Plan 7 posts (one per day), mixing:
+- Product showcases
+- Educational/technical content
+- Market insight
+- Behind-the-scenes
+- Customer-focused content
+
+For each day, specify: theme, content type, key message, suggested visual, and hashtags.
+
+Return EXACTLY:
+### Day 1 — [Theme]
+**类型:** [Product/Education/Market/Story/CTA]
+**文案方向:** [1-2 sentence angle in ${country==='Colombia'||country==='Ecuador'||country==='Spain'?'Spanish':'English'}]
+**配图建议:** [what image/video to use]
+**Hashtags:** [5-7 tags]
+
+[Repeat for all 7 days]
+
+### 本周重点
+[Top 2 posts most likely to drive engagement]`
+  };
+
+  try{
+    const text=await callClaude(typePrompts[type],3500);
+    document.getElementById('results').innerHTML=`
+      <div class="result-card">
+        <div class="tags">
+          <span class="tag tag-g">${product}</span>
+          <span class="tag">${country}</span>
+          <span class="tag tag-y">${type==='post'?'帖子文案':type==='image-prompt'?'AI图片提示词':type==='video-script'?'短视频脚本':'一周内容计划'}</span>
+          <span class="tag tag-b">${tone}</span>
+        </div>
+        <div class="actions" style="margin-bottom:10px"><button class="btn-sm btn-copy" onclick="copyText(this)">📋 复制全部</button></div>
+        <div class="info-box">${formatMarkdown(text)}</div>
+      </div>`;
+    setDone('sm-btn',`✅ 内容已生成 — ${product}`);
+  }catch(e){
+    if(e.message==='invalid_key'){showError('sm-btn','API Key 无效，请点击右上角重新设置');return}
+    showError('sm-btn','生成失败，请重试');
   }
 }
 
