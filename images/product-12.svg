@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fafaf8"/><stop offset="1" stop-color="#f0efe9"/></linearGradient>
+    <linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7355"/><stop offset="1" stop-color="#5a4530"/></linearGradient>
+    <linearGradient id="diffuser" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#faf5e8"/><stop offset="1" stop-color="#e8dcc0"/></linearGradient>
+    <filter id="sd"><feDropShadow dx="2" dy="4" stdDeviation="8" flood-opacity="0.15"/></filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <!-- Bollard pole -->
+  <rect x="370" y="180" width="60" height="380" rx="30" fill="url(#bronze)" filter="url(#sd)"/>
+  <!-- Top ring -->
+  <rect x="365" y="175" width="70" height="15" rx="5" fill="#9b8365"/>
+  <!-- Diffuser top section -->
+  <rect x="345" y="195" width="110" height="110" rx="15" fill="url(#diffuser)"/>
+  <!-- Diffuser glow effect -->
+  <rect x="350" y="210" width="100" height="80" rx="10" fill="#faf5e8" opacity="0.7"/>
+  <!-- LED visible through diffuser -->
+  <circle cx="400" cy="240" r="15" fill="#ffe8a0" opacity="0.4"/>
+  <circle cx="400" cy="240" r="8" fill="#ffd060" opacity="0.6"/>
+  <!-- Top cap -->
+  <path d="M350,195 Q400,165 450,195" fill="#7a6345"/>
+  <!-- Bottom flange -->
+  <rect x="360" y="555" width="80" height="12" rx="4" fill="#7a6345"/>
+  <!-- Base plate shadow -->
+  <ellipse cx="400" cy="570" rx="60" ry="8" fill="#000" opacity="0.1"/>
+</svg>
