@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -142,19 +142,38 @@ h2 em { font-style:italic; color:var(--brass); }
 .prod-info p { font-size:0.73rem; font-weight:300; color:var(--stone); line-height:1.6; margin-bottom:13px; }
 .prod-enq { font-size:0.61rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); text-decoration:none; transition:letter-spacing .2s; }
 .prod-enq:hover { letter-spacing:0.26em; }
-.categories { display:grid; grid-template-columns:repeat(2,1fr); min-height:560px; }
-.cat-p { padding:64px 44px 56px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; transition:background .3s; }
-.cat-p:nth-child(1){ background:#18140f; }
-.cat-p:nth-child(2){ background:var(--ink); }
-.cat-p:nth-child(3){ background:#12100d; }
-.cat-top-line { position:absolute; left:44px; top:0; height:2px; width:0; background:var(--brass); transition:width .45s ease; }
-.cat-p:hover .cat-top-line { width:calc(100% - 88px); }
-.cat-num-bg { font-family:'Playfair Display',serif; font-size:5rem; font-weight:400; color:rgba(255,255,255,0.04); line-height:1; margin-bottom:auto; }
-.cat-icon-box { width:42px; height:42px; border:1px solid rgba(168,125,42,0.35); display:flex; align-items:center; justify-content:center; margin-bottom:22px; }
-.cat-p h3 { font-family:'Playfair Display',serif; font-size:1.35rem; font-weight:400; color:#fff; margin-bottom:14px; line-height:1.25; }
-.cat-p p { font-size:0.8rem; font-weight:300; color:var(--stone-lt); line-height:1.85; margin-bottom:30px; }
-.cat-a { font-size:0.6rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; color:var(--brass-lt); text-decoration:none; transition:letter-spacing .2s; }
-.cat-a:hover { letter-spacing:0.28em; }
+.categories { padding:96px 56px 80px; }
+.cat-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.cat-card { display:flex; flex-direction:column; background:#fff; border:1px solid var(--blt); border-radius:12px; overflow:hidden; transition:all .3s; }
+.cat-card:hover { box-shadow:0 6px 28px rgba(0,0,0,.08); border-color:var(--brass); }
+.cat-card-img { height:180px; overflow:hidden; background:var(--chalk); }
+.cat-card-img img { width:100%;height:100%;object-fit:cover; transition:transform .4s; }
+.cat-card:hover .cat-card-img img { transform:scale(1.04); }
+.cat-card-body { padding:24px 22px 22px; display:flex; flex-direction:column; flex:1; }
+.cat-card-num { font-family:'Playfair Display',serif; font-size:2.5rem; color:var(--brass); opacity:.18; line-height:1; margin-bottom:8px; }
+.cat-card-body h3 { font-family:'Playfair Display',serif; font-size:1.18rem; font-weight:400; color:var(--ink); margin-bottom:10px; line-height:1.25; }
+.cat-card-body p { font-size:.82rem; color:var(--stone); line-height:1.65; margin-bottom:14px; flex:1; }
+.cat-card-products { font-size:.72rem; color:var(--stone-lt); font-style:italic; margin-bottom:14px; }
+.cat-a { display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--brass); text-decoration:none; transition:letter-spacing .2s; }
+.cat-a:hover { letter-spacing:.2em; }
+
+/* Product Category Groups */
+.prod-cat-group { margin-bottom:48px; padding-top:40px; border-top:1px solid var(--blt); }
+.prod-cat-group:first-child { border-top:none; padding-top:0; }
+.prod-cat-header { display:flex; align-items:baseline; gap:14px; margin-bottom:28px; }
+.prod-cat-num { font-family:'Playfair Display',serif; font-size:2rem; color:var(--brass); opacity:.3; }
+.prod-cat-header h3 { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:400; color:var(--ink); }
+/* Application Scenarios */
+.scenarios { padding:100px 56px 88px; text-align:center; background:#fff; }
+.sc-sub { color:var(--stone); font-size:.92rem; max-width:520px; margin:6px auto 40px; line-height:1.55; }
+.sc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; text-align:left; }
+.sc-card { background:var(--chalk); border:1px solid var(--blt); border-radius:12px; padding:28px 24px 24px; transition:all .25s; }
+.sc-card:hover { border-color:var(--brass); box-shadow:0 4px 18px rgba(0,0,0,.05); transform:translateY(-2px); }
+.sc-icon { width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid var(--blt); border-radius:10px; margin-bottom:18px; }
+.sc-card h4 { font-size:.98rem; font-weight:700; color:var(--ink); margin-bottom:8px; }
+.sc-card p { font-size:.8rem; color:var(--stone); line-height:1.6; margin-bottom:14px; }
+.sc-tag { display:inline-block; font-size:.65rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--brass); background:rgba(168,125,42,.07); padding:4px 10px; border-radius:4px; }
+
 .factory { padding:120px 56px; background:var(--chalk); display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:start; }
 .fac-l h2 { color:var(--ink); margin-bottom:24px; }
 .fac-l p { font-size:0.9rem; font-weight:300; line-height:1.95; color:var(--stone); margin-bottom:36px; max-width:400px; }
@@ -281,7 +300,13 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .brand { padding:80px 22px; }
   .products { padding:80px 22px; }
   .prod-grid { grid-template-columns:1fr 1fr; }
-  .categories { grid-template-columns:1fr; }
+  .categories { padding:64px 18px; }
+  .cat-grid { grid-template-columns:1fr; }
+  .cat-card-img { height:140px; }
+  .prod-cat-group { margin-bottom:32px; padding-top:28px; }
+  .scenarios { padding:64px 18px; }
+  .sc-grid { grid-template-columns:1fr; gap:12px; }
+  .sc-card { padding:22px 18px 20px; }
   .factory { grid-template-columns:1fr; gap:48px; padding:80px 22px; }
   .contact { grid-template-columns:1fr; gap:48px; padding:80px 22px; }
   .form-row { grid-template-columns:1fr; }
@@ -372,8 +397,8 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 <nav class="dark" id="mainnav">
   <a href="#" class="logo">JC <em>Lightning</em></a>
   <ul>
-    <li><a href="#products"   class="nav-link" data-i18n="nav_products">Products</a></li>
     <li><a href="#categories" class="nav-link" data-i18n="nav_cat">Categories</a></li>
+    <li><a href="#products"   class="nav-link" data-i18n="nav_products">Products</a></li>
     <li><a href="#factory"    class="nav-link" data-i18n="nav_about">Our Approach</a></li>
     <li><a href="#contact"    class="nav-link" data-i18n="nav_contact">Contact</a></li>
   </ul>
@@ -388,8 +413,8 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </nav>
 <div class="nav-drop" id="navDrop">
-  <a href="#products" data-i18n="nav_products">Products</a>
   <a href="#categories" data-i18n="nav_cat">Categories</a>
+  <a href="#products" data-i18n="nav_products">Products</a>
   <a href="#factory" data-i18n="nav_about">Our Approach</a>
   <a href="#contact" data-i18n="nav_contact">Contact</a>
   <a href="#contact" data-i18n="nav_quote" style="color:var(--brass-lt)">Get a Quote</a>
@@ -404,7 +429,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     <p class="hero-sub" data-i18n="hero_sub">Colombia faces a projected 3,100 GWh energy deficit by 2027. Ecuador already suffers cuts of up to 10 hours a day. South Africa averages 6–8 hours of load-shedding daily. Solar security, garden, and wall lighting — built so your clients never go dark.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-fill" data-i18n="hero_cta1">Request a Quote</a>
-      <a href="#products" class="btn-text" data-i18n="hero_cta2">View Products →</a>
+      <a href="#categories" class="btn-text" data-i18n="hero_cta2">View Products →</a>
     </div>
   </div>
   <div class="hero-right">
@@ -458,165 +483,231 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   <p class="brand-b reveal" data-i18n="brand_b">JC Lightning supplies outdoor solar lighting to distributors, installers, and project contractors in markets where reliable grid power cannot be assumed. Three core ranges — solar security, garden and gate, decorative wall lanterns — engineered with cast aluminium housings, LiFePO4 batteries, and IP65 seals for sustained operation in high-heat, high-UV environments. CE certified. OEM and ODM available.</p>
 </div>
 
-<section class="products" id="products">
+
+<!-- ===== Categories Overview ===== -->
+<section class="categories" id="categories">
   <div class="prod-head reveal">
     <div>
-      <div class="sec-label" data-i18n="prod_lbl">Featured Products</div>
-      <h2 data-i18n="prod_h2">Complete <em>Product Range</em></h2>
+      <div class="sec-label" data-i18n="cat_lbl">Our Ranges</div>
+      <h2 data-i18n="cat_h2">Four Product Lines<br><em>One Standard</em></h2>
     </div>
     <a href="#contact" class="btn-text" style="color:var(--stone)" data-i18n="prod_cat">Request Full Catalogue →</a>
   </div>
-  <div class="prod-grid">
-    <!-- 1. 三头投光灯 (Bestseller) -->
-    <div class="prod-card reveal">
-      <div class="prod-img">
-        <div class="prod-badge bg-brass" data-i18n="b_best">Bestseller</div>
-        <img src="images/product-01.webp" alt="3-Head Solar Motion Flood Light" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+  <div class="cat-grid">
+    <div class="cat-card reveal">
+      <div class="cat-card-img">
+        <img src="images/product-01.webp" alt="Solar Security Lighting" loading="lazy" style="width:100%;height:100%;object-fit:cover">
       </div>
-      <div class="prod-info"><h4 data-i18n="p1_n">Solar Motion Flood Light · 3-Head</h4><p data-i18n="p1_d">Three-head adjustable solar floodlight. 2500-3500lm · IP65 · PIR 270° · LiFePO4 · three working modes. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      <div class="cat-card-body">
+        <div class="cat-card-num">01</div>
+        <h3 data-i18n="cat1_t">Solar Security Lighting</h3>
+        <p data-i18n="cat1_d">Perimeter protection, grid or no grid. PIR wall lights, floodlights, street lights & up-down sconces for residential and commercial boundaries. IP65/IP66. 800–3,000lm. –20°C to +60°C.</p>
+        <div class="cat-card-products" data-i18n="cat1_prods">6 products: 3-Head Flood · All-in-One Street · PIR Wall · Up-Down Sconce · 30W Flood · Bug Zapper</div>
+        <a href="#cat-sec-prods" class="cat-a" data-i18n="cat_lnk">View Products →</a>
+      </div>
     </div>
-    <!-- 2. 一体化太阳能路灯 (NEW) -->
-    <div class="prod-card reveal" style="transition-delay:.07s">
-      <div class="prod-img">
-	        <img src="images/product-02.jpg" alt="All-in-One Solar Street Light" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+    <div class="cat-card reveal" style="transition-delay:.08s">
+      <div class="cat-card-img">
+        <img src="images/product-07.jpg" alt="Solar Garden & Gate Lights" loading="lazy" style="width:100%;height:100%;object-fit:cover">
       </div>
-      <div class="prod-info"><h4 data-i18n="p9_n">All-in-One Solar Street Light</h4><p data-i18n="p9_d">Integrated solar street light for municipal roads, rural pathways & parking lots. 100/200/300W · IP66 · radar sensor · LiFePO4 · dusk-to-dawn auto. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      <div class="cat-card-body">
+        <div class="cat-card-num">02</div>
+        <h3 data-i18n="cat2_t">Solar Garden & Gate Lights</h3>
+        <p data-i18n="cat2_d">Entrances and pathways lit every night, automatically. Sphere pillar lights, bollards, stake lights, spike spotlights & deck lights. 304SS or aluminium. IP65–IP67. LiFePO4 2,000+ cycles.</p>
+        <div class="cat-card-products" data-i18n="cat2_prods">5 products: Sphere Pillar · Bollard Path · Garden Stake 8-Pack · Spike Spotlight · Deck & Step</div>
+        <a href="#cat-garden-prods" class="cat-a" data-i18n="cat_lnk">View Products →</a>
+      </div>
     </div>
-    <!-- 3. PIR感应壁灯 (Recommended) -->
-    <div class="prod-card reveal" style="transition-delay:.14s">
-      <div class="prod-img">
-        <div class="prod-badge bg-ink" data-i18n="b_rec">Recommended</div>
-        <img src="images/product-03.jpg" alt="PIR Motion Sensor Wall Light" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+    <div class="cat-card reveal" style="transition-delay:.16s">
+      <div class="cat-card-img">
+        <img src="images/product-09.jpg" alt="Decorative & String Lights" loading="lazy" style="width:100%;height:100%;object-fit:cover">
       </div>
-      <div class="prod-info"><h4 data-i18n="p2_n">PIR Motion Sensor Wall Light</h4><p data-i18n="p2_d">Anti-vandal solar security lighting for perimeter walls & commercial properties. 800lm · IP65 · dual PIR 8-12m · 4000mAh LiFePO4 · 8-12h. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      <div class="cat-card-body">
+        <div class="cat-card-num">03</div>
+        <h3 data-i18n="cat3_t">Decorative & String Lights</h3>
+        <p data-i18n="cat3_d">Lighting that transforms spaces. Classic wall lanterns (solar or AC) for estates and hotels. Vintage Edison string lights for patios, events & hospitality. CE / EMC / LVD certified.</p>
+        <div class="cat-card-products" data-i18n="cat3_prods">2 products: Outdoor Wall Lantern · Edison String Lights</div>
+        <a href="#cat-dec-prods" class="cat-a" data-i18n="cat_lnk">View Products →</a>
+      </div>
     </div>
-    <!-- 4. 上下出光壁灯 (NEW) -->
-    <div class="prod-card reveal" style="transition-delay:.21s">
-      <div class="prod-img">
-        <div class="prod-badge bg-new" data-i18n="b_newarr">NEW</div>
-        <img src="images/product-04.jpg" alt="Up-Down Solar Wall Light" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+    <div class="cat-card reveal" style="transition-delay:.24s">
+      <div class="cat-card-img">
+        <img src="images/product-10.jpg" alt="Off-Grid & Portable" loading="lazy" style="width:100%;height:100%;object-fit:cover">
       </div>
-      <div class="prod-info"><h4 data-i18n="p10_n">Up-Down Solar Wall Light</h4><p data-i18n="p10_d">Modern dual-beam wall sconce for architectural facades. 2×3W · IP65 · aluminium body · warm white 3000K · 10h runtime. Black/white/grey. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 5. 30W泛光安防灯 (IP66) -->
-    <div class="prod-card reveal" style="transition-delay:.28s">
-      <div class="prod-img">
-        <div class="prod-badge bg-green" data-i18n="b_ip66">IP66</div>
-        <img src="images/product-05.jpg" alt="30W Solar Flood Security Light" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+      <div class="cat-card-body">
+        <div class="cat-card-num">04</div>
+        <h3 data-i18n="cat4_t">Off-Grid & Portable</h3>
+        <p data-i18n="cat4_d">Light that goes where the grid doesn''t reach. Portable camping lanterns with USB power-bank function for emergencies and outdoor life. Solar bug zappers for mosquito-heavy regions.</p>
+        <div class="cat-card-products" data-i18n="cat4_prods">2 products: Portable Camping Lantern · Bug Zapper Light</div>
+        <a href="#cat-spec-prods" class="cat-a" data-i18n="cat_lnk">View Products →</a>
       </div>
-      <div class="prod-info"><h4 data-i18n="p7_n">Solar Flood Security Light · 30W</h4><p data-i18n="p7_d">Industrial-grade solar floodlight for warehouses & farms. 30W · 2400lm · IP66 · PIR 10m 270° · –20°C~+50°C. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 6. 装饰串灯 (HOT) -->
-    <div class="prod-card reveal" style="transition-delay:.35s">
-      <div class="prod-img">
-        <div class="prod-badge bg-hot" data-i18n="b_hot">HOT</div>
-        <img src="images/product-06.jpg" alt="Solar Edison String Lights" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="prod-info"><h4 data-i18n="p11_n">Solar Edison String Lights</h4><p data-i18n="p11_d">Vintage Edison bulb string lights for patios, gardens & events. 40/60 LED · IP65 · warm white 2700K · 30m length · 8-12h. Retail & bulk packaging. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 7. 球形门柱灯 -->
-    <div class="prod-card reveal" style="transition-delay:.42s">
-      <div class="prod-img">
-        <img src="images/product-07.jpg" alt="Sphere Gate Pillar Light" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="prod-info"><h4 data-i18n="p3_n">Sphere Gate Pillar Light</h4><p data-i18n="p3_d">Decorative pillar lighting for gates & entrance posts. 304 stainless steel · UV-stable acrylic globe · 5W · IP65 · LiFePO4 · 10-12h. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 8. 台阶/甲板灯 (NEW) -->
-    <div class="prod-card reveal" style="transition-delay:.49s">
-      <div class="prod-img">
-        <div class="prod-badge bg-new" data-i18n="b_newarr">NEW</div>
-        <img src="images/product-08.jpg" alt="Solar Deck Step Light" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="prod-info"><h4 data-i18n="p12_n">Solar Deck & Step Light</h4><p data-i18n="p12_d">Low-profile safety light for decks, steps & retaining walls. 2W · IP67 · 316 stainless steel · warm/cool white · 8h runtime. 2-pack & 6-pack. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 9. 户外装饰壁灯 (Classic) -->
-    <div class="prod-card reveal" style="transition-delay:.07s">
-      <div class="prod-img">
-        <div class="prod-badge bg-eco" data-i18n="b_eco">Classic</div>
-        <img src="images/product-09.jpg" alt="Outdoor Wall Lantern Solar AC" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="prod-info"><h4 data-i18n="p4_n">Outdoor Wall Lantern · Solar / AC</h4><p data-i18n="p4_d">Decorative wall lighting for estates & hotels. Solar (LiFePO4) or AC (E27) · IP44 · bronze/black/copper. CE / EMC / LVD.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 10. 露营手提灯 (NEW) -->
-    <div class="prod-card reveal" style="transition-delay:.14s">
-      <div class="prod-img">
-        <div class="prod-badge bg-new" data-i18n="b_newarr">NEW</div>
-        <img src="images/product-10.jpg" alt="Solar Portable Camping Lantern" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="prod-info"><h4 data-i18n="p13_n">Solar Portable Camping Lantern</h4><p data-i18n="p13_d">Portable lantern for camping, off-grid homes & emergencies. 5W · 4000mAh · 15h+ runtime · USB output (power bank) · IP44. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 11. 灭蚊灯 (HOT) -->
-    <div class="prod-card reveal" style="transition-delay:.21s">
-      <div class="prod-img">
-        <div class="prod-badge bg-hot" data-i18n="b_hot">HOT</div>
-        <img src="images/product-11.jpg" alt="Solar Bug Zapper Light" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="prod-info"><h4 data-i18n="p14_n">Solar Bug Zapper Light</h4><p data-i18n="p14_d">UV-LED mosquito & insect zapper for outdoor areas. 2W · IP65 · coverage 100-200m² · dusk-to-dawn auto · CE + RoHS. Pairs with security lights.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 12. 立柱草坪灯 -->
-    <div class="prod-card reveal" style="transition-delay:.28s">
-      <div class="prod-img">
-        <img src="images/product-12.jpg" alt="Solar Bollard Path Light" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="prod-info"><h4 data-i18n="p5_n">Solar Bollard Path Light</h4><p data-i18n="p5_d">Post-mounted bollard lighting for driveways & walkways. Cast aluminium · heights 0.5/0.8/1.0m · 3W · IP65 · 2000mAh LiFePO4 · 10h. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 13. 花园插地灯 8只装 -->
-    <div class="prod-card reveal" style="transition-delay:.35s">
-      <div class="prod-img">
-        <div class="prod-badge bg-set" data-i18n="b_set">8-Pack</div>
-        <img src="images/product-13.jpg" alt="Solar Garden Stake Light 8-Pack" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="prod-info"><h4 data-i18n="p6_n">Solar Garden Stake Light · 8-Pack</h4><p data-i18n="p6_d">Retail-ready stake lighting for gardens & pathways. Frosted glass · ABS · 1.2W · IP65 · 600mAh · 8h. 8-pack & 12-pack consumer boxes. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-    </div>
-    <!-- 14. 景观聚光灯 -->
-    <div class="prod-card reveal" style="transition-delay:.42s">
-      <div class="prod-img">
-        <img src="images/product-14.jpg" alt="Solar Garden Spike Spotlight" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="prod-info"><h4 data-i18n="p8_n">Solar Garden Spike Spotlight</h4><p data-i18n="p8_d">Adjustable spike spotlights for tree uplighting & facades. 360° rotating · 90° tilt · 5W · 400lm · IP65 · 1200mAh · 8h · 3000K/6000K. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
     </div>
   </div>
 </section>
 
-<section class="categories" id="categories">
-  <div class="cat-p reveal">
-    <div class="cat-top-line"></div>
-    <div class="cat-num-bg">01</div>
+<!-- ===== Products Grouped by Category ===== -->
+<section class="products" id="products">
+  <div class="prod-head reveal">
     <div>
-      <div class="cat-icon-box"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3.5" stroke="#a87d2a" stroke-width="1.1"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.1 4.1l1.4 1.4M14.5 14.5l1.4 1.4M4.1 15.9l1.4-1.4M14.5 5.5l1.4-1.4" stroke="#a87d2a" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+      <div class="sec-label" data-i18n="prod_lbl">Full Catalogue</div>
+      <h2 data-i18n="prod_h2">Every Light.<br><em>Every Spec.</em></h2>
+    </div>
+  </div>
+
+  <!-- Cat 1: Security -->
+  <div class="prod-cat-group reveal" id="cat-sec-prods">
+    <div class="prod-cat-header">
+      <span class="prod-cat-num">01</span>
       <h3 data-i18n="cat1_t">Solar Security Lighting</h3>
-      <p data-i18n="cat1_d">Perimeter protection, grid or no grid. PIR wall lights, floodlights, street lights & up-down sconces for residential and commercial boundaries. IP65/IP66. 800–3,000lm. –20°C to +60°C.</p>
-      <a href="#contact" class="cat-a" data-i18n="cat_lnk">Enquire About This Range →</a>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-brass" data-i18n="b_best">Bestseller</div><img src="images/product-01.webp" alt="3-Head Solar Motion Flood Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p1_n">Solar Motion Flood Light · 3-Head</h4><p data-i18n="p1_d">Three-head adjustable solar floodlight. 2500-3500lm · IP65 · PIR 270° · LiFePO4 · three working modes. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><img src="images/product-02.jpg" alt="All-in-One Solar Street Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p9_n">All-in-One Solar Street Light</h4><p data-i18n="p9_d">Integrated solar street light for municipal roads, rural pathways & parking lots. 100/200/300W · IP66 · radar sensor · LiFePO4 · dusk-to-dawn auto. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-ink" data-i18n="b_rec">Recommended</div><img src="images/product-03.jpg" alt="PIR Motion Sensor Wall Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p2_n">PIR Motion Sensor Wall Light</h4><p data-i18n="p2_d">Anti-vandal solar security lighting for perimeter walls & commercial properties. 800lm · IP65 · dual PIR 8-12m · 4000mAh LiFePO4 · 8-12h. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-new" data-i18n="b_newarr">NEW</div><img src="images/product-04.jpg" alt="Up-Down Solar Wall Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p10_n">Up-Down Solar Wall Light</h4><p data-i18n="p10_d">Modern dual-beam wall sconce for architectural facades. 2×3W · IP65 · aluminium body · warm white 3000K · 10h runtime. Black/white/grey. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-green" data-i18n="b_ip66">IP66</div><img src="images/product-05.jpg" alt="30W Solar Flood Security Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p7_n">Solar Flood Security Light · 30W</h4><p data-i18n="p7_d">Industrial-grade solar floodlight for warehouses & farms. 30W · 2400lm · IP66 · PIR 10m 270° · –20°C~+50°C. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-hot" data-i18n="b_hot">HOT</div><img src="images/product-11.jpg" alt="Solar Bug Zapper Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p14_n">Solar Bug Zapper Light</h4><p data-i18n="p14_d">UV-LED mosquito & insect zapper for outdoor areas. 2W · IP65 · coverage 100-200m² · dusk-to-dawn auto · CE + RoHS. Pairs with security lights.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
     </div>
   </div>
-  <div class="cat-p reveal" style="transition-delay:.08s">
-    <div class="cat-top-line"></div>
-    <div class="cat-num-bg">02</div>
-    <div>
-      <div class="cat-icon-box"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3L5 10h10L10 3z" stroke="#a87d2a" stroke-width="1.1" stroke-linejoin="round"/><path d="M5 10v5a2 2 0 002 2h6a2 2 0 002-2v-5" stroke="#a87d2a" stroke-width="1.1"/><path d="M7.5 14h5" stroke="#a87d2a" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+
+  <!-- Cat 2: Garden -->
+  <div class="prod-cat-group reveal" id="cat-garden-prods">
+    <div class="prod-cat-header">
+      <span class="prod-cat-num">02</span>
       <h3 data-i18n="cat2_t">Solar Garden & Gate Lights</h3>
-      <p data-i18n="cat2_d">Entrances and pathways lit every night, automatically. Sphere pillar lights, bollards, stake lights, spike spotlights & deck lights. 304SS or aluminium. IP65–IP67. LiFePO4 2,000+ cycles.</p>
-      <a href="#contact" class="cat-a" data-i18n="cat_lnk">Enquire About This Range →</a>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img"><img src="images/product-07.jpg" alt="Sphere Gate Pillar Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p3_n">Sphere Gate Pillar Light</h4><p data-i18n="p3_d">Decorative pillar lighting for gates & entrance posts. 304 stainless steel · UV-stable acrylic globe · 5W · IP65 · LiFePO4 · 10-12h. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><img src="images/product-12.jpg" alt="Solar Bollard Path Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p5_n">Solar Bollard Path Light</h4><p data-i18n="p5_d">Post-mounted bollard lighting for driveways & walkways. Cast aluminium · heights 0.5/0.8/1.0m · 3W · IP65 · 2000mAh LiFePO4 · 10h. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-set" data-i18n="b_set">8-Pack</div><img src="images/product-13.jpg" alt="Solar Garden Stake Light 8-Pack" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p6_n">Solar Garden Stake Light · 8-Pack</h4><p data-i18n="p6_d">Retail-ready stake lighting for gardens & pathways. Frosted glass · ABS · 1.2W · IP65 · 600mAh · 8h. 8-pack & 12-pack consumer boxes. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><img src="images/product-14.jpg" alt="Solar Garden Spike Spotlight" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p8_n">Solar Garden Spike Spotlight</h4><p data-i18n="p8_d">Adjustable spike spotlights for tree uplighting & facades. 360° rotating · 90° tilt · 5W · 400lm · IP65 · 1200mAh · 8h · 3000K/6000K. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-new" data-i18n="b_newarr">NEW</div><img src="images/product-08.jpg" alt="Solar Deck Step Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p12_n">Solar Deck & Step Light</h4><p data-i18n="p12_d">Low-profile safety light for decks, steps & retaining walls. 2W · IP67 · 316 stainless steel · warm/cool white · 8h runtime. 2-pack & 6-pack. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
     </div>
   </div>
-  <div class="cat-p reveal" style="transition-delay:.16s">
-    <div class="cat-top-line"></div>
-    <div class="cat-num-bg">03</div>
-    <div>
-      <div class="cat-icon-box"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="5" y="3" width="10" height="14" rx="2" stroke="#a87d2a" stroke-width="1.1"/><path d="M7 7h6M7 10h6M7 13h4" stroke="#a87d2a" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+
+  <!-- Cat 3: Decorative -->
+  <div class="prod-cat-group reveal" id="cat-dec-prods">
+    <div class="prod-cat-header">
+      <span class="prod-cat-num">03</span>
       <h3 data-i18n="cat3_t">Decorative & String Lights</h3>
-      <p data-i18n="cat3_d">Lighting that transforms spaces. Classic wall lanterns (solar or AC) for estates and hotels. Vintage Edison string lights for patios, events & hospitality. CE / EMC / LVD certified.</p>
-      <a href="#contact" class="cat-a" data-i18n="cat_lnk">Enquire About This Range →</a>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-eco" data-i18n="b_eco">Classic</div><img src="images/product-09.jpg" alt="Outdoor Wall Lantern Solar AC" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p4_n">Outdoor Wall Lantern · Solar / AC</h4><p data-i18n="p4_d">Decorative wall lighting for estates & hotels. Solar (LiFePO4) or AC (E27) · IP44 · bronze/black/copper. CE / EMC / LVD.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-hot" data-i18n="b_hot">HOT</div><img src="images/product-06.jpg" alt="Solar Edison String Lights" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p11_n">Solar Edison String Lights</h4><p data-i18n="p11_d">Vintage Edison bulb string lights for patios, gardens & events. 40/60 LED · IP65 · warm white 2700K · 30m length · 8-12h. Retail & bulk packaging. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
     </div>
   </div>
-  <div class="cat-p reveal" style="transition-delay:.24s">
-    <div class="cat-top-line"></div>
-    <div class="cat-num-bg">04</div>
-    <div>
-      <div class="cat-icon-box"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#a87d2a" stroke-width="1.1"/><path d="M10 4v2M10 14v2M4 10h2M14 10h2" stroke="#a87d2a" stroke-width="1.1" stroke-linecap="round"/><circle cx="10" cy="10" r="2" fill="#a87d2a" opacity=".5"/></svg></div>
+
+  <!-- Cat 4: Off-Grid & Portable -->
+  <div class="prod-cat-group reveal" id="cat-spec-prods">
+    <div class="prod-cat-header">
+      <span class="prod-cat-num">04</span>
       <h3 data-i18n="cat4_t">Off-Grid & Portable</h3>
-      <p data-i18n="cat4_d">Light that goes where the grid doesn't reach. Portable camping lanterns with USB power-bank function for emergencies and outdoor life. Solar bug zappers for mosquito-heavy regions.</p>
-      <a href="#contact" class="cat-a" data-i18n="cat_lnk">Enquire About This Range →</a>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-new" data-i18n="b_newarr">NEW</div><img src="images/product-10.jpg" alt="Solar Portable Camping Lantern" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p13_n">Solar Portable Camping Lantern</h4><p data-i18n="p13_d">Portable lantern for camping, off-grid homes & emergencies. 5W · 4000mAh · 15h+ runtime · USB output (power bank) · IP44. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><div class="prod-badge bg-hot" data-i18n="b_hot">HOT</div><img src="images/product-11.jpg" alt="Solar Bug Zapper Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="prod-info"><h4 data-i18n="p14_n">Solar Bug Zapper Light</h4><p data-i18n="p14_d">UV-LED mosquito & insect zapper for outdoor areas. 2W · IP65 · coverage 100-200m² · dusk-to-dawn auto · CE + RoHS. Pairs with security lights.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Application Scenarios ===== -->
+<section class="scenarios" id="scenarios">
+  <div class="sec-label reveal" data-i18n="sc_lbl">Where They're Used</div>
+  <h2 class="reveal" data-i18n="sc_h2">Real Places. <em>Real Performance.</em></h2>
+  <p class="sc-sub reveal" data-i18n="sc_sub">See where each product range does its best work — from coastal estates to off-grid farms.</p>
+  <div class="sc-grid">
+    <div class="sc-card reveal">
+      <div class="sc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#a87d2a" stroke-width="1.3"/><path d="M7 10h4M7 14h2" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><circle cx="17" cy="12" r="2.5" stroke="#a87d2a" stroke-width="1.3"/></svg>
+      </div>
+      <h4 data-i18n="sc1_t">Perimeter Security</h4>
+      <p data-i18n="sc1_d">Solar floodlights and PIR wall lights protecting commercial compounds, warehouses, and residential perimeter walls. Motion-activated, grid-independent, IP65/IP66 rated.</p>
+      <span class="sc-tag" data-i18n="sc1_tag">Security Range</span>
+    </div>
+    <div class="sc-card reveal" style="transition-delay:.06s">
+      <div class="sc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 21l7-7-7-7" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 4h9v17h-9z" stroke="#a87d2a" stroke-width="1.3"/></svg>
+      </div>
+      <h4 data-i18n="sc2_t">Entrance & Facade</h4>
+      <p data-i18n="sc2_d">Gate pillar lights, up-down wall sconces, and classic wall lanterns framing entrances for estates, hotels, and gated communities. Warm white, architectural finish.</p>
+      <span class="sc-tag" data-i18n="sc2_tag">Garden + Decorative</span>
+    </div>
+    <div class="sc-card reveal" style="transition-delay:.12s">
+      <div class="sc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 9v10a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V9z" stroke="#a87d2a" stroke-width="1.3"/><circle cx="10" cy="13" r="1.5" stroke="#a87d2a" stroke-width="1.3"/></svg>
+      </div>
+      <h4 data-i18n="sc3_t">Garden & Landscape</h4>
+      <p data-i18n="sc3_d">Bollards, stake lights, and spike spotlights shaping pathways, flowerbeds, and tree uplighting. 304 stainless steel and cast aluminium. IP65–IP67.</p>
+      <span class="sc-tag" data-i18n="sc3_tag">Garden Range</span>
+    </div>
+    <div class="sc-card reveal" style="transition-delay:.18s">
+      <div class="sc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#a87d2a" stroke-width="1.3"/><path d="M12 5v14M5 12h14" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="#a87d2a" stroke-width="1.3"/></svg>
+      </div>
+      <h4 data-i18n="sc4_t">Patio & Entertainment</h4>
+      <p data-i18n="sc4_d">Edison string lights and portable lanterns creating atmosphere for outdoor dining, events, and hospitality. Warm 2700K glow. IP65 for year-round use.</p>
+      <span class="sc-tag" data-i18n="sc4_tag">Decorative Range</span>
+    </div>
+    <div class="sc-card reveal" style="transition-delay:.24s">
+      <div class="sc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="3" stroke="#a87d2a" stroke-width="1.3"/></svg>
+      </div>
+      <h4 data-i18n="sc5_t">Pathway & Driveway</h4>
+      <p data-i18n="sc5_d">Bollard path lights and all-in-one street lights guiding vehicles and pedestrians. Municipal-grade for roads, parking lots, and long driveways. Radar and dusk-to-dawn sensors.</p>
+      <span class="sc-tag" data-i18n="sc5_tag">Garden + Security</span>
+    </div>
+    <div class="sc-card reveal" style="transition-delay:.30s">
+      <div class="sc-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#a87d2a" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </div>
+      <h4 data-i18n="sc6_t">Off-Grid & Emergency</h4>
+      <p data-i18n="sc6_d">Portable camping lanterns with USB power-bank function for rural homes, emergency kits, and outdoor adventures. 15+ hours runtime. Charges your phone too.</p>
+      <span class="sc-tag" data-i18n="sc6_tag">Portable Range</span>
     </div>
   </div>
 </section>
@@ -875,7 +966,7 @@ const T = {
     stat1:'Certified',stat2:'Security · Garden · Lantern',stat3:'All Security Products',stat4:'Pcs Minimum Trial Order',
     brand_q:'"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn\'t an upgrade — it\'s the answer."</span>',
     brand_b:'JC Lightning supplies outdoor solar lighting to distributors, installers, and project contractors in markets where reliable grid power cannot be assumed. Three core ranges — solar security, garden and gate, decorative wall lanterns — engineered with cast aluminium housings, LiFePO4 batteries, and IP65 seals for sustained operation in high-heat, high-UV environments. CE certified. OEM and ODM available.',
-    prod_lbl:'Featured Products',prod_h2:'Verified <em>Product Range</em>',prod_cat:'View Full Product Range →',
+    prod_lbl:'Full Catalogue',prod_h2:'Every Light.<br><em>Every Spec.</em>',prod_cat:'View Full Product Range →',
     b_best:'Bestseller',b_newarr:'NEW',b_rec:'Recommended',b_hot:'HOT',b_eco:'Classic',b_set:'8-Pack',b_ip66:'IP66',
     p1_n:'Solar Motion Flood Light · 3-Head',p1_d:'Three-head adjustable solar floodlight for residential and commercial perimeters, garages, and driveways. Cast aluminium body. Total 2500–3500lm · IP65 · PIR + 270° coverage · three working modes. CE + RoHS.',
     p2_n:'PIR Motion Sensor Wall Light',p2_d:'Anti-vandal solar security lighting for perimeter walls, driveways, and commercial properties. 120 LED · 800lm · IP65. Dual-element PIR · 8–12m detection. 4000mAh LiFePO4 · 8–12h runtime. CE + RoHS.',
@@ -896,7 +987,7 @@ const T = {
     cat2_t:'Solar Garden & Gate Lights',cat2_d:'Entrances and pathways lit every night, automatically. Sphere pillar lights, bollards, stake lights, spike spotlights & deck lights. 304SS or aluminium. IP65–IP67. LiFePO4 2,000+ cycles.',
     cat3_t:'Decorative & String Lights',cat3_d:'Lighting that transforms spaces. Classic wall lanterns (solar or AC) for estates and hotels. Vintage Edison string lights for patios, events & hospitality. CE / EMC / LVD certified.',
     cat4_t:'Off-Grid & Portable',cat4_d:'Light that goes where the grid doesn\'t reach. Portable camping lanterns with USB power-bank function. Solar bug zappers for mosquito-heavy regions.',
-    cat_lnk:'Enquire About This Range →',
+    cat_lnk:'View Products →',
     why_lbl:'Why It Matters',why_h2:'Built for markets where ordinary<br><em>lighting gives up.</em>',
     why_intro:'When the grid is unreliable, outdoor lighting has one job: work anyway. Every product in our range is designed around that constraint — materials, seals, batteries, and controls chosen for environments where failure is not acceptable.',
     why_cta:'Request a Specification Sheet',
@@ -928,6 +1019,18 @@ const T = {
     ft_desc:'Solar outdoor lighting for markets where the grid isn\'t enough. Security · Garden · Decorative. CE / RoHS · IP65 · OEM available. Colombia · Ecuador · South Africa · Australia · Spain.',
     chat_title:'Need Help?',chat_sub:'We reply within hours',chat_wa:'Chat on WhatsApp',chat_email:'Send us an email',chat_note:'Mon–Fri, 9:00–18:00 CST (UTC+8)',
     ft_prod:'Products',ft_co:'Company',ft_srv:'Colombia · Ecuador · South Africa · Australia · Spain',
+    cat_lbl:'Our Ranges',cat_h2:'Four Product Lines<br><em>One Standard</em>',
+    cat1_prods:'6 products: 3-Head Flood · All-in-One Street · PIR Wall · Up-Down Sconce · 30W Flood · Bug Zapper',
+    cat2_prods:'5 products: Sphere Pillar · Bollard Path · Garden Stake 8-Pack · Spike Spotlight · Deck & Step',
+    cat3_prods:'2 products: Outdoor Wall Lantern · Edison String Lights',
+    cat4_prods:'2 products: Portable Camping Lantern · Bug Zapper Light',
+    sc_lbl:'Where They\'re Used',sc_h2:'Real Places. <em>Real Performance.</em>',sc_sub:'See where each product range does its best work — from coastal estates to off-grid farms.',
+    sc1_t:'Perimeter Security',sc1_d:'Solar floodlights and PIR wall lights protecting commercial compounds, warehouses, and residential perimeter walls. Motion-activated, grid-independent, IP65/IP66 rated.',sc1_tag:'Security Range',
+    sc2_t:'Entrance & Facade',sc2_d:'Gate pillar lights, up-down wall sconces, and classic wall lanterns framing entrances for estates, hotels, and gated communities. Warm white, architectural finish.',sc2_tag:'Garden + Decorative',
+    sc3_t:'Garden & Landscape',sc3_d:'Bollards, stake lights, and spike spotlights shaping pathways, flowerbeds, and tree uplighting. 304 stainless steel and cast aluminium. IP65–IP67.',sc3_tag:'Garden Range',
+    sc4_t:'Patio & Entertainment',sc4_d:'Edison string lights and portable lanterns creating atmosphere for outdoor dining, events, and hospitality. Warm 2700K glow. IP65 for year-round use.',sc4_tag:'Decorative Range',
+    sc5_t:'Pathway & Driveway',sc5_d:'Bollard path lights and all-in-one street lights guiding vehicles and pedestrians. Municipal-grade for roads, parking lots, and long driveways. Radar and dusk-to-dawn sensors.',sc5_tag:'Garden + Security',
+    sc6_t:'Off-Grid & Emergency',sc6_d:'Portable camping lanterns with USB power-bank function for rural homes, emergency kits, and outdoor adventures. 15+ hours runtime. Charges your phone too.',sc6_tag:'Portable Range',
     mm_lbl:'Find Your Light',mm_h2:'Not sure which light fits? <em>Answer a few questions.</em>',mm_sub:'30 seconds. No catalogue browsing. We\'ll match you to the right products.',
     mm_biz_t:'I\'m a Business Buyer',mm_biz_d:'Importer, distributor, contractor, or project buyer sourcing in bulk.',
     mm_home_t:'I\'m a Homeowner',mm_home_d:'Looking for outdoor solar lighting for my own property or project.',
@@ -941,7 +1044,7 @@ const T = {
     stat1:'认证产品',stat2:'安防 · 花园 · 壁灯',stat3:'安防系列',stat4:'只起订，灵活试单',
     brand_q:'"非洲、拉美、大洋洲的电网正在失效。<br><span>太阳能照明不是升级选项——它是唯一答案。"</span>',
     brand_b:'嘉晨灯饰为分销商、安装公司及工程承包商提供户外太阳能照明产品，专注服务电网供应不稳定的市场。三大核心系列——太阳能安防灯、花园门柱灯、装饰壁灯——采用压铸铝合金外壳、磷酸铁锂电池及IP65密封，专为高温、高紫外线环境下的长期稳定运行而设计。CE认证。支持OEM与ODM定制。',
-    prod_lbl:'精选产品',prod_h2:'已验证<em>产品系列</em>',prod_cat:'查看完整产品系列 →',
+    prod_lbl:'完整目录',prod_h2:'每一款灯。<br><em>每一个参数。</em>',prod_cat:'查看完整产品系列 →',
     b_best:'热销爆款',b_newarr:'新品',b_rec:'主推款',b_hot:'热卖',b_eco:'经典款',b_set:'8只装',b_ip66:'IP66',
     p1_n:'三头太阳能感应投光灯',p1_d:'三头可调太阳能泛光灯，适用于住宅与商业围界、车库及车道。压铸铝合金机身。总流明2500–3500lm · IP65 · PIR + 270°广角 · 三档工作模式。CE + RoHS认证。',
     p2_n:'太阳能PIR感应壁灯',p2_d:'围墙、车道及商业物业的太阳能防破坏安防照明。120颗LED · 800lm · IP65。双元PIR · 感应距离8–12m。4000mAh磷酸铁锂 · 续航8–12小时。CE + RoHS认证。',
@@ -962,7 +1065,7 @@ const T = {
     cat2_t:'太阳能花园与门柱灯',cat2_d:'入口与步道，每个夜晚自动点亮。球形柱头灯、立柱草坪灯、插地灯、聚光灯及台阶灯。304不锈钢或铝合金。IP65–IP67。磷酸铁锂2000+循环。',
     cat3_t:'装饰灯与串灯',cat3_d:'让空间焕然一新。经典壁灯（太阳能/市电双选）适配庄园酒店。复古爱迪生串灯适配庭院、活动与商业空间。CE / EMC / LVD认证。',
     cat4_t:'离网与便携照明',cat4_d:'电网到不了的地方，光照样到。便携露营灯带USB充电宝功能，应急与户外必备。太阳能灭蚊灯，蚊虫高发地区的刚需品。',
-    cat_lnk:'询问该系列产品 →',
+    cat_lnk:'查看产品 →',
     why_lbl:'为什么重要',why_h2:'专为<em>普通灯饰会失效的市场</em>而造。',
     why_intro:'当电网不可靠，户外照明只有一个任务：照样亮着。我们每一款产品都围绕这一核心需求设计——材料、密封、电池、控制模组，每一项都为不允许失败的使用环境而选择。',
     why_cta:'申请产品规格说明书',
@@ -994,6 +1097,18 @@ const T = {
     ft_desc:'为电网不可靠的市场提供太阳能户外照明。安防系列 · 花园系列 · 装饰壁灯 · CE / RoHS · IP65 · 支持OEM。哥伦比亚 · 厄瓜多尔 · 南非 · 澳洲 · 西班牙。',
     chat_title:'需要帮助？',chat_sub:'数小时内回复',chat_wa:'WhatsApp 在线咨询',chat_email:'发送邮件',chat_note:'周一至周五 9:00–18:00 (UTC+8)',
     ft_prod:'产品系列',ft_co:'公司信息',ft_srv:'哥伦比亚 · 厄瓜多尔 · 南非 · 澳洲 · 西班牙',
+    cat_lbl:'产品线',cat_h2:'四大系列<br><em>统一标准</em>',
+    cat1_prods:'6款产品：三头投光灯 · 一体化路灯 · PIR壁灯 · 上下出光壁灯 · 30W泛光灯 · 灭蚊灯',
+    cat2_prods:'5款产品：球形门柱灯 · 立柱草坪灯 · 花园插地灯8只装 · 插地射灯 · 台阶甲板灯',
+    cat3_prods:'2款产品：户外装饰壁灯 · 爱迪生串灯',
+    cat4_prods:'2款产品：手提露营灯 · 灭蚊灯',
+    sc_lbl:'应用场景',sc_h2:'真实场景。<em>真实表现。</em>',sc_sub:'了解每款产品在哪些场景发挥最佳效果 — 从海滨别墅到离网农场。',
+    sc1_t:'周界安防',sc1_d:'太阳能泛光灯和PIR壁灯保护商业园区、仓库和住宅围墙。人体感应、不依赖电网、IP65/IP66防护等级。',sc1_tag:'安防系列',
+    sc2_t:'入口与外立面',sc2_d:'球形门柱灯、上下出光壁灯和经典壁灯为庄园、酒店和封闭社区的入口增光添彩。暖白光、建筑美学。',sc2_tag:'花园+装饰',
+    sc3_t:'花园与景观',sc3_d:'立柱灯、插地灯和射灯塑造小径、花坛和树木照明。304不锈钢和铸铝材质。IP65–IP67。',sc3_tag:'花园系列',
+    sc4_t:'庭院与娱乐',sc4_d:'爱迪生串灯和手提露营灯为户外用餐、活动和酒店营造氛围。2700K暖光。IP65适合全年使用。',sc4_tag:'装饰系列',
+    sc5_t:'道路与车道',sc5_d:'立柱路灯和一体化路灯引导车辆和行人。市政级别，适合道路、停车场和长车道。雷达感应和光控。',sc5_tag:'花园+安防',
+    sc6_t:'离网与应急',sc6_d:'手提露营灯配备USB充电宝功能，适合乡村家庭、应急包和户外探险。15小时以上续航。还能给手机充电。',sc6_tag:'便携系列',
     mm_lbl:'找到适合您的灯',mm_h2:'不确定哪种灯适合您？<em>回答几个问题。</em>',mm_sub:'30秒。无需翻阅产品目录。我们为您匹配最合适的产品。',
     mm_biz_t:'我是企业采购商',mm_biz_d:'进口商、分销商、承包商或批量采购的项目买家。',
     mm_home_t:'我是家庭用户',mm_home_d:'为自己的房子或项目寻找太阳能户外照明。',
@@ -1007,7 +1122,7 @@ const T = {
     stat1:'Certificado',stat2:'Seguridad · Jardín · Apliques',stat3:'Productos de Seguridad',stat4:'Uds. Pedido de Prueba Mínimo',
     brand_q:'"Las redes eléctricas están fallando en África, América Latina y Oceanía.<br><span>La iluminación solar no es una mejora — es la solución."</span>',
     brand_b:'JC Lightning suministra iluminación solar para exteriores a distribuidores, instaladores y contratistas en mercados donde no se puede dar por garantizado el suministro eléctrico. Tres gamas — seguridad solar, jardín y portón, apliques decorativos — con carcasas de aluminio fundido, baterías LiFePO4 y sellado IP65. Certificación CE. OEM y ODM disponibles.',
-    prod_lbl:'Productos Destacados',prod_h2:'Gama de Productos <em>Verificados</em>',prod_cat:'Ver Gama Completa →',
+    prod_lbl:'Catálogo Completo',prod_h2:'Cada Luz.<br><em>Cada Especificación.</em>',prod_cat:'Ver Gama Completa →',
     b_best:'Superventas',b_newarr:'NUEVO',b_rec:'Recomendado',b_hot:'TENDENCIA',b_eco:'Clásico',b_set:'Pack 8',b_ip66:'IP66',
     p1_n:'Foco Solar de Movimiento · 3 Cabezales',p1_d:'Foco solar de tres cabezales ajustables para perímetros residenciales y comerciales, garajes y accesos. Cuerpo de aluminio fundido. 2500–3500lm · IP65 · PIR + 270° · tres modos. CE + RoHS.',
     p2_n:'Aplique Solar PIR con Sensor de Movimiento',p2_d:'Iluminación solar anti-vandalismo para muros perimetrales, accesos y propiedades comerciales. 120 LED · 800lm · IP65. PIR doble · 8–12m. LiFePO4 4000mAh · 8–12h. CE + RoHS.',
@@ -1028,7 +1143,7 @@ const T = {
     cat2_t:'Luces Solares de Jardín y Portón',cat2_d:'Entradas y caminos iluminados cada noche. Pilares esféricos, balizas, estacas, focos y luces de deck. Acero inox 304 o aluminio. IP65–IP67. LiFePO4 2.000+ ciclos.',
     cat3_t:'Apliques Decorativos y Cadenas',cat3_d:'Iluminación que transforma espacios. Faroles clásicos (solar o AC) para fincas y hoteles. Cadenas Edison para patios, eventos y hostelería. CE / EMC / LVD.',
     cat4_t:'Sin Red y Portátil',cat4_d:'Luz donde la red no llega. Linternas portátiles con función power bank para emergencias y camping. Lámparas antimosquitos para zonas tropicales.',
-    cat_lnk:'Consultar Esta Gama →',
+    cat_lnk:'Ver Productos →',
     why_lbl:'Por Qué Importa',why_h2:'Fabricada para mercados donde<br><em>la iluminación convencional falla.</em>',
     why_intro:'Cuando la red eléctrica no es confiable, la iluminación exterior tiene una sola tarea: funcionar de todas formas. Cada producto de nuestra gama está diseñado en torno a esa exigencia — materiales, sellados, baterías y controles elegidos para entornos donde el fallo no es una opción.',
     why_cta:'Solicitar Ficha Técnica',
@@ -1060,6 +1175,18 @@ const T = {
     ft_desc:'Iluminación solar para exteriores en mercados donde la red no es suficiente. Seguridad · Jardín · Decorativo. CE / RoHS · IP65 · OEM disponible. Colombia · Ecuador · Sudáfrica · Australia · España.',
     chat_title:'¿Necesita Ayuda?',chat_sub:'Respondemos en horas',chat_wa:'Chatear por WhatsApp',chat_email:'Enviar un correo',chat_note:'Lun–Vie, 9:00–18:00 CST (UTC+8)',
     ft_prod:'Productos',ft_co:'Empresa',ft_srv:'Colombia · Ecuador · Sudáfrica · Australia · España',
+    cat_lbl:'Nuestras Gamas',cat_h2:'Cuatro Líneas<br><em>Un Estándar</em>',
+    cat1_prods:'6 productos: Reflector 3 Cabezas · Farola Todo-en-Uno · PIR Pared · Aplique Dual · Reflector 30W · Mata Insectos',
+    cat2_prods:'5 productos: Esfera para Pilares · Bolardo · Estaca Jardín 8-Pack · Reflector de Pincho · Luz Escalones',
+    cat3_prods:'2 productos: Linterna de Pared Exterior · Luces Tipo Edison',
+    cat4_prods:'2 productos: Linterna Portátil · Luz Mata Insectos',
+    sc_lbl:'Dónde Se Usan',sc_h2:'Lugares Reales. <em>Rendimiento Real.</em>',sc_sub:'Vea dónde cada gama hace su mejor trabajo — desde urbanizaciones costeras hasta fincas sin conexión a la red.',
+    sc1_t:'Seguridad Perimetral',sc1_d:'Reflectores solares y luces de pared PIR protegiendo complejos comerciales, bodegas y muros residenciales. Activación por movimiento, independiente de la red, IP65/IP66.',sc1_tag:'Gama Seguridad',
+    sc2_t:'Entrada y Fachada',sc2_d:'Luces esféricas para pilares, apliques duales y linternas clásicas enmarcando entradas de urbanizaciones, hoteles y comunidades cerradas. Luz cálida, acabado arquitectónico.',sc2_tag:'Jardín + Decorativo',
+    sc3_t:'Jardín y Paisaje',sc3_d:'Bolardos, estacas y reflectores moldeando senderos, jardineras e iluminación de árboles. Acero inoxidable 304 y aluminio fundido. IP65–IP67.',sc3_tag:'Gama Jardín',
+    sc4_t:'Patio y Entretenimiento',sc4_d:'Luces tipo Edison y linternas portátiles creando atmósfera para cenas al aire libre, eventos y hostelería. Brillo cálido 2700K. IP65 para uso todo el año.',sc4_tag:'Gama Decorativa',
+    sc5_t:'Camino y Entrada de Autos',sc5_d:'Bolardos y farolas todo-en-uno guiando vehículos y peatones. Grado municipal para carreteras, estacionamientos y entradas largas. Sensores radar y crepuscular.',sc5_tag:'Jardín + Seguridad',
+    sc6_t:'Fuera de Red y Emergencia',sc6_d:'Linternas portátiles con función de banco de energía USB para hogares rurales, kits de emergencia y aventuras al aire libre. 15+ horas. También carga tu teléfono.',sc6_tag:'Gama Portátil',
     mm_lbl:'Encuentra Tu Luz',mm_h2:'¿No sabes qué luz te conviene? <em>Responde unas preguntas.</em>',mm_sub:'30 segundos. Sin buscar en catálogos. Te emparejamos con los productos ideales.',
     mm_biz_t:'Soy Comprador Empresarial',mm_biz_d:'Importador, distribuidor, contratista o comprador de proyectos al por mayor.',
     mm_home_t:'Soy Propietario de Vivienda',mm_home_d:'Busco iluminación solar para exteriores para mi propia propiedad o proyecto.',
