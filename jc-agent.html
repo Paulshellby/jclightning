@@ -595,7 +595,8 @@ async function runSocial(){
 
   const toneMap={professional:'professional B2B tone — specs, certifications, business value. No hype.',story:'story-driven — paint a scene, show the light in use, emotional but not cheesy.',data:'data-driven — lead with market stats, energy crisis numbers, technical comparisons.',mixed:'mix of professional and story-telling — specs with context, facts with feeling.'};
   const langNote=country==='Colombia'||country==='Ecuador'||country==='Spain'?'Generate in Spanish (Latin American style) AND English':'Generate in English';
-  const countryContext=country==='通用'?'general global markets' : `${country} — ${ {Colombia:'energy deficit, frequent blackouts, high demand for solar security',Ecuador:'daily power cuts up to 10 hours, growing solar adoption',SouthAfrica:'6-8h load-shedding daily, solar security is essential',Australia:'off-grid reliability, outdoor living culture, premium quality expected',Spain:'warm-white preference, decorative + aesthetic, sustainability-conscious'} [country] || 'solar outdoor lighting market'}`;
+  const countryDB={Colombia:'energy deficit, frequent blackouts, high demand for solar security',Ecuador:'daily power cuts up to 10 hours, growing solar adoption',SouthAfrica:'6-8h load-shedding daily, solar security is essential',Australia:'off-grid reliability, outdoor living culture, premium quality expected',Spain:'warm-white preference, decorative + aesthetic, sustainability-conscious'};
+  const countryContext=country==='通用'?'general global markets' : `${country} — ${countryDB[country] || 'solar outdoor lighting market'}`;
 
   const typePrompts={
     post:`Write 2 social media posts (Facebook/Instagram) about JC Lightning's "${product}" for the ${countryContext} market.
