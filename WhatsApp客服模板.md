@@ -1,357 +1,393 @@
-# WhatsApp Business 客服模板
+# WhatsApp Business 快捷回复模板
 
-> 在 WhatsApp Business App 中设置"快捷回复"，每条绑定一个简短触发词。
+> 9 组模板 | EN + ES 双语 | WhatsApp Business App → Settings → Business tools → Quick replies 导入
 
 ---
 
-## 1. 首次问候（新客户自动回复）
+## 使用指南
 
-**触发条件：** 非工作时间收到的第一条消息，或客户第一次发消息
+每条绑定一个 `/触发词`，聊天中输入 `/` 即可调出。
 
-**触发词：** `/hello` 或 `/greeting`
+| 阶段 | 触发词 | 用途 |
+|------|--------|------|
+| 问候 | `/hello` | 首次消息 / 非工作时间自动回复 |
+| 询价 | `/price` | 客户问某产品价格 |
+| 起订量 | `/moq` | 客户问最少订多少 |
+| 样品 | `/sample` | 客户想先看样品 |
+| 交期 | `/leadtime` | 客户问多久到货 |
+| 付款 | `/payment` | 客户问付款方式 |
+| 定制 | `/oem` | 客户问能不能做自己品牌 |
+| 售后 | `/warranty` | 客户问质保和配件 |
+| 假期 | `/holiday` | 长假前手动开启 |
+
+---
+
+## 一、问候 · `/hello`
+
+> 设置条件：非工作时间收到的第一条消息，或新客户首次联系
+
+### EN
 
 ```
-👋 Thanks for reaching JC Lightning!
+👋 Thanks for reaching JC Lightning.
 
-We supply outdoor solar lighting to distributors and contractors worldwide — security lights, garden lights, and decorative wall lanterns.
+We supply outdoor solar lighting to distributors and contractors — security, garden, and decorative ranges. Factory-direct from Shenzhen.
 
 We'll get back to you within a few hours (Mon–Fri, 9:00–18:00 CST / UTC+8).
 
-In the meantime, tell us:
+In the meantime, three quick questions that help us prepare a precise quotation:
 • What product type are you interested in?
 • Which country are you importing to?
 • Approximate quantity?
 
-These three answers help us prepare a faster quotation for you.
-
 — JC Lightning Team
 ```
 
-**西语版：**
-```
-👋 ¡Gracias por contactar a JC Lightning!
+### ES
 
-Suministramos iluminación solar para exteriores a distribuidores y contratistas — luces de seguridad, jardín y apliques decorativos.
+```
+👋 Gracias por contactar a JC Lightning.
+
+Suministramos iluminación solar para exteriores a distribuidores y contratistas — gamas seguridad, jardín y decorativa. Directo de fábrica en Shenzhen.
 
 Le responderemos en unas horas (Lun–Vie, 9:00–18:00 CST / UTC+8).
 
-Mientras tanto, cuéntenos:
+Mientras tanto, tres preguntas rápidas para prepararle una cotización precisa:
 • ¿Qué tipo de producto le interesa?
 • ¿A qué país importa?
 • ¿Cantidad aproximada?
-
-Estas tres respuestas nos ayudan a prepararle una cotización más rápida.
 
 — Equipo JC Lightning
 ```
 
 ---
 
-## 2. 询价回复（客户问某产品价格）
+## 二、询价 · `/price`
 
-**触发词：** `/price` 或 `/pricing`
+> 客户问"XX产品什么价？"
 
-```
-Thanks for your interest. To give you an accurate FOB price, we need:
-
-1️⃣ Product model(s) you're interested in
-2️⃣ Quantity per model
-3️⃣ Destination port (city + country)
-
-Once we have these, we'll send you within 24 hours:
-• FOB unit price
-• Full spec sheet (lumens, battery, materials, IP rating)
-• Lead time
-• CE + RoHS certificates
-
-👇 Here's our product catalogue: paulshellby.github.io/jclightning
-
-For a faster response, just send me the product name + quantity + port directly.
-```
-
-**西语版：**
-```
-Gracias por su interés. Para darle un precio FOB preciso, necesitamos:
-
-1️⃣ Modelo(s) de producto que le interesan
-2️⃣ Cantidad por modelo
-3️⃣ Puerto de destino (ciudad + país)
-
-Una vez que los tengamos, le enviaremos en 24 horas:
-• Precio unitario FOB
-• Ficha técnica completa (lúmenes, batería, materiales, clasificación IP)
-• Plazo de entrega
-• Certificados CE + RoHS
-
-👇 Nuestro catálogo de productos: paulshellby.github.io/jclightning
-
-Para una respuesta más rápida, envíeme directamente el nombre del producto + cantidad + puerto.
-```
-
----
-
-## 3. MOQ / 最小起订量
-
-**触发词：** `/moq` 或 `/minimum`
+### EN
 
 ```
-Our minimum order quantities:
+Thanks for your interest. To give you an accurate FOB price (not a rough estimate), we need three things:
 
-🔹 Standard products: 200 units per model
-🔹 OEM / custom-branded packaging: 500 units per model
-🔹 ODM / custom design modifications: 1,000+ units
+1. Product model(s) you're interested in
+2. Quantity per model
+3. Destination port (city + country)
 
-Trial orders welcome — we ship 1–3 samples via DHL or FedEx for your physical evaluation. Sample fee is fully refunded against your first order.
+With these, within 24 hours you'll receive:
+→ FOB unit price (USD)
+→ Full spec sheet (lumens, battery type & capacity, housing material, IP rating)
+→ Current lead time
+→ CE + RoHS certificates
 
-If you need mixed models in one container, just ask. We're flexible.
+Browse the range: paulshellby.github.io/jclightning
+
+For a faster response: send product name + quantity + port directly.
 ```
 
-**西语版：**
+### ES
+
 ```
-Nuestras cantidades mínimas de pedido:
+Gracias por su interés. Para darle un precio FOB preciso (no una estimación aproximada), necesitamos tres datos:
 
-🔹 Productos estándar: 200 unidades por modelo
-🔹 OEM / empaque de marca personalizada: 500 unidades por modelo
-🔹 ODM / modificaciones de diseño personalizadas: 1.000+ unidades
+1. Modelo(s) de producto que le interesan
+2. Cantidad por modelo
+3. Puerto de destino (ciudad + país)
 
-Aceptamos pedidos de prueba — enviamos 1–3 muestras por DHL o FedEx para su evaluación física. La tarifa de muestra se reembolsa completamente con su primer pedido.
+Con esto, en 24 horas recibirá:
+→ Precio unitario FOB (USD)
+→ Ficha técnica completa (lúmenes, tipo y capacidad de batería, material, IP)
+→ Plazo de entrega actual
+→ Certificados CE + RoHS
 
-Si necesita modelos mixtos en un mismo contenedor, solo pregunte. Somos flexibles.
+Explore la gama: paulshellby.github.io/jclightning
+
+Para una respuesta más rápida: envíe producto + cantidad + puerto directamente.
 ```
 
 ---
 
-## 4. 样品流程
+## 三、起订量 · `/moq`
 
-**触发词：** `/sample` 或 `/samples`
-
-```
-Sample process:
-
-1️⃣ You tell us which product(s) you want to evaluate
-2️⃣ We issue a sample invoice (1–3 units + DHL/FedEx freight)
-3️⃣ Payment by T/T or Western Union
-4️⃣ Samples ship within 3–5 business days
-5️⃣ Tracking number provided
-6️⃣ Delivery typically 7–15 days
-
-Sample fee is 100% refunded when you place your first order — deducted from the 30% deposit.
-
-We want you to hold the product, test it, install it. That's how you'll know the quality is real.
-```
-
-**西语版：**
-```
-Proceso de muestras:
-
-1️⃣ Usted nos dice qué producto(s) quiere evaluar
-2️⃣ Emitimos una factura de muestra (1–3 unidades + flete DHL/FedEx)
-3️⃣ Pago por T/T o Western Union
-4️⃣ Las muestras se envían en 3–5 días hábiles
-5️⃣ Se proporciona número de seguimiento
-6️⃣ La entrega suele tardar 7–15 días
-
-La tarifa de muestra se reembolsa al 100% con su primer pedido — se descuenta del depósito del 30%.
-
-Queremos que tenga el producto, lo pruebe, lo instale. Así sabrá que la calidad es real.
-```
-
----
-
-## 5. 交期说明
-
-**触发词：** `/leadtime` 或 `/delivery`
+### EN
 
 ```
-Standard lead times:
+Minimum order quantities:
 
-📦 Regular orders: 30–45 days from deposit confirmation
-📦 OEM orders: 45–60 days (packaging design + production)
-📦 Sample orders: 3–5 business days to ship
+Standard products: 200 units per model
+OEM (your brand on product + packaging): 500 units per model
+ODM (custom design modifications): 1,000+ units
 
-Shipping transit times (FOB Shenzhen/Yantian/Guangzhou):
-• To Colombia (Buenaventura / Cartagena): ~35–40 days
-• To Ecuador (Guayaquil): ~35–40 days
-• To South Africa (Durban): ~25–30 days
-• To Spain (Valencia / Barcelona): ~30–35 days
-• To Australia (Sydney / Melbourne): ~20–25 days
+Mixed models in one container? Just ask — we're flexible on assortment.
 
-All shipments include full export documentation: B/L, Certificate of Origin, CE certificate, packing list, commercial invoice.
+Trial orders: 1–3 samples by DHL or FedEx. Sample fee is fully refunded against your first order.
+
+If 200 units feels like a stretch — tell us your target. We'll work something out.
 ```
 
-**西语版：**
+### ES
+
 ```
-Plazos de entrega estándar:
+Cantidades mínimas de pedido:
 
-📦 Pedidos regulares: 30–45 días desde la confirmación del depósito
-📦 Pedidos OEM: 45–60 días (diseño de empaque + producción)
-📦 Pedidos de muestras: 3–5 días hábiles para enviar
+Productos estándar: 200 unidades por modelo
+OEM (su marca en producto + empaque): 500 unidades por modelo
+ODM (modificaciones de diseño personalizadas): 1.000+ unidades
 
-Tiempos de tránsito marítimo (FOB Shenzhen/Yantian/Guangzhou):
-• A Colombia (Buenaventura / Cartagena): ~35–40 días
-• A Ecuador (Guayaquil): ~35–40 días
-• A Sudáfrica (Durban): ~25–30 días
-• A España (Valencia / Barcelona): ~30–35 días
-• A Australia (Sydney / Melbourne): ~20–25 días
+¿Modelos mixtos en un mismo contenedor? Solo pregunte — somos flexibles.
 
-Todos los envíos incluyen documentación completa de exportación: B/L, Certificado de Origen, certificado CE, lista de empaque, factura comercial.
+Pedidos de prueba: 1–3 muestras por DHL o FedEx. La tarifa de muestra se reembolsa completamente con su primer pedido.
+
+Si 200 unidades le parece mucho — díganos su objetivo. Lo resolvemos.
 ```
 
 ---
 
-## 6. 支付方式
+## 四、样品 · `/sample`
 
-**触发词：** `/payment` 或 `/deposit`
+### EN
 
 ```
-Payment terms:
+Sample process — we want you to hold the product before committing to a container:
 
-💰 30% T/T deposit to confirm the order
-💰 70% balance before shipment — after you review the pre-shipment inspection report and photos
+1. You tell us which product(s) you want to evaluate
+2. We issue a sample invoice (1–3 units + DHL/FedEx freight)
+3. Payment by T/T or Western Union
+4. Samples ship in 3–5 business days — tracking number provided
+5. Delivery typically 7–15 days
+6. Full sample fee deducted from your first order's 30% deposit
+
+Test it. Install it. Open it up. That's how you know the quality is real.
+```
+
+### ES
+
+```
+Proceso de muestras — queremos que tenga el producto en la mano antes de comprometerse a un contenedor:
+
+1. Usted nos dice qué producto(s) quiere evaluar
+2. Emitimos una factura de muestra (1–3 unidades + flete DHL/FedEx)
+3. Pago por T/T o Western Union
+4. Las muestras se envían en 3–5 días hábiles — número de seguimiento incluido
+5. Entrega típicamente en 7–15 días
+6. Tarifa de muestra completamente descontada del depósito 30% de su primer pedido
+
+Pruébelo. Instálelo. Ábralo. Así se sabe que la calidad es real.
+```
+
+---
+
+## 五、交期 · `/leadtime`
+
+### EN
+
+```
+Production + shipping timelines:
+
+Production (from deposit):
+  Regular orders: 30–45 days
+  OEM orders: 45–60 days (includes packaging design)
+  Samples: 3–5 business days to ship
+
+Ocean transit (FOB Shenzhen/Yantian/Guangzhou):
+  To Colombia (Buenaventura / Cartagena): ~35–40 days
+  To Ecuador (Guayaquil): ~35–40 days
+  To South Africa (Durban): ~25–30 days
+  To Spain (Valencia / Barcelona): ~30–35 days
+  To Australia (Sydney / Melbourne): ~20–25 days
+
+Every shipment includes: B/L, Certificate of Origin, CE certificate, packing list, commercial invoice — sent before the container arrives.
+```
+
+### ES
+
+```
+Plazos de producción + envío:
+
+Producción (desde el depósito):
+  Pedidos regulares: 30–45 días
+  Pedidos OEM: 45–60 días (incluye diseño de empaque)
+  Muestras: 3–5 días hábiles para enviar
+
+Tránsito marítimo (FOB Shenzhen/Yantian/Guangzhou):
+  A Colombia (Buenaventura / Cartagena): ~35–40 días
+  A Ecuador (Guayaquil): ~35–40 días
+  A Sudáfrica (Durban): ~25–30 días
+  A España (Valencia / Barcelona): ~30–35 días
+  A Australia (Sydney / Melbourne): ~20–25 días
+
+Cada envío incluye: B/L, Certificado de Origen, certificado CE, lista de empaque, factura comercial — enviado antes de que llegue el contenedor.
+```
+
+---
+
+## 六、付款 · `/payment`
+
+### EN
+
+```
+Payment terms — you don't pay the full amount until you've seen your goods:
+
+30% T/T deposit — confirms the order
+70% balance — due only after you review the pre-shipment inspection report and pallet photos
 
 We accept:
-• T/T (bank wire) — preferred
-• Western Union — for sample orders under $500
-• L/C at sight — for orders above $30,000 (contact us to discuss)
+  T/T (bank wire) — standard for all orders
+  Western Union — for sample orders under $500
+  L/C at sight — for orders above $30,000
 
-All prices quoted FOB Shenzhen, Yantian, or Guangzhou in USD.
+All prices quoted FOB Shenzhen/Yantian/Guangzhou in USD.
 
-We do NOT require full payment upfront. You hold the balance until you've seen your goods.
+No full payment upfront. You hold the balance until you approve what's on that pallet.
 ```
 
-**西语版：**
-```
-Condiciones de pago:
+### ES
 
-💰 30% depósito T/T para confirmar el pedido
-💰 70% saldo antes del envío — después de revisar el informe de inspección pre-embarque y las fotos
+```
+Condiciones de pago — no paga el monto completo hasta haber visto su mercancía:
+
+30% depósito T/T — confirma el pedido
+70% saldo — solo después de revisar el informe de inspección pre-embarque y las fotos del pallet
 
 Aceptamos:
-• T/T (transferencia bancaria) — preferido
-• Western Union — para pedidos de muestra menores a $500
-• Carta de crédito a la vista — para pedidos superiores a $30,000 (contáctenos)
+  T/T (transferencia bancaria) — estándar para todos los pedidos
+  Western Union — para pedidos de muestra menores a $500
+  Carta de crédito a la vista — para pedidos superiores a $30,000
 
-Todos los precios cotizados FOB Shenzhen, Yantian o Guangzhou en USD.
+Todos los precios cotizados FOB Shenzhen/Yantian/Guangzhou en USD.
 
-NO requerimos pago completo por adelantado. Usted retiene el saldo hasta haber visto su mercancía.
+Sin pago completo por adelantado. Usted retiene el saldo hasta aprobar lo que va en ese pallet.
 ```
 
 ---
 
-## 7. OEM / ODM 说明
+## 七、OEM / ODM · `/oem`
 
-**触发词：** `/oem` 或 `/custom`
-
-```
-OEM & ODM — we make it your brand:
-
-🏷️ OEM:
-• Your logo on the product
-• Your brand on the packaging
-• Your colour preference for the box/carton
-• MOQ: 500 units per model
-• Lead time: 45–60 days
-
-🎨 ODM:
-• All of the above, plus:
-• Custom housing colour / finish
-• Modified specs (different LED, battery capacity, etc.)
-• Custom user manual in your language
-• MOQ: 1,000+ units (depends on modification scope)
-
-We've done OEM for distributors in 20+ countries. Your brand, our engineering — no one knows it's from China unless you want them to.
-```
-
-**西语版：**
-```
-OEM y ODM — lo convertimos en su marca:
-
-🏷️ OEM:
-• Su logo en el producto
-• Su marca en el empaque
-• Su preferencia de color para la caja/cartón
-• MOQ: 500 unidades por modelo
-• Plazo: 45–60 días
-
-🎨 ODM:
-• Todo lo anterior, más:
-• Color/acabado de carcasa personalizado
-• Especificaciones modificadas (diferente LED, capacidad de batería, etc.)
-• Manual de usuario personalizado en su idioma
-• MOQ: 1.000+ unidades (depende del alcance de la modificación)
-
-Hemos hecho OEM para distribuidores en más de 20 países. Su marca, nuestra ingeniería — nadie sabe que viene de China a menos que usted quiera.
-```
-
----
-
-## 8. 售后 / 配件
-
-**触发词：** `/warranty` 或 `/spare`
+### EN
 
 ```
-After-sales support:
+Your brand. Our engineering. No "Made in China" visible unless you want it.
 
-🛡️ Warranty: 1 year from shipment date against manufacturing defects
-🔧 Spare parts: Available for all models — batteries, LED panels, sensors, mounting brackets
-📦 Spare part MOQ: 10–50 units depending on part type
-✈️ Spare parts ship by air (DHL/FedEx) — 7–10 days delivery
+OEM — your brand on our product:
+  Your logo on the product housing
+  Your brand on the packaging (box + carton)
+  Your colour preference for packaging
+  MOQ: 500 units per model
+  Lead time: 45–60 days
 
-Common spare parts we keep in stock:
-• LiFePO4 battery packs (all capacities)
-• PIR sensor modules
-• LED arrays
-• Mounting hardware kits
-• Solar panels
+ODM — custom modifications:
+  All OEM inclusions, plus:
+  Custom housing colour or finish
+  Modified specs (different LED count, battery capacity, etc.)
+  Custom user manual in your language
+  MOQ: 1,000+ units (depends on modification scope)
 
-WhatsApp is still the same person you've been talking to. Contact doesn't end when the container leaves the port.
+We've done OEM for distributors in 20+ countries. Your customer sees your brand — we're the factory behind it.
 ```
 
-**西语版：**
+### ES
+
 ```
-Soporte postventa:
+Su marca. Nuestra ingeniería. Sin "Made in China" visible a menos que usted quiera.
 
-🛡️ Garantía: 1 año desde la fecha de envío contra defectos de fabricación
-🔧 Repuestos: Disponibles para todos los modelos — baterías, paneles LED, sensores, soportes de montaje
-📦 MOQ de repuestos: 10–50 unidades según el tipo de pieza
-✈️ Los repuestos se envían por vía aérea (DHL/FedEx) — entrega en 7–10 días
+OEM — su marca en nuestro producto:
+  Su logo en la carcasa del producto
+  Su marca en el empaque (caja + cartón)
+  Su preferencia de color para el empaque
+  MOQ: 500 unidades por modelo
+  Plazo: 45–60 días
 
-Repuestos comunes que mantenemos en stock:
-• Paquetes de batería LiFePO4 (todas las capacidades)
-• Módulos de sensor PIR
-• Matrices de LED
-• Kits de montaje
-• Paneles solares
+ODM — modificaciones personalizadas:
+  Todo lo de OEM, más:
+  Color o acabado de carcasa personalizado
+  Especificaciones modificadas (diferente LED, capacidad de batería, etc.)
+  Manual de usuario personalizado en su idioma
+  MOQ: 1.000+ unidades (depende del alcance de la modificación)
 
-WhatsApp sigue siendo la misma persona con la que ha estado hablando. El contacto no termina cuando el contenedor sale del puerto.
+Hemos hecho OEM para distribuidores en más de 20 países. Su cliente ve su marca — nosotros somos la fábrica detrás.
 ```
 
 ---
 
-## 9. 节假日自动回复
+## 八、售后 / 配件 · `/warranty`
 
-**触发条件：** 春节、国庆等中国长假期间，手动开启
+### EN
 
 ```
-🏮 We're currently on Chinese New Year holiday.
+After the container arrives, you're still talking to the same person.
 
-Our office will reopen on [DATE]. During this period:
-• WhatsApp replies may be delayed 24–48 hours
-• Email inquiries will be queued and answered in order received
-• Sample and order shipments are paused until [DATE]
+Warranty: 1 year from shipment date against manufacturing defects. Not "limited." Not "conditions apply." We stand behind what we build.
 
-We appreciate your patience. Your message is important — we'll respond as soon as we're back.
+Spare parts — in stock for all models:
+  LiFePO4 battery packs (all capacities)
+  PIR sensor modules
+  LED arrays
+  Mounting hardware kits
+  Solar panels
+  MOQ per part: 10–50 units. Ship by DHL/FedEx — 7–10 days.
 
-For urgent matters, email info@jclightning.com with "URGENT" in the subject.
+WhatsApp stays the same number. The person stays the same person. Support doesn't stop at the destination port.
+```
+
+### ES
+
+```
+Después de que el contenedor llega, sigue hablando con la misma persona.
+
+Garantía: 1 año desde la fecha de envío contra defectos de fabricación. No es "limitada." No es "aplican condiciones." Respaldamos lo que fabricamos.
+
+Repuestos — en stock para todos los modelos:
+  Paquetes de batería LiFePO4 (todas las capacidades)
+  Módulos de sensor PIR
+  Matrices de LED
+  Kits de montaje
+  Paneles solares
+  MOQ por pieza: 10–50 unidades. Envío por DHL/FedEx — 7–10 días.
+
+WhatsApp sigue siendo el mismo número. La persona sigue siendo la misma. El soporte no termina en el puerto de destino.
+```
+
+---
+
+## 九、节假日自动回复 · `/holiday`
+
+> 春节 / 国庆等长假前手动开启
+
+### EN
+
+```
+🏮 We're currently on holiday.
+
+Office reopens: [DATE]
+
+During this period:
+→ WhatsApp replies may be delayed 24–48 hours
+→ Emails are queued and answered in order received
+→ Sample and order shipments are paused until [DATE]
+
+Your message matters to us. We'll respond as soon as we're back.
+
+For urgent matters: info@jclightning.com with "URGENT" in the subject line.
 
 — JC Lightning Team
 ```
 
----
+### ES
 
-## 快捷回复设置指南
+```
+🏮 Estamos actualmente de vacaciones.
 
-1. 下载 **WhatsApp Business**（不是普通 WhatsApp）
-2. 进入 **Settings → Business tools → Quick replies**
-3. 添加快捷回复，设置触发词（如 `/price`、`/moq`）
-4. 聊天中输入 `/` 即可调出快捷回复列表
+La oficina reabre: [FECHA]
+
+Durante este período:
+→ Las respuestas de WhatsApp pueden demorar 24–48 horas
+→ Los correos electrónicos se atienden en orden de recepción
+→ Los envíos de muestras y pedidos se reanudan el [FECHA]
+
+Su mensaje es importante. Responderemos tan pronto como regresemos.
+
+Para asuntos urgentes: info@jclightning.com con "URGENTE" en el asunto.
+
+— Equipo JC Lightning
+```
