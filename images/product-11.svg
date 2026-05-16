@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fafaf8"/><stop offset="1" stop-color="#f0efe9"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a4a4a"/><stop offset="1" stop-color="#2d2d2d"/></linearGradient>
+    <radialGradient id="uv" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#c080ff" stop-opacity="0.6"/><stop offset="1" stop-color="#6020c0" stop-opacity="0.1"/></radialGradient>
+    <filter id="sd"><feDropShadow dx="2" dy="4" stdDeviation="6" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <!-- Hanging hook -->
+  <path d="M400,150 Q400,100 440,100 Q480,100 480,140" fill="none" stroke="#555" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="482" cy="142" r="6" fill="#555"/>
+  <!-- Top cap -->
+  <rect x="340" y="160" width="120" height="25" rx="6" fill="#3a3a3a"/>
+  <!-- Cylinder body -->
+  <rect x="330" y="185" width="140" height="260" rx="10" fill="url(#body)" filter="url(#sd)"/>
+  <!-- Grid cage (outer) -->
+  <g stroke="#555" stroke-width="2" fill="none">
+    <rect x="335" y="200" width="130" height="230" rx="8"/>
+    <line x1="350" y1="200" x2="350" y2="430"/><line x1="370" y1="200" x2="370" y2="430"/>
+    <line x1="390" y1="200" x2="390" y2="430"/><line x1="410" y1="200" x2="410" y2="430"/>
+    <line x1="430" y1="200" x2="430" y2="430"/><line x1="450" y1="200" x2="450" y2="430"/>
+  </g>
+  <!-- UV glow inside -->
+  <rect x="350" y="240" width="100" height="140" rx="6" fill="url(#uv)"/>
+  <!-- UV LEDs -->
+  <circle cx="380" cy="300" r="12" fill="#d0a0ff" opacity="0.5"/><circle cx="420" cy="300" r="12" fill="#d0a0ff" opacity="0.5"/>
+  <circle cx="380" cy="340" r="12" fill="#d0a0ff" opacity="0.5"/><circle cx="420" cy="340" r="12" fill="#d0a0ff" opacity="0.5"/>
+  <!-- Collection tray bottom -->
+  <rect x="340" y="445" width="120" height="15" rx="4" fill="#333"/>
+</svg>

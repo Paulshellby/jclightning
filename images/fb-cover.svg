@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 624">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e0c0a"/>
+      <stop offset="1" stop-color="#1c1814"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.85" cy="0.4" r="0.5">
+      <stop offset="0" stop-color="#a87d2a" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#a87d2a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.15" cy="0.6" r="0.35">
+      <stop offset="0" stop-color="#a87d2a" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#a87d2a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brassGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c9a24e"/>
+      <stop offset="1" stop-color="#a87d2a"/>
+    </linearGradient>
+    <filter id="sd"><feDropShadow dx="0" dy="2" stdDeviation="8" flood-opacity="0.3"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1640" height="624" fill="url(#bgGrad)"/>
+  <rect width="1640" height="624" fill="url(#glow1)"/>
+  <rect width="1640" height="624" fill="url(#glow2)"/>
+
+  <!-- Subtle texture -->
+  <g opacity="0.015">
+    <line x1="0" y1="0" x2="1640" y2="624" stroke="#fff" stroke-width="120"/>
+    <line x1="1640" y1="0" x2="0" y2="624" stroke="#fff" stroke-width="120"/>
+  </g>
+
+  <!-- Left content area -->
+  <g transform="translate(100, 160)">
+    <!-- Logo mark: J in brass -->
+    <text x="0" y="58" font-family="Georgia,serif" font-size="56" font-weight="bold" fill="url(#brassGrad)" filter="url(#glow)">JC LIGHTNING</text>
+
+    <!-- Tagline -->
+    <text x="0" y="110" font-family="Georgia,serif" font-size="32" font-style="italic" fill="#c9a24e" opacity="0.9">Solar Lighting Built for Where the Grid Fails</text>
+
+    <!-- Divider -->
+    <line x1="0" y1="140" x2="80" y2="140" stroke="#a87d2a" stroke-width="2"/>
+
+    <!-- Subtitle -->
+    <text x="0" y="180" font-family="'Segoe UI',Arial,sans-serif" font-size="18" fill="#bfb6a8" letter-spacing="2">SECURITY · GARDEN · DECORATIVE WALL LIGHTS</text>
+  </g>
+
+  <!-- Right side: abstract lamp illustration -->
+  <g transform="translate(1200, 100)" opacity="0.7">
+    <!-- Lamp pole -->
+    <rect x="60" y="150" width="8" height="280" rx="3" fill="#a87d2a" opacity="0.5"/>
+    <!-- Lamp head -->
+    <ellipse cx="64" cy="140" rx="50" ry="35" fill="none" stroke="#c9a24e" stroke-width="2" opacity="0.6"/>
+    <ellipse cx="64" cy="138" rx="35" ry="22" fill="#c9a24e" opacity="0.08"/>
+    <!-- Light beam -->
+    <polygon points="64,120 30,20 -30,20 -50,50 -20,10 64,10" fill="#c9a24e" opacity="0.06"/>
+    <!-- Glow orb -->
+    <circle cx="64" cy="135" r="70" fill="#a87d2a" opacity="0.06"/>
+    <circle cx="64" cy="135" r="40" fill="#c9a24e" opacity="0.1"/>
+  </g>
+
+  <!-- Bottom strip -->
+  <rect x="0" y="580" width="1640" height="44" fill="#a87d2a" opacity="0.9"/>
+  <g transform="translate(100, 606)">
+    <text font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#fff" letter-spacing="3" opacity="0.8">FACTORY-DIRECT · FOB SHENZHEN · CE + RoHS · IP65 · OEM &amp; ODM</text>
+  </g>
+
+  <!-- Contact info (bottom right) -->
+  <g transform="translate(1280, 606)">
+    <text font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#fff" letter-spacing="1" opacity="0.7">
+      paulshellby.github.io/jclightning
+    </text>
+  </g>
+
+  <!-- Market flags hint -->
+  <g transform="translate(100, 400)" opacity="0.4">
+    <text font-family="'Segoe UI',Arial,sans-serif" font-size="14" fill="#bfb6a8" letter-spacing="4">
+      COLOMBIA · ECUADOR · SOUTH AFRICA · AUSTRALIA · SPAIN
+    </text>
+  </g>
+</svg>
