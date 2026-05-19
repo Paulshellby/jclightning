@@ -49,10 +49,8 @@ nav {
 nav.dark  { background:transparent; }
 nav.solid { background:rgba(14,12,10,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--bdk); }
 nav.light { background:rgba(247,243,236,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--blt); }
-.logo { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:400; letter-spacing:0.03em; text-decoration:none; }
-nav.dark .logo, nav.solid .logo { color:#fff; }
-nav.light .logo { color:var(--ink); }
-.logo em { font-style:italic; color:var(--brass-lt); }
+.logo { display:inline-flex; align-items:center; text-decoration:none; }
+.logo img { height:36px; width:auto; display:block; }
 nav ul { list-style:none; display:flex; gap:40px; }
 .nav-link { font-size:0.67rem; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; text-decoration:none; transition:color .2s; }
 nav.dark .nav-link, nav.solid .nav-link { color:var(--mist); }
@@ -399,7 +397,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 <body>
 
 <nav class="dark" id="mainnav">
-  <a href="#" class="logo">JC <em>Lightning</em></a>
+  <a href="#" class="logo"><img src="images/logo.png" alt="JC Lightning" width="200" height="36"></a>
   <ul>
     <li><a href="#categories" class="nav-link" data-i18n="nav_cat">Categories</a></li>
     <li><a href="#products"   class="nav-link" data-i18n="nav_products">Products</a></li>
