@@ -270,6 +270,33 @@ h2 em { font-style:italic; color:var(--brass); }
 .social-toast .st-flag { font-size:1.4rem; flex-shrink:0; }
 .social-toast .st-body { font-size:0.78rem; font-weight:300; color:var(--ink); line-height:1.5; }
 .social-toast .st-body strong { font-weight:500; color:var(--brass); }
+.wave { position:relative; }
+.wave::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:40px; background:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q150 0 300 20 Q450 40 600 20 Q750 0 900 20 Q1050 40 1200 20 L1200 40 L0 40 Z' fill='%231c1814'/%3E%3C/svg%3E") repeat-x; background-size:600px 40px; z-index:1; pointer-events:none; }
+.wave-light::after { fill:var(--chalk-w); }
+.testimonials { background:var(--chalk-w); padding:120px 56px; }
+.testi-head { text-align:center; margin-bottom:64px; }
+.testi-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(1.8rem,3vw,2.6rem); color:var(--ink); line-height:1.18; }
+.testi-head h2 em { font-style:italic; color:var(--brass); }
+.testi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; max-width:1200px; margin:0 auto; }
+.testi-card { background:#fff; border-radius:6px; padding:32px 28px 28px; position:relative; border:1px solid rgba(0,0,0,0.04); transition:transform .35s, box-shadow .35s; }
+.testi-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.08); }
+.testi-flag { font-size:2rem; margin-bottom:16px; }
+.testi-q { font-family:'Playfair Display',serif; font-style:italic; font-size:1.05rem; color:var(--ink); line-height:1.65; margin-bottom:20px; }
+.testi-q::before { content:'\201C'; color:var(--brass-lt); font-size:2.5rem; line-height:0; vertical-align:-6px; margin-right:4px; }
+.testi-q::after { content:'\201D'; color:var(--brass-lt); font-size:2.5rem; line-height:0; vertical-align:-14px; margin-left:2px; }
+.testi-meta { font-size:0.72rem; font-weight:400; color:var(--stone); border-top:1px solid rgba(0,0,0,0.06); padding-top:16px; }
+.testi-meta strong { color:var(--ink); }
+.trust-strip { background:var(--ink); padding:40px 56px; text-align:center; border-top:1px solid var(--bdk); }
+.trust-strip-label { font-size:0.6rem; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:18px; }
+.trust-strip-flags { display:flex; justify-content:center; flex-wrap:wrap; gap:20px 36px; font-size:0.82rem; font-weight:300; color:var(--mist); }
+.prod-card:hover .prod-img::after { opacity:1; }
+.prod-img::after { content:'Quick View'; position:absolute; inset:0; background:rgba(14,12,10,0.55); display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; opacity:0; transition:opacity .35s; z-index:3; pointer-events:none; }
+.progress-bar { position:fixed; top:0; left:0; height:2px; background:var(--brass); z-index:9999; width:0; transition:width .15s linear; }
+.side-cta { position:fixed; right:0; top:50%; transform:translateY(-50%); z-index:996; writing-mode:vertical-rl; text-orientation:mixed; background:var(--brass); color:#fff; padding:14px 10px; font-size:0.62rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; border-radius:4px 0 0 4px; opacity:0; visibility:hidden; transition:opacity .3s, visibility 0s linear .3s; box-shadow:0 4px 20px rgba(168,125,42,0.25); }
+.side-cta.show { opacity:1; visibility:visible; transition:opacity .3s, visibility 0s linear 0s; }
+.side-cta:hover { background:var(--brass-lt); padding:16px 10px; }
+.ft-industries { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+.ft-tag { font-size:0.58rem; font-weight:300; letter-spacing:0.08em; color:var(--stone-lt); border:1px solid rgba(255,255,255,0.1); padding:5px 12px; border-radius:2px; }
 .faq { background:var(--ink); padding:120px 56px; position:relative; overflow:hidden; }
 .faq::before { content:''; position:absolute; bottom:0; right:10%; width:500px; height:500px; background:radial-gradient(circle, rgba(168,125,42,0.08) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
 .faq-head { margin-bottom:64px; max-width:720px; position:relative; z-index:1; }
@@ -403,6 +430,12 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .back-top svg { width:15px; height:15px; }
   .social-toast { left:10px; bottom:85px; max-width:250px; padding:10px 14px; }
   .social-toast .st-body { font-size:0.72rem; }
+  .testimonials { padding:64px 22px; }
+  .testi-grid { grid-template-columns:1fr; gap:12px; }
+  .testi-card { padding:24px 20px; }
+  .trust-strip { padding:28px 22px; }
+  .trust-strip-flags { gap:12px 18px; font-size:0.72rem; }
+  .side-cta { display:none; }
   .faq { padding:64px 22px; }
   .faq-head { margin-bottom:40px; }
   .faq-q { padding:18px 20px; font-size:0.85rem; }
@@ -486,6 +519,9 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 </style>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
+<a href="#contact" class="side-cta" id="sideCta">Get a Quote</a>
 
 <nav class="dark" id="mainnav">
   <a href="#" class="logo">JC <em>Lightning</em></a>
@@ -1012,7 +1048,43 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </section>
 
-<section class="certs" id="certs">
+<div class="trust-strip">
+  <div class="trust-strip-label">Trusted Across 30+ Countries</div>
+  <div class="trust-strip-flags">
+    <span>🇨🇴 Colombia</span><span>🇪🇨 Ecuador</span><span>🇿🇦 South Africa</span><span>🇦🇺 Australia</span><span>🇰🇪 Kenya</span><span>🇳🇬 Nigeria</span><span>🇹🇿 Tanzania</span><span>🇵🇪 Peru</span><span>🇪🇸 Spain</span><span>🇲🇽 Mexico</span>
+  </div>
+</div>
+
+<section class="testimonials" id="testimonials">
+  <div class="testi-head reveal">
+    <div class="sec-label">Client Voices</div>
+    <h2>What buyers say <em>about working with us.</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-flag">🇨🇴</div>
+      <p class="testi-q">The 3-head solar flood lights solved a real problem for our perimeter security projects. LiFePO4 batteries hold up in Cartagena's humidity — three years now, zero returns.</p>
+      <div class="testi-meta"><strong>Carlos M.</strong> · Importer, Barranquilla</div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:.1s">
+      <div class="testi-flag">🇿🇦</div>
+      <p class="testi-q">We've been through five Chinese suppliers. JC Lightning is the first that sent CE certificates before we asked and delivered exactly the spec we approved. Our Durban warehouse stocks only their PIR wall lights now.</p>
+      <div class="testi-meta"><strong>Thabo N.</strong> · Distributor, Johannesburg</div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:.2s">
+      <div class="testi-flag">🇪🇨</div>
+      <p class="testi-q">During Ecuador's blackouts, demand for the off-grid home kits exploded. They fast-tracked a 2,000-unit container order — from deposit to Guayaquil in 38 days. Our customers stopped calling us angry.</p>
+      <div class="testi-meta"><strong>Diego R.</strong> · Contractor, Quito</div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:.3s">
+      <div class="testi-flag">🇦🇺</div>
+      <p class="testi-q">The 304SS pillar lights are perfect for coastal installations — no rust after two years in Sydney's salt air. Clean design, reliable dusk-to-dawn, and documentation ready for customs every time.</p>
+      <div class="testi-meta"><strong>Sarah L.</strong> · Landscape Architect, Sydney</div>
+    </div>
+  </div>
+</section>
+
+<section class="certs wave" id="certs">
   <div class="certs-head reveal">
     <div class="sec-label">Certifications</div>
     <h2>Certificates provided <em>with every quotation.</em></h2>
@@ -1147,34 +1219,52 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   <div class="ft-top">
     <div>
       <a href="#" class="ft-logo">JC <em>Lightning</em></a>
-      <p class="ft-desc" data-i18n="ft_desc">Solar outdoor lighting for markets where the grid isn't enough. Security · Garden · Decorative. CE / RoHS · IP65 · OEM available. Colombia · Ecuador · South Africa · Australia · Spain.</p>
+      <p class="ft-desc" data-i18n="ft_desc">Solar outdoor lighting for markets where the grid isn't enough. Security · Garden · Decorative. CE / RoHS · IP65 · OEM available.</p>
       <div class="social-row">
         <a href="https://wa.me/8613138189642" target="_blank" class="soc-btn" title="WhatsApp"><svg viewBox="0 0 32 32" fill="white"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.88 1.92 7.02L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.1 19.42c-.3.84-1.76 1.6-2.42 1.66-.66.06-1.28.3-4.32-.9-3.66-1.44-6-5.18-6.18-5.42-.18-.24-1.44-1.92-1.44-3.66s.9-2.58 1.24-2.94c.34-.36.72-.44.96-.44l.7.01c.22 0 .52-.08.8.62l1.14 2.8c.1.22.04.48-.06.66l-.42.52-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.6-.08l.82-1c.16-.2.32-.14.54-.06l2.72 1.28c.28.14.46.2.52.32.06.48-.22 1.96-.52 2.8z"/></svg></a>
         <a href="mailto:info@jclightning.com" class="soc-btn" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></a>
-        <a href="https://wa.me/8613138189642?text=Hi%20JC%20Lightning%2C%20I%27d%20like%20to%20enquire%20about%20your%20solar%20lighting%20products." target="_blank" class="soc-btn" title="Chat"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></a>
+        <a href="#contact" class="soc-btn" title="Contact"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></a>
+      </div>
+      <div class="ft-industries">
+        <span class="ft-tag">Solar Security Lights</span><span class="ft-tag">Solar Garden Lights</span><span class="ft-tag">Solar Wall Lights</span><span class="ft-tag">Solar Street Lights</span><span class="ft-tag">Off-Grid Solar</span><span class="ft-tag">LiFePO₄ Battery</span><span class="ft-tag">CE & RoHS</span><span class="ft-tag">IP65 Rated</span><span class="ft-tag">OEM & ODM</span>
       </div>
     </div>
     <div class="ft-col">
-      <h5 data-i18n="ft_prod">Products</h5>
+      <h5>Product Ranges</h5>
       <ul>
-        <li><a href="#categories" data-i18n="cat1_t">Solar Security Lights</a></li>
-        <li><a href="#categories" data-i18n="cat3_t">Solar Wall &amp; String Lights</a></li>
-        <li><a href="#categories" data-i18n="cat2_t">Solar Garden &amp; Gate Lights</a></li>
-        <li><a href="#contact" data-i18n="prod_cat">View Full Product Range →</a></li>
+        <li><a href="#categories">Solar Security & Street Lights</a></li>
+        <li><a href="#categories">Solar Garden & Gate Lights</a></li>
+        <li><a href="#categories">Solar Wall & String Lights</a></li>
+        <li><a href="#categories">Solar Ambiance & Decorative</a></li>
+        <li><a href="#categories">Off-Grid Home Lighting</a></li>
+        <li><a href="#products">View All 26 Products →</a></li>
       </ul>
     </div>
     <div class="ft-col">
-      <h5 data-i18n="ft_co">Company</h5>
+      <h5>Company</h5>
       <ul>
-        <li><a href="#factory" data-i18n="nav_about">Our Approach</a></li>
-        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-        <li><a href="https://wa.me/8613138189642" target="_blank">WhatsApp</a></li>
+        <li><a href="#factory">Our Approach</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://wa.me/8613138189642" target="_blank">WhatsApp: +86 131 3818 9642</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Key Markets</h5>
+      <ul>
+        <li><a href="#contact">Colombia</a></li>
+        <li><a href="#contact">Ecuador</a></li>
+        <li><a href="#contact">South Africa</a></li>
+        <li><a href="#contact">Australia</a></li>
+        <li><a href="#contact">Kenya · Nigeria · Tanzania</a></li>
+        <li><a href="#contact">Peru · Mexico · Spain</a></li>
       </ul>
     </div>
   </div>
   <div class="ft-btm">
     <span>© 2026 JC Lightning. All rights reserved.</span>
-    <span data-i18n="ft_srv">Colombia · Ecuador · South Africa · Australia · Spain</span>
+    <span>FOB Shenzhen · Yantian · Guangzhou</span>
   </div>
 </footer>
 
@@ -1544,6 +1634,15 @@ document.addEventListener('click',e=>{
   }
 });
 
+// 页面加载进度条
+const progressBar=document.getElementById('progressBar');
+window.addEventListener('scroll',()=>{
+  const scrollTop=window.scrollY;
+  const docHeight=document.documentElement.scrollHeight-window.innerHeight;
+  const pct=docHeight>0?(scrollTop/docHeight)*100:0;
+  progressBar.style.width=pct+'%';
+});
+
 // 导航滚动
 const nav=document.getElementById('mainnav');
 window.addEventListener('scroll',()=>{
@@ -1551,6 +1650,13 @@ window.addEventListener('scroll',()=>{
   const heroH=document.querySelector('.hero').offsetHeight;
   nav.className=y<heroH-70?'dark':'solid';
   nav.style.padding=y>40?'13px 56px':'20px 56px';
+});
+
+// 侧边询盘按钮
+const sideCta=document.getElementById('sideCta');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>600) sideCta.classList.add('show');
+  else sideCta.classList.remove('show');
 });
 
 // 滚动显示动画
@@ -1640,6 +1746,15 @@ window.addEventListener('scroll',()=>{
   else backTop.classList.remove('show');
 });
 backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
+
+// 视差滚动
+const heroBg=document.querySelector('.hero-bg');
+if(heroBg){
+  window.addEventListener('scroll',()=>{
+    const offset=window.scrollY*0.3;
+    heroBg.style.transform=`translateY(${offset}px)`;
+  });
+}
 
 // 社交通知
 const toastData=[
