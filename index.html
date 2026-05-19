@@ -19,6 +19,31 @@
 <meta name="twitter:title" content="JC Lightning — Solar Lighting Built for Where the Grid Fails">
 <meta name="twitter:description" content="Solar security, garden and wall lighting for distributors in Africa, Latin America and Oceania.">
 <meta name="twitter:image" content="https://paulshellby.github.io/jclightning/images/product-01.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "JC Lightning",
+  "url": "https://paulshellby.github.io/jclightning/",
+  "description": "Solar outdoor lighting manufacturer — security, garden, wall, decorative, and off-grid solar lights. CE certified, LiFePO4 battery, OEM/ODM.",
+  "email": "info@jclightning.com",
+  "telephone": "+86-131-3818-9642",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Shenzhen",
+    "addressCountry": "CN"
+  },
+  "areaServed": ["Colombia", "Ecuador", "South Africa", "Australia", "Kenya"],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "ProductCollection",
+      "name": "Solar Outdoor Lighting",
+      "category": ["Solar Security Lights", "Solar Garden Lights", "Solar Wall Lights", "Solar Decorative Lights", "Off-Grid Solar Lighting", "Portable Solar Lights"]
+    }
+  }
+}
+</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230e0c0a'/><text x='16' y='23' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%23a87d2a'>J</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -73,6 +98,10 @@ nav.dark .nav-cta, nav.solid .nav-cta { color:#fff; border-color:rgba(255,255,25
 nav.dark .nav-cta:hover, nav.solid .nav-cta:hover { background:var(--brass); border-color:var(--brass); }
 nav.light .nav-cta { color:var(--ink); border-color:var(--ink); }
 nav.light .nav-cta:hover { background:var(--ink); color:var(--chalk); }
+.nav-dl { font-size:0.6rem; font-weight:400; letter-spacing:0.16em; text-transform:uppercase; padding:9px 16px; text-decoration:none; transition:all .25s; background:var(--brass); color:#fff; border:none; }
+.nav-dl:hover { background:var(--brass-lt); }
+nav.light .nav-dl { background:var(--ink); color:var(--chalk); }
+nav.light .nav-dl:hover { background:var(--brass); }
 .nav-burger { display:none; flex-direction:column; justify-content:center; gap:4px; width:24px; height:24px; padding:0; border:none; background:transparent; cursor:pointer; z-index:210; position:relative; }
 .nav-burger span { display:block; width:100%; height:1.5px; background:currentColor; border-radius:1px; transition:transform .25s ease, opacity .2s ease; transform-origin:center; }
 .nav-burger.open span:nth-child(1) { transform:translateY(5.5px) rotate(45deg); }
@@ -212,6 +241,31 @@ h2 em { font-style:italic; color:var(--brass); }
 .promise-check { flex-shrink:0; width:28px; height:28px; margin-top:1px; color:var(--brass); }
 .promise-body h4 { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:400; color:var(--ink); margin-bottom:10px; line-height:1.4; }
 .promise-body p { font-size:0.88rem; font-weight:300; color:var(--stone); line-height:1.78; }
+.certs { background:var(--chalk-w); padding:120px 56px; text-align:center; }
+.certs-head { margin-bottom:64px; }
+.certs-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(1.8rem,3vw,2.6rem); line-height:1.18; color:var(--ink); letter-spacing:-0.01em; }
+.certs-head h2 em { font-style:italic; color:var(--brass); }
+.certs-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; max-width:1100px; margin:0 auto; }
+.cert-card { padding:32px 24px; }
+.cert-badge { width:72px; height:72px; border-radius:50%; background:var(--ink); display:flex; align-items:center; justify-content:center; margin:0 auto 22px; border:3px solid var(--brass); }
+.cert-badge span { font-family:'Playfair Display',serif; font-size:0.72rem; font-weight:500; letter-spacing:0.06em; color:var(--brass-lt); text-align:center; line-height:1.2; }
+.cert-card h4 { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:400; color:var(--ink); margin-bottom:10px; }
+.cert-card p { font-size:0.82rem; font-weight:300; color:var(--stone); line-height:1.7; max-width:220px; margin:0 auto; }
+.faq { background:var(--ink); padding:120px 56px; position:relative; overflow:hidden; }
+.faq::before { content:''; position:absolute; bottom:0; right:10%; width:500px; height:500px; background:radial-gradient(circle, rgba(168,125,42,0.08) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
+.faq-head { margin-bottom:64px; max-width:720px; position:relative; z-index:1; }
+.faq-head .sec-label { color:var(--brass-lt); }
+.faq-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2rem,3.4vw,2.8rem); line-height:1.18; color:#fff; letter-spacing:-0.01em; }
+.faq-head h2 em { font-style:italic; color:var(--brass-lt); }
+.faq-list { max-width:800px; margin:0 auto; position:relative; z-index:1; display:flex; flex-direction:column; gap:1px; background:rgba(255,255,255,0.05); }
+.faq-item { background:rgba(14,12,10,0.6); }
+.faq-q { width:100%; text-align:left; background:none; border:none; padding:22px 28px; font-family:'Outfit',sans-serif; font-size:0.93rem; font-weight:400; color:#fff; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; line-height:1.4; transition:color .2s; }
+.faq-q:hover { color:var(--brass-lt); }
+.faq-q::after { content:'+'; font-size:1.4rem; font-weight:200; color:var(--brass); flex-shrink:0; transition:transform .3s ease; width:24px; text-align:center; }
+.faq-item.open .faq-q::after { content:'−'; }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+.faq-item.open .faq-a { max-height:300px; }
+.faq-a p { padding:0 28px 22px; font-size:0.84rem; font-weight:300; color:var(--mist); line-height:1.85; }
 .why { background:var(--ink); padding:130px 56px 120px; position:relative; overflow:hidden; }
 .why::before { content:''; position:absolute; top:30%; left:20%; width:700px; height:700px; background:radial-gradient(circle, rgba(168,125,42,0.13) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
 .why-head { margin-bottom:80px; max-width:720px; position:relative; z-index:1; }
@@ -296,7 +350,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .nav-burger { display:flex; color:#fff; }
   nav.solid .nav-burger, nav.light .nav-burger { color:var(--ink); }
   nav.solid .nav-burger.open { color:#fff; }
-  .nav-r .nav-cta { display:none; }
+  .nav-r .nav-cta, .nav-r .nav-dl { display:none; }
   .hero { grid-template-columns:1fr; padding:100px 22px 64px; }
   .hero-right { display:none; }
   .hero-stats { flex-wrap:wrap; gap:28px; }
@@ -318,6 +372,13 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   footer { padding:52px 22px 28px; }
   .ft-btm { flex-direction:column; gap:8px; text-align:center; }
   .certs { padding:40px 22px; }
+  .certs-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .cert-card { padding:24px 10px; }
+  .cert-badge { width:56px; height:56px; margin-bottom:16px; }
+  .faq { padding:64px 22px; }
+  .faq-head { margin-bottom:40px; }
+  .faq-q { padding:18px 20px; font-size:0.85rem; }
+  .faq-a p { padding:0 20px 18px; font-size:0.8rem; }
   .prod-head { flex-direction:column; align-items:flex-start; gap:14px; }
   .process { padding:64px 22px; }
   .proc-grid { grid-template-columns:1fr; }
@@ -414,6 +475,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       <button class="lang-btn" onclick="setLang('es')">ES</button>
     </div>
     <a href="#contact" class="nav-cta" data-i18n="nav_quote">Get a Quote</a>
+    <a href="#" class="nav-dl" title="Download Catalog">Catalog ↓</a>
   </div>
 </nav>
 <div class="nav-drop" id="navDrop">
@@ -908,6 +970,76 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <h4 data-i18n="prm4_t">We're still here after delivery</h4>
         <p data-i18n="prm4_d">End customers have questions? Need spare parts? Technical issue six months in? WhatsApp still goes to the same person. Contact doesn't end when the container leaves the port.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="certs" id="certs">
+  <div class="certs-head reveal">
+    <div class="sec-label">Certifications</div>
+    <h2>Certificates provided <em>with every quotation.</em></h2>
+  </div>
+  <div class="certs-grid reveal">
+    <div class="cert-card">
+      <div class="cert-badge"><span>CE</span></div>
+      <h4>CE Certification</h4>
+      <p>EMC, LVD, and RoHS compliance — certified by accredited third-party laboratories. Required for EU and most international markets.</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge"><span>RoHS</span></div>
+      <h4>RoHS Compliance</h4>
+      <p>Restriction of Hazardous Substances — lead-free, mercury-free, cadmium-free. Test reports available for every product series.</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge"><span>IP65</span></div>
+      <h4>IP65 / IP66 Rated</h4>
+      <p>Dust-tight and protected against water jets. Independently tested. Security range minimum IP65 — verified before shipment.</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge"><span>LiFePO₄</span></div>
+      <h4>LiFePO₄ Battery</h4>
+      <p>2,000+ charge cycles. Thermal stable from -20°C to 60°C. No thermal runaway risk. 3× longer lifespan than standard lithium-ion.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="faq-head reveal">
+    <div class="sec-label">Frequently Asked Questions</div>
+    <h2>Quick answers. <em>No runaround.</em></h2>
+  </div>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <button class="faq-q">What's the minimum order quantity (MOQ)?</button>
+      <div class="faq-a"><p>200 pieces per model for your first trial order. After you've validated the products, standard orders start at 500–1,000 pieces. We keep MOQs practical because we want you to test the market before committing to large volumes. Mixed containers across multiple models are welcome.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How long does production and shipping take?</button>
+      <div class="faq-a"><p>Sample orders ship within 3–5 days via DHL/FedEx (7–15 days to most destinations). Bulk production takes 30–45 days after deposit confirmation. Sea freight transit time depends on destination: 25–35 days to Latin America, 20–30 days to Africa, 15–25 days to Oceania. Door-to-door DDP service is available on request.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What are your payment terms?</button>
+      <div class="faq-a"><p>Standard terms: 30% T/T deposit to start production, 70% balance before shipment — after you receive the pre-shipment inspection report with photos. For repeat customers we offer flexible terms including 50/50 and L/C at sight. Sample fees are fully refunded against your first order.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What warranty do you provide?</button>
+      <div class="faq-a"><p>All products carry a 2-year warranty against manufacturing defects, covering the LED panel, battery, controller, and housing. LiFePO4 batteries are rated for 2,000+ charge cycles. Warranty claims are handled within 72 hours — we ship replacement parts via express courier at our cost. Extended warranties up to 5 years available for volume contracts.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can you customize products with our brand or specifications?</button>
+      <div class="faq-a"><p>Yes. OEM services include: custom logo printing on housing and packaging, custom colour finishes (minimum 500 units per colour), custom packaging design with your branding, and specification adjustments (lumen output, battery capacity, sensor type). ODM projects — designing a new product to your brief — require a minimum 2,000-unit commitment and a 45–60 day development cycle.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What certifications do your products have?</button>
+      <div class="faq-a"><p>All products are CE and RoHS certified through accredited third-party laboratories. Certificates are provided upfront with every quotation — not chased after the fact. We can also arrange additional certifications (SAA for Australia, SASO for Saudi Arabia, SONCAP for Nigeria, etc.) for volume orders. Test reports are available on request.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I know the product quality before ordering in bulk?</button>
+      <div class="faq-a"><p>We send 1–3 sample units via international courier so you can physically evaluate brightness, build quality, and finish. The sample fee is fully refunded against your first order. Before every bulk shipment, you receive a detailed pre-shipment inspection report with photos — same spec as your approved sample, verified. Final payment only after you approve the report.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Where do you ship and what are the costs?</button>
+      <div class="faq-a"><p>We ship FOB from Shenzhen, Yantian, or Guangzhou — you choose the most convenient port. Major destination markets include Colombia (Buenaventura/Cartagena), Ecuador (Guayaquil), South Africa (Durban), Kenya (Mombasa), and Australia (Sydney/Melbourne). For first-time buyers, we can provide a door-to-door DDP quotation that includes freight, customs clearance, and delivery to your warehouse. FOB price list is provided within 24 hours of enquiry.</p></div>
     </div>
   </div>
 </section>
@@ -1417,11 +1549,21 @@ lb.addEventListener('click',e=>{
 lbClose.addEventListener('click',()=>lb.classList.remove('open'));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open');});
 
+// FAQ 展开折叠
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+
 // 鼠标光晕
 const glow=document.querySelector('.cursor-glow');
 let mx=0,my=0,gx=0,gy=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-document.querySelectorAll('.hero,.why,.brand,.contact').forEach(s=>{
+document.querySelectorAll('.hero,.why,.faq,.brand,.contact').forEach(s=>{
   s.addEventListener('mouseenter',()=>glow.classList.add('on'));
   s.addEventListener('mouseleave',()=>glow.classList.remove('on'));
 });
