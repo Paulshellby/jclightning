@@ -107,6 +107,7 @@ h1 em { font-style:italic; color:var(--brass-lt); }
 .lamp-glow-orb { position:absolute; left:50%; top:44%; transform:translate(-50%,-50%); width:220px; height:220px; border-radius:50%; background:radial-gradient(circle, rgba(200,162,78,0.35) 0%, rgba(168,125,42,0.1) 40%, transparent 70%); animation:breathe 3.5s ease-in-out infinite; }
 @keyframes breathe { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.8} 50%{transform:translate(-50%,-50%) scale(1.12);opacity:1} }
 .lamp-svg { position:relative; z-index:1; width:100%; }
+.hero-banner-img { position:relative; z-index:1; width:100%; max-width:340px; border-radius:8px; object-fit:contain; }
 .marquee-wrap { background:var(--brass); overflow:hidden; padding:13px 0; }
 .marquee-track { display:inline-flex; animation:scroll-l 30s linear infinite; white-space:nowrap; }
 .mi { font-size:0.63rem; font-weight:400; letter-spacing:0.24em; text-transform:uppercase; color:#fff; padding:0 36px; }
@@ -438,19 +439,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   <div class="hero-right">
     <div class="lamp-scene">
       <div class="lamp-glow-orb"></div>
-      <svg class="lamp-svg" viewBox="0 0 340 440" fill="none">
-        <line x1="170" y1="0" x2="170" y2="90" stroke="white" stroke-width="1.2" stroke-dasharray="5 4" opacity=".4"/>
-        <path d="M98 90 Q74 162 52 206 H288 Q266 162 242 90 Z" stroke="white" stroke-width="1.2" fill="none" opacity=".35"/>
-        <line x1="98" y1="90" x2="242" y2="90" stroke="white" stroke-width="1.2" opacity=".5"/>
-        <path d="M102 108 Q82 158 66 194 H274 Q258 158 238 108 Z" fill="white" opacity=".04"/>
-        <circle cx="170" cy="220" r="16" stroke="white" stroke-width="1" fill="none" opacity=".5"/>
-        <circle cx="170" cy="220" r="5" fill="white" opacity=".6"/>
-        <circle cx="170" cy="220" r="34" stroke="white" stroke-width=".6" fill="none" opacity=".2"/>
-        <circle cx="170" cy="220" r="60" stroke="white" stroke-width=".4" fill="none" opacity=".1"/>
-        <path d="M52 206 L8 430 H332 L288 206 Z" stroke="white" stroke-width=".8" fill="none" opacity=".2"/>
-        <line x1="8" y1="430" x2="332" y2="430" stroke="white" stroke-width="1.2" opacity=".4"/>
-        <ellipse cx="170" cy="87" rx="72" ry="8" stroke="white" stroke-width=".7" fill="none" opacity=".25"/>
-      </svg>
+      <img class="hero-banner-img" src="images/banner.jpg" alt="JC Lightning Solar Lighting" width="1024" height="1024">
     </div>
   </div>
 </section>
