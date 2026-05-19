@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://paulshellby.github.io/jclightning/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://paulshellby.github.io/jclightning/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://paulshellby.github.io/jclightning/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paulshellby.github.io/jclightning/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paulshellby.github.io/jclightning/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2026-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://paulshellby.github.io/jclightning/#categories</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://paulshellby.github.io/jclightning/#products</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://paulshellby.github.io/jclightning/#faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paulshellby.github.io/jclightning/#contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

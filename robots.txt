@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /images/new/
+Sitemap: https://paulshellby.github.io/jclightning/sitemap.xml
+
+# JC Lightning — Solar Outdoor Lighting
+# www.jclightning.com → paulshellby.github.io/jclightning/
