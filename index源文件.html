@@ -251,6 +251,25 @@ h2 em { font-style:italic; color:var(--brass); }
 .cert-badge span { font-family:'Playfair Display',serif; font-size:0.72rem; font-weight:500; letter-spacing:0.06em; color:var(--brass-lt); text-align:center; line-height:1.2; }
 .cert-card h4 { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:400; color:var(--ink); margin-bottom:10px; }
 .cert-card p { font-size:0.82rem; font-weight:300; color:var(--stone); line-height:1.7; max-width:220px; margin:0 auto; }
+.numbers { background:var(--ink); padding:90px 56px; position:relative; overflow:hidden; }
+.numbers::before { content:''; position:absolute; top:0; left:30%; width:600px; height:600px; background:radial-gradient(circle, rgba(168,125,42,0.1) 0%, transparent 65%); filter:blur(60px); pointer-events:none; }
+.num-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:20px; max-width:1100px; margin:0 auto; position:relative; z-index:1; text-align:center; }
+.num-item { padding:24px; }
+.num-val { font-family:'Playfair Display',serif; font-size:3.2rem; font-weight:400; color:var(--brass-lt); line-height:1; margin-bottom:10px; }
+.num-val sup { font-size:1.6rem; }
+.num-lbl { font-size:0.65rem; font-weight:300; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone-lt); }
+.badge-hot, .badge-new { display:inline-block; font-size:0.55rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; padding:3px 10px; border-radius:2px; position:absolute; top:10px; left:10px; z-index:5; }
+.badge-hot { background:#c94a3a; color:#fff; }
+.badge-new { background:var(--brass); color:#fff; }
+.back-top { position:fixed; bottom:30px; right:90px; z-index:998; width:42px; height:42px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); background:rgba(14,12,10,0.85); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .3s, transform .3s, visibility 0s linear .3s; backdrop-filter:blur(8px); }
+.back-top.show { opacity:1; visibility:visible; transform:translateY(0); transition:opacity .3s, transform .3s, visibility 0s linear 0s; }
+.back-top:hover { border-color:var(--brass); color:var(--brass-lt); }
+.back-top svg { width:18px; height:18px; }
+.social-toast { position:fixed; bottom:100px; left:28px; z-index:997; background:#fff; border-radius:10px; box-shadow:0 6px 30px rgba(0,0,0,0.15); padding:14px 18px; display:flex; align-items:center; gap:12px; max-width:300px; opacity:0; transform:translateX(-20px); transition:opacity .4s ease, transform .4s ease; pointer-events:none; }
+.social-toast.on { opacity:1; transform:translateX(0); }
+.social-toast .st-flag { font-size:1.4rem; flex-shrink:0; }
+.social-toast .st-body { font-size:0.78rem; font-weight:300; color:var(--ink); line-height:1.5; }
+.social-toast .st-body strong { font-weight:500; color:var(--brass); }
 .faq { background:var(--ink); padding:120px 56px; position:relative; overflow:hidden; }
 .faq::before { content:''; position:absolute; bottom:0; right:10%; width:500px; height:500px; background:radial-gradient(circle, rgba(168,125,42,0.08) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
 .faq-head { margin-bottom:64px; max-width:720px; position:relative; z-index:1; }
@@ -375,6 +394,15 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .certs-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
   .cert-card { padding:24px 10px; }
   .cert-badge { width:56px; height:56px; margin-bottom:16px; }
+  .numbers { padding:56px 22px; }
+  .num-grid { grid-template-columns:repeat(3,1fr); gap:12px; }
+  .num-val { font-size:2.2rem; }
+  .num-val sup { font-size:1.1rem; }
+  .num-lbl { font-size:0.55rem; }
+  .back-top { right:18px; bottom:80px; width:36px; height:36px; }
+  .back-top svg { width:15px; height:15px; }
+  .social-toast { left:10px; bottom:85px; max-width:250px; padding:10px 14px; }
+  .social-toast .st-body { font-size:0.72rem; }
   .faq { padding:64px 22px; }
   .faq-head { margin-bottom:40px; }
   .faq-q { padding:18px 20px; font-size:0.85rem; }
@@ -893,6 +921,16 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </section>
 
+<section class="numbers" id="numbers">
+  <div class="num-grid reveal">
+    <div class="num-item"><div class="num-val" data-target="26">0<sup>+</sup></div><div class="num-lbl">Product Series</div></div>
+    <div class="num-item"><div class="num-val" data-target="30">0<sup>+</sup></div><div class="num-lbl">Export Markets</div></div>
+    <div class="num-item"><div class="num-val" data-target="2000">0<sup>+</sup></div><div class="num-lbl">LiFePO₄ Cycles</div></div>
+    <div class="num-item"><div class="num-val" data-target="7">0</div><div class="num-lbl">Years Trusted</div></div>
+    <div class="num-item"><div class="num-val" data-target="100">0<sup>%</sup></div><div class="num-lbl">CE Certified</div></div>
+  </div>
+</section>
+
 <section class="why" id="why">
   <div class="why-head reveal">
     <div class="sec-label" data-i18n="why_lbl">Why Choose Us</div>
@@ -1140,6 +1178,8 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </footer>
 
+<button class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+<div class="social-toast" id="socialToast"><span class="st-flag"></span><span class="st-body"></span></div>
 <div class="chat-widget" id="chatWidget">
   <button class="chat-btn" id="chatBtn" aria-label="Chat with us">
     <svg class="chat-open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 9h8"/><path d="M8 13h4"/></svg>
@@ -1558,6 +1598,71 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!wasOpen) item.classList.add('open');
   });
 });
+
+// 数据计数器动画
+const numItems=document.querySelectorAll('.num-val');
+let counted=false;
+function animateCount(el){
+  const target=parseInt(el.getAttribute('data-target'));
+  const suffix=el.querySelector('sup')?el.querySelector('sup').textContent:'';
+  const hasPercent=suffix==='%';
+  const duration=1800; const steps=60; const stepTime=duration/steps;
+  let step=0;
+  const timer=setInterval(()=>{
+    step++;
+    const progress=step/steps;
+    const eased=1-Math.pow(1-progress,3);
+    let val;
+    if(hasPercent) val=Math.round(eased*target);
+    else if(target>=100) val=Math.round(eased*target/10)*10;
+    else val=Math.round(eased*target);
+    const supEl=el.querySelector('sup');
+    if(supEl) el.innerHTML=val+`<sup>${suffix}</sup>`;
+    else el.textContent=val;
+    if(step>=steps){clearInterval(timer);el.innerHTML=target+(supEl?`<sup>${suffix}</sup>`:'');}
+  },stepTime);
+}
+const numObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting && !counted){
+      counted=true;
+      document.querySelectorAll('.num-val').forEach(el=>animateCount(el));
+    }
+  });
+},{threshold:0.4});
+const numSection=document.querySelector('.numbers');
+if(numSection) numObs.observe(numSection);
+
+// 回到顶部
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>500) backTop.classList.add('show');
+  else backTop.classList.remove('show');
+});
+backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
+
+// 社交通知
+const toastData=[
+  {flag:'🇨🇴',msg:'A <strong>Colombia</strong> distributor just sent an enquiry about solar flood lights.'},
+  {flag:'🇿🇦',msg:'A <strong>South Africa</strong> contractor requested PIR wall light quotation.'},
+  {flag:'🇪🇨',msg:'An <strong>Ecuador</strong> importer is viewing security lighting specs.'},
+  {flag:'🇦🇺',msg:'A <strong>Australia</strong> buyer downloaded product specifications.'},
+  {flag:'🇰🇪',msg:'A <strong>Kenya</strong> project manager is browsing street lights.'},
+];
+let toastIdx=0;
+const toastEl=document.getElementById('socialToast');
+const toastFlag=toastEl.querySelector('.st-flag');
+const toastBody=toastEl.querySelector('.st-body');
+function showToast(){
+  const t=toastData[toastIdx % toastData.length];
+  toastFlag.textContent=t.flag;
+  toastBody.innerHTML=t.msg;
+  toastEl.classList.add('on');
+  setTimeout(()=>toastEl.classList.remove('on'),4000);
+  toastIdx++;
+  setTimeout(showToast,18000+Math.random()*12000);
+}
+setTimeout(showToast,8000);
 
 // 鼠标光晕
 const glow=document.querySelector('.cursor-glow');
