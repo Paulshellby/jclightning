@@ -1945,45 +1945,6 @@ window.addEventListener('load',()=>{
   },800);
 });
 
-// Typewriter on hero h1
-(function(){
-  const h1=document.querySelector('.hero h1');
-  if(!h1)return;
-  const fullHTML=h1.innerHTML;
-  const parts=[]; let i=0;
-  while(i<fullHTML.length){
-    if(fullHTML[i]==='<'){
-      const end=fullHTML.indexOf('>',i);
-      parts.push({t:'tag',v:fullHTML.substring(i,end+1)});
-      i=end+1;
-    }else{
-      parts.push({t:'char',v:fullHTML[i]});
-      i++;
-    }
-  }
-  let wrapped='';
-  parts.forEach(p=>{
-    if(p.t==='tag') wrapped+=p.v;
-    else wrapped+='<span class="tw-char" style="opacity:0">'+p.v+'</span>';
-  });
-  wrapped+='<span class="tw-cursor" id="twCursor"></span>';
-  h1.innerHTML=wrapped;
-  const chars=h1.querySelectorAll('.tw-char');
-  const cursor=document.getElementById('twCursor');
-  let ci=0;
-  function revealNext(){
-    if(ci<chars.length){
-      chars[ci].style.opacity='1';
-      chars[ci].style.transition='opacity .03s ease';
-      ci++;
-      setTimeout(revealNext, 35 + Math.random()*25);
-    }else{
-      setTimeout(()=>{if(cursor)cursor.style.opacity='0';},2000);
-    }
-  }
-  setTimeout(revealNext,400);
-})();
-
 // Custom cursor
 const dot=document.getElementById('cursorDot');
 const ring=document.getElementById('cursorRing');
