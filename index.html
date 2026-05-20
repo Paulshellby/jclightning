@@ -94,6 +94,31 @@
 html { scroll-behavior: smooth; }
 body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink); overflow-x:hidden; }
 ::selection { background:var(--brass); color:#fff; }
+/* Preloader */
+.preloader { position:fixed; inset:0; z-index:99999; background:var(--ink); display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .5s ease, visibility .5s ease; }
+.preloader.hide { opacity:0; visibility:hidden; pointer-events:none; }
+.preloader-logo { font-family:'Playfair Display',serif; font-size:1.8rem; color:#fff; letter-spacing:0.06em; animation:prePulse 1.6s ease-in-out infinite; }
+.preloader-logo em { font-style:italic; color:var(--brass-lt); }
+.preloader-line { width:50px; height:1px; background:var(--brass); margin-top:16px; animation:preLine 1.6s ease-in-out infinite; }
+@keyframes prePulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+@keyframes preLine { 0%,100%{width:40px;opacity:0.3} 50%{width:90px;opacity:1} }
+/* Typewriter cursor */
+.tw-cursor { display:inline-block; width:2px; height:0.85em; background:var(--brass-lt); margin-left:2px; vertical-align:text-bottom; animation:twBlink .8s step-end infinite; }
+@keyframes twBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+/* Section Nav Dots */
+.section-nav { position:fixed; right:18px; top:50%; transform:translateY(-50%); z-index:150; display:flex; flex-direction:column; gap:12px; }
+.sn-dot { width:7px; height:7px; border-radius:50%; background:rgba(168,125,42,0.2); border:1px solid rgba(168,125,42,0.25); transition:all .3s; cursor:pointer; text-decoration:none; display:block; position:relative; }
+.sn-dot::after { content:attr(aria-label); position:absolute; right:20px; top:50%; transform:translateY(-50%); white-space:nowrap; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass-lt); opacity:0; transition:opacity .25s; pointer-events:none; }
+.sn-dot:hover::after { opacity:1; }
+.sn-dot.active, .sn-dot:hover { background:var(--brass); border-color:var(--brass); box-shadow:0 0 10px rgba(168,125,42,0.45); transform:scale(1.35); }
+.sn-dot.active::after { opacity:1; }
+@media(max-width:768px){.section-nav{display:none}}
+/* Custom Cursor */
+.cursor-dot { position:fixed; width:8px; height:8px; border-radius:50%; background:var(--brass-lt); pointer-events:none; z-index:9999; top:-4px; left:-4px; transition:width .2s, height .2s, background .2s, margin .08s; }
+.cursor-ring { position:fixed; width:30px; height:30px; border-radius:50%; border:1px solid rgba(168,125,42,0.35); pointer-events:none; z-index:9998; top:-15px; left:-15px; transition:width .25s, height .25s, border-color .25s, margin .08s; }
+.cursor-dot.on-link { width:14px; height:14px; background:#fff; top:-7px; left:-7px; mix-blend-mode:difference; }
+.cursor-ring.on-link { width:44px; height:44px; border-color:rgba(255,255,255,0.5); top:-22px; left:-22px; }
+@media(hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
 nav {
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
@@ -367,8 +392,6 @@ h2 em { font-style:italic; color:var(--brass); }
 .why-icon { width:44px; height:44px; margin-bottom:28px; color:var(--brass); }
 .why-card h3 { font-family:'Playfair Display',serif; font-weight:400; font-size:1.25rem; color:#fff; margin-bottom:16px; letter-spacing:-0.01em; }
 .why-card p { font-size:0.88rem; font-weight:300; color:var(--mist); line-height:1.75; }
-.cursor-glow { position:fixed; width:380px; height:380px; border-radius:50%; background:radial-gradient(circle, rgba(168,125,42,0.18) 0%, rgba(168,125,42,0.06) 35%, transparent 70%); pointer-events:none; z-index:1; opacity:0; transition:opacity .5s ease; mix-blend-mode:screen; filter:blur(8px); top:0; left:0; }
-.cursor-glow.on { opacity:1; }
 .contact { padding:120px 56px; background:var(--chalk-w) url(images/bg-13-contact.jpg) center/cover no-repeat; display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:start; }
 .con-l h2 { color:var(--ink); margin-bottom:22px; }
 .con-l > p { font-size:0.88rem; font-weight:300; color:var(--stone); line-height:1.95; margin-bottom:40px; max-width:380px; }
@@ -521,7 +544,6 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .chat-panel { width:280px; right:-6px; }
   .chat-widget { bottom:18px; right:18px; }
   .chat-btn { width:46px; height:46px; }
-  .cursor-glow { display:none; }
 }
 
 /* ===== Product Matchmaker ===== */
@@ -585,6 +607,8 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 </head>
 <body>
 
+<div class="preloader" id="preloader"><div class="preloader-logo">JC <em>Lightning</em></div><div class="preloader-line"></div></div>
+
 <div class="progress-bar" id="progressBar"></div>
 <a href="#contact" class="side-cta" id="sideCta">Get a Quote</a>
 
@@ -622,7 +646,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   <a href="#contact" data-i18n="nav_quote" style="color:var(--brass-lt)">Get a Quote</a>
 </div>
 
-<section class="hero">
+<section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
   <div class="hero-left reveal">
@@ -1077,7 +1101,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </section>
 
-<section class="process">
+<section class="process" id="process">
   <div class="proc-head reveal">
     <div class="sec-label" data-i18n="proc_lbl">How We Work</div>
     <h2 data-i18n="proc_h2">From first message to <em>goods on your dock.</em></h2>
@@ -1388,7 +1412,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </div>
 <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lbClose">&times;</button><img src="" alt="" id="lbImg"></div>
-<div class="cursor-glow"></div>
+<div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
 
 <script>
 const T = {
@@ -1913,15 +1937,109 @@ function showToast(){
 }
 setTimeout(showToast,8000);
 
-// 鼠标光晕
-const glow=document.querySelector('.cursor-glow');
-let mx=0,my=0,gx=0,gy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-document.querySelectorAll('.hero,.why,.faq,.brand,.contact').forEach(s=>{
-  s.addEventListener('mouseenter',()=>glow.classList.add('on'));
-  s.addEventListener('mouseleave',()=>glow.classList.remove('on'));
+// Preloader
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    const pl=document.getElementById('preloader');
+    if(pl){pl.classList.add('hide');setTimeout(()=>pl.remove(),500);}
+  },800);
 });
-(function followCursor(){gx+=(mx-gx)*0.12;gy+=(my-gy)*0.12;glow.style.transform=`translate(${gx-190}px,${gy-190}px)`;requestAnimationFrame(followCursor);})();
+
+// Typewriter on hero h1
+(function(){
+  const h1=document.querySelector('.hero h1');
+  if(!h1)return;
+  const fullHTML=h1.innerHTML;
+  const parts=[]; let i=0;
+  while(i<fullHTML.length){
+    if(fullHTML[i]==='<'){
+      const end=fullHTML.indexOf('>',i);
+      parts.push({t:'tag',v:fullHTML.substring(i,end+1)});
+      i=end+1;
+    }else{
+      parts.push({t:'char',v:fullHTML[i]});
+      i++;
+    }
+  }
+  let wrapped='';
+  parts.forEach(p=>{
+    if(p.t==='tag') wrapped+=p.v;
+    else wrapped+='<span class="tw-char" style="opacity:0">'+p.v+'</span>';
+  });
+  wrapped+='<span class="tw-cursor" id="twCursor"></span>';
+  h1.innerHTML=wrapped;
+  const chars=h1.querySelectorAll('.tw-char');
+  const cursor=document.getElementById('twCursor');
+  let ci=0;
+  function revealNext(){
+    if(ci<chars.length){
+      chars[ci].style.opacity='1';
+      chars[ci].style.transition='opacity .03s ease';
+      ci++;
+      setTimeout(revealNext, 35 + Math.random()*25);
+    }else{
+      setTimeout(()=>{if(cursor)cursor.style.opacity='0';},2000);
+    }
+  }
+  setTimeout(revealNext,400);
+})();
+
+// Custom cursor
+const dot=document.getElementById('cursorDot');
+const ring=document.getElementById('cursorRing');
+if(dot&&ring){
+  let cmx=0,cmy=0,dx=0,dy=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{cmx=e.clientX;cmy=e.clientY;dx=e.clientX;dy=e.clientY;});
+  function followDot(){dx+=(cmx-dx)*0.35;dy+=(cmy-dy)*0.35;dot.style.transform=`translate(${dx}px,${dy}px)`;requestAnimationFrame(followDot);}
+  followDot();
+  function followRing(){rx+=(cmx-rx)*0.12;ry+=(cmy-ry)*0.12;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(followRing);}
+  followRing();
+  const hoverTargets='a,button,.btn-fill,.btn-text,.nav-cta,.nav-dl,.prod-card,.mega-trigger,.lang-btn,.sn-dot,.match-card,.faq-q,.qv-card,.filter-btn';
+  document.querySelectorAll(hoverTargets).forEach(el=>{
+    el.addEventListener('mouseenter',()=>{dot.classList.add('on-link');ring.classList.add('on-link');});
+    el.addEventListener('mouseleave',()=>{dot.classList.remove('on-link');ring.classList.remove('on-link');});
+  });
+}
+
+// Magnetic buttons
+document.querySelectorAll('.btn-fill,.btn-text,.nav-cta,.nav-dl,.prod-card').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const rect=btn.getBoundingClientRect();
+    const x=e.clientX-rect.left-rect.width/2;
+    const y=e.clientY-rect.top-rect.height/2;
+    btn.style.transform=`translate(${x*0.12}px,${y*0.12}px)`;
+    btn.style.transition='transform .12s ease-out, background .25s';
+  });
+  btn.addEventListener('mouseleave',()=>{
+    btn.style.transform='translate(0,0)';
+    btn.style.transition='transform .45s cubic-bezier(.25,.8,.25,1), background .25s';
+  });
+});
+
+// Section nav scroll spy
+(function(){
+  const nav=document.getElementById('sectionNav');
+  if(!nav)return;
+  const dots=nav.querySelectorAll('.sn-dot');
+  const sections=[...dots].map(d=>document.querySelector(d.getAttribute('href'))).filter(Boolean);
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        dots.forEach(d=>d.classList.remove('active'));
+        const active=nav.querySelector('[href="#'+e.target.id+'"]');
+        if(active)active.classList.add('active');
+      }
+    });
+  },{threshold:0.25,rootMargin:'-80px 0px -35% 0px'});
+  sections.forEach(s=>obs.observe(s));
+  dots.forEach(dot=>{
+    dot.addEventListener('click',e=>{
+      e.preventDefault();
+      const el=document.querySelector(dot.getAttribute('href'));
+      if(el)el.scrollIntoView({behavior:'smooth'});
+    });
+  });
+})();
 
 // Formspree 表单提交
 const form=document.getElementById('contactForm');
@@ -2147,5 +2265,21 @@ window.restartQuiz=function(){
 };
 })();
 </script>
+<nav class="section-nav" id="sectionNav">
+  <a href="#hero" class="sn-dot active" aria-label="Hero"></a>
+  <a href="#categories" class="sn-dot" aria-label="Categories"></a>
+  <a href="#products" class="sn-dot" aria-label="Products"></a>
+  <a href="#scenarios" class="sn-dot" aria-label="Scenarios"></a>
+  <a href="#factory" class="sn-dot" aria-label="Factory"></a>
+  <a href="#numbers" class="sn-dot" aria-label="Stats"></a>
+  <a href="#why" class="sn-dot" aria-label="Why Us"></a>
+  <a href="#process" class="sn-dot" aria-label="Process"></a>
+  <a href="#promise" class="sn-dot" aria-label="Promise"></a>
+  <a href="#testimonials" class="sn-dot" aria-label="Testimonials"></a>
+  <a href="#certs" class="sn-dot" aria-label="Certifications"></a>
+  <a href="#faq" class="sn-dot" aria-label="FAQ"></a>
+  <a href="#find-light" class="sn-dot" aria-label="Matchmaker"></a>
+  <a href="#contact" class="sn-dot" aria-label="Contact"></a>
+</nav>
 </body>
 </html>
