@@ -2010,6 +2010,13 @@ lenis.on('scroll',ScrollTrigger.update);
 gsap.ticker.add(t=>lenis.raf(t*1000));
 gsap.ticker.lagSmoothing(0);
 
+// Initial language detection
+(function(){
+  const p=new URLSearchParams(location.search);
+  const lang=p.get('lang');
+  if(lang&&T[lang]) setLang(lang);
+})();
+
 // Preloader + Hero entrance
 window.addEventListener('load',()=>{
   setTimeout(()=>{
