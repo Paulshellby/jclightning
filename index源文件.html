@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -241,6 +241,15 @@ h1 em, h2 em, .text-gold { background:linear-gradient(135deg,#c9a24e 0%,#e2c98a 
 .prod-filter-btn:hover { color:#fff; border-color:rgba(255,255,255,0.15); }
 .prod-filter-btn.active { background:var(--brass); color:#fff; border-color:var(--brass); box-shadow:0 0 20px rgba(168,125,42,0.3); }
 .prod-filter-count { font-size:0.55rem; opacity:0.6; margin-left:4px; }
+.prod-search { width:100%; max-width:420px; margin-bottom:20px; padding:12px 20px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:50px; color:#fff; font-family:'Outfit',sans-serif; font-size:0.78rem; outline:none; transition:border-color .25s, background .25s; }
+.prod-search::placeholder { color:var(--stone-lt); }
+.prod-search:focus { border-color:var(--brass); background:rgba(255,255,255,0.07); }
+.prod-card.hidden, .prod-subcat.hidden { display:none; }
+/* Inquiry Add Button on Product Cards */
+.inq-add { position:absolute; bottom:12px; right:12px; z-index:5; width:32px; height:32px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); background:rgba(14,12,10,0.7); color:rgba(255,255,255,0.6); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:300; transition:all .25s; backdrop-filter:blur(4px); opacity:0; transform:scale(0.8); }
+.prod-card:hover .inq-add { opacity:1; transform:scale(1); }
+.inq-add:hover { border-color:var(--brass); background:rgba(168,125,42,0.2); color:var(--brass-lt); }
+.inq-add.in-cart { opacity:1; border-color:var(--brass); background:var(--brass); color:#fff; transform:scale(1); }
 .prod-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:24px; }
 .prod-head h2 { color:#fff; }
 .sec-label { font-size:0.63rem; font-weight:400; letter-spacing:0.26em; text-transform:uppercase; color:var(--brass); display:flex; align-items:center; gap:12px; margin-bottom:14px; }
@@ -248,7 +257,7 @@ h1 em, h2 em, .text-gold { background:linear-gradient(135deg,#c9a24e 0%,#e2c98a 
 h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2rem,3.2vw,3rem); line-height:1.15; letter-spacing:-0.01em; }
 h2 em { font-style:italic; color:var(--brass); }
 .prod-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
-.prod-card { background:rgba(255,255,255,0.04); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.06); cursor:pointer; transition:transform .35s, border-color .35s, background .35s, box-shadow .35s; }
+.prod-card { position:relative; background:rgba(255,255,255,0.04); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.06); cursor:pointer; transition:transform .35s, border-color .35s, background .35s, box-shadow .35s; }
 .prod-card:hover { transform:translateY(-8px); border-color:rgba(168,125,42,0.35); background:rgba(168,125,42,0.06); box-shadow:0 16px 48px rgba(0,0,0,0.4); }
 .prod-img { aspect-ratio:1; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.2); }
 .prod-img img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; transition:transform .5s ease; }
@@ -368,6 +377,34 @@ h2 em { font-style:italic; color:var(--brass); }
 .social-toast.on { opacity:1; transform:translateX(0); }
 .social-toast .st-flag { font-size:1.4rem; flex-shrink:0; }
 .social-toast .st-body { font-size:0.78rem; font-weight:300; color:var(--ink); line-height:1.5; }
+/* Floating Inquiry Cart */
+.inq-cart-btn { position:fixed; bottom:30px; right:190px; z-index:999; width:46px; height:46px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); background:rgba(14,12,10,0.9); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(8px); transition:border-color .25s, transform .25s; }
+.inq-cart-btn:hover { border-color:var(--brass); transform:scale(1.08); }
+.inq-cart-btn svg { width:20px; height:20px; }
+.inq-cart-btn .inq-badge { position:absolute; top:-5px; right:-5px; min-width:20px; height:20px; border-radius:10px; background:var(--brass); color:#fff; font-size:0.6rem; font-weight:600; display:flex; align-items:center; justify-content:center; padding:0 6px; opacity:0; transform:scale(0.5); transition:all .3s cubic-bezier(0.34,1.56,0.64,1); pointer-events:none; }
+.inq-cart-btn .inq-badge.show { opacity:1; transform:scale(1); }
+.inq-panel { position:fixed; bottom:90px; right:30px; z-index:998; width:340px; max-height:440px; background:rgba(14,12,10,0.96); border:1px solid rgba(168,125,42,0.25); border-radius:18px; backdrop-filter:blur(20px); display:flex; flex-direction:column; opacity:0; visibility:hidden; transform:translateY(12px) scale(0.96); transition:opacity .3s, transform .3s, visibility 0s linear .3s; overflow:hidden; box-shadow:0 24px 80px rgba(0,0,0,0.6); }
+.inq-panel.open { opacity:1; visibility:visible; transform:translateY(0) scale(1); transition:opacity .3s, transform .3s, visibility 0s linear 0s; }
+.inq-panel-hd { padding:18px 22px 14px; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between; }
+.inq-panel-hd h5 { font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:400; color:var(--chalk); margin:0; }
+.inq-panel-close { background:none; border:none; color:var(--stone-lt); cursor:pointer; font-size:1.3rem; padding:0 4px; line-height:1; transition:color .2s; }
+.inq-panel-close:hover { color:var(--chalk); }
+.inq-panel-list { flex:1; overflow-y:auto; padding:8px 22px; max-height:250px; }
+.inq-panel-list::-webkit-scrollbar { width:4px; }
+.inq-panel-list::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08); border-radius:2px; }
+.inq-panel-empty { text-align:center; color:var(--stone-lt); font-size:0.75rem; padding:24px 0; }
+.inq-panel-item { display:flex; align-items:center; justify-content:space-between; padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+.inq-panel-item:last-child { border-bottom:none; }
+.inq-panel-item .inq-item-name { font-size:0.76rem; color:var(--chalk-w); flex:1; margin-right:10px; line-height:1.35; }
+.inq-panel-item .inq-item-remove { background:none; border:none; color:var(--stone-lt); cursor:pointer; font-size:1.15rem; padding:2px 6px; transition:color .2s; flex-shrink:0; line-height:1; }
+.inq-panel-item .inq-item-remove:hover { color:#c94a3a; }
+.inq-panel-ft { padding:14px 22px 18px; border-top:1px solid rgba(255,255,255,0.06); display:flex; gap:10px; }
+.inq-panel-ft button { flex:1; padding:10px 0; border-radius:50px; font-family:'Outfit',sans-serif; font-size:0.68rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:all .25s; }
+.inq-btn-clear { background:transparent; border:1px solid rgba(255,255,255,0.12); color:var(--stone-lt); }
+.inq-btn-clear:hover { border-color:rgba(255,255,255,0.3); color:var(--chalk); }
+.inq-btn-send { background:var(--brass); border:none; color:#fff; }
+.inq-btn-send:hover { background:#c9a24e; box-shadow:0 6px 20px rgba(168,125,42,0.35); }
+.inq-btn-send:disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
 .social-toast .st-body strong { font-weight:500; color:var(--brass); }
 .wave { position:relative; }
 .wave::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:40px; background:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q150 0 300 20 Q450 40 600 20 Q750 0 900 20 Q1050 40 1200 20 L1200 40 L0 40 Z' fill='%231c1814'/%3E%3C/svg%3E") repeat-x; background-size:600px 40px; z-index:1; pointer-events:none; }
@@ -549,6 +586,11 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .back-top svg { width:15px; height:15px; }
   .back-bottom { right:64px; bottom:80px; width:36px; height:36px; }
   .back-bottom svg { width:15px; height:15px; }
+  .inq-cart-btn { right:110px; bottom:80px; width:36px; height:36px; }
+  .inq-cart-btn svg { width:16px; height:16px; }
+  .inq-cart-btn .inq-badge { min-width:16px; height:16px; font-size:0.55rem; top:-4px; right:-4px; }
+  .inq-panel { right:8px; bottom:128px; width:calc(100vw - 16px); max-width:340px; max-height:380px; }
+  .inq-panel-list { max-height:200px; }
   .social-toast { left:10px; bottom:85px; max-width:250px; padding:10px 14px; }
   .social-toast .st-body { font-size:0.72rem; }
   .testimonials { padding:64px 22px; }
@@ -798,6 +840,8 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       <h2 data-i18n="prod_h2">Every Light.<br><em>Every Spec.</em></h2>
     </div>
   </div>
+
+  <div class="reveal" style="margin-bottom:24px"><input type="text" class="prod-search" id="prodSearch" placeholder="Search 29 products — IP66, flood light, 路灯…" data-i18n-placeholder="search_ph"></div>
 
   <div class="prod-filter reveal" id="prodFilter">
     <button class="prod-filter-btn active" onclick="scrollToCat('all')"><span data-i18n="filter_all">All</span><span class="prod-filter-count">26</span></button>
@@ -1411,6 +1455,25 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 
 <button class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
 <button class="back-bottom" id="backBottom" aria-label="Go to bottom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<!-- Inquiry Cart Floating Button -->
+<button class="inq-cart-btn" id="inqCartBtn" aria-label="Inquiry cart">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+  <span class="inq-badge" id="inqBadge">0</span>
+</button>
+<!-- Inquiry Cart Panel -->
+<div class="inq-panel" id="inqPanel">
+  <div class="inq-panel-hd">
+    <h5 data-i18n="inq_title">Your Inquiry List</h5>
+    <button class="inq-panel-close" id="inqPanelClose" aria-label="Close">&times;</button>
+  </div>
+  <div class="inq-panel-list" id="inqPanelList">
+    <div class="inq-panel-empty" data-i18n="inq_empty">No products added yet. Tap + on any product card.</div>
+  </div>
+  <div class="inq-panel-ft">
+    <button class="inq-btn-clear" id="inqClear" data-i18n="inq_clear">Clear</button>
+    <button class="inq-btn-send" id="inqSend" data-i18n="inq_send" disabled>Send via WhatsApp</button>
+  </div>
+</div>
 <div class="social-toast" id="socialToast"><span class="st-flag"></span><span class="st-body"></span></div>
 <div class="chat-widget" id="chatWidget">
   <button class="chat-btn" id="chatBtn" aria-label="Chat with us">
@@ -1460,110 +1523,35 @@ gsap.registerPlugin(ScrollTrigger);
 const T = {
   en:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Products',nav_cat:'Categories',nav_about:'Our Approach',nav_contact:'Contact',nav_quote:'Get a Quote',
-    hero_eye:'Solar Outdoor Lighting · When the grid goes down, we stay on.',
     hero_h1:'Light that works<br>when the power<br><em>doesn\'t.</em>',
-    hero_sub:'Colombia faces a projected 3,100 GWh energy deficit by 2027. Ecuador already suffers cuts of up to 10 hours a day. South Africa averages 6–8 hours of load-shedding daily. Solar security, garden, decorative, home and portable lighting — built so your clients never go dark.',
-    hero_cta1:'Request a Quote',hero_cta2:'View Products →',
     stat1:'Products',stat2:'Product Ranges',stat3:'Certified · RoHS',stat4:'Pcs Minimum Order',
-    brand_q:'"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn\'t an upgrade — it\'s the answer."</span>',
-    brand_b:'JC Lightning supplies outdoor solar lighting to distributors, installers, and project contractors in markets where reliable grid power cannot be assumed. Six core ranges — solar security, garden and gate, wall and string, ambiance, off-grid home, portable and specialty — engineered with cast aluminium housings, LiFePO4 batteries, and IP65 seals for sustained operation in high-heat, high-UV environments. CE certified. OEM and ODM available.',
-    filter_all:'All',filter_security:'Security',filter_garden:'Garden',filter_decorative:'Decorative',filter_offgrid:'Off-Grid',
-    prod_lbl:'Full Catalogue',prod_h2:'Every Light.<br><em>Every Spec.</em>',prod_cat:'View Full Product Range →',
-    b_best:'Bestseller',b_newarr:'NEW',b_rec:'Recommended',b_hot:'HOT',b_eco:'Classic',b_set:'8-Pack',b_ip66:'IP66',
-    p1_n:'Solar Motion Flood Light · 3-Head',p1_d:'Three-head adjustable solar floodlight for residential and commercial perimeters, garages, and driveways. Cast aluminium body. Total 2500–3500lm · IP65 · PIR + 270° coverage · three working modes. CE + RoHS.',
-    p2_n:'PIR Motion Sensor Wall Light',p2_d:'Anti-vandal solar security lighting for perimeter walls, driveways, and commercial properties. 120 LED · 800lm · IP65. Dual-element PIR · 8–12m detection. 4000mAh LiFePO4 · 8–12h runtime. CE + RoHS.',
-    p3_n:'Sphere Gate Pillar Light',p3_d:'Decorative pillar lighting for residential gates, boundary walls, and entrance posts. 304 stainless steel base · UV-stable acrylic globe. 5W · IP65 · LiFePO4 · 10–12h runtime. CE + RoHS.',
-    p4_n:'Outdoor Wall Lantern · Solar / AC',p4_d:'Decorative outdoor wall lighting for estates, hotels, and guesthouses. Solar version with LiFePO4 battery or AC version with E27 base · IP44. Bronze, black, and copper finishes. CE / EMC / LVD.',
-    p5_n:'Solar Bollard Path Light',p5_d:'Post-mounted bollard lighting for driveways, walkways, and landscape edges. Cast aluminium · UV-stable PC diffuser. Heights 0.5m / 0.8m / 1.0m. 3W · IP65 · 2000mAh LiFePO4 · 10h runtime. CE + RoHS.',
-    p6_n:'Solar Garden Stake Light · 8-Pack',p6_d:'Retail-ready stake lighting for gardens, pathways, and flowerbeds. Frosted glass shade · ABS housing. 1.2W · IP65 · 600mAh · 8h runtime. Sold in 8-pack and 12-pack consumer boxes. CE + RoHS.',
-    p7_n:'Solar Flood Security Light · 30W',p7_d:'Industrial-grade solar floodlight for warehouses, farms, and large commercial properties. 30W · 2400lm · IP66. PIR · 10m detection · 270° coverage. Operating range –20°C to +50°C. CE + RoHS.',
-    p8_n:'Solar Garden Spike Spotlight',p8_d:'Adjustable spike spotlights for tree uplighting, façade highlighting, and landscape features. 360° rotating · 90° tilt. 5W · 400lm · IP65 · 1200mAh · 8h runtime · 3000K / 6000K. CE + RoHS.',
-    p9_n:'All-in-One Solar Street Light',p9_d:'Integrated solar street light for municipal roads, rural pathways & parking lots. 100/200/300W · IP66 · radar sensor · LiFePO4 · dusk-to-dawn auto. CE + RoHS.',
-    p10_n:'Up-Down Solar Wall Light',p10_d:'Modern dual-beam wall sconce for architectural facades. 2×3W · IP65 · aluminium body · warm white 3000K · 10h runtime. Black/white/grey. CE + RoHS.',
-    p11_n:'Solar Edison String Lights',p11_d:'Vintage Edison bulb string lights for patios, gardens & events. 40/60 LED · IP65 · warm white 2700K · 30m length · 8-12h. Retail & bulk packaging. CE + RoHS.',
-    p12_n:'Solar Deck & Step Light',p12_d:'Low-profile safety light for decks, steps & retaining walls. 2W · IP67 · 316 stainless steel · warm/cool white · 8h runtime. 2-pack & 6-pack. CE + RoHS.',
-    p13_n:'Solar Portable Camping Lantern',p13_d:'Portable lantern for camping, off-grid homes & emergencies. 5W · 4000mAh · 15h+ runtime · USB output (power bank) · IP44. CE + RoHS.',
-    p14_n:'Solar Bug Zapper Light',p14_d:'UV-LED mosquito & insect zapper for outdoor areas. 2W · IP65 · coverage 100-200m² · dusk-to-dawn auto · CE + RoHS. Pairs with security lights.',
-    enq:'Enquire →',
-    mega_h1:'Security & Street',mega_h2:'Garden & Landscape',mega_h3:'Decorative & Ambiance',mega_h4:'Off-Grid & Portable',mega_a1:'Solar Flood Lights',mega_a2:'Solar Street Lights',mega_a3:'Warning & Signal',mega_a4:'Pillars & Columns',mega_a5:'Garden Accent',mega_a6:'Deck & Step',mega_a7:'Wall & String',mega_a8:'Outdoor Ambiance',mega_a9:'Off-Grid Home',mega_a10:'Portable Tools',
-    cat1_t:'Security & Street',cat1_d:'Perimeter security, street lighting and warning signals for residential boundaries, municipal roads and work sites. IP65/IP66 · PIR / radar sensors · LiFePO4.',
-    cat2_t:'Garden & Landscape',cat2_d:'Entrances, pathways and gardens lit every night. Pillar lights, courtyard columns, bollards, garden stakes, spike spotlights and deck lights. 304SS / aluminium · IP65–IP67.',
-    cat3_t:'Decorative & Ambiance',cat3_d:'Architectural wall lighting, Edison strings, flame torches, umbrella lights and pool float lights for estates, hotels, terraces and outdoor events. IP44–IP68.',
-    cat4_t:'Off-Grid & Portable',cat4_d:'Complete solar systems for off-grid homes plus portable lanterns, work lights and emergency tools. Built for load-shedding, blackouts and outdoor life.',
-    sub_floods:'Security Floods',sub_streets:'Street Lights',sub_warning:'Warning & Signal',sub_pillars:'Pillars & Columns',sub_garden_accent:'Garden Accent',sub_wall_string:'Wall & String',sub_ambiance:'Outdoor Ambiance',sub_home:'Off-Grid Home',sub_portable:'Portable Tools',
-    cat_lnk:'View Products →',
-    why_lbl:'Why It Matters',why_h2:'Built for markets where ordinary<br><em>lighting gives up.</em>',
-    why_intro:'When the grid is unreliable, outdoor lighting has one job: work anyway. Every product in our range is designed around that constraint — materials, seals, batteries, and controls chosen for environments where failure is not acceptable.',
-    why_cta:'Request a Specification Sheet',
-    w1_t:'Independent of the Grid',w1_d:'Full overnight runtime on a single day\'s charge. LiFePO4 batteries operate stably from –20°C to +60°C. Your clients stay lit even when the neighbourhood goes dark.',
-    w2_t:'IP65 as a Minimum Standard',w2_d:'Every security product carries IP65 or IP66 protection. Dust-proof. Rain-proof. Built for coastal humidity, tropical heat, and desert conditions.',
-    w3_t:'OEM and ODM Programmes',w3_d:'Private-label packaging, custom finishes, retail-ready bulk programmes. Trial orders from 200 units. Standard lead time 30–45 days.',
-    w4_t:'Certifications Ready to Ship',w4_d:'CE and RoHS test reports from accredited laboratories. Provided with every quotation — no waiting, no chasing.',
-    trust_label:'Trusted Across 30+ Countries',testi_label:'Client Voices',testi_h2:'What buyers say <em>about working with us.</em>',certs_label:'Certifications',certs_h2:'Certificates provided <em>with every quotation.</em>',faq_label:'Frequently Asked Questions',faq_h2:'Quick answers. <em>No runaround.</em>',faq1_q:"What's the minimum order quantity (MOQ)?",faq1_a:'<p>200 pieces per model for your first trial order. After you\'ve validated the products, standard orders start at 500–1,000 pieces. We keep MOQs practical because we want you to test the market before committing to large volumes. Mixed containers across multiple models are welcome.</p>',faq2_q:'How long does production and shipping take?',faq2_a:'<p>Sample orders ship within 3–5 days via DHL/FedEx (7–15 days to most destinations). Bulk production takes 30–45 days after deposit confirmation. Sea freight transit time depends on destination: 25–35 days to Latin America, 20–30 days to Africa, 15–25 days to Oceania. Door-to-door DDP service is available on request.</p>',faq3_q:'What are your payment terms?',faq3_a:'<p>Standard terms: 30% T/T deposit to start production, 70% balance before shipment — after you receive the pre-shipment inspection report with photos. For repeat customers we offer flexible terms including 50/50 and L/C at sight. Sample fees are fully refunded against your first order.</p>',faq4_q:'What warranty do you provide?',faq4_a:'<p>All products carry a 2-year warranty against manufacturing defects, covering the LED panel, battery, controller, and housing. LiFePO4 batteries are rated for 2,000+ charge cycles. Warranty claims are handled within 72 hours — we ship replacement parts via express courier at our cost. Extended warranties up to 5 years available for volume contracts.</p>',faq5_q:'Can you customize products with our brand or specifications?',faq5_a:'<p>Yes. OEM services include: custom logo printing on housing and packaging, custom colour finishes (minimum 500 units per colour), custom packaging design with your branding, and specification adjustments (lumen output, battery capacity, sensor type). ODM projects — designing a new product to your brief — require a minimum 2,000-unit commitment and a 45–60 day development cycle.</p>',faq6_q:'What certifications do your products have?',faq6_a:'<p>All products are CE and RoHS certified through accredited third-party laboratories. Certificates are provided upfront with every quotation — not chased after the fact. We can also arrange additional certifications (SAA for Australia, SASO for Saudi Arabia, SONCAP for Nigeria, etc.) for volume orders. Test reports are available on request.</p>',faq7_q:'How do I know the product quality before ordering in bulk?',faq7_a:'<p>We send 1–3 sample units via international courier so you can physically evaluate brightness, build quality, and finish. The sample fee is fully refunded against your first order. Before every bulk shipment, you receive a detailed pre-shipment inspection report with photos — same spec as your approved sample, verified. Final payment only after you approve the report.</p>',faq8_q:'Where do you ship and what are the costs?',faq8_a:'<p>We ship FOB from Shenzhen, Yantian, or Guangzhou — you choose the most convenient port. Major destination markets include Colombia (Buenaventura/Cartagena), Ecuador (Guayaquil), South Africa (Durban), Kenya (Mombasa), and Australia (Sydney/Melbourne). For first-time buyers, we can provide a door-to-door DDP quotation that includes freight, customs clearance, and delivery to your warehouse. FOB price list is provided within 24 hours of enquiry.</p>',
-    cert1_t:'CE Certification',cert1_d:'EMC, LVD, and RoHS compliance — certified by accredited third-party laboratories. Required for EU and most international markets.',cert2_t:'RoHS Compliance',cert2_d:'Restriction of Hazardous Substances — lead-free, mercury-free, cadmium-free. Test reports available for every product series.',cert3_t:'IP65 / IP66 Rated',cert3_d:'Dust-tight and protected against water jets. Independently tested. Security range minimum IP65 — verified before shipment.',cert4_t:'LiFePO₄ Battery',cert4_d:'2,000+ charge cycles. Thermal stable from -20°C to 60°C. No thermal runaway risk. 3× longer lifespan than standard lithium-ion.',
-    num1:'Product Series',num2:'Export Markets',num3:'LiFePO₄ Cycles',num4:'Years Trusted',num5:'CE Certified',
-    ft_link1:'Solar Security & Street Lights',ft_link2:'Solar Garden & Gate Lights',ft_link3:'Solar Wall & String Lights',ft_link4:'Solar Ambiance & Decorative',ft_link5:'Off-Grid Home Lighting',ft_link6:'View All 26 Products →',ft_our_approach:'Our Approach',ft_faq:'FAQ',ft_contact:'Contact',
-    cert_t:'Certifications',c_ce:'European Standard',c_ro:'Hazardous-Free',c_65:'Weatherproof',c_66:'High Protection',
-    proc_lbl:'How We Work',proc_h2:'From first message to <em>goods on your dock.</em>',proc_sub:'Designed for international buyers who need clarity, not surprises. Every step documented.',
-    proc_1_t:'Enquiry & Quotation',proc_1_d:'Send us product type, target quantity, and destination port. We respond with FOB price, full spec sheet, lead time, and certification documents.',proc_1_time:'Within 24 hours',
-    proc_2_t:'Sample & Approval',proc_2_d:'1–3 units shipped via DHL or FedEx for physical evaluation. Sample fee fully refunded against your first order.',proc_2_time:'7–15 days',
-    proc_3_t:'Production & QC',proc_3_d:'30% T/T deposit locks the order. Production at verified factories. Pre-shipment inspection report issued before final balance payment.',proc_3_time:'30–45 days',
-    proc_4_t:'Shipment & Documents',proc_4_d:'FOB Shenzhen, Yantian, or Guangzhou. Full export documentation: B/L, Certificate of Origin, CE certificate, packing list, commercial invoice.',proc_4_time:'25–40 days transit',
-    why_lbl:'Why Choose Us',why_h2:'The difference is in<br><em>the details.</em>',why_sub:'Four things that matter when you\'re choosing a solar lighting partner for the long term.',
-    why1_t:'Serious About Quality',why1_d:'Cast aluminium housings — not plastic. LiFePO4 batteries rated 2,000+ cycles from -20°C to 60°C. IP65 minimum across the security range. CE and RoHS certificates provided upfront with every quotation, not chased after the fact.',
-    why2_t:'We Respond. Fast.',why2_d:'WhatsApp direct to someone who can decide — not a chatbot, not a ticket queue, not a 48-hour SLA. When your container hits the port and your customer needs papers, you get them today. Most questions answered within hours.',
-    why3_t:'Your Market, Understood',why3_d:'Colombia runs on solar flood lights. South Africa wants wall-mounted security. Spain prefers warm-white decorative. After years shipping to 30+ markets, we know what moves where. We help you stock the products your customers actually ask for.',
-    why4_t:'Same Quality, Every Order',why4_d:'The sample you approve is the spec we lock. Same LEDs, same battery cells, same aluminium grade — documented at order confirmation, inspected before shipment, verified before final payment. No substitutions without your written approval.',
-    prm_lbl:'What You Can Count On',prm_h2:'Importing from 12,000 km away<br><em>shouldn\'t be a gamble.</em>',
-    prm1_t:'Specs, not marketing words',prm1_d:'Every quotation includes measured lumen output, exact battery capacity per cell, material grades, and accredited test reports. No adjectives. No vague claims. Just data your customers can verify.',
-    prm2_t:'Photos before you pay',prm2_d:'Pre-shipment photos and a detailed inspection checklist land in your inbox before the final balance is due. You see exactly what\'s on that pallet before your money leaves your account.',
-    prm3_t:'Documents included, every time',prm3_d:'CE and RoHS certificates from accredited labs. Certificate of Origin. Bill of Lading. Packing list. Commercial invoice. Everything your customs broker needs, sent in a single email before the container arrives.',
-    prm4_t:'We\'re still here after delivery',prm4_d:'End customers have questions? Need spare parts? Technical issue six months in? WhatsApp still goes to the same person. Contact doesn\'t end when the container leaves the port.',
-    con_lbl:'Get In Touch',con_h2:'Tell us your market. <em>We\'ll tell you what works there.</em>',
-    con_p:'Share product type, target quantity, and destination port. We respond within 24 hours — FOB price, spec sheet, lead time, and certification documents included.',
-    con_hrs:'Mon–Fri, 9:00–18:00 CST (UTC+8)',
-    f_name:'Your Name',f_co:'Company',f_email:'Email Address',f_prod:'Product Interest',f_sel:'Select a category…',f_msg:'Product Type · Quantity · Destination Port',f_send:'Send Enquiry',
+    brand_q:'"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn\'t an upgrade — it\'s the answer."</span>',search_ph:'Search 29 products — IP66, flood light, 路灯…',prod_h2:'Every Light.<br><em>Every Spec.</em>',prod_cat:'View Full Product Range →',
+    cat1_t:'Security & Street',
+    cat2_t:'Garden & Landscape',
+    cat3_t:'Decorative & Ambiance',
+    cat4_t:'Off-Grid & Portable',sub_warning:'Warning & Signal',sub_pillars:'Pillars & Columns',sub_wall_string:'Wall & String',why_h2:'Built for markets where ordinary<br><em>lighting gives up.</em>',w1_d:'Full overnight runtime on a single day\'s charge. LiFePO4 batteries operate stably from –20°C to +60°C. Your clients stay lit even when the neighbourhood goes dark.',testi_h2:'What buyers say <em>about working with us.</em>',certs_h2:'Certificates provided <em>with every quotation.</em>',faq_h2:'Quick answers. <em>No runaround.</em>',faq1_q:"What's the minimum order quantity (MOQ)?",faq1_a:'<p>200 pieces per model for your first trial order. After you\'ve validated the products, standard orders start at 500–1,000 pieces. We keep MOQs practical because we want you to test the market before committing to large volumes. Mixed containers across multiple models are welcome.</p>',faq2_a:'<p>Sample orders ship within 3–5 days via DHL/FedEx (7–15 days to most destinations). Bulk production takes 30–45 days after deposit confirmation. Sea freight transit time depends on destination: 25–35 days to Latin America, 20–30 days to Africa, 15–25 days to Oceania. Door-to-door DDP service is available on request.</p>',faq3_a:'<p>Standard terms: 30% T/T deposit to start production, 70% balance before shipment — after you receive the pre-shipment inspection report with photos. For repeat customers we offer flexible terms including 50/50 and L/C at sight. Sample fees are fully refunded against your first order.</p>',faq4_a:'<p>All products carry a 2-year warranty against manufacturing defects, covering the LED panel, battery, controller, and housing. LiFePO4 batteries are rated for 2,000+ charge cycles. Warranty claims are handled within 72 hours — we ship replacement parts via express courier at our cost. Extended warranties up to 5 years available for volume contracts.</p>',faq5_a:'<p>Yes. OEM services include: custom logo printing on housing and packaging, custom colour finishes (minimum 500 units per colour), custom packaging design with your branding, and specification adjustments (lumen output, battery capacity, sensor type). ODM projects — designing a new product to your brief — require a minimum 2,000-unit commitment and a 45–60 day development cycle.</p>',faq6_a:'<p>All products are CE and RoHS certified through accredited third-party laboratories. Certificates are provided upfront with every quotation — not chased after the fact. We can also arrange additional certifications (SAA for Australia, SASO for Saudi Arabia, SONCAP for Nigeria, etc.) for volume orders. Test reports are available on request.</p>',faq7_a:'<p>We send 1–3 sample units via international courier so you can physically evaluate brightness, build quality, and finish. The sample fee is fully refunded against your first order. Before every bulk shipment, you receive a detailed pre-shipment inspection report with photos — same spec as your approved sample, verified. Final payment only after you approve the report.</p>',faq8_a:'<p>We ship FOB from Shenzhen, Yantian, or Guangzhou — you choose the most convenient port. Major destination markets include Colombia (Buenaventura/Cartagena), Ecuador (Guayaquil), South Africa (Durban), Kenya (Mombasa), and Australia (Sydney/Melbourne). For first-time buyers, we can provide a door-to-door DDP quotation that includes freight, customs clearance, and delivery to your warehouse. FOB price list is provided within 24 hours of enquiry.</p>',
+    cert_t:'Certifications',c_ce:'European Standard',c_ro:'Hazardous-Free',c_65:'Weatherproof',c_66:'High Protection',proc_h2:'From first message to <em>goods on your dock.</em>',
+    proc_1_t:'Enquiry & Quotation',
+    proc_2_t:'Sample & Approval',
+    proc_3_t:'Production & QC',
+    proc_4_t:'Shipment & Documents',
+    why_lbl:'Why Choose Us',why_h2:'The difference is in<br><em>the details.</em>',why_sub:'Four things that matter when you\'re choosing a solar lighting partner for the long term.',prm_h2:'Importing from 12,000 km away<br><em>shouldn\'t be a gamble.</em>',prm2_d:'Pre-shipment photos and a detailed inspection checklist land in your inbox before the final balance is due. You see exactly what\'s on that pallet before your money leaves your account.',
+    prm4_t:'We\'re still here after delivery',prm4_d:'End customers have questions? Need spare parts? Technical issue six months in? WhatsApp still goes to the same person. Contact doesn\'t end when the container leaves the port.',con_h2:'Tell us your market. <em>We\'ll tell you what works there.</em>',
     f_ok:'✓ Enquiry received. We\'ll respond within 24 hours with a full quotation.',
-    ft_desc:'Solar outdoor lighting for markets where the grid isn\'t enough. Security · Garden · Decorative. CE / RoHS · IP65 · OEM available. Colombia · Ecuador · South Africa · Australia · Spain.',
-    chat_title:'Need Help?',chat_sub:'We reply within hours',chat_wa:'Chat on WhatsApp',chat_email:'Send us an email',chat_note:'Mon–Fri, 9:00–18:00 CST (UTC+8)',marquee_1:'Solar Security · Garden · Wall & String · Ambiance · Off-Grid · Portable',marquee_2:'CE & RoHS Certified',marquee_3:'Cast Aluminium · 304 SS',marquee_4:'OEM / ODM Programmes',marquee_5:'IP65 · IP66',marquee_6:'Colombia · Ecuador · South Africa · Australia',marquee_7:'200 Pcs Trial Order',
-    ft_prod:'Products',ft_co:'Company',ft_srv:'Colombia · Ecuador · South Africa · Australia · Spain',ft_products_h:'Product Ranges',ft_company_h:'Company',ft_cert_link:'Certifications',ft_markets_h:'Key Markets',ft_copyright:'© 2026 JC Lightning. All rights reserved.',ft_fob:'FOB Shenzhen · Yantian · Guangzhou',
-    cat_lbl:'Our Ranges',cat_h2:'Four Product Lines<br><em>One Standard</em>',
+    ft_desc:'Solar outdoor lighting for markets where the grid isn\'t enough. Security · Garden · Decorative. CE / RoHS · IP65 · OEM available. Colombia · Ecuador · South Africa · Australia · Spain.',marquee_1:'Solar Security · Garden · Wall & String · Ambiance · Off-Grid · Portable',marquee_2:'CE & RoHS Certified',
+    ft_prod:'Products',ft_co:'Company',ft_srv:'Colombia · Ecuador · South Africa · Australia · Spain',cat_h2:'Four Product Lines<br><em>One Standard</em>',
     cat1_prods:'3 sub-ranges · 8 products: Security Floods · Street Lights · Warning & Signal',
     cat2_prods:'2 sub-ranges · 6 products: Pillars & Columns · Garden Accent',
     cat3_prods:'2 sub-ranges · 7 products: Wall & String · Outdoor Ambiance',
-    cat4_prods:'2 sub-ranges · 8 products: Off-Grid Home · Portable Tools',
-        sc_lbl:'Where They\'re Used',sc_h2:'Real Places. <em>Real Performance.</em>',sc_sub:'See where each product range does its best work — from coastal estates to off-grid farms.',
-    sc1_t:'Perimeter Security',sc1_d:'Solar floodlights and PIR wall lights protecting commercial compounds, warehouses, and residential perimeter walls. Motion-activated, grid-independent, IP65/IP66 rated.',sc1_tag:'Security Range',
-    sc2_t:'Entrance & Facade',sc2_d:'Gate pillar lights, up-down wall sconces, and classic wall lanterns framing entrances for estates, hotels, and gated communities. Warm white, architectural finish.',sc2_tag:'Garden + Decorative',
-    sc3_t:'Garden & Landscape',sc3_d:'Bollards, stake lights, and spike spotlights shaping pathways, flowerbeds, and tree uplighting. 304 stainless steel and cast aluminium. IP65–IP67.',sc3_tag:'Garden Range',
-    sc4_t:'Ambiance & Outdoor Living',sc4_d:'Solar flame torches, fairy copper wire lights, umbrella lights and floor lamps creating atmosphere for gardens, patios and outdoor dining. Warm 2700K glow. IP44–IP65 for year-round use.',sc4_tag:'Ambiance Range',
-    sc5_t:'Pathway & Driveway',sc5_d:'Bollard path lights and all-in-one street lights guiding vehicles and pedestrians. Municipal-grade for roads, parking lots, and long driveways. Radar and dusk-to-dawn sensors.',sc5_tag:'Garden + Security',
-    sc6_t:'Emergency, Work & Specialty',sc6_d:'Portable work lights, warning beacons, flag pole lights and camping lanterns for job sites, emergencies and outdoor adventures. USB power-bank. IP65/IP66. SOS mode.',sc6_tag:'Portable & Specialty',
-    mm_lbl:'Find Your Light',mm_h2:'Not sure which light fits? <em>Answer a few questions.</em>',mm_sub:'30 seconds. No catalogue browsing. We\'ll match you to the right products.',
-    mm_biz_t:'I\'m a Business Buyer',mm_biz_d:'Importer, distributor, contractor, or project buyer sourcing in bulk.',
-    mm_home_t:'I\'m a Homeowner',mm_home_d:'Looking for outdoor solar lighting for my own property or project.',
+        sc_lbl:'Where They\'re Used',sc_h2:'Real Places. <em>Real Performance.</em>',mm_h2:'Not sure which light fits? <em>Answer a few questions.</em>',mm_sub:'30 seconds. No catalogue browsing. We\'ll match you to the right products.',
+    mm_biz_t:'I\'m a Business Buyer',
+    mm_home_t:'I\'m a Homeowner',
     cat5_t:'Off-Grid Home Systems',cat5_d:'Complete solar lighting systems for homes beyond the grid. Indoor wall lights, emergency bulbs, home kits and ceiling fans — reliable light in every room without mains power. IP44/IP65.',
     cat5_prods:'4 products: Indoor Wall Light · Emergency Bulb (E27) · Home Lighting Kit · Ceiling Fan with Light',
     cat6_t:'Solar Ambiance & Outdoor Living',cat6_d:'Solar flame torches, fairy copper wire lights, umbrella lights and floor lamps for gardens, patios and outdoor events. Atmosphere without running cable. IP44/IP65.',
     cat6_prods:'4 products: Flame Torch · Fairy Copper Wire · Umbrella Light · Outdoor Floor Lamp',
     cat7_t:'Portable, Work & Specialty',cat7_d:'Solar camping lanterns, bug zappers, work lights and warning beacons for outdoor life, job sites and emergencies. IP65/IP66. USB power bank. SOS mode.',
-    cat7_prods:'6 products: Camping Lantern · Bug Zapper · Work Light · Lantern Pro · Warning Beacon · Flag Pole',
-    p15_n:'Solar Indoor Wall Light (Split Panel)',p15_d:'Blackout-ready solar wall light built for African and Latin American homes facing daily load-shedding. Panel mounts outside, light goes inside via 5m cable, USB port charges phones during outages — three problems solved with one fixture. 5W · 400lm · 4000mAh LiFePO4 · 3 brightness levels · IP44 indoor / IP65 panel. CE + RoHS.',
-    p16_n:'Solar Emergency LED Bulb (E27 / B22)',p16_d:'Solar emergency bulb that auto-switches on during blackouts — available in E27 or B22 base to fit South African and global sockets. 3W/5W · 300/500lm · 1800mAh LiFePO4 · auto-on in &lt;1s · 4-6h backup · USB rechargeable · mini 3W solar panel included. CE + RoHS.',
-    p17_n:'Solar Home Lighting Kit (2 Lights)',p17_d:'Complete off-grid home lighting solution. 10W panel + 2× 3W LED bulbs + 5m cables · 2200mAh LiFePO4 per bulb · low 12h / high 6h runtime · USB emergency charging · illustrated retail box. CE + RoHS.',
-    p18_n:'Solar Ceiling Fan with Light',p18_d:'DC solar ceiling fan with integrated LED panel. 12V brushless motor · 3 speeds · <35dB · 12W LED 900lm · 3000K/6000K · 18V 20W panel · 12.8V 6000mAh LiFePO4 · 48" ABS blades · remote control. CE + RoHS.',
-    p19_n:'Solar Flame Torch Light',p19_d:'Premium 120cm flame torch upgraded to IP67 — designed to stand out from the flood of 80cm IP44 basics on Amazon and AliExpress. 96 warm-white LEDs · realistic flickering flame effect · 2200mAh LiFePO4 · 10-12h runtime · UV-stable ABS + aluminium pole · dusk-to-dawn auto. Built for landscape contractors and premium retail. CE + RoHS.',
-    p20_n:'Solar Fairy Copper Wire String Lights',p20_d:'Flexible 0.4mm copper wire with 100/200 micro warm-white LEDs — bends anywhere, wraps anything. 10m/20m · 2700K · 1.2W panel · 1200mAh · IP44 · 8 modes · 8-10h. CE + RoHS.',
-    p21_n:'Solar Umbrella Light',p21_d:'Clamp-on solar light for patio and market umbrellas. 28/48/64 LED · warm white + RGB · fits 25-55mm poles · separate 5.5V 1.5W panel · 2000mAh · warm 8h / RGB 6h · IR remote · IP44. CE + RoHS.',
-    p22_n:'Solar Outdoor Floor Lamp',p22_d:'Elegant solar standing lamp for terraces and gardens. 60/90/120cm · 24W LED · 1800lm · 3000K · 8000mAh LiFePO4 · aluminium body + tempered glass · IP65 · black/white/copper · dusk-to-dawn + PIR option. CE + RoHS.',
-    p23_n:'Solar Portable Work Light',p23_d:'Heavy-duty solar work light for construction sites and farms. 10/20/30W · 1000-3000lm · 10000mAh removable LiFePO4 · foldable 10W panel · 180° rotating head · magnetic base + hook · IP65 · SOS + USB power bank. CE + RoHS.',
-    p24_n:'Solar Power Bank Lantern Pro',p24_d:'Pro-grade solar camping lantern differentiated by two real features: COB wide-area light panel (not point-source LEDs like BLAVOR and most competitors) and true USB-C PD 18W fast charging (not 5V trickle). 5W COB · 400lm · warm+white · 8000mAh LiFePO4 · foldable 5W panel · USB-A QC3.0 · 4 brightness · SOS · magnetic base · IP65. CE + RoHS.',
-    p25_n:'Solar Warning Beacon Light',p25_d:'High-visibility solar warning beacon for roads and construction. 6 LEDs · red/blue/amber/white · rotating/strobe/steady/flash · 500m+ visibility · 3000mAh LiFePO4 · IP66 · –30°C~+60°C · magnetic + screw + strap mounting. CE + RoHS.',
-    p26_n:'Solar Flag Pole Light',p26_d:'Solar spotlight for flagpole illumination. 8W LED · 600lm · 6500K white · 3600mAh LiFePO4 · adjustable 3W panel · fits 15-40mm poles · 120° wide beam · 10-12h runtime · IP65. CE + RoHS.',
-    p27_n:'Split Solar Street Light (30/60/100W)',p27_d:'Separate panel and lamp head design for flexible installation angles and easy field maintenance — preferred by South African municipalities and Colombian infrastructure projects. 30/60/100W LED · 3,000–10,000lm · IP66 · radar motion sensor · LiFePO4 · dusk-to-dawn auto · 10-12h. Pole bracket included. CE + RoHS.',
-    p28_n:'Solar Courtyard Column Light (1-2m)',p28_d:'Modern aluminium pillar lamp for residential courtyards, villa entrances, hotel gardens and commercial plazas. Popular in the Spanish market. 10W · 800lm · 3000K warm white · IP65 · 8000mAh LiFePO4 · 10-12h runtime · black / white / anthracite. CE + RoHS.',
-    p29_n:'Solar Pool Float Light',p29_d:'RGB 16-colour floating light for pools, ponds and hot tubs. Verified demand on Bunnings Australia. IP68 fully waterproof · 15cm frosted PC dome · 3.7V 2000mAh · 6-8h runtime · 8 lighting modes · IR remote included · ABS + PC body. CE + RoHS.',
+    cat7_prods:'6 products: Camping Lantern · Bug Zapper · Work Light · Lantern Pro · Warning Beacon · Flag Pole',inq_add:'Add to inquiry',
   },
   zh:{
     logo:'嘉晨照明科技有限公司',ft_logo:'嘉晨照明科技有限公司',
@@ -1575,7 +1563,7 @@ const T = {
     stat1:'款产品',stat2:'大产品线',stat3:'认证 · RoHS',stat4:'只起订量',
     brand_q:'"非洲、拉美、大洋洲的电网正在失效。<br><span>太阳能照明不是升级选项——它是唯一答案。"</span>',
     brand_b:'嘉晨照明科技有限公司为分销商、安装公司及工程承包商提供户外太阳能照明产品，专注服务电网供应不稳定的市场。六大核心系列——安防、花园、壁灯串灯、氛围、离网家庭、便携特种——采用压铸铝合金外壳、磷酸铁锂电池及IP65密封，专为高温、高紫外线环境下的长期稳定运行而设计。CE认证。支持OEM与ODM定制。',
-    filter_all:'全部',filter_security:'安防',filter_garden:'花园',filter_decorative:'装饰',filter_offgrid:'离网',
+    filter_all:'全部',filter_security:'安防',filter_garden:'花园',filter_decorative:'装饰',filter_offgrid:'离网',search_ph:'搜索 29 款产品 — IP66、投光灯、路灯…',
     prod_lbl:'完整目录',prod_h2:'每一款灯。<br><em>每一个参数。</em>',prod_cat:'查看完整产品系列 →',
     b_best:'热销爆款',b_newarr:'新品',b_rec:'主推款',b_hot:'热卖',b_eco:'经典款',b_set:'8只装',b_ip66:'IP66',
     p1_n:'三头太阳能感应投光灯',p1_d:'三头可调太阳能泛光灯，适用于住宅与商业围界、车库及车道。压铸铝合金机身。总流明2500–3500lm · IP65 · PIR + 270°广角 · 三档工作模式。CE + RoHS认证。',
@@ -1671,6 +1659,7 @@ const T = {
     p27_n:'分体式太阳能路灯（30/60/100W）',p27_d:'面板与灯头分体设计，安装角度灵活、现场维修方便——南非市政招标与哥伦比亚基础设施项目的主流指定规格。30/60/100W LED · 3,000–10,000lm · IP66 · 雷达感应 · 磷酸铁锂 · 光控自动 · 10-12小时续航。含灯杆抱箍。CE + RoHS认证。',
     p28_n:'太阳能庭院柱灯（1-2m）',p28_d:'现代铝合金柱灯，适用于住宅庭院、别墅入口、酒店花园及商业广场。在西班牙市场广受欢迎。10W · 800lm · 3000K暖白 · IP65 · 8000mAh磷酸铁锂 · 续航10-12小时 · 黑/白/深灰三色可选。CE + RoHS认证。',
     p29_n:'太阳能泳池浮水灯',p29_d:'RGB 16色彩光浮水灯，适用于泳池、水景和温泉浴缸。已在澳洲 Bunnings 验证市场需求。IP68全防水 · 15cm磨砂PC灯罩 · 2000mAh · 续航6-8小时 · 8种灯光模式 · 附红外遥控 · ABS+PC材质。CE + RoHS认证。',
+    inq_title:'您的询价清单',inq_empty:'尚未添加产品，点击产品卡片上的 + 加入询价',inq_clear:'清空',inq_send:'通过 WhatsApp 发送',inq_add:'加入询价',
   },
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
@@ -1682,7 +1671,7 @@ const T = {
     stat1:'Productos',stat2:'Gamas',stat3:'Certificado · RoHS',stat4:'Uds. Pedido Mínimo',
     brand_q:'"Las redes eléctricas están fallando en África, América Latina y Oceanía.<br><span>La iluminación solar no es una mejora — es la solución."</span>',
     brand_b:'JC Lightning suministra iluminación solar para exteriores a distribuidores, instaladores y contratistas en mercados donde no se puede dar por garantizado el suministro eléctrico. Seis gamas — seguridad, jardín, pared y cadenas, ambiente, hogar sin red, portátil y especialidad — con carcasas de aluminio fundido, baterías LiFePO4 y sellado IP65. Certificación CE. OEM y ODM disponibles.',
-    filter_all:'Todos',filter_security:'Seguridad',filter_garden:'Jardín',filter_decorative:'Decorativo',filter_offgrid:'Sin Red',
+    filter_all:'Todos',filter_security:'Seguridad',filter_garden:'Jardín',filter_decorative:'Decorativo',filter_offgrid:'Sin Red',search_ph:'Buscar 29 productos — IP66, reflector, farola…',
     prod_lbl:'Catálogo Completo',prod_h2:'Cada Luz.<br><em>Cada Especificación.</em>',prod_cat:'Ver Gama Completa →',
     b_best:'Superventas',b_newarr:'NUEVO',b_rec:'Recomendado',b_hot:'TENDENCIA',b_eco:'Clásico',b_set:'Pack 8',b_ip66:'IP66',
     p1_n:'Foco Solar de Movimiento · 3 Cabezales',p1_d:'Foco solar de tres cabezales ajustables para perímetros residenciales y comerciales, garajes y accesos. Cuerpo de aluminio fundido. 2500–3500lm · IP65 · PIR + 270° · tres modos. CE + RoHS.',
@@ -1778,20 +1767,40 @@ const T = {
     p27_n:'Farola Solar Separada (30/60/100W)',p27_d:'Diseño de panel y cabezal separados para ángulos de instalación flexibles y mantenimiento fácil en campo — especificación preferida en licitaciones municipales de Sudáfrica y proyectos de infraestructura en Colombia. 30/60/100W LED · 3.000–10.000lm · IP66 · sensor radar · LiFePO4 · automático al anochecer · 10-12h. Soporte de poste incluido. CE + RoHS.',
     p28_n:'Farola Solar de Jardín (1-2m)',p28_d:'Pilar moderno de aluminio para patios residenciales, entradas de villas, jardines de hotel y plazas comerciales. Muy popular en el mercado español. 10W · 800lm · 3000K blanco cálido · IP65 · LiFePO4 8000mAh · 10-12h · negro / blanco / antracita. CE + RoHS.',
     p29_n:'Luz Solar Flotante para Piscina',p29_d:'Luz flotante RGB 16 colores para piscinas, estanques y jacuzzis. Demanda verificada en Bunnings Australia. IP68 totalmente impermeable · cúpula PC esmerilada 15cm · 2000mAh · 6-8h · 8 modos de luz · mando IR incluido · cuerpo ABS + PC. CE + RoHS.',
+    inq_title:'Tu Lista de Consultas',inq_empty:'Aún no hay productos. Toca + en cualquier producto.',inq_clear:'Vaciar',inq_send:'Enviar por WhatsApp',inq_add:'Añadir a consulta',
   }
 };
+
+// Capture HTML defaults at init for fallback when i18n key is missing
+const I18N_DEFAULTS={};
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+  const k=el.getAttribute('data-i18n');
+  if(k && I18N_DEFAULTS[k]===undefined) I18N_DEFAULTS[k]=el.innerHTML;
+});
+document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+  const k=el.getAttribute('data-i18n-ph');
+  if(k && I18N_DEFAULTS['__ph__'+k]===undefined) I18N_DEFAULTS['__ph__'+k]=el.placeholder;
+});
 
 function setLang(l){
   const t=T[l];
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const k=el.getAttribute('data-i18n');
     if(t[k]!==undefined) el.innerHTML=t[k];
+    else if(I18N_DEFAULTS[k]!==undefined) el.innerHTML=I18N_DEFAULTS[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const k=el.getAttribute('data-i18n-ph');
+    if(t[k]!==undefined) el.placeholder=t[k];
+    else if(I18N_DEFAULTS['__ph__'+k]!==undefined) el.placeholder=I18N_DEFAULTS['__ph__'+k];
   });
   document.querySelectorAll('.lang-btn').forEach(btn=>{
     const m={EN:'en','中文':'zh',ES:'es'};
     btn.classList.toggle('active', m[btn.textContent]===l);
   });
   document.documentElement.lang=l==='zh'?'zh-CN':l;
+  if(window._inqInject) window._inqInject();
+  if(window._inqRefresh) window._inqRefresh();
 }
 
 // 下拉菜单
@@ -1872,6 +1881,25 @@ if(chatBtn){
   });
 }
 
+// 产品实时搜索
+const prodSearch=document.getElementById('prodSearch');
+if(prodSearch){
+  prodSearch.addEventListener('input',function(){
+    const q=this.value.toLowerCase().trim();
+    document.querySelectorAll('.prod-card').forEach(card=>{
+      const name=(card.querySelector('h4')?.textContent||'').toLowerCase();
+      const desc=(card.querySelector('p')?.textContent||'').toLowerCase();
+      const badge=(card.querySelector('.prod-badge')?.textContent||'').toLowerCase();
+      card.classList.toggle('hidden', q!=='' && !name.includes(q) && !desc.includes(q) && !badge.includes(q));
+    });
+    // 隐藏空的 subcat 标题
+    document.querySelectorAll('.prod-subcat').forEach(sub=>{
+      const visible=sub.querySelectorAll('.prod-card:not(.hidden)').length>0;
+      sub.classList.toggle('hidden', !visible);
+    });
+  });
+}
+
 // 分类筛选栏
 function scrollToCat(id){
   document.querySelectorAll('.prod-filter-btn').forEach(b=>b.classList.remove('active'));
@@ -1941,40 +1969,29 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 
-// 数据计数器动画
-const numItems=document.querySelectorAll('.num-val');
-let counted=false;
-function animateCount(el){
-  const target=parseInt(el.getAttribute('data-target'));
-  const suffix=el.querySelector('sup')?el.querySelector('sup').textContent:'';
-  const hasPercent=suffix==='%';
-  const duration=1800; const steps=60; const stepTime=duration/steps;
-  let step=0;
-  const timer=setInterval(()=>{
-    step++;
-    const progress=step/steps;
-    const eased=1-Math.pow(1-progress,3);
-    let val;
-    if(hasPercent) val=Math.round(eased*target);
-    else if(target>=100) val=Math.round(eased*target/10)*10;
-    else val=Math.round(eased*target);
+// 数据计数器动画 (GSAP ScrollTrigger)
+const numVals=document.querySelectorAll('.num-val');
+if(numVals.length){
+  numVals.forEach(el=>{
+    const target=parseInt(el.getAttribute('data-target'));
     const supEl=el.querySelector('sup');
-    if(supEl) el.innerHTML=val+`<sup>${suffix}</sup>`;
-    else el.textContent=val;
-    if(step>=steps){clearInterval(timer);el.innerHTML=target+(supEl?`<sup>${suffix}</sup>`:'');}
-  },stepTime);
-}
-const numObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting && !counted){
-      counted=true;
-      document.querySelectorAll('.num-val').forEach(el=>animateCount(el));
-    }
+    const suffix=supEl?supEl.textContent:'';
+    const obj={val:0};
+    gsap.to(obj,{
+      val:target,duration:2,ease:'power2.out',
+      scrollTrigger:{trigger:'.numbers',start:'top 75%',once:true},
+      onUpdate:()=>{
+        const v=Math.round(obj.val);
+        if(supEl) el.innerHTML=v+`<sup>${suffix}</sup>`;
+        else el.textContent=v;
+      },
+      onComplete:()=>{
+        if(supEl) el.innerHTML=target+`<sup>${suffix}</sup>`;
+        else el.textContent=target;
+      }
+    });
   });
-},{threshold:0.4});
-const numSection=document.querySelector('.numbers');
-if(numSection) numObs.observe(numSection);
-
+}
 // 回到顶部 / 去到底部
 const backTop=document.getElementById('backTop');
 const backBottom=document.getElementById('backBottom');
@@ -1987,6 +2004,144 @@ window.addEventListener('scroll',()=>{
 });
 backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
 backBottom.addEventListener('click',()=>{window.scrollTo({top:docH(),behavior:'smooth'});});
+
+// 询价车
+(function(){
+  const inqCart=[];
+  const cartBtn=document.getElementById('inqCartBtn');
+  const badge=document.getElementById('inqBadge');
+  const panel=document.getElementById('inqPanel');
+  const panelList=document.getElementById('inqPanelList');
+  const panelClose=document.getElementById('inqPanelClose');
+  const btnClear=document.getElementById('inqClear');
+  const btnSend=document.getElementById('inqSend');
+  let panelOpen=false;
+
+  function updateBadge(){
+    const n=inqCart.length;
+    badge.textContent=n;
+    if(n>0){ badge.classList.add('show'); }
+    else { badge.classList.remove('show'); }
+    btnSend.disabled=n===0;
+  }
+
+  function getLang(){ const l=document.documentElement.lang; return l==='zh-CN'?'zh':(l==='es'?'es':'en'); }
+  function resolveName(key){
+    const lang=getLang();
+    if(typeof T!=='undefined' && T[lang] && T[lang][key]) return T[lang][key];
+    if(typeof I18N_DEFAULTS!=='undefined' && I18N_DEFAULTS[key]) return I18N_DEFAULTS[key];
+    const el=document.querySelector('[data-i18n="'+key+'"]');
+    return el?el.textContent:key;
+  }
+  function renderPanel(){
+    panelList.innerHTML='';
+    if(inqCart.length===0){
+      const div=document.createElement('div');
+      div.className='inq-panel-empty';
+      div.setAttribute('data-i18n','inq_empty');
+      div.textContent=resolveName('inq_empty');
+      panelList.appendChild(div);
+    } else {
+      inqCart.forEach((item,idx)=>{
+        const displayName=resolveName(item.key);
+        const div=document.createElement('div');
+        div.className='inq-panel-item';
+        div.innerHTML='<span class="inq-item-name">'+displayName+'</span><button class="inq-item-remove" data-idx="'+idx+'" aria-label="Remove">&times;</button>';
+        panelList.appendChild(div);
+      });
+      panelList.querySelectorAll('.inq-item-remove').forEach(btn=>{
+        btn.addEventListener('click',function(e){
+          e.stopPropagation();
+          const i=parseInt(this.getAttribute('data-idx'));
+          if(i>=0&&i<inqCart.length){
+            const key=inqCart[i].key;
+            const addBtn=document.querySelector('.inq-add[data-prod="'+key+'"]');
+            if(addBtn) addBtn.classList.remove('in-cart');
+            inqCart.splice(i,1);
+            updateBadge();
+            renderPanel();
+          }
+        });
+      });
+    }
+  }
+
+  function togglePanel(){
+    panelOpen=!panelOpen;
+    if(panelOpen){
+      renderPanel();
+      panel.classList.add('open');
+    } else {
+      panel.classList.remove('open');
+    }
+  }
+
+  cartBtn.addEventListener('click',togglePanel);
+  panelClose.addEventListener('click',()=>{ panelOpen=false; panel.classList.remove('open'); });
+
+  document.addEventListener('click',function(e){
+    if(panelOpen && !panel.contains(e.target) && e.target!==cartBtn && !cartBtn.contains(e.target)){
+      panelOpen=false;
+      panel.classList.remove('open');
+    }
+  });
+
+  btnClear.addEventListener('click',function(){
+    document.querySelectorAll('.inq-add.in-cart').forEach(b=>b.classList.remove('in-cart'));
+    inqCart.length=0;
+    updateBadge();
+    renderPanel();
+  });
+
+  btnSend.addEventListener('click',function(){
+    if(inqCart.length===0) return;
+    let msg='Hi JC Lightning,%0A%0A';
+    msg+='I\'m interested in the following products:%0A%0A';
+    inqCart.forEach((item,i)=>{
+      msg+=(i+1)+'. '+resolveName(item.key)+'%0A';
+    });
+    msg+='%0APlease send FOB price, specs, and MOQ.%0A%0A[Country / Port:]';
+    window.open('https://wa.me/8613138189642?text='+msg,'_blank');
+  });
+
+  // Inject "+" buttons into product cards
+  function injectAddButtons(){
+    document.querySelectorAll('.prod-card').forEach(card=>{
+      if(card.querySelector('.inq-add')) return; // already injected
+      const h4=card.querySelector('h4');
+      if(!h4) return;
+      const i18nKey=h4.getAttribute('data-i18n');
+      if(!i18nKey) return;
+      const btn=document.createElement('button');
+      btn.className='inq-add';
+      btn.setAttribute('data-prod',i18nKey);
+      btn.setAttribute('aria-label','Add to inquiry');
+      btn.textContent='+';
+      btn.addEventListener('click',function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        const key=this.getAttribute('data-prod');
+        const nameEl=card.querySelector('h4');
+        const name=nameEl?nameEl.textContent:'Product';
+        // Check if already in cart
+        const exists=inqCart.findIndex(item=>item.key===key);
+        if(exists>=0) return; // already in cart
+        inqCart.push({name:name,key:key});
+        this.classList.add('in-cart');
+        updateBadge();
+        // Brief pulse animation on badge
+        badge.style.animation='none';
+        badge.offsetHeight;
+        badge.style.animation='';
+      });
+      card.appendChild(btn);
+    });
+  }
+
+  injectAddButtons();
+  window._inqInject=injectAddButtons;
+  window._inqRefresh=function(){ if(panelOpen) renderPanel(); };
+})();
 
 // 视差滚动
 const heroBg=document.querySelector('.hero-bg');
