@@ -198,6 +198,23 @@ h1 em { font-style:italic; color:var(--brass-lt); }
 .reveal-text.on { clip-path:inset(0 0 0 0); }
 /* Golden particles canvas */
 .hero-particles { position:absolute; inset:0; z-index:0; pointer-events:none; }
+/* Tech grid overlay */
+.hero-grid { position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0.04; background-image:linear-gradient(rgba(255,255,255,0.4) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.4) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 55% 60% at 75% 40%,black 0%,transparent 70%); -webkit-mask-image:radial-gradient(ellipse 55% 60% at 75% 40%,black 0%,transparent 70%); }
+/* Scroll indicator */
+.scroll-indicator { position:absolute; bottom:36px; left:50%; transform:translateX(-50%); z-index:3; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.scroll-indicator span { display:block; width:1px; height:28px; background:rgba(201,162,78,0.5); animation:scrollLine 2s ease-in-out infinite; }
+.scroll-indicator span:nth-child(2){ animation-delay:.15s; height:16px; }
+.scroll-indicator span:nth-child(3){ animation-delay:.3s; height:10px; }
+@keyframes scrollLine { 0%,100%{opacity:0;transform:translateY(-6px)} 50%{opacity:1;transform:translateY(6px)} }
+/* Gold gradient text */
+h1 em, h2 em, .text-gold { background:linear-gradient(135deg,#c9a24e 0%,#e2c98a 40%,#a87d2a 70%,#c9a24e 100%); background-size:200% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-style:italic; animation:goldShimmer 4s ease-in-out infinite; }
+@keyframes goldShimmer { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+/* 3D tilt card */
+.prod-card { transform-style:preserve-3d; perspective:800px; }
+.prod-card .prod-img { transform:translateZ(20px); transition:transform .35s ease-out; }
+.prod-card .prod-info { transform:translateZ(10px); transition:transform .35s ease-out; }
+.prod-card .card-glare { position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:2; opacity:0; transition:opacity .3s; background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,0.08) 0%,transparent 60%); }
+.prod-card:hover .card-glare { opacity:1; }
 .marquee-wrap { background:var(--brass); overflow:hidden; padding:13px 0; }
 .marquee-track { display:inline-flex; animation:scroll-l 30s linear infinite; white-space:nowrap; }
 .mi { font-size:0.63rem; font-weight:400; letter-spacing:0.24em; text-transform:uppercase; color:#fff; padding:0 36px; }
@@ -657,6 +674,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
+  <div class="hero-grid"></div>
   <canvas class="hero-particles" id="heroParticles"></canvas>
   <div class="hero-left reveal">
     <div class="hero-eyebrow" data-i18n="hero_eye">Solar Outdoor Lighting · When the grid goes down, we stay on.</div>
@@ -673,6 +691,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       <img class="hero-banner-img" src="images/banner.jpg" alt="JC Lightning Solar Lighting" width="1024" height="1024">
     </div>
   </div>
+  <div class="scroll-indicator"><span></span><span></span><span></span></div>
 </section>
 
 <div class="marquee-wrap">
@@ -1424,7 +1443,10 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lbClose">&times;</button><img src="" alt="" id="lbImg"></div>
 <div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
+gsap.registerPlugin(ScrollTrigger);
 const T = {
   en:{
     nav_products:'Products',nav_cat:'Categories',nav_about:'Our Approach',nav_contact:'Contact',nav_quote:'Get a Quote',
@@ -1977,8 +1999,8 @@ if(dot&&ring){
   });
 }
 
-// Magnetic buttons
-document.querySelectorAll('.btn-fill,.btn-text,.nav-cta,.nav-dl,.prod-card').forEach(btn=>{
+// Magnetic buttons (not cards)
+document.querySelectorAll('.btn-fill,.btn-text,.nav-cta,.nav-dl').forEach(btn=>{
   btn.addEventListener('mousemove',e=>{
     const rect=btn.getBoundingClientRect();
     const x=e.clientX-rect.left-rect.width/2;
@@ -1989,6 +2011,121 @@ document.querySelectorAll('.btn-fill,.btn-text,.nav-cta,.nav-dl,.prod-card').for
   btn.addEventListener('mouseleave',()=>{
     btn.style.transform='translate(0,0)';
     btn.style.transition='transform .45s cubic-bezier(.25,.8,.25,1), background .25s';
+  });
+});
+
+// Inject card glare + 3D tilt for product cards
+document.querySelectorAll('.prod-card').forEach(card=>{
+  if(!card.querySelector('.card-glare')){
+    const glare=document.createElement('div');
+    glare.className='card-glare';
+    card.appendChild(glare);
+  }
+  card.addEventListener('mousemove',e=>{
+    const rect=card.getBoundingClientRect();
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
+    const cx=rect.width/2, cy=rect.height/2;
+    const rx=(y-cy)/cy*-8;
+    const ry=(x-cx)/cx*8;
+    card.style.transform=`perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+    card.style.transition='transform .15s ease-out, border-color .35s, background .35s, box-shadow .35s';
+    card.style.setProperty('--mx',x+'px');
+    card.style.setProperty('--my',y+'px');
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+    card.style.transition='transform .5s cubic-bezier(.25,.8,.25,1), border-color .35s, background .35s, box-shadow .35s';
+    card.style.removeProperty('--mx');
+    card.style.removeProperty('--my');
+  });
+});
+
+// GSAP ScrollTrigger animations
+document.addEventListener('DOMContentLoaded',()=>{
+  // Section headings stagger reveal
+  document.querySelectorAll('section h2.reveal-text').forEach(h2=>{
+    ScrollTrigger.create({
+      trigger:h2,
+      start:'top 85%',
+      onEnter:()=>h2.classList.add('on'),
+      once:true
+    });
+  });
+
+  // Hero parallax
+  gsap.to('.hero-bg',{
+    y:120,
+    ease:'none',
+    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}
+  });
+  gsap.to('.hero-grid',{
+    y:60,
+    ease:'none',
+    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}
+  });
+
+  // Products section parallax background
+  gsap.to('.products',{
+    backgroundPosition:'50% 30%',
+    ease:'none',
+    scrollTrigger:{trigger:'.products',start:'top bottom',end:'bottom top',scrub:true}
+  });
+
+  // Categories cards stagger
+  gsap.from('.cat-card',{
+    y:60,opacity:0,duration:.7,stagger:.12,
+    ease:'power3.out',
+    scrollTrigger:{trigger:'.categories',start:'top 80%',once:true}
+  });
+
+  // Why cards stagger
+  gsap.from('.why-card',{
+    y:50,opacity:0,duration:.6,stagger:.1,
+    ease:'power3.out',
+    scrollTrigger:{trigger:'.why',start:'top 80%',once:true}
+  });
+
+  // Process steps stagger
+  gsap.from('.proc-step',{
+    y:40,opacity:0,duration:.5,stagger:.12,
+    ease:'power2.out',
+    scrollTrigger:{trigger:'.process',start:'top 80%',once:true}
+  });
+
+  // Testimonials stagger
+  gsap.from('.testi-card',{
+    y:40,opacity:0,duration:.5,stagger:.12,
+    ease:'power2.out',
+    scrollTrigger:{trigger:'.testimonials',start:'top 80%',once:true}
+  });
+
+  // Certs stagger
+  gsap.from('.cert-card',{
+    y:30,opacity:0,duration:.4,stagger:.1,
+    ease:'power2.out',
+    scrollTrigger:{trigger:'.certs',start:'top 85%',once:true}
+  });
+
+  // FAQ items stagger
+  gsap.from('.faq-item',{
+    y:30,opacity:0,duration:.4,stagger:.08,
+    ease:'power2.out',
+    scrollTrigger:{trigger:'.faq',start:'top 85%',once:true}
+  });
+
+  // Promise cards stagger
+  gsap.from('.promise-card',{
+    y:40,opacity:0,duration:.5,stagger:.1,
+    ease:'power3.out',
+    scrollTrigger:{trigger:'.promise',start:'top 80%',once:true}
+  });
+
+  // Contact section
+  gsap.from('.contact .con-l,.contact .con-form',{
+    y:50,opacity:0,duration:.7,stagger:.15,
+    ease:'power3.out',
+    scrollTrigger:{trigger:'.contact',start:'top 80%',once:true}
   });
 });
 
