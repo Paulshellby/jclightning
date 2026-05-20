@@ -1,0 +1,9 @@
+===== AI 生图提示词 =====
+模块: Factory / Our Approach（工厂/我们的方式）
+用途: 作为 CSS 背景图，覆盖 .factory 区块
+风格: 工业制造风，暖色调，专业感
+建议尺寸: 1920×900px
+文件命名: bg-factory.jpg
+
+--- 提示词 ---
+A warm, subdued background image evoking modern manufacturing quality. Very low opacity (10-15%). Abstract, soft-focus suggestion of: polished concrete floor with subtle reflections, organized production tools, quality control inspection stations with soft LED lighting, aluminium components neatly arranged. Color palette: warm greys, brushed metal silver, subtle amber/golden accents mimicking brass (#a87d2a). The image should be heavily blurred/softened so it reads as texture rather than a photo. Professional, clean, organized. Conveys precision manufacturing without being literal. Suitable for a "How We Work / Our Approach" section on a B2B solar lighting website.

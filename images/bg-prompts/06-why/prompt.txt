@@ -1,0 +1,9 @@
+===== AI 生图提示词 =====
+模块: Why Choose Us（为什么选我们）
+用途: 作为 CSS 背景图，覆盖 .why 区块（深色背景 #0e0c0a）
+风格: 抽象奢华纹理，金色暖调
+建议尺寸: 1920×900px
+文件命名: bg-why.jpg
+
+--- 提示词 ---
+An elegant, abstract dark background texture for a premium "Why Choose Us" section. Very dark ink (#0e0c0a) base. Faint (8-12% opacity), organic flowing lines suggesting brushed metal or marble veining in warm brass (#c9a24e) and deep bronze tones. The texture should feel like luxury architectural material — polished stone, aged metal, or fine leather grain. Very subtle, almost subliminal. The pattern creates depth without drawing attention. Premium, timeless, sophisticated. Suitable as a background behind 4 value-proposition cards (quality, speed, market knowledge, consistency).

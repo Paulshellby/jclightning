@@ -1,0 +1,9 @@
+===== AI 生图提示词 =====
+模块: Contact（联系我们区）
+用途: 作为 CSS 背景图，覆盖 .contact 区块（浅色背景 #f7f3ec）
+风格: 专业商务，连接/沟通主题
+建议尺寸: 1920×800px
+文件命名: bg-contact.jpg
+
+--- 提示词 ---
+A clean, professional abstract background for a contact form section. Very light cream (#f7f3ec) base. Extremely faint (5-8% opacity) geometric line patterns suggesting connection nodes and network links — like a minimalist telecommunications diagram or a subtle constellation map. Delicate golden (#c9a24e) and soft grey accent dots at connection points. The pattern should be concentrated more on the left side (where contact info sits) and fade toward the right side (where the form is). The overall feel: reachable, connected, global communication. No text, no hard edges. Suitable as a background behind a contact form and company details.

@@ -1,0 +1,9 @@
+===== AI 生图提示词 =====
+模块: Matchmaker（产品推荐问答区）
+用途: 作为 CSS 背景图，覆盖 .matchmaker 区块（浅色背景）
+风格: 互动引导感，光线/聚光灯效果
+建议尺寸: 1920×700px
+文件命名: bg-matchmaker.jpg
+
+--- 提示词 ---
+A warm, inviting abstract background for an interactive product finder section. Soft cream/chalk base. Very subtle (8-12% opacity) suggestion of converging light beams or soft spotlight effects from the top-center spreading downward in warm golden (#e2c98a) tones, creating a gentle "stage" feeling that draws the eye to the center where the quiz buttons are. The light should be very soft and diffused, like warm sunlight through frosted glass. Faint circular bokeh-like elements scattered toward the edges. The overall feel: guidance, discovery, "we'll help you find the right light." No text. Suitable behind a "Find Your Light" interactive quiz.

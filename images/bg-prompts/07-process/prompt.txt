@@ -1,0 +1,9 @@
+===== AI 生图提示词 =====
+模块: Process（合作流程：询盘→样品→生产→出货）
+用途: 作为 CSS 背景图，覆盖 .process 区块（浅色背景）
+风格: 商务专业，物流/供应链主题
+建议尺寸: 1920×700px
+文件命名: bg-process.jpg
+
+--- 提示词 ---
+A subtle, professional background texture for a B2B order process timeline section. Very light neutral base. Faint (6-10% opacity) abstract linear elements suggesting: a shipping container silhouette, a cargo ship outline, a document/paper stack, and global connection lines — all rendered as delicate line-art or blueprint-style sketches in warm grey tones. The elements should be arranged left-to-right to subtly reinforce the 4-step process flow (Enquiry → Sample → Production → Shipment). Extremely understated, almost ghost-like. Clean, organized, businesslike. Suitable as a background for a step-by-step process diagram.

@@ -1,0 +1,9 @@
+===== AI 生图提示词 =====
+模块: Categories（产品分类卡片区）
+用途: 作为 CSS 背景图，覆盖 .categories 区块（浅色背景 #f7f3ec）
+风格: 极简抽象，低对比度，不抢文字
+建议尺寸: 1200×800px 或 1920×600px
+文件命名: bg-categories.jpg
+
+--- 提示词 ---
+A subtle, ultra-minimal abstract background texture for a B2B solar lighting website. Very light beige/cream tones matching #f7f3ec. Faint geometric hexagonal patterns reminiscent of solar panel cells, extremely low opacity (barely visible, like 5-8%), soft edges. Clean, professional, modern. No text, no logos, no hard lines. The pattern should feel like a whisper of technology — solar energy grid lines fading into a warm cream background. Suitable for a section displaying product category cards.

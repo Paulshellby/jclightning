@@ -1,0 +1,9 @@
+===== AI 生图提示词 =====
+模块: Scenarios（应用场景区）
+用途: 作为 CSS 背景图，覆盖 .scenarios 区块（浅色背景）
+风格: 自然环境 + 建筑融合，低饱和度
+建议尺寸: 1920×800px
+文件命名: bg-scenarios.jpg
+
+--- 提示词 ---
+A subtle, desaturated background image blending outdoor architectural and natural scenes. Very low opacity (8-12%). Shows faint silhouettes of: a modern house exterior at dusk with warm window lights, a garden pathway, a commercial building perimeter, and a rural road — all merged softly into a cohesive panorama. Color palette: muted warm tones, soft grey-greens, pale earth browns. The image should be heavily washed out so text overlays remain perfectly readable. No harsh contrast. The overall mood: safe, illuminated outdoor living. Suitable as a background for a "Where Our Lights Work" section.
