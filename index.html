@@ -105,14 +105,6 @@ body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink
 /* Typewriter cursor */
 .tw-cursor { display:inline-block; width:2px; height:0.85em; background:var(--brass-lt); margin-left:2px; vertical-align:text-bottom; animation:twBlink .8s step-end infinite; }
 @keyframes twBlink { 0%,100%{opacity:1} 50%{opacity:0} }
-/* Section Nav Dots */
-.section-nav { position:fixed; right:18px; top:50%; transform:translateY(-50%); z-index:150; display:flex; flex-direction:column; gap:12px; }
-.sn-dot { width:7px; height:7px; border-radius:50%; background:rgba(168,125,42,0.2); border:1px solid rgba(168,125,42,0.25); transition:all .3s; cursor:pointer; text-decoration:none; display:block; position:relative; }
-.sn-dot::after { content:attr(aria-label); position:absolute; right:20px; top:50%; transform:translateY(-50%); white-space:nowrap; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass-lt); opacity:0; transition:opacity .25s; pointer-events:none; }
-.sn-dot:hover::after { opacity:1; }
-.sn-dot.active, .sn-dot:hover { background:var(--brass); border-color:var(--brass); box-shadow:0 0 10px rgba(168,125,42,0.45); transform:scale(1.35); }
-.sn-dot.active::after { opacity:1; }
-@media(max-width:768px){.section-nav{display:none}}
 /* Custom Cursor */
 .cursor-dot { position:fixed; width:8px; height:8px; border-radius:50%; background:var(--brass-lt); pointer-events:none; z-index:9999; top:-4px; left:-4px; transition:width .2s, height .2s, background .2s, margin .08s; }
 .cursor-ring { position:fixed; width:30px; height:30px; border-radius:50%; border:1px solid rgba(168,125,42,0.35); pointer-events:none; z-index:9998; top:-15px; left:-15px; transition:width .25s, height .25s, border-color .25s, margin .08s; }
@@ -1989,31 +1981,6 @@ document.querySelectorAll('.btn-fill,.btn-text,.nav-cta,.nav-dl,.prod-card').for
   });
 });
 
-// Section nav scroll spy
-(function(){
-  const nav=document.getElementById('sectionNav');
-  if(!nav)return;
-  const dots=nav.querySelectorAll('.sn-dot');
-  const sections=[...dots].map(d=>document.querySelector(d.getAttribute('href'))).filter(Boolean);
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        dots.forEach(d=>d.classList.remove('active'));
-        const active=nav.querySelector('[href="#'+e.target.id+'"]');
-        if(active)active.classList.add('active');
-      }
-    });
-  },{threshold:0.25,rootMargin:'-80px 0px -35% 0px'});
-  sections.forEach(s=>obs.observe(s));
-  dots.forEach(dot=>{
-    dot.addEventListener('click',e=>{
-      e.preventDefault();
-      const el=document.querySelector(dot.getAttribute('href'));
-      if(el)el.scrollIntoView({behavior:'smooth'});
-    });
-  });
-})();
-
 // Formspree 表单提交
 const form=document.getElementById('contactForm');
 if(form){
@@ -2238,21 +2205,5 @@ window.restartQuiz=function(){
 };
 })();
 </script>
-<nav class="section-nav" id="sectionNav">
-  <a href="#hero" class="sn-dot active" aria-label="Hero"></a>
-  <a href="#categories" class="sn-dot" aria-label="Categories"></a>
-  <a href="#products" class="sn-dot" aria-label="Products"></a>
-  <a href="#scenarios" class="sn-dot" aria-label="Scenarios"></a>
-  <a href="#factory" class="sn-dot" aria-label="Factory"></a>
-  <a href="#numbers" class="sn-dot" aria-label="Stats"></a>
-  <a href="#why" class="sn-dot" aria-label="Why Us"></a>
-  <a href="#process" class="sn-dot" aria-label="Process"></a>
-  <a href="#promise" class="sn-dot" aria-label="Promise"></a>
-  <a href="#testimonials" class="sn-dot" aria-label="Testimonials"></a>
-  <a href="#certs" class="sn-dot" aria-label="Certifications"></a>
-  <a href="#faq" class="sn-dot" aria-label="FAQ"></a>
-  <a href="#find-light" class="sn-dot" aria-label="Matchmaker"></a>
-  <a href="#contact" class="sn-dot" aria-label="Contact"></a>
-</nav>
 </body>
 </html>
