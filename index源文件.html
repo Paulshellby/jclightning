@@ -130,7 +130,10 @@ nav.dark .nav-link:hover, nav.solid .nav-link:hover { color:#fff; }
 nav.light .nav-link { color:var(--stone); }
 nav.light .nav-link:hover { color:var(--ink); }
 .mega-trigger { position:relative; }
-.mega-panel { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); background:rgba(20,16,12,0.97); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:28px 32px; display:grid; grid-template-columns:repeat(4,1fr); gap:32px; min-width:700px; opacity:0; visibility:hidden; transition:opacity .25s, transform .25s, visibility 0s linear .25s; }
+.mega-panel { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); background:rgba(20,16,12,0.97); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:28px 32px; display:grid; grid-template-columns:repeat(4,1fr) 140px; gap:32px; min-width:860px; opacity:0; visibility:hidden; transition:opacity .25s, transform .25s, visibility 0s linear .25s; }
+.mega-preview { width:140px; height:140px; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); position:relative; align-self:start; }
+.mega-preview img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s; }
+.mega-preview img.active { opacity:1; }
 .mega-trigger:hover .mega-panel { opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); transition:opacity .25s, transform .25s, visibility 0s linear 0s; }
 .mega-col h6 { font-size:0.56rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:12px; }
 .mega-col a { display:block; font-size:0.78rem; font-weight:300; color:var(--mist); text-decoration:none; padding:5px 0; transition:color .2s; }
@@ -188,7 +191,13 @@ h1 em { font-style:italic; color:var(--brass-lt); }
 .lamp-glow-orb { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, rgba(200,162,78,0.25) 0%, rgba(168,125,42,0.06) 40%, transparent 70%); pointer-events:none; z-index:2; }
 @keyframes breathe { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.8} 50%{transform:translate(-50%,-50%) scale(1.12);opacity:1} }
 .lamp-svg { position:relative; z-index:1; width:100%; }
-.hero-banner-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+.hero-banner-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; animation:kenBurns 22s ease-in-out infinite alternate; }
+@keyframes kenBurns { 0% { transform:scale(1) translate(0,0); } 100% { transform:scale(1.06) translate(-1.5%,-0.8%); } }
+/* Scroll text reveal */
+.reveal-text { display:inline-block; clip-path:inset(0 100% 0 0); transition:clip-path .85s cubic-bezier(.22,.61,.355,1); }
+.reveal-text.on { clip-path:inset(0 0 0 0); }
+/* Golden particles canvas */
+.hero-particles { position:absolute; inset:0; z-index:0; pointer-events:none; }
 .marquee-wrap { background:var(--brass); overflow:hidden; padding:13px 0; }
 .marquee-track { display:inline-flex; animation:scroll-l 30s linear infinite; white-space:nowrap; }
 .mi { font-size:0.63rem; font-weight:400; letter-spacing:0.24em; text-transform:uppercase; color:#fff; padding:0 36px; }
@@ -616,10 +625,11 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     <li><a href="#categories" class="nav-link" data-i18n="nav_cat">Categories</a></li>
     <li class="mega-trigger"><a href="#products" class="nav-link" data-i18n="nav_products">Products</a>
       <div class="mega-panel">
-        <div class="mega-col"><h6>Security & Street</h6><a href="#cat-security">Solar Flood Lights <span>3</span></a><a href="#cat-security">Solar Street Lights <span>2</span></a><a href="#cat-security">Warning & Signal <span>2</span></a></div>
-        <div class="mega-col"><h6>Garden & Landscape</h6><a href="#cat-garden">Pillars & Columns <span>3</span></a><a href="#cat-garden">Garden Accent <span>4</span></a><a href="#cat-garden">Deck & Step <span>1</span></a></div>
-        <div class="mega-col"><h6>Decorative & Ambiance</h6><a href="#cat-decorative">Wall & String <span>4</span></a><a href="#cat-decorative">Outdoor Ambiance <span>4</span></a></div>
-        <div class="mega-col"><h6>Off-Grid & Portable</h6><a href="#cat-offgrid">Off-Grid Home <span>3</span></a><a href="#cat-offgrid">Portable Tools <span>3</span></a></div>
+        <div class="mega-col"><h6>Security & Street</h6><a href="#cat-security" data-preview="images/product-01.webp">Solar Flood Lights <span>3</span></a><a href="#cat-security" data-preview="images/product-09.jpg">Solar Street Lights <span>2</span></a><a href="#cat-security" data-preview="images/product-07.jpg">Warning & Signal <span>2</span></a></div>
+        <div class="mega-col"><h6>Garden & Landscape</h6><a href="#cat-garden" data-preview="images/product-03.jpg">Pillars & Columns <span>3</span></a><a href="#cat-garden" data-preview="images/product-06.jpg">Garden Accent <span>4</span></a><a href="#cat-garden" data-preview="images/product-12.jpg">Deck & Step <span>1</span></a></div>
+        <div class="mega-col"><h6>Decorative & Ambiance</h6><a href="#cat-decorative" data-preview="images/product-04.jpg">Wall & String <span>4</span></a><a href="#cat-decorative" data-preview="images/product-11.jpg">Outdoor Ambiance <span>4</span></a></div>
+        <div class="mega-col"><h6>Off-Grid & Portable</h6><a href="#cat-offgrid" data-preview="images/product-13.jpg">Off-Grid Home <span>3</span></a><a href="#cat-offgrid" data-preview="images/product-14.jpg">Portable Tools <span>3</span></a></div>
+        <div class="mega-preview"><img src="images/product-01.webp" alt="Preview" class="active" id="megaPreview"></div>
       </div>
     </li>
     <li><a href="#factory"    class="nav-link" data-i18n="nav_about">Our Approach</a></li>
@@ -647,6 +657,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
+  <canvas class="hero-particles" id="heroParticles"></canvas>
   <div class="hero-left reveal">
     <div class="hero-eyebrow" data-i18n="hero_eye">Solar Outdoor Lighting · When the grid goes down, we stay on.</div>
     <h1 data-i18n="hero_h1">Light that works<br>when the power<br><em>doesn't.</em></h1>
@@ -1980,6 +1991,86 @@ document.querySelectorAll('.btn-fill,.btn-text,.nav-cta,.nav-dl,.prod-card').for
     btn.style.transition='transform .45s cubic-bezier(.25,.8,.25,1), background .25s';
   });
 });
+
+// Mega menu preview image swap
+const megaPreview=document.getElementById('megaPreview');
+if(megaPreview){
+  document.querySelectorAll('.mega-col a[data-preview]').forEach(link=>{
+    link.addEventListener('mouseenter',()=>{
+      megaPreview.src=link.getAttribute('data-preview');
+      megaPreview.classList.add('active');
+    });
+    link.addEventListener('mouseleave',()=>{
+      megaPreview.classList.remove('active');
+    });
+  });
+  // Restore default on panel close
+  const megaTrigger=document.querySelector('.mega-trigger');
+  megaTrigger.addEventListener('mouseleave',()=>{
+    setTimeout(()=>{
+      megaPreview.src='images/product-01.webp';
+      megaPreview.classList.add('active');
+    },300);
+  });
+}
+
+// Scroll text reveal
+(function(){
+  const textObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add('on');
+    });
+  },{threshold:0.3,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('h2').forEach(h2=>{
+    if(!h2.classList.contains('reveal-text')) h2.classList.add('reveal-text');
+    textObs.observe(h2);
+  });
+})();
+
+// Golden particles
+(function(){
+  const canvas=document.getElementById('heroParticles');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,particles=[];
+  function resize(){
+    const hero=document.querySelector('.hero');
+    W=hero.offsetWidth; H=hero.offsetHeight;
+    canvas.width=W; canvas.height=H;
+  }
+  resize();
+  window.addEventListener('resize',resize);
+  const COUNT=60;
+  for(let i=0;i<COUNT;i++){
+    particles.push({
+      x:Math.random()*W,
+      y:Math.random()*H,
+      r:Math.random()*1.2+0.4,
+      vx:(Math.random()-0.5)*0.15,
+      vy:-(Math.random()*0.3+0.1),
+      o:Math.random()*0.5+0.15,
+      s:Math.random()*0.015+0.005
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      p.x+=p.vx;
+      p.y+=p.vy;
+      p.o+=p.s;
+      if(p.o>0.8||p.o<0.1)p.s*=-1;
+      if(p.y<-10){p.y=H+10;p.x=Math.random()*W;}
+      if(p.x<-10)p.x=W+10;
+      if(p.x>W+10)p.x=-10;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(201,162,78,${p.o})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
 
 // Formspree 表单提交
 const form=document.getElementById('contactForm');
