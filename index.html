@@ -139,7 +139,7 @@ nav.dark .nav-link:hover, nav.solid .nav-link:hover { color:#fff; }
 nav.light .nav-link { color:var(--stone); }
 nav.light .nav-link:hover { color:var(--ink); }
 .mega-trigger { position:relative; }
-.mega-panel { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); background:rgba(20,16,12,0.97); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:28px 32px; display:grid; grid-template-columns:repeat(4,1fr) 140px; gap:32px; min-width:860px; opacity:0; visibility:hidden; transition:opacity .25s, transform .25s, visibility 0s linear .25s; }
+.mega-panel { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); background:rgba(20,16,12,0.97); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:28px 32px; display:grid; grid-template-columns:repeat(5,1fr) 140px; gap:28px; min-width:980px; opacity:0; visibility:hidden; transition:opacity .25s, transform .25s, visibility 0s linear .25s; }
 .mega-preview { width:140px; height:140px; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); position:relative; align-self:start; }
 .mega-preview img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s; }
 .mega-preview img.active { opacity:1; }
@@ -271,6 +271,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .bg-set   { background:var(--brass-lt); }
 .bg-new   { background:#2d6a4f; }
 .bg-hot   { background:#b8542c; }
+.bg-ac    { background:#4a6fa5; }
 .prod-info { padding:18px 20px 22px; border-top:1px solid rgba(255,255,255,0.06); }
 .prod-info h4 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:400; color:#fff; margin-bottom:5px; }
 .prod-info p { font-size:0.73rem; font-weight:300; color:var(--mist); line-height:1.6; margin-bottom:13px; }
@@ -696,7 +697,8 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <div class="mega-col"><h6 data-i18n="mega_h1">Security & Street</h6><a href="#cat-security" data-preview="images/product-01.webp"><span data-i18n="mega_a1">Solar Flood Lights</span> <span>3</span></a><a href="#cat-security" data-preview="images/product-09.jpg"><span data-i18n="mega_a2">Solar Street Lights</span> <span>2</span></a><a href="#cat-security" data-preview="images/product-07.jpg"><span data-i18n="mega_a3">Warning & Signal</span> <span>2</span></a></div>
         <div class="mega-col"><h6 data-i18n="mega_h2">Garden & Landscape</h6><a href="#cat-garden" data-preview="images/product-03.jpg"><span data-i18n="mega_a4">Pillars & Columns</span> <span>3</span></a><a href="#cat-garden" data-preview="images/product-06.jpg"><span data-i18n="mega_a5">Garden Accent</span> <span>4</span></a><a href="#cat-garden" data-preview="images/product-12.jpg"><span data-i18n="mega_a6">Deck & Step</span> <span>1</span></a></div>
         <div class="mega-col"><h6 data-i18n="mega_h3">Decorative & Ambiance</h6><a href="#cat-decorative" data-preview="images/product-04.jpg"><span data-i18n="mega_a7">Wall & String</span> <span>4</span></a><a href="#cat-decorative" data-preview="images/product-11.jpg"><span data-i18n="mega_a8">Outdoor Ambiance</span> <span>4</span></a></div>
-        <div class="mega-col"><h6 data-i18n="mega_h4">Off-Grid & Portable</h6><a href="#cat-offgrid" data-preview="images/product-13.jpg"><span data-i18n="mega_a9">Off-Grid Home</span> <span>3</span></a><a href="#cat-offgrid" data-preview="images/product-14.jpg"><span data-i18n="mega_a10">Portable Tools</span> <span>3</span></a></div>
+        <div class="mega-col"><h6 data-i18n="mega_h4">Off-Grid & Portable</h6><a href="#cat-offgrid" data-preview="images/product-13.jpg"><span data-i18n="mega_a9">Off-Grid Home</span> <span>4</span></a><a href="#cat-offgrid" data-preview="images/product-14.jpg"><span data-i18n="mega_a10">Portable Tools</span> <span>5</span></a></div>
+        <div class="mega-col"><h6 data-i18n="mega_h5">AC Commercial</h6><a href="#cat-ac" data-preview="images/product-31.jpg"><span data-i18n="mega_a11">AC Floodlights</span> <span>1</span></a><a href="#cat-ac" data-preview="images/product-32.jpg"><span data-i18n="mega_a12">High Bay &amp; Street</span> <span>2</span></a></div>
         <div class="mega-preview"><img src="images/product-01.webp" alt="Preview" class="active" id="megaPreview"></div>
       </div>
     </li>
@@ -829,6 +831,18 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <a href="#cat-offgrid" class="cat-a" data-i18n="cat_lnk">View Products →</a>
       </div>
     </div>
+    <div class="cat-card reveal" style="transition-delay:.32s">
+      <div class="cat-card-img">
+        <img src="images/ac-commercial/cat-ac.jpg" alt="AC Commercial" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="cat-card-body">
+        <div class="cat-card-num">05</div>
+        <h3 data-i18n="cat_ac_t">AC Commercial</h3>
+        <p data-i18n="cat_ac_d">Mains-powered floodlights, high bay lights and street lights for factories, warehouses, sports courts and municipal roads. CE certified. 50-1000W. FOB Shenzhen.</p>
+        <div class="cat-card-products" data-i18n="cat_ac_prods">2 sub-ranges · 3 products: AC Floodlights · High Bay & Street</div>
+        <a href="#cat-ac" class="cat-a" data-i18n="cat_lnk">View Products →</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -841,14 +855,15 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     </div>
   </div>
 
-  <div class="reveal" style="margin-bottom:24px"><input type="text" class="prod-search" id="prodSearch" placeholder="Search 29 products — IP66, flood light, 路灯…" data-i18n-placeholder="search_ph"></div>
+  <div class="reveal" style="margin-bottom:24px"><input type="text" class="prod-search" id="prodSearch" placeholder="Search 33 products — IP66, flood light, 路灯…" data-i18n-placeholder="search_ph"></div>
 
   <div class="prod-filter reveal" id="prodFilter">
-    <button class="prod-filter-btn active" onclick="scrollToCat('all')"><span data-i18n="filter_all">All</span><span class="prod-filter-count">26</span></button>
-    <button class="prod-filter-btn" onclick="scrollToCat('cat-security')"><span data-i18n="filter_security">Security</span><span class="prod-filter-count">7</span></button>
-    <button class="prod-filter-btn" onclick="scrollToCat('cat-garden')"><span data-i18n="filter_garden">Garden</span><span class="prod-filter-count">8</span></button>
+    <button class="prod-filter-btn active" onclick="scrollToCat('all')"><span data-i18n="filter_all">All</span><span class="prod-filter-count">33</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-security')"><span data-i18n="filter_security">Security</span><span class="prod-filter-count">8</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-garden')"><span data-i18n="filter_garden">Garden</span><span class="prod-filter-count">6</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-decorative')"><span data-i18n="filter_decorative">Decorative</span><span class="prod-filter-count">8</span></button>
-    <button class="prod-filter-btn" onclick="scrollToCat('cat-offgrid')"><span data-i18n="filter_offgrid">Off-Grid</span><span class="prod-filter-count">6</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-offgrid')"><span data-i18n="filter_offgrid">Off-Grid</span><span class="prod-filter-count">8</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-ac')"><span data-i18n="filter_ac">AC Commercial</span><span class="prod-filter-count">3</span></button>
   </div>
 
   <!-- ========== 大类 01 · Security & Street ========== -->
@@ -1048,6 +1063,41 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <div class="prod-card">
           <div class="prod-img"><div class="prod-badge bg-hot" data-i18n="b_hot">HOT</div><img src="images/new/product-24.png" alt="Solar Power Bank Lantern Pro" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
           <div class="prod-info"><h4 data-i18n="p24_n">Solar Power Bank Lantern Pro</h4><p data-i18n="p24_d">Pro-grade lantern with COB wide-area panel (not point LED) & true USB-C PD 18W fast charging — outperforming BLAVOR and the 5V-trickle competition. 400lm · 8000mAh LiFePO4 · foldable solar · QC3.0 · 4 brightness · SOS · magnetic base · IP65. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-img"><div class="prod-badge bg-hot" data-i18n="b_hot">HOT</div><img src="images/product-30.jpg" alt="Emergency UFO Rechargeable Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="prod-info"><h4 data-i18n="p30_n">Emergency UFO Rechargeable Light</h4><p data-i18n="p30_d">USB-rechargeable flying-saucer emergency light for load-shedding and blackouts. Hook hanging, no installation needed. 150/200W · 3-mode dimming · 3000K/4000K/6000K · Φ180-220mm · USB-C charging · 4-6h runtime. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ========== 大类 05 · AC Commercial ========== -->
+  <div class="prod-cat-group reveal" id="cat-ac">
+    <div class="prod-cat-header">
+      <span class="prod-cat-num">05</span>
+      <h3 data-i18n="cat_ac_t">AC Commercial</h3>
+    </div>
+
+    <div class="prod-subcat">
+      <h4 class="prod-subcat-h" data-i18n="sub_ac_floods">AC Floodlights</h4>
+      <div class="prod-grid">
+        <div class="prod-card">
+          <div class="prod-img"><div class="prod-badge bg-ac" data-i18n="b_ac">AC</div><img src="images/product-31.jpg" alt="AC LED Floodlight" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="prod-info"><h4 data-i18n="p31_n">AC LED Floodlight (50-1000W)</h4><p data-i18n="p31_d">Mains-powered LED floodlight for factories, sports courts, parking lots and commercial compounds. 50/100/200/300/400/600/800/1000W options · IP65 · 6500K · 30,000h lifespan · aluminium housing · CE + RoHS. FOB Shenzhen.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-subcat">
+      <h4 class="prod-subcat-h" data-i18n="sub_ac_highbay">High Bay &amp; Street</h4>
+      <div class="prod-grid">
+        <div class="prod-card">
+          <div class="prod-img"><div class="prod-badge bg-ac" data-i18n="b_ac">AC</div><img src="images/product-32.jpg" alt="UFO High Bay Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="prod-info"><h4 data-i18n="p32_n">UFO High Bay Light (100-300W)</h4><p data-i18n="p32_d">AC high bay light for warehouses, factories, supermarkets and exhibition halls. 100/150/200/300W · IP65 (waterproof series available) · 120° wide beam · 6500K · aluminium fins · CE + RoHS. FOB Shenzhen.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-img"><div class="prod-badge bg-ac" data-i18n="b_ac">AC</div><img src="images/product-33.jpg" alt="AC Street Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="prod-info"><h4 data-i18n="p33_n">AC Street Light (50-100W)</h4><p data-i18n="p33_d">Mains-powered street light head for municipal roads, industrial parks and parking lots. 50/100W · IP65 · 6500K · aluminium housing · fits 60mm pole arms · photocell ready · CE + RoHS. FOB Shenzhen.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
         </div>
       </div>
     </div>
@@ -1525,7 +1575,7 @@ const T = {
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     hero_h1:'Light that works<br>when the power<br><em>doesn\'t.</em>',
     stat1:'Products',stat2:'Product Ranges',stat3:'Certified · RoHS',stat4:'Pcs Minimum Order',
-    brand_q:'"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn\'t an upgrade — it\'s the answer."</span>',search_ph:'Search 29 products — IP66, flood light, 路灯…',prod_h2:'Every Light.<br><em>Every Spec.</em>',prod_cat:'View Full Product Range →',
+    brand_q:'"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn\'t an upgrade — it\'s the answer."</span>',search_ph:'Search 33 products — IP66, flood light, 路灯…',prod_h2:'Every Light.<br><em>Every Spec.</em>',prod_cat:'View Full Product Range →',
     cat1_t:'Security & Street',
     cat2_t:'Garden & Landscape',
     cat3_t:'Decorative & Ambiance',
@@ -1552,6 +1602,14 @@ const T = {
     cat6_prods:'4 products: Flame Torch · Fairy Copper Wire · Umbrella Light · Outdoor Floor Lamp',
     cat7_t:'Portable, Work & Specialty',cat7_d:'Solar camping lanterns, bug zappers, work lights and warning beacons for outdoor life, job sites and emergencies. IP65/IP66. USB power bank. SOS mode.',
     cat7_prods:'6 products: Camping Lantern · Bug Zapper · Work Light · Lantern Pro · Warning Beacon · Flag Pole',inq_add:'Add to inquiry',
+    cat_ac_t:'AC Commercial',cat_ac_d:'Mains-powered floodlights, high bay lights and street lights for factories, warehouses, sports courts and municipal roads. CE certified. 50–1000W. FOB Shenzhen.',cat_ac_prods:'2 sub-ranges · 3 products: AC Floodlights · High Bay & Street',
+    filter_ac:'AC Commercial',b_ac:'AC',
+    mega_h5:'AC Commercial',mega_a11:'AC Floodlights',mega_a12:'High Bay & Street',
+    sub_ac_floods:'AC Floodlights',sub_ac_highbay:'High Bay & Street',
+    p30_n:'Emergency UFO Rechargeable Light',p30_d:'USB-rechargeable flying-saucer emergency light for load-shedding and blackouts. Hook hanging, no installation needed. 150/200W · 3-mode dimming · 3000K/4000K/6000K · Φ180–220mm · USB-C charging · 4-6h runtime. CE + RoHS.',
+    p31_n:'AC LED Floodlight (50-1000W)',p31_d:'Mains-powered LED floodlight for factories, sports courts, parking lots and commercial compounds. 50/100/200/300/400/600/800/1000W options · IP65 · 6500K · 30,000h lifespan · aluminium housing · CE + RoHS. FOB Shenzhen.',
+    p32_n:'UFO High Bay Light (100-300W)',p32_d:'AC high bay light for warehouses, factories, supermarkets and exhibition halls. 100/150/200/300W · IP65 (waterproof series available) · 120° wide beam · 6500K · aluminium fins · CE + RoHS. FOB Shenzhen.',
+    p33_n:'AC Street Light (50-100W)',p33_d:'Mains-powered street light head for municipal roads, industrial parks and parking lots. 50/100W · IP65 · 6500K · aluminium housing · fits 60mm pole arms · photocell ready · CE + RoHS. FOB Shenzhen.',
   },
   zh:{
     logo:'嘉晨照明科技有限公司',ft_logo:'嘉晨照明科技有限公司',
@@ -1563,7 +1621,7 @@ const T = {
     stat1:'款产品',stat2:'大产品线',stat3:'认证 · RoHS',stat4:'只起订量',
     brand_q:'"非洲、拉美、大洋洲的电网正在失效。<br><span>太阳能照明不是升级选项——它是唯一答案。"</span>',
     brand_b:'嘉晨照明科技有限公司为分销商、安装公司及工程承包商提供户外太阳能照明产品，专注服务电网供应不稳定的市场。六大核心系列——安防、花园、壁灯串灯、氛围、离网家庭、便携特种——采用压铸铝合金外壳、磷酸铁锂电池及IP65密封，专为高温、高紫外线环境下的长期稳定运行而设计。CE认证。支持OEM与ODM定制。',
-    filter_all:'全部',filter_security:'安防',filter_garden:'花园',filter_decorative:'装饰',filter_offgrid:'离网',search_ph:'搜索 29 款产品 — IP66、投光灯、路灯…',
+    filter_all:'全部',filter_security:'安防',filter_garden:'花园',filter_decorative:'装饰',filter_offgrid:'离网',search_ph:'搜索 33 款产品 — IP66、投光灯、路灯…',
     prod_lbl:'完整目录',prod_h2:'每一款灯。<br><em>每一个参数。</em>',prod_cat:'查看完整产品系列 →',
     b_best:'热销爆款',b_newarr:'新品',b_rec:'主推款',b_hot:'热卖',b_eco:'经典款',b_set:'8只装',b_ip66:'IP66',
     p1_n:'三头太阳能感应投光灯',p1_d:'三头可调太阳能泛光灯，适用于住宅与商业围界、车库及车道。压铸铝合金机身。总流明2500–3500lm · IP65 · PIR + 270°广角 · 三档工作模式。CE + RoHS认证。',
@@ -1660,6 +1718,14 @@ const T = {
     p28_n:'太阳能庭院柱灯（1-2m）',p28_d:'现代铝合金柱灯，适用于住宅庭院、别墅入口、酒店花园及商业广场。在西班牙市场广受欢迎。10W · 800lm · 3000K暖白 · IP65 · 8000mAh磷酸铁锂 · 续航10-12小时 · 黑/白/深灰三色可选。CE + RoHS认证。',
     p29_n:'太阳能泳池浮水灯',p29_d:'RGB 16色彩光浮水灯，适用于泳池、水景和温泉浴缸。已在澳洲 Bunnings 验证市场需求。IP68全防水 · 15cm磨砂PC灯罩 · 2000mAh · 续航6-8小时 · 8种灯光模式 · 附红外遥控 · ABS+PC材质。CE + RoHS认证。',
     inq_title:'您的询价清单',inq_empty:'尚未添加产品，点击产品卡片上的 + 加入询价',inq_clear:'清空',inq_send:'通过 WhatsApp 发送',inq_add:'加入询价',
+    cat_ac_t:'AC商用照明',cat_ac_d:'市电LED投光灯、工矿灯和路灯，适用于工厂、仓库、球场和市政道路。CE认证。50-1000W。FOB深圳。',cat_ac_prods:'2个子系列 · 3款产品：AC投光灯 · 工矿灯与路灯',
+    filter_ac:'AC商用',b_ac:'AC',
+    mega_h5:'AC商用照明',mega_a11:'AC投光灯',mega_a12:'工矿灯与路灯',
+    sub_ac_floods:'AC投光灯',sub_ac_highbay:'工矿灯与路灯',
+    p30_n:'充电应急飞碟灯',p30_d:'USB充电飞碟灯，专为停电应急设计。挂钩悬挂，无需安装。150/200W · 三档调光 · 3000K/4000K/6000K · Φ180-220mm · USB-C充电 · 续航4-6小时。CE + RoHS认证。',
+    p31_n:'AC LED投光灯（50-1000W）',p31_d:'市电LED投光灯，适用于工厂、球场、停车场和商业建筑。50/100/200/300/400/600/800/1000W可选 · IP65 · 6500K · 3万小时寿命 · 铝合金灯体 · CE + RoHS认证。FOB深圳。',
+    p32_n:'UFO工矿灯（100-300W）',p32_d:'AC工矿灯，适用于仓库、工厂、超市和展厅。100/150/200/300W · IP65（防水系列可选）· 120°宽光束 · 6500K · 铝合金散热鳍片 · CE + RoHS认证。FOB深圳。',
+    p33_n:'AC路灯头（50-100W）',p33_d:'市电路灯头，适用于市政道路、工业园区和停车场。50/100W · IP65 · 6500K · 铝合金灯体 · 适配60mm灯臂 · 光控器接口 · CE + RoHS认证。FOB深圳。',
   },
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
@@ -1671,7 +1737,7 @@ const T = {
     stat1:'Productos',stat2:'Gamas',stat3:'Certificado · RoHS',stat4:'Uds. Pedido Mínimo',
     brand_q:'"Las redes eléctricas están fallando en África, América Latina y Oceanía.<br><span>La iluminación solar no es una mejora — es la solución."</span>',
     brand_b:'JC Lightning suministra iluminación solar para exteriores a distribuidores, instaladores y contratistas en mercados donde no se puede dar por garantizado el suministro eléctrico. Seis gamas — seguridad, jardín, pared y cadenas, ambiente, hogar sin red, portátil y especialidad — con carcasas de aluminio fundido, baterías LiFePO4 y sellado IP65. Certificación CE. OEM y ODM disponibles.',
-    filter_all:'Todos',filter_security:'Seguridad',filter_garden:'Jardín',filter_decorative:'Decorativo',filter_offgrid:'Sin Red',search_ph:'Buscar 29 productos — IP66, reflector, farola…',
+    filter_all:'Todos',filter_security:'Seguridad',filter_garden:'Jardín',filter_decorative:'Decorativo',filter_offgrid:'Sin Red',search_ph:'Buscar 33 productos — IP66, reflector, farola…',
     prod_lbl:'Catálogo Completo',prod_h2:'Cada Luz.<br><em>Cada Especificación.</em>',prod_cat:'Ver Gama Completa →',
     b_best:'Superventas',b_newarr:'NUEVO',b_rec:'Recomendado',b_hot:'TENDENCIA',b_eco:'Clásico',b_set:'Pack 8',b_ip66:'IP66',
     p1_n:'Foco Solar de Movimiento · 3 Cabezales',p1_d:'Foco solar de tres cabezales ajustables para perímetros residenciales y comerciales, garajes y accesos. Cuerpo de aluminio fundido. 2500–3500lm · IP65 · PIR + 270° · tres modos. CE + RoHS.',
@@ -1768,6 +1834,14 @@ const T = {
     p28_n:'Farola Solar de Jardín (1-2m)',p28_d:'Pilar moderno de aluminio para patios residenciales, entradas de villas, jardines de hotel y plazas comerciales. Muy popular en el mercado español. 10W · 800lm · 3000K blanco cálido · IP65 · LiFePO4 8000mAh · 10-12h · negro / blanco / antracita. CE + RoHS.',
     p29_n:'Luz Solar Flotante para Piscina',p29_d:'Luz flotante RGB 16 colores para piscinas, estanques y jacuzzis. Demanda verificada en Bunnings Australia. IP68 totalmente impermeable · cúpula PC esmerilada 15cm · 2000mAh · 6-8h · 8 modos de luz · mando IR incluido · cuerpo ABS + PC. CE + RoHS.',
     inq_title:'Tu Lista de Consultas',inq_empty:'Aún no hay productos. Toca + en cualquier producto.',inq_clear:'Vaciar',inq_send:'Enviar por WhatsApp',inq_add:'Añadir a consulta',
+    cat_ac_t:'Iluminación Comercial AC',cat_ac_d:'Reflectores, campanas industriales y farolas con alimentación de red para fábricas, almacenes, canchas deportivas y vías municipales. Certificación CE. 50–1000W. FOB Shenzhen.',cat_ac_prods:'2 sub-rangos · 3 productos: Reflectores AC · Campana y Farola',
+    filter_ac:'AC Comercial',b_ac:'AC',
+    mega_h5:'Iluminación AC',mega_a11:'Reflectores AC',mega_a12:'Campana y Farola',
+    sub_ac_floods:'Reflectores AC',sub_ac_highbay:'Campana y Farola',
+    p30_n:'Luz Recargable UFO de Emergencia',p30_d:'Luz de emergencia tipo ovni recargable por USB para cortes de luz. Con gancho, sin instalación. 150/200W · 3 modos · 3000K/4000K/6000K · Φ180–220mm · carga USB-C · 4-6h. CE + RoHS.',
+    p31_n:'Reflector LED AC (50-1000W)',p31_d:'Reflector LED con alimentación de red para fábricas, canchas deportivas, estacionamientos y complejos comerciales. Opciones 50-1000W · IP65 · 6500K · 30,000h · aluminio · CE + RoHS. FOB Shenzhen.',
+    p32_n:'Campana Industrial UFO (100-300W)',p32_d:'Campana industrial AC para almacenes, fábricas, supermercados y salones de exposición. 100-300W · IP65 (serie impermeable disponible) · haz 120° · 6500K · aletas de aluminio · CE + RoHS. FOB Shenzhen.',
+    p33_n:'Farola AC (50-100W)',p33_d:'Cabezal de farola con alimentación de red para vías municipales, parques industriales y estacionamientos. 50/100W · IP65 · 6500K · aluminio · para brazos de 60mm · listo para fotocélula · CE + RoHS. FOB Shenzhen.',
   }
 };
 
