@@ -335,6 +335,11 @@ h2 em { font-style:italic; color:var(--brass); }
 .sc-card h4 { font-size:.98rem; font-weight:700; color:var(--ink); margin-bottom:8px; }
 .sc-card p { font-size:.8rem; color:var(--stone); line-height:1.6; margin-bottom:14px; }
 .sc-tag { display:inline-block; font-size:.65rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--brass); background:rgba(168,125,42,.07); padding:4px 10px; border-radius:4px; }
+.sc-cat-group { margin-bottom:48px; }
+.sc-cat-group:last-child { margin-bottom:0; }
+.sc-cat-head { display:flex; align-items:baseline; gap:14px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--blt); }
+.sc-cat-num { font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:700; color:var(--brass); opacity:.35; line-height:1; }
+.sc-cat-head h3 { font-size:1.05rem; font-weight:700; color:var(--ink); margin:0; }
 
 .factory { padding:120px 56px; background:var(--chalk) url(images/bg-04-factory.jpg) center/cover no-repeat; display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:start; }
 .fac-l h2 { color:var(--ink); margin-bottom:24px; }
@@ -1344,57 +1349,126 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   <div class="sec-label reveal" data-i18n="sc_lbl">Where They're Used</div>
   <h2 class="reveal" data-i18n="sc_h2">Real Places. <em>Real Performance.</em></h2>
   <p class="sc-sub reveal" data-i18n="sc_sub">See where each product range does its best work — from coastal estates to off-grid farms.</p>
-  <div class="sc-grid">
-    <div class="sc-card reveal">
-      <div class="sc-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#a87d2a" stroke-width="1.3"/><path d="M7 10h4M7 14h2" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><circle cx="17" cy="12" r="2.5" stroke="#a87d2a" stroke-width="1.3"/></svg>
+    <!-- Cat 01 - Security & Street -->
+  <div class="sc-cat-group reveal">
+    <div class="sc-cat-head"><span class="sc-cat-num">01</span><h3 data-i18n="sc_cat1">Security &amp; Street</h3></div>
+    <div class="sc-grid">
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#a87d2a" stroke-width="1.3"/><path d="M7 10h4M7 14h2" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><circle cx="17" cy="12" r="2.5" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
+        <h4 data-i18n="sc1_t">Perimeter Security</h4>
+        <p data-i18n="sc1_d">Solar floodlights and PIR wall lights protecting commercial compounds, warehouses, and residential perimeter walls. Motion-activated, grid-independent, IP65/IP66 rated.</p>
+        <span class="sc-tag" data-i18n="sc1_tag">Security Range</span>
       </div>
-      <h4 data-i18n="sc1_t">Perimeter Security</h4>
-      <p data-i18n="sc1_d">Solar floodlights and PIR wall lights protecting commercial compounds, warehouses, and residential perimeter walls. Motion-activated, grid-independent, IP65/IP66 rated.</p>
-      <span class="sc-tag" data-i18n="sc1_tag">Security Range</span>
-    </div>
-    <div class="sc-card reveal" style="transition-delay:.06s">
-      <div class="sc-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 21l7-7-7-7" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 4h9v17h-9z" stroke="#a87d2a" stroke-width="1.3"/></svg>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="3" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
+        <h4 data-i18n="sc5_t">Street &amp; Road Lighting</h4>
+        <p data-i18n="sc5_d">All-in-one and split solar street lights for municipal roads, rural highways, parking lots and long driveways. Radar sensing, dusk-to-dawn auto, IP66 rated.</p>
+        <span class="sc-tag" data-i18n="sc5_tag">Street Range</span>
       </div>
-      <h4 data-i18n="sc2_t">Entrance & Facade</h4>
-      <p data-i18n="sc2_d">Gate pillar lights, up-down wall sconces, and classic wall lanterns framing entrances for estates, hotels, and gated communities. Warm white, architectural finish.</p>
-      <span class="sc-tag" data-i18n="sc2_tag">Garden + Decorative</span>
-    </div>
-    <div class="sc-card reveal" style="transition-delay:.12s">
-      <div class="sc-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 9v10a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V9z" stroke="#a87d2a" stroke-width="1.3"/><circle cx="10" cy="13" r="1.5" stroke="#a87d2a" stroke-width="1.3"/></svg>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 20h16M12 4v16M8 8l8 8M16 8l-8 8" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <h4 data-i18n="sc7_t">Construction &amp; Job Site Safety</h4>
+        <p data-i18n="sc7_d">Solar warning beacons, flag pole lights and portable work lights for construction zones, road work and industrial job sites. IP66, magnetic mounts, SOS strobe modes.</p>
+        <span class="sc-tag" data-i18n="sc7_tag">Warning &amp; Signal</span>
       </div>
-      <h4 data-i18n="sc3_t">Garden & Landscape</h4>
-      <p data-i18n="sc3_d">Bollards, stake lights, and spike spotlights shaping pathways, flowerbeds, and tree uplighting. 304 stainless steel and cast aluminium. IP65–IP67.</p>
-      <span class="sc-tag" data-i18n="sc3_tag">Garden Range</span>
-    </div>
-    <div class="sc-card reveal" style="transition-delay:.18s">
-      <div class="sc-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#a87d2a" stroke-width="1.3"/><path d="M12 5v14M5 12h14" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="#a87d2a" stroke-width="1.3"/></svg>
-      </div>
-      <h4 data-i18n="sc4_t">Ambiance & Outdoor Living</h4>
-      <p data-i18n="sc4_d">Solar flame torches, fairy copper wire lights, umbrella lights and floor lamps creating atmosphere for gardens, patios and outdoor dining. Warm 2700K glow. IP44–IP65 for year-round use.</p>
-      <span class="sc-tag" data-i18n="sc4_tag">Ambiance Range</span>
-    </div>
-    <div class="sc-card reveal" style="transition-delay:.24s">
-      <div class="sc-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="3" stroke="#a87d2a" stroke-width="1.3"/></svg>
-      </div>
-      <h4 data-i18n="sc5_t">Pathway & Driveway</h4>
-      <p data-i18n="sc5_d">Bollard path lights and all-in-one street lights guiding vehicles and pedestrians. Municipal-grade for roads, parking lots, and long driveways. Radar and dusk-to-dawn sensors.</p>
-      <span class="sc-tag" data-i18n="sc5_tag">Garden + Security</span>
-    </div>
-    <div class="sc-card reveal" style="transition-delay:.30s">
-      <div class="sc-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#a87d2a" stroke-width="1.3" stroke-linejoin="round"/></svg>
-      </div>
-      <h4 data-i18n="sc6_t">Emergency, Work & Specialty</h4>
-      <p data-i18n="sc6_d">Portable work lights, warning beacons, flag pole lights and camping lanterns for job sites, emergencies and outdoor adventures. USB power-bank. IP65/IP66. SOS mode.</p>
-      <span class="sc-tag" data-i18n="sc6_tag">Portable & Specialty</span>
     </div>
   </div>
-</section>
+  <!-- Cat 02 - Garden & Landscape -->
+  <div class="sc-cat-group reveal">
+    <div class="sc-cat-head"><span class="sc-cat-num">02</span><h3 data-i18n="sc_cat2">Garden &amp; Landscape</h3></div>
+    <div class="sc-grid">
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 21l7-7-7-7" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 4h9v17h-9z" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
+        <h4 data-i18n="sc2_t">Villa &amp; Estate Entrance</h4>
+        <p data-i18n="sc2_d">Courtyard column lights, gate pillar lamps and up-down wall sconces framing grand entrances for villas, hotels and gated communities. Warm white, architectural aluminium finish.</p>
+        <span class="sc-tag" data-i18n="sc2_tag">Garden + Decorative</span>
+      </div>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 9v10a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V9z" stroke="#a87d2a" stroke-width="1.3"/><circle cx="10" cy="13" r="1.5" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
+        <h4 data-i18n="sc3_t">Garden &amp; Pathway</h4>
+        <p data-i18n="sc3_d">Stake lights, spike spotlights and bollards shaping flowerbeds, pathways and tree uplighting. 304 stainless steel and cast aluminium. IP65-IP67 rated.</p>
+        <span class="sc-tag" data-i18n="sc3_tag">Garden Range</span>
+      </div>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#a87d2a" stroke-width="1.3"/><path d="M4 12c0-4.4 3.6-8 8-8" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><path d="M16 8c-2 2-3 4-3 6" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <h4 data-i18n="sc8_t">Parks &amp; Public Spaces</h4>
+        <p data-i18n="sc8_d">Bollard path lights, courtyard columns and spike spotlights for municipal parks, hotel grounds, plazas and resort landscaping. Dusk-to-dawn, IP65 rated for year-round public use.</p>
+        <span class="sc-tag" data-i18n="sc8_tag">Public &amp; Commercial</span>
+      </div>
+    </div>
+  </div>
+  <!-- Cat 03 - Decorative & Ambiance -->
+  <div class="sc-cat-group reveal">
+    <div class="sc-cat-head"><span class="sc-cat-num">03</span><h3 data-i18n="sc_cat3">Decorative &amp; Ambiance</h3></div>
+    <div class="sc-grid">
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#a87d2a" stroke-width="1.3"/><path d="M12 5v14M5 12h14" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
+        <h4 data-i18n="sc4_t">Outdoor Dining &amp; Patios</h4>
+        <p data-i18n="sc4_d">Edison string lights, solar flame torches and outdoor floor lamps creating warm atmosphere for restaurant patios, rooftop bars and garden dining. 2700K warm glow, IP44-IP65.</p>
+        <span class="sc-tag" data-i18n="sc4_tag">Ambiance Range</span>
+      </div>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 9c0-3.3 2.7-6 6-6s6 2.7 6 6c0 2-1 4-2.5 5.5C10 17 8 18 6 18" stroke="#a87d2a" stroke-width="1.3"/><circle cx="15" cy="17" r="3" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
+        <h4 data-i18n="sc9_t">Pool &amp; Terrace</h4>
+        <p data-i18n="sc9_d">Floating pool lights, umbrella lights and deck lighting for hotel pools, resort terraces and rooftop lounges. RGB 16-colour, IP68 waterproof, IR remote controlled.</p>
+        <span class="sc-tag" data-i18n="sc9_tag">Pool &amp; Deck</span>
+      </div>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l1.5 5.5L19 9l-5.5 1.5L12 16l-1.5-5.5L5 9l5.5-1.5z" stroke="#a87d2a" stroke-width="1.3" stroke-linejoin="round"/><circle cx="18" cy="18" r="3" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
+        <h4 data-i18n="sc10_t">Events &amp; Celebrations</h4>
+        <p data-i18n="sc10_d">Fairy copper wire lights, Edison string lights and flame torches for weddings, festivals, garden parties and seasonal celebrations. 8 lighting modes, 10-20m lengths, IP44.</p>
+        <span class="sc-tag" data-i18n="sc10_tag">Events &amp; Festive</span>
+      </div>
+    </div>
+  </div>
+  <!-- Cat 04 - Off-Grid & Portable -->
+  <div class="sc-cat-group reveal">
+    <div class="sc-cat-head"><span class="sc-cat-num">04</span><h3 data-i18n="sc_cat4">Off-Grid &amp; Portable</h3></div>
+    <div class="sc-grid">
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#a87d2a" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+        <h4 data-i18n="sc6_t">Emergency &amp; Blackout</h4>
+        <p data-i18n="sc6_d">UFO rechargeable lights, emergency LED bulbs and portable lanterns for load-shedding, blackouts and disaster relief. USB-C charging, hook hanging, 4-15h runtime.</p>
+        <span class="sc-tag" data-i18n="sc6_tag">Emergency Range</span>
+      </div>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 9v10a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V9z" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
+        <h4 data-i18n="sc11_t">Rural Home Lighting</h4>
+        <p data-i18n="sc11_d">Split-panel indoor wall lights, solar home lighting kits and ceiling fans for off-grid rural homes. Panel outside, light inside. USB phone charging during outages. LiFePO4.</p>
+        <span class="sc-tag" data-i18n="sc11_tag">Off-Grid Home</span>
+      </div>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#a87d2a" stroke-width="1.3"/><circle cx="12" cy="12" r="3" stroke="#a87d2a" stroke-width="1.3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <h4 data-i18n="sc12_t">Camping &amp; Outdoor Adventure</h4>
+        <p data-i18n="sc12_d">Portable camping lanterns, power bank lanterns, bug zappers and work lights for camping, fishing, hiking and outdoor exploration. USB-C PD fast charge, magnetic base, IP65.</p>
+        <span class="sc-tag" data-i18n="sc12_tag">Portable Tools</span>
+      </div>
+    </div>
+  </div>
+  <!-- Cat 05 - AC Commercial -->
+  <div class="sc-cat-group reveal">
+    <div class="sc-cat-head"><span class="sc-cat-num">05</span><h3 data-i18n="sc_cat5">AC Commercial</h3></div>
+    <div class="sc-grid">
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#a87d2a" stroke-width="1.3"/><path d="M8 21h8M12 17v4" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <h4 data-i18n="sc13_t">Warehouses &amp; Factories</h4>
+        <p data-i18n="sc13_d">UFO high bay lights and high-power AC floodlights for warehouses, factories, assembly lines and logistics centres. 100-300W, IP65, aluminium cooling fins, 30,000h lifespan.</p>
+        <span class="sc-tag" data-i18n="sc13_tag">Industrial High Bay</span>
+      </div>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#a87d2a" stroke-width="1.3"/><path d="M12 5v14M5 12h14" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <h4 data-i18n="sc14_t">Sports Courts &amp; Stadiums</h4>
+        <p data-i18n="sc14_d">High-power AC LED floodlights 200-1000W for outdoor sports courts, stadiums, tennis courts and arenas. Wide 120-degree beam, 6500K daylight, IP65 weatherproof.</p>
+        <span class="sc-tag" data-i18n="sc14_tag">Sport Lighting</span>
+      </div>
+      <div class="sc-card">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12l9-9 9 9" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10a1 1 0 001 1h3v-4h6v4h3a1 1 0 001-1V10" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
+        <h4 data-i18n="sc15_t">Municipal &amp; Parking Lots</h4>
+        <p data-i18n="sc15_d">AC street light heads and floodlights for municipal roads, industrial parks, parking lots and commercial compounds. 50-100W, photocell ready, aluminium housing, IP65.</p>
+        <span class="sc-tag" data-i18n="sc15_tag">Municipal Road</span>
+      </div>
+    </div>
+  </div>
 
 <section class="factory" id="factory">
   <div class="fac-l reveal">
@@ -1923,11 +1997,23 @@ const T = {
     cat4_prods:'2个子系列 · 8款产品：离网家庭 · 便携工具',
         sc_lbl:'应用场景',sc_h2:'真实场景。<em>真实表现。</em>',sc_sub:'了解每款产品在哪些场景发挥最佳效果 — 从海滨别墅到离网农场。',
     sc1_t:'周界安防',sc1_d:'太阳能泛光灯和PIR壁灯保护商业园区、仓库和住宅围墙。人体感应、不依赖电网、IP65/IP66防护等级。',sc1_tag:'安防系列',
-    sc2_t:'入口与外立面',sc2_d:'球形门柱灯、上下出光壁灯和经典壁灯为庄园、酒店和封闭社区的入口增光添彩。暖白光、建筑美学。',sc2_tag:'花园+装饰',
-    sc3_t:'花园与景观',sc3_d:'立柱灯、插地灯和射灯塑造小径、花坛和树木照明。304不锈钢和铸铝材质。IP65–IP67。',sc3_tag:'花园系列',
-    sc4_t:'氛围与户外生活',sc4_d:'仿真火焰灯、萤火虫铜线灯串、太阳伞灯和户外落地灯为花园、露台和户外餐饮营造氛围。2700K暖光。IP44–IP65适合全年使用。',sc4_tag:'氛围系列',
-    sc5_t:'道路与车道',sc5_d:'立柱路灯和一体化路灯引导车辆和行人。市政级别，适合道路、停车场和长车道。雷达感应和光控。',sc5_tag:'花园+安防',
-    sc6_t:'应急、作业与特种',sc6_d:'便携工地灯、警示信号灯、旗杆投光灯和露营灯，适用于工地、应急和户外探险。USB充电宝功能。IP65/IP66。SOS模式。',sc6_tag:'便携与特种',
+    sc_cat1:'安防与道路',sc_cat2:'花园与景观',sc_cat3:'装饰与氛围',sc_cat4:'离网与便携',sc_cat5:'AC商业照明',
+    sc1_t:'周界安防',sc1_d:'太阳能泛光灯和PIR壁灯保护商业园区、仓库和住宅围墙。人体感应、不依赖电网、IP65/IP66防护等级。',sc1_tag:'安防系列',
+    sc5_t:'道路与街道照明',sc5_d:'一体化和分体式太阳能路灯，适用于市政道路、乡村公路、停车场和长车道。雷达感应、光控自动、IP66防护。',sc5_tag:'道路系列',
+    sc7_t:'工地与作业安全',sc7_d:'太阳能警示信号灯、旗杆投光灯和便携工地灯，适用于施工区域、道路作业和工业工地。IP66、磁吸安装、SOS爆闪模式。',sc7_tag:'警示与信号',
+    sc2_t:'别墅与庄园入口',sc2_d:'庭院柱灯、门柱灯和上下出光壁灯为别墅、酒店和封闭社区的入口增光添彩。暖白光、建筑铝材工艺。',sc2_tag:'花园+装饰',
+    sc3_t:'花园与小径',sc3_d:'插地灯、景观射灯和立柱草坪灯塑造花坛、小径和树木照明。304不锈钢和铸铝材质。IP65–IP67。',sc3_tag:'花园系列',
+    sc8_t:'公园与公共空间',sc8_d:'立柱草坪灯、庭院柱灯和景观射灯，适用于市政公园、酒店园林、广场和度假村景观。光控自动、IP65适合全年户外使用。',sc8_tag:'公共与商业',
+    sc4_t:'户外餐饮与露台',sc4_d:'爱迪生串灯、仿真火焰灯和户外落地灯为餐厅露台、屋顶酒吧和花园宴会营造温馨氛围。2700K暖光、IP44–IP65。',sc4_tag:'氛围系列',
+    sc9_t:'泳池与露台',sc9_d:'泳池浮水灯、太阳伞灯和甲板灯，适用于酒店泳池、度假村露台和屋顶酒廊。RGB 16色、IP68防水、红外遥控。',sc9_tag:'泳池与甲板',
+    sc10_t:'活动与庆典',sc10_d:'萤火虫铜线灯串、爱迪生串灯和仿真火焰灯，适用于婚礼、节庆、花园派对和季节性庆祝。8种灯光模式、10-20m长度、IP44。',sc10_tag:'活动与节庆',
+    sc6_t:'应急与停电',sc6_d:'充电飞碟灯、应急LED灯泡和便携露营灯，适用于限电、停电和灾害救援。USB-C充电、挂钩悬挂、4-15小时续航。',sc6_tag:'应急系列',
+    sc11_t:'农村家庭照明',sc11_d:'分体式太阳能室内壁灯、家庭照明套装和吊扇灯，专为离网农村家庭设计。室外采光板、室内照明。停电时USB手机充电。LiFePO4电池。',sc11_tag:'离网家庭',
+    sc12_t:'露营与户外探险',sc12_d:'便携露营灯、充电宝露营灯、灭蚊灯和工地灯，适用于露营、钓鱼、徒步和户外探索。USB-C PD快充、磁吸底座、IP65。',sc12_tag:'便携工具',
+    sc13_t:'仓库与工厂',sc13_d:'UFO工矿灯和大功率AC投光灯，适用于仓库、工厂、装配线和物流中心。100-300W、IP65、铝制散热片、30,000小时寿命。',sc13_tag:'工业高棚',
+    sc14_t:'运动场与体育场馆',sc14_d:'大功率AC LED投光灯200-1000W，适用于户外运动场、体育场馆、网球场和竞技场。120°宽光束、6500K日光色温、IP65。',sc14_tag:'运动照明',
+    sc15_t:'市政与停车场',sc15_d:'AC路灯头和投光灯，适用于市政道路、工业园区、停车场和商业园区。50-100W、支持光控、铝制外壳、IP65。',sc15_tag:'市政道路',
+sc6_tag:'便携与特种',
     mm_lbl:'找到适合您的灯',mm_h2:'不确定哪种灯适合您？<em>回答几个问题。</em>',mm_sub:'30秒。无需翻阅产品目录。我们为您匹配最合适的产品。',
     mm_biz_t:'我是企业采购商',mm_biz_d:'进口商、分销商、承包商或批量采购的项目买家。',
     mm_home_t:'我是家庭用户',mm_home_d:'为自己的房子或项目寻找太阳能户外照明。',
@@ -2045,11 +2131,23 @@ const T = {
     cat4_prods:'2 subgamas · 8 productos: Hogar sin Red · Herramientas Portátiles',
         sc_lbl:'Dónde Se Usan',sc_h2:'Lugares Reales. <em>Rendimiento Real.</em>',sc_sub:'Vea dónde cada gama hace su mejor trabajo — desde urbanizaciones costeras hasta fincas sin conexión a la red.',
     sc1_t:'Seguridad Perimetral',sc1_d:'Reflectores solares y luces de pared PIR protegiendo complejos comerciales, bodegas y muros residenciales. Activación por movimiento, independiente de la red, IP65/IP66.',sc1_tag:'Gama Seguridad',
-    sc2_t:'Entrada y Fachada',sc2_d:'Luces esféricas para pilares, apliques duales y linternas clásicas enmarcando entradas de urbanizaciones, hoteles y comunidades cerradas. Luz cálida, acabado arquitectónico.',sc2_tag:'Jardín + Decorativo',
-    sc3_t:'Jardín y Paisaje',sc3_d:'Bolardos, estacas y reflectores moldeando senderos, jardineras e iluminación de árboles. Acero inoxidable 304 y aluminio fundido. IP65–IP67.',sc3_tag:'Gama Jardín',
-    sc4_t:'Ambiente y Vida al Aire Libre',sc4_d:'Antorchas de llama, luces de hada, luces de sombrilla y lámparas de pie creando atmósfera para jardines, terrazas y cenas al aire libre. Brillo cálido 2700K. IP44–IP65 para todo el año.',sc4_tag:'Gama Ambiente',
-    sc5_t:'Camino y Entrada de Autos',sc5_d:'Bolardos y farolas todo-en-uno guiando vehículos y peatones. Grado municipal para carreteras, estacionamientos y entradas largas. Sensores radar y crepuscular.',sc5_tag:'Jardín + Seguridad',
-    sc6_t:'Emergencia, Trabajo y Especialidad',sc6_d:'Luces de trabajo portátiles, balizas, luces para asta de bandera y linternas de camping para obras, emergencias y aventuras al aire libre. Power bank USB. IP65/IP66. Modo SOS.',sc6_tag:'Portátil y Especialidad',
+    sc_cat1:'Seguridad y Calle',sc_cat2:'Jardín y Paisaje',sc_cat3:'Decorativo y Ambiente',sc_cat4:'Sin Red y Portátil',sc_cat5:'Comercial AC',
+    sc1_t:'Seguridad Perimetral',sc1_d:'Reflectores solares y luces de pared PIR protegiendo complejos comerciales, bodegas y muros residenciales. Activación por movimiento, independiente de la red, IP65/IP66.',sc1_tag:'Gama Seguridad',
+    sc5_t:'Alumbrado de Calles y Carreteras',sc5_d:'Farolas solares todo-en-uno y divididas para caminos municipales, carreteras rurales, estacionamientos y entradas largas. Sensor radar, automático crepuscular, IP66.',sc5_tag:'Gama Calle',
+    sc7_t:'Seguridad en Obras',sc7_d:'Balizas de advertencia solares, luces para asta de bandera y luces de trabajo portátiles para zonas de construcción, obras viales y sitios industriales. IP66, montaje magnético, modo SOS estroboscópico.',sc7_tag:'Advertencia y Señal',
+    sc2_t:'Entrada de Villas y Urbanizaciones',sc2_d:'Columnas para patio, lámparas para pilares y apliques duales enmarcando entradas de villas, hoteles y comunidades cerradas. Luz cálida, acabado arquitectónico en aluminio.',sc2_tag:'Jardín + Decorativo',
+    sc3_t:'Jardín y Senderos',sc3_d:'Estacas, reflectores y bolardos moldeando senderos, jardineras e iluminación de árboles. Acero inoxidable 304 y aluminio fundido. IP65–IP67.',sc3_tag:'Gama Jardín',
+    sc8_t:'Parques y Espacios Públicos',sc8_d:'Bolardos, columnas de patio y reflectores para parques municipales, jardines de hoteles, plazas y paisajismo de resorts. Automático crepuscular, IP65 para uso público todo el año.',sc8_tag:'Público y Comercial',
+    sc4_t:'Cenas al Aire Libre y Terrazas',sc4_d:'Guirnaldas Edison, antorchas de llama solar y lámparas de pie creando atmósfera para terrazas de restaurantes, bares en azoteas y cenas en jardín. Brillo cálido 2700K, IP44–IP65.',sc4_tag:'Gama Ambiente',
+    sc9_t:'Piscina y Terraza',sc9_d:'Luces flotantes para piscina, luces para sombrilla y luces de terraza para piscinas de hotel, terrazas de resort y salones en azotea. RGB 16 colores, IP68 sumergible, control remoto IR.',sc9_tag:'Piscina y Terraza',
+    sc10_t:'Eventos y Celebraciones',sc10_d:'Luces de hada en alambre de cobre, guirnaldas Edison y antorchas de llama para bodas, festivales, fiestas en jardín y celebraciones de temporada. 8 modos, 10-20m, IP44.',sc10_tag:'Eventos y Festivo',
+    sc6_t:'Emergencia y Apagones',sc6_d:'Luces recargables OVNI, bombillas LED de emergencia y linternas portátiles para cortes de carga, apagones y ayuda en desastres. Carga USB-C, colgado por gancho, 4-15h de autonomía.',sc6_tag:'Gama Emergencia',
+    sc11_t:'Iluminación Rural para el Hogar',sc11_d:'Apliques interiores con panel dividido, kits solares para el hogar y ventiladores de techo para hogares rurales sin conexión a la red. Panel afuera, luz adentro. Carga USB para teléfonos durante apagones. LiFePO4.',sc11_tag:'Hogar Sin Red',
+    sc12_t:'Camping y Aventura al Aire Libre',sc12_d:'Linternas portátiles para camping, linternas power bank, mata-insectos y luces de trabajo para camping, pesca, senderismo y exploración. Carga rápida USB-C PD, base magnética, IP65.',sc12_tag:'Herramientas Portátiles',
+    sc13_t:'Almacenes y Fábricas',sc13_d:'Luces industriales OVNI y reflectores AC de alta potencia para almacenes, fábricas, líneas de ensamblaje y centros logísticos. 100-300W, IP65, aletas de aluminio, 30.000h de vida.',sc13_tag:'Industrial Alto',
+    sc14_t:'Canchas Deportivas y Estadios',sc14_d:'Reflectores LED AC de alta potencia 200-1000W para canchas deportivas al aire libre, estadios, canchas de tenis y arenas. Haz amplio 120°, 6500K luz día, IP65.',sc14_tag:'Iluminación Deportiva',
+    sc15_t:'Estacionamientos y Uso Municipal',sc15_d:'Cabezales de farola AC y reflectores para caminos municipales, parques industriales, estacionamientos y complejos comerciales. 50-100W, listo para fotocélula, carcasa de aluminio, IP65.',sc15_tag:'Vial Municipal',
+sc6_tag:'Portátil y Especialidad',
     mm_lbl:'Encuentra Tu Luz',mm_h2:'¿No sabes qué luz te conviene? <em>Responde unas preguntas.</em>',mm_sub:'30 segundos. Sin buscar en catálogos. Te emparejamos con los productos ideales.',
     mm_biz_t:'Soy Comprador Empresarial',mm_biz_d:'Importador, distribuidor, contratista o comprador de proyectos al por mayor.',
     mm_home_t:'Soy Propietario de Vivienda',mm_home_d:'Busco iluminación solar para exteriores para mi propia propiedad o proyecto.',
@@ -2164,11 +2262,22 @@ const T = {
     cat4_prods:'2 sous-gammes · 8 produits : Maison Autonome · Outils Portables',
         sc_lbl:'Où Ils Sont Utilisés',sc_h2:'Lieux Réels. <em>Performance Réelle.</em>',sc_sub:'Découvrez où chaque gamme donne le meilleur — des résidences côtières aux fermes hors réseau.',
     sc1_t:'Sécurité Périmétrique',sc1_d:'Projecteurs solaires et appliques PIR protégeant complexes commerciaux, entrepôts et murs résidentiels. Détection de mouvement, indépendant du réseau, IP65/IP66.',sc1_tag:'Gamme Sécurité',
-    sc2_t:'Entrée & Façade',sc2_d:'Lampes sphériques pour piliers, appliques double flux et lanternes classiques encadrant les entrées de résidences, hôtels et communautés fermées. Lumière chaude, finition architecturale.',sc2_tag:'Jardin + Déco',
-    sc3_t:'Jardin & Paysage',sc3_d:'Colonnes, piquets et spots sculptant les allées, massifs et éclairage d\'arbres. Acier inox 304 et aluminium moulé. IP65–IP67.',sc3_tag:'Gamme Jardin',
-    sc4_t:'Ambiance & Vie en Plein Air',sc4_d:'Torches flammes, guirlandes féeriques, lampes parapluie et lampadaires créant une atmosphère pour jardins, terrasses et dîners en plein air. Lueur chaude 2700K. IP44–IP65 pour toute l\'année.',sc4_tag:'Gamme Ambiance',
-    sc5_t:'Chemin & Allée Carrossable',sc5_d:'Colonnes et lampadaires tout-en-un guidant véhicules et piétons. Niveau municipal pour routes, parkings et longues allées. Détection radar et crépusculaire.',sc5_tag:'Jardin + Sécurité',
-    sc6_t:'Urgence, Travail & Spécialité',sc6_d:'Lampes de travail portables, balises, projecteurs pour mâts et lanternes de camping pour chantiers, urgences et aventures. Power bank USB. IP65/IP66. Mode SOS.',sc6_tag:'Portable & Spécialité',
+    sc_cat1:'Sécurité et Rue',sc_cat2:'Jardin et Paysage',sc_cat3:'Décoratif et Ambiance',sc_cat4:'Hors Réseau et Portable',sc_cat5:'Commercial AC',
+    sc1_t:'Sécurité Périmétrique',sc1_d:'Projecteurs solaires et appliques PIR protégeant complexes commerciaux, entrepôts et murs résidentiels. Détection de mouvement, indépendant du réseau, IP65/IP66.',sc1_tag:'Gamme Sécurité',
+    sc5_t:'Éclairage des Rues et Routes',sc5_d:'Lampadaires solaires tout-en-un et divisés pour routes municipales, voies rurales, parkings et longues allées. Détection radar, automatique crépusculaire, IP66.',sc5_tag:'Gamme Rue',
+    sc7_t:'Sécurité des Chantiers',sc7_d:'Balises d\'avertissement solaires, projecteurs pour mâts et lampes de travail portables pour zones de construction, travaux routiers et sites industriels. IP66, montage magnétique, mode SOS stroboscopique.',sc7_tag:'Avertissement et Signal',
+    sc2_t:'Entrée de Villas et Résidences',sc2_d:'Colonnes de jardin, lampes pour piliers et appliques double flux encadrant les entrées de villas, hôtels et communautés fermées. Lumière chaude, finition architecturale en aluminium.',sc2_tag:'Jardin + Déco',
+    sc3_t:'Jardin et Allées',sc3_d:'Piquets, spots et colonnes sculptant les allées, massifs et éclairage d\'arbres. Acier inox 304 et aluminium moulé. IP65–IP67.',sc3_tag:'Gamme Jardin',
+    sc8_t:'Parcs et Espaces Publics',sc8_d:'Colonnes, bornes et spots pour parcs municipaux, jardins d\'hôtels, places et aménagements paysagers de resorts. Automatique crépusculaire, IP65 pour usage public toute l\'année.',sc8_tag:'Public et Commercial',
+    sc4_t:'Dîners en Plein Air et Terrasses',sc4_d:'Guirlandes Edison, torches flammes solaires et lampadaires créant une atmosphère pour terrasses de restaurants, bars sur les toits et dîners au jardin. Lueur chaude 2700K, IP44–IP65.',sc4_tag:'Gamme Ambiance',
+    sc9_t:'Piscine et Terrasse',sc9_d:'Lampes flottantes pour piscine, lampes parapluie et éclairage de terrasse pour piscines d\'hôtels, terrasses de resort et salons sur les toits. 16 couleurs RGB, IP68 étanche, télécommande IR.',sc9_tag:'Piscine et Terrasse',
+    sc10_t:'Événements et Célébrations',sc10_d:'Guirlandes féeriques en fil de cuivre, guirlandes Edison et torches flammes pour mariages, festivals, fêtes de jardin et célébrations saisonnières. 8 modes, 10-20m, IP44.',sc10_tag:'Événements et Festif',
+    sc6_t:'Urgence et Coupures de Courant',sc6_d:'Lampes OVNI rechargeables, ampoules LED d\'urgence et lanternes portables pour délestages, pannes et secours en cas de catastrophe. Charge USB-C, suspension par crochet, 4-15h d\'autonomie.',sc6_tag:'Gamme Urgence',
+    sc11_t:'Éclairage Rural pour la Maison',sc11_d:'Appliques intérieures à panneau divisé, kits solaires pour la maison et ventilateurs de plafond pour foyers ruraux hors réseau. Panneau dehors, lumière dedans. Charge USB pour téléphones pendant les pannes. LiFePO4.',sc11_tag:'Maison Autonome',
+    sc12_t:'Camping et Aventure en Plein Air',sc12_d:'Lanternes de camping portables, lanternes power bank, pièges à insectes et lampes de travail pour camping, pêche, randonnée et exploration. Charge rapide USB-C PD, base magnétique, IP65.',sc12_tag:'Outils Portables',
+    sc13_t:'Entrepôts et Usines',sc13_d:'Lampes industrielles OVNI et projecteurs AC haute puissance pour entrepôts, usines, lignes d\'assemblage et centres logistiques. 100-300W, IP65, ailettes en aluminium, durée de vie 30 000h.',sc13_tag:'Industriel Haut',
+    sc14_t:'Terrains de Sport et Stades',sc14_d:'Projecteurs LED AC haute puissance 200-1000W pour terrains de sport extérieurs, stades, courts de tennis et arénas. Large faisceau 120°, 6500K lumière du jour, IP65.',sc14_tag:'Éclairage Sportif',
+    sc15_t:'Parkings et Usage Municipal',sc15_d:'Têtes de lampadaire AC et projecteurs pour routes municipales, parcs industriels, parkings et complexes commerciaux. 50-100W, prêt pour photocellule, boîtier aluminium, IP65.',sc15_tag:'Voirie Municipale',
     mm_lbl:'Trouvez Votre Lampe',mm_h2:'Pas sûr de la lampe qu\'il vous faut ? <em>Répondez à quelques questions.</em>',mm_sub:'30 secondes. Sans parcourir le catalogue. Nous vous trouvons l\'éclairage idéal.',
     mm_biz_t:'Je suis un Acheteur Professionnel',mm_biz_d:'Importateur, distributeur, entrepreneur ou acheteur de projets en gros.',
     mm_home_t:'Je suis un Particulier',mm_home_d:'Je cherche un éclairage solaire extérieur pour ma propre propriété ou mon projet.',
@@ -2284,11 +2393,22 @@ const T = {
     cat4_prods:'2 sublinhas · 8 produtos: Casa Sem Rede · Ferramentas Portáteis',
         sc_lbl:'Onde São Usados',sc_h2:'Lugares Reais. <em>Performance Real.</em>',sc_sub:'Veja onde cada linha dá o seu melhor — de condomínios costeiros a fazendas sem conexão à rede.',
     sc1_t:'Segurança Perimetral',sc1_d:'Refletores solares e arandelas PIR protegendo complexos comerciais, armazéns e muros residenciais. Ativação por movimento, independente da rede, IP65/IP66.',sc1_tag:'Linha Segurança',
-    sc2_t:'Entrada e Fachada',sc2_d:'Luzes esféricas para pilares, arandelas duplas e lanternas clássicas emoldurando entradas de condomínios, hotéis e comunidades fechadas. Luz quente, acabamento arquitetônico.',sc2_tag:'Jardim + Decoração',
-    sc3_t:'Jardim e Paisagem',sc3_d:'Colunas, estacas e refletores moldando caminhos, canteiros e iluminação de árvores. Aço inox 304 e alumínio fundido. IP65–IP67.',sc3_tag:'Linha Jardim',
-    sc4_t:'Ambiente e Vida ao Ar Livre',sc4_d:'Tochas de chama, luzes de fada, luzes de guarda-sol e luminárias de piso criando atmosfera para jardins, terraços e jantares ao ar livre. Brilho quente 2700K. IP44–IP65 para uso o ano todo.',sc4_tag:'Linha Ambiente',
-    sc5_t:'Caminho e Entrada de Veículos',sc5_d:'Colunas e postes tudo-em-um guiando veículos e pedestres. Nível municipal para estradas, estacionamentos e longas entradas. Sensores radar e crepuscular.',sc5_tag:'Jardim + Segurança',
-    sc6_t:'Emergência, Trabalho e Especialidade',sc6_d:'Luzes de trabalho portáteis, balizas, refletores para mastro de bandeira e lanternas de camping para canteiros de obra, emergências e aventuras ao ar livre. Power bank USB. IP65/IP66. Modo SOS.',sc6_tag:'Portátil e Especialidade',
+    sc_cat1:'Segurança e Rua',sc_cat2:'Jardim e Paisagem',sc_cat3:'Decorativo e Ambiente',sc_cat4:'Sem Rede e Portátil',sc_cat5:'Comercial AC',
+    sc1_t:'Segurança Perimetral',sc1_d:'Refletores solares e arandelas PIR protegendo complexos comerciais, armazéns e muros residenciais. Ativação por movimento, independente da rede, IP65/IP66.',sc1_tag:'Linha Segurança',
+    sc5_t:'Iluminação de Ruas e Estradas',sc5_d:'Postes solares tudo-em-um e divididos para estradas municipais, vias rurais, estacionamentos e longas entradas. Sensor radar, automático crepuscular, IP66.',sc5_tag:'Linha Rua',
+    sc7_t:'Segurança em Obras',sc7_d:'Balizas de alerta solares, refletores para mastro de bandeira e luzes de trabalho portáteis para zonas de construção, obras viárias e locais industriais. IP66, montagem magnética, modo SOS estroboscópico.',sc7_tag:'Alerta e Sinal',
+    sc2_t:'Entrada de Vilas e Condomínios',sc2_d:'Colunas de pátio, luminárias para pilares e arandelas duplas emoldurando entradas de vilas, hotéis e comunidades fechadas. Luz quente, acabamento arquitetônico em alumínio.',sc2_tag:'Jardim + Decoração',
+    sc3_t:'Jardim e Caminhos',sc3_d:'Estacas, refletores e colunas moldando caminhos, canteiros e iluminação de árvores. Aço inox 304 e alumínio fundido. IP65–IP67.',sc3_tag:'Linha Jardim',
+    sc8_t:'Parques e Espaços Públicos',sc8_d:'Colunas, balizadores e refletores para parques municipais, terrenos de hotéis, praças e paisagismo de resorts. Automático crepuscular, IP65 para uso público o ano todo.',sc8_tag:'Público e Comercial',
+    sc4_t:'Jantares ao Ar Livre e Terraços',sc4_d:'Cordões Edison, tochas de chama solar e luminárias de piso criando atmosfera para terraços de restaurantes, bares em rooftops e jantares no jardim. Brilho quente 2700K, IP44–IP65.',sc4_tag:'Linha Ambiente',
+    sc9_t:'Piscina e Terraço',sc9_d:'Luzes flutuantes para piscina, luzes de guarda-sol e iluminação de deck para piscinas de hotéis, terraços de resort e lounges em rooftops. 16 cores RGB, IP68 à prova d\'água, controle remoto IR.',sc9_tag:'Piscina e Deck',
+    sc10_t:'Eventos e Celebrações',sc10_d:'Luzes de fada em fio de cobre, cordões Edison e tochas de chama para casamentos, festivais, festas no jardim e celebrações sazonais. 8 modos, 10-20m, IP44.',sc10_tag:'Eventos e Festivo',
+    sc6_t:'Emergência e Apagões',sc6_d:'Luzes OVNI recarregáveis, lâmpadas LED de emergência e lanternas portáteis para cortes de energia, apagões e auxílio em desastres. Carregamento USB-C, pendurada por gancho, 4-15h de autonomia.',sc6_tag:'Linha Emergência',
+    sc11_t:'Iluminação Rural para o Lar',sc11_d:'Arandelas internas com painel dividido, kits solares residenciais e ventiladores de teto para lares rurais sem conexão à rede. Painel fora, luz dentro. Carregamento USB para telefones durante apagões. LiFePO4.',sc11_tag:'Casa Sem Rede',
+    sc12_t:'Camping e Aventura ao Ar Livre',sc12_d:'Lanternas de camping portáteis, lanternas power bank, mata-insetos e luzes de trabalho para camping, pesca, trilhas e exploração. Carga rápida USB-C PD, base magnética, IP65.',sc12_tag:'Ferramentas Portáteis',
+    sc13_t:'Armazéns e Fábricas',sc13_d:'Luminárias industriais OVNI e refletores AC de alta potência para armazéns, fábricas, linhas de montagem e centros logísticos. 100-300W, IP65, aletas de alumínio, 30.000h de vida.',sc13_tag:'Industrial Alto',
+    sc14_t:'Quadras Esportivas e Estádios',sc14_d:'Refletores LED AC de alta potência 200-1000W para quadras esportivas ao ar livre, estádios, quadras de tênis e arenas. Feixe amplo 120°, 6500K luz do dia, IP65.',sc14_tag:'Iluminação Esportiva',
+    sc15_t:'Estacionamentos e Uso Municipal',sc15_d:'Cabeçotes de poste AC e refletores para vias municipais, parques industriais, estacionamentos e complexos comerciais. 50-100W, pronto para fotocélula, carcaça de alumínio, IP65.',sc15_tag:'Viário Municipal',
     mm_lbl:'Encontre Sua Luz',mm_h2:'Não sabe qual luz é ideal? <em>Responda algumas perguntas.</em>',mm_sub:'30 segundos. Sem navegar por catálogos. Nós combinamos você com os produtos certos.',
     mm_biz_t:'Sou um Comprador Empresarial',mm_biz_d:'Importador, distribuidor, empreiteiro ou comprador de projetos no atacado.',
     mm_home_t:'Sou um Proprietário Residencial',mm_home_d:'Busco iluminação solar externa para minha própria propriedade ou projeto.',
