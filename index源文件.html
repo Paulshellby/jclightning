@@ -2871,12 +2871,15 @@ function showToast(){
 setTimeout(showToast,8000);
 
 // Lenis smooth scroll
-const lenis=new Lenis({duration:1.4,easing:t=>t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1,wheelMultiplier:0.9,touchMultiplier:1.5,smoothWheel:true});
-function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-requestAnimationFrame(raf);
-lenis.on('scroll',ScrollTrigger.update);
-gsap.ticker.add(t=>lenis.raf(t*1000));
-gsap.ticker.lagSmoothing(0);
+let lenis=null;
+if(typeof Lenis!=='undefined'){
+  lenis=new Lenis({duration:1.4,easing:t=>t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1,wheelMultiplier:0.9,touchMultiplier:1.5,smoothWheel:true});
+  function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
+  requestAnimationFrame(raf);
+  lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+}
 
 // Initial language detection
 (function(){
@@ -2885,6 +2888,12 @@ gsap.ticker.lagSmoothing(0);
   if(lang&&T[lang]) setLang(lang);
 })();
 
+// Preloader failsafe: always hide after 5s max
+setTimeout(()=>{
+  const pl=document.getElementById('preloader');
+  if(pl){pl.classList.add('hide');setTimeout(()=>pl.remove(),500);}
+},5000);
+
 // Preloader + Hero entrance
 window.addEventListener('load',()=>{
   setTimeout(()=>{
@@ -2892,9 +2901,11 @@ window.addEventListener('load',()=>{
     if(pl){
       pl.classList.add('hide');
       // Hero entrance stagger
-      gsap.from('.hero-left > *',{y:40,opacity:0,duration:.8,stagger:.15,ease:'power3.out',delay:.15});
-      gsap.from('.hero-right',{opacity:0,scale:1.03,duration:1.2,ease:'power2.out',delay:.1});
-      gsap.from('.scroll-indicator',{opacity:0,y:-12,duration:.6,delay:.7});
+      if(typeof gsap!=='undefined'){
+        gsap.from('.hero-left > *',{y:40,opacity:0,duration:.8,stagger:.15,ease:'power3.out',delay:.15});
+        gsap.from('.hero-right',{opacity:0,scale:1.03,duration:1.2,ease:'power2.out',delay:.1});
+        gsap.from('.scroll-indicator',{opacity:0,y:-12,duration:.6,delay:.7});
+      }
       setTimeout(()=>pl.remove(),500);
     }
   },800);
