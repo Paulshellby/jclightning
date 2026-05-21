@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -244,6 +244,29 @@ h1 em, h2 em, .text-gold { background:linear-gradient(135deg,#c9a24e 0%,#e2c98a 
 .prod-search { width:100%; max-width:420px; margin-bottom:20px; padding:12px 20px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:50px; color:#fff; font-family:'Outfit',sans-serif; font-size:0.78rem; outline:none; transition:border-color .25s, background .25s; }
 .prod-search::placeholder { color:var(--stone-lt); }
 .prod-search:focus { border-color:var(--brass); background:rgba(255,255,255,0.07); }
+/* Market Tabs */
+.market-tabs { margin-bottom:32px; }
+.market-tabs-h { font-family:'Outfit',sans-serif; font-size:0.7rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass); margin-bottom:12px; }
+.market-tabs-nav { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; }
+.market-tab-btn { font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:400; letter-spacing:0.06em; padding:8px 14px; border-radius:50px; border:1px solid rgba(255,255,255,0.08); background:transparent; color:var(--stone-lt); cursor:pointer; transition:all .25s; white-space:nowrap; }
+.market-tab-btn:hover { color:#fff; border-color:rgba(255,255,255,0.2); }
+.market-tab-btn.active { background:var(--brass); color:#fff; border-color:var(--brass); box-shadow:0 0 16px rgba(168,125,42,0.25); }
+.market-panel { display:none; }
+.market-panel.active { display:block; }
+.market-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:10px; }
+.market-card { display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); transition:all .25s; cursor:pointer; text-decoration:none; }
+.market-card:hover { border-color:rgba(255,255,255,0.12); background:rgba(255,255,255,0.04); }
+.market-card-img { width:48px; height:48px; border-radius:8px; object-fit:cover; flex-shrink:0; background:rgba(255,255,255,0.03); }
+.market-card-body { flex:1; min-width:0; }
+.market-card-name { font-family:'Outfit',sans-serif; font-size:0.72rem; font-weight:500; color:#fff; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.market-card-reason { font-size:0.58rem; color:var(--stone-lt); line-height:1.35; }
+.market-card-arrow { color:var(--brass); font-size:0.8rem; flex-shrink:0; opacity:0; transition:opacity .25s; }
+.market-card:hover .market-card-arrow { opacity:1; }
+@media (max-width:768px) {
+  .market-tabs-nav { gap:4px; }
+  .market-tab-btn { font-size:0.56rem; padding:6px 10px; }
+  .market-cards { grid-template-columns:1fr; }
+}
 .prod-card.hidden, .prod-subcat.hidden { display:none; }
 /* Inquiry Add Button on Product Cards */
 .inq-add { position:absolute; bottom:12px; right:12px; z-index:5; width:32px; height:32px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); background:rgba(14,12,10,0.7); color:rgba(255,255,255,0.6); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:300; transition:all .25s; backdrop-filter:blur(4px); opacity:0; transform:scale(0.8); }
@@ -272,6 +295,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .bg-new   { background:#2d6a4f; }
 .bg-hot   { background:#b8542c; }
 .bg-ac    { background:#4a6fa5; }
+.bg-seasonal { background:#c47f3a; }
 .prod-info { padding:18px 20px 22px; border-top:1px solid rgba(255,255,255,0.06); }
 .prod-info h4 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:400; color:#fff; margin-bottom:5px; }
 .prod-info p { font-size:0.73rem; font-weight:300; color:var(--mist); line-height:1.6; margin-bottom:13px; }
@@ -695,7 +719,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     <li class="mega-trigger"><a href="#products" class="nav-link" data-i18n="nav_products">Products</a>
       <div class="mega-panel">
         <div class="mega-col"><h6 data-i18n="mega_h1">Security & Street</h6><a href="#cat-security" data-preview="images/product-01.webp"><span data-i18n="mega_a1">Solar Flood Lights</span> <span>3</span></a><a href="#cat-security" data-preview="images/product-09.jpg"><span data-i18n="mega_a2">Solar Street Lights</span> <span>2</span></a><a href="#cat-security" data-preview="images/product-07.jpg"><span data-i18n="mega_a3">Warning & Signal</span> <span>2</span></a></div>
-        <div class="mega-col"><h6 data-i18n="mega_h2">Garden & Landscape</h6><a href="#cat-garden" data-preview="images/product-03.jpg"><span data-i18n="mega_a4">Pillars & Columns</span> <span>3</span></a><a href="#cat-garden" data-preview="images/product-06.jpg"><span data-i18n="mega_a5">Garden Accent</span> <span>4</span></a><a href="#cat-garden" data-preview="images/product-12.jpg"><span data-i18n="mega_a6">Deck & Step</span> <span>1</span></a></div>
+        <div class="mega-col"><h6 data-i18n="mega_h2">Garden & Landscape</h6><a href="#cat-garden" data-preview="images/product-03.jpg"><span data-i18n="mega_a4">Pillars & Columns</span> <span>1</span></a><a href="#cat-garden" data-preview="images/product-06.jpg"><span data-i18n="mega_a5">Garden Accent</span> <span>2</span></a></div>
         <div class="mega-col"><h6 data-i18n="mega_h3">Decorative & Ambiance</h6><a href="#cat-decorative" data-preview="images/product-04.jpg"><span data-i18n="mega_a7">Wall & String</span> <span>4</span></a><a href="#cat-decorative" data-preview="images/product-11.jpg"><span data-i18n="mega_a8">Outdoor Ambiance</span> <span>4</span></a></div>
         <div class="mega-col"><h6 data-i18n="mega_h4">Off-Grid & Portable</h6><a href="#cat-offgrid" data-preview="images/product-13.jpg"><span data-i18n="mega_a9">Off-Grid Home</span> <span>4</span></a><a href="#cat-offgrid" data-preview="images/product-14.jpg"><span data-i18n="mega_a10">Portable Tools</span> <span>5</span></a></div>
         <div class="mega-col"><h6 data-i18n="mega_h5">AC Commercial</h6><a href="#cat-ac" data-preview="images/product-31.jpg"><span data-i18n="mega_a11">AC Floodlights</span> <span>1</span></a><a href="#cat-ac" data-preview="images/product-32.jpg"><span data-i18n="mega_a12">High Bay &amp; Street</span> <span>2</span></a></div>
@@ -711,6 +735,8 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
       <button class="lang-btn" onclick="setLang('es')">ES</button>
+	      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+	      <button class="lang-btn" onclick="setLang('pt')">PT</button>
     </div>
     <a href="#contact" class="nav-cta" data-i18n="nav_quote">Get a Quote</a>
     <a href="#" class="nav-dl" title="Download Catalog">Catalog ↓</a>
@@ -855,12 +881,239 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     </div>
   </div>
 
-  <div class="reveal" style="margin-bottom:24px"><input type="text" class="prod-search" id="prodSearch" placeholder="Search 33 products — IP66, flood light, 路灯…" data-i18n-placeholder="search_ph"></div>
+  <div class="reveal" style="margin-bottom:24px"><input type="text" class="prod-search" id="prodSearch" placeholder="Search 30 products — IP66, flood light, 路灯…" data-i18n-placeholder="search_ph"></div>
 
+  <div class="market-tabs reveal" style="margin-bottom:32px">
+    <h4 class="market-tabs-h" data-i18n="market_title">Solutions by Market</h4>
+    <div class="market-tabs-nav">
+      <button class="market-tab-btn active" data-market="na" data-i18n="market_na">USA &amp; Canada</button>
+      <button class="market-tab-btn" data-market="latam" data-i18n="market_latam">Latin America</button>
+      <button class="market-tab-btn" data-market="africa" data-i18n="market_africa">French Africa</button>
+      <button class="market-tab-btn" data-market="me" data-i18n="market_me">Middle East</button>
+      <button class="market-tab-btn" data-market="brazil" data-i18n="market_brazil">Brazil</button>
+      <button class="market-tab-btn" data-market="india" data-i18n="market_india">India</button>
+    </div>
+    <div class="market-tabs-panels">
+      <!-- NA -->
+      <div class="market-panel active" data-market="na">
+        <div class="market-cards">
+          <a class="market-card" data-prod="p11" href="#cat-decorative" onclick="event.preventDefault();scrollToCat('cat-decorative')">
+            <img class="market-card-img" src="images/product-06.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p11_n">Solar Edison String Lights</div>
+              <div class="market-card-reason" data-i18n="mr_na_1">Seasonal decor · 5 holiday themes · UL/ETL retail-ready · IP65</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p13" href="#cat-offgrid" onclick="event.preventDefault();scrollToCat('cat-offgrid')">
+            <img class="market-card-img" src="images/product-10.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p13_n">Solar Portable Camping Lantern</div>
+              <div class="market-card-reason" data-i18n="mr_na_2">Outdoor recreation · USB-C PD 18W · power bank · 15h+ runtime</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p14" href="#cat-offgrid" onclick="event.preventDefault();scrollToCat('cat-offgrid')">
+            <img class="market-card-img" src="images/product-07.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p14_n">Solar Bug Zapper Light</div>
+              <div class="market-card-reason" data-i18n="mr_na_3">Backyard & camping · UV-LED · 100-200m² · cross-sell staple</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p8" href="#cat-garden" onclick="event.preventDefault();scrollToCat('cat-garden')">
+            <img class="market-card-img" src="images/product-13.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p8_n">Solar Garden Spike Spotlight</div>
+              <div class="market-card-reason" data-i18n="mr_na_4">Landscape contractors · 360° adjust · warm white 3000K · IP65</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <!-- LATAM -->
+      <div class="market-panel" data-market="latam">
+        <div class="market-cards">
+          <a class="market-card" data-prod="p9" href="#cat-security" onclick="event.preventDefault();scrollToCat('cat-security')">
+            <img class="market-card-img" src="images/product-02.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p9_n">All-in-One Solar Street Light</div>
+              <div class="market-card-reason" data-i18n="mr_latam_1">Municipal & rural roads · radar sensor · IP66 · LiFePO4</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p7" href="#cat-security" onclick="event.preventDefault();scrollToCat('cat-security')">
+            <img class="market-card-img" src="images/product-05.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p7_n">30W Solar Flood Security Light</div>
+              <div class="market-card-reason" data-i18n="mr_latam_2">Perimeter & farm · PIR 10m · IP66 · 2400lm</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p27" href="#cat-security" onclick="event.preventDefault();scrollToCat('cat-security')">
+            <img class="market-card-img" src="images/product-18.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p27_n">Split Solar Street Light (30/60/100W)</div>
+              <div class="market-card-reason" data-i18n="mr_latam_3">Infrastructure projects · Colombia/Ecuador spec · IP66</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p2" href="#cat-security" onclick="event.preventDefault();scrollToCat('cat-security')">
+            <img class="market-card-img" src="images/product-11.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p2_n">PIR Motion Sensor Wall Light</div>
+              <div class="market-card-reason" data-i18n="mr_latam_4">Residential security · 800lm · anti-vandal · 8-12h</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <!-- FR Africa -->
+      <div class="market-panel" data-market="africa">
+        <div class="market-cards">
+          <a class="market-card" data-prod="p9" href="#cat-security" onclick="event.preventDefault();scrollToCat('cat-security')">
+            <img class="market-card-img" src="images/product-02.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p9_n">All-in-One Solar Street Light</div>
+              <div class="market-card-reason" data-i18n="mr_africa_1">Routes rurales et municipales · radar · IP66 · LiFePO4</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p10" href="#cat-security" onclick="event.preventDefault();scrollToCat('cat-security')">
+            <img class="market-card-img" src="images/product-12.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p10_n">Up-Down Solar Wall Light</div>
+              <div class="market-card-reason" data-i18n="mr_africa_2">Résidentiel premium · aluminium · 3000K · 10h autonomie</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p17" href="#cat-offgrid" onclick="event.preventDefault();scrollToCat('cat-offgrid')">
+            <img class="market-card-img" src="images/product-17.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p17_n">Solar Home Lighting Kit</div>
+              <div class="market-card-reason" data-i18n="mr_africa_3">Électrification rurale · kit complet · 2 lampes · USB urgence</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p30" href="#cat-ac" onclick="event.preventDefault();scrollToCat('cat-ac')">
+            <img class="market-card-img" src="images/product-30.webp" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p30_n">Emergency UFO Rechargeable Light</div>
+              <div class="market-card-reason" data-i18n="mr_africa_4">Délestage · USB-C · sans installation · 4-6h autonomie</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <!-- Middle East -->
+      <div class="market-panel" data-market="me">
+        <div class="market-cards">
+          <a class="market-card" data-prod="p9" href="#cat-security" onclick="event.preventDefault();scrollToCat('cat-security')">
+            <img class="market-card-img" src="images/product-02.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p9_n">All-in-One Solar Street Light</div>
+              <div class="market-card-reason" data-i18n="mr_me_1">CCTV Smart Edition · municipal tenders · radar · IP66</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p31" href="#cat-ac" onclick="event.preventDefault();scrollToCat('cat-ac')">
+            <img class="market-card-img" src="images/product-31.webp" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p31_n">AC LED Floodlight (50-1000W)</div>
+              <div class="market-card-reason" data-i18n="mr_me_2">Stadiums & compounds · 50-1000W · IP65 · CE certified</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p13" href="#cat-offgrid" onclick="event.preventDefault();scrollToCat('cat-offgrid')">
+            <img class="market-card-img" src="images/product-10.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p13_n">Solar Portable Camping Lantern</div>
+              <div class="market-card-reason" data-i18n="mr_me_3">Desert camping · power bank · 15h+ · durable IP44</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p15" href="#cat-offgrid" onclick="event.preventDefault();scrollToCat('cat-offgrid')">
+            <img class="market-card-img" src="images/product-15.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p15_n">Solar Indoor Wall Light (Split)</div>
+              <div class="market-card-reason" data-i18n="mr_me_4">Off-grid villa · USB phone charge · LiFePO4 4000mAh</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <!-- Brazil -->
+      <div class="market-panel" data-market="brazil">
+        <div class="market-cards">
+          <a class="market-card" data-prod="p9" href="#cat-security" onclick="event.preventDefault();scrollToCat('cat-security')">
+            <img class="market-card-img" src="images/product-02.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p9_n">All-in-One Solar Street Light</div>
+              <div class="market-card-reason" data-i18n="mr_brazil_1">Iluminação pública · IP66 · radar · bateria LiFePO4</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p8" href="#cat-garden" onclick="event.preventDefault();scrollToCat('cat-garden')">
+            <img class="market-card-img" src="images/product-13.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p8_n">Solar Garden Spike Spotlight</div>
+              <div class="market-card-reason" data-i18n="mr_brazil_2">Paisagismo · 360° ajustável · luz quente 3000K · IP65</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p30" href="#cat-ac" onclick="event.preventDefault();scrollToCat('cat-ac')">
+            <img class="market-card-img" src="images/product-30.webp" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p30_n">Emergency UFO Rechargeable Light</div>
+              <div class="market-card-reason" data-i18n="mr_brazil_3">Apagões · USB-C · sem instalação · 3 modos</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p17" href="#cat-offgrid" onclick="event.preventDefault();scrollToCat('cat-offgrid')">
+            <img class="market-card-img" src="images/product-17.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p17_n">Solar Home Lighting Kit</div>
+              <div class="market-card-reason" data-i18n="mr_brazil_4">Kit residencial · 2 lâmpadas · USB emergência · fácil instalação</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <!-- India -->
+      <div class="market-panel" data-market="india">
+        <div class="market-cards">
+          <a class="market-card" data-prod="p8" href="#cat-garden" onclick="event.preventDefault();scrollToCat('cat-garden')">
+            <img class="market-card-img" src="images/product-13.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p8_n">Solar Garden Spike Spotlight</div>
+              <div class="market-card-reason" data-i18n="mr_india_1">Garden & temple · warm white 3000K · 360° · IP65</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p2" href="#cat-security" onclick="event.preventDefault();scrollToCat('cat-security')">
+            <img class="market-card-img" src="images/product-11.jpg" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p2_n">PIR Motion Sensor Wall Light</div>
+              <div class="market-card-reason" data-i18n="mr_india_2">Residential security · 800lm · PIR 8-12m · affordable</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+          <a class="market-card" data-prod="p31" href="#cat-ac" onclick="event.preventDefault();scrollToCat('cat-ac')">
+            <img class="market-card-img" src="images/product-31.webp" alt="" loading="lazy" />
+            <div class="market-card-body">
+              <div class="market-card-name" data-i18n="p31_n">AC LED Floodlight (50-1000W)</div>
+              <div class="market-card-reason" data-i18n="mr_india_3">Factory & warehouse · 50-1000W · IP65 · 30,000h life</div>
+            </div>
+            <span class="market-card-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="prod-filter reveal" id="prodFilter">
-    <button class="prod-filter-btn active" onclick="scrollToCat('all')"><span data-i18n="filter_all">All</span><span class="prod-filter-count">33</span></button>
+    <button class="prod-filter-btn active" onclick="scrollToCat('all')"><span data-i18n="filter_all">All</span><span class="prod-filter-count">30</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-security')"><span data-i18n="filter_security">Security</span><span class="prod-filter-count">8</span></button>
-    <button class="prod-filter-btn" onclick="scrollToCat('cat-garden')"><span data-i18n="filter_garden">Garden</span><span class="prod-filter-count">6</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-garden')"><span data-i18n="filter_garden">Garden</span><span class="prod-filter-count">3</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-decorative')"><span data-i18n="filter_decorative">Decorative</span><span class="prod-filter-count">8</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-offgrid')"><span data-i18n="filter_offgrid">Off-Grid</span><span class="prod-filter-count">8</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-ac')"><span data-i18n="filter_ac">AC Commercial</span><span class="prod-filter-count">3</span></button>
@@ -899,7 +1152,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       <h4 class="prod-subcat-h" data-i18n="sub_streets">Street Lights</h4>
       <div class="prod-grid">
         <div class="prod-card">
-          <div class="prod-img"><img src="images/product-02.jpg" alt="All-in-One Solar Street Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="prod-img"><div class="prod-badge bg-brass" data-i18n="b_cctv">CCTV Smart Edition</div><img src="images/product-02.jpg" alt="All-in-One Solar Street Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
           <div class="prod-info"><h4 data-i18n="p9_n">All-in-One Solar Street Light</h4><p data-i18n="p9_d">Integrated solar street light for municipal roads, rural pathways & parking lots. 100/200/300W · IP66 · radar sensor · LiFePO4 · dusk-to-dawn auto. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
         </div>
         <div class="prod-card">
@@ -932,26 +1185,12 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     </div>
 
     <div class="prod-subcat">
-      <h4 class="prod-subcat-h" data-i18n="sub_pillars">Pillars &amp; Columns</h4>
+      <h4 class="prod-subcat-h" data-i18n="sub_garden_pathway">Garden &amp; Pathway</h4>
       <div class="prod-grid">
-        <div class="prod-card">
-          <div class="prod-img"><img src="images/product-07.jpg" alt="Sphere Gate Pillar Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
-          <div class="prod-info"><h4 data-i18n="p3_n">Sphere Gate Pillar Light</h4><p data-i18n="p3_d">Decorative pillar lighting for gates & entrance posts. 304 stainless steel · UV-stable acrylic globe · 5W · IP65 · LiFePO4 · 10-12h. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-        </div>
-        <div class="prod-card">
-          <div class="prod-img"><img src="images/product-12.jpg" alt="Solar Bollard Path Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
-          <div class="prod-info"><h4 data-i18n="p5_n">Solar Bollard Path Light</h4><p data-i18n="p5_d">Post-mounted bollard lighting for driveways & walkways. Cast aluminium · heights 0.5/0.8/1.0m · 3W · IP65 · 2000mAh LiFePO4 · 10h. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-        </div>
         <div class="prod-card">
           <div class="prod-img"><div class="prod-badge bg-new" data-i18n="b_newarr">NEW</div><img src="images/28-太阳能庭院柱灯/lucid-origin_professional_product_photography_of_a_modern_solar_courtyard_column_light_120cm_-0.jpg" alt="Solar Courtyard Column Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
           <div class="prod-info"><h4 data-i18n="p28_n">Solar Courtyard Column Light (1-2m)</h4><p data-i18n="p28_d">Modern aluminium pillar lamp for residential courtyards, villa entrances and commercial plazas. 10W · 800lm · 3000K · IP65 · 8000mAh LiFePO4 · 10-12h · black/white/anthracite. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
         </div>
-      </div>
-    </div>
-
-    <div class="prod-subcat">
-      <h4 class="prod-subcat-h" data-i18n="sub_garden_accent">Garden Accent</h4>
-      <div class="prod-grid">
         <div class="prod-card">
           <div class="prod-img"><div class="prod-badge bg-set" data-i18n="b_set">8-Pack</div><img src="images/product-13.jpg" alt="Solar Garden Stake Light 8-Pack" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
           <div class="prod-info"><h4 data-i18n="p6_n">Solar Garden Stake Light · 8-Pack</h4><p data-i18n="p6_d">Retail-ready stake lighting for gardens & pathways. Frosted glass · ABS · 1.2W · IP65 · 600mAh · 8h. 8-pack & 12-pack consumer boxes. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
@@ -959,10 +1198,6 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <div class="prod-card">
           <div class="prod-img"><img src="images/product-14.jpg" alt="Solar Garden Spike Spotlight" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
           <div class="prod-info"><h4 data-i18n="p8_n">Solar Garden Spike Spotlight</h4><p data-i18n="p8_d">Adjustable spike spotlights for tree uplighting & facades. 360° rotating · 90° tilt · 5W · 400lm · IP65 · 1200mAh · 8h · 3000K/6000K. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
-        </div>
-        <div class="prod-card">
-          <div class="prod-img"><div class="prod-badge bg-new" data-i18n="b_newarr">NEW</div><img src="images/product-08.jpg" alt="Solar Deck Step Light" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
-          <div class="prod-info"><h4 data-i18n="p12_n">Solar Deck & Step Light</h4><p data-i18n="p12_d">Low-profile safety light for decks, steps & retaining walls. 2W · IP67 · 316 stainless steel · warm/cool white · 8h runtime. 2-pack & 6-pack. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
         </div>
       </div>
     </div>
@@ -983,7 +1218,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
           <div class="prod-info"><h4 data-i18n="p4_n">Outdoor Wall Lantern · Solar / AC</h4><p data-i18n="p4_d">Decorative wall lighting for estates & hotels. Solar (LiFePO4) or AC (E27) · IP44 · bronze/black/copper. CE / EMC / LVD.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
         </div>
         <div class="prod-card">
-          <div class="prod-img"><div class="prod-badge bg-hot" data-i18n="b_hot">HOT</div><img src="images/product-06.jpg" alt="Solar Edison String Lights" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="prod-img"><div class="prod-badge bg-hot" data-i18n="b_hot">HOT</div><div class="prod-badge bg-seasonal" data-i18n="b_seasonal">5 Seasonal Themes</div><img src="images/product-06.jpg" alt="Solar Edison String Lights" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
           <div class="prod-info"><h4 data-i18n="p11_n">Solar Edison String Lights</h4><p data-i18n="p11_d">Vintage Edison bulb string lights for patios, gardens & events. 40/60 LED · IP65 · warm white 2700K · 30m length · 8-12h. Retail & bulk packaging. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
         </div>
         <div class="prod-card">
@@ -1049,7 +1284,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       <h4 class="prod-subcat-h" data-i18n="sub_portable">Portable Tools</h4>
       <div class="prod-grid">
         <div class="prod-card">
-          <div class="prod-img"><div class="prod-badge bg-new" data-i18n="b_newarr">NEW</div><img src="images/product-10.jpg" alt="Solar Portable Camping Lantern" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+          <div class="prod-img"><div class="prod-badge bg-brass" data-i18n="b_multifunc">Multi-Function Edition</div><img src="images/product-10.jpg" alt="Solar Portable Camping Lantern" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
           <div class="prod-info"><h4 data-i18n="p13_n">Solar Portable Camping Lantern</h4><p data-i18n="p13_d">Portable lantern for camping, off-grid homes & emergencies. 5W · 4000mAh · 15h+ runtime · USB output (power bank) · IP44. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
         </div>
         <div class="prod-card">
@@ -1575,7 +1810,7 @@ const T = {
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     hero_h1:'Light that works<br>when the power<br><em>doesn\'t.</em>',
     stat1:'Products',stat2:'Product Ranges',stat3:'Certified · RoHS',stat4:'Pcs Minimum Order',
-    brand_q:'"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn\'t an upgrade — it\'s the answer."</span>',search_ph:'Search 33 products — IP66, flood light, 路灯…',prod_h2:'Every Light.<br><em>Every Spec.</em>',prod_cat:'View Full Product Range →',
+    brand_q:'"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn\'t an upgrade — it\'s the answer."</span>',search_ph:'Search 30 products — IP66, flood light, 路灯…',prod_h2:'Every Light.<br><em>Every Spec.</em>',prod_cat:'View Full Product Range →',
     cat1_t:'Security & Street',
     cat2_t:'Garden & Landscape',
     cat3_t:'Decorative & Ambiance',
@@ -1591,7 +1826,7 @@ const T = {
     ft_desc:'Solar outdoor lighting for markets where the grid isn\'t enough. Security · Garden · Decorative. CE / RoHS · IP65 · OEM available. Colombia · Ecuador · South Africa · Australia · Spain.',marquee_1:'Solar Security · Garden · Wall & String · Ambiance · Off-Grid · Portable',marquee_2:'CE & RoHS Certified',
     ft_prod:'Products',ft_co:'Company',ft_srv:'Colombia · Ecuador · South Africa · Australia · Spain',cat_h2:'Four Product Lines<br><em>One Standard</em>',
     cat1_prods:'3 sub-ranges · 8 products: Security Floods · Street Lights · Warning & Signal',
-    cat2_prods:'2 sub-ranges · 6 products: Pillars & Columns · Garden Accent',
+    cat2_prods:'1 sub-range · 3 products: Garden & Pathway',
     cat3_prods:'2 sub-ranges · 7 products: Wall & String · Outdoor Ambiance',
         sc_lbl:'Where They\'re Used',sc_h2:'Real Places. <em>Real Performance.</em>',mm_h2:'Not sure which light fits? <em>Answer a few questions.</em>',mm_sub:'30 seconds. No catalogue browsing. We\'ll match you to the right products.',
     mm_biz_t:'I\'m a Business Buyer',
@@ -1605,7 +1840,7 @@ const T = {
     cat_ac_t:'AC Commercial',cat_ac_d:'Mains-powered floodlights, high bay lights and street lights for factories, warehouses, sports courts and municipal roads. CE certified. 50–1000W. FOB Shenzhen.',cat_ac_prods:'2 sub-ranges · 3 products: AC Floodlights · High Bay & Street',
     filter_ac:'AC Commercial',b_ac:'AC',
     mega_h5:'AC Commercial',mega_a11:'AC Floodlights',mega_a12:'High Bay & Street',
-    sub_ac_floods:'AC Floodlights',sub_ac_highbay:'High Bay & Street',
+    sub_garden_pathway:'Garden & Pathway',sub_ac_floods:'AC Floodlights',sub_ac_highbay:'High Bay & Street',
     p30_n:'Emergency UFO Rechargeable Light',p30_d:'USB-rechargeable flying-saucer emergency light for load-shedding and blackouts. Hook hanging, no installation needed. 150/200W · 3-mode dimming · 3000K/4000K/6000K · Φ180–220mm · USB-C charging · 4-6h runtime. CE + RoHS.',
     p31_n:'AC LED Floodlight (50-1000W)',p31_d:'Mains-powered LED floodlight for factories, sports courts, parking lots and commercial compounds. 50/100/200/300/400/600/800/1000W options · IP65 · 6500K · 30,000h lifespan · aluminium housing · CE + RoHS. FOB Shenzhen.',
     p32_n:'UFO High Bay Light (100-300W)',p32_d:'AC high bay light for warehouses, factories, supermarkets and exhibition halls. 100/150/200/300W · IP65 (waterproof series available) · 120° wide beam · 6500K · aluminium fins · CE + RoHS. FOB Shenzhen.',
@@ -1621,30 +1856,30 @@ const T = {
     stat1:'款产品',stat2:'大产品线',stat3:'认证 · RoHS',stat4:'只起订量',
     brand_q:'"非洲、拉美、大洋洲的电网正在失效。<br><span>太阳能照明不是升级选项——它是唯一答案。"</span>',
     brand_b:'嘉晨照明科技有限公司为分销商、安装公司及工程承包商提供户外太阳能照明产品，专注服务电网供应不稳定的市场。六大核心系列——安防、花园、壁灯串灯、氛围、离网家庭、便携特种——采用压铸铝合金外壳、磷酸铁锂电池及IP65密封，专为高温、高紫外线环境下的长期稳定运行而设计。CE认证。支持OEM与ODM定制。',
-    filter_all:'全部',filter_security:'安防',filter_garden:'花园',filter_decorative:'装饰',filter_offgrid:'离网',search_ph:'搜索 33 款产品 — IP66、投光灯、路灯…',
+    filter_all:'全部',filter_security:'安防',filter_garden:'花园',filter_decorative:'装饰',filter_offgrid:'离网',search_ph:'搜索 30 款产品 — IP66、投光灯、路灯…',
     prod_lbl:'完整目录',prod_h2:'每一款灯。<br><em>每一个参数。</em>',prod_cat:'查看完整产品系列 →',
-    b_best:'热销爆款',b_newarr:'新品',b_rec:'主推款',b_hot:'热卖',b_eco:'经典款',b_set:'8只装',b_ip66:'IP66',
+    b_best:'热销爆款',b_newarr:'新品',b_rec:'主推款',b_hot:'热卖',b_eco:'经典款',b_set:'8只装',b_ip66:'IP66',b_cctv:'新品：4G CCTV智能版',b_seasonal:'5大节日主题',b_multifunc:'多功能升级版',
     p1_n:'三头太阳能感应投光灯',p1_d:'三头可调太阳能泛光灯，适用于住宅与商业围界、车库及车道。压铸铝合金机身。总流明2500–3500lm · IP65 · PIR + 270°广角 · 三档工作模式。CE + RoHS认证。',
     p2_n:'太阳能PIR感应壁灯',p2_d:'围墙、车道及商业物业的太阳能防破坏安防照明。120颗LED · 800lm · IP65。双元PIR · 感应距离8–12m。4000mAh磷酸铁锂 · 续航8–12小时。CE + RoHS认证。',
-    p3_n:'太阳能球形门柱灯',p3_d:'住宅大门、围墙及入口柱的柱头装饰灯。304不锈钢底座 · 抗紫外亚克力球罩。5W · IP65 · 磷酸铁锂 · 续航10–12小时。CE + RoHS认证。',
+    
     p4_n:'户外装饰壁灯 · 太阳能 / 市电',p4_d:'用于别墅庄园、酒店、民宿的户外装饰壁灯。太阳能版（磷酸铁锂电池）或市电版（E27灯头，最大60W）· IP44。仿古铜、黑色、紫铜多种饰面。CE / EMC / LVD认证。',
-    p5_n:'太阳能立柱草坪灯',p5_d:'立柱式草坪灯，适用于车道、人行道及景观边界。压铸铝合金机身 · 抗紫外PC灯罩。提供0.5m / 0.8m / 1.0m三种高度。3W · IP65 · 2000mAh磷酸铁锂 · 续航10小时。CE + RoHS认证。',
+    
     p6_n:'太阳能花园插地灯 · 8只装',p6_d:'住宅花园、步道及花坛的零售装插地灯。磨砂玻璃灯罩 · ABS外壳。1.2W · IP65 · 600mAh · 续航8小时。提供8只装与12只装零售彩盒。CE + RoHS认证。',
     p7_n:'太阳能泛光安防灯 · 30W',p7_d:'适用于仓储围界、农场及大型商业物业的工业级单头太阳能泛光灯。30W · 2400lm · IP66。PIR感应器 · 感应距离10m · 270°广角。工作温度–20°C至+50°C。CE + RoHS认证。',
     p8_n:'太阳能景观插地聚光灯',p8_d:'可调节插地式聚光灯，适用于树木向上照明、立面打光及景观照明。光头360°旋转 · 90°俯仰角。5W · 400lm · IP65 · 1200mAh · 续航8小时 · 3000K / 6000K可选。CE + RoHS认证。',
     p9_n:'一体化太阳能路灯',p9_d:'集成式太阳能路灯，适用于市政道路、乡村道路及停车场。100/200/300W可选 · IP66 · 雷达感应 · 磷酸铁锂 · 光控自动开关。CE + RoHS认证。',
     p10_n:'上下出光太阳能壁灯',p10_d:'现代双光束壁灯，适用于建筑立面与高端住宅。2×3W · IP65 · 铝合金灯体 · 暖白3000K · 续航10小时。黑/白/灰三色可选。CE + RoHS认证。',
     p11_n:'太阳能爱迪生复古串灯',p11_d:'复古爱迪生灯泡串灯，适用于庭院、花园与活动布置。40/60灯可选 · IP65 · 暖白2700K · 30米 · 续航8-12小时。提供零售装与批发装。CE + RoHS认证。',
-    p12_n:'太阳能台阶/甲板灯',p12_d:'低矮型安全照明，适用于台阶、甲板与挡土墙。2W · IP67 · 316不锈钢 · 暖白/冷白 · 续航8小时。2只装与6只装。CE + RoHS认证。',
+    
     p13_n:'太阳能手提露营灯',p13_d:'便携式提灯，适用于露营、离网家庭与应急照明。5W · 4000mAh · 续航15小时以上 · USB输出（充电宝功能）· IP44。CE + RoHS认证。',
     p14_n:'太阳能灭蚊灯',p14_d:'紫外LED户外灭蚊灭虫灯。2W · IP65 · 覆盖100-200㎡ · 光控自动开关 · CE + RoHS认证。与安防灯搭配销售。',
     enq:'发送询盘 →',
-    mega_h1:'安防与道路',mega_h2:'花园与景观',mega_h3:'装饰与氛围',mega_h4:'离网与便携',mega_a1:'太阳能投光灯',mega_a2:'太阳能路灯',mega_a3:'警示与信号',mega_a4:'门柱与柱灯',mega_a5:'花园点缀',mega_a6:'台阶甲板灯',mega_a7:'壁灯串灯',mega_a8:'户外氛围',mega_a9:'离网家庭',mega_a10:'便携工具',
+    mega_h1:'安防与道路',mega_h2:'花园与景观',mega_h3:'装饰与氛围',mega_h4:'离网与便携',mega_a1:'太阳能投光灯',mega_a2:'太阳能路灯',mega_a3:'警示与信号',mega_a4:'门柱与柱灯',mega_a5:'花园点缀',mega_a7:'壁灯串灯',mega_a8:'户外氛围',mega_a9:'离网家庭',mega_a10:'便携工具',
     cat1_t:'安防与道路',cat1_d:'住宅周界、市政道路、工地现场一体化的安防、路灯与警示信号方案。IP65/IP66 · PIR / 雷达感应 · 磷酸铁锂。',
-    cat2_t:'花园与景观',cat2_d:'入口、步道、庭院每夜自动点亮。门柱灯、庭院柱灯、立柱灯、插地灯、射灯及甲板灯。304不锈钢/铝合金 · IP65–IP67。',
+    cat2_t:'花园与景观',cat2_d:'入口、步道、庭院每夜自动点亮。庭院柱灯、插地灯与射灯。铝合金/不锈钢 · IP65–IP67。',
     cat3_t:'装饰与氛围',cat3_d:'建筑壁灯、爱迪生串灯、仿真火焰灯、太阳伞灯及泳池浮水灯，适用于别墅、酒店、露台与户外活动。IP44–IP68。',
     cat4_t:'离网与便携',cat4_d:'离网家庭完整太阳能系统，加上便携露营灯、工地灯和应急工具。专为限电、停电与户外生活打造。',
-    sub_floods:'安防泛光灯',sub_streets:'路灯街灯',sub_warning:'警示信号',sub_pillars:'门柱柱灯',sub_garden_accent:'花园插地',sub_wall_string:'壁灯串灯',sub_ambiance:'户外氛围',sub_home:'离网家庭',sub_portable:'便携工具',
+    sub_floods:'安防泛光灯',sub_streets:'路灯街灯',sub_warning:'警示信号',sub_garden_pathway:'花园与步道',sub_wall_string:'壁灯串灯',sub_ambiance:'户外氛围',sub_home:'离网家庭',sub_portable:'便携工具',
         cat_lnk:'查看产品 →',
     why_lbl:'为什么重要',why_h2:'专为<em>普通灯饰会失效的市场</em>而造。',
     why_intro:'当电网不可靠，户外照明只有一个任务：照样亮着。我们每一款产品都围绕这一核心需求设计——材料、密封、电池、控制模组，每一项都为不允许失败的使用环境而选择。',
@@ -1726,7 +1961,13 @@ const T = {
     p31_n:'AC LED投光灯（50-1000W）',p31_d:'市电LED投光灯，适用于工厂、球场、停车场和商业建筑。50/100/200/300/400/600/800/1000W可选 · IP65 · 6500K · 3万小时寿命 · 铝合金灯体 · CE + RoHS认证。FOB深圳。',
     p32_n:'UFO工矿灯（100-300W）',p32_d:'AC工矿灯，适用于仓库、工厂、超市和展厅。100/150/200/300W · IP65（防水系列可选）· 120°宽光束 · 6500K · 铝合金散热鳍片 · CE + RoHS认证。FOB深圳。',
     p33_n:'AC路灯头（50-100W）',p33_d:'市电路灯头，适用于市政道路、工业园区和停车场。50/100W · IP65 · 6500K · 铝合金灯体 · 适配60mm灯臂 · 光控器接口 · CE + RoHS认证。FOB深圳。',
-  },
+    market_title:'按市场选品',market_na:'美国和加拿大',market_latam:'拉丁美洲',market_africa:'非洲法语区',market_me:'中东',market_brazil:'巴西',market_india:'印度',
+    mr_na_1:'节日装饰 · 5大主题 · UL/ETL零售规格 · IP65',mr_na_2:'户外休闲 · USB-C PD 18W快充 · 充电宝 · 15小时续航',mr_na_3:'庭院露营两用 · UV-LED · 100-200m² · 搭配销售爆款',mr_na_4:'景观工程 · 360°可调 · 3000K暖白光 · IP65',
+    mr_latam_1:'市政乡村道路 · 雷达感应 · IP66 · 磷酸铁锂',mr_latam_2:'围界农场 · PIR 10m · IP66 · 2400lm',mr_latam_3:'基础设施项目 · 哥伦比亚/厄瓜多尔规格 · IP66',mr_latam_4:'住宅安防 · 800lm · 防破坏 · 8-12小时续航',
+    mr_africa_1:'乡村市政道路 · 雷达 · IP66 · LiFePO4',mr_africa_2:'高端住宅 · 铝合金 · 3000K · 10小时续航',mr_africa_3:'农村电气化 · 完整套装 · 2灯 · USB应急',mr_africa_4:'停电应急 · USB-C · 免安装 · 4-6小时',
+    mr_me_1:'CCTV智能版 · 市政招标 · 雷达 · IP66',mr_me_2:'体育场与园区 · 50-1000W · IP65 · CE认证',mr_me_3:'沙漠露营 · 充电宝 · 15小时+ · IP44耐用',mr_me_4:'离网别墅 · USB手机充电 · LiFePO4 4000mAh',
+    mr_brazil_1:'公共照明 · IP66 · 雷达 · 磷酸铁锂',mr_brazil_2:'景观照明 · 360°可调 · 暖白3000K · IP65',mr_brazil_3:'停电应急 · USB-C · 免安装 · 3档调光',mr_brazil_4:'家庭套装 · 2灯 · USB应急 · 简易安装',
+    mr_india_1:'花园寺庙照明 · 暖白3000K · 360° · IP65',mr_india_2:'住宅安防 · 800lm · PIR 8-12m · 高性价比',mr_india_3:'工厂仓库 · 50-1000W · IP65 · 3万小时寿命',  },
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Productos',nav_cat:'Categorías',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',
@@ -1737,30 +1978,30 @@ const T = {
     stat1:'Productos',stat2:'Gamas',stat3:'Certificado · RoHS',stat4:'Uds. Pedido Mínimo',
     brand_q:'"Las redes eléctricas están fallando en África, América Latina y Oceanía.<br><span>La iluminación solar no es una mejora — es la solución."</span>',
     brand_b:'JC Lightning suministra iluminación solar para exteriores a distribuidores, instaladores y contratistas en mercados donde no se puede dar por garantizado el suministro eléctrico. Seis gamas — seguridad, jardín, pared y cadenas, ambiente, hogar sin red, portátil y especialidad — con carcasas de aluminio fundido, baterías LiFePO4 y sellado IP65. Certificación CE. OEM y ODM disponibles.',
-    filter_all:'Todos',filter_security:'Seguridad',filter_garden:'Jardín',filter_decorative:'Decorativo',filter_offgrid:'Sin Red',search_ph:'Buscar 33 productos — IP66, reflector, farola…',
+    filter_all:'Todos',filter_security:'Seguridad',filter_garden:'Jardín',filter_decorative:'Decorativo',filter_offgrid:'Sin Red',search_ph:'Buscar 30 productos — IP66, reflector, farola…',
     prod_lbl:'Catálogo Completo',prod_h2:'Cada Luz.<br><em>Cada Especificación.</em>',prod_cat:'Ver Gama Completa →',
-    b_best:'Superventas',b_newarr:'NUEVO',b_rec:'Recomendado',b_hot:'TENDENCIA',b_eco:'Clásico',b_set:'Pack 8',b_ip66:'IP66',
+    b_best:'Superventas',b_newarr:'NUEVO',b_rec:'Recomendado',b_hot:'TENDENCIA',b_eco:'Clásico',b_set:'Pack 8',b_ip66:'IP66',b_cctv:'NUEVO: Edición CCTV Inteligente',b_seasonal:'5 Temas de Temporada',b_multifunc:'Edición Multi-Función',
     p1_n:'Foco Solar de Movimiento · 3 Cabezales',p1_d:'Foco solar de tres cabezales ajustables para perímetros residenciales y comerciales, garajes y accesos. Cuerpo de aluminio fundido. 2500–3500lm · IP65 · PIR + 270° · tres modos. CE + RoHS.',
     p2_n:'Aplique Solar PIR con Sensor de Movimiento',p2_d:'Iluminación solar anti-vandalismo para muros perimetrales, accesos y propiedades comerciales. 120 LED · 800lm · IP65. PIR doble · 8–12m. LiFePO4 4000mAh · 8–12h. CE + RoHS.',
-    p3_n:'Pilar de Portón Solar Esférico',p3_d:'Iluminación decorativa de pilar para portones residenciales y muros perimetrales. Base de acero inox 304 · globo acrílico estable a UV. 5W · IP65 · LiFePO4 · 10–12h. CE + RoHS.',
+    
     p4_n:'Aplique Exterior · Solar / AC',p4_d:'Iluminación exterior decorativa para fincas, hoteles y casas rurales. Versión solar (LiFePO4) o AC (E27, máx. 60W) · IP44. Acabados bronce, negro y cobre. CE / EMC / LVD.',
-    p5_n:'Baliza Solar de Camino',p5_d:'Iluminación de baliza de poste para accesos, senderos y paisajismo. Aluminio fundido · difusor PC estable a UV. Alturas 0.5m / 0.8m / 1.0m. 3W · IP65 · LiFePO4 2000mAh · 10h. CE + RoHS.',
+    
     p6_n:'Luces Solares con Estaca · Pack 8',p6_d:'Set de luces con estaca para jardines, senderos y parterres. Vidrio esmerilado · ABS. 1.2W · IP65 · 600mAh · 8h. Cajas de 8 y 12 unidades. CE + RoHS.',
     p7_n:'Foco Solar de Seguridad · 30W',p7_d:'Foco solar industrial para almacenes, granjas y grandes propiedades comerciales. 30W · 2400lm · IP66. PIR · 10m · 270°. Rango –20°C a +50°C. CE + RoHS.',
     p8_n:'Foco Solar con Estaca para Jardín',p8_d:'Focos ajustables con estaca para iluminación de árboles, fachadas y paisajismo. 360° rotatorio · 90° tilt. 5W · 400lm · IP65 · 1200mAh · 8h · 3000K / 6000K. CE + RoHS.',
     p9_n:'Farola Solar Todo en Uno',p9_d:'Farola solar integrada para caminos municipales, rurales y estacionamientos. 100/200/300W · IP66 · sensor radar · LiFePO4 · automático. CE + RoHS.',
     p10_n:'Aplique Solar de Pared Up-Down',p10_d:'Aplique moderno de doble haz para fachadas arquitectónicas. 2×3W · IP65 · aluminio · blanco cálido 3000K · 10h. Negro/blanco/gris. CE + RoHS.',
     p11_n:'Luces Solares de Cadena Edison',p11_d:'Cadena de luces estilo Edison para patios, jardines y eventos. 40/60 LED · IP65 · blanco cálido 2700K · 30m · 8-12h. Embalaje retail y mayorista. CE + RoHS.',
-    p12_n:'Luz Solar para Deck y Escalón',p12_d:'Luz de seguridad de perfil bajo para decks, escalones y muros. 2W · IP67 · acero inox 316 · blanco cálido/frío · 8h. Pack 2 y 6. CE + RoHS.',
+    
     p13_n:'Linterna Solar Portátil de Camping',p13_d:'Linterna portátil para camping, hogares sin red y emergencias. 5W · 4000mAh · 15h+ · salida USB (power bank) · IP44. CE + RoHS.',
     p14_n:'Lámpara Solar Antimosquitos',p14_d:'Lámpara UV-LED para mosquitos e insectos en exteriores. 2W · IP65 · cobertura 100-200m² · automática · CE + RoHS. Ideal junto con luces de seguridad.',
     enq:'Consultar →',
-    mega_h1:'Seguridad y Vía Pública',mega_h2:'Jardín y Paisaje',mega_h3:'Decorativo y Ambiente',mega_h4:'Fuera de Red y Portátil',mega_a1:'Reflectores Solares',mega_a2:'Farolas Solares',mega_a3:'Advertencia y Señal',mega_a4:'Pilares y Columnas',mega_a5:'Acento de Jardín',mega_a6:'Deck y Escalón',mega_a7:'Pared y Cadenas',mega_a8:'Ambiente Exterior',mega_a9:'Hogar sin Red',mega_a10:'Herramientas Portátiles',
+    mega_h1:'Seguridad y Vía Pública',mega_h2:'Jardín y Paisaje',mega_h3:'Decorativo y Ambiente',mega_h4:'Fuera de Red y Portátil',mega_a1:'Reflectores Solares',mega_a2:'Farolas Solares',mega_a3:'Advertencia y Señal',mega_a4:'Pilares y Columnas',mega_a5:'Acento de Jardín',mega_a7:'Pared y Cadenas',mega_a8:'Ambiente Exterior',mega_a9:'Hogar sin Red',mega_a10:'Herramientas Portátiles',
     cat1_t:'Seguridad y Vía Pública',cat1_d:'Seguridad perimetral, iluminación vial y balizas de advertencia para límites residenciales, carreteras municipales y obras. IP65/IP66 · sensores PIR / radar · LiFePO4.',
     cat2_t:'Jardín y Paisaje',cat2_d:'Entradas, senderos y jardines iluminados toda la noche. Pilares, columnas de patio, bolardos, estacas de jardín, focos de pincho y luces de escalón. Acero inox 304 / aluminio · IP65–IP67.',
     cat3_t:'Decorativo y Ambiente',cat3_d:'Iluminación arquitectónica de pared, cadenas Edison, antorchas de llama, luces de sombrilla y luces flotantes de piscina para fincas, hoteles, terrazas y eventos al aire libre. IP44–IP68.',
     cat4_t:'Fuera de Red y Portátil',cat4_d:'Sistemas solares completos para hogares sin red, más linternas portátiles, luces de trabajo y herramientas de emergencia. Pensado para apagones y vida al aire libre.',
-    sub_floods:'Reflectores de Seguridad',sub_streets:'Farolas',sub_warning:'Advertencia y Señal',sub_pillars:'Pilares y Columnas',sub_garden_accent:'Acento de Jardín',sub_wall_string:'Pared y Cadenas',sub_ambiance:'Ambiente Exterior',sub_home:'Hogar sin Red',sub_portable:'Herramientas Portátiles',
+    sub_floods:'Reflectores de Seguridad',sub_streets:'Farolas',sub_warning:'Advertencia y Señal',sub_garden_pathway:'Jardín y Sendero',sub_wall_string:'Pared y Cadenas',sub_ambiance:'Ambiente Exterior',sub_home:'Hogar sin Red',sub_portable:'Herramientas Portátiles',
         cat_lnk:'Ver Productos →',
     why_lbl:'Por Qué Importa',why_h2:'Fabricada para mercados donde<br><em>la iluminación convencional falla.</em>',
     why_intro:'Cuando la red eléctrica no es confiable, la iluminación exterior tiene una sola tarea: funcionar de todas formas. Cada producto de nuestra gama está diseñado en torno a esa exigencia — materiales, sellados, baterías y controles elegidos para entornos donde el fallo no es una opción.',
@@ -1842,6 +2083,252 @@ const T = {
     p31_n:'Reflector LED AC (50-1000W)',p31_d:'Reflector LED con alimentación de red para fábricas, canchas deportivas, estacionamientos y complejos comerciales. Opciones 50-1000W · IP65 · 6500K · 30,000h · aluminio · CE + RoHS. FOB Shenzhen.',
     p32_n:'Campana Industrial UFO (100-300W)',p32_d:'Campana industrial AC para almacenes, fábricas, supermercados y salones de exposición. 100-300W · IP65 (serie impermeable disponible) · haz 120° · 6500K · aletas de aluminio · CE + RoHS. FOB Shenzhen.',
     p33_n:'Farola AC (50-100W)',p33_d:'Cabezal de farola con alimentación de red para vías municipales, parques industriales y estacionamientos. 50/100W · IP65 · 6500K · aluminio · para brazos de 60mm · listo para fotocélula · CE + RoHS. FOB Shenzhen.',
+    market_title:'Soluciones por Mercado',market_na:'EE.UU. y Canadá',market_latam:'América Latina',market_africa:'África Francófona',market_me:'Oriente Medio',market_brazil:'Brasil',market_india:'India',
+    mr_na_1:'Decoración de temporada · 5 temas · UL/ETL para retail · IP65',mr_na_2:'Aire libre · USB-C PD 18W · power bank · 15h+ autonomía',mr_na_3:'Jardín y camping · UV-LED · 100-200m² · venta cruzada estrella',mr_na_4:'Paisajismo · ajuste 360° · blanco cálido 3000K · IP65',
+    mr_latam_1:'Vías municipales y rurales · sensor radar · IP66 · LiFePO4',mr_latam_2:'Perímetros y granjas · PIR 10m · IP66 · 2400lm',mr_latam_3:'Proyectos infraestructura · espec. Colombia/Ecuador · IP66',mr_latam_4:'Seguridad residencial · 800lm · antivandálico · 8-12h',
+    mr_africa_1:'Caminos rurales y municipales · radar · IP66 · LiFePO4',mr_africa_2:'Residencial premium · aluminio · 3000K · 10h autonomía',mr_africa_3:'Electrificación rural · kit completo · 2 lámparas · USB emergencia',mr_africa_4:'Apagones · USB-C · sin instalación · 4-6h autonomía',
+    mr_me_1:'Edición CCTV inteligente · licitaciones · radar · IP66',mr_me_2:'Estadios y complejos · 50-1000W · IP65 · certificado CE',mr_me_3:'Camping desértico · power bank · 15h+ · IP44 durable',mr_me_4:'Villa sin red · carga USB móvil · LiFePO4 4000mAh',
+    mr_brazil_1:'Alumbrado público · IP66 · radar · batería LiFePO4',mr_brazil_2:'Paisajismo · ajuste 360° · luz cálida 3000K · IP65',mr_brazil_3:'Apagones · USB-C · sin instalación · 3 modos',mr_brazil_4:'Kit residencial · 2 lámparas · USB emergencia · fácil instalación',
+    mr_india_1:'Jardines y templos · blanco cálido 3000K · 360° · IP65',mr_india_2:'Seguridad residencial · 800lm · PIR 8-12m · excelente relación costo-beneficio',mr_india_3:'Fábricas y almacenes · 50-1000W · IP65 · 30.000h vida útil',  },
+  fr:{
+    logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
+    nav_products:'Produits',nav_cat:'Catégories',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',
+    hero_eye:'Éclairage Solaire Extérieur · Quand le réseau lâche, nos lampes restent allumées.',
+    hero_h1:'La lumière qui fonctionne<br>quand le courant<br><em>ne passe plus.</em>',
+    hero_sub:'La Colombie prévoit un déficit énergétique de plus de 3 100 GWh d''ici 2027. L''Équateur subit déjà des coupures de 10 heures par jour. L''Afrique du Sud connaît 6 à 8 heures de délestage quotidien. Éclairage solaire de sécurité, jardin, déco, maison et portable — conçu pour les marchés où le réseau n''est pas fiable.',
+    hero_cta1:'Demander un Devis',hero_cta2:'Voir Produits →',
+    stat1:'Produits',stat2:'Gammes',stat3:'Certifié · RoHS',stat4:'Qté Min. Commande',
+    brand_q:'"Les réseaux électriques défaillent en Afrique, en Amérique Latine et en Océanie.<br><span>L''éclairage solaire n''est pas une amélioration — c''est la solution."</span>',
+    brand_b:'JC Lightning fournit des solutions d''éclairage solaire extérieur aux distributeurs, installateurs et entrepreneurs sur les marchés où l''alimentation électrique n''est pas garantie. Six gammes — sécurité, jardin, mur & guirlandes, ambiance, maison autonome, portable & spécialité — avec boîtiers en aluminium moulé, batteries LiFePO4 et étanchéité IP65. Certifié CE. OEM & ODM disponibles.',
+    filter_all:'Tous',filter_security:'Sécurité',filter_garden:'Jardin',filter_decorative:'Déco',filter_offgrid:'Autonome',search_ph:'Rechercher 30 produits — IP66, projecteur, lampadaire…',
+    prod_lbl:'Catalogue Complet',prod_h2:'Chaque Lampe.<br><em>Chaque Fiche Technique.</em>',prod_cat:'Voir Toute la Gamme →',
+    b_best:'Best-Seller',b_newarr:'NOUVEAU',b_rec:'Recommandé',b_hot:'TENDANCE',b_eco:'Classique',b_set:'Pack 8',b_ip66:'IP66',b_cctv:'NOUVEAU : Édition CCTV Intelligente',b_seasonal:'5 Thèmes Saisonniers',b_multifunc:'Édition Multi-Fonction',
+    p1_n:'Projecteur Solaire à Détection · 3 Têtes',p1_d:'Projecteur solaire à trois têtes orientables pour périmètres résidentiels et commerciaux, garages et allées. Corps en aluminium moulé sous pression. 2500–3500lm · IP65 · PIR + 270° · trois modes. CE + RoHS.',
+    p2_n:'Applique Murale Solaire PIR à Détection',p2_d:'Éclairage solaire anti-vandalisme pour murs d''enceinte, allées et propriétés commerciales. 120 LED · 800lm · IP65. Double PIR · 8–12m. LiFePO4 4000mAh · 8–12h. CE + RoHS.',
+    p4_n:'Lanterne Murale Extérieure · Solaire / AC',p4_d:'Éclairage décoratif extérieur pour villas, hôtels et gîtes. Version solaire (LiFePO4) ou AC (E27, max 60W) · IP44. Finitions bronze, noir et cuivre. CE / EMC / LVD.',
+    p6_n:'Lampes Solaires à Piquer Jardin · Pack 8',p6_d:'Set de lampes à piquer pour jardins, allées et massifs. Verre dépoli · ABS. 1,2W · IP65 · 600mAh · 8h. Boîtes de 8 et 12 unités. CE + RoHS.',
+    p7_n:'Projecteur Solaire de Sécurité · 30W',p7_d:'Projecteur solaire industriel pour entrepôts, fermes et grandes propriétés commerciales. 30W · 2400lm · IP66. PIR · 10m · 270°. Plage –20°C à +50°C. CE + RoHS.',
+    p8_n:'Spot Solaire à Piquer Paysager',p8_d:'Spots orientables à piquer pour éclairage d''arbres, façades et aménagement paysager. Rotation 360° · inclinaison 90°. 5W · 400lm · IP65 · 1200mAh · 8h · 3000K / 6000K. CE + RoHS.',
+    p9_n:'Lampadaire Solaire Tout-en-Un',p9_d:'Lampadaire solaire intégré pour routes municipales, rurales et parkings. 100/200/300W · IP66 · détection radar · LiFePO4 · automatique. CE + RoHS.',
+    p10_n:'Applique Murale Solaire Up-Down',p10_d:'Applique moderne à double faisceau pour façades architecturales. 2×3W · IP65 · aluminium · blanc chaud 3000K · 10h. Noir/blanc/gris. CE + RoHS.',
+    p11_n:'Guirlande Solaire Edison Vintage',p11_d:'Guirlande lumineuse style Edison pour patios, jardins et événements. 40/60 LED · IP65 · blanc chaud 2700K · 30m · 8-12h. Emballage retail et gros. CE + RoHS.',
+    p13_n:'Lanterne Solaire Portable de Camping',p13_d:'Lanterne portable pour camping, maisons autonomes et urgences. 5W · 4000mAh · 15h+ · sortie USB (power bank) · IP44. CE + RoHS.',
+    p14_n:'Lampe Solaire Anti-Moustiques',p14_d:'Lampe UV-LED pour moustiques et insectes en extérieur. 2W · IP65 · couverture 100-200m² · automatique · CE + RoHS. Idéale en complément des lampes de sécurité.',
+    enq:'Demander un Devis →',
+    mega_h1:'Sécurité & Voirie',mega_h2:'Jardin & Paysage',mega_h3:'Déco & Ambiance',mega_h4:'Autonome & Portable',mega_a1:'Projecteurs Solaires',mega_a2:'Lampadaires Solaires',mega_a3:'Avertissement & Signal',mega_a4:'Piliers & Colonnes',mega_a5:'Accent Jardin',mega_a7:'Mur & Guirlandes',mega_a8:'Ambiance Extérieure',mega_a9:'Maison Autonome',mega_a10:'Outils Portables',
+    cat1_t:'Sécurité & Voirie',cat1_d:'Sécurité périmétrique, éclairage routier et balises d''avertissement pour limites résidentielles, routes municipales et chantiers. IP65/IP66 · détection PIR / radar · LiFePO4.',
+    cat2_t:'Jardin & Paysage',cat2_d:'Entrées, allées et jardins illuminés toute la nuit. Colonnes de jardin, piquets, spots — acier inox 304 / aluminium · IP65–IP67.',
+    cat3_t:'Déco & Ambiance',cat3_d:'Appliques murales architecturales, guirlandes Edison, torches flammes, lampes parapluie et lumières flottantes de piscine pour villas, hôtels, terrasses et événements. IP44–IP68.',
+    cat4_t:'Autonome & Portable',cat4_d:'Systèmes solaires complets pour maisons hors réseau, plus lanternes portables, lampes de chantier et outils d''urgence. Conçu pour les délestages et la vie en plein air.',
+    sub_floods:'Projecteurs Sécurité',sub_streets:'Lampadaires',sub_warning:'Avertissement & Signal',sub_garden_pathway:'Jardin & Allée',sub_wall_string:'Mur & Guirlandes',sub_ambiance:'Ambiance Extérieure',sub_home:'Maison Autonome',sub_portable:'Outils Portables',
+        cat_lnk:'Voir Produits →',
+    why_lbl:'Pourquoi C''est Important',why_h2:'Conçu pour les marchés où<br><em>l''éclairage ordinaire abandonne.</em>',
+    why_intro:'Quand le réseau électrique n''est pas fiable, l''éclairage extérieur n''a qu''une seule mission : fonctionner malgré tout. Chaque produit de notre gamme est conçu autour de cette exigence — matériaux, étanchéité, batteries et contrôles choisis pour des environnements où la panne n''est pas une option.',
+    why_cta:'Demander la Fiche Technique',
+    w1_t:'Indépendant du Réseau Électrique',w1_d:'Autonomie nocturne complète sur une seule journée de charge solaire. Les batteries LiFePO4 fonctionnent de –20°C à +60°C. Vos clients restent éclairés même quand le quartier est dans le noir.',
+    w2_t:'IP65 comme Standard Minimum',w2_d:'Tous les produits de sécurité sont IP65 ou IP66. Étanche à la poussière. Étanche à la pluie. Conçu pour l''humidité côtière, la chaleur tropicale et les conditions désertiques.',
+    w3_t:'Services OEM & ODM',w3_d:'Emballage de marque, finitions personnalisées, programmes retail prêts à l''emploi. Commandes d''essai à partir de 200 pièces. Délai standard 30–45 jours.',
+    w4_t:'Certificats Fournis avec le Devis',w4_d:'Rapports CE et RoHS par des laboratoires accrédités. Inclus avec chaque devis — sans relance, sans attente.',
+    trust_label:'Présent dans Plus de 30 Pays',testi_label:'Avis Clients',testi_h2:'Ce que disent les acheteurs <em>sur notre collaboration.</em>',certs_label:'Certifications',certs_h2:'Certificats fournis <em>avec chaque devis.</em>',faq_label:'FAQ',faq_h2:'Réponses rapides. <em>Sans détour.</em>',faq1_q:'Quelle est la quantité minimum de commande (MOQ) ?',faq1_a:'<p>200 pièces par modèle pour votre première commande d''essai. Après validation des produits, les commandes standard commencent à 500–1 000 pièces. Nous maintenons des MOQ pratiques pour vous permettre de tester le marché avant de vous engager sur de gros volumes. Les conteneurs mixtes sont acceptés.</p>',faq2_q:'Quels sont les délais de production et d''expédition ?',faq2_a:'<p>Les échantillons sont expédiés en 3–5 jours par DHL/FedEx (7–15 jours vers la plupart des destinations). La production en série prend 30–45 jours après confirmation du dépôt. Le transit maritime varie selon la destination : 25–35 jours vers l''Amérique Latine, 20–30 jours vers l''Afrique, 15–25 jours vers l''Océanie. Service DDP porte-à-porte disponible sur demande.</p>',faq3_q:'Quelles sont vos conditions de paiement ?',faq3_a:'<p>Conditions standard : 30 % d''acompte T/T pour lancer la production, 70 % de solde avant expédition — après réception du rapport d''inspection pré-embarquement avec photos. Pour les clients réguliers, nous proposons des conditions flexibles incluant 50/50 et crédit documentaire à vue. Les frais d''échantillons sont intégralement remboursés sur la première commande.</p>',faq4_q:'Quelle garantie offrez-vous ?',faq4_a:'<p>Tous les produits bénéficient d''une garantie de 2 ans contre les défauts de fabrication, couvrant le panneau LED, la batterie, le contrôleur et le boîtier. Les batteries LiFePO4 sont conçues pour plus de 2 000 cycles. Les réclamations sont traitées sous 72 heures — nous expédions les pièces de rechange par coursier express à nos frais. Garanties étendues jusqu''à 5 ans disponibles pour les contrats en volume.</p>',faq5_q:'Pouvez-vous personnaliser avec notre marque ou nos spécifications ?',faq5_a:'<p>Oui. Les services OEM incluent : impression de logo personnalisé sur le boîtier et l''emballage, finitions en couleurs personnalisées (minimum 500 pièces par couleur), conception d''emballage personnalisé avec votre marque, et ajustements des spécifications (luminosité, capacité de batterie, type de capteur). Les projets ODM — conception d''un nouveau produit selon votre cahier des charges — nécessitent un minimum de 2 000 pièces et un cycle de développement de 45–60 jours.</p>',faq6_q:'Quelles certifications possèdent vos produits ?',faq6_a:'<p>Tous les produits sont certifiés CE et RoHS par des laboratoires accrédités indépendants. Les certificats sont fournis avec chaque devis — sans avoir à les réclamer. Nous pouvons également organiser des certifications supplémentaires (SAA pour l''Australie, SASO pour l''Arabie Saoudite, SONCAP pour le Nigeria, etc.) pour les commandes en volume. Les rapports de test sont disponibles sur demande.</p>',faq7_q:'Comment vérifier la qualité avant de commander en gros ?',faq7_a:'<p>Nous expédions 1–3 échantillons par coursier international pour que vous puissiez évaluer physiquement la luminosité, la qualité de fabrication et la finition. Les frais d''échantillons sont intégralement remboursés sur votre première commande. Avant chaque expédition en vrac, vous recevez un rapport d''inspection détaillé avec photos — mêmes spécifications que votre échantillon approuvé, vérifiées. Le paiement final n''intervient qu''après votre approbation du rapport.</p>',faq8_q:'Vers quelles destinations expédiez-vous et à quel coût ?',faq8_a:'<p>Nous expédions FOB depuis Shenzhen, Yantian ou Guangzhou — vous choisissez le port le plus pratique. Les principaux marchés de destination incluent la Colombie (Buenaventura/Cartagena), l''Équateur (Guayaquil), l''Afrique du Sud (Durban), le Kenya (Mombasa) et l''Australie (Sydney/Melbourne). Pour les primo-acheteurs, nous pouvons fournir un devis DDP porte-à-porte incluant le fret, le dédouanement et la livraison à votre entrepôt. La liste de prix FOB est fournie dans les 24 heures suivant la demande.</p>',
+    cert1_t:'Certification CE',cert1_d:'Conformité CEM, LVD et RoHS — certifié par des laboratoires accrédités indépendants. Obligatoire pour l''UE et la plupart des marchés internationaux.',cert2_t:'Conformité RoHS',cert2_d:'Restriction des substances dangereuses — sans plomb, mercure ni cadmium. Rapports de test disponibles pour chaque série.',cert3_t:'Indice IP65 / IP66',cert3_d:'Étanche à la poussière et protégé contre les jets d''eau. Vérifié par des laboratoires indépendants. La gamme sécurité est IP65 minimum — vérifié avant expédition.',cert4_t:'Batterie LiFePO₄',cert4_d:'Plus de 2 000 cycles de charge. Stabilité thermique de –20°C à 60°C. Aucun risque d''emballement thermique. Durée de vie 3× supérieure au lithium-ion standard.',
+    num1:'Gammes de Produits',num2:'Marchés d''Export',num3:'Cycles LiFePO₄',num4:'Années de Confiance',num5:'Certifié CE',
+    ft_link1:'Éclairage Solaire Sécurité & Voirie',ft_link2:'Éclairage Solaire Jardin & Portail',ft_link3:'Appliques & Guirlandes Solaires',ft_link4:'Ambiance & Déco Solaire',ft_link5:'Éclairage Maison Autonome',ft_link6:'Voir les 30 Produits →',ft_our_approach:'Nos Atouts',ft_faq:'FAQ',ft_contact:'Contact',
+    cert_t:'Certifications',c_ce:'Norme CE Européenne',c_ro:'Sans Substances Dangereuses',c_65:'IP65 Résistant',c_66:'IP66 Haute Protection',
+    proc_lbl:'Notre Processus',proc_h2:'Du premier message<br><em>à la marchandise à quai.</em>',proc_sub:'Conçu pour les acheteurs internationaux. Chaque étape documentée, aucune surprise.',
+    proc_1_t:'Demande & Devis',proc_1_d:'Indiquez le type de produit, la quantité et le port de destination. Nous répondons avec le prix FOB, la fiche technique complète, le délai et les certifications.',proc_1_time:'Sous 24 h',
+    proc_2_t:'Échantillon & Validation',proc_2_d:'1–3 unités expédiées par DHL ou FedEx pour évaluation physique. Frais d''échantillon intégralement remboursés sur votre première commande.',proc_2_time:'7–15 jours',
+    proc_3_t:'Production & Contrôle Qualité',proc_3_d:'30 % d''acompte T/T confirme la commande. Production en usines certifiées. Rapport d''inspection avant paiement final.',proc_3_time:'30–45 jours',
+    proc_4_t:'Expédition & Documents',proc_4_d:'FOB Shenzhen, Yantian ou Guangzhou. Documentation complète : B/L, Certificat d''Origine, CE, liste de colisage, facture commerciale.',proc_4_time:'Transit 25–40 jours',
+    why_lbl:'Pourquoi Nous Choisir',why_h2:'La différence est dans<br><em>les détails.</em>',why_sub:'Quatre choses qui comptent quand vous choisissez un partenaire d''éclairage solaire pour le long terme.',
+    why1_t:'Qualité Réelle, Pas de Promesses',why1_d:'Boîtier en aluminium moulé — pas de plastique. Batteries LiFePO4 supportant plus de 2 000 cycles, de –20°C à 60°C. IP65 minimum sur la gamme sécurité. Certificats CE et RoHS inclus avec chaque devis, sans avoir à les réclamer.',
+    why2_t:'Nous Répondons. Vite.',why2_d:'WhatsApp direct avec le décisionnaire — pas de chatbot, pas de ticket, pas de SLA de 48 heures. Quand votre conteneur arrive au port et que votre client a besoin des documents, vous les obtenez aujourd''hui. La plupart des questions sont traitées en quelques heures.',
+    why3_t:'Nous Connaissons Votre Marché',why3_d:'La Colombie fonctionne aux projecteurs solaires. L''Afrique du Sud veut des appliques de sécurité. L''Espagne préfère les décoratives en blanc chaud. Après des années d''expédition vers plus de 30 marchés, nous savons ce qui se vend où. Nous vous aidons à choisir ce que vos clients recherchent vraiment.',
+    why4_t:'Même Qualité, Chaque Commande',why4_d:'L''échantillon que vous approuvez est la spécification que nous verrouillons. Mêmes LED, mêmes cellules de batterie, même grade d''aluminium — documenté à la confirmation de commande, inspecté avant expédition, vérifié avant paiement final. Aucune substitution sans votre accord écrit.',
+    prm_lbl:'Ce Sur Quoi Vous Pouvez Compter',prm_h2:'Importer à 12 000 km<br><em>ne devrait pas être un pari.</em>',
+    prm1_t:'Des Spécifications, Pas du Blabla',prm1_d:'Chaque devis inclut les lumens mesurés, la capacité exacte des batteries par cellule, les grades de matériaux et les rapports de tests accrédités. Pas d''adjectifs. Pas d''affirmations vagues. Juste des données que vos clients peuvent vérifier.',
+    prm2_t:'Photos Avant de Payer',prm2_d:'Les photos pré-embarquement et une liste d''inspection détaillée arrivent dans votre boîte mail avant le paiement final. Vous voyez exactement ce qu''il y a sur cette palette avant que votre argent ne quitte votre compte.',
+    prm3_t:'Documents Inclus, Toujours',prm3_d:'Certificats CE et RoHS de laboratoires accrédités. Certificat d''Origine. Connaissement maritime. Liste de colisage. Facture commerciale. Tout ce dont votre transitaire a besoin, dans un seul email avant l''arrivée du conteneur.',
+    prm4_t:'Nous Sommes Encore Là Après la Livraison',prm4_d:'Vos clients ont des questions ? Besoin de pièces détachées ? Un problème technique après six mois ? Le même WhatsApp, la même personne. Le contact ne s''arrête pas quand le conteneur quitte le port.',
+    con_lbl:'Contactez-Nous',con_h2:'Dites-nous votre marché, <em>nous vous dirons ce qui y fonctionne.</em>',
+    con_p:'Partagez le type de produit, la quantité cible et le port de destination. Réponse sous 24 h — prix FOB, fiche technique, délai et certifications inclus.',
+    con_hrs:'Lun–Ven, 9h00–18h00 CST (UTC+8)',
+    f_name:'Votre Nom',f_co:'Entreprise',f_email:'Adresse Email',f_prod:'Produit Recherché',f_sel:'Sélectionnez une catégorie…',f_msg:'Type de Produit · Quantité · Port de Destination',f_send:'Envoyer la Demande',
+    f_ok:'✓ Demande reçue. Nous vous répondrons sous 24 h avec un devis complet.',
+    ft_desc:'Éclairage solaire extérieur pour les marchés où le réseau ne suffit pas. Sécurité · Jardin · Décoratif. CE / RoHS · IP65 · OEM disponible. Colombie · Équateur · Afrique du Sud · Australie · Espagne.',
+    chat_title:'Besoin d''Aide ?',chat_sub:'Nous répondons en quelques heures',chat_wa:'Discuter via WhatsApp',chat_email:'Envoyer un Email',chat_note:'Lun–Ven, 9h00–18h00 CST (UTC+8)',marquee_1:'Sécurité Solaire · Jardin · Mur & Guirlandes · Ambiance · Autonome · Portable',marquee_2:'Certifié CE & RoHS',marquee_3:'Aluminium Moulé · Acier Inox 304',marquee_4:'Services OEM / ODM',marquee_5:'IP65 · IP66',marquee_6:'Colombie · Équateur · Afrique du Sud · Australie',marquee_7:'Commande Essai 200 Pièces',
+    ft_prod:'Produits',ft_co:'Entreprise',ft_srv:'Colombie · Équateur · Afrique du Sud · Australie · Espagne',ft_products_h:'Gammes de Produits',ft_company_h:'Entreprise',ft_cert_link:'Certifications',ft_markets_h:'Marchés Clés',ft_copyright:'© 2026 JC Lightning. Tous droits réservés.',ft_fob:'FOB Shenzhen · Yantian · Guangzhou',
+    cat_lbl:'Nos Gammes',cat_h2:'Quatre Lignes<br><em>Un Standard</em>',
+    cat1_prods:'3 sous-gammes · 8 produits : Projecteurs · Lampadaires · Avertissement & Signal',
+    cat2_prods:'1 sous-gamme · 3 produits : Jardin & Allée',
+    cat3_prods:'2 sous-gammes · 7 produits : Mur & Guirlandes · Ambiance Extérieure',
+    cat4_prods:'2 sous-gammes · 8 produits : Maison Autonome · Outils Portables',
+        sc_lbl:'Où Ils Sont Utilisés',sc_h2:'Lieux Réels. <em>Performance Réelle.</em>',sc_sub:'Découvrez où chaque gamme donne le meilleur — des résidences côtières aux fermes hors réseau.',
+    sc1_t:'Sécurité Périmétrique',sc1_d:'Projecteurs solaires et appliques PIR protégeant complexes commerciaux, entrepôts et murs résidentiels. Détection de mouvement, indépendant du réseau, IP65/IP66.',sc1_tag:'Gamme Sécurité',
+    sc2_t:'Entrée & Façade',sc2_d:'Lampes sphériques pour piliers, appliques double flux et lanternes classiques encadrant les entrées de résidences, hôtels et communautés fermées. Lumière chaude, finition architecturale.',sc2_tag:'Jardin + Déco',
+    sc3_t:'Jardin & Paysage',sc3_d:'Colonnes, piquets et spots sculptant les allées, massifs et éclairage d''arbres. Acier inox 304 et aluminium moulé. IP65–IP67.',sc3_tag:'Gamme Jardin',
+    sc4_t:'Ambiance & Vie en Plein Air',sc4_d:'Torches flammes, guirlandes féeriques, lampes parapluie et lampadaires créant une atmosphère pour jardins, terrasses et dîners en plein air. Lueur chaude 2700K. IP44–IP65 pour toute l''année.',sc4_tag:'Gamme Ambiance',
+    sc5_t:'Chemin & Allée Carrossable',sc5_d:'Colonnes et lampadaires tout-en-un guidant véhicules et piétons. Niveau municipal pour routes, parkings et longues allées. Détection radar et crépusculaire.',sc5_tag:'Jardin + Sécurité',
+    sc6_t:'Urgence, Travail & Spécialité',sc6_d:'Lampes de travail portables, balises, projecteurs pour mâts et lanternes de camping pour chantiers, urgences et aventures. Power bank USB. IP65/IP66. Mode SOS.',sc6_tag:'Portable & Spécialité',
+    mm_lbl:'Trouvez Votre Lampe',mm_h2:'Pas sûr de la lampe qu''il vous faut ? <em>Répondez à quelques questions.</em>',mm_sub:'30 secondes. Sans parcourir le catalogue. Nous vous trouvons l''éclairage idéal.',
+    mm_biz_t:'Je suis un Acheteur Professionnel',mm_biz_d:'Importateur, distributeur, entrepreneur ou acheteur de projets en gros.',
+    mm_home_t:'Je suis un Particulier',mm_home_d:'Je cherche un éclairage solaire extérieur pour ma propre propriété ou mon projet.',
+    cat5_t:'Systèmes Solaires Maison Autonome',cat5_d:'Solutions d''éclairage solaire complètes pour les maisons hors réseau. Appliques intérieures, ampoules d''urgence, kits complets et ventilateurs de plafond — une lumière fiable dans chaque pièce sans courant. IP44/IP65.',
+    cat5_prods:'4 produits : Applique Intérieure · Ampoule Urgence (E27) · Kit Maison · Ventilateur Plafond',
+    cat6_t:'Ambiance Solaire & Vie Extérieure',cat6_d:'Torches flammes, guirlandes en fil de cuivre, lampes parapluie et lampadaires pour jardins, terrasses et événements. Ambiance sans tirer de câble. IP44/IP65.',
+    cat6_prods:'4 produits : Torche Flamme · Guirlande Cuivrée · Lampe Parapluie · Lampadaire',
+    cat7_t:'Portable, Travail & Spécialité',cat7_d:'Lanternes solaires de camping, anti-insectes, lampes de travail et balises d''avertissement pour la vie extérieure, les chantiers et les urgences. IP65/IP66. Power bank USB. Mode SOS.',
+    cat7_prods:'6 produits : Lanterne Camping · Anti-Insectes · Lampe Travail · Lanterne Pro · Balise · Mât Drapeau',
+    p15_n:'Applique Solaire Intérieure (Split)',p15_d:'Applique solaire intérieure pour les foyers en Afrique et Amérique Latine confrontés aux coupures quotidiennes. Panneau dehors, lampe dedans, câble 5m, port USB pour charger les téléphones pendant les pannes — trois problèmes résolus avec une seule lampe. 5W · 400lm · LiFePO4 4000mAh · 3 niveaux · IP44 intérieur / IP65 panneau. CE + RoHS.',
+    p16_n:'Ampoule LED Solaire d''Urgence (E27 / B22)',p16_d:'Ampoule solaire qui s''allume automatiquement en cas de panne — disponible en culot E27 ou B22 pour s''adapter aux douilles d''Afrique du Sud et des marchés mondiaux. 3W/5W · 300/500lm · LiFePO4 1800mAh · allumage en <1s · autonomie 4-6h · recharge USB · mini panneau solaire 3W inclus. CE + RoHS.',
+    p17_n:'Kit d''Éclairage Solaire Maison (2 Lampes)',p17_d:'Solution complète d''éclairage hors réseau. Panneau 10W + 2× ampoules LED 3W + câbles 5m · LiFePO4 2200mAh par ampoule · mode bas 12h / haut 6h · charge USB urgence · boîte retail avec guide illustré. CE + RoHS.',
+    p18_n:'Ventilateur de Plafond Solaire avec Lumière',p18_d:'Ventilateur de plafond DC solaire avec panneau LED intégré. Moteur brushless 12V · 3 vitesses · <35dB · LED 12W 900lm · 3000K/6000K · panneau 18V 20W · LiFePO4 12,8V 6000mAh · pales 48" ABS · télécommande. CE + RoHS.',
+    p19_n:'Torche Solaire Effet Flamme',p19_d:'Torche solaire premium 120cm avec protection IP67 — conçue pour se démarquer des torches basiques 80cm IP44 qui inondent Amazon et AliExpress. 96 LED blanc chaud · effet flamme réaliste · LiFePO4 2200mAh · 10-12h · ABS stable UV + mât aluminium · allumage automatique au crépuscule. Conçue pour les paysagistes et le retail premium. CE + RoHS.',
+    p20_n:'Guirlande Solaire Féerique en Fil de Cuivre',p20_d:'Fil de cuivre flexible 0,4mm avec 100/200 micro LED chaudes à plier et enrouler sans limite. 10m/20m · 2700K · panneau 1,2W · 1200mAh · IP44 · 8 modes · 8-10h. CE + RoHS.',
+    p21_n:'Lampe Solaire pour Parasol',p21_d:'Lampe solaire à pince pour parasols de terrasse et de marché. 28/48/64 LED · blanc chaud + RGB · pour mâts 25-55mm · panneau 5,5V 1,5W séparé · 2000mAh · blanc chaud 8h / RGB 6h · télécommande IR · IP44. CE + RoHS.',
+    p22_n:'Lampadaire Solaire d''Extérieur',p22_d:'Élégant lampadaire solaire pour terrasses et jardins. 60/90/120cm · LED 24W · 1800lm · 3000K · LiFePO4 8000mAh · aluminium + verre trempé · IP65 · noir/blanc/cuivre · automatique + option PIR. CE + RoHS.',
+    p23_n:'Lampe de Chantier Solaire Portable',p23_d:'Lampe de travail solaire robuste pour chantiers et fermes. 10/20/30W · 1000-3000lm · LiFePO4 10000mAh amovible · panneau pliable 10W · tête orientable 180° · base magnétique + crochet · IP65 · 3 niveaux + SOS + power bank USB. CE + RoHS.',
+    p24_n:'Lanterne Solaire Power Bank Pro',p24_d:'Lanterne solaire professionnelle avec deux vrais différenciateurs face à BLAVOR et similaires : panneau COB à large diffusion (pas des LED ponctuelles) et charge rapide USB-C PD 18W (pas du 5V lent). COB 5W · 400lm · chaud + blanc · LiFePO4 8000mAh · panneau 5W pliable · USB-A QC3.0 · 4 niveaux · SOS · lumière rouge · base magnétique · IP65. CE + RoHS.',
+    p25_n:'Balise Solaire d''Avertissement',p25_d:'Balise solaire haute visibilité pour routes et chantiers. 6 LED · rouge/bleu/ambre/blanc · rotatif/stroboscopique/fixe/flash · visibilité 500m+ · LiFePO4 3000mAh · IP66 · –30°C~+60°C · magnétique + vis + sangle. CE + RoHS.',
+    p26_n:'Projecteur Solaire pour Mât de Drapeau',p26_d:'Spot solaire dédié à l''éclairage des mâts de drapeau. LED 8W · 600lm · 6500K blanc · LiFePO4 3600mAh · panneau 3W orientable · pour mâts 15-40mm · faisceau 120° · 10-12h · IP65. CE + RoHS.',
+    p27_n:'Lampadaire Solaire Séparé (30/60/100W)',p27_d:'Conception à panneau et tête séparés pour des angles d''installation flexibles et une maintenance facile sur le terrain — spécification privilégiée dans les appels d''offres municipaux en Afrique du Sud et les projets d''infrastructure en Colombie. 30/60/100W LED · 3 000–10 000lm · IP66 · détection radar · LiFePO4 · automatique au crépuscule · 10-12h. Support de poteau inclus. CE + RoHS.',
+    p28_n:'Colonne Solaire de Jardin (1-2m)',p28_d:'Colonne moderne en aluminium pour cours résidentielles, entrées de villa, jardins d''hôtel et places commerciales. Très populaire sur le marché espagnol. 10W · 800lm · 3000K blanc chaud · IP65 · LiFePO4 8000mAh · 10-12h · noir / blanc / anthracite. CE + RoHS.',
+    p29_n:'Lampe Solaire Flottante de Piscine',p29_d:'Lampe flottante RGB 16 couleurs pour piscines, bassins et jacuzzis. Demande vérifiée chez Bunnings Australie. IP68 entièrement étanche · dôme PC dépoli 15cm · 2000mAh · 6-8h · 8 modes d''éclairage · télécommande IR incluse · corps ABS + PC. CE + RoHS.',
+    inq_title:'Votre Liste de Demande',inq_empty:'Aucun produit ajouté. Cliquez sur + sur une fiche produit.',inq_clear:'Vider',inq_send:'Envoyer via WhatsApp',inq_add:'Ajouter à la demande',
+    cat_ac_t:'Éclairage Commercial AC',cat_ac_d:'Projecteurs, luminaires industriels et lampadaires sur secteur pour usines, entrepôts, terrains de sport et routes municipales. Certifié CE. 50–1000W. FOB Shenzhen.',cat_ac_prods:'2 sous-gammes · 3 produits : Projecteurs AC · Industriel & Lampadaire',
+    filter_ac:'AC Commercial',b_ac:'AC',
+    mega_h5:'Éclairage AC',mega_a11:'Projecteurs AC',mega_a12:'Industriel & Lampadaire',
+    sub_ac_floods:'Projecteurs AC',sub_ac_highbay:'Industriel & Lampadaire',
+    p30_n:'Lampe UFO Rechargeable d''Urgence',p30_d:'Lampe de secours ovni rechargeable par USB pour les délestages et coupures de courant. Avec crochet, sans installation. 150/200W · 3 modes · 3000K/4000K/6000K · Φ180–220mm · charge USB-C · 4-6h autonomie. CE + RoHS.',
+    p31_n:'Projecteur LED AC (50-1000W)',p31_d:'Projecteur LED sur secteur pour usines, terrains de sport, parkings et complexes commerciaux. Options 50-1000W · IP65 · 6500K · 30 000h durée de vie · boîtier aluminium · CE + RoHS. FOB Shenzhen.',
+    p32_n:'Luminaire Industriel UFO (100-300W)',p32_d:'Luminaire industriel AC pour entrepôts, usines, supermarchés et halls d''exposition. 100-300W · IP65 (série étanche disponible) · faisceau large 120° · 6500K · ailettes aluminium · CE + RoHS. FOB Shenzhen.',
+    p33_n:'Lampadaire AC (50-100W)',p33_d:'Tête de lampadaire sur secteur pour routes municipales, parcs industriels et parkings. 50/100W · IP65 · 6500K · boîtier aluminium · pour bras de 60mm · prêt pour photocellule · CE + RoHS. FOB Shenzhen.',
+    market_title:'Solutions par Marché',market_na:'États-Unis et Canada',market_latam:'Amérique Latine',market_africa:'Afrique Francophone',market_me:'Moyen-Orient',market_brazil:'Brésil',market_india:'Inde',
+    mr_na_1:'Déco saisonnière · 5 thèmes · prêt retail UL/ETL · IP65',mr_na_2:'Loisirs plein air · USB-C PD 18W · batterie externe · 15h+',mr_na_3:'Jardin et camping · UV-LED · 100-200m² · vente croisée n°1',mr_na_4:'Paysagistes · rotation 360° · blanc chaud 3000K · IP65',
+    mr_latam_1:'Voirie municipale et rurale · radar · IP66 · LiFePO4',mr_latam_2:'Périmètres et fermes · PIR 10m · IP66 · 2400lm',mr_latam_3:'Projets d''infrastructure · spec Colombie/Équateur · IP66',mr_latam_4:'Sécurité résidentielle · 800lm · anti-vandalisme · 8-12h',
+    mr_africa_1:'Routes rurales et municipales · radar · IP66 · LiFePO4',mr_africa_2:'Résidentiel premium · aluminium · 3000K · 10h autonomie',mr_africa_3:'Électrification rurale · kit complet · 2 lampes · USB urgence',mr_africa_4:'Délestage · USB-C · sans installation · 4-6h autonomie',
+    mr_me_1:'Édition CCTV intelligente · appels d''offres · radar · IP66',mr_me_2:'Stades et complexes · 50-1000W · IP65 · certifié CE',mr_me_3:'Camping désertique · batterie externe · 15h+ · IP44 durable',mr_me_4:'Villa hors réseau · charge USB · LiFePO4 4000mAh',
+    mr_brazil_1:'Éclairage public · IP66 · radar · batterie LiFePO4',mr_brazil_2:'Paysagisme · rotation 360° · blanc chaud 3000K · IP65',mr_brazil_3:'Coupures de courant · USB-C · sans installation · 3 modes',mr_brazil_4:'Kit résidentiel · 2 lampes · USB urgence · installation facile',
+    mr_india_1:'Jardins et temples · blanc chaud 3000K · 360° · IP65',mr_india_2:'Sécurité résidentielle · 800lm · PIR 8-12m · excellent rapport qualité-prix',mr_india_3:'Usines et entrepôts · 50-1000W · IP65 · 30 000h durée de vie',
+  },
+  pt:{
+    logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
+    nav_products:'Produtos',nav_cat:'Categorias',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',
+    hero_eye:'Iluminação Solar Externa · Quando a rede falha, nossas luzes continuam acesas.',
+    hero_h1:'Luz que funciona<br>quando a energia<br><em>não chega.</em>',
+    hero_sub:'A Colômbia projeta um déficit de mais de 3.100 GWh até 2027. O Equador já sofre cortes de até 10 horas diárias. A África do Sul tem 6 a 8 horas de apagões por dia. Iluminação solar de segurança, jardim, decoração, residencial e portátil — fabricada para que seus clientes nunca fiquem no escuro.',
+    hero_cta1:'Solicitar Cotação',hero_cta2:'Ver Produtos →',
+    stat1:'Produtos',stat2:'Linhas',stat3:'Certificado · RoHS',stat4:'Peças Ped. Mínimo',
+    brand_q:'"As redes elétricas estão falhando na África, América Latina e Oceania.<br><span>A iluminação solar não é uma melhoria — é a solução."</span>',
+    brand_b:'A JC Lightning fornece iluminação solar externa para distribuidores, instaladores e empreiteiros em mercados onde o fornecimento de energia não é garantido. Seis linhas — segurança, jardim, parede e cordões, ambiente, casa sem rede, portátil e especialidade — com carcaças de alumínio fundido, baterias LiFePO4 e vedação IP65. Certificado CE. OEM e ODM disponíveis.',
+    filter_all:'Todos',filter_security:'Segurança',filter_garden:'Jardim',filter_decorative:'Decorativo',filter_offgrid:'Sem Rede',search_ph:'Buscar 30 produtos — IP66, refletor, poste…',
+    prod_lbl:'Catálogo Completo',prod_h2:'Cada Luz.<br><em>Cada Especificação.</em>',prod_cat:'Ver Linha Completa →',
+    b_best:'Mais Vendido',b_newarr:'NOVO',b_rec:'Recomendado',b_hot:'TENDÊNCIA',b_eco:'Clássico',b_set:'Pack 8',b_ip66:'IP66',b_cctv:'NOVO: Edição CCTV Inteligente',b_seasonal:'5 Temas Sazonais',b_multifunc:'Edição Multi-Função',
+    p1_n:'Refletor Solar com Sensor · 3 Cabeças',p1_d:'Refletor solar de três cabeças ajustáveis para perímetros residenciais e comerciais, garagens e entradas. Corpo de alumínio fundido. 2500–3500lm · IP65 · PIR + 270° · três modos de operação. CE + RoHS.',
+    p2_n:'Arandela Solar PIR com Sensor de Movimento',p2_d:'Iluminação solar antivandalismo para muros, entradas e propriedades comerciais. 120 LEDs · 800lm · IP65. PIR duplo · 8–12m. LiFePO4 4000mAh · 8–12h. CE + RoHS.',
+    p4_n:'Lanterna de Parede Externa · Solar / AC',p4_d:'Iluminação decorativa externa para mansões, hotéis e pousadas. Versão solar (LiFePO4) ou AC (E27, máx. 60W) · IP44. Acabamentos bronze, preto e cobre. CE / EMC / LVD.',
+    p6_n:'Luzes Solares de Jardim com Estaca · Pack 8',p6_d:'Kit de luzes com estaca para jardins residenciais, caminhos e canteiros. Vidro fosco · ABS. 1,2W · IP65 · 600mAh · 8h. Caixas de 8 e 12 unidades. CE + RoHS.',
+    p7_n:'Refletor Solar de Segurança · 30W',p7_d:'Refletor solar industrial para armazéns, fazendas e grandes propriedades comerciais. 30W · 2400lm · IP66. PIR · 10m · 270°. Faixa –20°C a +50°C. CE + RoHS.',
+    p8_n:'Refletor Solar com Estaca para Paisagismo',p8_d:'Refletores ajustáveis com estaca para iluminação de árvores, fachadas e paisagismo. Rotação 360° · inclinação 90°. 5W · 400lm · IP65 · 1200mAh · 8h · 3000K / 6000K. CE + RoHS.',
+    p9_n:'Poste Solar Tudo-em-Um',p9_d:'Poste solar integrado para estradas municipais, rurais e estacionamentos. 100/200/300W · IP66 · sensor radar · LiFePO4 · automático. CE + RoHS.',
+    p10_n:'Arandela Solar de Parede Up-Down',p10_d:'Arandela moderna de duplo feixe para fachadas arquitetônicas. 2×3W · IP65 · alumínio · branco quente 3000K · 10h. Preto/branco/cinza. CE + RoHS.',
+    p11_n:'Cordão Solar Edison Vintage',p11_d:'Cordão de luzes estilo Edison para pátios, jardins e eventos. 40/60 LEDs · IP65 · branco quente 2700K · 30m · 8-12h. Embalagem varejo e atacado. CE + RoHS.',
+    p13_n:'Lanterna Solar Portátil de Camping',p13_d:'Lanterna portátil para camping, casas sem rede e emergências. 5W · 4000mAh · 15h+ · saída USB (power bank) · IP44. CE + RoHS.',
+    p14_n:'Lâmpada Solar Anti-Insetos',p14_d:'Lâmpada UV-LED para mosquitos e insetos ao ar livre. 2W · IP65 · cobertura 100-200m² · automática · CE + RoHS. Ideal para venda casada com luminárias de segurança.',
+    enq:'Solicitar Cotação →',
+    mega_h1:'Segurança e Vias',mega_h2:'Jardim e Paisagem',mega_h3:'Decoração e Ambiente',mega_h4:'Sem Rede e Portátil',mega_a1:'Refletores Solares',mega_a2:'Postes Solares',mega_a3:'Advertência e Sinal',mega_a4:'Pilares e Colunas',mega_a5:'Destaque de Jardim',mega_a7:'Parede e Cordões',mega_a8:'Ambiente Externo',mega_a9:'Casa Sem Rede',mega_a10:'Ferramentas Portáteis',
+    cat1_t:'Segurança e Vias',cat1_d:'Segurança perimetral, iluminação viária e balizas de advertência para limites residenciais, estradas municipais e canteiros de obra. IP65/IP66 · sensores PIR / radar · LiFePO4.',
+    cat2_t:'Jardim e Paisagem',cat2_d:'Entradas, caminhos e jardins iluminados a noite toda. Colunas de jardim, estacas e refletores — aço inox 304 / alumínio · IP65–IP67.',
+    cat3_t:'Decoração e Ambiente',cat3_d:'Arandelas arquitetônicas, cordões Edison, tochas de chama, luzes de guarda-sol e luzes flutuantes de piscina para mansões, hotéis, terraços e eventos ao ar livre. IP44–IP68.',
+    cat4_t:'Sem Rede e Portátil',cat4_d:'Sistemas solares completos para casas fora da rede, mais lanternas portáteis, luzes de trabalho e ferramentas de emergência. Pensado para apagões e vida ao ar livre.',
+    sub_floods:'Refletores de Segurança',sub_streets:'Postes e Vias',sub_warning:'Advertência e Sinal',sub_garden_pathway:'Jardim e Caminho',sub_wall_string:'Parede e Cordões',sub_ambiance:'Ambiente Externo',sub_home:'Casa Sem Rede',sub_portable:'Ferramentas Portáteis',
+        cat_lnk:'Ver Produtos →',
+    why_lbl:'Por Que Importa',why_h2:'Fabricado para mercados onde<br><em>a iluminação comum falha.</em>',
+    why_intro:'Quando a rede elétrica não é confiável, a iluminação externa tem uma única tarefa: funcionar de qualquer jeito. Cada produto da nossa linha é projetado em torno dessa exigência — materiais, vedações, baterias e controles escolhidos para ambientes onde a falha não é uma opção.',
+    why_cta:'Solicitar Ficha Técnica',
+    w1_t:'Independente da Rede Elétrica',w1_d:'Autonomia noturna completa com um único dia de carga solar. As baterias LiFePO4 operam de –20°C a +60°C. Seus clientes continuam iluminados mesmo quando o bairro fica às escuras.',
+    w2_t:'IP65 como Padrão Mínimo',w2_d:'Todos os produtos de segurança têm proteção IP65 ou IP66. À prova de poeira. À prova de chuva. Projetado para umidade costeira, calor tropical e condições desérticas.',
+    w3_t:'Programas OEM e ODM',w3_d:'Embalagem de marca própria, acabamentos personalizados, programas de varejo prontos. Pedidos de teste a partir de 200 unidades. Prazo de entrega 30–45 dias.',
+    w4_t:'Certificados Enviados com a Cotação',w4_d:'Relatórios CE e RoHS de laboratórios acreditados. Incluídos em cada cotação — sem esperas, sem cobranças.',
+    trust_label:'Presente em Mais de 30 Países',testi_label:'Depoimentos',testi_h2:'O que dizem os compradores <em>sobre trabalhar conosco.</em>',certs_label:'Certificações',certs_h2:'Certificados fornecidos <em>com cada cotação.</em>',faq_label:'Perguntas Frequentes',faq_h2:'Respostas rápidas. <em>Sem enrolação.</em>',faq1_q:'Qual a quantidade mínima de pedido (MOQ)?',faq1_a:'<p>200 peças por modelo para o seu primeiro pedido de teste. Após validar os produtos, os pedidos padrão começam com 500–1.000 peças. Mantemos MOQs práticos para que você possa testar o mercado antes de se comprometer com grandes volumes. Contêineres mistos são bem-vindos.</p>',faq2_q:'Quanto tempo levam a produção e o envio?',faq2_a:'<p>Amostras são enviadas em 3–5 dias por DHL/FedEx (7–15 dias para a maioria dos destinos). A produção em massa leva 30–45 dias após a confirmação do depósito. O trânsito marítimo varia conforme o destino: 25–35 dias para a América Latina, 20–30 dias para a África, 15–25 dias para a Oceania. Serviço DDP porta a porta disponível sob consulta.</p>',faq3_q:'Quais são as condições de pagamento?',faq3_a:'<p>Condições padrão: 30% de entrada via T/T para iniciar a produção, 70% de saldo antes do embarque — após receber o relatório de inspeção pré-embarque com fotos. Para clientes recorrentes, oferecemos condições flexíveis incluindo 50/50 e carta de crédito à vista. As taxas de amostra são totalmente reembolsadas no primeiro pedido.</p>',faq4_q:'Qual garantia vocês oferecem?',faq4_a:'<p>Todos os produtos têm garantia de 2 anos contra defeitos de fabricação, cobrindo painel LED, bateria, controlador e carcaça. As baterias LiFePO4 são classificadas para mais de 2.000 ciclos. As solicitações de garantia são tratadas em 72 horas — enviamos peças de reposição por correio expresso por nossa conta. Garantias estendidas de até 5 anos disponíveis para contratos por volume.</p>',faq5_q:'É possível personalizar com nossa marca ou especificações?',faq5_a:'<p>Sim. Os serviços OEM incluem: impressão de logotipo personalizado na carcaça e embalagem, acabamentos em cores personalizadas (mínimo 500 unidades por cor), design de embalagem personalizada com sua marca e ajustes de especificações (lumens, capacidade de bateria, tipo de sensor). Projetos ODM — desenvolver um novo produto conforme seu briefing — exigem no mínimo 2.000 unidades e um ciclo de desenvolvimento de 45–60 dias.</p>',faq6_q:'Quais certificações seus produtos possuem?',faq6_a:'<p>Todos os produtos são certificados CE e RoHS por laboratórios acreditados independentes. Os certificados são fornecidos com cada cotação — sem precisar correr atrás. Também podemos providenciar certificações adicionais (SAA para Austrália, SASO para Arábia Saudita, SONCAP para Nigéria, etc.) para pedidos em volume. Relatórios de teste disponíveis sob consulta.</p>',faq7_q:'Como posso verificar a qualidade antes de comprar em grande quantidade?',faq7_a:'<p>Enviamos 1–3 amostras por correio internacional para que você avalie fisicamente o brilho, a qualidade de construção e o acabamento. A taxa de amostra é totalmente reembolsada no seu primeiro pedido. Antes de cada embarque em massa, você recebe um relatório detalhado de inspeção pré-embarque com fotos — mesma especificação da sua amostra aprovada, verificada. O pagamento final só é feito após sua aprovação do relatório.</p>',faq8_q:'Para onde vocês enviam e quais são os custos?',faq8_a:'<p>Enviamos FOB de Shenzhen, Yantian ou Guangzhou — você escolhe o porto mais conveniente. Os principais mercados de destino incluem Colômbia (Buenaventura/Cartagena), Equador (Guayaquil), África do Sul (Durban), Quênia (Mombasa) e Austrália (Sydney/Melbourne). Para compradores de primeira viagem, podemos fornecer uma cotação DDP porta a porta que inclui frete, desembaraço aduaneiro e entrega no seu armazém. A lista de preços FOB é fornecida em até 24 horas após a consulta.</p>',
+    cert1_t:'Certificação CE',cert1_d:'Conformidade EMC, LVD e RoHS — certificado por laboratórios acreditados independentes. Requisito para a UE e a maioria dos mercados internacionais.',cert2_t:'Conformidade RoHS',cert2_d:'Restrição de Substâncias Perigosas — livre de chumbo, mercúrio e cádmio. Relatórios de teste disponíveis para cada série de produtos.',cert3_t:'Classificação IP65 / IP66',cert3_d:'Hermético contra poeira e protegido contra jatos de água. Testado de forma independente. A linha de segurança tem IP65 como mínimo — verificado antes do envio.',cert4_t:'Bateria LiFePO₄',cert4_d:'Mais de 2.000 ciclos de carga. Estabilidade térmica de -20°C a 60°C. Sem risco de fuga térmica. 3× mais vida útil que o lítio-íon padrão.',
+    num1:'Linhas de Produtos',num2:'Mercados de Exportação',num3:'Ciclos LiFePO₄',num4:'Anos de Confiança',num5:'Certificado CE',
+    ft_link1:'Iluminação Solar Segurança e Vias',ft_link2:'Iluminação Solar Jardim e Portão',ft_link3:'Arandelas e Cordões Solares',ft_link4:'Ambiente e Decoração Solar',ft_link5:'Iluminação Residencial Sem Rede',ft_link6:'Ver Todos os 30 Produtos →',ft_our_approach:'Nossa Abordagem',ft_faq:'Perguntas Frequentes',ft_contact:'Contato',
+    cert_t:'Certificações',c_ce:'Norma CE Europeia',c_ro:'Sem Substâncias Perigosas',c_65:'IP65 Resistente',c_66:'IP66 Alta Proteção',
+    proc_lbl:'Nosso Processo',proc_h2:'Da primeira mensagem <em>à mercadoria no seu cais.</em>',proc_sub:'Projetado para compradores internacionais que precisam de clareza, não surpresas. Cada etapa documentada.',
+    proc_1_t:'Consulta e Cotação',proc_1_d:'Informe tipo de produto, quantidade e porto de destino. Respondemos com preço FOB, ficha técnica completa, prazo e certificações.',proc_1_time:'Em 24 horas',
+    proc_2_t:'Amostra e Aprovação',proc_2_d:'1–3 unidades enviadas por DHL ou FedEx para avaliação física. Taxa de amostra totalmente reembolsada no seu primeiro pedido.',proc_2_time:'7–15 dias',
+    proc_3_t:'Produção e Controle de Qualidade',proc_3_d:'30% de entrada T/T confirma o pedido. Produção em fábricas certificadas. Relatório de inspeção antes do pagamento final.',proc_3_time:'30–45 dias',
+    proc_4_t:'Embarque e Documentos',proc_4_d:'FOB Shenzhen, Yantian ou Guangzhou. Documentação completa: Conhecimento de Embarque, Certificado de Origem, CE, packing list, fatura comercial.',proc_4_time:'Trânsito 25–40 dias',
+    why_lbl:'Por Que Nos Escolher',why_h2:'A diferença está nos<br><em>detalhes.</em>',why_sub:'Quatro coisas que importam ao escolher um parceiro de iluminação solar de longo prazo.',
+    why1_t:'Qualidade Real, Não Promessas',why1_d:'Carcaça de alumínio fundido — não plástico. Baterias LiFePO4 com mais de 2.000 ciclos, de -20°C a 60°C. IP65 mínimo na linha de segurança. Certificados CE e RoHS incluídos em cada cotação, sem precisar correr atrás.',
+    why2_t:'Respondemos. Rápido.',why2_d:'WhatsApp direto com quem toma decisões — não é chatbot, nem ticket, nem SLA de 48 horas. Quando seu contêiner chega ao porto e seu cliente precisa de documentos, você os recebe hoje. A maioria das perguntas é respondida em horas.',
+    why3_t:'Conhecemos Seu Mercado',why3_d:'A Colômbia funciona com refletores solares. A África do Sul quer luzes de segurança de parede. A Espanha prefere decorativas em branco quente. Após anos enviando para mais de 30 mercados, sabemos o que vende onde. Ajudamos você a escolher o que seus clientes realmente procuram.',
+    why4_t:'Mesma Qualidade, Todo Pedido',why4_d:'A amostra que você aprova é a especificação que bloqueamos. Mesmos LEDs, mesmas células de bateria, mesma classe de alumínio — documentado na confirmação do pedido, inspecionado antes do envio, verificado antes do pagamento final. Sem substituições sem sua aprovação por escrito.',
+    prm_lbl:'Com o Que Você Pode Contar',prm_h2:'Importar de 12.000 km<br><em>não deveria ser uma aposta.</em>',
+    prm1_t:'Especificações, Não Palavreado',prm1_d:'Cada cotação inclui lumens medidos, capacidade exata de bateria por célula, graus de material e relatórios de testes acreditados. Sem adjetivos. Sem alegações vagas. Apenas dados que seus clientes podem verificar.',
+    prm2_t:'Fotos Antes de Pagar',prm2_d:'As fotos pré-embarque e uma lista de inspeção detalhada chegam à sua caixa de entrada antes do pagamento final. Você vê exatamente o que está naquele palete antes do seu dinheiro sair da sua conta.',
+    prm3_t:'Documentos Incluídos, Sempre',prm3_d:'Certificados CE e RoHS de laboratórios acreditados. Certificado de Origem. Conhecimento de Embarque. Packing List. Fatura Comercial. Tudo que seu despachante precisa, em um único e-mail antes da chegada do contêiner.',
+    prm4_t:'Continuamos Aqui Após a Entrega',prm4_d:'Seus clientes têm dúvidas? Precisam de peças de reposição? Problema técnico após seis meses? O mesmo WhatsApp, a mesma pessoa. O contato não termina quando o contêiner sai do porto.',
+    con_lbl:'Entre em Contato',con_h2:'Conte-nos seu mercado, <em>nós dizemos o que funciona lá.</em>',
+    con_p:'Compartilhe tipo de produto, quantidade desejada e porto de destino. Resposta em 24 horas — preço FOB, ficha técnica, prazo e certificações incluídos.',
+    con_hrs:'Seg–Sex, 9h00–18h00 CST (UTC+8)',
+    f_name:'Seu Nome',f_co:'Empresa',f_email:'E-mail',f_prod:'Produto de Interesse',f_sel:'Selecione uma categoria…',f_msg:'Tipo de Produto · Quantidade · Porto de Destino',f_send:'Enviar Consulta',
+    f_ok:'✓ Consulta recebida. Responderemos em até 24 horas com uma cotação completa.',
+    ft_desc:'Iluminação solar externa para mercados onde a rede não é suficiente. Segurança · Jardim · Decorativo. CE / RoHS · IP65 · OEM disponível. Colômbia · Equador · África do Sul · Austrália · Espanha.',
+    chat_title:'Precisa de Ajuda?',chat_sub:'Respondemos em horas',chat_wa:'Conversar pelo WhatsApp',chat_email:'Enviar um E-mail',chat_note:'Seg–Sex, 9h00–18h00 CST (UTC+8)',marquee_1:'Segurança Solar · Jardim · Parede e Cordões · Ambiente · Sem Rede · Portátil',marquee_2:'Certificado CE e RoHS',marquee_3:'Alumínio Fundido · Aço Inox 304',marquee_4:'Programas OEM / ODM',marquee_5:'IP65 · IP66',marquee_6:'Colômbia · Equador · África do Sul · Austrália',marquee_7:'Pedido Teste 200 Peças',
+    ft_prod:'Produtos',ft_co:'Empresa',ft_srv:'Colômbia · Equador · África do Sul · Austrália · Espanha',ft_products_h:'Linhas de Produtos',ft_company_h:'Empresa',ft_cert_link:'Certificações',ft_markets_h:'Mercados-Chave',ft_copyright:'© 2026 JC Lightning. Todos os direitos reservados.',ft_fob:'FOB Shenzhen · Yantian · Guangzhou',
+    cat_lbl:'Nossas Linhas',cat_h2:'Quatro Linhas<br><em>Um Padrão</em>',
+    cat1_prods:'3 sublinhas · 8 produtos: Refletores · Postes · Advertência e Sinal',
+    cat2_prods:'1 sublinha · 3 produtos: Jardim e Caminho',
+    cat3_prods:'2 sublinhas · 7 produtos: Parede e Cordões · Ambiente Externo',
+    cat4_prods:'2 sublinhas · 8 produtos: Casa Sem Rede · Ferramentas Portáteis',
+        sc_lbl:'Onde São Usados',sc_h2:'Lugares Reais. <em>Performance Real.</em>',sc_sub:'Veja onde cada linha dá o seu melhor — de condomínios costeiros a fazendas sem conexão à rede.',
+    sc1_t:'Segurança Perimetral',sc1_d:'Refletores solares e arandelas PIR protegendo complexos comerciais, armazéns e muros residenciais. Ativação por movimento, independente da rede, IP65/IP66.',sc1_tag:'Linha Segurança',
+    sc2_t:'Entrada e Fachada',sc2_d:'Luzes esféricas para pilares, arandelas duplas e lanternas clássicas emoldurando entradas de condomínios, hotéis e comunidades fechadas. Luz quente, acabamento arquitetônico.',sc2_tag:'Jardim + Decoração',
+    sc3_t:'Jardim e Paisagem',sc3_d:'Colunas, estacas e refletores moldando caminhos, canteiros e iluminação de árvores. Aço inox 304 e alumínio fundido. IP65–IP67.',sc3_tag:'Linha Jardim',
+    sc4_t:'Ambiente e Vida ao Ar Livre',sc4_d:'Tochas de chama, luzes de fada, luzes de guarda-sol e luminárias de piso criando atmosfera para jardins, terraços e jantares ao ar livre. Brilho quente 2700K. IP44–IP65 para uso o ano todo.',sc4_tag:'Linha Ambiente',
+    sc5_t:'Caminho e Entrada de Veículos',sc5_d:'Colunas e postes tudo-em-um guiando veículos e pedestres. Nível municipal para estradas, estacionamentos e longas entradas. Sensores radar e crepuscular.',sc5_tag:'Jardim + Segurança',
+    sc6_t:'Emergência, Trabalho e Especialidade',sc6_d:'Luzes de trabalho portáteis, balizas, refletores para mastro de bandeira e lanternas de camping para canteiros de obra, emergências e aventuras ao ar livre. Power bank USB. IP65/IP66. Modo SOS.',sc6_tag:'Portátil e Especialidade',
+    mm_lbl:'Encontre Sua Luz',mm_h2:'Não sabe qual luz é ideal? <em>Responda algumas perguntas.</em>',mm_sub:'30 segundos. Sem navegar por catálogos. Nós combinamos você com os produtos certos.',
+    mm_biz_t:'Sou um Comprador Empresarial',mm_biz_d:'Importador, distribuidor, empreiteiro ou comprador de projetos no atacado.',
+    mm_home_t:'Sou um Proprietário Residencial',mm_home_d:'Busco iluminação solar externa para minha própria propriedade ou projeto.',
+    cat5_t:'Sistemas Solares Residenciais',cat5_d:'Soluções completas de iluminação solar para casas fora da rede. Arandelas internas, lâmpadas de emergência, kits completos e ventiladores de teto — luz confiável em cada cômodo sem eletricidade. IP44/IP65.',
+    cat5_prods:'4 produtos: Arandela Interna · Lâmpada Emergência (E27) · Kit Residencial · Ventilador de Teto',
+    cat6_t:'Ambiente Solar e Vida ao Ar Livre',cat6_d:'Tochas de chama, luzes de fada em fio de cobre, luzes para guarda-sol e luminárias de piso para jardins, terraços e eventos ao ar livre. Ambiente sem puxar cabos. IP44/IP65.',
+    cat6_prods:'4 produtos: Tocha Chama · Fio Cobre Fada · Luz Guarda-Sol · Luminária de Piso',
+    cat7_t:'Portátil, Trabalho e Especialidade',cat7_d:'Lanternas solares de camping, mata-insetos, luzes de trabalho e balizas de advertência para vida ao ar livre, canteiros de obra e emergências. IP65/IP66. Power bank USB. Modo SOS.',
+    cat7_prods:'6 produtos: Lanterna Camping · Mata-Insetos · Luz Trabalho · Lanterna Pro · Baliza · Mastro Bandeira',
+    p15_n:'Arandela Solar Interna (Split)',p15_d:'Arandela solar interna para lares na África e América Latina com cortes diários de energia. Painel externo, lâmpada interna conectados por cabo de 5m, porta USB carrega celulares durante apagões — três problemas resolvidos com uma só lâmpada. 5W · 400lm · LiFePO4 4000mAh · 3 níveis · IP44 interno / IP65 painel. CE + RoHS.',
+    p16_n:'Lâmpada LED Solar de Emergência (E27 / B22)',p16_d:'Lâmpada solar que acende automaticamente em apagões — disponível com base E27 ou B22 para se adaptar aos soquetes da África do Sul e mercados globais. 3W/5W · 300/500lm · LiFePO4 1800mAh · acendimento em <1s · autonomia 4-6h · recarga USB · mini painel solar 3W incluído. CE + RoHS.',
+    p17_n:'Kit de Iluminação Solar Residencial (2 Lâmpadas)',p17_d:'Solução completa de iluminação fora da rede. Painel 10W + 2× lâmpadas LED 3W + cabos 5m · LiFePO4 2200mAh por lâmpada · modo baixo 12h / alto 6h · carga USB emergência · caixa varejo com guia ilustrado. CE + RoHS.',
+    p18_n:'Ventilador de Teto Solar com Luz',p18_d:'Ventilador de teto DC solar com painel LED integrado. Motor brushless 12V · 3 velocidades · <35dB · LED 12W 900lm · 3000K/6000K · painel 18V 20W · LiFePO4 12,8V 6000mAh · pás 48" ABS · controle remoto. CE + RoHS.',
+    p19_n:'Tocha Solar Efeito Chama',p19_d:'Tocha solar premium de 120cm com proteção IP67 — projetada para se destacar das tochas básicas de 80cm IP44 que inundam Amazon e AliExpress. 96 LEDs branco quente · efeito chama realista · LiFePO4 2200mAh · 10-12h · ABS estável UV + poste de alumínio · acendimento automático ao anoitecer. Pensada para paisagistas e varejo premium. CE + RoHS.',
+    p20_n:'Luzes Solares de Fada em Fio de Cobre',p20_d:'Fio de cobre flexível 0,4mm com 100/200 micro LEDs quentes para dobrar e enrolar sem limites. 10m/20m · 2700K · painel 1,2W · 1200mAh · IP44 · 8 modos · 8-10h. CE + RoHS.',
+    p21_n:'Luz Solar para Guarda-Sol',p21_d:'Luz solar com braçadeira para guarda-sóis de pátio e mercado. 28/48/64 LEDs · branco quente + RGB · para hastes 25-55mm · painel 5,5V 1,5W separado · 2000mAh · branco quente 8h / RGB 6h · controle IR · IP44. CE + RoHS.',
+    p22_n:'Luminária Solar de Piso Externo',p22_d:'Elegante luminária solar de piso para terraços e jardins. 60/90/120cm · LED 24W · 1800lm · 3000K · LiFePO4 8000mAh · alumínio + vidro temperado · IP65 · preto/branco/cobre · automático + opção PIR. CE + RoHS.',
+    p23_n:'Luz Solar Portátil de Trabalho',p23_d:'Luz de trabalho solar robusta para canteiros de obra e fazendas. 10/20/30W · 1000-3000lm · LiFePO4 10000mAh removível · painel dobrável 10W · cabeça giratória 180° · base magnética + gancho · IP65 · 3 brilhos + SOS + power bank USB. CE + RoHS.',
+    p24_n:'Lanterna Solar Power Bank Pro',p24_d:'Lanterna solar profissional com dois diferenciais reais frente à BLAVOR e similares: painel COB de luz ampla (não LEDs pontuais) e carga rápida real USB-C PD 18W (não 5V lento). COB 5W · 400lm · quente + branco · LiFePO4 8000mAh · painel 5W dobrável · USB-A QC3.0 · 4 brilhos · SOS · luz vermelha · base magnética · IP65. CE + RoHS.',
+    p25_n:'Baliza Solar de Advertência',p25_d:'Baliza solar de alta visibilidade para estradas e obras. 6 LEDs · vermelho/azul/âmbar/branco · rotativo/estroboscópico/fixo/flash · visibilidade 500m+ · LiFePO4 3000mAh · IP66 · –30°C~+60°C · magnético + parafuso + correia. CE + RoHS.',
+    p26_n:'Refletor Solar para Mastro de Bandeira',p26_d:'Refletor solar dedicado para iluminação de mastros de bandeira. LED 8W · 600lm · 6500K branco · LiFePO4 3600mAh · painel 3W ajustável · para mastros 15-40mm · feixe 120° · 10-12h · IP65. CE + RoHS.',
+    p27_n:'Poste Solar Separado (30/60/100W)',p27_d:'Design de painel e cabeçote separados para ângulos de instalação flexíveis e manutenção fácil em campo — especificação preferida em licitações municipais na África do Sul e projetos de infraestrutura na Colômbia. 30/60/100W LED · 3.000–10.000lm · IP66 · sensor radar · LiFePO4 · automático ao anoitecer · 10-12h. Suporte para poste incluído. CE + RoHS.',
+    p28_n:'Coluna Solar de Jardim (1-2m)',p28_d:'Coluna moderna de alumínio para pátios residenciais, entradas de vilas, jardins de hotéis e praças comerciais. Muito popular no mercado espanhol. 10W · 800lm · 3000K branco quente · IP65 · LiFePO4 8000mAh · 10-12h · preto / branco / antracito. CE + RoHS.',
+    p29_n:'Luz Solar Flutuante para Piscina',p29_d:'Luz flutuante RGB 16 cores para piscinas, lagos e jacuzzis. Demanda verificada na Bunnings Austrália. IP68 totalmente à prova d''água · domo PC fosco 15cm · 2000mAh · 6-8h · 8 modos de luz · controle IR incluído · corpo ABS + PC. CE + RoHS.',
+    inq_title:'Sua Lista de Cotação',inq_empty:'Nenhum produto adicionado. Toque em + em qualquer produto.',inq_clear:'Limpar',inq_send:'Enviar por WhatsApp',inq_add:'Adicionar à cotação',
+    cat_ac_t:'Iluminação Comercial AC',cat_ac_d:'Refletores, luminárias industriais e postes com alimentação de rede para fábricas, armazéns, quadras esportivas e vias municipais. Certificado CE. 50–1000W. FOB Shenzhen.',cat_ac_prods:'2 sublinhas · 3 produtos: Refletores AC · Industrial e Poste',
+    filter_ac:'AC Comercial',b_ac:'AC',
+    mega_h5:'Iluminação AC',mega_a11:'Refletores AC',mega_a12:'Industrial e Poste',
+    sub_ac_floods:'Refletores AC',sub_ac_highbay:'Industrial e Poste',
+    p30_n:'Luz UFO Recarregável de Emergência',p30_d:'Luz de emergência tipo disco voador recarregável por USB para apagões e quedas de energia. Com gancho para pendurar, sem instalação. 150/200W · 3 modos · 3000K/4000K/6000K · Φ180–220mm · carga USB-C · autonomia 4-6h. CE + RoHS.',
+    p31_n:'Refletor LED AC (50-1000W)',p31_d:'Refletor LED com alimentação de rede para fábricas, quadras esportivas, estacionamentos e complexos comerciais. Opções 50-1000W · IP65 · 6500K · 30.000h de vida útil · carcaça de alumínio · CE + RoHS. FOB Shenzhen.',
+    p32_n:'Luminária Industrial UFO (100-300W)',p32_d:'Luminária industrial AC para armazéns, fábricas, supermercados e salões de exposição. 100-300W · IP65 (série impermeável disponível) · feixe amplo 120° · 6500K · aletas de alumínio · CE + RoHS. FOB Shenzhen.',
+    p33_n:'Poste de Luz AC (50-100W)',p33_d:'Cabeçote de poste com alimentação de rede para vias municipais, parques industriais e estacionamentos. 50/100W · IP65 · 6500K · carcaça de alumínio · para braços de 60mm · pronto para fotocélula · CE + RoHS. FOB Shenzhen.',
+    market_title:'Soluções por Mercado',market_na:'EUA e Canadá',market_latam:'América Latina',market_africa:'África Francófona',market_me:'Oriente Médio',market_brazil:'Brasil',market_india:'Índia',
+    mr_na_1:'Decoração sazonal · 5 temas · pronto varejo UL/ETL · IP65',mr_na_2:'Lazer ao ar livre · USB-C PD 18W · power bank · 15h+ autonomia',mr_na_3:'Jardim e camping · UV-LED · 100-200m² · venda casada campeã',mr_na_4:'Paisagismo · ajuste 360° · branco quente 3000K · IP65',
+    mr_latam_1:'Vias municipais e rurais · sensor radar · IP66 · LiFePO4',mr_latam_2:'Perímetros e fazendas · PIR 10m · IP66 · 2400lm',mr_latam_3:'Projetos infraestrutura · espec. Colômbia/Equador · IP66',mr_latam_4:'Segurança residencial · 800lm · antivandalismo · 8-12h',
+    mr_africa_1:'Estradas rurais e municipais · radar · IP66 · LiFePO4',mr_africa_2:'Residencial premium · alumínio · 3000K · 10h autonomia',mr_africa_3:'Eletrificação rural · kit completo · 2 lâmpadas · USB emergência',mr_africa_4:'Apagões · USB-C · sem instalação · 4-6h autonomia',
+    mr_me_1:'Edição CCTV inteligente · licitações · radar · IP66',mr_me_2:'Estádios e complexos · 50-1000W · IP65 · certificado CE',mr_me_3:'Camping desértico · power bank · 15h+ · IP44 durável',mr_me_4:'Villa fora da rede · carga USB celular · LiFePO4 4000mAh',
+    mr_brazil_1:'Iluminação pública · IP66 · radar · bateria LiFePO4',mr_brazil_2:'Paisagismo · ajuste 360° · luz quente 3000K · IP65',mr_brazil_3:'Apagões · USB-C · sem instalação · 3 modos',mr_brazil_4:'Kit residencial · 2 lâmpadas · USB emergência · fácil instalação',
+    mr_india_1:'Jardins e templos · branco quente 3000K · 360° · IP65',mr_india_2:'Segurança residencial · 800lm · PIR 8-12m · excelente custo-benefício',mr_india_3:'Fábricas e armazéns · 50-1000W · IP65 · 30.000h vida útil',
   }
 };
 
@@ -1869,13 +2356,27 @@ function setLang(l){
     else if(I18N_DEFAULTS['__ph__'+k]!==undefined) el.placeholder=I18N_DEFAULTS['__ph__'+k];
   });
   document.querySelectorAll('.lang-btn').forEach(btn=>{
-    const m={EN:'en','中文':'zh',ES:'es'};
+    const m={EN:'en','中文':'zh',ES:'es',FR:'fr',PT:'pt'};
     btn.classList.toggle('active', m[btn.textContent]===l);
   });
-  document.documentElement.lang=l==='zh'?'zh-CN':l;
+  document.documentElement.lang=l==='zh'?'zh-CN':l==='fr'?'fr':l==='pt'?'pt-BR':l;
   if(window._inqInject) window._inqInject();
   if(window._inqRefresh) window._inqRefresh();
+  // auto-select market tab based on language
+  if(window._switchMarketTab){
+    const marketMap={fr:'africa',pt:'brazil',es:'latam'};
+    window._switchMarketTab(marketMap[l]||'na');
+  }
 }
+
+// Market Tabs
+window._switchMarketTab=function(market){
+  document.querySelectorAll('.market-tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.market===market));
+  document.querySelectorAll('.market-panel').forEach(p=>p.classList.toggle('active',p.dataset.market===market));
+};
+document.querySelectorAll('.market-tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>window._switchMarketTab(btn.dataset.market));
+});
 
 // 下拉菜单
 const navBurger=document.getElementById('navBurger');
@@ -2667,7 +3168,7 @@ window.prevQuestion=function(){
   }
 };
 
-function showResults(){
+function showResults()
   document.getElementById('matchQuiz').style.display='none';
   var results=document.getElementById('matchResults');
   results.style.display='block';
