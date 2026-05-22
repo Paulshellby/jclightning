@@ -176,7 +176,7 @@ nav.light .nav-dl:hover { background:var(--brass); }
 .nav-drop a { display:block; font-family:'Outfit',sans-serif; font-size:0.75rem; font-weight:300; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none; color:var(--mist); padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.05); transition:color .2s; }
 .nav-drop a:last-child { border-bottom:none; }
 .nav-drop a:hover { color:var(--brass-lt); }
-.hero { min-height:100vh; background:var(--ink); display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:120px 56px 80px; position:relative; overflow:hidden; }
+.hero { min-height:100vh; background:var(--ink) url(images/bg-hero.jpg) center/cover no-repeat; display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:120px 56px 80px; position:relative; overflow:hidden; }
 .hero-bg { position:absolute; inset:0; pointer-events:none; background: radial-gradient(ellipse 55% 60% at 75% 40%, rgba(168,125,42,0.13) 0%, transparent 65%), radial-gradient(ellipse 30% 40% at 5% 85%, rgba(168,125,42,0.07) 0%, transparent 60%); }
 .hero-grain { position:absolute; inset:0; pointer-events:none; opacity:0.03; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size:200px 200px; }
 .hero-left { position:relative; z-index:1; }
@@ -234,7 +234,7 @@ h1 em, h2 em, .text-gold { background:linear-gradient(135deg,#c9a24e 0%,#e2c98a 
 .brand-q span { color:var(--brass-lt); }
 .brand-rule { width:52px; height:1px; background:var(--brass); margin:44px auto; }
 .brand-b { font-size:0.95rem; font-weight:400; line-height:2; color:var(--mist); max-width:600px; margin:0 auto; }
-.products { padding:110px 56px; background:var(--ink) url(images/bg-02-products.jpg) center/cover no-repeat; position:relative; }
+.products { padding:110px 56px; background:var(--ink) url(images/bg-products.jpg) center/cover no-repeat; position:relative; }
 .products::before { content:''; position:absolute; inset:0; opacity:0.04; background-image:radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px); background-size:18px 18px; pointer-events:none; }
 .prod-filter { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:40px; position:sticky; top:56px; z-index:50; background:rgba(14,12,10,0.92); backdrop-filter:blur(16px); padding:12px 16px; border-radius:50px; border:1px solid rgba(255,255,255,0.08); }
 .prod-filter-btn { font-family:'Outfit',sans-serif; font-size:0.65rem; font-weight:400; letter-spacing:0.08em; padding:9px 18px; border-radius:50px; border:1px solid transparent; background:transparent; color:var(--mist); cursor:pointer; transition:all .25s; white-space:nowrap; }
@@ -385,7 +385,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .cert-badge span { font-family:'Playfair Display',serif; font-size:0.72rem; font-weight:500; letter-spacing:0.06em; color:var(--brass-lt); text-align:center; line-height:1.2; }
 .cert-card h4 { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:400; color:var(--ink); margin-bottom:10px; }
 .cert-card p { font-size:0.9rem; font-weight:400; color:var(--ink-soft); line-height:1.7; max-width:220px; margin:0 auto; }
-.numbers { background:var(--ink) url(images/bg-05-numbers.jpg) center/cover no-repeat; padding:90px 56px; position:relative; overflow:hidden; }
+.numbers { background:var(--ink) url(images/bg-numbers.jpg) center/cover no-repeat; padding:90px 56px; position:relative; overflow:hidden; }
 .numbers::before { content:''; position:absolute; top:0; left:30%; width:600px; height:600px; background:radial-gradient(circle, rgba(168,125,42,0.1) 0%, transparent 65%); filter:blur(60px); pointer-events:none; }
 .num-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:20px; max-width:1100px; margin:0 auto; position:relative; z-index:1; text-align:center; }
 .num-item { padding:24px; }
@@ -463,7 +463,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .side-cta:hover { background:var(--brass-lt); padding:16px 10px; }
 .ft-industries { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
 .ft-tag { font-size:0.58rem; font-weight:300; letter-spacing:0.08em; color:var(--stone-lt); border:1px solid rgba(255,255,255,0.1); padding:5px 12px; border-radius:2px; }
-.faq { background:var(--ink) url(images/bg-11-faq.jpg) center/cover no-repeat; padding:120px 56px; position:relative; overflow:hidden; }
+.faq { background:var(--ink) url(images/bg-faq.jpg) center/cover no-repeat; padding:120px 56px; position:relative; overflow:hidden; }
 .faq::before { content:''; position:absolute; bottom:0; right:10%; width:500px; height:500px; background:radial-gradient(circle, rgba(168,125,42,0.08) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
 .faq-head { margin-bottom:64px; max-width:720px; position:relative; z-index:1; }
 .faq-head .sec-label { color:var(--brass-lt); }
@@ -1541,19 +1541,6 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </section>
 
-<section class="process" id="process">
-  <div class="proc-head reveal">
-    <div class="sec-label" data-i18n="proc_lbl">How We Work</div>
-    <h2 data-i18n="proc_h2">From first message to <em>goods on your dock.</em></h2>
-    <p class="section-sub" data-i18n="proc_sub">Designed for international buyers who need clarity, not surprises. Every step documented.</p>
-  </div>
-  <div class="proc-grid">
-    <div class="proc-step reveal"><div class="proc-num">01</div><h4 data-i18n="proc_1_t">Enquiry &amp; Quotation</h4><p data-i18n="proc_1_d">Send us product type, target quantity, and destination port. We respond with FOB price, full spec sheet, lead time, and certification documents.</p><div class="proc-time" data-i18n="proc_1_time">Within 24 hours</div></div>
-    <div class="proc-step reveal" style="transition-delay:.1s"><div class="proc-num">02</div><h4 data-i18n="proc_2_t">Sample &amp; Approval</h4><p data-i18n="proc_2_d">1–3 units shipped via DHL or FedEx for physical evaluation. Sample fee fully refunded against your first order.</p><div class="proc-time" data-i18n="proc_2_time">7–15 days</div></div>
-    <div class="proc-step reveal" style="transition-delay:.2s"><div class="proc-num">03</div><h4 data-i18n="proc_3_t">Production &amp; QC</h4><p data-i18n="proc_3_d">30% T/T deposit locks the order. Production at verified factories. Pre-shipment inspection report issued before final balance payment.</p><div class="proc-time" data-i18n="proc_3_time">30–45 days</div></div>
-    <div class="proc-step reveal" style="transition-delay:.3s"><div class="proc-num">04</div><h4 data-i18n="proc_4_t">Shipment &amp; Documents</h4><p data-i18n="proc_4_d">FOB Shenzhen, Yantian, or Guangzhou. Full export documentation: B/L, Certificate of Origin, CE certificate, packing list, commercial invoice.</p><div class="proc-time" data-i18n="proc_4_time">25–40 days transit</div></div>
-  </div>
-</section>
 
 <section class="promise" id="promise">
   <div class="promise-head reveal">
@@ -1889,11 +1876,11 @@ const T = {
     cat2_t:'Garden & Landscape',
     cat3_t:'Decorative & Ambiance',
     cat4_t:'Off-Grid & Portable',sub_warning:'Warning & Signal',sub_pillars:'Pillars & Columns',sub_wall_string:'Wall & String',why_h2:'Built for markets where ordinary<br><em>lighting gives up.</em>',w1_d:'Full overnight runtime on a single day\'s charge. LiFePO4 batteries operate stably from –20°C to +60°C. Your clients stay lit even when the neighbourhood goes dark.',testi_h2:'What buyers say <em>about working with us.</em>',certs_h2:'Certificates provided <em>with every quotation.</em>',faq_h2:'Quick answers. <em>No runaround.</em>',faq1_q:"What's the minimum order quantity (MOQ)?",faq1_a:'<p>200 pieces per model for your first trial order. After you\'ve validated the products, standard orders start at 500–1,000 pieces. We keep MOQs practical because we want you to test the market before committing to large volumes. Mixed containers across multiple models are welcome.</p>',faq2_a:'<p>Sample orders ship within 3–5 days via DHL/FedEx (7–15 days to most destinations). Bulk production takes 30–45 days after deposit confirmation. Sea freight transit time depends on destination: 25–35 days to Latin America, 20–30 days to Africa, 15–25 days to Oceania. Door-to-door DDP service is available on request.</p>',faq3_a:'<p>Standard terms: 30% T/T deposit to start production, 70% balance before shipment — after you receive the pre-shipment inspection report with photos. For repeat customers we offer flexible terms including 50/50 and L/C at sight. Sample fees are fully refunded against your first order.</p>',faq4_a:'<p>All products carry a 2-year warranty against manufacturing defects, covering the LED panel, battery, controller, and housing. LiFePO4 batteries are rated for 2,000+ charge cycles. Warranty claims are handled within 72 hours — we ship replacement parts via express courier at our cost. Extended warranties up to 5 years available for volume contracts.</p>',faq5_a:'<p>Yes. OEM services include: custom logo printing on housing and packaging, custom colour finishes (minimum 500 units per colour), custom packaging design with your branding, and specification adjustments (lumen output, battery capacity, sensor type). ODM projects — designing a new product to your brief — require a minimum 2,000-unit commitment and a 45–60 day development cycle.</p>',faq6_a:'<p>All products are CE and RoHS certified through accredited third-party laboratories. Certificates are provided upfront with every quotation — not chased after the fact. We can also arrange additional certifications (SAA for Australia, SASO for Saudi Arabia, SONCAP for Nigeria, etc.) for volume orders. Test reports are available on request.</p>',faq7_a:'<p>We send 1–3 sample units via international courier so you can physically evaluate brightness, build quality, and finish. The sample fee is fully refunded against your first order. Before every bulk shipment, you receive a detailed pre-shipment inspection report with photos — same spec as your approved sample, verified. Final payment only after you approve the report.</p>',faq8_a:'<p>We ship FOB from Shenzhen, Yantian, or Guangzhou — you choose the most convenient port. Major destination markets include Colombia (Buenaventura/Cartagena), Ecuador (Guayaquil), South Africa (Durban), Kenya (Mombasa), and Australia (Sydney/Melbourne). For first-time buyers, we can provide a door-to-door DDP quotation that includes freight, customs clearance, and delivery to your warehouse. FOB price list is provided within 24 hours of enquiry.</p>',
-    cert_t:'Certifications',c_ce:'European Standard',c_ro:'Hazardous-Free',c_65:'Weatherproof',c_66:'High Protection',proc_h2:'From first message to <em>goods on your dock.</em>',
-    proc_1_t:'Enquiry & Quotation',
-    proc_2_t:'Sample & Approval',
-    proc_3_t:'Production & QC',
-    proc_4_t:'Shipment & Documents',
+    cert_t:'Certifications',c_ce:'European Standard',c_ro:'Hazardous-Free',c_65:'Weatherproof',c_66:'High Protection',
+    
+    
+    
+    
     choose_lbl:'Why Choose Us',choose_h2:'The difference is in<br><em>the details.</em>',why_sub:'Four things that matter when you\'re choosing a solar lighting partner for the long term.',prm_h2:'Importing from 12,000 km away<br><em>shouldn\'t be a gamble.</em>',prm2_d:'Pre-shipment photos and a detailed inspection checklist land in your inbox before the final balance is due. You see exactly what\'s on that pallet before your money leaves your account.',
     prm4_t:'We\'re still here after delivery',prm4_d:'End customers have questions? Need spare parts? Technical issue six months in? WhatsApp still goes to the same person. Contact doesn\'t end when the container leaves the port.',con_h2:'Tell us your market. <em>We\'ll tell you what works there.</em>',
     f_ok:'✓ Enquiry received. We\'ll respond within 24 hours with a full quotation.',
@@ -1918,8 +1905,7 @@ const T = {
     p30_n:'Emergency UFO Rechargeable Light',p30_d:'USB-rechargeable flying-saucer emergency light for load-shedding and blackouts. Hook hanging, no installation needed. 150/200W · 3-mode dimming · 3000K/4000K/6000K · Φ180–220mm · USB-C charging · 4-6h runtime. CE + RoHS.',
     p31_n:'AC LED Floodlight (50-1000W)',p31_d:'Mains-powered LED floodlight for factories, sports courts, parking lots and commercial compounds. 50/100/200/300/400/600/800/1000W options · IP65 · 6500K · 30,000h lifespan · aluminium housing · CE + RoHS. FOB Shenzhen.',
     p32_n:'UFO High Bay Light (100-300W)',p32_d:'AC high bay light for warehouses, factories, supermarkets and exhibition halls. 100/150/200/300W · IP65 (waterproof series available) · 120° wide beam · 6500K · aluminium fins · CE + RoHS. FOB Shenzhen.',
-    p33_n:'AC Street Light (50-100W)',p33_d:'Mains-powered street light head for municipal roads, industrial parks and parking lots. 50/100W · IP65 · 6500K · aluminium housing · fits 60mm pole arms · photocell ready · CE + RoHS. FOB Shenzhen.',
-  },
+    p33_n:'AC Street Light (50-100W)',p33_d:'Mains-powered street light head for municipal roads, industrial parks and parking lots. 50/100W · IP65 · 6500K · aluminium housing · fits 60mm pole arms · photocell ready · CE + RoHS. FOB Shenzhen.'},
   zh:{
     logo:'嘉晨照明科技有限公司',ft_logo:'嘉晨照明科技有限公司',
     nav_products:'产品',nav_cat:'品类',nav_about:'我们的优势',nav_contact:'联系我们',nav_quote:'立即询价',
@@ -1967,11 +1953,11 @@ const T = {
     num1:'太阳能产品',num2:'出口市场',num3:'充放电循环',num4:'行业深耕',num5:'CE 认证',
     ft_link1:'太阳能安防与道路灯',ft_link2:'太阳能花园与大门灯',ft_link3:'太阳能壁灯与串灯',ft_link4:'太阳能氛围与装饰',ft_link5:'离网家庭照明',ft_link6:'查看全部 26 款产品 →',ft_our_approach:'我们的优势',ft_faq:'常见问题',ft_contact:'联系我们',
     cert_t:'认证资质',c_ce:'CE欧洲认证',c_ro:'RoHS无害化认证',c_65:'IP65防水防尘',c_66:'IP66高等级防护',
-    proc_lbl:'合作流程',proc_h2:'从第一条消息到<em>货物抵港。</em>',proc_sub:'为国际买家设计的清晰流程，每一步都有文件记录，没有意外，没有临时变更。',
-    proc_1_t:'询盘与报价',proc_1_d:'告知产品类型、数量及目的地港口，我们回复FOB价格、完整规格书、交期及认证文件。',proc_1_time:'24 小时内',
-    proc_2_t:'样品与确认',proc_2_d:'1–3只样品DHL或FedEx国际快递发出，供您实物评估。样品费在首单中全额返还。',proc_2_time:'7–15 天',
-    proc_3_t:'生产与品控',proc_3_d:'30% T/T订金锁单。在认证工厂生产。出货前提供驻厂检验报告，确认后再支付尾款。',proc_3_time:'30–45 天',
-    proc_4_t:'出货与文件',proc_4_d:'FOB深圳/盐田/广州装柜。提供完整出口文件：B/L提单、产地证、CE证书、装箱单、商业发票。',proc_4_time:'海运 25–40 天',
+    
+    
+    
+    
+    
     choose_lbl:'为何选择我们',choose_h2:'差别在于<br><em>细节。</em>',why_sub:'选择一个长期太阳能照明合作伙伴时，真正重要的四件事。',
     why1_t:'品质，我们是认真的',why1_d:'压铸铝合金外壳——不是塑料。磷酸铁锂电池支持-20°C至60°C宽温工作，2,000+次循环寿命。安防系列全线IP65起步。CE和RoHS证书随报价一同提供，不需催促。',
     why2_t:'响应快，不踢皮球',why2_d:'WhatsApp直达能做决定的人——不是聊天机器人，不是工单系统，不是48小时服务协议。货柜到港客户催单时，当天拿到文件。大部分问题数小时内答复。',
@@ -2051,7 +2037,7 @@ const T = {
     mr_africa_1:'乡村市政道路 · 雷达 · IP66 · LiFePO4',mr_africa_2:'高端住宅 · 铝合金 · 3000K · 10小时续航',mr_africa_3:'农村电气化 · 完整套装 · 2灯 · USB应急',mr_africa_4:'停电应急 · USB-C · 免安装 · 4-6小时',
     mr_me_1:'CCTV智能版 · 市政招标 · 雷达 · IP66',mr_me_2:'体育场与园区 · 50-1000W · IP65 · CE认证',mr_me_3:'沙漠露营 · 充电宝 · 15小时+ · IP44耐用',mr_me_4:'离网别墅 · USB手机充电 · LiFePO4 4000mAh',
     mr_brazil_1:'公共照明 · IP66 · 雷达 · 磷酸铁锂',mr_brazil_2:'景观照明 · 360°可调 · 暖白3000K · IP65',mr_brazil_3:'停电应急 · USB-C · 免安装 · 3档调光',mr_brazil_4:'家庭套装 · 2灯 · USB应急 · 简易安装',
-    mr_india_1:'花园寺庙照明 · 暖白3000K · 360° · IP65',mr_india_2:'住宅安防 · 800lm · PIR 8-12m · 高性价比',mr_india_3:'工厂仓库 · 50-1000W · IP65 · 3万小时寿命',  },
+    mr_india_1:'花园寺庙照明 · 暖白3000K · 360° · IP65',mr_india_2:'住宅安防 · 800lm · PIR 8-12m · 高性价比',mr_india_3:'工厂仓库 · 50-1000W · IP65 · 3万小时寿命'},
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Productos',nav_cat:'Categorías',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',
@@ -2099,11 +2085,11 @@ const T = {
     num1:'Productos Solares',num2:'Mercados de Exportación',num3:'Ciclos LiFePO₄',num4:'Años de Confianza',num5:'Certificado CE',
     ft_link1:'Luces Solares de Seguridad',ft_link2:'Luces Solares de Jardín',ft_link3:'Apliques y Cadenas Solares',ft_link4:'Ambiente y Decoración Solar',ft_link5:'Iluminación Solar sin Red',ft_link6:'Ver los 26 Productos →',ft_our_approach:'Nuestro Enfoque',ft_faq:'Preguntas Frecuentes',ft_contact:'Contacto',
     cert_t:'Certificaciones',c_ce:'Norma Europea CE',c_ro:'Sin Sustancias Peligrosas',c_65:'IP65 Resistente',c_66:'IP66 Alta Protección',
-    proc_lbl:'Cómo Trabajamos',proc_h2:'Del primer mensaje a <em>la mercancía en tu muelle.</em>',proc_sub:'Diseñado para compradores internacionales que necesitan claridad, no sorpresas. Cada paso documentado.',
-    proc_1_t:'Consulta y Cotización',proc_1_d:'Envíanos tipo de producto, cantidad y puerto de destino. Respondemos con precio FOB, ficha técnica, plazo y certificaciones.',proc_1_time:'En 24 horas',
-    proc_2_t:'Muestra y Aprobación',proc_2_d:'1–3 unidades por DHL o FedEx para evaluación física. Tarifa de muestra totalmente reembolsada con tu primer pedido.',proc_2_time:'7–15 días',
-    proc_3_t:'Producción y QC',proc_3_d:'30% depósito T/T confirma el pedido. Producción en fábricas verificadas. Informe de inspección antes del pago final.',proc_3_time:'30–45 días',
-    proc_4_t:'Envío y Documentos',proc_4_d:'FOB Shenzhen, Yantian o Guangzhou. Documentación completa: B/L, Certificado de Origen, CE, packing list, factura comercial.',proc_4_time:'Tránsito 25–40 días',
+    
+    
+    
+    
+    
     choose_lbl:'Por Qué Elegirnos',choose_h2:'La diferencia está en<br><em>los detalles.</em>',why_sub:'Cuatro cosas que importan al elegir un socio de iluminación solar a largo plazo.',
     why1_t:'Calidad Real, No Promesas',why1_d:'Carcasa de aluminio fundido — no plástico. Baterías LiFePO4 con más de 2.000 ciclos, de -20°C a 60°C. IP65 mínimo en la gama de seguridad. Certificados CE y RoHS incluidos con cada cotización, sin tener que perseguirlos.',
     why2_t:'Respondemos. Rápido.',why2_d:'WhatsApp directo con quien toma decisiones — no un chatbot, ni un ticket, ni un SLA de 48 horas. Cuando tu contenedor llega al puerto y tu cliente necesita documentos, los obtienes hoy. La mayoría de las preguntas se responden en horas.',
@@ -2183,7 +2169,7 @@ const T = {
     mr_africa_1:'Caminos rurales y municipales · radar · IP66 · LiFePO4',mr_africa_2:'Residencial premium · aluminio · 3000K · 10h autonomía',mr_africa_3:'Electrificación rural · kit completo · 2 lámparas · USB emergencia',mr_africa_4:'Apagones · USB-C · sin instalación · 4-6h autonomía',
     mr_me_1:'Edición CCTV inteligente · licitaciones · radar · IP66',mr_me_2:'Estadios y complejos · 50-1000W · IP65 · certificado CE',mr_me_3:'Camping desértico · power bank · 15h+ · IP44 durable',mr_me_4:'Villa sin red · carga USB móvil · LiFePO4 4000mAh',
     mr_brazil_1:'Alumbrado público · IP66 · radar · batería LiFePO4',mr_brazil_2:'Paisajismo · ajuste 360° · luz cálida 3000K · IP65',mr_brazil_3:'Apagones · USB-C · sin instalación · 3 modos',mr_brazil_4:'Kit residencial · 2 lámparas · USB emergencia · fácil instalación',
-    mr_india_1:'Jardines y templos · blanco cálido 3000K · 360° · IP65',mr_india_2:'Seguridad residencial · 800lm · PIR 8-12m · excelente relación costo-beneficio',mr_india_3:'Fábricas y almacenes · 50-1000W · IP65 · 30.000h vida útil',  },
+    mr_india_1:'Jardines y templos · blanco cálido 3000K · 360° · IP65',mr_india_2:'Seguridad residencial · 800lm · PIR 8-12m · excelente relación costo-beneficio',mr_india_3:'Fábricas y almacenes · 50-1000W · IP65 · 30.000h vida útil'},
   fr:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produits',nav_cat:'Catégories',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',
@@ -2228,11 +2214,6 @@ const T = {
     num1:'Produits Solaires',num2:'Marchés d\'Export',num3:'Cycles LiFePO₄',num4:'Années de Confiance',num5:'Certifié CE',
     ft_link1:'Éclairage Solaire Sécurité & Voirie',ft_link2:'Éclairage Solaire Jardin & Portail',ft_link3:'Appliques & Guirlandes Solaires',ft_link4:'Ambiance & Déco Solaire',ft_link5:'Éclairage Maison Autonome',ft_link6:'Voir les 30 Produits →',ft_our_approach:'Nos Atouts',ft_faq:'FAQ',ft_contact:'Contact',
     cert_t:'Certifications',c_ce:'Norme CE Européenne',c_ro:'Sans Substances Dangereuses',c_65:'IP65 Résistant',c_66:'IP66 Haute Protection',
-    proc_lbl:'Notre Processus',proc_h2:'Du premier message<br><em>à la marchandise à quai.</em>',proc_sub:'Conçu pour les acheteurs internationaux. Chaque étape documentée, aucune surprise.',
-    proc_1_t:'Demande & Devis',proc_1_d:'Indiquez le type de produit, la quantité et le port de destination. Nous répondons avec le prix FOB, la fiche technique complète, le délai et les certifications.',proc_1_time:'Sous 24 h',
-    proc_2_t:'Échantillon & Validation',proc_2_d:'1–3 unités expédiées par DHL ou FedEx pour évaluation physique. Frais d\'échantillon intégralement remboursés sur votre première commande.',proc_2_time:'7–15 jours',
-    proc_3_t:'Production & Contrôle Qualité',proc_3_d:'30 % d\'acompte T/T confirme la commande. Production en usines certifiées. Rapport d\'inspection avant paiement final.',proc_3_time:'30–45 jours',
-    proc_4_t:'Expédition & Documents',proc_4_d:'FOB Shenzhen, Yantian ou Guangzhou. Documentation complète : B/L, Certificat d\'Origine, CE, liste de colisage, facture commerciale.',proc_4_time:'Transit 25–40 jours',
     choose_lbl:'Pourquoi Nous Choisir',choose_h2:'La différence est dans<br><em>les détails.</em>',why_sub:'Quatre choses qui comptent quand vous choisissez un partenaire d\'éclairage solaire pour le long terme.',
     why1_t:'Qualité Réelle, Pas de Promesses',why1_d:'Boîtier en aluminium moulé — pas de plastique. Batteries LiFePO4 supportant plus de 2 000 cycles, de –20°C à 60°C. IP65 minimum sur la gamme sécurité. Certificats CE et RoHS inclus avec chaque devis, sans avoir à les réclamer.',
     why2_t:'Nous Répondons. Vite.',why2_d:'WhatsApp direct avec le décisionnaire — pas de chatbot, pas de ticket, pas de SLA de 48 heures. Quand votre conteneur arrive au port et que votre client a besoin des documents, vous les obtenez aujourd\'hui. La plupart des questions sont traitées en quelques heures.',
@@ -2312,8 +2293,7 @@ const T = {
     mr_africa_1:'Routes rurales et municipales · radar · IP66 · LiFePO4',mr_africa_2:'Résidentiel premium · aluminium · 3000K · 10h autonomie',mr_africa_3:'Électrification rurale · kit complet · 2 lampes · USB urgence',mr_africa_4:'Délestage · USB-C · sans installation · 4-6h autonomie',
     mr_me_1:'Édition CCTV intelligente · appels d\'offres · radar · IP66',mr_me_2:'Stades et complexes · 50-1000W · IP65 · certifié CE',mr_me_3:'Camping désertique · batterie externe · 15h+ · IP44 durable',mr_me_4:'Villa hors réseau · charge USB · LiFePO4 4000mAh',
     mr_brazil_1:'Éclairage public · IP66 · radar · batterie LiFePO4',mr_brazil_2:'Paysagisme · rotation 360° · blanc chaud 3000K · IP65',mr_brazil_3:'Coupures de courant · USB-C · sans installation · 3 modes',mr_brazil_4:'Kit résidentiel · 2 lampes · USB urgence · installation facile',
-    mr_india_1:'Jardins et temples · blanc chaud 3000K · 360° · IP65',mr_india_2:'Sécurité résidentielle · 800lm · PIR 8-12m · excellent rapport qualité-prix',mr_india_3:'Usines et entrepôts · 50-1000W · IP65 · 30 000h durée de vie',
-  },
+    mr_india_1:'Jardins et temples · blanc chaud 3000K · 360° · IP65',mr_india_2:'Sécurité résidentielle · 800lm · PIR 8-12m · excellent rapport qualité-prix',mr_india_3:'Usines et entrepôts · 50-1000W · IP65 · 30 000h durée de vie'},
   pt:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produtos',nav_cat:'Categorias',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',
@@ -2358,11 +2338,11 @@ const T = {
     num1:'Produtos Solares',num2:'Mercados de Exportação',num3:'Ciclos LiFePO₄',num4:'Anos de Confiança',num5:'Certificado CE',
     ft_link1:'Iluminação Solar Segurança e Vias',ft_link2:'Iluminação Solar Jardim e Portão',ft_link3:'Arandelas e Cordões Solares',ft_link4:'Ambiente e Decoração Solar',ft_link5:'Iluminação Residencial Sem Rede',ft_link6:'Ver Todos os 30 Produtos →',ft_our_approach:'Nossa Abordagem',ft_faq:'Perguntas Frequentes',ft_contact:'Contato',
     cert_t:'Certificações',c_ce:'Norma CE Europeia',c_ro:'Sem Substâncias Perigosas',c_65:'IP65 Resistente',c_66:'IP66 Alta Proteção',
-    proc_lbl:'Nosso Processo',proc_h2:'Da primeira mensagem <em>à mercadoria no seu cais.</em>',proc_sub:'Projetado para compradores internacionais que precisam de clareza, não surpresas. Cada etapa documentada.',
-    proc_1_t:'Consulta e Cotação',proc_1_d:'Informe tipo de produto, quantidade e porto de destino. Respondemos com preço FOB, ficha técnica completa, prazo e certificações.',proc_1_time:'Em 24 horas',
-    proc_2_t:'Amostra e Aprovação',proc_2_d:'1–3 unidades enviadas por DHL ou FedEx para avaliação física. Taxa de amostra totalmente reembolsada no seu primeiro pedido.',proc_2_time:'7–15 dias',
-    proc_3_t:'Produção e Controle de Qualidade',proc_3_d:'30% de entrada T/T confirma o pedido. Produção em fábricas certificadas. Relatório de inspeção antes do pagamento final.',proc_3_time:'30–45 dias',
-    proc_4_t:'Embarque e Documentos',proc_4_d:'FOB Shenzhen, Yantian ou Guangzhou. Documentação completa: Conhecimento de Embarque, Certificado de Origem, CE, packing list, fatura comercial.',proc_4_time:'Trânsito 25–40 dias',
+    
+    
+    
+    
+    
     choose_lbl:'Por Que Nos Escolher',choose_h2:'A diferença está nos<br><em>detalhes.</em>',why_sub:'Quatro coisas que importam ao escolher um parceiro de iluminação solar de longo prazo.',
     why1_t:'Qualidade Real, Não Promessas',why1_d:'Carcaça de alumínio fundido — não plástico. Baterias LiFePO4 com mais de 2.000 ciclos, de -20°C a 60°C. IP65 mínimo na linha de segurança. Certificados CE e RoHS incluídos em cada cotação, sem precisar correr atrás.',
     why2_t:'Respondemos. Rápido.',why2_d:'WhatsApp direto com quem toma decisões — não é chatbot, nem ticket, nem SLA de 48 horas. Quando seu contêiner chega ao porto e seu cliente precisa de documentos, você os recebe hoje. A maioria das perguntas é respondida em horas.',
@@ -2442,8 +2422,7 @@ const T = {
     mr_africa_1:'Estradas rurais e municipais · radar · IP66 · LiFePO4',mr_africa_2:'Residencial premium · alumínio · 3000K · 10h autonomia',mr_africa_3:'Eletrificação rural · kit completo · 2 lâmpadas · USB emergência',mr_africa_4:'Apagões · USB-C · sem instalação · 4-6h autonomia',
     mr_me_1:'Edição CCTV inteligente · licitações · radar · IP66',mr_me_2:'Estádios e complexos · 50-1000W · IP65 · certificado CE',mr_me_3:'Camping desértico · power bank · 15h+ · IP44 durável',mr_me_4:'Villa fora da rede · carga USB celular · LiFePO4 4000mAh',
     mr_brazil_1:'Iluminação pública · IP66 · radar · bateria LiFePO4',mr_brazil_2:'Paisagismo · ajuste 360° · luz quente 3000K · IP65',mr_brazil_3:'Apagões · USB-C · sem instalação · 3 modos',mr_brazil_4:'Kit residencial · 2 lâmpadas · USB emergência · fácil instalação',
-    mr_india_1:'Jardins e templos · branco quente 3000K · 360° · IP65',mr_india_2:'Segurança residencial · 800lm · PIR 8-12m · excelente custo-benefício',mr_india_3:'Fábricas e armazéns · 50-1000W · IP65 · 30.000h vida útil',
-  }
+    mr_india_1:'Jardins e templos · branco quente 3000K · 360° · IP65',mr_india_2:'Segurança residencial · 800lm · PIR 8-12m · excelente custo-benefício',mr_india_3:'Fábricas e armazéns · 50-1000W · IP65 · 30.000h vida útil'}
 };
 
 // Capture HTML defaults at init for fallback when i18n key is missing
