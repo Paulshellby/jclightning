@@ -207,6 +207,21 @@ h1 em { font-style:italic; color:var(--brass-lt); }
 .reveal-text.on { clip-path:inset(0 0 0 0); }
 /* Golden particles canvas */
 .hero-particles { position:absolute; inset:0; z-index:0; pointer-events:none; }
+/* Interactive hotspots */
+.hero-hotspots { position:absolute; inset:0; z-index:2; pointer-events:none; }
+.hs-dot { position:absolute; transform:translate(-50%,-50%); pointer-events:auto; cursor:pointer; z-index:1; }
+.hs-core { display:block; width:12px; height:12px; border-radius:50%; background:var(--brass-lt); box-shadow:0 0 12px rgba(201,162,78,0.7),0 0 28px rgba(201,162,78,0.35); position:relative; z-index:2; transition:transform .3s ease,box-shadow .3s ease; }
+.hs-ripple { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:12px; height:12px; border-radius:50%; border:1.5px solid rgba(201,162,78,0.5); animation:hsPulse 2.4s ease-out infinite; z-index:1; }
+.hs-ripple::after { content:''; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:12px; height:12px; border-radius:50%; border:1px solid rgba(201,162,78,0.3); animation:hsPulse 2.4s ease-out .8s infinite; }
+@keyframes hsPulse { 0%{width:12px;height:12px;opacity:1} 100%{width:60px;height:60px;opacity:0} }
+.hs-label { position:absolute; left:22px; top:50%; transform:translateY(-50%); white-space:nowrap; font-family:'Outfit',sans-serif; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--chalk-w); background:rgba(18,16,14,0.85); border:1px solid rgba(201,162,78,0.25); padding:6px 14px; border-radius:3px; opacity:0; pointer-events:none; transition:opacity .25s ease,transform .25s ease; transform:translateY(-50%) translateX(6px); }
+.hs-dot:hover .hs-core { transform:scale(1.6); box-shadow:0 0 20px rgba(201,162,78,0.9),0 0 40px rgba(201,162,78,0.5); }
+.hs-dot:hover .hs-label { opacity:1; transform:translateY(-50%) translateX(0); }
+.hs-dot:hover .hs-ripple,
+.hs-dot:hover .hs-ripple::after { animation-play-state:paused; }
+@media (max-width:768px){
+  .hero-hotspots { display:none; }
+}
 /* Tech grid overlay */
 .hero-grid { position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0.04; background-image:linear-gradient(rgba(255,255,255,0.4) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.4) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 55% 60% at 75% 40%,black 0%,transparent 70%); -webkit-mask-image:radial-gradient(ellipse 55% 60% at 75% 40%,black 0%,transparent 70%); }
 /* Scroll indicator */
@@ -760,6 +775,32 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   <div class="hero-grain"></div>
   <div class="hero-grid"></div>
   <canvas class="hero-particles" id="heroParticles"></canvas>
+  <div class="hero-hotspots">
+    <div class="hs-dot" style="left:62%;top:18%;" data-target="#cat-security" data-i18n="hs_street">
+      <span class="hs-ripple"></span><span class="hs-core"></span>
+      <span class="hs-label">Security &amp; Street</span>
+    </div>
+    <div class="hs-dot" style="left:78%;top:30%;" data-target="#cat-garden" data-i18n="hs_garden">
+      <span class="hs-ripple"></span><span class="hs-core"></span>
+      <span class="hs-label">Garden &amp; Pathway</span>
+    </div>
+    <div class="hs-dot" style="left:72%;top:44%;" data-target="#cat-decorative" data-i18n="hs_decor">
+      <span class="hs-ripple"></span><span class="hs-core"></span>
+      <span class="hs-label">Decorative &amp; Ambiance</span>
+    </div>
+    <div class="hs-dot" style="left:58%;top:56%;" data-target="#cat-offgrid" data-i18n="hs_offgrid">
+      <span class="hs-ripple"></span><span class="hs-core"></span>
+      <span class="hs-label">Off-Grid &amp; Portable</span>
+    </div>
+    <div class="hs-dot" style="left:68%;top:70%;" data-target="#cat-ac" data-i18n="hs_ac">
+      <span class="hs-ripple"></span><span class="hs-core"></span>
+      <span class="hs-label">AC Commercial</span>
+    </div>
+    <div class="hs-dot" style="left:80%;top:58%;" data-target="#market-tabs" data-i18n="hs_market">
+      <span class="hs-ripple"></span><span class="hs-core"></span>
+      <span class="hs-label">Solutions by Market</span>
+    </div>
+  </div>
   <div class="hero-left reveal">
     <div class="hero-eyebrow" data-i18n="hero_eye">Solar Outdoor Lighting · When the grid goes down, we stay on.</div>
     <h1 data-i18n="hero_h1">Light that works<br>when the power<br><em>doesn't.</em></h1>
@@ -888,7 +929,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 
   <div class="reveal" style="margin-bottom:24px"><input type="text" class="prod-search" id="prodSearch" placeholder="Search 30 products — IP66, flood light, 路灯…" data-i18n-placeholder="search_ph"></div>
 
-  <div class="market-tabs reveal" style="margin-bottom:32px">
+  <div class="market-tabs reveal" id="market-tabs" style="margin-bottom:32px">
     <h4 class="market-tabs-h" data-i18n="market_title">Solutions by Market</h4>
     <div class="market-tabs-nav">
       <button class="market-tab-btn active" data-market="na" data-i18n="market_na">USA &amp; Canada</button>
@@ -1905,7 +1946,8 @@ const T = {
     p30_n:'Emergency UFO Rechargeable Light',p30_d:'USB-rechargeable flying-saucer emergency light for load-shedding and blackouts. Hook hanging, no installation needed. 150/200W · 3-mode dimming · 3000K/4000K/6000K · Φ180–220mm · USB-C charging · 4-6h runtime. CE + RoHS.',
     p31_n:'AC LED Floodlight (50-1000W)',p31_d:'Mains-powered LED floodlight for factories, sports courts, parking lots and commercial compounds. 50/100/200/300/400/600/800/1000W options · IP65 · 6500K · 30,000h lifespan · aluminium housing · CE + RoHS. FOB Shenzhen.',
     p32_n:'UFO High Bay Light (100-300W)',p32_d:'AC high bay light for warehouses, factories, supermarkets and exhibition halls. 100/150/200/300W · IP65 (waterproof series available) · 120° wide beam · 6500K · aluminium fins · CE + RoHS. FOB Shenzhen.',
-    p33_n:'AC Street Light (50-100W)',p33_d:'Mains-powered street light head for municipal roads, industrial parks and parking lots. 50/100W · IP65 · 6500K · aluminium housing · fits 60mm pole arms · photocell ready · CE + RoHS. FOB Shenzhen.'},
+    p33_n:'AC Street Light (50-100W)',p33_d:'Mains-powered street light head for municipal roads, industrial parks and parking lots. 50/100W · IP65 · 6500K · aluminium housing · fits 60mm pole arms · photocell ready · CE + RoHS. FOB Shenzhen.',
+    hs_street:'Security &amp; Street',hs_garden:'Garden &amp; Pathway',hs_decor:'Decorative &amp; Ambiance',hs_offgrid:'Off-Grid &amp; Portable',hs_ac:'AC Commercial',hs_market:'Solutions by Market'},
   zh:{
     logo:'嘉晨照明科技有限公司',ft_logo:'嘉晨照明科技有限公司',
     nav_products:'产品',nav_cat:'品类',nav_about:'我们的优势',nav_contact:'联系我们',nav_quote:'立即询价',
@@ -2037,7 +2079,8 @@ const T = {
     mr_africa_1:'乡村市政道路 · 雷达 · IP66 · LiFePO4',mr_africa_2:'高端住宅 · 铝合金 · 3000K · 10小时续航',mr_africa_3:'农村电气化 · 完整套装 · 2灯 · USB应急',mr_africa_4:'停电应急 · USB-C · 免安装 · 4-6小时',
     mr_me_1:'CCTV智能版 · 市政招标 · 雷达 · IP66',mr_me_2:'体育场与园区 · 50-1000W · IP65 · CE认证',mr_me_3:'沙漠露营 · 充电宝 · 15小时+ · IP44耐用',mr_me_4:'离网别墅 · USB手机充电 · LiFePO4 4000mAh',
     mr_brazil_1:'公共照明 · IP66 · 雷达 · 磷酸铁锂',mr_brazil_2:'景观照明 · 360°可调 · 暖白3000K · IP65',mr_brazil_3:'停电应急 · USB-C · 免安装 · 3档调光',mr_brazil_4:'家庭套装 · 2灯 · USB应急 · 简易安装',
-    mr_india_1:'花园寺庙照明 · 暖白3000K · 360° · IP65',mr_india_2:'住宅安防 · 800lm · PIR 8-12m · 高性价比',mr_india_3:'工厂仓库 · 50-1000W · IP65 · 3万小时寿命'},
+    mr_india_1:'花园寺庙照明 · 暖白3000K · 360° · IP65',mr_india_2:'住宅安防 · 800lm · PIR 8-12m · 高性价比',mr_india_3:'工厂仓库 · 50-1000W · IP65 · 3万小时寿命',
+    hs_street:'安防与道路',hs_garden:'花园与路径',hs_decor:'装饰与氛围',hs_offgrid:'离网与便携',hs_ac:'AC商业照明',hs_market:'按市场选品'},
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Productos',nav_cat:'Categorías',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',
@@ -2169,7 +2212,8 @@ const T = {
     mr_africa_1:'Caminos rurales y municipales · radar · IP66 · LiFePO4',mr_africa_2:'Residencial premium · aluminio · 3000K · 10h autonomía',mr_africa_3:'Electrificación rural · kit completo · 2 lámparas · USB emergencia',mr_africa_4:'Apagones · USB-C · sin instalación · 4-6h autonomía',
     mr_me_1:'Edición CCTV inteligente · licitaciones · radar · IP66',mr_me_2:'Estadios y complejos · 50-1000W · IP65 · certificado CE',mr_me_3:'Camping desértico · power bank · 15h+ · IP44 durable',mr_me_4:'Villa sin red · carga USB móvil · LiFePO4 4000mAh',
     mr_brazil_1:'Alumbrado público · IP66 · radar · batería LiFePO4',mr_brazil_2:'Paisajismo · ajuste 360° · luz cálida 3000K · IP65',mr_brazil_3:'Apagones · USB-C · sin instalación · 3 modos',mr_brazil_4:'Kit residencial · 2 lámparas · USB emergencia · fácil instalación',
-    mr_india_1:'Jardines y templos · blanco cálido 3000K · 360° · IP65',mr_india_2:'Seguridad residencial · 800lm · PIR 8-12m · excelente relación costo-beneficio',mr_india_3:'Fábricas y almacenes · 50-1000W · IP65 · 30.000h vida útil'},
+    mr_india_1:'Jardines y templos · blanco cálido 3000K · 360° · IP65',mr_india_2:'Seguridad residencial · 800lm · PIR 8-12m · excelente relación costo-beneficio',mr_india_3:'Fábricas y almacenes · 50-1000W · IP65 · 30.000h vida útil',
+    hs_street:'Seguridad y Calle',hs_garden:'Jardín y Sendero',hs_decor:'Decorativo y Ambiente',hs_offgrid:'Portátil y Autónomo',hs_ac:'Comercial AC',hs_market:'Soluciones por Mercado'},
   fr:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produits',nav_cat:'Catégories',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',
@@ -2293,7 +2337,8 @@ const T = {
     mr_africa_1:'Routes rurales et municipales · radar · IP66 · LiFePO4',mr_africa_2:'Résidentiel premium · aluminium · 3000K · 10h autonomie',mr_africa_3:'Électrification rurale · kit complet · 2 lampes · USB urgence',mr_africa_4:'Délestage · USB-C · sans installation · 4-6h autonomie',
     mr_me_1:'Édition CCTV intelligente · appels d\'offres · radar · IP66',mr_me_2:'Stades et complexes · 50-1000W · IP65 · certifié CE',mr_me_3:'Camping désertique · batterie externe · 15h+ · IP44 durable',mr_me_4:'Villa hors réseau · charge USB · LiFePO4 4000mAh',
     mr_brazil_1:'Éclairage public · IP66 · radar · batterie LiFePO4',mr_brazil_2:'Paysagisme · rotation 360° · blanc chaud 3000K · IP65',mr_brazil_3:'Coupures de courant · USB-C · sans installation · 3 modes',mr_brazil_4:'Kit résidentiel · 2 lampes · USB urgence · installation facile',
-    mr_india_1:'Jardins et temples · blanc chaud 3000K · 360° · IP65',mr_india_2:'Sécurité résidentielle · 800lm · PIR 8-12m · excellent rapport qualité-prix',mr_india_3:'Usines et entrepôts · 50-1000W · IP65 · 30 000h durée de vie'},
+    mr_india_1:'Jardins et temples · blanc chaud 3000K · 360° · IP65',mr_india_2:'Sécurité résidentielle · 800lm · PIR 8-12m · excellent rapport qualité-prix',mr_india_3:'Usines et entrepôts · 50-1000W · IP65 · 30 000h durée de vie',
+    hs_street:'Sécurité et Rue',hs_garden:'Jardin et Allée',hs_decor:'Décoratif et Ambiance',hs_offgrid:'Hors Réseau et Portable',hs_ac:'Commercial AC',hs_market:'Solutions par Marché'},
   pt:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produtos',nav_cat:'Categorias',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',
@@ -2422,7 +2467,8 @@ const T = {
     mr_africa_1:'Estradas rurais e municipais · radar · IP66 · LiFePO4',mr_africa_2:'Residencial premium · alumínio · 3000K · 10h autonomia',mr_africa_3:'Eletrificação rural · kit completo · 2 lâmpadas · USB emergência',mr_africa_4:'Apagões · USB-C · sem instalação · 4-6h autonomia',
     mr_me_1:'Edição CCTV inteligente · licitações · radar · IP66',mr_me_2:'Estádios e complexos · 50-1000W · IP65 · certificado CE',mr_me_3:'Camping desértico · power bank · 15h+ · IP44 durável',mr_me_4:'Villa fora da rede · carga USB celular · LiFePO4 4000mAh',
     mr_brazil_1:'Iluminação pública · IP66 · radar · bateria LiFePO4',mr_brazil_2:'Paisagismo · ajuste 360° · luz quente 3000K · IP65',mr_brazil_3:'Apagões · USB-C · sem instalação · 3 modos',mr_brazil_4:'Kit residencial · 2 lâmpadas · USB emergência · fácil instalação',
-    mr_india_1:'Jardins e templos · branco quente 3000K · 360° · IP65',mr_india_2:'Segurança residencial · 800lm · PIR 8-12m · excelente custo-benefício',mr_india_3:'Fábricas e armazéns · 50-1000W · IP65 · 30.000h vida útil'}
+    mr_india_1:'Jardins e templos · branco quente 3000K · 360° · IP65',mr_india_2:'Segurança residencial · 800lm · PIR 8-12m · excelente custo-benefício',mr_india_3:'Fábricas e armazéns · 50-1000W · IP65 · 30.000h vida útil',
+    hs_street:'Segurança e Rua',hs_garden:'Jardim e Caminho',hs_decor:'Decorativo e Ambiente',hs_offgrid:'Portátil e Autónomo',hs_ac:'Comercial AC',hs_market:'Soluções por Mercado'}
 };
 
 // Capture HTML defaults at init for fallback when i18n key is missing
@@ -2469,6 +2515,15 @@ window._switchMarketTab=function(market){
 };
 document.querySelectorAll('.market-tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>window._switchMarketTab(btn.dataset.market));
+});
+
+// Hero hotspots click-to-scroll
+document.querySelectorAll('.hs-dot').forEach(dot=>{
+  dot.addEventListener('click',function(){
+    const target=this.dataset.target;
+    const el=document.querySelector(target);
+    if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
 });
 
 // 下拉菜单
