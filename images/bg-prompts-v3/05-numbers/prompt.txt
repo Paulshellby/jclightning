@@ -1,0 +1,17 @@
+===== AI 生图提示词 V3 =====
+模块: Numbers（数据计数器）
+风格: 温暖金色粒子+柔光——明亮
+尺寸: 1920×600px
+文件名: bg-numbers-v3.jpg
+
+--- 提示词 ---
+A warm, luminous abstract background for statistics counters. Base color: warm amber (#4a3824). Visible (18-22% opacity) floating golden particles and light streaks in bright brass (#c9a24e) and warm amber tones — like afternoon sunlight catching dust motes.
+
+A soft, noticeable golden light bloom near the center-top, fading gently toward the edges. The center area should feel subtly illuminated where large numbers will display. Much brighter than previous versions — the golden particles should feel like they're actually glowing. The feel: achievement, warmth, substance, light.
+
+--- 关键词 ---
+warm amber background, floating golden particles, afternoon sunlight, luminous dust motes, bright brass glow, center illumination, warm and bright
+
+--- 参数 ---
+Midjourney: --style raw --ar 16:9 --no text,logo,watermark,dark,black,night
+DALL·E 3: 直接粘贴

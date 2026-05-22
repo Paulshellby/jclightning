@@ -1,0 +1,17 @@
+===== AI 生图提示词 V3 =====
+模块: Promise（承诺区 · What You Can Count On）
+风格: 暖奶油底+金色纹路——明亮优雅
+尺寸: 1920×800px
+文件名: bg-promise-v3.jpg
+
+--- 提示词 ---
+A bright, warm cream/ivory abstract background for a trust/promise section. Base color: warm cream (#f0e8d8). Very subtle (8-12% opacity) elegant golden (#c9a24e) geometric line patterns — like a refined watermark or seal design suggesting trust and certification. The pattern should be concentrated near the edges, leaving the center clean for text cards.
+
+The overall feel: bright, trustworthy, warm, elegant. Nothing dark, nothing grey. This should feel like premium stationery or a certificate of authenticity — cream paper with subtle gold embossing. The background should make dark text feel crisp and authoritative.
+
+--- 关键词 ---
+warm cream background, elegant golden watermark, subtle geometric seal, bright and trustworthy, premium stationery, gold embossing, light and airy
+
+--- 参数 ---
+Midjourney: --style raw --ar 16:9 --no text,logo,watermark,dark,black,grey
+DALL·E 3: 直接粘贴

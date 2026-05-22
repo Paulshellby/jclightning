@@ -1,0 +1,17 @@
+===== AI 生图提示词 V3 =====
+模块: Products（产品目录）
+风格: 暖砂岩科技网格
+尺寸: 1920×1080px
+文件名: bg-products-v3.jpg
+
+--- 提示词 ---
+A warm, medium-toned abstract background for a product catalog. Base color: warm sandstone (#4a3c2a). Subtle (15-20% opacity) hexagonal grid pattern like solar panel cells, in warm golden (#c9a24e) and light bronze lines. Sparse golden nodes with soft glow.
+
+The overall tone is SIGNIFICANTLY LIGHTER than a dark background — this should feel like warm stone or sandstone, not charcoal or black. The pattern should be visible but not distracting behind white product cards. Golden ambient light across the upper portion. The feel: organized, warm, technical but inviting. Like a premium catalog photographed in warm natural light.
+
+--- 关键词 ---
+warm sandstone background, hexagonal solar grid, golden nodes glow, medium-warm tone, premium catalog, organized geometric, warm natural light
+
+--- 参数 ---
+Midjourney: --style raw --ar 16:9 --no text,logo,watermark,dark,black
+DALL·E 3: 直接粘贴

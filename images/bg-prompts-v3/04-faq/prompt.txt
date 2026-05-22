@@ -1,0 +1,17 @@
+===== AI 生图提示词 V3 =====
+模块: FAQ（常见问题）
+风格: 暖灰金数字界面——清晰、温暖
+尺寸: 1920×900px
+文件名: bg-faq-v3.jpg
+
+--- 提示词 ---
+A clean, warm abstract background for an FAQ section. Base color: warm grey-gold (#3e3428). Delicate (15-20% opacity) horizontal and vertical fine lines suggesting a minimalist data grid, in warm grey and soft golden tones. Sparse glowing nodes in brass (#c9a24e).
+
+The tone is MEDIUM-WARM — significantly lighter than black. Think of a premium dark-mode UI but designed with warm tones instead of cold greys. A soft golden light wash across the upper-right. The feel: organized, knowledgeable, approachable, warm. FAQ questions (white text) should feel crisp and readable against this background.
+
+--- 关键词 ---
+warm grey-gold background, minimalist data grid, golden nodes, medium-warm tone, premium UI, organized clean, warm approachable
+
+--- 参数 ---
+Midjourney: --style raw --ar 16:9 --no text,logo,watermark,dark,black
+DALL·E 3: 直接粘贴
