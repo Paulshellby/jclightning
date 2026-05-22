@@ -179,19 +179,6 @@ nav.light .nav-dl:hover { background:var(--brass); }
 .hero { min-height:100vh; background:linear-gradient(135deg, #1a1510 0%, #1f1810 35%, #1a1410 65%, #14110e 100%); display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:120px 56px 80px; position:relative; overflow:hidden; }
 .hero-bg { position:absolute; inset:0; pointer-events:none; background: radial-gradient(ellipse 60% 70% at 20% 40%, rgba(201,162,78,0.22) 0%, transparent 55%), radial-gradient(ellipse 40% 50% at 75% 30%, rgba(168,125,42,0.12) 0%, transparent 60%), radial-gradient(ellipse 30% 40% at 5% 85%, rgba(201,162,78,0.10) 0%, transparent 60%); }
 .hero-grain { position:absolute; inset:0; pointer-events:none; opacity:0.03; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size:200px 200px; }
-/* Light rays sweeping across hero */
-.hero-rays { position:absolute; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
-.hero-rays::before,.hero-rays::after { content:''; position:absolute; top:-20%; left:-30%; width:160%; height:140%; opacity:0; }
-.hero-rays::before { background:linear-gradient(115deg,transparent 38%,rgba(201,162,78,0.05) 43%,rgba(201,162,78,0.10) 46%,rgba(201,162,78,0.05) 49%,transparent 54%); animation:raySweep1 12s ease-in-out infinite; }
-.hero-rays::after { background:linear-gradient(65deg,transparent 42%,rgba(201,162,78,0.04) 46%,rgba(201,162,78,0.07) 49%,rgba(201,162,78,0.04) 52%,transparent 56%); animation:raySweep2 10s ease-in-out 3s infinite; }
-@keyframes raySweep1 { 0%,100%{opacity:0;transform:translateX(-8%)} 25%{opacity:0.7} 50%{opacity:1;transform:translateX(8%)} 75%{opacity:0.3} }
-@keyframes raySweep2 { 0%,100%{opacity:0;transform:translateX(10%)} 30%{opacity:0.8} 55%{opacity:1;transform:translateX(-6%)} 80%{opacity:0.2} }
-/* Shimmer sweep */
-.hero-shimmer { position:absolute; inset:0; pointer-events:none; z-index:0; }
-.hero-shimmer::before { content:''; position:absolute; top:-100%; left:-100%; width:60%; height:300%; background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.015) 48%,rgba(255,255,255,0.03) 50%,rgba(255,255,255,0.015) 52%,transparent 65%); animation:shimmerSweep 14s linear infinite; }
-@keyframes shimmerSweep { 0%{transform:translate(-100%,-100%) rotate(15deg)} 100%{transform:translate(400%,400%) rotate(15deg)} }
-/* Mouse-driven parallax on hero-bg orbs */
-.hero-bg { transition:background-position .6s cubic-bezier(.25,.8,.25,1); }
 .hero-left { position:relative; z-index:1; }
 .hero-eyebrow { font-size:0.72rem; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:30px; display:flex; align-items:center; gap:14px; }
 .hero-eyebrow::before { content:''; width:24px; height:1px; background:var(--brass-lt); }
@@ -220,21 +207,6 @@ h1 em { font-style:italic; color:var(--brass-lt); }
 .reveal-text.on { clip-path:inset(0 0 0 0); }
 /* Golden particles canvas */
 .hero-particles { position:absolute; inset:0; z-index:0; pointer-events:none; }
-/* Interactive hotspots */
-.hero-hotspots { position:absolute; inset:0; z-index:2; pointer-events:none; }
-.hs-dot { position:absolute; transform:translate(-50%,-50%); pointer-events:auto; cursor:pointer; z-index:1; }
-.hs-core { display:block; width:12px; height:12px; border-radius:50%; background:var(--brass-lt); box-shadow:0 0 12px rgba(201,162,78,0.7),0 0 28px rgba(201,162,78,0.35); position:relative; z-index:2; transition:transform .3s ease,box-shadow .3s ease; }
-.hs-ripple { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:12px; height:12px; border-radius:50%; border:1.5px solid rgba(201,162,78,0.5); animation:hsPulse 2.4s ease-out infinite; z-index:1; }
-.hs-ripple::after { content:''; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:12px; height:12px; border-radius:50%; border:1px solid rgba(201,162,78,0.3); animation:hsPulse 2.4s ease-out .8s infinite; }
-@keyframes hsPulse { 0%{width:12px;height:12px;opacity:1} 100%{width:60px;height:60px;opacity:0} }
-.hs-label { position:absolute; left:22px; top:50%; transform:translateY(-50%); white-space:nowrap; font-family:'Outfit',sans-serif; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--chalk-w); background:rgba(18,16,14,0.85); border:1px solid rgba(201,162,78,0.25); padding:6px 14px; border-radius:3px; opacity:0; pointer-events:none; transition:opacity .25s ease,transform .25s ease; transform:translateY(-50%) translateX(6px); }
-.hs-dot:hover .hs-core { transform:scale(1.6); box-shadow:0 0 20px rgba(201,162,78,0.9),0 0 40px rgba(201,162,78,0.5); }
-.hs-dot:hover .hs-label { opacity:1; transform:translateY(-50%) translateX(0); }
-.hs-dot:hover .hs-ripple,
-.hs-dot:hover .hs-ripple::after { animation-play-state:paused; }
-@media (max-width:768px){
-  .hero-hotspots { display:none; }
-}
 /* Tech grid overlay */
 .hero-grid { position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0.04; background-image:linear-gradient(rgba(255,255,255,0.4) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.4) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 55% 60% at 75% 40%,black 0%,transparent 70%); -webkit-mask-image:radial-gradient(ellipse 55% 60% at 75% 40%,black 0%,transparent 70%); }
 /* Scroll indicator */
@@ -803,37 +775,9 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-rays"></div>
-  <div class="hero-shimmer"></div>
   <div class="hero-grain"></div>
   <div class="hero-grid"></div>
   <canvas class="hero-particles" id="heroParticles"></canvas>
-  <div class="hero-hotspots">
-    <div class="hs-dot" style="left:62%;top:18%;" data-target="#cat-security" data-i18n="hs_street">
-      <span class="hs-ripple"></span><span class="hs-core"></span>
-      <span class="hs-label">Security &amp; Street</span>
-    </div>
-    <div class="hs-dot" style="left:78%;top:30%;" data-target="#cat-garden" data-i18n="hs_garden">
-      <span class="hs-ripple"></span><span class="hs-core"></span>
-      <span class="hs-label">Garden &amp; Pathway</span>
-    </div>
-    <div class="hs-dot" style="left:72%;top:44%;" data-target="#cat-decorative" data-i18n="hs_decor">
-      <span class="hs-ripple"></span><span class="hs-core"></span>
-      <span class="hs-label">Decorative &amp; Ambiance</span>
-    </div>
-    <div class="hs-dot" style="left:58%;top:56%;" data-target="#cat-offgrid" data-i18n="hs_offgrid">
-      <span class="hs-ripple"></span><span class="hs-core"></span>
-      <span class="hs-label">Off-Grid &amp; Portable</span>
-    </div>
-    <div class="hs-dot" style="left:68%;top:70%;" data-target="#cat-ac" data-i18n="hs_ac">
-      <span class="hs-ripple"></span><span class="hs-core"></span>
-      <span class="hs-label">AC Commercial</span>
-    </div>
-    <div class="hs-dot" style="left:80%;top:58%;" data-target="#market-tabs" data-i18n="hs_market">
-      <span class="hs-ripple"></span><span class="hs-core"></span>
-      <span class="hs-label">Solutions by Market</span>
-    </div>
-  </div>
   <div class="hero-left reveal">
     <div class="hero-eyebrow" data-i18n="hero_eye">Solar Outdoor Lighting · When the grid goes down, we stay on.</div>
     <h1 data-i18n="hero_h1">Light that works<br>when the power<br><em>doesn't.</em></h1>
@@ -2573,13 +2517,6 @@ document.querySelectorAll('.market-tab-btn').forEach(btn=>{
 });
 
 // Hero hotspots click-to-scroll
-document.querySelectorAll('.hs-dot').forEach(dot=>{
-  dot.addEventListener('click',function(){
-    const target=this.dataset.target;
-    const el=document.querySelector(target);
-    if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  });
-});
 
 // 下拉菜单
 const navBurger=document.getElementById('navBurger');
@@ -2928,19 +2865,6 @@ if(heroBg){
     const offset=window.scrollY*0.3;
     heroBg.style.transform=`translateY(${offset}px)`;
   });
-  // Mouse parallax on golden orbs
-  const hero=document.getElementById('hero');
-  if(hero){
-    hero.addEventListener('mousemove',function(e){
-      const rect=hero.getBoundingClientRect();
-      const x=((e.clientX-rect.left)/rect.width-0.5)*2;
-      const y=((e.clientY-rect.top)/rect.height-0.5)*2;
-      heroBg.style.backgroundPosition=`${x*12}px ${y*12}px, ${x*-8}px ${y*-8}px, ${x*18}px ${y*-14}px`;
-    });
-    hero.addEventListener('mouseleave',function(){
-      heroBg.style.backgroundPosition='0 0, 0 0, 0 0';
-    });
-  }
 }
 
 // 社交通知
