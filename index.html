@@ -179,6 +179,19 @@ nav.light .nav-dl:hover { background:var(--brass); }
 .hero { min-height:100vh; background:linear-gradient(135deg, #1a1510 0%, #1f1810 35%, #1a1410 65%, #14110e 100%); display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:120px 56px 80px; position:relative; overflow:hidden; }
 .hero-bg { position:absolute; inset:0; pointer-events:none; background: radial-gradient(ellipse 60% 70% at 20% 40%, rgba(201,162,78,0.22) 0%, transparent 55%), radial-gradient(ellipse 40% 50% at 75% 30%, rgba(168,125,42,0.12) 0%, transparent 60%), radial-gradient(ellipse 30% 40% at 5% 85%, rgba(201,162,78,0.10) 0%, transparent 60%); }
 .hero-grain { position:absolute; inset:0; pointer-events:none; opacity:0.03; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size:200px 200px; }
+/* Light rays sweeping across hero */
+.hero-rays { position:absolute; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+.hero-rays::before,.hero-rays::after { content:''; position:absolute; top:-20%; left:-30%; width:160%; height:140%; opacity:0; }
+.hero-rays::before { background:linear-gradient(115deg,transparent 38%,rgba(201,162,78,0.05) 43%,rgba(201,162,78,0.10) 46%,rgba(201,162,78,0.05) 49%,transparent 54%); animation:raySweep1 12s ease-in-out infinite; }
+.hero-rays::after { background:linear-gradient(65deg,transparent 42%,rgba(201,162,78,0.04) 46%,rgba(201,162,78,0.07) 49%,rgba(201,162,78,0.04) 52%,transparent 56%); animation:raySweep2 10s ease-in-out 3s infinite; }
+@keyframes raySweep1 { 0%,100%{opacity:0;transform:translateX(-8%)} 25%{opacity:0.7} 50%{opacity:1;transform:translateX(8%)} 75%{opacity:0.3} }
+@keyframes raySweep2 { 0%,100%{opacity:0;transform:translateX(10%)} 30%{opacity:0.8} 55%{opacity:1;transform:translateX(-6%)} 80%{opacity:0.2} }
+/* Shimmer sweep */
+.hero-shimmer { position:absolute; inset:0; pointer-events:none; z-index:0; }
+.hero-shimmer::before { content:''; position:absolute; top:-100%; left:-100%; width:60%; height:300%; background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.015) 48%,rgba(255,255,255,0.03) 50%,rgba(255,255,255,0.015) 52%,transparent 65%); animation:shimmerSweep 14s linear infinite; }
+@keyframes shimmerSweep { 0%{transform:translate(-100%,-100%) rotate(15deg)} 100%{transform:translate(400%,400%) rotate(15deg)} }
+/* Mouse-driven parallax on hero-bg orbs */
+.hero-bg { transition:background-position .6s cubic-bezier(.25,.8,.25,1); }
 .hero-left { position:relative; z-index:1; }
 .hero-eyebrow { font-size:0.72rem; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:30px; display:flex; align-items:center; gap:14px; }
 .hero-eyebrow::before { content:''; width:24px; height:1px; background:var(--brass-lt); }
@@ -407,6 +420,23 @@ h2 em { font-style:italic; color:var(--brass); }
 .num-val { font-family:'Playfair Display',serif; font-size:3.2rem; font-weight:400; color:var(--brass-lt); line-height:1; margin-bottom:10px; }
 .num-val sup { font-size:1.6rem; }
 .num-lbl { font-size:0.68rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--mist); }
+/* Global reach section */
+.global { padding:64px 56px; background:var(--ink-soft); }
+.global-head { text-align:center; margin-bottom:44px; }
+.global-head h2 { color:var(--chalk-w); font-size:clamp(1.6rem,3vw,2.4rem); }
+.global-head h2 em { font-style:italic; color:var(--brass-lt); }
+.global-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.gl-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:22px 20px; text-align:center; transition:border-color .3s,background .3s,transform .3s; }
+.gl-card:hover { border-color:rgba(201,162,78,0.25); background:rgba(201,162,78,0.04); transform:translateY(-2px); }
+.gl-flag { display:block; font-size:2rem; margin-bottom:10px; }
+.gl-name { display:block; font-family:'Outfit',sans-serif; font-size:0.82rem; font-weight:600; letter-spacing:0.04em; color:var(--chalk-w); margin-bottom:6px; }
+.gl-tag { display:block; font-size:0.62rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass-lt); }
+@media (max-width:768px){
+  .global { padding:48px 28px; }
+  .global-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .gl-card { padding:16px 12px; }
+  .gl-flag { font-size:1.5rem; }
+}
 .badge-hot, .badge-new { display:inline-block; font-size:0.55rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; padding:3px 10px; border-radius:2px; position:absolute; top:10px; left:10px; z-index:5; }
 .badge-hot { background:#c94a3a; color:#fff; }
 .badge-new { background:var(--brass); color:#fff; }
@@ -772,6 +802,8 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
+  <div class="hero-rays"></div>
+  <div class="hero-shimmer"></div>
   <div class="hero-grain"></div>
   <div class="hero-grid"></div>
   <canvas class="hero-particles" id="heroParticles"></canvas>
@@ -1552,6 +1584,23 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </section>
 
+<section class="global" id="global">
+  <div class="global-head reveal">
+    <div class="sec-label" data-i18n="gl_lbl">Global Reach</div>
+    <h2 data-i18n="gl_h2">Trusted across <em>30+ markets.</em></h2>
+  </div>
+  <div class="global-grid reveal">
+    <div class="gl-card"><span class="gl-flag">🇨🇴</span><span class="gl-name" data-i18n="gl_co">Colombia</span><span class="gl-tag">Solar Security</span></div>
+    <div class="gl-card"><span class="gl-flag">🇪🇨</span><span class="gl-name" data-i18n="gl_ec">Ecuador</span><span class="gl-tag">Street &amp; Flood</span></div>
+    <div class="gl-card"><span class="gl-flag">🇿🇦</span><span class="gl-name" data-i18n="gl_za">South Africa</span><span class="gl-tag">Load-Shedding</span></div>
+    <div class="gl-card"><span class="gl-flag">🇦🇺</span><span class="gl-name" data-i18n="gl_au">Australia</span><span class="gl-tag">Garden &amp; Ambiance</span></div>
+    <div class="gl-card"><span class="gl-flag">🇰🇪</span><span class="gl-name" data-i18n="gl_ke">Kenya</span><span class="gl-tag">Off-Grid Kits</span></div>
+    <div class="gl-card"><span class="gl-flag">🇪🇸</span><span class="gl-name" data-i18n="gl_es">Spain</span><span class="gl-tag">Decorative Outdoor</span></div>
+    <div class="gl-card"><span class="gl-flag">🇦🇪</span><span class="gl-name" data-i18n="gl_ae">UAE</span><span class="gl-tag">Commercial AC</span></div>
+    <div class="gl-card"><span class="gl-flag">🇧🇷</span><span class="gl-name" data-i18n="gl_br">Brazil</span><span class="gl-tag">Public Lighting</span></div>
+  </div>
+</section>
+
 <section class="why" id="why">
   <div class="why-head reveal">
     <div class="sec-label" data-i18n="choose_lbl">Why Choose Us</div>
@@ -1947,7 +1996,8 @@ const T = {
     p31_n:'AC LED Floodlight (50-1000W)',p31_d:'Mains-powered LED floodlight for factories, sports courts, parking lots and commercial compounds. 50/100/200/300/400/600/800/1000W options · IP65 · 6500K · 30,000h lifespan · aluminium housing · CE + RoHS. FOB Shenzhen.',
     p32_n:'UFO High Bay Light (100-300W)',p32_d:'AC high bay light for warehouses, factories, supermarkets and exhibition halls. 100/150/200/300W · IP65 (waterproof series available) · 120° wide beam · 6500K · aluminium fins · CE + RoHS. FOB Shenzhen.',
     p33_n:'AC Street Light (50-100W)',p33_d:'Mains-powered street light head for municipal roads, industrial parks and parking lots. 50/100W · IP65 · 6500K · aluminium housing · fits 60mm pole arms · photocell ready · CE + RoHS. FOB Shenzhen.',
-    hs_street:'Security &amp; Street',hs_garden:'Garden &amp; Pathway',hs_decor:'Decorative &amp; Ambiance',hs_offgrid:'Off-Grid &amp; Portable',hs_ac:'AC Commercial',hs_market:'Solutions by Market'},
+    hs_street:'Security &amp; Street',hs_garden:'Garden &amp; Pathway',hs_decor:'Decorative &amp; Ambiance',hs_offgrid:'Off-Grid &amp; Portable',hs_ac:'AC Commercial',hs_market:'Solutions by Market',
+    gl_lbl:'Global Reach',gl_h2:'Trusted across <em>30+ markets.</em>',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'South Africa',gl_au:'Australia',gl_ke:'Kenya',gl_es:'Spain',gl_ae:'UAE',gl_br:'Brazil'},
   zh:{
     logo:'嘉晨照明科技有限公司',ft_logo:'嘉晨照明科技有限公司',
     nav_products:'产品',nav_cat:'品类',nav_about:'我们的优势',nav_contact:'联系我们',nav_quote:'立即询价',
@@ -2080,7 +2130,8 @@ const T = {
     mr_me_1:'CCTV智能版 · 市政招标 · 雷达 · IP66',mr_me_2:'体育场与园区 · 50-1000W · IP65 · CE认证',mr_me_3:'沙漠露营 · 充电宝 · 15小时+ · IP44耐用',mr_me_4:'离网别墅 · USB手机充电 · LiFePO4 4000mAh',
     mr_brazil_1:'公共照明 · IP66 · 雷达 · 磷酸铁锂',mr_brazil_2:'景观照明 · 360°可调 · 暖白3000K · IP65',mr_brazil_3:'停电应急 · USB-C · 免安装 · 3档调光',mr_brazil_4:'家庭套装 · 2灯 · USB应急 · 简易安装',
     mr_india_1:'花园寺庙照明 · 暖白3000K · 360° · IP65',mr_india_2:'住宅安防 · 800lm · PIR 8-12m · 高性价比',mr_india_3:'工厂仓库 · 50-1000W · IP65 · 3万小时寿命',
-    hs_street:'安防与道路',hs_garden:'花园与路径',hs_decor:'装饰与氛围',hs_offgrid:'离网与便携',hs_ac:'AC商业照明',hs_market:'按市场选品'},
+    hs_street:'安防与道路',hs_garden:'花园与路径',hs_decor:'装饰与氛围',hs_offgrid:'离网与便携',hs_ac:'AC商业照明',hs_market:'按市场选品',
+    gl_lbl:'全球市场',gl_h2:'产品远销<em>30+国家与地区。</em>',gl_co:'哥伦比亚',gl_ec:'厄瓜多尔',gl_za:'南非',gl_au:'澳大利亚',gl_ke:'肯尼亚',gl_es:'西班牙',gl_ae:'阿联酋',gl_br:'巴西'},
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Productos',nav_cat:'Categorías',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',
@@ -2213,7 +2264,8 @@ const T = {
     mr_me_1:'Edición CCTV inteligente · licitaciones · radar · IP66',mr_me_2:'Estadios y complejos · 50-1000W · IP65 · certificado CE',mr_me_3:'Camping desértico · power bank · 15h+ · IP44 durable',mr_me_4:'Villa sin red · carga USB móvil · LiFePO4 4000mAh',
     mr_brazil_1:'Alumbrado público · IP66 · radar · batería LiFePO4',mr_brazil_2:'Paisajismo · ajuste 360° · luz cálida 3000K · IP65',mr_brazil_3:'Apagones · USB-C · sin instalación · 3 modos',mr_brazil_4:'Kit residencial · 2 lámparas · USB emergencia · fácil instalación',
     mr_india_1:'Jardines y templos · blanco cálido 3000K · 360° · IP65',mr_india_2:'Seguridad residencial · 800lm · PIR 8-12m · excelente relación costo-beneficio',mr_india_3:'Fábricas y almacenes · 50-1000W · IP65 · 30.000h vida útil',
-    hs_street:'Seguridad y Calle',hs_garden:'Jardín y Sendero',hs_decor:'Decorativo y Ambiente',hs_offgrid:'Portátil y Autónomo',hs_ac:'Comercial AC',hs_market:'Soluciones por Mercado'},
+    hs_street:'Seguridad y Calle',hs_garden:'Jardín y Sendero',hs_decor:'Decorativo y Ambiente',hs_offgrid:'Portátil y Autónomo',hs_ac:'Comercial AC',hs_market:'Soluciones por Mercado',
+    gl_lbl:'Alcance Global',gl_h2:'Confianza en <em>más de 30 mercados.</em>',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'Sudáfrica',gl_au:'Australia',gl_ke:'Kenia',gl_es:'España',gl_ae:'EAU',gl_br:'Brasil'},
   fr:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produits',nav_cat:'Catégories',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',
@@ -2338,7 +2390,8 @@ const T = {
     mr_me_1:'Édition CCTV intelligente · appels d\'offres · radar · IP66',mr_me_2:'Stades et complexes · 50-1000W · IP65 · certifié CE',mr_me_3:'Camping désertique · batterie externe · 15h+ · IP44 durable',mr_me_4:'Villa hors réseau · charge USB · LiFePO4 4000mAh',
     mr_brazil_1:'Éclairage public · IP66 · radar · batterie LiFePO4',mr_brazil_2:'Paysagisme · rotation 360° · blanc chaud 3000K · IP65',mr_brazil_3:'Coupures de courant · USB-C · sans installation · 3 modes',mr_brazil_4:'Kit résidentiel · 2 lampes · USB urgence · installation facile',
     mr_india_1:'Jardins et temples · blanc chaud 3000K · 360° · IP65',mr_india_2:'Sécurité résidentielle · 800lm · PIR 8-12m · excellent rapport qualité-prix',mr_india_3:'Usines et entrepôts · 50-1000W · IP65 · 30 000h durée de vie',
-    hs_street:'Sécurité et Rue',hs_garden:'Jardin et Allée',hs_decor:'Décoratif et Ambiance',hs_offgrid:'Hors Réseau et Portable',hs_ac:'Commercial AC',hs_market:'Solutions par Marché'},
+    hs_street:'Sécurité et Rue',hs_garden:'Jardin et Allée',hs_decor:'Décoratif et Ambiance',hs_offgrid:'Hors Réseau et Portable',hs_ac:'Commercial AC',hs_market:'Solutions par Marché',
+    gl_lbl:'Présence Mondiale',gl_h2:'Une confiance dans <em>plus de 30 marchés.</em>',gl_co:'Colombie',gl_ec:'Équateur',gl_za:'Afrique du Sud',gl_au:'Australie',gl_ke:'Kenya',gl_es:'Espagne',gl_ae:'EAU',gl_br:'Brésil'},
   pt:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produtos',nav_cat:'Categorias',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',
@@ -2468,7 +2521,8 @@ const T = {
     mr_me_1:'Edição CCTV inteligente · licitações · radar · IP66',mr_me_2:'Estádios e complexos · 50-1000W · IP65 · certificado CE',mr_me_3:'Camping desértico · power bank · 15h+ · IP44 durável',mr_me_4:'Villa fora da rede · carga USB celular · LiFePO4 4000mAh',
     mr_brazil_1:'Iluminação pública · IP66 · radar · bateria LiFePO4',mr_brazil_2:'Paisagismo · ajuste 360° · luz quente 3000K · IP65',mr_brazil_3:'Apagões · USB-C · sem instalação · 3 modos',mr_brazil_4:'Kit residencial · 2 lâmpadas · USB emergência · fácil instalação',
     mr_india_1:'Jardins e templos · branco quente 3000K · 360° · IP65',mr_india_2:'Segurança residencial · 800lm · PIR 8-12m · excelente custo-benefício',mr_india_3:'Fábricas e armazéns · 50-1000W · IP65 · 30.000h vida útil',
-    hs_street:'Segurança e Rua',hs_garden:'Jardim e Caminho',hs_decor:'Decorativo e Ambiente',hs_offgrid:'Portátil e Autónomo',hs_ac:'Comercial AC',hs_market:'Soluções por Mercado'}
+    hs_street:'Segurança e Rua',hs_garden:'Jardim e Caminho',hs_decor:'Decorativo e Ambiente',hs_offgrid:'Portátil e Autónomo',hs_ac:'Comercial AC',hs_market:'Soluções por Mercado',
+    gl_lbl:'Alcance Global',gl_h2:'Confiável em <em>mais de 30 mercados.</em>',gl_co:'Colômbia',gl_ec:'Equador',gl_za:'África do Sul',gl_au:'Austrália',gl_ke:'Quênia',gl_es:'Espanha',gl_ae:'EAU',gl_br:'Brasil'}
 };
 
 // Capture HTML defaults at init for fallback when i18n key is missing
@@ -2873,6 +2927,19 @@ if(heroBg){
     const offset=window.scrollY*0.3;
     heroBg.style.transform=`translateY(${offset}px)`;
   });
+  // Mouse parallax on golden orbs
+  const hero=document.getElementById('hero');
+  if(hero){
+    hero.addEventListener('mousemove',function(e){
+      const rect=hero.getBoundingClientRect();
+      const x=((e.clientX-rect.left)/rect.width-0.5)*2;
+      const y=((e.clientY-rect.top)/rect.height-0.5)*2;
+      heroBg.style.backgroundPosition=`${x*12}px ${y*12}px, ${x*-8}px ${y*-8}px, ${x*18}px ${y*-14}px`;
+    });
+    hero.addEventListener('mouseleave',function(){
+      heroBg.style.backgroundPosition='0 0, 0 0, 0 0';
+    });
+  }
 }
 
 // 社交通知
