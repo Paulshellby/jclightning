@@ -91,9 +91,11 @@
   --bdk:       rgba(255,255,255,0.09);
   --blt:       rgba(14,12,10,0.11);
 }
-html { scroll-behavior: smooth; }
-body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink); overflow-x:hidden; }
+html { scroll-behavior: smooth; font-size: 18px; }
+body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink); overflow-x:hidden; font-size: 1rem; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 ::selection { background:var(--brass); color:#fff; }
+/* Mobile — slightly smaller root size so layouts stay tight */
+@media (max-width:960px) { html { font-size: 16px; } }
 /* Preloader */
 .preloader { position:fixed; inset:0; z-index:99999; background:var(--ink); display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .5s ease, visibility .5s ease; }
 .preloader.hide { opacity:0; visibility:hidden; pointer-events:none; }
@@ -115,11 +117,7 @@ nav.nav-visible { transform:translateY(0); transition:transform .4s cubic-bezier
 .tw-cursor { display:inline-block; width:2px; height:0.85em; background:var(--brass-lt); margin-left:2px; vertical-align:text-bottom; animation:twBlink .8s step-end infinite; }
 @keyframes twBlink { 0%,100%{opacity:1} 50%{opacity:0} }
 /* Custom Cursor */
-.cursor-dot { position:fixed; width:8px; height:8px; border-radius:50%; background:var(--brass-lt); pointer-events:none; z-index:9999; top:-4px; left:-4px; transition:width .2s, height .2s, background .2s, margin .08s; }
-.cursor-ring { position:fixed; width:30px; height:30px; border-radius:50%; border:1px solid rgba(168,125,42,0.35); pointer-events:none; z-index:9998; top:-15px; left:-15px; transition:width .25s, height .25s, border-color .25s, margin .08s; }
-.cursor-dot.on-link { width:14px; height:14px; background:#fff; top:-7px; left:-7px; mix-blend-mode:difference; }
-.cursor-ring.on-link { width:44px; height:44px; border-color:rgba(255,255,255,0.5); top:-22px; left:-22px; }
-@media(hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+/* Custom cursor styles removed — native browser cursor for snappier feel */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
@@ -139,15 +137,18 @@ nav.dark .nav-link:hover, nav.solid .nav-link:hover { color:#fff; }
 nav.light .nav-link { color:var(--ink); font-weight:500; font-size:0.75rem; }
 nav.light .nav-link:hover { color:var(--brass); }
 .mega-trigger { position:relative; }
-.mega-panel { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); background:rgba(20,16,12,0.97); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:28px 32px; display:grid; grid-template-columns:repeat(5,1fr) 140px; gap:28px; min-width:980px; opacity:0; visibility:hidden; transition:opacity .25s, transform .25s, visibility 0s linear .25s; }
-.mega-preview { width:140px; height:140px; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); position:relative; align-self:start; }
+.mega-panel { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); background:rgba(14,12,10,0.98); border:1px solid rgba(201,162,78,0.25); border-radius:14px; padding:32px 36px; display:grid; grid-template-columns:repeat(5,1fr) 160px; gap:36px; min-width:1080px; opacity:0; visibility:hidden; transition:opacity .25s, transform .25s, visibility 0s linear .25s; box-shadow:0 30px 90px rgba(0,0,0,0.55); }
+.mega-preview { width:160px; height:160px; border-radius:10px; overflow:hidden; border:1px solid rgba(201,162,78,0.3); background:rgba(255,255,255,0.04); position:relative; align-self:start; box-shadow:0 8px 24px rgba(0,0,0,0.4); }
 .mega-preview img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s; }
 .mega-preview img.active { opacity:1; }
 .mega-trigger:hover .mega-panel { opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); transition:opacity .25s, transform .25s, visibility 0s linear 0s; }
-.mega-col h6 { font-size:0.56rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:12px; }
-.mega-col a { display:block; font-size:0.78rem; font-weight:500; color:var(--mist); text-decoration:none; padding:5px 0; transition:color .2s; }
-.mega-col a:hover { color:#fff; }
-.mega-col a span { font-size:0.6rem; color:var(--stone); margin-left:4px; }
+.mega-col { display:flex; flex-direction:column; }
+.mega-col h6 { font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid rgba(201,162,78,0.2); }
+.mega-col a { display:flex; justify-content:space-between; align-items:baseline; font-size:0.88rem; font-weight:400; color:var(--chalk); text-decoration:none; padding:8px 0; transition:color .2s, padding-left .25s; gap:8px; border-bottom:1px solid transparent; }
+.mega-col a:hover { color:var(--brass-lt); padding-left:4px; }
+.mega-col a span:first-child { color:inherit; font-size:inherit; }
+.mega-col a span:last-child { font-size:0.66rem; color:var(--brass-lt); font-weight:500; padding:2px 7px; background:rgba(201,162,78,0.12); border-radius:10px; flex-shrink:0; margin-left:6px; }
+.mega-col a:hover span:last-child { background:rgba(201,162,78,0.25); color:var(--brass-pale); }
 .nav-r { display:flex; align-items:center; gap:18px; }
 .lang-sw { display:flex; gap:3px; }
 .lang-btn { font-family:'Outfit',sans-serif; font-size:0.63rem; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; padding:5px 9px; border:1px solid transparent; background:transparent; cursor:pointer; transition:all .2s; }
@@ -203,8 +204,13 @@ h1 em { font-style:italic; color:var(--brass-lt); }
 .hero-banner-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; animation:kenBurns 22s ease-in-out infinite alternate; }
 @keyframes kenBurns { 0% { transform:scale(1) translate(0,0); } 100% { transform:scale(1.06) translate(-1.5%,-0.8%); } }
 /* Scroll text reveal */
-.reveal-text { display:inline-block; clip-path:inset(0 100% 0 0); transition:clip-path .85s cubic-bezier(.22,.61,.355,1); }
-.reveal-text.on { clip-path:inset(0 0 0 0); }
+/* Apple-style word-by-word reveal */
+.reveal-text { display:inline; }
+.reveal-text .rv-word { display:inline-block; overflow:hidden; vertical-align:top; line-height:1.1; padding:0.04em 0; }
+.reveal-text .rv-word > span { display:inline-block; transform:translateY(115%); opacity:0; transition:transform 0.9s cubic-bezier(.22,.61,.36,1), opacity 0.7s ease; transition-delay:calc(var(--i, 0) * 55ms); }
+.reveal-text.on .rv-word > span { transform:translateY(0); opacity:1; }
+/* em / span / br kept inline so word stagger still flows naturally */
+.reveal-text em, .reveal-text span:not(.rv-word):not(.rv-word > span) { display:inline; }
 /* Golden particles canvas */
 .hero-particles { position:absolute; inset:0; z-index:0; pointer-events:none; }
 /* Tech grid overlay */
@@ -224,17 +230,13 @@ h1 em, h2 em, .text-gold { background:linear-gradient(135deg,#c9a24e 0%,#e2c98a 
 .prod-card .prod-info { transform:translateZ(10px); transition:transform .35s ease-out; }
 .prod-card .card-glare { position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:2; opacity:0; transition:opacity .3s; background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,0.08) 0%,transparent 60%); }
 .prod-card:hover .card-glare { opacity:1; }
-.marquee-wrap { background:var(--brass); overflow:hidden; padding:13px 0; }
-.marquee-track { display:inline-flex; animation:scroll-l 30s linear infinite; white-space:nowrap; }
-.mi { font-size:0.63rem; font-weight:400; letter-spacing:0.24em; text-transform:uppercase; color:#fff; padding:0 36px; }
-.md { opacity:0.45; }
-@keyframes scroll-l { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-.brand { background:var(--ink-soft); padding:120px 56px; text-align:center; }
+/* Marquee removed — Apple-style sites don't use ticker tape */
+.brand { background:var(--ink-soft); padding:170px 56px; text-align:center; }
 .brand-q { font-family:'Playfair Display',serif; font-style:italic; font-weight:500; font-size:clamp(1.7rem,3vw,2.9rem); color:#fff; line-height:1.35; max-width:780px; margin:0 auto 16px; letter-spacing:-0.01em; }
 .brand-q span { color:var(--brass-lt); }
 .brand-rule { width:52px; height:1px; background:var(--brass); margin:44px auto; }
 .brand-b { font-size:0.95rem; font-weight:500; line-height:2; color:var(--mist); max-width:600px; margin:0 auto; }
-.products { padding:110px 56px; background:var(--ink) url(images/bg-products.jpg) center/cover no-repeat; position:relative; }
+.products { padding:160px 56px; background:var(--ink) url(images/bg-products.jpg) center/cover no-repeat; position:relative; }
 .products::before { content:''; position:absolute; inset:0; opacity:0.04; background-image:radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px); background-size:18px 18px; pointer-events:none; z-index:1; }
 .products::after { content:''; position:absolute; top:0; left:10%; width:800px; height:500px; background:radial-gradient(ellipse, rgba(201,162,78,0.14) 0%, rgba(168,125,42,0.06) 40%, transparent 65%); filter:blur(40px); pointer-events:none; z-index:0; }
 .prod-filter { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:40px; position:sticky; top:56px; z-index:50; background:rgba(20,16,12,0.85); backdrop-filter:blur(16px); padding:12px 16px; border-radius:50px; border:1px solid rgba(255,255,255,0.08); }
@@ -276,9 +278,17 @@ h1 em, h2 em, .text-gold { background:linear-gradient(135deg,#c9a24e 0%,#e2c98a 
 .inq-add.in-cart { opacity:1; border-color:var(--brass); background:var(--brass); color:#fff; transform:scale(1); }
 .prod-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:24px; }
 .prod-head h2 { color:#fff; }
-.sec-label { font-size:0.72rem; font-weight:500; letter-spacing:0.26em; text-transform:uppercase; color:var(--brass); display:flex; align-items:center; gap:12px; margin-bottom:14px; }
-.sec-label::before { content:''; width:24px; height:1px; background:var(--brass); }
-h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2rem,3.2vw,3rem); line-height:1.15; letter-spacing:-0.01em; }
+/* HUD-style section label — pulsing brass dot + corner bracket */
+.sec-label { font-size:0.7rem; font-weight:500; letter-spacing:0.24em; text-transform:uppercase; color:var(--brass); display:inline-flex; align-items:center; gap:10px; padding:6px 16px 6px 12px; margin-bottom:22px; position:relative; }
+.sec-label::before { content:''; width:6px; height:6px; border-radius:50%; background:currentColor; box-shadow:0 0 8px currentColor; animation:sec-dot-pulse 2.4s ease-in-out infinite; flex-shrink:0; }
+.sec-label::after { content:''; position:absolute; top:-2px; right:-2px; width:8px; height:8px; border-top:1px solid currentColor; border-right:1px solid currentColor; opacity:0.55; }
+@keyframes sec-dot-pulse {
+  0%, 100% { box-shadow:0 0 6px currentColor; opacity:0.85; }
+  50%      { box-shadow:0 0 14px currentColor; opacity:1; }
+}
+h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2.4rem,4vw,3.8rem); line-height:1.08; letter-spacing:-0.015em; }
+h1 { letter-spacing:-0.02em; }
+.section-sub { max-width:560px; font-size:1.05rem; font-weight:300; line-height:1.7; }
 h2 em { font-style:italic; color:var(--brass); }
 .prod-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
 .prod-card { position:relative; background:rgba(255,255,255,0.06); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.10); cursor:pointer; transition:transform .35s, border-color .35s, background .35s, box-shadow .35s; }
@@ -302,7 +312,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .prod-info p { font-size:0.85rem; font-weight:500; color:var(--mist); line-height:1.6; margin-bottom:13px; }
 .prod-enq { font-size:0.61rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); text-decoration:none; transition:letter-spacing .2s; }
 .prod-enq:hover { letter-spacing:0.26em; }
-.categories { padding:96px 56px 80px; background:var(--chalk) url(images/bg-01-categories.jpg) center/cover no-repeat; }
+.categories { padding:140px 56px 120px; background:var(--chalk) url(images/bg-01-categories.jpg) center/cover no-repeat; }
 .cat-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 .cat-card { display:flex; flex-direction:column; background:#fff; border:1px solid var(--blt); border-radius:12px; overflow:hidden; transition:all .3s; }
 .cat-card:hover { box-shadow:0 6px 28px rgba(0,0,0,.08); border-color:var(--brass); }
@@ -327,7 +337,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .prod-subcat:first-of-type { margin-top:0; }
 .prod-subcat-h { font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:400; color:var(--brass-lt); margin-bottom:18px; padding:6px 0 6px 14px; border-left:3px solid var(--brass); letter-spacing:.04em; text-transform:uppercase; }
 /* Application Scenarios */
-.scenarios { padding:100px 56px 88px; text-align:center; background:#fff url(images/bg-03-scenarios.jpg) center/cover no-repeat; }
+.scenarios { padding:150px 56px 130px; text-align:center; background:#fff url(images/bg-03-scenarios.jpg) center/cover no-repeat; }
 .sc-sub { color:var(--ink-soft); font-size:1rem; font-weight:400; max-width:520px; margin:6px auto 40px; line-height:1.55; }
 .sc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; text-align:left; }
 .sc-card { background:var(--chalk); border:1px solid var(--blt); border-radius:12px; padding:28px 24px 24px; transition:all .25s; }
@@ -342,14 +352,17 @@ h2 em { font-style:italic; color:var(--brass); }
 .sc-cat-num { font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:700; color:var(--brass); opacity:.35; line-height:1; }
 .sc-cat-head h3 { font-size:1.05rem; font-weight:700; color:var(--ink); margin:0; }
 
-.factory { padding:120px 56px; background:var(--chalk) url(images/bg-04-factory.jpg) center/cover no-repeat; display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:start; }
-.fac-l h2 { color:var(--ink); margin-bottom:24px; }
-.fac-l p { font-size:0.95rem; font-weight:400; line-height:1.95; color:var(--ink-soft); margin-bottom:36px; max-width:400px; }
-.why-row { padding:28px 0; border-top:1px solid var(--blt); }
-.why-row:last-child { border-bottom:1px solid var(--blt); }
-.why-n { font-family:'Playfair Display',serif; font-size:0.7rem; font-style:italic; color:var(--brass); margin-bottom:9px; }
-.why-row h4 { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:400; color:var(--ink); margin-bottom:7px; }
-.why-row p { font-size:0.88rem; font-weight:400; color:var(--ink-soft); line-height:1.85; }
+/* Factory section — dark overlay on warehouse bg image for text contrast */
+.factory { padding:160px 56px; background:linear-gradient(115deg, rgba(14,12,10,0.92) 0%, rgba(14,12,10,0.78) 45%, rgba(14,12,10,0.65) 100%), url(images/bg-04-factory.jpg) center/cover no-repeat; display:grid; grid-template-columns:1fr 1fr; gap:120px; align-items:start; position:relative; }
+.factory .sec-label { color:var(--brass-lt); }
+.fac-l h2 { color:var(--chalk-w); margin-bottom:24px; text-shadow:0 2px 16px rgba(0,0,0,0.6); }
+.fac-l h2 em { color:var(--brass-lt); }
+.fac-l p { font-size:0.95rem; font-weight:400; line-height:1.95; color:var(--chalk); margin-bottom:36px; max-width:440px; text-shadow:0 1px 8px rgba(0,0,0,0.5); }
+.why-row { padding:28px 0; border-top:1px solid rgba(201,162,78,0.22); }
+.why-row:last-child { border-bottom:1px solid rgba(201,162,78,0.22); }
+.why-n { font-family:'Playfair Display',serif; font-size:0.75rem; font-style:italic; color:var(--brass-lt); margin-bottom:9px; }
+.why-row h4 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:400; color:var(--chalk-w); margin-bottom:7px; text-shadow:0 1px 10px rgba(0,0,0,0.55); }
+.why-row p { font-size:0.88rem; font-weight:400; color:var(--mist); line-height:1.85; text-shadow:0 1px 6px rgba(0,0,0,0.5); }
 .certs { background:var(--ink-soft); padding:52px 56px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:28px; border-top:1px solid var(--bdk); }
 .cert-lbl { font-size:0.65rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--mist); }
 .cert-row { display:flex; gap:44px; flex-wrap:wrap; }
@@ -357,7 +370,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .cert-b:hover { opacity:1; }
 .cert-b .cn { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:400; color:#fff; }
 .cert-b .cs { font-size:0.6rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--mist); display:block; margin-top:4px; }
-.process { background:var(--chalk-w) url(images/bg-07-process.jpg) center/cover no-repeat; padding:120px 56px; }
+.process { background:var(--chalk-w) url(images/bg-07-process.jpg) center/cover no-repeat; padding:160px 56px; }
 .proc-head { margin-bottom:64px; max-width:680px; }
 .proc-head .section-sub { font-size:1rem; font-weight:400; line-height:1.85; color:var(--ink-soft); margin-top:18px; max-width:560px; }
 .proc-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
@@ -367,7 +380,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .proc-step h4 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:400; color:var(--ink); margin-bottom:14px; line-height:1.3; }
 .proc-step p { font-size:0.9rem; font-weight:400; color:var(--ink-soft); line-height:1.8; margin-bottom:22px; min-height:90px; }
 .proc-time { font-size:0.6rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); padding-top:16px; border-top:1px solid var(--blt); }
-.promise { background:var(--chalk) url(images/bg-08-promise.jpg) center/cover no-repeat; padding:120px 56px; }
+.promise { background:var(--chalk) url(images/bg-08-promise.jpg) center/cover no-repeat; padding:160px 56px; }
 .promise-head { margin-bottom:64px; }
 .promise-head h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.6rem); font-weight:400; line-height:1.18; color:var(--ink); letter-spacing:-0.01em; }
 .promise-head h2 em { font-style:italic; color:var(--brass); }
@@ -376,7 +389,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .promise-check { flex-shrink:0; width:28px; height:28px; margin-top:1px; color:var(--brass); }
 .promise-body h4 { font-family:'Playfair Display',serif; font-size:1.12rem; font-weight:600; color:var(--ink); margin-bottom:10px; line-height:1.4; }
 .promise-body p { font-size:0.95rem; font-weight:400; color:var(--ink-soft); line-height:1.78; }
-.certs { background:var(--chalk-w) url(images/bg-10-certs.jpg) center/cover no-repeat; padding:120px 56px; text-align:center; }
+.certs { background:var(--chalk-w) url(images/bg-10-certs.jpg) center/cover no-repeat; padding:160px 56px; text-align:center; }
 .certs-head { margin-bottom:64px; }
 .certs-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(1.8rem,3vw,2.6rem); line-height:1.18; color:var(--ink); letter-spacing:-0.01em; }
 .certs-head h2 em { font-style:italic; color:var(--brass); }
@@ -386,24 +399,115 @@ h2 em { font-style:italic; color:var(--brass); }
 .cert-badge span { font-family:'Playfair Display',serif; font-size:0.72rem; font-weight:500; letter-spacing:0.06em; color:var(--brass-lt); text-align:center; line-height:1.2; }
 .cert-card h4 { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:400; color:var(--ink); margin-bottom:10px; }
 .cert-card p { font-size:0.9rem; font-weight:400; color:var(--ink-soft); line-height:1.7; max-width:220px; margin:0 auto; }
-.numbers { background:var(--ink) url(images/bg-numbers.jpg) center/cover no-repeat; padding:90px 56px; position:relative; overflow:hidden; }
+.numbers { background:var(--ink) url(images/bg-numbers.jpg) center/cover no-repeat; padding:140px 56px; position:relative; overflow:hidden; }
 .numbers::before { content:''; position:absolute; top:0; left:30%; width:600px; height:600px; background:radial-gradient(circle, rgba(201,162,78,0.24) 0%, transparent 60%); filter:blur(60px); pointer-events:none; }
-.num-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:20px; max-width:1100px; margin:0 auto; position:relative; z-index:1; text-align:center; }
-.num-item { padding:24px; }
+.num-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:36px; max-width:900px; margin:0 auto; position:relative; z-index:1; text-align:center; }
+.num-item { padding:36px 24px; }
 .num-val { font-family:'Playfair Display',serif; font-size:3.2rem; font-weight:400; color:var(--brass-lt); line-height:1; margin-bottom:10px; }
 .num-val sup { font-size:1.6rem; }
 .num-lbl { font-size:0.68rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--mist); }
 /* Global reach section */
-.global { padding:64px 56px; background:var(--ink-soft); }
-.global-head { text-align:center; margin-bottom:44px; }
-.global-head h2 { color:var(--chalk-w); font-size:clamp(1.6rem,3vw,2.4rem); }
+/* ===== Global Presence — striped world map + pin markers ===== */
+.global { padding:160px 56px 140px; background:var(--ink-soft); position:relative; overflow:hidden; }
+.global::before { content:''; position:absolute; top:30%; right:-200px; width:600px; height:600px; background:radial-gradient(circle, rgba(201,162,78,0.10) 0%, transparent 60%); filter:blur(40px); pointer-events:none; }
+.global-head { text-align:center; margin:0 auto 50px; max-width:780px; position:relative; z-index:1; }
+.global-head .sec-label { color:var(--brass-lt); font-size:0.7rem; letter-spacing:0.24em; margin-bottom:18px; }
+.global-head h2 { color:var(--chalk-w); font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2rem,4vw,3.2rem); line-height:1.15; margin-bottom:16px; }
 .global-head h2 em { font-style:italic; color:var(--brass-lt); }
-.global-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-.gl-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:22px 20px; text-align:center; transition:border-color .3s,background .3s,transform .3s; }
-.gl-card:hover { border-color:rgba(201,162,78,0.25); background:rgba(201,162,78,0.04); transform:translateY(-2px); }
-.gl-flag { display:block; font-size:2rem; margin-bottom:10px; }
-.gl-name { display:block; font-family:'Outfit',sans-serif; font-size:0.82rem; font-weight:600; letter-spacing:0.04em; color:var(--chalk-w); margin-bottom:6px; }
-.gl-tag { display:block; font-size:0.62rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass-lt); }
+.global-sub { color:var(--mist); font-size:0.95rem; line-height:1.65; font-weight:300; max-width:620px; margin:0 auto; }
+
+.global-map-wrap { position:relative; max-width:1400px; margin:0 auto; aspect-ratio: 2 / 1; }
+.global-map { display:block; width:100%; height:100%; }
+
+.map-pin { position:absolute; display:flex; align-items:center; gap:7px; transform:translate(-50%,-50%); white-space:nowrap; z-index:2; pointer-events:auto; }
+.map-pin.pin-below { flex-direction:column-reverse; transform:translate(-50%,0); gap:5px; }
+.map-pin.pin-left { flex-direction:row-reverse; transform:translate(-100%,-50%); }
+.pin-dot { position:relative; width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+.pin-dot::before { content:''; position:absolute; inset:-5px; border-radius:50%; border:1px solid currentColor; opacity:0.4; animation:pin-ping 2.4s ease-in-out infinite; }
+.pin-dot::after { content:''; position:absolute; inset:-2px; border-radius:50%; background:currentColor; opacity:0.18; }
+.pin-label { font-family:'Outfit',sans-serif; font-size:0.74rem; font-weight:500; letter-spacing:0.04em; padding:5px 11px; background:rgba(14,12,10,0.85); border:1px solid rgba(201,162,78,0.35); border-radius:999px; color:var(--chalk-w); transition:all 0.25s ease; }
+.map-pin:hover .pin-label { background:rgba(168,125,42,0.30); border-color:var(--brass-lt); transform:translateY(-1px); }
+
+/* Core markets — bright brass */
+.pin-primary { color:var(--brass-lt); }
+.pin-primary .pin-dot { background:#c9a24e; box-shadow:0 0 12px rgba(201,162,78,0.6); }
+
+/* Expansion markets — paler brass */
+.pin-expansion { color:var(--brass-pale); }
+.pin-expansion .pin-dot { background:#e2c98a; box-shadow:0 0 10px rgba(226,201,138,0.4); }
+.pin-expansion .pin-label { background:rgba(14,12,10,0.78); border-color:rgba(226,201,138,0.3); color:var(--mist); }
+
+@keyframes pin-ping {
+  0% { transform:scale(0.95); opacity:0.5; }
+  60% { transform:scale(1.8); opacity:0; }
+  100% { transform:scale(1.8); opacity:0; }
+}
+
+/* Scan line — sweeps from top to bottom every 8s */
+.gl-scanline { animation: gl-scan 8s linear infinite; transform-origin: 0 0; }
+@keyframes gl-scan {
+  0%   { transform: translateY(0); opacity:0; }
+  10%  { opacity:0.85; }
+  90%  { opacity:0.85; }
+  100% { transform: translateY(800px); opacity:0; }
+}
+
+/* Connection arcs — flowing dash pattern */
+.gl-arc { stroke-dashoffset:0; animation: gl-flow 3.5s linear infinite; }
+.gl-arc:nth-child(2) { animation-delay:-0.6s; }
+.gl-arc:nth-child(3) { animation-delay:-1.2s; }
+.gl-arc:nth-child(4) { animation-delay:-1.8s; }
+.gl-arc:nth-child(5) { animation-delay:-2.4s; }
+.gl-arc:nth-child(6) { animation-delay:-3.0s; }
+@keyframes gl-flow {
+  0%   { stroke-dashoffset:0; }
+  100% { stroke-dashoffset:-32; }
+}
+
+/* HQ marker pulse */
+.gl-hq-pulse { animation: gl-hq 2s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes gl-hq {
+  0%, 100% { opacity:0.9; transform:scale(1); }
+  50%      { opacity:0.4; transform:scale(2.2); }
+}
+
+/* HUD elements subtle entrance */
+.gl-hud { animation: gl-hud-in 0.8s ease-out backwards; }
+@keyframes gl-hud-in {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+
+/* Stats strip */
+.gl-stats { display:flex; align-items:center; justify-content:center; gap:40px; max-width:1100px; margin:40px auto 0; padding:24px 20px; border-top:1px solid rgba(201,162,78,0.18); border-bottom:1px solid rgba(201,162,78,0.18); flex-wrap:wrap; position:relative; z-index:1; }
+.gl-stat { display:flex; flex-direction:column; align-items:center; gap:6px; padding:0 14px; min-width:120px; }
+.gl-stat-val { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:400; color:var(--brass-lt); line-height:1; }
+.gl-stat-suf { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--brass-lt); margin-left:-2px; }
+.gl-stat-lbl { font-family:'Outfit',sans-serif; font-size:0.66rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--mist); font-weight:500; }
+.gl-stat-sep { width:1px; height:36px; background:rgba(201,162,78,0.25); }
+@media (max-width:960px) {
+  .gl-stats { gap:14px; padding:18px 12px; margin-top:24px; }
+  .gl-stat { min-width:80px; padding:0 4px; }
+  .gl-stat-val { font-size:1.6rem; }
+  .gl-stat-suf { font-size:0.95rem; }
+  .gl-stat-lbl { font-size:0.55rem; }
+  .gl-stat-sep { display:none; }
+}
+
+.global-legend { display:flex; justify-content:center; gap:32px; margin-top:30px; flex-wrap:wrap; font-family:'Outfit',sans-serif; font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--mist); position:relative; z-index:1; }
+.leg-item { display:inline-flex; align-items:center; gap:10px; }
+.leg-swatch { width:11px; height:11px; border-radius:50%; }
+.leg-primary { background:#c9a24e; box-shadow:0 0 10px rgba(201,162,78,0.5); }
+.leg-expansion { background:#e2c98a; box-shadow:0 0 10px rgba(226,201,138,0.4); }
+
+@media (max-width:960px) {
+  .global { padding:70px 22px 60px; }
+  .global-head h2 { font-size:1.8rem; }
+  .global-sub { font-size:0.85rem; }
+  .pin-label { font-size:0.62rem; padding:3px 8px; }
+  .pin-dot { width:8px; height:8px; }
+  .global-legend { gap:18px; font-size:0.65rem; }
+}
 @media (max-width:768px){
   .global { padding:48px 28px; }
   .global-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
@@ -457,7 +561,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .wave { position:relative; }
 .wave::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:40px; background:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q150 0 300 20 Q450 40 600 20 Q750 0 900 20 Q1050 40 1200 20 L1200 40 L0 40 Z' fill='%231c1814'/%3E%3C/svg%3E") repeat-x; background-size:600px 40px; z-index:1; pointer-events:none; }
 .wave-light::after { fill:var(--chalk-w); }
-.testimonials { background:var(--chalk-w) url(images/bg-09-testimonials.jpg) center/cover no-repeat; padding:120px 56px; }
+.testimonials { background:var(--chalk-w) url(images/bg-09-testimonials.jpg) center/cover no-repeat; padding:160px 56px; }
 .testi-head { text-align:center; margin-bottom:64px; }
 .testi-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(1.8rem,3vw,2.6rem); color:var(--ink); line-height:1.18; }
 .testi-head h2 em { font-style:italic; color:var(--brass); }
@@ -470,18 +574,40 @@ h2 em { font-style:italic; color:var(--brass); }
 .testi-q::after { content:'\201D'; color:var(--brass-lt); font-size:2.5rem; line-height:0; vertical-align:-14px; margin-left:2px; }
 .testi-meta { font-size:0.78rem; font-weight:500; color:var(--ink-soft); border-top:1px solid rgba(0,0,0,0.06); padding-top:16px; }
 .testi-meta strong { color:var(--ink); }
-.trust-strip { background:var(--ink); padding:40px 56px; text-align:center; border-top:1px solid var(--bdk); }
-.trust-strip-label { font-size:0.6rem; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:18px; }
-.trust-strip-flags { display:flex; justify-content:center; flex-wrap:wrap; gap:20px 36px; font-size:0.88rem; font-weight:400; color:var(--mist); }
+/* trust-strip removed — superseded by world map */
 .prod-card:hover .prod-img::after { opacity:1; }
 .prod-img::after { content:'Quick View'; position:absolute; inset:0; background:rgba(14,12,10,0.55); display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; opacity:0; transition:opacity .35s; z-index:3; pointer-events:none; }
-.progress-bar { position:fixed; top:0; left:0; height:2px; background:var(--brass); z-index:9999; width:0; transition:width .15s linear; }
+.progress-bar { position:fixed; top:0; left:0; height:2px; background:linear-gradient(90deg, transparent 0%, #c9a24e 30%, #e2c98a 70%, #fde9b9 100%); box-shadow:0 0 8px rgba(201,162,78,0.6), 0 0 16px rgba(201,162,78,0.3); z-index:9999; width:0; transition:width .12s linear; }
+.progress-bar::after { content:''; position:absolute; right:-2px; top:50%; transform:translateY(-50%); width:6px; height:6px; border-radius:50%; background:#fde9b9; box-shadow:0 0 10px #fde9b9, 0 0 18px rgba(253,233,185,0.6); }
 .side-cta { position:fixed; right:0; top:50%; transform:translateY(-50%); z-index:996; writing-mode:vertical-rl; text-orientation:mixed; background:var(--brass); color:#fff; padding:14px 10px; font-size:0.62rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; border-radius:4px 0 0 4px; opacity:0; visibility:hidden; transition:opacity .3s, visibility 0s linear .3s; box-shadow:0 4px 20px rgba(168,125,42,0.25); }
 .side-cta.show { opacity:1; visibility:visible; transition:opacity .3s, visibility 0s linear 0s; }
 .side-cta:hover { background:var(--brass-lt); padding:16px 10px; }
-.ft-industries { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
-.ft-tag { font-size:0.58rem; font-weight:300; letter-spacing:0.08em; color:var(--stone-lt); border:1px solid rgba(255,255,255,0.1); padding:5px 12px; border-radius:2px; }
-.faq { background:var(--ink) url(images/bg-faq.jpg) center/cover no-repeat; padding:120px 56px; position:relative; overflow:hidden; }
+
+/* Sticky bottom B2B CTA bar */
+.sticky-cta { position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(140%); z-index:850; width:min(720px, calc(100% - 40px)); background:linear-gradient(135deg, rgba(14,12,10,0.97) 0%, rgba(28,24,20,0.97) 100%); border:1px solid rgba(201,162,78,0.45); border-radius:999px; box-shadow:0 18px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.4); transition:transform 0.5s cubic-bezier(.25,.8,.25,1); pointer-events:none; }
+.sticky-cta.show { transform:translateX(-50%) translateY(0); pointer-events:auto; }
+.sticky-cta-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:10px 12px 10px 26px; flex-wrap:wrap; }
+.sticky-cta-pulse { display:inline-block; width:10px; height:10px; border-radius:50%; background:#c9a24e; box-shadow:0 0 0 0 rgba(201,162,78,0.7); animation:sticky-pulse 2s infinite; flex-shrink:0; }
+@keyframes sticky-pulse {
+  0%   { box-shadow:0 0 0 0 rgba(201,162,78,0.7); }
+  70%  { box-shadow:0 0 0 12px rgba(201,162,78,0); }
+  100% { box-shadow:0 0 0 0 rgba(201,162,78,0); }
+}
+.sticky-cta-text { flex:1; color:var(--mist); font-size:0.85rem; font-weight:300; line-height:1.4; min-width:200px; }
+.sticky-cta-text strong { color:var(--chalk-w); font-weight:500; }
+.sticky-cta-actions { display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.sticky-cta-btn { background:var(--brass); color:#0e0c0a; text-decoration:none; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:11px 22px; border-radius:999px; transition:background 0.22s, transform 0.22s; white-space:nowrap; }
+.sticky-cta-btn:hover { background:var(--brass-lt); transform:translateY(-1px); }
+.sticky-cta-close { background:transparent; border:0; color:var(--mist); font-size:1.6rem; line-height:1; cursor:pointer; padding:2px 12px; opacity:0.5; transition:opacity 0.2s; }
+.sticky-cta-close:hover { opacity:1; color:var(--chalk-w); }
+@media(max-width:640px) {
+  .sticky-cta { bottom:14px; border-radius:14px; }
+  .sticky-cta-inner { padding:12px 14px; gap:10px; flex-direction:column; align-items:stretch; }
+  .sticky-cta-actions { justify-content:space-between; }
+  .sticky-cta-text { font-size:0.78rem; text-align:center; }
+}
+/* .ft-industries / .ft-tag removed — footer pills no longer used */
+.faq { background:var(--ink) url(images/bg-faq.jpg) center/cover no-repeat; padding:160px 56px; position:relative; overflow:hidden; }
 .faq::before { content:''; position:absolute; bottom:0; right:10%; width:500px; height:500px; background:radial-gradient(circle, rgba(168,125,42,0.14) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
 .faq-head { margin-bottom:64px; max-width:720px; position:relative; z-index:1; }
 .faq-head .sec-label { color:var(--brass-lt); }
@@ -496,7 +622,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease; }
 .faq-item.open .faq-a { max-height:300px; }
 .faq-a p { padding:0 28px 22px; font-size:0.92rem; font-weight:500; color:var(--mist); line-height:1.85; }
-.why { background:var(--ink) url(images/bg-06-why.jpg) center/cover no-repeat; padding:130px 56px 120px; position:relative; overflow:hidden; }
+.why { background:var(--ink) url(images/bg-06-why.jpg) center/cover no-repeat; padding:170px 56px 160px; position:relative; overflow:hidden; }
 .why::before { content:''; position:absolute; top:30%; left:20%; width:700px; height:700px; background:radial-gradient(circle, rgba(201,162,78,0.24) 0%, transparent 60%); filter:blur(50px); pointer-events:none; }
 .why-head { margin-bottom:80px; max-width:720px; position:relative; z-index:1; }
 .why-head .sec-label { color:var(--brass-lt); }
@@ -508,7 +634,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .why-icon { width:44px; height:44px; margin-bottom:28px; color:var(--brass); }
 .why-card h3 { font-family:'Playfair Display',serif; font-weight:400; font-size:1.25rem; color:#fff; margin-bottom:16px; letter-spacing:-0.01em; }
 .why-card p { font-size:0.95rem; font-weight:500; color:var(--mist); line-height:1.75; }
-.contact { padding:120px 56px; background:var(--chalk-w) url(images/bg-13-contact.jpg) center/cover no-repeat; display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:start; }
+.contact { padding:90px 56px 120px; background:var(--chalk-w) url(images/bg-13-contact.jpg) center/cover no-repeat; display:grid; grid-template-columns:1fr 1fr; gap:120px; align-items:start; }
 .con-l h2 { color:var(--ink); margin-bottom:22px; }
 .con-l > p { font-size:0.95rem; font-weight:400; color:var(--ink-soft); line-height:1.95; margin-bottom:40px; max-width:380px; }
 .con-detail { display:flex; align-items:flex-start; gap:13px; margin-bottom:16px; font-size:0.9rem; font-weight:400; color:var(--ink-soft); }
@@ -527,14 +653,14 @@ textarea { min-height:105px; }
 #form-err { display:none; font-size:0.82rem; font-weight:300; color:#b94040; margin-top:4px; }
 footer { background:var(--ink); padding:70px 56px 34px; }
 .ft-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px; padding-bottom:52px; border-bottom:1px solid var(--bdk); margin-bottom:32px; }
-.ft-logo { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:400; color:#fff; text-decoration:none; display:block; margin-bottom:18px; }
+.ft-logo { font-family:'Playfair Display',serif; font-size:1.35rem; font-weight:400; color:#fff; text-decoration:none; display:block; margin-bottom:18px; }
 .ft-logo em { font-style:italic; color:var(--brass-lt); }
-.ft-desc { font-size:0.82rem; font-weight:400; color:var(--stone-lt); line-height:1.9; max-width:270px; }
-.ft-col h5 { font-size:0.58rem; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:20px; }
-.ft-col ul { list-style:none; display:flex; flex-direction:column; gap:11px; }
-.ft-col a { font-size:0.78rem; font-weight:300; color:rgba(191,182,168,0.55); text-decoration:none; transition:color .2s; }
+.ft-desc { font-size:0.9rem; font-weight:400; color:var(--mist); line-height:1.85; max-width:300px; }
+.ft-col h5 { font-size:0.72rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:22px; }
+.ft-col ul { list-style:none; display:flex; flex-direction:column; gap:12px; }
+.ft-col a { font-size:0.9rem; font-weight:400; color:rgba(212,206,196,0.85); text-decoration:none; transition:color .2s; }
 .ft-col a:hover { color:#fff; }
-.ft-btm { display:flex; justify-content:space-between; align-items:center; font-size:0.66rem; font-weight:300; letter-spacing:0.03em; color:rgba(107,96,88,0.65); }
+.ft-btm { display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; font-weight:400; letter-spacing:0.03em; color:rgba(212,206,196,0.7); padding-top:24px; border-top:1px solid rgba(255,255,255,0.06); margin-top:30px; }
 .chat-widget { position:fixed; bottom:26px; right:26px; z-index:999; font-family:'Outfit',sans-serif; }
 .chat-btn { width:52px; height:52px; border-radius:50%; border:none; background:var(--brass); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(168,125,42,0.35); transition:transform .25s ease, box-shadow .25s ease; position:relative; }
 .chat-btn:hover { transform:scale(1.08); box-shadow:0 6px 28px rgba(168,125,42,0.5); }
@@ -670,19 +796,26 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 }
 
 /* ===== Product Matchmaker ===== */
-.matchmaker { padding:80px 22px; background:var(--chalk) url(images/bg-12-matchmaker.jpg) center/cover no-repeat; text-align:center; }
-.matchmaker .sec-label { margin-bottom:12px; }
-.matchmaker h2 { font-size:clamp(1.6rem,4vw,2.5rem); font-weight:700; margin-bottom:8px; color:var(--ink); }
-.matchmaker h2 em { font-family:var(--serif); font-style:italic; color:var(--brass); }
-.match-sub { color:var(--ink-soft); font-size:.95rem; font-weight:400; max-width:500px; margin:0 auto 32px; line-height:1.55; }
+/* Matchmaker — dark gradient + golden bokeh hero feel */
+.matchmaker { padding:100px 22px 100px; background:radial-gradient(ellipse at center, #1c1814 0%, #0e0c0a 55%, #06040a 100%); text-align:center; position:relative; overflow:hidden; }
+.matchmaker::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 14% 28%, rgba(226,201,138,0.42) 0%, transparent 4%), radial-gradient(circle at 86% 22%, rgba(168,125,42,0.52) 0%, transparent 3%), radial-gradient(circle at 22% 78%, rgba(201,162,78,0.45) 0%, transparent 5%), radial-gradient(circle at 78% 82%, rgba(253,233,185,0.36) 0%, transparent 4%), radial-gradient(circle at 50% 38%, rgba(168,125,42,0.32) 0%, transparent 6%); filter: blur(6px); opacity: 0.85; z-index:0; pointer-events:none; }
+.matchmaker::after { content:''; position:absolute; top:50%; left:50%; width:640px; height:640px; transform:translate(-50%,-50%); background:radial-gradient(circle, rgba(168,125,42,0.16) 0%, transparent 65%); z-index:0; pointer-events:none; }
+.matchmaker > * { position:relative; z-index:1; }
+.matchmaker .sec-label { display:inline-block; color:var(--brass-lt); margin-bottom:20px; letter-spacing:0.24em; font-size:0.7rem; font-weight:500; text-transform:uppercase; padding:6px 14px; border:1px solid rgba(201,162,78,0.4); background:rgba(14,12,10,0.5); border-radius:999px; }
+.matchmaker h2 { font-size:clamp(2rem,5vw,3.6rem); font-weight:400; font-family:'Playfair Display',serif; margin-bottom:18px; color:var(--chalk-w); letter-spacing:-0.01em; text-shadow:0 4px 32px rgba(0,0,0,0.6); line-height:1.1; }
+.matchmaker h2 em { font-style:italic; background:linear-gradient(120deg, var(--brass-pale) 0%, var(--brass-lt) 70%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.match-sub { color:var(--mist); font-size:1rem; font-weight:300; max-width:580px; margin:0 auto 52px; line-height:1.7; }
 
-.match-path { display:flex; gap:20px; max-width:620px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
-.match-path-btn { flex:1; min-width:240px; padding:36px 28px; border:1.5px solid var(--blt); border-radius:14px; background:#fff; cursor:pointer; transition:all .25s; text-align:center; }
-.match-path-btn:hover { border-color:var(--brass); box-shadow:0 6px 28px rgba(168,125,42,.12); transform:translateY(-2px); }
-.match-path-btn svg { display:block; margin:0 auto 14px; }
+.match-path { display:flex; gap:24px; max-width:760px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
+.match-path-btn { flex:1; min-width:280px; padding:46px 32px; border:1px solid rgba(201,162,78,0.4); border-radius:14px; background:rgba(14,12,10,0.55); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); cursor:pointer; transition:all .35s cubic-bezier(.25,.8,.25,1); text-align:center; position:relative; overflow:hidden; }
+.match-path-btn::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg, rgba(201,162,78,0.18) 0%, rgba(201,162,78,0) 65%); opacity:0; transition:opacity .35s; pointer-events:none; }
+.match-path-btn:hover { border-color:var(--brass-lt); box-shadow:0 22px 56px rgba(0,0,0,0.55), 0 0 70px rgba(168,125,42,0.18); transform:translateY(-4px); }
+.match-path-btn:hover::before { opacity:1; }
+.match-path-btn svg { display:block; margin:0 auto 18px; width:44px; height:44px; position:relative; z-index:1; }
+.match-path-btn svg path, .match-path-btn svg rect, .match-path-btn svg circle { stroke:var(--brass-lt); }
 .match-path-btn .mp-icon { font-size:2.4rem; margin-bottom:6px; }
-.match-path-btn h4 { font-size:1.08rem; font-weight:700; color:var(--ink); margin-bottom:6px; }
-.match-path-btn p { font-size:.85rem; color:var(--stone); line-height:1.45; }
+.match-path-btn h4 { font-size:1.18rem; font-weight:500; color:var(--chalk-w); margin-bottom:8px; font-family:'Playfair Display',serif; font-style:italic; position:relative; z-index:1; }
+.match-path-btn p { font-size:.85rem; color:var(--mist); line-height:1.55; font-weight:300; position:relative; z-index:1; }
 
 .match-quiz { max-width:560px; margin:0 auto; text-align:left; animation:qfade .35s ease; }
 @keyframes qfade { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
@@ -735,10 +868,21 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 <div class="progress-bar" id="progressBar"></div>
 <a href="#contact" class="side-cta" id="sideCta">Get a Quote</a>
 
+<!-- Sticky bottom B2B CTA bar — appears after scrolling past hero -->
+<div class="sticky-cta" id="stickyCta" role="region" aria-label="Quote request">
+  <div class="sticky-cta-inner">
+    <span class="sticky-cta-pulse"></span>
+    <span class="sticky-cta-text" data-i18n="sticky_cta_txt">Building a solar project? <strong>Get FOB quote within 24 hours.</strong></span>
+    <div class="sticky-cta-actions">
+      <a href="#contact" class="sticky-cta-btn" data-i18n="sticky_cta_btn">Request Quote →</a>
+      <button class="sticky-cta-close" id="stickyCtaClose" aria-label="Dismiss">×</button>
+    </div>
+  </div>
+</div>
+
 <nav class="dark" id="mainnav">
   <a href="#" class="logo" data-i18n="logo">JC <em>Lightning</em> Technology Co., Ltd.</a>
   <ul>
-    <li><a href="#categories" class="nav-link" data-i18n="nav_cat">Categories</a></li>
     <li class="mega-trigger"><a href="#products" class="nav-link" data-i18n="nav_products">Products</a>
       <div class="mega-panel">
         <div class="mega-col"><h6 data-i18n="mega_h1">Security & Street</h6><a href="#cat-security" data-preview="images/product-01.webp"><span data-i18n="mega_a1">Solar Flood Lights</span> <span>3</span></a><a href="#cat-security" data-preview="images/product-09.jpg"><span data-i18n="mega_a2">Solar Street Lights</span> <span>2</span></a><a href="#cat-security" data-preview="images/product-07.jpg"><span data-i18n="mega_a3">Warning & Signal</span> <span>2</span></a></div>
@@ -749,6 +893,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <div class="mega-preview"><img src="images/product-01.webp" alt="Preview" class="active" id="megaPreview"></div>
       </div>
     </li>
+    <li><a href="#scenarios"  class="nav-link" data-i18n="nav_solutions">Solutions</a></li>
     <li><a href="#factory"    class="nav-link" data-i18n="nav_about">Our Approach</a></li>
     <li><a href="#contact"    class="nav-link" data-i18n="nav_contact">Contact</a></li>
   </ul>
@@ -766,54 +911,663 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </nav>
 <div class="nav-drop" id="navDrop">
-  <a href="#categories" data-i18n="nav_cat">Categories</a>
   <a href="#products" data-i18n="nav_products">Products</a>
+  <a href="#scenarios" data-i18n="nav_solutions">Solutions</a>
   <a href="#factory" data-i18n="nav_about">Our Approach</a>
   <a href="#contact" data-i18n="nav_contact">Contact</a>
   <a href="#contact" data-i18n="nav_quote" style="color:var(--brass-lt)">Get a Quote</a>
 </div>
 
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-grid"></div>
-  <canvas class="hero-particles" id="heroParticles"></canvas>
-  <div class="hero-left reveal">
-    <div class="hero-eyebrow" data-i18n="hero_eye">Solar Outdoor Lighting · When the grid goes down, we stay on.</div>
-    <h1 data-i18n="hero_h1">Light that works<br>when the power<br><em>doesn't.</em></h1>
-    <p class="hero-sub" data-i18n="hero_sub">Colombia faces a projected 3,100 GWh energy deficit by 2027. Ecuador already suffers cuts of up to 10 hours a day. South Africa averages 6–8 hours of load-shedding daily. Solar security, garden, decorative, home and portable lighting — built so your clients never go dark.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-fill" data-i18n="hero_cta1">Request a Quote</a>
-      <a href="#categories" class="btn-text" data-i18n="hero_cta2">View Products →</a>
+<section class="hero hero-village" id="hero">
+  <!-- ===== Isometric Solar Smart Community SVG (full-bleed background) ===== -->
+  <div class="hero-scene" aria-hidden="true">
+    <svg class="hero-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Day sky -->
+        <linearGradient id="vlg-sky-day" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cdd7e2"/>
+          <stop offset="55%" stop-color="#e5dbc9"/>
+          <stop offset="100%" stop-color="#e8d5a8"/>
+        </linearGradient>
+        <!-- Dusk sky -->
+        <linearGradient id="vlg-sky-dusk" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1f2238"/>
+          <stop offset="45%" stop-color="#5a3c40"/>
+          <stop offset="80%" stop-color="#c97a3a"/>
+          <stop offset="100%" stop-color="#2a1a08"/>
+        </linearGradient>
+        <!-- Sun (day) -->
+        <radialGradient id="vlg-sun-day" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff8e0"/>
+          <stop offset="60%" stop-color="#f5d27a" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="#e8a040" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Sun (dusk) -->
+        <radialGradient id="vlg-sun-dusk" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffd078"/>
+          <stop offset="50%" stop-color="#e07028" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="#a02818" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Product light glow -->
+        <radialGradient id="vlg-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.95"/>
+          <stop offset="40%" stop-color="#e2c98a" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="vlg-cone" cx="50%" cy="0%" r="80%">
+          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Solar panel pattern -->
+        <pattern id="vlg-solar" x="0" y="0" width="20" height="14" patternUnits="userSpaceOnUse">
+          <rect width="20" height="14" fill="#1c3a62"/>
+          <line x1="10" y1="0" x2="10" y2="14" stroke="#2a5080" stroke-width="0.6"/>
+          <line x1="0" y1="7" x2="20" y2="7" stroke="#2a5080" stroke-width="0.6"/>
+        </pattern>
+      </defs>
+
+      <!-- ============ SKY (day + dusk crossfade) ============ -->
+      <rect class="vlg-sky-day" width="1600" height="900" fill="url(#vlg-sky-day)"/>
+      <rect class="vlg-sky-dusk" width="1600" height="900" fill="url(#vlg-sky-dusk)"/>
+
+      <!-- Sun (animates position) -->
+      <g class="vlg-sun-group">
+        <circle class="vlg-sun-day-orb" cx="280" cy="160" r="60" fill="url(#vlg-sun-day)" opacity="0.85"/>
+        <circle class="vlg-sun-dusk-orb" cx="180" cy="380" r="75" fill="url(#vlg-sun-dusk)" opacity="0"/>
+      </g>
+
+      <!-- Stars (dusk only) -->
+      <g class="vlg-stars" fill="#f5e9c8">
+        <circle cx="120" cy="80" r="1.2"/>
+        <circle cx="280" cy="40" r="0.9"/>
+        <circle cx="450" cy="120" r="1.1"/>
+        <circle cx="620" cy="60" r="0.8"/>
+        <circle cx="820" cy="100" r="1.3"/>
+        <circle cx="1020" cy="50" r="0.9"/>
+        <circle cx="1240" cy="130" r="1.1"/>
+        <circle cx="1420" cy="80" r="1.0"/>
+        <circle cx="1540" cy="160" r="0.9"/>
+        <circle cx="380" cy="220" r="0.7"/>
+        <circle cx="960" cy="200" r="0.8"/>
+        <circle cx="1340" cy="220" r="0.7"/>
+      </g>
+
+      <!-- ============ GROUND (isometric plane) ============ -->
+      <polygon class="vlg-ground" points="0,600 1600,600 1600,900 0,900" fill="#9c8460"/>
+      <polygon class="vlg-ground-shade" points="0,600 1600,600 1600,900 0,900" fill="#1a140e" opacity="0"/>
+      <!-- Road (horizontal across middle) -->
+      <polygon class="vlg-road" points="0,720 1600,720 1600,790 0,790" fill="#5a4a36"/>
+      <polygon class="vlg-road-shade" points="0,720 1600,720 1600,790 0,790" fill="#0a0805" opacity="0"/>
+      <!-- Road center dashes -->
+      <g class="vlg-dashes" fill="#e8d5a8" opacity="0.55">
+        <rect x="40" y="752" width="40" height="3"/>
+        <rect x="160" y="752" width="40" height="3"/>
+        <rect x="280" y="752" width="40" height="3"/>
+        <rect x="400" y="752" width="40" height="3"/>
+        <rect x="520" y="752" width="40" height="3"/>
+        <rect x="640" y="752" width="40" height="3"/>
+        <rect x="760" y="752" width="40" height="3"/>
+        <rect x="880" y="752" width="40" height="3"/>
+        <rect x="1000" y="752" width="40" height="3"/>
+        <rect x="1120" y="752" width="40" height="3"/>
+        <rect x="1240" y="752" width="40" height="3"/>
+        <rect x="1360" y="752" width="40" height="3"/>
+        <rect x="1480" y="752" width="40" height="3"/>
+      </g>
+
+      <!-- ============ BUILDING 1 — Apartment (back-left) ============ -->
+      <g class="vlg-bldg" data-bldg="apt">
+        <!-- TOP face -->
+        <polygon points="280,400 400,340 520,400 400,460" fill="#bda57f" class="vlg-top"/>
+        <polygon points="280,400 400,340 520,400 400,460" fill="#1a140e" opacity="0" class="vlg-top-shade"/>
+        <!-- East face -->
+        <polygon points="400,460 520,400 520,640 400,700" fill="#9c8966" class="vlg-east"/>
+        <polygon points="400,460 520,400 520,640 400,700" fill="#1a140e" opacity="0" class="vlg-east-shade"/>
+        <!-- South face -->
+        <polygon points="280,400 400,460 400,700 280,640" fill="#a89572" class="vlg-south"/>
+        <polygon points="280,400 400,460 400,700 280,640" fill="#1a140e" opacity="0" class="vlg-south-shade"/>
+        <!-- Windows on south face (3 rows × 2 cols) -->
+        <g class="vlg-windows">
+          <rect x="300" y="490" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
+          <rect x="340" y="500" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
+          <rect x="300" y="540" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
+          <rect x="340" y="550" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
+          <rect x="300" y="590" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
+          <rect x="340" y="600" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
+        </g>
+        <!-- Windows on east face -->
+        <g class="vlg-windows">
+          <rect x="420" y="490" width="22" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="420 490"/>
+          <rect x="470" y="475" width="22" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="470 475"/>
+          <rect x="420" y="540" width="22" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="420 540"/>
+          <rect x="470" y="525" width="22" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="470 525"/>
+        </g>
+        <!-- Solar panels on roof -->
+        <polygon points="310,400 400,355 470,400 380,445" fill="url(#vlg-solar)"/>
+      </g>
+
+      <!-- ============ BUILDING 2 — Warehouse (back-right) ============ -->
+      <g class="vlg-bldg" data-bldg="warehouse">
+        <!-- TOP face (wide, low building) -->
+        <polygon points="1000,440 1200,340 1430,440 1230,540" fill="#a8b0b8" class="vlg-top"/>
+        <polygon points="1000,440 1200,340 1430,440 1230,540" fill="#1a140e" opacity="0" class="vlg-top-shade"/>
+        <!-- East face -->
+        <polygon points="1230,540 1430,440 1430,600 1230,700" fill="#7c8088" class="vlg-east"/>
+        <polygon points="1230,540 1430,440 1430,600 1230,700" fill="#1a140e" opacity="0" class="vlg-east-shade"/>
+        <!-- South face -->
+        <polygon points="1000,440 1230,540 1230,700 1000,600" fill="#8c9098" class="vlg-south"/>
+        <polygon points="1000,440 1230,540 1230,700 1000,600" fill="#1a140e" opacity="0" class="vlg-south-shade"/>
+        <!-- Loading bay opening (dark) -->
+        <polygon points="1080,560 1180,600 1180,690 1080,650" fill="#1a1814"/>
+        <!-- Massive solar panel array on roof -->
+        <polygon points="1030,440 1200,355 1380,440 1210,525" fill="url(#vlg-solar)"/>
+        <line x1="1100" y1="397" x2="1280" y2="482" stroke="#3a5d8a" stroke-width="1"/>
+        <line x1="1145" y1="376" x2="1330" y2="463" stroke="#3a5d8a" stroke-width="1"/>
+        <!-- Warehouse signage -->
+        <rect x="1020" y="455" width="170" height="14" fill="#c9a24e" opacity="0.8" transform="skewY(26.5)"/>
+      </g>
+
+      <!-- ============ BUILDING 3 — Main JC Villa (center) ============ -->
+      <g class="vlg-bldg" data-bldg="villa">
+        <!-- Pitched roof — two triangular slopes -->
+        <polygon points="640,380 800,300 960,380 920,400 800,335 680,400" fill="#5a3a26" class="vlg-roof-front"/>
+        <polygon points="640,380 800,460 960,380 920,400 800,420 680,400" fill="#3a2316" class="vlg-roof-east"/>
+        <!-- East face -->
+        <polygon points="800,460 920,400 920,640 800,700" fill="#c5a878" class="vlg-east"/>
+        <polygon points="800,460 920,400 920,640 800,700" fill="#1a140e" opacity="0" class="vlg-east-shade"/>
+        <!-- South face -->
+        <polygon points="680,400 800,460 800,700 680,640" fill="#d5b888" class="vlg-south"/>
+        <polygon points="680,400 800,460 800,700 680,640" fill="#1a140e" opacity="0" class="vlg-south-shade"/>
+        <!-- Door (south face) -->
+        <polygon points="725,520 760,538 760,640 725,623" fill="#5a3a22" class="vlg-door"/>
+        <polygon points="730,528 755,540 755,635 730,621" fill="#7a5232"/>
+        <!-- Windows south -->
+        <rect x="697" y="480" width="20" height="28" fill="#e8d5a8" class="vlg-win"/>
+        <rect x="697" y="540" width="20" height="28" fill="#e8d5a8" class="vlg-win"/>
+        <!-- Windows east -->
+        <rect x="840" y="475" width="20" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="840 475"/>
+        <rect x="880" y="450" width="20" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="880 450"/>
+        <rect x="840" y="535" width="20" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="840 535"/>
+        <rect x="880" y="510" width="20" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="880 510"/>
+        <!-- Solar panels on roof (front slope) -->
+        <polygon points="700,380 800,330 870,380 800,422" fill="url(#vlg-solar)" opacity="0.95"/>
+        <!-- Property fence -->
+        <line x1="600" y1="700" x2="680" y2="660" stroke="#5a3a22" stroke-width="2" stroke-dasharray="4,6"/>
+        <line x1="600" y1="700" x2="600" y2="710" stroke="#5a3a22" stroke-width="3"/>
+        <line x1="1000" y1="700" x2="920" y2="660" stroke="#5a3a22" stroke-width="2" stroke-dasharray="4,6"/>
+        <line x1="1000" y1="700" x2="1000" y2="710" stroke="#5a3a22" stroke-width="3"/>
+        <!-- Garden path from gate to door -->
+        <polygon points="725,700 760,700 745,628 728,628" fill="#8c7050"/>
+        <!-- Small trees -->
+        <ellipse cx="630" cy="690" rx="14" ry="20" fill="#6d8a4a"/>
+        <rect x="628" y="690" width="4" height="14" fill="#3a2614"/>
+        <ellipse cx="980" cy="685" rx="16" ry="22" fill="#6d8a4a"/>
+        <rect x="978" y="685" width="4" height="16" fill="#3a2614"/>
+      </g>
+
+      <!-- ============ BUILDING 4 — Convenience Shop (front-left) ============ -->
+      <g class="vlg-bldg" data-bldg="shop">
+        <!-- Top -->
+        <polygon points="100,640 220,580 360,640 240,700" fill="#c08a5e" class="vlg-top"/>
+        <polygon points="100,640 220,580 360,640 240,700" fill="#1a140e" opacity="0" class="vlg-top-shade"/>
+        <!-- East face -->
+        <polygon points="240,700 360,640 360,790 240,850" fill="#a07050" class="vlg-east"/>
+        <polygon points="240,700 360,640 360,790 240,850" fill="#1a140e" opacity="0" class="vlg-east-shade"/>
+        <!-- South face -->
+        <polygon points="100,640 240,700 240,850 100,790" fill="#b07a58" class="vlg-south"/>
+        <polygon points="100,640 240,700 240,850 100,790" fill="#1a140e" opacity="0" class="vlg-south-shade"/>
+        <!-- Shop window (large) -->
+        <polygon points="125,710 200,747 200,805 125,768" fill="#e8d5a8" class="vlg-shop-win"/>
+        <!-- Door -->
+        <polygon points="210,754 230,764 230,818 210,808" fill="#3a2614"/>
+        <!-- Awning -->
+        <polygon points="100,690 240,755 240,768 100,703" fill="#a87d2a"/>
+        <!-- Awning stripes -->
+        <line x1="120" y1="697" x2="120" y2="709" stroke="#5a3a16" stroke-width="3"/>
+        <line x1="160" y1="715" x2="160" y2="727" stroke="#5a3a16" stroke-width="3"/>
+        <line x1="200" y1="734" x2="200" y2="746" stroke="#5a3a16" stroke-width="3"/>
+      </g>
+
+      <!-- ============ BUILDING 5 — EV / Solar Canopy (front-right) ============ -->
+      <g class="vlg-bldg" data-bldg="ev">
+        <!-- Solar canopy top (huge panel) -->
+        <polygon points="1280,620 1430,560 1580,620 1430,680" fill="url(#vlg-solar)"/>
+        <!-- Canopy underside -->
+        <polygon points="1280,620 1430,680 1580,620 1580,628 1430,688 1280,628" fill="#3a2c1a"/>
+        <!-- Support columns -->
+        <rect x="1306" y="630" width="6" height="170" fill="#3a2614" transform="skewY(26.5)" transform-origin="1306 630"/>
+        <rect x="1554" y="630" width="6" height="170" fill="#3a2614" transform="skewY(26.5)" transform-origin="1554 630"/>
+        <rect x="1426" y="690" width="6" height="115" fill="#3a2614"/>
+        <!-- Ground pad -->
+        <polygon points="1280,800 1580,800 1580,820 1280,820" fill="#5a4a36"/>
+        <!-- EV charger units -->
+        <rect x="1340" y="760" width="18" height="40" fill="#1c1814" rx="2"/>
+        <rect x="1342" y="765" width="14" height="10" fill="#c9a24e"/>
+        <rect x="1490" y="760" width="18" height="40" fill="#1c1814" rx="2"/>
+        <rect x="1492" y="765" width="14" height="10" fill="#c9a24e"/>
+        <!-- A car at one charger -->
+        <ellipse cx="1390" cy="800" rx="40" ry="6" fill="#1a1410" opacity="0.4"/>
+        <rect x="1360" y="775" width="60" height="22" fill="#2a3548" rx="4"/>
+        <rect x="1370" y="765" width="40" height="14" fill="#3a4858" rx="3"/>
+        <circle cx="1370" cy="800" r="6" fill="#1a1a1a"/>
+        <circle cx="1410" cy="800" r="6" fill="#1a1a1a"/>
+      </g>
+
+      <!-- ===================================================== -->
+      <!-- ============== JC PRODUCT LIGHTS ==================== -->
+      <!-- (glows fade in during dusk only) -->
+      <!-- ===================================================== -->
+
+      <!-- 01 — Solar Street Light (p9) left of villa -->
+      <g class="vlg-product" data-prod="p9">
+        <rect x="560" y="720" width="6" height="6" fill="#3a2614"/>
+        <rect x="562" y="450" width="3" height="280" fill="#3a2614"/>
+        <rect x="563" y="450" width="40" height="3" fill="#3a2614"/>
+        <polygon points="555,442 583,442 585,448 553,448" fill="url(#vlg-solar)"/>
+        <rect x="595" y="452" width="12" height="6" fill="#5a3a16" rx="1"/>
+        <ellipse cx="601" cy="463" rx="3" ry="2" fill="#fde9b9" class="vlg-bulb"/>
+        <polygon points="585,465 617,465 670,720 535,720" fill="url(#vlg-cone)" class="vlg-cone vlg-light"/>
+        <circle cx="601" cy="462" r="50" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        <g class="vlg-hotspot" transform="translate(601, 420)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">01</text>
+        </g>
+      </g>
+
+      <!-- 02 — Solar Street Light (p9) right of villa -->
+      <g class="vlg-product" data-prod="p9b">
+        <rect x="1030" y="720" width="6" height="6" fill="#3a2614"/>
+        <rect x="1032" y="450" width="3" height="280" fill="#3a2614"/>
+        <rect x="996" y="450" width="40" height="3" fill="#3a2614"/>
+        <polygon points="993,442 1021,442 1023,448 991,448" fill="url(#vlg-solar)"/>
+        <rect x="987" y="452" width="12" height="6" fill="#5a3a16" rx="1"/>
+        <ellipse cx="993" cy="463" rx="3" ry="2" fill="#fde9b9" class="vlg-bulb"/>
+        <polygon points="977,465 1009,465 1060,720 925,720" fill="url(#vlg-cone)" class="vlg-cone vlg-light"/>
+        <circle cx="993" cy="462" r="50" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+      </g>
+
+      <!-- 03 — Sphere Gate Pillar Lights (p28) — both villa gate posts -->
+      <g class="vlg-product" data-prod="p28">
+        <circle cx="600" cy="700" r="7" fill="#3a2614"/>
+        <circle cx="600" cy="700" r="5" fill="#fde9b9" class="vlg-bulb"/>
+        <circle cx="600" cy="700" r="30" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        <circle cx="1000" cy="700" r="7" fill="#3a2614"/>
+        <circle cx="1000" cy="700" r="5" fill="#fde9b9" class="vlg-bulb"/>
+        <circle cx="1000" cy="700" r="30" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        <g class="vlg-hotspot" transform="translate(1000, 672)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">02</text>
+        </g>
+      </g>
+
+      <!-- 04 — 3-Head Solar Motion Flood (p1) — villa front-east corner -->
+      <g class="vlg-product" data-prod="p1">
+        <rect x="795" y="440" width="22" height="3" fill="#3a2614"/>
+        <circle cx="798" cy="445" r="3" fill="#3a2614"/>
+        <circle cx="806" cy="444" r="3" fill="#3a2614"/>
+        <circle cx="814" cy="445" r="3" fill="#3a2614"/>
+        <circle cx="798" cy="447" r="2" fill="#fde9b9" class="vlg-bulb"/>
+        <circle cx="806" cy="446" r="2" fill="#fde9b9" class="vlg-bulb"/>
+        <circle cx="814" cy="447" r="2" fill="#fde9b9" class="vlg-bulb"/>
+        <polygon points="790,450 822,450 880,640 740,640" fill="url(#vlg-cone)" opacity="0.6" class="vlg-cone vlg-light"/>
+        <circle cx="806" cy="445" r="40" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        <g class="vlg-hotspot" transform="translate(806, 405)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">03</text>
+        </g>
+      </g>
+
+      <!-- 05 — PIR Wall Light (p3) — villa south face near door -->
+      <g class="vlg-product" data-prod="p3">
+        <rect x="765" y="550" width="6" height="18" fill="#3a2614" rx="2"/>
+        <rect x="766" y="555" width="4" height="10" fill="#fde9b9" class="vlg-bulb"/>
+        <circle cx="768" cy="560" r="25" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        <g class="vlg-hotspot" transform="translate(800, 540)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">04</text>
+        </g>
+      </g>
+
+      <!-- 06 — Outdoor Wall Lantern (p10) — villa east side -->
+      <g class="vlg-product" data-prod="p10">
+        <rect x="855" y="510" width="5" height="5" fill="#3a2614"/>
+        <polygon points="850,514 866,514 868,532 848,532" fill="#3a2614"/>
+        <rect x="853" y="516" width="11" height="14" fill="#fde9b9" opacity="0.9" class="vlg-bulb"/>
+        <circle cx="858" cy="522" r="28" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        <g class="vlg-hotspot" transform="translate(890, 500)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">05</text>
+        </g>
+      </g>
+
+      <!-- 07 — Stake Lights (p13) — along garden path -->
+      <g class="vlg-product" data-prod="p13">
+        <g>
+          <rect x="715" y="666" width="1.5" height="12" fill="#5a4030"/>
+          <circle cx="716" cy="664" r="2.5" fill="#3a2614"/>
+          <circle cx="716" cy="664" r="1.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="716" cy="664" r="14" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        </g>
+        <g>
+          <rect x="772" y="666" width="1.5" height="12" fill="#5a4030"/>
+          <circle cx="773" cy="664" r="2.5" fill="#3a2614"/>
+          <circle cx="773" cy="664" r="1.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="773" cy="664" r="14" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        </g>
+        <g>
+          <rect x="708" y="690" width="1.5" height="12" fill="#5a4030"/>
+          <circle cx="709" cy="688" r="2.5" fill="#3a2614"/>
+          <circle cx="709" cy="688" r="1.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="709" cy="688" r="14" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        </g>
+        <g>
+          <rect x="780" y="690" width="1.5" height="12" fill="#5a4030"/>
+          <circle cx="781" cy="688" r="2.5" fill="#3a2614"/>
+          <circle cx="781" cy="688" r="1.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="781" cy="688" r="14" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        </g>
+        <g class="vlg-hotspot" transform="translate(709, 668)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">06</text>
+        </g>
+      </g>
+
+      <!-- 08 — AC Floodlight (p31) — on warehouse south face -->
+      <g class="vlg-product" data-prod="p31">
+        <rect x="1062" y="492" width="12" height="6" fill="#3a2614"/>
+        <rect x="1064" y="494" width="8" height="3" fill="#fde9b9" class="vlg-bulb"/>
+        <polygon points="1060,500 1078,500 1130,680 1010,680" fill="url(#vlg-cone)" opacity="0.5" class="vlg-cone vlg-light"/>
+        <circle cx="1068" cy="495" r="36" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        <g class="vlg-hotspot" transform="translate(1095, 480)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">07</text>
+        </g>
+      </g>
+
+      <!-- 09 — AC High Bay (p32) — visible inside warehouse loading bay -->
+      <g class="vlg-product" data-prod="p32">
+        <rect x="1124" y="572" width="6" height="6" fill="#3a2614"/>
+        <ellipse cx="1127" cy="582" rx="4" ry="2" fill="#fde9b9" class="vlg-bulb"/>
+        <circle cx="1127" cy="582" r="22" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        <g class="vlg-hotspot" transform="translate(1155, 568)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">08</text>
+        </g>
+      </g>
+
+      <!-- 10 — Edison String Lights (p11) — across the shop awning -->
+      <g class="vlg-product" data-prod="p11">
+        <g class="vlg-string">
+          <path d="M 105,693 Q 130,710 155,712 T 235,755" stroke="#5a3a16" stroke-width="1" fill="none"/>
+          <circle cx="120" cy="703" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="140" cy="711" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="160" cy="715" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="180" cy="725" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="200" cy="735" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="220" cy="747" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
+          <circle cx="120" cy="703" r="12" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+          <circle cx="160" cy="715" r="12" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+          <circle cx="200" cy="735" r="12" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
+        </g>
+        <g class="vlg-hotspot" transform="translate(165, 685)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">09</text>
+        </g>
+      </g>
+
+      <!-- 11 — Bug Zapper (p15) — at shop side, near small tree -->
+      <g class="vlg-product" data-prod="p15">
+        <rect x="80" y="700" width="3" height="14" fill="#5a4030"/>
+        <rect x="74" y="690" width="15" height="14" fill="#2a3548" rx="2"/>
+        <rect x="76" y="692" width="11" height="10" fill="#5a78a8" class="vlg-bulb" opacity="0.7"/>
+        <circle cx="81" cy="697" r="16" fill="#5a78a8" opacity="0.35" class="vlg-glow vlg-light"/>
+        <g class="vlg-hotspot" transform="translate(50, 695)">
+          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
+          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">10</text>
+        </g>
+      </g>
+
+    </svg>
+  </div>
+
+  <!-- Overlay text + CTAs -->
+  <div class="hero-overlay">
+    <div class="hero-content reveal">
+      <div class="hero-eyebrow" data-i18n="hero_eye">Solar Outdoor Lighting · When the grid goes down, we stay on.</div>
+      <h1 data-i18n="hero_h1">Light that works<br>when the power<br><em>doesn't.</em></h1>
+      <p class="hero-sub" data-i18n="hero_sub">Colombia faces a projected 3,100 GWh energy deficit by 2027. Ecuador already suffers cuts of up to 10 hours a day. South Africa averages 6–8 hours of load-shedding daily. Solar security, garden, decorative, home and portable lighting — built so your clients never go dark.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-fill" data-i18n="hero_cta1">Request a Quote</a>
+        <a href="#categories" class="btn-text" data-i18n="hero_cta2">View Products →</a>
+      </div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="lamp-scene">
-      <div class="lamp-glow-orb"></div>
-      <img class="hero-banner-img" src="images/banner.jpg" alt="JC Lightning Solar Lighting" width="1024" height="1024">
-    </div>
-  </div>
-  <div class="scroll-indicator"><span></span><span></span><span></span></div>
+
+  <!-- Detail card (right side) — appears only when hovering a hotspot -->
+  <aside class="hero-detail" id="heroDetail" aria-live="polite">
+    <div class="hero-detail-num" id="hdNum">01</div>
+    <div class="hero-detail-cat" id="hdCat">Security &amp; Street</div>
+    <h3 class="hero-detail-name" id="hdName" data-i18n="vlg_p9_n">All-in-One Solar Street Light</h3>
+    <div class="hero-detail-spec" id="hdSpec">100/200/300W · IP66 · radar sensor · LiFePO4</div>
+    <a href="#cat-security" class="hero-detail-cta" id="hdLink" data-i18n="vlg_cta">View in catalog →</a>
+  </aside>
+
+  <!-- Subtle hint to discover hotspots -->
+  <div class="hero-hint" id="heroHint" data-i18n="vlg_hint">Hover any light dot to identify the product</div>
+
 </section>
 
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="mi" data-i18n="marquee_1">Solar Security · Garden · Wall &amp; String · Ambiance · Off-Grid · Portable</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_2">CE &amp; RoHS Certified</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_3">Cast Aluminium · 304 SS</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_4">OEM / ODM Programmes</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_5">IP65 · IP66</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_6">Colombia · Ecuador · South Africa · Australia</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_7">200 Pcs Trial Order</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_1">Solar Security · Garden · Wall &amp; String · Ambiance · Off-Grid · Portable</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_2">CE &amp; RoHS Certified</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_3">Cast Aluminium · 304 SS</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_4">OEM / ODM Programmes</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_5">IP65 · IP66</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_6">Colombia · Ecuador · South Africa · Australia</span><span class="mi md">·</span>
-    <span class="mi" data-i18n="marquee_7">200 Pcs Trial Order</span><span class="mi md">·</span>
-  </div>
-</div>
+<style>
+/* ===== V2 Hero — Isometric Solar Smart Community ===== */
+.hero-village { position:relative; min-height:100vh; padding:0; overflow:hidden; background:#0e0c0a; }
+.hero-scene { position:absolute; inset:0; z-index:0; }
+.hero-svg { width:100%; height:100%; display:block; }
+
+/* Day / dusk auto-crossfade over 32s */
+.vlg-sky-day { animation: vlg-sky-day 32s ease-in-out infinite; }
+.vlg-sky-dusk { animation: vlg-sky-dusk 32s ease-in-out infinite; opacity:0; }
+.vlg-sun-day-orb { animation: vlg-sun-day 32s ease-in-out infinite; }
+.vlg-sun-dusk-orb { animation: vlg-sun-dusk 32s ease-in-out infinite; opacity:0; }
+.vlg-stars circle { animation: vlg-stars-fade 32s ease-in-out infinite; opacity:0; }
+
+/* Ground darkens at dusk */
+.vlg-ground-shade { animation: vlg-shade 32s ease-in-out infinite; }
+.vlg-road-shade { animation: vlg-shade 32s ease-in-out infinite; }
+
+/* Building faces darken slightly at dusk */
+.vlg-top-shade, .vlg-east-shade, .vlg-south-shade { animation: vlg-bldg-shade 32s ease-in-out infinite; }
+
+/* Windows brighten at dusk */
+.vlg-win, .vlg-shop-win { animation: vlg-win-light 32s ease-in-out infinite; }
+
+/* JC product lights fade in at dusk */
+.vlg-light { opacity:0; animation: vlg-light-fade 32s ease-in-out infinite; }
+.vlg-bulb { animation: vlg-bulb-pulse 3.5s ease-in-out infinite, vlg-light-fade 32s ease-in-out infinite; }
+
+/* Hotspots */
+.vlg-hotspot { cursor:pointer; }
+.vlg-hotspot circle { transition: fill 0.25s ease, stroke 0.25s ease, stroke-width 0.25s ease; }
+.vlg-hotspot text { transition: fill 0.25s ease; pointer-events:none; }
+.vlg-hotspot:hover circle, .vlg-hotspot.active circle { fill:#c9a24e; stroke:#fde9b9; stroke-width:2.6; }
+.vlg-hotspot:hover text, .vlg-hotspot.active text { fill:#0e0c0a; }
+
+/* Hero overlay text — minimal footprint so 3D scene shines */
+.hero-overlay { position:relative; z-index:2; min-height:100vh; display:flex; align-items:center; padding:0 0 140px 0; pointer-events:none; }
+.hero-content { max-width:480px; pointer-events:auto; padding:24px 30px 28px 64px; position:relative; }
+/* Soft text-localized backdrop — only behind the copy, not over the scene */
+.hero-content::before { content:''; position:absolute; left:-30px; top:-30px; right:-30px; bottom:-30px; background:linear-gradient(105deg, rgba(14,12,10,0.78) 0%, rgba(14,12,10,0.55) 70%, rgba(14,12,10,0.15) 100%); border-left:2px solid rgba(201,162,78,0.45); z-index:-1; }
+.hero-content .hero-eyebrow { display:inline-block; padding:6px 14px; border:1px solid var(--brass); color:var(--brass-lt); font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:22px; background:rgba(14,12,10,0.65); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); }
+.hero-content h1 { font-family:'Playfair Display',serif; font-size:4rem; font-weight:400; color:var(--chalk-w); line-height:1.05; margin-bottom:22px; text-shadow:0 2px 6px rgba(0,0,0,0.5); }
+.hero-content h1 em { color:#f5e2b0; -webkit-text-fill-color:#f5e2b0; font-style:italic; text-shadow:0 0 1px #c9a24e, 0 2px 5px rgba(0,0,0,0.4); }
+.hero-content .hero-sub { color:var(--chalk); font-size:0.92rem; line-height:1.6; font-weight:400; margin-bottom:28px; max-width:460px; text-shadow:0 1px 3px rgba(0,0,0,0.5); }
+.hero-content .hero-btns { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+
+/* ===== Right-side detail card (active product) — hover-triggered ===== */
+.hero-detail { position:absolute; top:50%; right:36px; transform:translateY(-50%); z-index:3; width:320px; background:rgba(14,12,10,0.95); border:1px solid rgba(201,162,78,0.45); border-radius:12px; padding:28px 26px; box-shadow:0 30px 80px rgba(0,0,0,0.6); transition:opacity 0.3s ease, transform 0.35s cubic-bezier(.25,.8,.25,1); opacity:0; pointer-events:none; transform:translateY(-50%) translateX(20px); }
+.hero-detail.show { opacity:1; pointer-events:auto; transform:translateY(-50%) translateX(0); }
+/* Hover hint — bottom center subtle invitation */
+.hero-hint { position:absolute; bottom:38px; left:50%; transform:translateX(-50%); z-index:3; padding:8px 18px; background:rgba(14,12,10,0.6); border:1px solid rgba(201,162,78,0.3); border-radius:999px; color:var(--brass-lt); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:500; pointer-events:none; transition:opacity 0.4s ease; }
+.hero-hint.hide { opacity:0; }
+.hero-detail-num { font-family:'Playfair Display',serif; font-size:3rem; font-style:italic; color:var(--brass-lt); line-height:1; margin-bottom:10px; }
+.hero-detail-cat { font-family:'Outfit',sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:10px; font-weight:500; }
+.hero-detail-name { font-family:'Playfair Display',serif; font-size:1.35rem; font-weight:400; font-style:italic; color:var(--chalk-w); line-height:1.25; margin-bottom:14px; }
+.hero-detail-spec { font-size:0.82rem; color:var(--mist); line-height:1.6; margin-bottom:20px; font-weight:300; min-height:60px; }
+.hero-detail-cta { display:inline-flex; align-items:center; gap:6px; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass-lt); text-decoration:none; border-bottom:1px solid var(--brass); padding-bottom:3px; transition:color 0.2s, gap 0.2s, border-color 0.2s; font-weight:500; }
+.hero-detail-cta:hover { color:var(--chalk-w); gap:10px; border-color:var(--brass-pale); }
+
+/* Capsule strip removed — using hover-only detail card now */
+
+/* Day/dusk crossfade keyframes (32s total) */
+/* 0-19s: DAY (60% of cycle)  |  19-24s: transition  |  24-29s: DUSK  |  29-32s: back to day */
+@keyframes vlg-sky-day {
+  0%, 60% { opacity: 1; }
+  75% { opacity: 0; }
+  90% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes vlg-sky-dusk {
+  0%, 60% { opacity: 0; }
+  75% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes vlg-sun-day {
+  0%, 60% { opacity: 0.9; transform: translate(0, 0); }
+  75% { opacity: 0; transform: translate(-100px, 220px); }
+  90% { opacity: 0; }
+  100% { opacity: 0.9; transform: translate(0, 0); }
+}
+@keyframes vlg-sun-dusk {
+  0%, 60% { opacity: 0; }
+  75% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% { opacity: 0; }
+}
+@keyframes vlg-stars-fade {
+  0%, 65% { opacity: 0; }
+  78%, 88% { opacity: 0.9; }
+  96% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes vlg-shade {
+  0%, 60% { opacity: 0; }
+  75% { opacity: 0.20; }
+  90% { opacity: 0.35; }
+  100% { opacity: 0; }
+}
+@keyframes vlg-bldg-shade {
+  0%, 60% { opacity: 0; }
+  75% { opacity: 0.15; }
+  90% { opacity: 0.28; }
+  100% { opacity: 0; }
+}
+@keyframes vlg-win-light {
+  0%, 60% { fill: #e8d5a8; opacity: 0.35; }
+  75%, 90% { fill: #fde9b9; opacity: 0.95; }
+  100% { fill: #e8d5a8; opacity: 0.35; }
+}
+@keyframes vlg-light-fade {
+  0%, 58% { opacity: 0; }
+  75%, 88% { opacity: 1; }
+  98% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes vlg-bulb-pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 1200px) {
+  .hero-detail { width:280px; right:20px; padding:22px 20px; }
+  .hero-detail-num { font-size:2.4rem; }
+  .hero-detail-name { font-size:1.15rem; }
+}
+@media (max-width: 960px) {
+  .hero-overlay { padding:120px 24px 200px; align-items:flex-start; }
+  .hero-content h1 { font-size:2.4rem; }
+  .hero-content .hero-sub { font-size:0.85rem; }
+  .hero-detail { display:none; }
+  .hero-hint { font-size:0.62rem; bottom:24px; padding:6px 14px; }
+}
+</style>
+
+<script>
+(function(){
+  // Product metadata
+  const products = {
+    p9:  {num:'01', cat:'Security & Street',     name:'All-in-One Solar Street Light',  spec:'100/200/300W · IP66 · radar sensor · LiFePO4 · 25,000h life', link:'#cat-security'},
+    p28: {num:'02', cat:'Garden & Landscape',    name:'Sphere Gate Pillar Light',       spec:'5W · 304 stainless steel · IP65 · 10–12h runtime · 3000K',  link:'#cat-garden'},
+    p1:  {num:'03', cat:'Security & Street',     name:'3-Head Solar Motion Flood Light',spec:'2500–3500lm · PIR 270° · LiFePO4 · 3 working modes',        link:'#cat-security'},
+    p3:  {num:'04', cat:'Security & Street',     name:'PIR Motion Sensor Wall Light',   spec:'800lm · IP65 · 4000mAh · 8–12h · 8–12m detection range',    link:'#cat-security'},
+    p10: {num:'05', cat:'Decorative & Ambiance', name:'Outdoor Wall Lantern · Solar/AC',spec:'IP44 · E27 socket · bronze / black / copper finishes',      link:'#cat-decorative'},
+    p13: {num:'06', cat:'Garden & Landscape',    name:'Solar Garden Stake Light · 8-Pack',spec:'1.2W · IP65 · retail-ready box · auto dusk-to-dawn',      link:'#cat-garden'},
+    p31: {num:'07', cat:'AC Commercial',         name:'AC LED Floodlight (50-1000W)',   spec:'IP65 · 6500K · 30,000h life · aluminium housing · CE+RoHS', link:'#cat-ac'},
+    p32: {num:'08', cat:'AC Commercial',         name:'UFO High Bay Light (100-300W)',  spec:'IP65 · 120° beam · 6500K · aluminium fins · 30,000h life',  link:'#cat-ac'},
+    p11: {num:'09', cat:'Decorative & Ambiance', name:'Solar Edison String Lights',     spec:'40/60 LED · IP65 · 2700K warm · 30m length · 5 themes',     link:'#cat-decorative'},
+    p15: {num:'10', cat:'Off-Grid & Portable',   name:'Solar Bug Zapper Light',         spec:'UV-LED · IP65 · covers 100–200m² · solar + USB charging',   link:'#cat-offgrid'}
+  };
+  const T_KEY = {p9:'vlg_p9_n',p28:'vlg_p28_n',p1:'vlg_p1_n',p3:'vlg_p3_n',p10:'vlg_p10_n',p13:'vlg_p13_n',p31:'vlg_p31_n',p32:'vlg_p32_n',p11:'vlg_p11_n',p15:'vlg_p15_n'};
+
+  const detail = document.getElementById('heroDetail');
+  const hint   = document.getElementById('heroHint');
+  if(!detail) return;
+  const elNum  = document.getElementById('hdNum');
+  const elCat  = document.getElementById('hdCat');
+  const elName = document.getElementById('hdName');
+  const elSpec = document.getElementById('hdSpec');
+  const elLink = document.getElementById('hdLink');
+
+  function normalize(id){ return (id||'').replace(/[a-z]$/,''); }
+
+  function show(id){
+    const p = products[id]; if(!p) return;
+    elNum.textContent = p.num;
+    elCat.textContent = p.cat;
+    elSpec.textContent = p.spec;
+    elLink.setAttribute('href', p.link);
+    elName.setAttribute('data-i18n', T_KEY[id]);
+    // Resolve translated name from T object using current <html lang>
+    const lang = (document.documentElement.lang || 'en').slice(0,2).replace('zh','zh');
+    const key = T_KEY[id];
+    let translated = p.name;
+    if(typeof T==='object' && T[lang] && T[lang][key]) translated = T[lang][key];
+    elName.innerHTML = translated;
+    detail.classList.add('show');
+    if(hint) hint.classList.add('hide');
+    document.querySelectorAll('#hero .vlg-product').forEach(g=>{
+      const pid = normalize(g.dataset.prod);
+      const hs = g.querySelector('.vlg-hotspot');
+      if(hs) hs.classList.toggle('active', pid === id);
+    });
+  }
+  function hide(){
+    detail.classList.remove('show');
+    document.querySelectorAll('#hero .vlg-hotspot.active').forEach(h=>h.classList.remove('active'));
+  }
+
+  // Hotspot events — hover shows card, leave hides it
+  document.querySelectorAll('#hero .vlg-hotspot').forEach(h=>{
+    const g = h.closest('.vlg-product'); if(!g) return;
+    const id = normalize(g.dataset.prod);
+    h.setAttribute('tabindex','0');
+    h.setAttribute('role','button');
+    h.setAttribute('aria-label','Show product '+id);
+    h.addEventListener('mouseenter',()=>show(id));
+    h.addEventListener('mouseleave',hide);
+    h.addEventListener('focus',()=>show(id));
+    h.addEventListener('blur',hide);
+    h.addEventListener('click',e=>{
+      show(id);
+      const p = products[id];
+      if(p && p.link){
+        const target = document.querySelector(p.link);
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+      }
+    });
+  });
+})();
+</script>
+
 
 <div class="brand">
   <p class="brand-q reveal" data-i18n="brand_q">"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn't an upgrade — it's the answer."</span></p>
@@ -1524,26 +2278,134 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     <div class="num-item"><div class="num-val" data-target="30">0<sup>+</sup></div><div class="num-lbl" data-i18n="num1">Solar Products</div></div>
     <div class="num-item"><div class="num-val" data-target="30">0<sup>+</sup></div><div class="num-lbl" data-i18n="num2">Export Markets</div></div>
     <div class="num-item"><div class="num-val" data-target="2000">0<sup>+</sup></div><div class="num-lbl" data-i18n="num3">LiFePO₄ Cycles</div></div>
-    <div class="num-item"><div class="num-val" data-target="7">0</div><div class="num-lbl" data-i18n="num4">Years Trusted</div></div>
-    <div class="num-item"><div class="num-val" data-target="100">0<sup>%</sup></div><div class="num-lbl" data-i18n="num5">CE Certified</div></div>
   </div>
 </section>
 
 <section class="global" id="global">
   <div class="global-head reveal">
-    <div class="sec-label" data-i18n="gl_lbl">Global Reach</div>
+    <div class="sec-label" data-i18n="gl_lbl">Global Presence</div>
     <h2 data-i18n="gl_h2">Trusted across <em>30+ markets.</em></h2>
+    <p class="global-sub" data-i18n="gl_sub">From load-shedding South Africa to off-grid Latin America — JC products deployed across four continents and growing.</p>
   </div>
-  <div class="global-grid reveal">
-    <div class="gl-card"><span class="gl-flag">🇨🇴</span><span class="gl-name" data-i18n="gl_co">Colombia</span><span class="gl-tag">Solar Security</span></div>
-    <div class="gl-card"><span class="gl-flag">🇪🇨</span><span class="gl-name" data-i18n="gl_ec">Ecuador</span><span class="gl-tag">Street &amp; Flood</span></div>
-    <div class="gl-card"><span class="gl-flag">🇿🇦</span><span class="gl-name" data-i18n="gl_za">South Africa</span><span class="gl-tag">Load-Shedding</span></div>
-    <div class="gl-card"><span class="gl-flag">🇦🇺</span><span class="gl-name" data-i18n="gl_au">Australia</span><span class="gl-tag">Garden &amp; Ambiance</span></div>
-    <div class="gl-card"><span class="gl-flag">🇰🇪</span><span class="gl-name" data-i18n="gl_ke">Kenya</span><span class="gl-tag">Off-Grid Kits</span></div>
-    <div class="gl-card"><span class="gl-flag">🇪🇸</span><span class="gl-name" data-i18n="gl_es">Spain</span><span class="gl-tag">Decorative Outdoor</span></div>
-    <div class="gl-card"><span class="gl-flag">🇦🇪</span><span class="gl-name" data-i18n="gl_ae">UAE</span><span class="gl-tag">Commercial AC</span></div>
-    <div class="gl-card"><span class="gl-flag">🇧🇷</span><span class="gl-name" data-i18n="gl_br">Brazil</span><span class="gl-tag">Public Lighting</span></div>
+
+  <div class="global-map-wrap reveal" aria-label="World map showing JC Lightning markets">
+    <svg class="global-map" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="gl-stripe-primary" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+          <circle cx="4" cy="4" r="1.2" fill="#c9a24e"/>
+        </pattern>
+        <pattern id="gl-stripe-aus" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+          <circle cx="4" cy="4" r="1.2" fill="#e2c98a"/>
+        </pattern>
+        <linearGradient id="gl-scan-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#c9a24e" stop-opacity="0"/>
+          <stop offset="45%" stop-color="#c9a24e" stop-opacity="0.7"/>
+          <stop offset="55%" stop-color="#fde9b9" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#c9a24e" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Latitude/longitude faint grid -->
+      <g class="gl-grid" stroke="rgba(201,162,78,0.07)" stroke-width="0.6" fill="none">
+        <line x1="0" y1="100" x2="1600" y2="100"/>
+        <line x1="0" y1="200" x2="1600" y2="200"/>
+        <line x1="0" y1="300" x2="1600" y2="300"/>
+        <line x1="0" y1="400" x2="1600" y2="400" stroke="rgba(201,162,78,0.14)"/>
+        <line x1="0" y1="500" x2="1600" y2="500"/>
+        <line x1="0" y1="600" x2="1600" y2="600"/>
+        <line x1="0" y1="700" x2="1600" y2="700"/>
+        <line x1="200" y1="0" x2="200" y2="800"/>
+        <line x1="400" y1="0" x2="400" y2="800"/>
+        <line x1="600" y1="0" x2="600" y2="800"/>
+        <line x1="800" y1="0" x2="800" y2="800" stroke="rgba(201,162,78,0.14)"/>
+        <line x1="1000" y1="0" x2="1000" y2="800"/>
+        <line x1="1200" y1="0" x2="1200" y2="800"/>
+        <line x1="1400" y1="0" x2="1400" y2="800"/>
+      </g>
+
+      <!-- HUD corner brackets -->
+      <g class="gl-hud" stroke="#c9a24e" stroke-width="1.4" fill="none" stroke-linecap="square">
+        <path d="M 20,55 L 20,20 L 55,20"/>
+        <path d="M 1545,20 L 1580,20 L 1580,55"/>
+        <path d="M 20,745 L 20,780 L 55,780"/>
+        <path d="M 1545,780 L 1580,780 L 1580,745"/>
+      </g>
+      <text x="32" y="44" font-family="'Outfit',sans-serif" font-size="11" font-weight="500" letter-spacing="2" fill="#c9a24e" opacity="0.85">JC · NETWORK · ACTIVE</text>
+      <text x="1568" y="44" text-anchor="end" font-family="'Outfit',sans-serif" font-size="11" font-weight="500" letter-spacing="2" fill="#c9a24e" opacity="0.85">LAT 22.5°N · LON 114.0°E</text>
+      <text x="32" y="772" font-family="'Outfit',sans-serif" font-size="10" font-weight="400" letter-spacing="2" fill="#c9a24e" opacity="0.65">HQ · SHENZHEN, CN</text>
+      <text x="1568" y="772" text-anchor="end" font-family="'Outfit',sans-serif" font-size="10" font-weight="400" letter-spacing="2" fill="#c9a24e" opacity="0.65">SCAN · LIVE</text>
+
+      <!-- Animated scan line -->
+      <rect class="gl-scanline" x="0" y="0" width="1600" height="3" fill="url(#gl-scan-grad)" opacity="0.7"/>
+
+      <!-- North America -->
+      <path d="M 100,190 L 200,150 L 280,135 L 340,160 L 370,210 L 395,240 L 410,290 L 380,320 L 350,360 L 290,395 L 230,420 L 175,405 L 130,365 L 105,310 L 95,250 Z" fill="url(#gl-stripe-primary)" opacity="0.85"/>
+      <!-- Greenland -->
+      <path d="M 395,95 L 445,85 L 470,120 L 460,165 L 425,175 L 395,150 L 390,115 Z" fill="url(#gl-stripe-primary)" opacity="0.7"/>
+      <!-- South America -->
+      <path d="M 380,425 L 445,425 L 500,460 L 545,520 L 555,585 L 530,650 L 485,695 L 440,705 L 395,665 L 370,600 L 355,530 L 360,475 Z" fill="url(#gl-stripe-primary)" opacity="0.9"/>
+      <!-- Europe -->
+      <path d="M 700,210 L 760,180 L 825,180 L 880,200 L 905,235 L 890,275 L 850,305 L 800,320 L 740,310 L 705,275 L 695,240 Z" fill="url(#gl-stripe-primary)" opacity="0.85"/>
+      <!-- Africa -->
+      <path d="M 770,330 L 850,335 L 910,355 L 960,395 L 985,455 L 995,520 L 970,590 L 925,640 L 875,660 L 830,650 L 790,615 L 770,560 L 755,495 L 745,430 L 750,375 Z" fill="url(#gl-stripe-primary)" opacity="0.9"/>
+      <!-- Asia -->
+      <path d="M 880,165 L 950,135 L 1050,120 L 1180,130 L 1290,155 L 1380,190 L 1430,235 L 1450,290 L 1435,345 L 1395,395 L 1340,420 L 1265,420 L 1200,430 L 1140,440 L 1085,425 L 1030,415 L 975,395 L 935,365 L 905,320 L 890,265 L 880,215 Z" fill="url(#gl-stripe-primary)" opacity="0.85"/>
+      <!-- Madagascar -->
+      <path d="M 1015,575 L 1035,580 L 1040,615 L 1025,640 L 1010,625 L 1005,595 Z" fill="url(#gl-stripe-primary)" opacity="0.8"/>
+      <!-- Southeast Asia islands (Indonesia / Philippines area, abstract) -->
+      <path d="M 1290,510 L 1325,510 L 1335,520 L 1320,530 L 1295,525 Z" fill="url(#gl-stripe-primary)" opacity="0.7"/>
+      <path d="M 1265,565 L 1340,570 L 1370,580 L 1345,595 L 1280,590 L 1255,580 Z" fill="url(#gl-stripe-primary)" opacity="0.7"/>
+      <!-- Australia (expansion market — lighter stripe) -->
+      <path d="M 1310,615 L 1395,605 L 1455,615 L 1495,640 L 1490,685 L 1455,710 L 1400,715 L 1345,705 L 1315,680 L 1305,645 Z" fill="url(#gl-stripe-aus)" opacity="0.95"/>
+      <!-- New Zealand -->
+      <path d="M 1530,710 L 1545,715 L 1550,735 L 1535,745 L 1525,730 Z" fill="url(#gl-stripe-aus)" opacity="0.7"/>
+
+      <!-- Connection arcs from Shenzhen HQ (1280, 380) to 6 core markets -->
+      <g class="gl-arcs" stroke="#c9a24e" stroke-width="1" fill="none" opacity="0.55">
+        <path d="M 1280,380 Q 900,150 440,460" stroke-dasharray="4,4" class="gl-arc"/>
+        <path d="M 1280,380 Q 950,180 530,555" stroke-dasharray="4,4" class="gl-arc"/>
+        <path d="M 1280,380 Q 1100,180 805,350" stroke-dasharray="4,4" class="gl-arc"/>
+        <path d="M 1280,380 Q 1180,520 925,615" stroke-dasharray="4,4" class="gl-arc"/>
+        <path d="M 1280,380 Q 1380,500 1390,660" stroke-dasharray="4,4" class="gl-arc"/>
+        <path d="M 1280,380 Q 1200,420 1145,460" stroke-dasharray="3,3" class="gl-arc"/>
+      </g>
+      <!-- Shenzhen HQ marker -->
+      <circle cx="1280" cy="380" r="6" fill="#fde9b9" class="gl-hq-pulse"/>
+      <circle cx="1280" cy="380" r="3" fill="#fff"/>
+    </svg>
+
+    <!-- Pin markers (HTML overlay) — main = brass, expansion = pale brass -->
+    <div class="map-pin pin-primary" style="left:27.5%;top:57.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_co">Colombia</span></div>
+    <div class="map-pin pin-primary pin-below" style="left:26.6%;top:60.6%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ec">Ecuador</span></div>
+    <div class="map-pin pin-primary" style="left:33.1%;top:69.4%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_br">Brazil</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:21.3%;top:53.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_mx">Mexico</span></div>
+    <div class="map-pin pin-primary" style="left:50.3%;top:43.8%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_es">Spain</span></div>
+    <div class="map-pin pin-primary pin-below" style="left:57.8%;top:76.9%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_za">South Africa</span></div>
+    <div class="map-pin pin-expansion" style="left:59.1%;top:68.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ke">Kenya</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:54.7%;top:63.8%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ng">Nigeria</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:59.7%;top:71.6%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_tz">Tanzania</span></div>
+    <div class="map-pin pin-expansion" style="left:63.4%;top:55%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ae">UAE</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:61.4%;top:51.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_sa">Saudi Arabia</span></div>
+    <div class="map-pin pin-expansion" style="left:71.6%;top:57.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_in">India</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:69.1%;top:52.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_pk">Pakistan</span></div>
+    <div class="map-pin pin-expansion" style="left:77.5%;top:61.3%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_th">Thailand</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:79.6%;top:64.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_vn">Vietnam</span></div>
+    <div class="map-pin pin-expansion" style="left:83.4%;top:63.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ph">Philippines</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:82.5%;top:73.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_id">Indonesia</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:86.9%;top:82.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_au">Australia</span></div>
   </div>
+
+  <!-- Tech stats strip -->
+  <div class="gl-stats reveal">
+    <div class="gl-stat"><span class="gl-stat-val" data-target="30">0</span><span class="gl-stat-suf">+</span><span class="gl-stat-lbl" data-i18n="gl_stat_markets">Markets</span></div>
+    <div class="gl-stat-sep"></div>
+    <div class="gl-stat"><span class="gl-stat-val" data-target="4">0</span><span class="gl-stat-lbl" data-i18n="gl_stat_cont">Continents</span></div>
+    <div class="gl-stat-sep"></div>
+    <div class="gl-stat"><span class="gl-stat-val" data-target="8">0</span><span class="gl-stat-suf">+</span><span class="gl-stat-lbl" data-i18n="gl_stat_years">Years Exporting</span></div>
+    <div class="gl-stat-sep"></div>
+    <div class="gl-stat"><span class="gl-stat-val" data-target="25">0</span><span class="gl-stat-suf">K+</span><span class="gl-stat-lbl" data-i18n="gl_stat_units">Units Shipped</span></div>
+  </div>
+
 </section>
 
 <section class="why" id="why">
@@ -1613,13 +2475,6 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     </div>
   </div>
 </section>
-
-<div class="trust-strip">
-  <div class="trust-strip-label" data-i18n="trust_label">Trusted Across 30+ Countries</div>
-  <div class="trust-strip-flags">
-    <span>🇨🇴 Colombia</span><span>🇪🇨 Ecuador</span><span>🇿🇦 South Africa</span><span>🇦🇺 Australia</span><span>🇰🇪 Kenya</span><span>🇳🇬 Nigeria</span><span>🇹🇿 Tanzania</span><span>🇵🇪 Peru</span><span>🇪🇸 Spain</span><span>🇲🇽 Mexico</span>
-  </div>
-</div>
 
 <section class="testimonials" id="testimonials">
   <div class="testi-head reveal">
@@ -1791,9 +2646,6 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <a href="mailto:info@jclightning.com" class="soc-btn" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></a>
         <a href="#contact" class="soc-btn" title="Contact"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></a>
       </div>
-      <div class="ft-industries">
-        <span class="ft-tag">Solar Security Lights</span><span class="ft-tag">Solar Garden Lights</span><span class="ft-tag">Solar Wall Lights</span><span class="ft-tag">Solar Street Lights</span><span class="ft-tag">Off-Grid Solar</span><span class="ft-tag">LiFePO₄ Battery</span><span class="ft-tag">CE & RoHS</span><span class="ft-tag">IP65 Rated</span><span class="ft-tag">OEM & ODM</span>
-      </div>
     </div>
     <div class="ft-col">
       <h5 data-i18n="ft_products_h">Product Ranges</h5>
@@ -1816,23 +2668,67 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <li><a href="https://wa.me/8613138189642" target="_blank">WhatsApp: +86 131 3818 9642</a></li>
       </ul>
     </div>
-    <div class="ft-col">
-      <h5 data-i18n="ft_markets_h">Key Markets</h5>
-      <ul>
-        <li><a href="#contact">Colombia</a></li>
-        <li><a href="#contact">Ecuador</a></li>
-        <li><a href="#contact">South Africa</a></li>
-        <li><a href="#contact">Australia</a></li>
-        <li><a href="#contact">Kenya · Nigeria · Tanzania</a></li>
-        <li><a href="#contact">Peru · Mexico · Spain</a></li>
-      </ul>
-    </div>
   </div>
   <div class="ft-btm">
     <span data-i18n="ft_copyright">© 2026 JC Lightning. All rights reserved.</span>
-    <span data-i18n="ft_fob">FOB Shenzhen · Yantian · Guangzhou</span>
   </div>
 </footer>
+
+<!-- ===== Cookie consent banner ===== -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <div class="cookie-body">
+    <p class="cookie-text" data-i18n="cookie_text">We use cookies to improve your experience and analyze site traffic. By accepting, you consent to our cookie use. Read our <a href="#" id="cookiePrivacy" data-i18n="cookie_privacy">Privacy Policy</a>.</p>
+    <div class="cookie-btns">
+      <button class="cookie-btn cookie-reject" id="cookieReject" data-i18n="cookie_reject">Reject All</button>
+      <button class="cookie-btn cookie-accept" id="cookieAccept" data-i18n="cookie_accept">Accept All</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.cookie-banner { position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(20px); z-index:9000; width:min(900px, calc(100% - 48px)); background:rgba(14,12,10,0.98); border:1px solid rgba(201,162,78,0.5); border-radius:14px; box-shadow:0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,0,0,0.4); opacity:0; transition:opacity 0.4s ease, transform 0.4s cubic-bezier(.25,.8,.25,1); will-change:transform,opacity; }
+.cookie-banner.show { opacity:1; transform:translateX(-50%) translateY(0); }
+.cookie-banner[hidden] { display:none; }
+.cookie-body { display:flex; align-items:center; gap:24px; padding:18px 24px; flex-wrap:wrap; }
+.cookie-text { flex:1; min-width:260px; color:var(--mist); font-size:0.85rem; line-height:1.55; margin:0; font-weight:300; }
+.cookie-text a { color:var(--brass-lt); text-decoration:underline; text-underline-offset:3px; transition:color 0.2s; }
+.cookie-text a:hover { color:var(--brass-pale); }
+.cookie-btns { display:flex; gap:10px; flex-shrink:0; }
+.cookie-btn { font-family:'Outfit',sans-serif; font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; padding:11px 22px; border-radius:6px; cursor:pointer; transition:all 0.25s ease; border:1px solid; font-weight:500; white-space:nowrap; }
+.cookie-reject { background:transparent; color:var(--mist); border-color:rgba(212,206,196,0.35); }
+.cookie-reject:hover { color:var(--chalk-w); border-color:var(--mist); background:rgba(255,255,255,0.04); }
+.cookie-accept { background:var(--brass); color:#0e0c0a; border-color:var(--brass); }
+.cookie-accept:hover { background:var(--brass-lt); border-color:var(--brass-lt); }
+@media (max-width:640px) {
+  .cookie-banner { bottom:14px; width:calc(100% - 28px); }
+  .cookie-body { padding:16px; gap:14px; }
+  .cookie-text { font-size:0.8rem; min-width:auto; }
+  .cookie-btns { width:100%; gap:8px; }
+  .cookie-btn { flex:1; padding:11px 12px; font-size:0.7rem; }
+}
+</style>
+
+<script>
+(function(){
+  const KEY='jc-cookie-consent';
+  const banner=document.getElementById('cookieBanner');
+  if(!banner) return;
+  // Don't show again if user already chose
+  if(localStorage.getItem(KEY)) return;
+  // Show after a short delay (let page load first)
+  setTimeout(()=>{
+    banner.hidden=false;
+    requestAnimationFrame(()=>banner.classList.add('show'));
+  }, 1200);
+  function dismiss(value){
+    try{ localStorage.setItem(KEY, value); }catch(e){}
+    banner.classList.remove('show');
+    setTimeout(()=>{ banner.hidden=true; }, 450);
+  }
+  document.getElementById('cookieAccept').addEventListener('click', ()=>dismiss('accepted'));
+  document.getElementById('cookieReject').addEventListener('click', ()=>dismiss('rejected'));
+})();
+</script>
 
 <button class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
 <button class="back-bottom" id="backBottom" aria-label="Go to bottom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -1894,7 +2790,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   </div>
 </div>
 <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lbClose">&times;</button><img src="" alt="" id="lbImg"></div>
-<div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
+<!-- Custom cursor removed for native mouse responsiveness -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -1945,7 +2841,7 @@ const T = {
     gl_lbl:'Global Reach',gl_h2:'Trusted across <em>30+ markets.</em>',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'South Africa',gl_au:'Australia',gl_ke:'Kenya',gl_es:'Spain',gl_ae:'UAE',gl_br:'Brazil'},
   zh:{
     logo:'嘉晨照明科技有限公司',ft_logo:'嘉晨照明科技有限公司',
-    nav_products:'产品',nav_cat:'品类',nav_about:'我们的优势',nav_contact:'联系我们',nav_quote:'立即询价',
+    nav_products:'产品',nav_cat:'品类',nav_solutions:'应用方案',nav_about:'我们的优势',nav_contact:'联系我们',nav_quote:'立即询价',
     hero_eye:'太阳能户外照明 · 停电时，我们的灯还亮着',
     hero_h1:'停电的夜晚<br>我们的灯<br><em>从不熄灭。</em>',
     hero_sub:'哥伦比亚预计2027年电力缺口超过3,100 GWh。厄瓜多尔已出现每天最长10小时停电。南非日均限电6至8小时。太阳能安防、花园、装饰、家庭及便携照明——专为电网不可靠的市场而造。',
@@ -2076,10 +2972,11 @@ const T = {
     mr_brazil_1:'公共照明 · IP66 · 雷达 · 磷酸铁锂',mr_brazil_2:'景观照明 · 360°可调 · 暖白3000K · IP65',mr_brazil_3:'停电应急 · USB-C · 免安装 · 3档调光',mr_brazil_4:'家庭套装 · 2灯 · USB应急 · 简易安装',
     mr_india_1:'花园寺庙照明 · 暖白3000K · 360° · IP65',mr_india_2:'住宅安防 · 800lm · PIR 8-12m · 高性价比',mr_india_3:'工厂仓库 · 50-1000W · IP65 · 3万小时寿命',
     hs_street:'安防与道路',hs_garden:'花园与路径',hs_decor:'装饰与氛围',hs_offgrid:'离网与便携',hs_ac:'AC商业照明',hs_market:'按市场选品',
-    gl_lbl:'全球市场',gl_h2:'产品远销<em>30+国家与地区。</em>',gl_co:'哥伦比亚',gl_ec:'厄瓜多尔',gl_za:'南非',gl_au:'澳大利亚',gl_ke:'肯尼亚',gl_es:'西班牙',gl_ae:'阿联酋',gl_br:'巴西'},
+    vlg_p1_n:'三头太阳能感应投光灯',vlg_p3_n:'PIR 感应壁灯',vlg_p9_n:'一体化太阳能路灯',vlg_p10_n:'户外装饰壁灯 太阳能/交流',vlg_p11_n:'太阳能爱迪生串灯',vlg_p13_n:'花园插地灯 · 8只装',vlg_p15_n:'太阳能灭蚊灯',vlg_p28_n:'球形门柱灯',vlg_p31_n:'AC LED 投光灯（50-1000W）',vlg_p32_n:'UFO 工矿灯（100-300W）',vlg_cta:'查看产品详情 →',vlg_hint:'将鼠标悬停灯点查看产品',cookie_text:'我们使用 Cookie 改善您的浏览体验并分析网站流量。点击「全部接受」即表示您同意我们使用 Cookie。详见我们的<a href="#" id="cookiePrivacy">隐私政策</a>。',cookie_reject:'全部拒绝',cookie_accept:'全部接受',cookie_privacy:'隐私政策',sticky_cta_txt:'正在做太阳能项目？<strong>24 小时内获取 FOB 报价。</strong>',sticky_cta_btn:'立即询价 →',
+    gl_lbl:'全球布局',gl_h2:'产品远销<em>30+国家与地区。</em>',gl_sub:'从南非停电市场到拉美离网项目——JC 产品已部署到四大洲，仍在持续扩张。',gl_leg_primary:'主力市场',gl_leg_expansion:'拓展市场',gl_co:'哥伦比亚',gl_ec:'厄瓜多尔',gl_za:'南非',gl_au:'澳大利亚',gl_ke:'肯尼亚',gl_es:'西班牙',gl_ae:'阿联酋',gl_br:'巴西',gl_ng:'尼日利亚',gl_tz:'坦桑尼亚',gl_mx:'墨西哥',gl_pk:'巴基斯坦',gl_in:'印度',gl_th:'泰国',gl_vn:'越南',gl_sa:'沙特阿拉伯',gl_ph:'菲律宾',gl_id:'印度尼西亚',gl_stat_markets:'出口市场',gl_stat_cont:'覆盖大洲',gl_stat_years:'出口经验',gl_stat_units:'累计出货'},
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Productos',nav_cat:'Categorías',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',
+    nav_products:'Productos',nav_cat:'Categorías',nav_solutions:'Soluciones',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',
     hero_eye:'Iluminación Solar para Exteriores · Cuando la red falla, nosotros seguimos encendidos.',
     hero_h1:'Luz que funciona<br>cuando la corriente<br><em>no llega.</em>',
     hero_sub:'Colombia proyecta un déficit energético de más de 3.100 GWh para 2027. Ecuador ya sufre cortes de hasta 10 horas diarias. Sudáfrica registra entre 6 y 8 horas de cortes al día. Iluminación solar de seguridad, jardín, decorativa, hogar y portátil — fabricada para que tus clientes nunca se queden a oscuras.',
@@ -2210,10 +3107,11 @@ const T = {
     mr_brazil_1:'Alumbrado público · IP66 · radar · batería LiFePO4',mr_brazil_2:'Paisajismo · ajuste 360° · luz cálida 3000K · IP65',mr_brazil_3:'Apagones · USB-C · sin instalación · 3 modos',mr_brazil_4:'Kit residencial · 2 lámparas · USB emergencia · fácil instalación',
     mr_india_1:'Jardines y templos · blanco cálido 3000K · 360° · IP65',mr_india_2:'Seguridad residencial · 800lm · PIR 8-12m · excelente relación costo-beneficio',mr_india_3:'Fábricas y almacenes · 50-1000W · IP65 · 30.000h vida útil',
     hs_street:'Seguridad y Calle',hs_garden:'Jardín y Sendero',hs_decor:'Decorativo y Ambiente',hs_offgrid:'Portátil y Autónomo',hs_ac:'Comercial AC',hs_market:'Soluciones por Mercado',
-    gl_lbl:'Alcance Global',gl_h2:'Confianza en <em>más de 30 mercados.</em>',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'Sudáfrica',gl_au:'Australia',gl_ke:'Kenia',gl_es:'España',gl_ae:'EAU',gl_br:'Brasil'},
+    vlg_p1_n:'Reflector Solar 3 Cabezas con PIR',vlg_p3_n:'Aplique de Pared con Sensor PIR',vlg_p9_n:'Farola Solar Todo-en-Uno',vlg_p10_n:'Aplique Exterior · Solar/AC',vlg_p11_n:'Guirnalda Solar Edison',vlg_p13_n:'Estacas Solares de Jardín · Pack de 8',vlg_p15_n:'Mata-Insectos Solar',vlg_p28_n:'Luz Esférica para Pilar',vlg_p31_n:'Reflector LED AC (50-1000W)',vlg_p32_n:'Luminaria Industrial UFO (100-300W)',vlg_cta:'Ver producto completo →',vlg_hint:'Pase el cursor sobre cualquier luz para identificar el producto',cookie_text:'Usamos cookies para mejorar su experiencia y analizar el tráfico del sitio. Al aceptar, consiente nuestro uso de cookies. Lea nuestra <a href="#" id="cookiePrivacy">Política de Privacidad</a>.',cookie_reject:'Rechazar todo',cookie_accept:'Aceptar todo',cookie_privacy:'Política de Privacidad',sticky_cta_txt:'¿Construyendo un proyecto solar? <strong>Cotización FOB en 24 horas.</strong>',sticky_cta_btn:'Solicitar Cotización →',
+    gl_lbl:'Presencia Global',gl_h2:'Confianza en <em>más de 30 mercados.</em>',gl_sub:'Desde la Sudáfrica con apagones hasta los proyectos sin red en América Latina — productos JC desplegados en cuatro continentes y creciendo.',gl_leg_primary:'Mercados Principales',gl_leg_expansion:'Mercados en Expansión',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'Sudáfrica',gl_au:'Australia',gl_ke:'Kenia',gl_es:'España',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigeria',gl_tz:'Tanzania',gl_mx:'México',gl_pk:'Pakistán',gl_in:'India',gl_th:'Tailandia',gl_vn:'Vietnam',gl_sa:'Arabia Saudita',gl_ph:'Filipinas',gl_id:'Indonesia',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Años Exportando',gl_stat_units:'Unidades Enviadas'},
   fr:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Produits',nav_cat:'Catégories',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',
+    nav_products:'Produits',nav_cat:'Catégories',nav_solutions:'Solutions',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',
     hero_eye:'Éclairage Solaire Extérieur · Quand le réseau lâche, nos lampes restent allumées.',
     hero_h1:'La lumière qui fonctionne<br>quand le courant<br><em>ne passe plus.</em>',
     hero_sub:'La Colombie prévoit un déficit énergétique de plus de 3 100 GWh d\'ici 2027. L\'Équateur subit déjà des coupures de 10 heures par jour. L\'Afrique du Sud connaît 6 à 8 heures de délestage quotidien. Éclairage solaire de sécurité, jardin, déco, maison et portable — conçu pour les marchés où le réseau n\'est pas fiable.',
@@ -2336,10 +3234,11 @@ const T = {
     mr_brazil_1:'Éclairage public · IP66 · radar · batterie LiFePO4',mr_brazil_2:'Paysagisme · rotation 360° · blanc chaud 3000K · IP65',mr_brazil_3:'Coupures de courant · USB-C · sans installation · 3 modes',mr_brazil_4:'Kit résidentiel · 2 lampes · USB urgence · installation facile',
     mr_india_1:'Jardins et temples · blanc chaud 3000K · 360° · IP65',mr_india_2:'Sécurité résidentielle · 800lm · PIR 8-12m · excellent rapport qualité-prix',mr_india_3:'Usines et entrepôts · 50-1000W · IP65 · 30 000h durée de vie',
     hs_street:'Sécurité et Rue',hs_garden:'Jardin et Allée',hs_decor:'Décoratif et Ambiance',hs_offgrid:'Hors Réseau et Portable',hs_ac:'Commercial AC',hs_market:'Solutions par Marché',
-    gl_lbl:'Présence Mondiale',gl_h2:'Une confiance dans <em>plus de 30 marchés.</em>',gl_co:'Colombie',gl_ec:'Équateur',gl_za:'Afrique du Sud',gl_au:'Australie',gl_ke:'Kenya',gl_es:'Espagne',gl_ae:'EAU',gl_br:'Brésil'},
+    vlg_p1_n:'Projecteur Solaire 3 Têtes PIR',vlg_p3_n:'Applique Murale à Détection PIR',vlg_p9_n:'Lampadaire Solaire Tout-en-Un',vlg_p10_n:'Applique Extérieure · Solaire/AC',vlg_p11_n:'Guirlande Solaire Edison',vlg_p13_n:'Bornes Solaires de Jardin · Pack de 8',vlg_p15_n:'Anti-Moustique Solaire',vlg_p28_n:'Lampe Sphère pour Pilier',vlg_p31_n:'Projecteur LED AC (50-1000W)',vlg_p32_n:'Luminaire Industriel UFO (100-300W)',vlg_cta:'Voir le produit complet →',vlg_hint:'Survolez chaque lumière pour identifier le produit',cookie_text:'Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. En acceptant, vous consentez à notre utilisation des cookies. Consultez notre <a href="#" id="cookiePrivacy">Politique de Confidentialité</a>.',cookie_reject:'Tout refuser',cookie_accept:'Tout accepter',cookie_privacy:'Politique de Confidentialité',sticky_cta_txt:'Un projet solaire en cours ? <strong>Devis FOB sous 24 heures.</strong>',sticky_cta_btn:'Demander un Devis →',
+    gl_lbl:'Présence Mondiale',gl_h2:'Une confiance dans <em>plus de 30 marchés.</em>',gl_sub:'Du délestage en Afrique du Sud aux projets hors réseau en Amérique latine — produits JC déployés sur quatre continents et en pleine expansion.',gl_leg_primary:'Marchés Principaux',gl_leg_expansion:'Marchés en Expansion',gl_co:'Colombie',gl_ec:'Équateur',gl_za:'Afrique du Sud',gl_au:'Australie',gl_ke:'Kenya',gl_es:'Espagne',gl_ae:'EAU',gl_br:'Brésil',gl_ng:'Nigéria',gl_tz:'Tanzanie',gl_mx:'Mexique',gl_pk:'Pakistan',gl_in:'Inde',gl_th:'Thaïlande',gl_vn:'Vietnam',gl_sa:'Arabie Saoudite',gl_ph:'Philippines',gl_id:'Indonésie',gl_stat_markets:'Marchés',gl_stat_cont:'Continents',gl_stat_years:'Années d\'Export',gl_stat_units:'Unités Expédiées'},
   pt:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Produtos',nav_cat:'Categorias',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',
+    nav_products:'Produtos',nav_cat:'Categorias',nav_solutions:'Soluções',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',
     hero_eye:'Iluminação Solar Externa · Quando a rede falha, nossas luzes continuam acesas.',
     hero_h1:'Luz que funciona<br>quando a energia<br><em>não chega.</em>',
     hero_sub:'A Colômbia projeta um déficit de mais de 3.100 GWh até 2027. O Equador já sofre cortes de até 10 horas diárias. A África do Sul tem 6 a 8 horas de apagões por dia. Iluminação solar de segurança, jardim, decoração, residencial e portátil — fabricada para que seus clientes nunca fiquem no escuro.',
@@ -2467,7 +3366,8 @@ const T = {
     mr_brazil_1:'Iluminação pública · IP66 · radar · bateria LiFePO4',mr_brazil_2:'Paisagismo · ajuste 360° · luz quente 3000K · IP65',mr_brazil_3:'Apagões · USB-C · sem instalação · 3 modos',mr_brazil_4:'Kit residencial · 2 lâmpadas · USB emergência · fácil instalação',
     mr_india_1:'Jardins e templos · branco quente 3000K · 360° · IP65',mr_india_2:'Segurança residencial · 800lm · PIR 8-12m · excelente custo-benefício',mr_india_3:'Fábricas e armazéns · 50-1000W · IP65 · 30.000h vida útil',
     hs_street:'Segurança e Rua',hs_garden:'Jardim e Caminho',hs_decor:'Decorativo e Ambiente',hs_offgrid:'Portátil e Autónomo',hs_ac:'Comercial AC',hs_market:'Soluções por Mercado',
-    gl_lbl:'Alcance Global',gl_h2:'Confiável em <em>mais de 30 mercados.</em>',gl_co:'Colômbia',gl_ec:'Equador',gl_za:'África do Sul',gl_au:'Austrália',gl_ke:'Quênia',gl_es:'Espanha',gl_ae:'EAU',gl_br:'Brasil'}
+    vlg_p1_n:'Refletor Solar 3 Cabeças com PIR',vlg_p3_n:'Arandela com Sensor PIR',vlg_p9_n:'Poste Solar Tudo-em-Um',vlg_p10_n:'Arandela Externa · Solar/AC',vlg_p11_n:'Cordão Solar Edison',vlg_p13_n:'Espetos Solares de Jardim · Pack de 8',vlg_p15_n:'Mata-Mosquitos Solar',vlg_p28_n:'Luminária Esférica para Pilar',vlg_p31_n:'Refletor LED AC (50-1000W)',vlg_p32_n:'Luminária Industrial UFO (100-300W)',vlg_cta:'Ver produto completo →',vlg_hint:'Passe o mouse em cada luz para identificar o produto',cookie_text:'Usamos cookies para melhorar sua experiência e analisar o tráfego do site. Ao aceitar, você consente com nosso uso de cookies. Leia nossa <a href="#" id="cookiePrivacy">Política de Privacidade</a>.',cookie_reject:'Rejeitar tudo',cookie_accept:'Aceitar tudo',cookie_privacy:'Política de Privacidade',sticky_cta_txt:'Tem um projeto solar? <strong>Cotação FOB em 24 horas.</strong>',sticky_cta_btn:'Solicitar Cotação →',
+    gl_lbl:'Presença Global',gl_h2:'Confiável em <em>mais de 30 mercados.</em>',gl_sub:'Da África do Sul com apagões aos projetos sem rede na América Latina — produtos JC implantados em quatro continentes e em crescimento.',gl_leg_primary:'Mercados Principais',gl_leg_expansion:'Mercados em Expansão',gl_co:'Colômbia',gl_ec:'Equador',gl_za:'África do Sul',gl_au:'Austrália',gl_ke:'Quênia',gl_es:'Espanha',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigéria',gl_tz:'Tanzânia',gl_mx:'México',gl_pk:'Paquistão',gl_in:'Índia',gl_th:'Tailândia',gl_vn:'Vietnã',gl_sa:'Arábia Saudita',gl_ph:'Filipinas',gl_id:'Indonésia',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Anos Exportando',gl_stat_units:'Unidades Enviadas'}
 };
 
 // Capture HTML defaults at init for fallback when i18n key is missing
@@ -2577,6 +3477,29 @@ window.addEventListener('scroll',()=>{
   if(window.scrollY>600) sideCta.classList.add('show');
   else sideCta.classList.remove('show');
 });
+
+// Sticky bottom CTA bar — appears after scrolling past hero, dismissible (remembered)
+(function(){
+  const bar=document.getElementById('stickyCta');
+  const closeBtn=document.getElementById('stickyCtaClose');
+  if(!bar) return;
+  const DISMISS_KEY='jc-sticky-cta-dismissed';
+  if(localStorage.getItem(DISMISS_KEY)) return;
+  let shown=false;
+  function check(){
+    if(shown) return;
+    if(window.scrollY > window.innerHeight*0.85){
+      bar.classList.add('show');
+      shown=true;
+    }
+  }
+  window.addEventListener('scroll',check,{passive:true});
+  check();
+  closeBtn.addEventListener('click',()=>{
+    bar.classList.remove('show');
+    try{ localStorage.setItem(DISMISS_KEY,'1'); }catch(e){}
+  });
+})();
 
 // 滚动显示动画
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:0.1});
@@ -2707,6 +3630,22 @@ if(numVals.length){
     });
   });
 }
+
+// Global stats counter (gl-stat-val)
+const glStatVals=document.querySelectorAll('.gl-stat-val');
+if(glStatVals.length && typeof gsap!=='undefined'){
+  glStatVals.forEach(el=>{
+    const target=parseInt(el.getAttribute('data-target'))||0;
+    const obj={v:0};
+    gsap.to(obj,{
+      v:target, duration:2, ease:'power2.out',
+      scrollTrigger:{trigger:'.gl-stats', start:'top 85%', once:true},
+      onUpdate:()=>{ el.textContent=Math.round(obj.v); },
+      onComplete:()=>{ el.textContent=target; }
+    });
+  });
+}
+
 // 回到顶部 / 去到底部
 const backTop=document.getElementById('backTop');
 const backBottom=document.getElementById('backBottom');
@@ -2890,16 +3829,9 @@ function showToast(){
 }
 setTimeout(showToast,8000);
 
-// Lenis smooth scroll
+// Lenis DISABLED — using native browser scroll for maximum mouse-wheel responsiveness.
+// CSS `scroll-behavior: smooth` on <html> still gives smooth anchor jumps.
 let lenis=null;
-if(typeof Lenis!=='undefined'){
-  lenis=new Lenis({duration:1.4,easing:t=>t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1,wheelMultiplier:0.9,touchMultiplier:1.5,smoothWheel:true});
-  function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-  requestAnimationFrame(raf);
-  lenis.on('scroll',ScrollTrigger.update);
-  gsap.ticker.add(t=>lenis.raf(t*1000));
-  gsap.ticker.lagSmoothing(0);
-}
 
 // Initial language detection
 (function(){
@@ -2931,22 +3863,7 @@ window.addEventListener('load',()=>{
   },800);
 });
 
-// Custom cursor
-const dot=document.getElementById('cursorDot');
-const ring=document.getElementById('cursorRing');
-if(dot&&ring){
-  let cmx=0,cmy=0,dx=0,dy=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{cmx=e.clientX;cmy=e.clientY;dx=e.clientX;dy=e.clientY;});
-  function followDot(){dx+=(cmx-dx)*0.35;dy+=(cmy-dy)*0.35;dot.style.transform=`translate(${dx}px,${dy}px)`;requestAnimationFrame(followDot);}
-  followDot();
-  function followRing(){rx+=(cmx-rx)*0.12;ry+=(cmy-ry)*0.12;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(followRing);}
-  followRing();
-  const hoverTargets='a,button,.btn-fill,.btn-text,.nav-cta,.nav-dl,.prod-card,.mega-trigger,.lang-btn,.sn-dot,.match-card,.faq-q,.qv-card,.filter-btn';
-  document.querySelectorAll(hoverTargets).forEach(el=>{
-    el.addEventListener('mouseenter',()=>{dot.classList.add('on-link');ring.classList.add('on-link');});
-    el.addEventListener('mouseleave',()=>{dot.classList.remove('on-link');ring.classList.remove('on-link');});
-  });
-}
+// Custom cursor — REMOVED (was causing perceived sluggishness; native cursor is faster)
 
 // Magnetic buttons (not cards)
 document.querySelectorAll('.btn-fill,.btn-text,.nav-cta,.nav-dl').forEach(btn=>{
@@ -3100,16 +4017,47 @@ if(megaPreview){
   });
 }
 
-// Scroll text reveal
+// Apple-style word-by-word headline reveal
 (function(){
+  // Wrap each word in <span class="rv-word"><span style="--i:N">word</span></span>
+  // Preserves inline children like <em>, <br>, <span>
+  function wrapWords(el){
+    if(el.dataset.wrapped) return;
+    el.dataset.wrapped='1';
+    const counter={n:0};
+    function walk(node){
+      if(node.nodeType===3){
+        const text=node.textContent;
+        if(!text || !text.trim()) return;
+        const frag=document.createDocumentFragment();
+        text.split(/(\s+)/).forEach(part=>{
+          if(!part) return;
+          if(/^\s+$/.test(part)){
+            frag.appendChild(document.createTextNode(part));
+          } else {
+            const wrap=document.createElement('span');
+            wrap.className='rv-word';
+            const inner=document.createElement('span');
+            inner.style.setProperty('--i', counter.n++);
+            inner.textContent=part;
+            wrap.appendChild(inner);
+            frag.appendChild(wrap);
+          }
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if(node.nodeType===1 && node.tagName!=='SPAN' || (node.classList && !node.classList.contains('rv-word'))){
+        Array.from(node.childNodes).forEach(walk);
+      }
+    }
+    walk(el);
+  }
   const textObs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('on');
-    });
-  },{threshold:0.3,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('h2').forEach(h2=>{
-    if(!h2.classList.contains('reveal-text')) h2.classList.add('reveal-text');
-    textObs.observe(h2);
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); textObs.unobserve(e.target); } });
+  },{threshold:0.25, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('section h2, .hero h1, .hero-content h1').forEach(h=>{
+    if(!h.classList.contains('reveal-text')) h.classList.add('reveal-text');
+    wrapWords(h);
+    textObs.observe(h);
   });
 })();
 
