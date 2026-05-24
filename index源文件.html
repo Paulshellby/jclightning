@@ -94,6 +94,31 @@
 html { scroll-behavior: smooth; font-size: 18px; }
 body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink); overflow-x:hidden; font-size: 1rem; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 ::selection { background:var(--brass); color:#fff; }
+
+/* ===== Cyberpunk overlay — global CRT scanlines + subtle horizontal sweep ===== */
+.cyber-fx { position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:0.7; mix-blend-mode:multiply; background-image: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 2px, rgba(0,0,0,0.06) 3px); }
+.cyber-fx::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 50%); animation: cyber-sweep 8s linear infinite; pointer-events:none; }
+@keyframes cyber-sweep {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Glitch on hero h1 em — periodic RGB split every 9s */
+@keyframes cyber-glitch {
+  0%, 88%, 100% { text-shadow: 0 0 1px #c9a24e, 0 2px 5px rgba(0,0,0,0.4); transform: translate(0,0); }
+  89.5% { text-shadow: -3px 0 #00e5ff, 3px 0 #ff2a8a, 0 0 1px #c9a24e; transform: translate(-1px, 1px); }
+  91% { text-shadow: 3px 0 #00e5ff, -3px 0 #ff2a8a, 0 0 1px #c9a24e; transform: translate(1px, -1px); }
+  92% { text-shadow: -1px 0 #00e5ff, 1px 0 #ff2a8a, 0 0 1px #c9a24e; transform: translate(0); }
+  93%, 100% { text-shadow: 0 0 1px #c9a24e, 0 2px 5px rgba(0,0,0,0.4); transform: translate(0); }
+}
+
+/* Hero eyebrow — terminal typewriter cursor */
+.hero-content .hero-eyebrow.cyber-typing::after,
+.hero-content .hero-eyebrow.cyber-typed::after { content:'▊'; display:inline-block; margin-left:3px; color:var(--brass-pale); animation: cyber-cursor 0.7s steps(1) infinite; transform:translateY(1px); }
+@keyframes cyber-cursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
 /* Mobile — slightly smaller root size so layouts stay tight */
 @media (max-width:960px) { html { font-size: 16px; } }
 /* Preloader */
@@ -898,6 +923,9 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 </head>
 <body>
 
+<!-- Cyberpunk FX overlay — CRT scanlines + noise (fixed, non-interactive) -->
+<div class="cyber-fx" aria-hidden="true"></div>
+
 <div class="preloader" id="preloader"><div class="preloader-logo">JC <em>Lightning</em></div><div class="preloader-line"></div></div>
 
 <div class="progress-bar" id="progressBar"></div>
@@ -1433,7 +1461,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 .hero-content::before { content:''; position:absolute; left:-30px; top:-30px; right:-30px; bottom:-30px; background:linear-gradient(105deg, rgba(14,12,10,0.78) 0%, rgba(14,12,10,0.55) 70%, rgba(14,12,10,0.15) 100%); border-left:2px solid rgba(201,162,78,0.45); z-index:-1; }
 .hero-content .hero-eyebrow { display:inline-block; padding:6px 14px; border:1px solid var(--brass); color:var(--brass-lt); font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:22px; background:rgba(14,12,10,0.65); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); }
 .hero-content h1 { font-family:'Playfair Display',serif; font-size:4rem; font-weight:400; color:var(--chalk-w); line-height:1.05; margin-bottom:22px; text-shadow:0 2px 6px rgba(0,0,0,0.5); }
-.hero-content h1 em { color:#f5e2b0; -webkit-text-fill-color:#f5e2b0; font-style:italic; text-shadow:0 0 1px #c9a24e, 0 2px 5px rgba(0,0,0,0.4); }
+.hero-content h1 em { color:#f5e2b0; -webkit-text-fill-color:#f5e2b0; font-style:italic; text-shadow:0 0 1px #c9a24e, 0 2px 5px rgba(0,0,0,0.4); animation: cyber-glitch 9s infinite; }
 .hero-content .hero-sub { color:var(--chalk); font-size:0.92rem; line-height:1.6; font-weight:400; margin-bottom:28px; max-width:460px; text-shadow:0 1px 3px rgba(0,0,0,0.5); }
 .hero-content .hero-btns { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
 
@@ -3246,6 +3274,34 @@ function setLang(l){
 }
 
 // Market Tabs JS removed — section deprecated
+
+// Cyberpunk typewriter — runs ONCE on initial page load for the hero eyebrow
+(function(){
+  let done=false;
+  function type(){
+    if(done) return;
+    const el=document.querySelector('.hero-content .hero-eyebrow');
+    if(!el) return;
+    const txt=el.textContent.trim();
+    if(!txt) return;
+    done=true;
+    el.textContent='';
+    el.classList.add('cyber-typing');
+    let i=0;
+    function step(){
+      if(i<txt.length){
+        el.textContent+=txt[i++];
+        setTimeout(step, 22 + Math.random()*32);
+      } else {
+        el.classList.remove('cyber-typing');
+        el.classList.add('cyber-typed');
+      }
+    }
+    setTimeout(step, 120);
+  }
+  if(document.readyState==='complete') setTimeout(type, 900);
+  else window.addEventListener('load', () => setTimeout(type, 900));
+})();
 
 // HQ pin popup (Shenzhen)
 (function(){
