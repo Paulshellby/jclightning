@@ -443,6 +443,41 @@ h2 em { font-style:italic; color:var(--brass); }
   100% { transform:scale(1.8); opacity:0; }
 }
 
+/* ===== HQ Pin — special clickable marker ===== */
+.pin-hq { position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:8px; background:transparent; border:none; padding:0; cursor:pointer; z-index:6; color:#fde9b9; font-family:inherit; }
+.pin-hq .pin-dot { width:18px; height:18px; background:radial-gradient(circle, #fde9b9 0%, #c9a24e 70%); box-shadow:0 0 24px rgba(253,233,185,0.9), 0 0 50px rgba(201,162,78,0.5); border:2px solid #fde9b9; }
+.pin-hq .pin-dot::before { animation: pin-ping 1.8s ease-in-out infinite; border:1.5px solid #fde9b9; opacity:0.6; }
+.pin-hq .pin-dot::after { content:''; position:absolute; inset:-9px; border-radius:50%; border:1px solid rgba(253,233,185,0.4); animation: pin-ping 2.6s ease-in-out infinite; }
+.pin-hq .pin-label { background:linear-gradient(135deg, #fde9b9 0%, #c9a24e 100%); color:#0e0c0a; font-weight:700; font-size:0.78rem; letter-spacing:0.08em; padding:7px 16px; border:none; border-radius:6px; box-shadow:0 8px 28px rgba(201,162,78,0.45); text-transform:uppercase; }
+.pin-hq:hover .pin-label { box-shadow:0 12px 36px rgba(201,162,78,0.6); transform:translateY(-2px); }
+.pin-hq:hover .pin-dot { transform:scale(1.15); }
+.pin-hq .pin-dot { transition:transform 0.2s ease; }
+.pin-hq .pin-label { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+
+/* ===== HQ Popup ===== */
+.hq-popup { position:fixed; top:50%; left:50%; transform:translate(-50%, -50%) scale(0.92); width:min(440px, calc(100% - 40px)); background:rgba(14,12,10,0.98); border:1px solid rgba(201,162,78,0.5); border-radius:14px; padding:32px 36px 28px; z-index:9500; opacity:0; visibility:hidden; pointer-events:none; transition:opacity 0.3s ease, transform 0.35s cubic-bezier(.25,.8,.25,1), visibility 0s linear 0.3s; box-shadow:0 40px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(0,0,0,0.4); }
+.hq-popup.show { opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%, -50%) scale(1); transition-delay:0s; }
+.hq-popup::before { content:''; position:fixed; inset:0; background:rgba(14,12,10,0.65); z-index:-1; opacity:0; transition:opacity 0.3s ease; pointer-events:none; }
+.hq-popup.show::before { opacity:1; pointer-events:auto; }
+.hq-close { position:absolute; top:14px; right:18px; width:32px; height:32px; background:transparent; border:1px solid rgba(255,255,255,0.15); border-radius:50%; color:var(--mist); font-size:1.2rem; line-height:1; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; padding:0; }
+.hq-close:hover { color:#fff; border-color:var(--brass-lt); background:rgba(201,162,78,0.1); }
+.hq-popup-tag { font-family:'Outfit',sans-serif; font-size:0.62rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:10px; font-weight:600; }
+.hq-popup-h { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:400; color:var(--chalk-w); margin-bottom:8px; line-height:1.2; }
+.hq-popup-meta { font-size:0.78rem; color:var(--mist); margin-bottom:22px; padding-bottom:18px; border-bottom:1px solid rgba(201,162,78,0.18); letter-spacing:0.02em; }
+.hq-popup-stats { list-style:none; margin:0 0 24px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:14px 18px; }
+.hq-popup-stats li { font-size:0.74rem; color:var(--mist); display:flex; flex-direction:column; gap:2px; }
+.hq-popup-stats strong { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:400; color:var(--brass-lt); font-style:italic; }
+.hq-popup-cta { display:flex; gap:10px; flex-wrap:wrap; }
+.hq-popup-btn { flex:1; min-width:140px; text-align:center; font-family:'Outfit',sans-serif; font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase; padding:11px 18px; border-radius:6px; transition:all 0.2s ease; text-decoration:none; background:var(--brass); color:#0e0c0a; border:1px solid var(--brass); font-weight:600; }
+.hq-popup-btn:hover { background:var(--brass-lt); border-color:var(--brass-lt); }
+.hq-popup-btn-ghost { background:transparent; color:var(--brass-lt); }
+.hq-popup-btn-ghost:hover { background:rgba(201,162,78,0.1); color:var(--brass-pale); }
+@media (max-width:560px) {
+  .hq-popup { padding:26px 22px 22px; }
+  .hq-popup-h { font-size:1.2rem; }
+  .hq-popup-stats { grid-template-columns:1fr; gap:12px; }
+}
+
 /* Scan line — sweeps from top to bottom every 8s */
 .gl-scanline { animation: gl-scan 8s linear infinite; transform-origin: 0 0; }
 @keyframes gl-scan {
@@ -2132,8 +2167,12 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       <path d="M 1310,615 L 1395,605 L 1455,615 L 1495,640 L 1490,685 L 1455,710 L 1400,715 L 1345,705 L 1315,680 L 1305,645 Z" fill="url(#gl-stripe-aus)" opacity="0.95"/>
       <!-- New Zealand -->
       <path d="M 1530,710 L 1545,715 L 1550,735 L 1535,745 L 1525,730 Z" fill="url(#gl-stripe-aus)" opacity="0.7"/>
+      <!-- Japan -->
+      <path d="M 1390,330 L 1410,330 L 1420,345 L 1418,365 L 1410,390 L 1395,395 L 1385,375 L 1382,355 Z" fill="url(#gl-stripe-aus)" opacity="0.85"/>
+      <!-- UK / British Isles -->
+      <path d="M 750,210 L 770,205 L 778,225 L 770,245 L 755,240 L 745,225 Z" fill="url(#gl-stripe-primary)" opacity="0.8"/>
 
-      <!-- Connection arcs from Shenzhen HQ (1280, 380) to 6 core markets -->
+      <!-- Connection arcs from Shenzhen HQ (1280, 380) to core markets -->
       <g class="gl-arcs" stroke="#c9a24e" stroke-width="1" fill="none" opacity="0.55">
         <path d="M 1280,380 Q 900,150 440,460" stroke-dasharray="4,4" class="gl-arc"/>
         <path d="M 1280,380 Q 950,180 530,555" stroke-dasharray="4,4" class="gl-arc"/>
@@ -2141,10 +2180,9 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         <path d="M 1280,380 Q 1180,520 925,615" stroke-dasharray="4,4" class="gl-arc"/>
         <path d="M 1280,380 Q 1380,500 1390,660" stroke-dasharray="4,4" class="gl-arc"/>
         <path d="M 1280,380 Q 1200,420 1145,460" stroke-dasharray="3,3" class="gl-arc"/>
+        <path d="M 1280,380 Q 800,80 220,310"  stroke-dasharray="4,4" class="gl-arc"/>
+        <path d="M 1280,380 Q 1200,260 1400,355" stroke-dasharray="3,3" class="gl-arc"/>
       </g>
-      <!-- Shenzhen HQ marker -->
-      <circle cx="1280" cy="380" r="6" fill="#fde9b9" class="gl-hq-pulse"/>
-      <circle cx="1280" cy="380" r="3" fill="#fff"/>
     </svg>
 
     <!-- Pin markers (HTML overlay) — main = brass, expansion = pale brass -->
@@ -2166,6 +2204,38 @@ footer { background:var(--ink); padding:70px 56px 34px; }
     <div class="map-pin pin-expansion" style="left:83.4%;top:63.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ph">Philippines</span></div>
     <div class="map-pin pin-expansion pin-below" style="left:82.5%;top:73.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_id">Indonesia</span></div>
     <div class="map-pin pin-expansion pin-left" style="left:86.9%;top:82.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_au">Australia</span></div>
+    <!-- New mainstream markets (expansion tier) -->
+    <div class="map-pin pin-expansion" style="left:13.8%;top:38.8%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_us">USA</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:15%;top:27.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ca">Canada</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:47.2%;top:27.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_uk">UK</span></div>
+    <div class="map-pin pin-expansion" style="left:51.3%;top:31.3%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_de">Germany</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:49.4%;top:35%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_fr">France</span></div>
+    <div class="map-pin pin-expansion" style="left:51.9%;top:38.8%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_it">Italy</span></div>
+    <div class="map-pin pin-expansion" style="left:87.5%;top:44.4%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_jp">Japan</span></div>
+
+    <!-- Shenzhen HQ pin — special clickable marker -->
+    <button class="map-pin pin-hq" id="mapHq" style="left:80%;top:47.5%" type="button" aria-label="JC Lightning Headquarters in Shenzhen, China">
+      <span class="pin-dot"></span>
+      <span class="pin-label" data-i18n="gl_hq_label">HQ · Shenzhen</span>
+    </button>
+  </div>
+
+  <!-- HQ floating info popup -->
+  <div class="hq-popup" id="hqPopup" role="dialog" aria-modal="true" aria-labelledby="hqPopupName">
+    <button class="hq-close" id="hqClose" aria-label="Close">&times;</button>
+    <div class="hq-popup-tag" data-i18n="hq_tag">JC LIGHTNING · HEADQUARTERS</div>
+    <h3 class="hq-popup-h" id="hqPopupName" data-i18n="hq_name">嘉晨照明科技有限公司</h3>
+    <div class="hq-popup-meta" data-i18n="hq_meta">Shenzhen · Guangdong · China &nbsp;·&nbsp; 22.5°N · 114.0°E</div>
+    <ul class="hq-popup-stats">
+      <li><strong>26,000m²</strong> <span data-i18n="hq_stat1">Production Facility</span></li>
+      <li><strong>200+</strong> <span data-i18n="hq_stat2">Engineers &amp; Staff</span></li>
+      <li><strong>2017</strong> <span data-i18n="hq_stat3">Founded</span></li>
+      <li><strong>FOB</strong> <span data-i18n="hq_stat4">Shenzhen / Yantian / Guangzhou</span></li>
+    </ul>
+    <div class="hq-popup-cta">
+      <a href="https://wa.me/8613138189642" target="_blank" rel="noopener" class="hq-popup-btn"><span data-i18n="hq_cta_wa">Chat on WhatsApp</span> →</a>
+      <a href="mailto:info@jclightning.com" class="hq-popup-btn hq-popup-btn-ghost"><span data-i18n="hq_cta_em">Email Us</span> →</a>
+    </div>
   </div>
 
   <!-- Tech stats strip -->
@@ -2746,7 +2816,7 @@ const T = {
     mr_india_1:'花园寺庙照明 · 暖白3000K · 360° · IP65',mr_india_2:'住宅安防 · 800lm · PIR 8-12m · 高性价比',mr_india_3:'工厂仓库 · 50-1000W · IP65 · 3万小时寿命',
     hs_street:'安防与道路',hs_garden:'花园与路径',hs_decor:'装饰与氛围',hs_offgrid:'离网与便携',hs_ac:'AC商业照明',hs_market:'按市场选品',
     vlg_p1_n:'三头太阳能感应投光灯',vlg_p3_n:'PIR 感应壁灯',vlg_p9_n:'一体化太阳能路灯',vlg_p10_n:'户外装饰壁灯 太阳能/交流',vlg_p11_n:'太阳能爱迪生串灯',vlg_p13_n:'花园插地灯 · 8只装',vlg_p15_n:'太阳能灭蚊灯',vlg_p28_n:'球形门柱灯',vlg_p31_n:'AC LED 投光灯（50-1000W）',vlg_p32_n:'UFO 工矿灯（100-300W）',vlg_cta:'查看产品详情 →',vlg_hint:'将鼠标悬停灯点查看产品',cookie_text:'我们使用 Cookie 改善您的浏览体验并分析网站流量。点击「全部接受」即表示您同意我们使用 Cookie。详见我们的<a href="#" id="cookiePrivacy">隐私政策</a>。',cookie_reject:'全部拒绝',cookie_accept:'全部接受',cookie_privacy:'隐私政策',sticky_cta_txt:'正在做太阳能项目？<strong>24 小时内获取 FOB 报价。</strong>',sticky_cta_btn:'立即询价 →',
-    gl_lbl:'全球布局',gl_h2:'产品远销<em>30+国家与地区。</em>',gl_sub:'从南非停电市场到拉美离网项目——JC 产品已部署到四大洲，仍在持续扩张。',gl_leg_primary:'主力市场',gl_leg_expansion:'拓展市场',gl_co:'哥伦比亚',gl_ec:'厄瓜多尔',gl_za:'南非',gl_au:'澳大利亚',gl_ke:'肯尼亚',gl_es:'西班牙',gl_ae:'阿联酋',gl_br:'巴西',gl_ng:'尼日利亚',gl_tz:'坦桑尼亚',gl_mx:'墨西哥',gl_pk:'巴基斯坦',gl_in:'印度',gl_th:'泰国',gl_vn:'越南',gl_sa:'沙特阿拉伯',gl_ph:'菲律宾',gl_id:'印度尼西亚',gl_stat_markets:'出口市场',gl_stat_cont:'覆盖大洲',gl_stat_years:'出口经验',gl_stat_units:'累计出货'},
+    gl_lbl:'全球布局',gl_h2:'产品远销<em>30+国家与地区。</em>',gl_sub:'从南非停电市场到拉美离网项目——JC 产品已部署到四大洲，仍在持续扩张。',gl_leg_primary:'主力市场',gl_leg_expansion:'拓展市场',gl_co:'哥伦比亚',gl_ec:'厄瓜多尔',gl_za:'南非',gl_au:'澳大利亚',gl_ke:'肯尼亚',gl_es:'西班牙',gl_ae:'阿联酋',gl_br:'巴西',gl_ng:'尼日利亚',gl_tz:'坦桑尼亚',gl_mx:'墨西哥',gl_pk:'巴基斯坦',gl_in:'印度',gl_th:'泰国',gl_vn:'越南',gl_sa:'沙特阿拉伯',gl_ph:'菲律宾',gl_id:'印度尼西亚',gl_us:'美国',gl_ca:'加拿大',gl_uk:'英国',gl_de:'德国',gl_fr:'法国',gl_it:'意大利',gl_jp:'日本',gl_hq_label:'总部 · 深圳',gl_stat_markets:'出口市场',gl_stat_cont:'覆盖大洲',gl_stat_years:'出口经验',gl_stat_units:'累计出货',hq_tag:'嘉晨照明 · 全球总部',hq_name:'嘉晨照明科技有限公司',hq_meta:'中国 · 广东 · 深圳 &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'生产基地',hq_stat2:'工程师与员工',hq_stat3:'品牌成立',hq_stat4:'深圳 / 盐田 / 广州',hq_cta_wa:'WhatsApp 联系',hq_cta_em:'电邮我们'},
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Productos',nav_cat:'Categorías',nav_solutions:'Soluciones',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',
@@ -2881,7 +2951,7 @@ const T = {
     mr_india_1:'Jardines y templos · blanco cálido 3000K · 360° · IP65',mr_india_2:'Seguridad residencial · 800lm · PIR 8-12m · excelente relación costo-beneficio',mr_india_3:'Fábricas y almacenes · 50-1000W · IP65 · 30.000h vida útil',
     hs_street:'Seguridad y Calle',hs_garden:'Jardín y Sendero',hs_decor:'Decorativo y Ambiente',hs_offgrid:'Portátil y Autónomo',hs_ac:'Comercial AC',hs_market:'Soluciones por Mercado',
     vlg_p1_n:'Reflector Solar 3 Cabezas con PIR',vlg_p3_n:'Aplique de Pared con Sensor PIR',vlg_p9_n:'Farola Solar Todo-en-Uno',vlg_p10_n:'Aplique Exterior · Solar/AC',vlg_p11_n:'Guirnalda Solar Edison',vlg_p13_n:'Estacas Solares de Jardín · Pack de 8',vlg_p15_n:'Mata-Insectos Solar',vlg_p28_n:'Luz Esférica para Pilar',vlg_p31_n:'Reflector LED AC (50-1000W)',vlg_p32_n:'Luminaria Industrial UFO (100-300W)',vlg_cta:'Ver producto completo →',vlg_hint:'Pase el cursor sobre cualquier luz para identificar el producto',cookie_text:'Usamos cookies para mejorar su experiencia y analizar el tráfico del sitio. Al aceptar, consiente nuestro uso de cookies. Lea nuestra <a href="#" id="cookiePrivacy">Política de Privacidad</a>.',cookie_reject:'Rechazar todo',cookie_accept:'Aceptar todo',cookie_privacy:'Política de Privacidad',sticky_cta_txt:'¿Construyendo un proyecto solar? <strong>Cotización FOB en 24 horas.</strong>',sticky_cta_btn:'Solicitar Cotización →',
-    gl_lbl:'Presencia Global',gl_h2:'Confianza en <em>más de 30 mercados.</em>',gl_sub:'Desde la Sudáfrica con apagones hasta los proyectos sin red en América Latina — productos JC desplegados en cuatro continentes y creciendo.',gl_leg_primary:'Mercados Principales',gl_leg_expansion:'Mercados en Expansión',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'Sudáfrica',gl_au:'Australia',gl_ke:'Kenia',gl_es:'España',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigeria',gl_tz:'Tanzania',gl_mx:'México',gl_pk:'Pakistán',gl_in:'India',gl_th:'Tailandia',gl_vn:'Vietnam',gl_sa:'Arabia Saudita',gl_ph:'Filipinas',gl_id:'Indonesia',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Años Exportando',gl_stat_units:'Unidades Enviadas'},
+    gl_lbl:'Presencia Global',gl_h2:'Confianza en <em>más de 30 mercados.</em>',gl_sub:'Desde la Sudáfrica con apagones hasta los proyectos sin red en América Latina — productos JC desplegados en cuatro continentes y creciendo.',gl_leg_primary:'Mercados Principales',gl_leg_expansion:'Mercados en Expansión',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'Sudáfrica',gl_au:'Australia',gl_ke:'Kenia',gl_es:'España',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigeria',gl_tz:'Tanzania',gl_mx:'México',gl_pk:'Pakistán',gl_in:'India',gl_th:'Tailandia',gl_vn:'Vietnam',gl_sa:'Arabia Saudita',gl_ph:'Filipinas',gl_id:'Indonesia',gl_us:'EE.UU.',gl_ca:'Canadá',gl_uk:'Reino Unido',gl_de:'Alemania',gl_fr:'Francia',gl_it:'Italia',gl_jp:'Japón',gl_hq_label:'Sede · Shenzhen',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Años Exportando',gl_stat_units:'Unidades Enviadas',hq_tag:'JC LIGHTNING · SEDE CENTRAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · China &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Planta de Producción',hq_stat2:'Ingenieros y Personal',hq_stat3:'Fundada',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Chatear por WhatsApp',hq_cta_em:'Escríbanos'},
   fr:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produits',nav_cat:'Catégories',nav_solutions:'Solutions',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',
@@ -3008,7 +3078,7 @@ const T = {
     mr_india_1:'Jardins et temples · blanc chaud 3000K · 360° · IP65',mr_india_2:'Sécurité résidentielle · 800lm · PIR 8-12m · excellent rapport qualité-prix',mr_india_3:'Usines et entrepôts · 50-1000W · IP65 · 30 000h durée de vie',
     hs_street:'Sécurité et Rue',hs_garden:'Jardin et Allée',hs_decor:'Décoratif et Ambiance',hs_offgrid:'Hors Réseau et Portable',hs_ac:'Commercial AC',hs_market:'Solutions par Marché',
     vlg_p1_n:'Projecteur Solaire 3 Têtes PIR',vlg_p3_n:'Applique Murale à Détection PIR',vlg_p9_n:'Lampadaire Solaire Tout-en-Un',vlg_p10_n:'Applique Extérieure · Solaire/AC',vlg_p11_n:'Guirlande Solaire Edison',vlg_p13_n:'Bornes Solaires de Jardin · Pack de 8',vlg_p15_n:'Anti-Moustique Solaire',vlg_p28_n:'Lampe Sphère pour Pilier',vlg_p31_n:'Projecteur LED AC (50-1000W)',vlg_p32_n:'Luminaire Industriel UFO (100-300W)',vlg_cta:'Voir le produit complet →',vlg_hint:'Survolez chaque lumière pour identifier le produit',cookie_text:'Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. En acceptant, vous consentez à notre utilisation des cookies. Consultez notre <a href="#" id="cookiePrivacy">Politique de Confidentialité</a>.',cookie_reject:'Tout refuser',cookie_accept:'Tout accepter',cookie_privacy:'Politique de Confidentialité',sticky_cta_txt:'Un projet solaire en cours ? <strong>Devis FOB sous 24 heures.</strong>',sticky_cta_btn:'Demander un Devis →',
-    gl_lbl:'Présence Mondiale',gl_h2:'Une confiance dans <em>plus de 30 marchés.</em>',gl_sub:'Du délestage en Afrique du Sud aux projets hors réseau en Amérique latine — produits JC déployés sur quatre continents et en pleine expansion.',gl_leg_primary:'Marchés Principaux',gl_leg_expansion:'Marchés en Expansion',gl_co:'Colombie',gl_ec:'Équateur',gl_za:'Afrique du Sud',gl_au:'Australie',gl_ke:'Kenya',gl_es:'Espagne',gl_ae:'EAU',gl_br:'Brésil',gl_ng:'Nigéria',gl_tz:'Tanzanie',gl_mx:'Mexique',gl_pk:'Pakistan',gl_in:'Inde',gl_th:'Thaïlande',gl_vn:'Vietnam',gl_sa:'Arabie Saoudite',gl_ph:'Philippines',gl_id:'Indonésie',gl_stat_markets:'Marchés',gl_stat_cont:'Continents',gl_stat_years:'Années d\'Export',gl_stat_units:'Unités Expédiées'},
+    gl_lbl:'Présence Mondiale',gl_h2:'Une confiance dans <em>plus de 30 marchés.</em>',gl_sub:'Du délestage en Afrique du Sud aux projets hors réseau en Amérique latine — produits JC déployés sur quatre continents et en pleine expansion.',gl_leg_primary:'Marchés Principaux',gl_leg_expansion:'Marchés en Expansion',gl_co:'Colombie',gl_ec:'Équateur',gl_za:'Afrique du Sud',gl_au:'Australie',gl_ke:'Kenya',gl_es:'Espagne',gl_ae:'EAU',gl_br:'Brésil',gl_ng:'Nigéria',gl_tz:'Tanzanie',gl_mx:'Mexique',gl_pk:'Pakistan',gl_in:'Inde',gl_th:'Thaïlande',gl_vn:'Vietnam',gl_sa:'Arabie Saoudite',gl_ph:'Philippines',gl_id:'Indonésie',gl_us:'États-Unis',gl_ca:'Canada',gl_uk:'Royaume-Uni',gl_de:'Allemagne',gl_fr:'France',gl_it:'Italie',gl_jp:'Japon',gl_hq_label:'Siège · Shenzhen',gl_stat_markets:'Marchés',gl_stat_cont:'Continents',gl_stat_years:'Années d\'Export',gl_stat_units:'Unités Expédiées',hq_tag:'JC LIGHTNING · SIÈGE MONDIAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · Chine &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Usine de Production',hq_stat2:'Ingénieurs & Personnel',hq_stat3:'Fondée en',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Discuter sur WhatsApp',hq_cta_em:'Nous Écrire'},
   pt:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produtos',nav_cat:'Categorias',nav_solutions:'Soluções',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',
@@ -3140,7 +3210,7 @@ const T = {
     mr_india_1:'Jardins e templos · branco quente 3000K · 360° · IP65',mr_india_2:'Segurança residencial · 800lm · PIR 8-12m · excelente custo-benefício',mr_india_3:'Fábricas e armazéns · 50-1000W · IP65 · 30.000h vida útil',
     hs_street:'Segurança e Rua',hs_garden:'Jardim e Caminho',hs_decor:'Decorativo e Ambiente',hs_offgrid:'Portátil e Autónomo',hs_ac:'Comercial AC',hs_market:'Soluções por Mercado',
     vlg_p1_n:'Refletor Solar 3 Cabeças com PIR',vlg_p3_n:'Arandela com Sensor PIR',vlg_p9_n:'Poste Solar Tudo-em-Um',vlg_p10_n:'Arandela Externa · Solar/AC',vlg_p11_n:'Cordão Solar Edison',vlg_p13_n:'Espetos Solares de Jardim · Pack de 8',vlg_p15_n:'Mata-Mosquitos Solar',vlg_p28_n:'Luminária Esférica para Pilar',vlg_p31_n:'Refletor LED AC (50-1000W)',vlg_p32_n:'Luminária Industrial UFO (100-300W)',vlg_cta:'Ver produto completo →',vlg_hint:'Passe o mouse em cada luz para identificar o produto',cookie_text:'Usamos cookies para melhorar sua experiência e analisar o tráfego do site. Ao aceitar, você consente com nosso uso de cookies. Leia nossa <a href="#" id="cookiePrivacy">Política de Privacidade</a>.',cookie_reject:'Rejeitar tudo',cookie_accept:'Aceitar tudo',cookie_privacy:'Política de Privacidade',sticky_cta_txt:'Tem um projeto solar? <strong>Cotação FOB em 24 horas.</strong>',sticky_cta_btn:'Solicitar Cotação →',
-    gl_lbl:'Presença Global',gl_h2:'Confiável em <em>mais de 30 mercados.</em>',gl_sub:'Da África do Sul com apagões aos projetos sem rede na América Latina — produtos JC implantados em quatro continentes e em crescimento.',gl_leg_primary:'Mercados Principais',gl_leg_expansion:'Mercados em Expansão',gl_co:'Colômbia',gl_ec:'Equador',gl_za:'África do Sul',gl_au:'Austrália',gl_ke:'Quênia',gl_es:'Espanha',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigéria',gl_tz:'Tanzânia',gl_mx:'México',gl_pk:'Paquistão',gl_in:'Índia',gl_th:'Tailândia',gl_vn:'Vietnã',gl_sa:'Arábia Saudita',gl_ph:'Filipinas',gl_id:'Indonésia',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Anos Exportando',gl_stat_units:'Unidades Enviadas'}
+    gl_lbl:'Presença Global',gl_h2:'Confiável em <em>mais de 30 mercados.</em>',gl_sub:'Da África do Sul com apagões aos projetos sem rede na América Latina — produtos JC implantados em quatro continentes e em crescimento.',gl_leg_primary:'Mercados Principais',gl_leg_expansion:'Mercados em Expansão',gl_co:'Colômbia',gl_ec:'Equador',gl_za:'África do Sul',gl_au:'Austrália',gl_ke:'Quênia',gl_es:'Espanha',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigéria',gl_tz:'Tanzânia',gl_mx:'México',gl_pk:'Paquistão',gl_in:'Índia',gl_th:'Tailândia',gl_vn:'Vietnã',gl_sa:'Arábia Saudita',gl_ph:'Filipinas',gl_id:'Indonésia',gl_us:'EUA',gl_ca:'Canadá',gl_uk:'Reino Unido',gl_de:'Alemanha',gl_fr:'França',gl_it:'Itália',gl_jp:'Japão',gl_hq_label:'Sede · Shenzhen',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Anos Exportando',gl_stat_units:'Unidades Enviadas',hq_tag:'JC LIGHTNING · SEDE GLOBAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · China &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Fábrica de Produção',hq_stat2:'Engenheiros e Equipe',hq_stat3:'Fundada em',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Falar no WhatsApp',hq_cta_em:'Envie-nos um E-mail'}
 };
 
 // Capture HTML defaults at init for fallback when i18n key is missing
@@ -3176,6 +3246,20 @@ function setLang(l){
 }
 
 // Market Tabs JS removed — section deprecated
+
+// HQ pin popup (Shenzhen)
+(function(){
+  const hqPin=document.getElementById('mapHq');
+  const popup=document.getElementById('hqPopup');
+  const closeBtn=document.getElementById('hqClose');
+  if(!hqPin||!popup) return;
+  const open=()=>popup.classList.add('show');
+  const close=()=>popup.classList.remove('show');
+  hqPin.addEventListener('click',open);
+  closeBtn&&closeBtn.addEventListener('click',close);
+  popup.addEventListener('click',e=>{ if(e.target===popup) close(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&popup.classList.contains('show')) close(); });
+})();
 
 // Hero hotspots click-to-scroll
 
