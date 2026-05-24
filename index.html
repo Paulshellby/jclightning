@@ -1540,6 +1540,100 @@ footer { background:var(--ink); padding:70px 56px 34px; }
         </g>
       </g>
 
+      <!-- ===================================================== -->
+      <!-- ============== TRAFFIC + PEDESTRIANS ================ -->
+      <!-- ===================================================== -->
+
+      <!-- Cars going RIGHT (lane 1, y=735) -->
+      <g class="vlg-car vlg-car-r1">
+        <rect x="-50" y="735" width="40" height="13" rx="3" fill="#c9a24e"/>
+        <rect x="-44" y="730" width="22" height="7" rx="2" fill="#fde9b9"/>
+        <circle cx="-40" cy="751" r="3" fill="#0e0c0a"/>
+        <circle cx="-18" cy="751" r="3" fill="#0e0c0a"/>
+        <rect x="-12" y="738" width="3" height="2" fill="#fde9b9" opacity="0.8"/>
+      </g>
+      <g class="vlg-car vlg-car-r2">
+        <rect x="-50" y="735" width="48" height="14" rx="3" fill="#2a2520"/>
+        <rect x="-44" y="729" width="28" height="8" rx="2" fill="#3a3530"/>
+        <circle cx="-40" cy="752" r="3" fill="#0e0c0a"/>
+        <circle cx="-12" cy="752" r="3" fill="#0e0c0a"/>
+      </g>
+
+      <!-- Cars going LEFT (lane 2, y=765) -->
+      <g class="vlg-car vlg-car-l1">
+        <rect x="0" y="765" width="42" height="13" rx="3" fill="#f0ebe2"/>
+        <rect x="6" y="760" width="24" height="7" rx="2" fill="#d4cec4"/>
+        <circle cx="6" cy="781" r="3" fill="#0e0c0a"/>
+        <circle cx="34" cy="781" r="3" fill="#0e0c0a"/>
+        <rect x="38" y="768" width="3" height="2" fill="#fde9b9" opacity="0.8"/>
+      </g>
+      <g class="vlg-car vlg-car-l2">
+        <rect x="0" y="765" width="50" height="14" rx="3" fill="#5a3a16"/>
+        <rect x="8" y="759" width="30" height="8" rx="2" fill="#7a5232"/>
+        <circle cx="8" cy="782" r="3" fill="#0e0c0a"/>
+        <circle cx="40" cy="782" r="3" fill="#0e0c0a"/>
+      </g>
+
+      <!-- Pedestrians walking on sidewalk (y=712, just above road) -->
+      <g class="vlg-person vlg-person-1">
+        <ellipse cx="0" cy="708" rx="2" ry="2.5" fill="#3a2614"/>
+        <rect x="-1.5" y="710" width="3" height="6" fill="#5a4030"/>
+        <line x1="-1" y1="716" x2="-1" y2="720" stroke="#3a2614" stroke-width="1"/>
+        <line x1="1" y1="716" x2="1" y2="720" stroke="#3a2614" stroke-width="1"/>
+      </g>
+      <g class="vlg-person vlg-person-2">
+        <ellipse cx="0" cy="708" rx="2" ry="2.5" fill="#3a2614"/>
+        <rect x="-1.5" y="710" width="3" height="6" fill="#a87d2a"/>
+        <line x1="-1" y1="716" x2="-1" y2="720" stroke="#3a2614" stroke-width="1"/>
+        <line x1="1" y1="716" x2="1" y2="720" stroke="#3a2614" stroke-width="1"/>
+      </g>
+      <g class="vlg-person vlg-person-3">
+        <ellipse cx="0" cy="708" rx="2" ry="2.5" fill="#3a2614"/>
+        <rect x="-1.5" y="710" width="3" height="6" fill="#3a5a40"/>
+        <line x1="-1" y1="716" x2="-1" y2="720" stroke="#3a2614" stroke-width="1"/>
+        <line x1="1" y1="716" x2="1" y2="720" stroke="#3a2614" stroke-width="1"/>
+      </g>
+
+      <!-- ===================================================== -->
+      <!-- ============ BUILDING NAME LABELS =================== -->
+      <!-- ===================================================== -->
+
+      <!-- Apartment label -->
+      <g class="vlg-label vlg-label-apt">
+        <line x1="400" y1="278" x2="400" y2="310" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+        <rect x="354" y="250" width="92" height="26" rx="13" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1"/>
+        <text x="400" y="266" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="600" fill="#fde9b9" letter-spacing="1.5">APARTMENT</text>
+      </g>
+
+      <!-- Warehouse label -->
+      <g class="vlg-label vlg-label-warehouse">
+        <line x1="1200" y1="280" x2="1200" y2="330" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+        <rect x="1150" y="252" width="100" height="26" rx="13" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1"/>
+        <text x="1200" y="268" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="600" fill="#fde9b9" letter-spacing="1.5">WAREHOUSE</text>
+      </g>
+
+      <!-- Villa label (special — brass filled) -->
+      <g class="vlg-label vlg-label-villa">
+        <line x1="800" y1="190" x2="800" y2="220" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2"/>
+        <rect x="730" y="162" width="140" height="28" rx="14" fill="url(#vlg-sun-day)" stroke="#fde9b9" stroke-width="1.2"/>
+        <rect x="730" y="162" width="140" height="28" rx="14" fill="#c9a24e"/>
+        <text x="800" y="179" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="700" fill="#0e0c0a" letter-spacing="2">JC CLIENT VILLA</text>
+      </g>
+
+      <!-- Shop label -->
+      <g class="vlg-label vlg-label-shop">
+        <line x1="220" y1="595" x2="220" y2="635" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+        <rect x="170" y="568" width="100" height="26" rx="13" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1"/>
+        <text x="220" y="584" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="600" fill="#fde9b9" letter-spacing="1.5">SHOPPING</text>
+      </g>
+
+      <!-- EV Station label -->
+      <g class="vlg-label vlg-label-ev">
+        <line x1="1430" y1="555" x2="1430" y2="600" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+        <rect x="1360" y="528" width="140" height="26" rx="13" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1"/>
+        <text x="1430" y="544" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="600" fill="#fde9b9" letter-spacing="1.5">EV CHARGING</text>
+      </g>
+
     </svg>
   </div>
 
@@ -1704,6 +1798,46 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 @keyframes vlg-bulb-pulse {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
+}
+
+/* Traffic — cars driving along the road in both directions */
+.vlg-car-r1 { animation: vlg-car-r 14s linear infinite; }
+.vlg-car-r2 { animation: vlg-car-r 19s linear infinite; animation-delay: -7s; }
+.vlg-car-l1 { animation: vlg-car-l 16s linear infinite; }
+.vlg-car-l2 { animation: vlg-car-l 22s linear infinite; animation-delay: -10s; }
+@keyframes vlg-car-r {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(1700px); }
+}
+@keyframes vlg-car-l {
+  0%   { transform: translateX(1700px); }
+  100% { transform: translateX(-100px); }
+}
+
+/* Pedestrians — slow walk on sidewalk */
+.vlg-person-1 { animation: vlg-walk-1 28s linear infinite; }
+.vlg-person-2 { animation: vlg-walk-2 34s linear infinite; animation-delay: -12s; }
+.vlg-person-3 { animation: vlg-walk-3 25s linear infinite; animation-delay: -8s; }
+@keyframes vlg-walk-1 {
+  0%   { transform: translate(80px, 0); }
+  100% { transform: translate(1550px, 0); }
+}
+@keyframes vlg-walk-2 {
+  0%   { transform: translate(1550px, 0); }
+  100% { transform: translate(80px, 0); }
+}
+@keyframes vlg-walk-3 {
+  0%   { transform: translate(200px, 0); }
+  100% { transform: translate(1450px, 0); }
+}
+
+/* Building labels — subtle fade-in with hover bump */
+.vlg-label { opacity: 0.92; transition: opacity 0.3s ease, transform 0.3s ease; transform-origin: center bottom; transform-box: fill-box; }
+.vlg-label:hover { opacity: 1; transform: translateY(-3px) scale(1.05); }
+.vlg-label-villa { animation: vlg-label-villa-pulse 3s ease-in-out infinite; }
+@keyframes vlg-label-villa-pulse {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(201,162,78,0.5)); }
+  50%      { filter: drop-shadow(0 0 16px rgba(201,162,78,0.9)); }
 }
 
 @media (max-width: 1200px) {
