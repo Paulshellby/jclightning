@@ -720,7 +720,13 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 .ft-col ul { list-style:none; display:flex; flex-direction:column; gap:12px; }
 .ft-col a { font-size:0.9rem; font-weight:400; color:rgba(212,206,196,0.85); text-decoration:none; transition:color .2s; }
 .ft-col a:hover { color:#fff; }
-.ft-btm { display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; font-weight:400; letter-spacing:0.03em; color:rgba(212,206,196,0.7); padding-top:24px; border-top:1px solid rgba(255,255,255,0.06); margin-top:30px; }
+/* Footer social strip — Fox ESS style large icons */
+.ft-social-strip { display:flex; gap:22px; align-items:center; margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); }
+.ft-soc { width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); transition:color 0.25s ease, transform 0.25s ease; }
+.ft-soc:hover { color:var(--brass-lt); transform:translateY(-2px); }
+.ft-soc svg { width:100%; height:100%; }
+
+.ft-btm { display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; font-weight:400; letter-spacing:0.03em; color:rgba(212,206,196,0.7); padding-top:18px; margin-top:18px; }
 .chat-widget { position:fixed; bottom:26px; right:26px; z-index:999; font-family:'Outfit',sans-serif; }
 .chat-btn { width:52px; height:52px; border-radius:50%; border:none; background:var(--brass); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(168,125,42,0.35); transition:transform .25s ease, box-shadow .25s ease; position:relative; }
 .chat-btn:hover { transform:scale(1.08); box-shadow:0 6px 28px rgba(168,125,42,0.5); }
@@ -2613,6 +2619,25 @@ footer { background:var(--ink); padding:70px 56px 34px; }
       </ul>
     </div>
   </div>
+  <!-- Social media strip — Fox ESS style, large icons at footer bottom -->
+  <div class="ft-social-strip">
+    <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95 0-5.52-4.48-10-10-10z"/></svg>
+    </a>
+    <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+    </a>
+    <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.34 17V9.67H6V17h2.34M7.17 8.61a1.36 1.36 0 100-2.72 1.36 1.36 0 000 2.72M18 17v-4.27c0-2.16-1.38-3.06-2.74-3.06a2.56 2.56 0 00-2.27 1.16V9.67h-2.34V17h2.34v-4.06a1.56 1.56 0 011.41-1.68 1.42 1.42 0 011.27 1.6V17H18z"/></svg>
+    </a>
+    <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8M9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+    </a>
+    <a href="https://wa.me/8613138189642" target="_blank" rel="noopener" class="ft-soc" aria-label="WhatsApp">
+      <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.88 1.92 7.02L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.1 19.42c-.3.84-1.76 1.6-2.42 1.66-.66.06-1.28.3-4.32-.9-3.66-1.44-6-5.18-6.18-5.42-.18-.24-1.44-1.92-1.44-3.66s.9-2.58 1.24-2.94c.34-.36.72-.44.96-.44l.7.01c.22 0 .52-.08.8.62l1.14 2.8c.1.22.04.48-.06.66l-.42.52-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.6-.08l.82-1c.16-.2.32-.14.54-.06l2.72 1.28c.28.14.46.2.52.32.06.48-.22 1.96-.52 2.8z"/></svg>
+    </a>
+  </div>
+
   <div class="ft-btm">
     <span data-i18n="ft_copyright">© 2026 JC Lightning. All rights reserved.</span>
   </div>
