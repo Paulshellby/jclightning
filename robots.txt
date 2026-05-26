@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
 Disallow: /images/new/
-Sitemap: https://paulshellby.github.io/jclightning/sitemap.xml
+Disallow: /images/bg-prompts/
+Disallow: /images/bg-prompts-v2/
 
-# JC Lightning — Solar Outdoor Lighting
-# www.jclightning.com → paulshellby.github.io/jclightning/
+Sitemap: https://jclightning.com/sitemap.xml
+
+# JC Lightning Technology Co., Ltd. — Solar Outdoor Lighting Exporter
+# https://jclightning.com
