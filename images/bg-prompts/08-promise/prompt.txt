@@ -1,9 +1,0 @@
-===== AI 生图提示词 =====
-模块: Promise（承诺保障区）
-用途: 作为 CSS 背景图，覆盖 .promise 区块（浅色背景 #f0ebe2）
-风格: 温暖信任感，柔和几何纹理
-建议尺寸: 1920×800px
-文件命名: bg-promise.jpg
-
---- 提示词 ---
-A warm, reassuring abstract background texture for a trust/promise section. Soft cream/chalk base (#f0ebe2). Very subtle (5-8% opacity) geometric pattern of interlocking circles or shield-like shapes in pale warm grey and the faintest brass (#a87d2a) tone. The pattern suggests protection, reliability, and craftsmanship. Some elements should have a very slight golden glow. The overall feel is warm, trustworthy, solid — like a well-crafted guarantee certificate. No text, no sharp contrast. Suitable as a background behind 4 promise/guarantee cards.

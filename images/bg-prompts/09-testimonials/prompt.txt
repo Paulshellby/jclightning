@@ -1,9 +1,0 @@
-===== AI 生图提示词 =====
-模块: Testimonials（客户评价区）
-用途: 作为 CSS 背景图，覆盖 .testimonials 区块（浅色背景 #f7f3ec）
-风格: 温暖人文感，微妙的地图/全球连接元素
-建议尺寸: 1920×800px
-文件命名: bg-testimonials.jpg
-
---- 提示词 ---
-A warm, human-centered abstract background for a customer testimonials section. Soft cream (#f7f3ec) base. Very faint (6-10% opacity) suggestion of a world map outline rendered in delicate warm grey and soft brass (#c9a24e) lines. Small glowing dots marking Colombia, Ecuador, South Africa, and Australia — the key markets. The overall feel is global connection, trust across borders, and human relationships. Extremely understated. The map should be almost ghostlike, felt more than seen. Suitable as a background behind 4 testimonial cards from international buyers.

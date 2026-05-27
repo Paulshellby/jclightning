@@ -1,9 +1,0 @@
-===== AI 生图提示词 =====
-模块: FAQ（常见问题区）
-用途: 作为 CSS 背景图，覆盖 .faq 区块（深色背景 #0e0c0a）
-风格: 科技感，知识/信息主题抽象
-建议尺寸: 1920×900px
-文件命名: bg-faq.jpg
-
---- 提示词 ---
-A subtle, tech-forward abstract background for an FAQ section. Very dark ink (#0e0c0a) base. Faint (6-10% opacity) vertical and horizontal delicate lines suggesting a digital interface or data grid, with soft glowing nodes in brass (#c9a24e) at sparse, random intersections. The pattern should feel like looking at a premium dark-mode UI — organized, clean, intelligent. Some subtle gradient light blooms near the edges, fading to darker center where FAQ accordion items will sit. The overall feel: knowledge, clarity, technology-forward thinking. No text. Suitable as a background behind expandable FAQ accordion items.

@@ -1,9 +1,0 @@
-===== AI 生图提示词 =====
-模块: Certs（认证证书展示区）
-用途: 作为 CSS 背景图，覆盖 .certs 区块（浅色背景 #f7f3ec）
-风格: 专业严谨，徽章/证书纹理
-建议尺寸: 1200×600px
-文件命名: bg-certs.jpg
-
---- 提示词 ---
-A clean, authoritative abstract background for a certifications display section. Warm off-white base (#f7f3ec). Very faint (5-8% opacity) geometric patterns suggesting official seals, certification stamps, or embossed paper texture. The pattern should feature subtle circular motifs and delicate border-like linework in pale warm grey, with occasional hints of brass (#a87d2a) and deep green (#4a7a40, suggesting certification approval). The overall feel: official, trustworthy, accredited. Like the watermark on a certificate of authenticity. No text, no readable elements. Suitable as a background behind 4 certification badges (CE, RoHS, IP65, LiFePO4).

@@ -1,9 +1,0 @@
-===== AI 生图提示词 =====
-模块: Numbers（数据计数器区）
-用途: 作为 CSS 背景图，覆盖 .numbers 区块（深色背景 #0e0c0a）
-风格: 抽象奢华，金色粒子/光线
-建议尺寸: 1920×600px
-文件命名: bg-numbers.jpg
-
---- 提示词 ---
-An abstract, luxurious dark background for a statistics counter section. Very dark ink (#0e0c0a) base. Extremely subtle (6-10% opacity) floating golden particles and delicate light streaks in warm brass tones (#c9a24e), like dust motes caught in a sunbeam or fine gold leaf fragments suspended in darkness. Some particles should have a soft glow/bloom effect. The distribution should be random but balanced, heavier toward the edges and sparser in the center where numbers will display. Elegant, premium, understated. No text. Suitable as a backdrop for animated number counters (products count, markets served, etc.).

@@ -1,7 +1,10 @@
 *.bak
+*.bak*
 .claude/
 ~$*
 *.tmp
 .DS_Store
 Thumbs.db
 gen-*.png
+images/bg-prompts/
+images/bg-prompts-v2/
