@@ -1,0 +1,21 @@
+===== AI 生图提示词 =====
+模块: FAQ（常见问题区）
+用途: 作为 CSS 背景图，覆盖 .faq 区块
+风格: 明亮数字界面网格——清晰、现代
+建议尺寸: 1920×900px
+文件命名: bg-faq.jpg
+
+--- 提示词 ---
+A clean, bright-tech abstract background for an FAQ section. Base color: warm charcoal (#1e1a14). Delicate, visible (12-16% opacity) horizontal and vertical fine lines suggesting a minimalist data grid or digital interface, in warm grey and soft golden tones. Sparse glowing nodes in brass (#c9a24e) at key intersections — like a premium dark-mode UI design, but warmer and more inviting.
+
+A very soft, diffused golden light wash across the upper-right quadrant, fading diagonally toward the lower-left where the FAQ accordion items will sit. The grid lines should be clean and organized — suggesting structure, clarity, and intelligence. The overall feel: a beautifully designed help center, knowledgeable, approachable, organized.
+
+Much brighter than the V1 version. The grid should be clearly visible behind the FAQ items, creating a sense of order and transparency. White FAQ question text and warm-grey answers should feel naturally readable against this background. No text. Suitable as a background behind expandable FAQ accordion items.
+
+--- 关键词 ---
+warm charcoal background, minimalist data grid, glowing golden nodes, premium dark-mode UI, organized interface, soft golden light wash, clean geometric lines, approachable tech
+
+--- 参数建议 ---
+Midjourney: --style raw --ar 16:9 --no text,logo,watermark
+DALL·E 3: 直接粘贴上述提示词
+Stable Diffusion: cfg 7-8, steps 30+, negative: pure black, dark, cluttered, chaotic

@@ -1,0 +1,21 @@
+===== AI 生图提示词 =====
+模块: Hero（第一屏 · 最重要）
+用途: 作为 CSS 背景图，覆盖 .hero 区块
+风格: 左侧暖光、右侧暗调——文字清晰可见
+建议尺寸: 1920×1080px（16:9）
+文件命名: bg-hero.jpg
+
+--- 提示词 ---
+A premium, atmospheric background for the hero section of a solar lighting B2B website. The base color is a warm dark charcoal (#1e1a14), NOT pure black. The KEY design feature: the LEFT HALF of the image (where white headline text will sit) has a soft, warm golden ambient glow — like sunlight spilling into a darkened room from the left edge. The RIGHT HALF fades into darker charcoal tones, creating a natural contrast zone for product imagery or a lamp scene.
+
+Extremely subtle (12-18% opacity) golden (#c9a24e) and warm amber light rays sweeping diagonally from bottom-left to top-right. A few very fine, barely-there brass-colored dust particles floating in the light beam — like morning sun catching dust motes in a workshop. The overall mood: dawn breaking over a factory floor, warmth emerging from darkness, "light that works when the power doesn't."
+
+The left 40% should be noticeably brighter/warmer than the right 60%, creating a natural gradient that makes white text pop without needing to brighten the text itself. No text, no obvious shapes, no hard edges. Atmospheric, cinematic, hopeful. The feel: professional, warm, premium industrial — not cold tech, not pure luxury, not gritty.
+
+--- 关键词 ---
+warm charcoal background, left-side golden ambient light, diagonal light rays, brass dust particles, dawn factory atmosphere, cinematic lighting, premium industrial, subtle gradient left-to-right, atmospheric haze, warm tones
+
+--- 参数建议 ---
+Midjourney: --style raw --ar 16:9 --no text,logo,watermark,people,product
+DALL·E 3: 直接粘贴上述提示词
+Stable Diffusion: cfg 7-8, steps 30+, negative: pure black, dark shadows, harsh contrast

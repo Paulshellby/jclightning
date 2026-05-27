@@ -1,0 +1,11 @@
+===== AI 产品图提示词 =====
+产品: p32 UFO工矿灯 (UFO High Bay Light 100-300W)
+用途: 产品卡片主图，白色/浅灰背景棚拍风格
+建议尺寸: 800×800px 或 1200×1200px
+文件命名: product-32.jpg
+
+--- 英文提示词 ---
+Professional product photography of a circular UFO-style LED high bay light for warehouses and factories, isolated on a pure white studio background. The light has a round, flat, disc-shaped aluminium housing with prominent radial cooling fins on top, and a large circular frosted diffuser on the bottom. Dark grey or black aluminium body with metallic sheen. The top has a hook or eye-bolt for chain/cable suspension mounting. Bottom-up angle or slightly angled side view showing both the top cooling fins and the bottom lens. Studio lighting emphasizing the aluminium texture and fin details. Commercial product photography style, high resolution, sharp details, 8K. The product occupies 70-80% of the frame. No text, no logos, no people, no hands. No cable visible.
+
+--- 中文补充说明 ---
+圆形UFO造型LED工矿灯/高棚灯，适用于仓库工厂。铝壳深灰/黑色，顶部放射状散热鳍片，底部大圆形柔光扩散罩。顶部有挂钩/吊环。底角度或侧角度展示顶部散热片和底部透镜。不要电线。

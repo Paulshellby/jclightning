@@ -1,0 +1,21 @@
+===== AI 生图提示词 =====
+模块: Products（全产品目录区）
+用途: 作为 CSS 背景图，覆盖 .products 区块
+风格: 明亮科技网格+金色节点——可见但不抢眼
+建议尺寸: 1920×1080px
+文件命名: bg-products.jpg
+
+--- 提示词 ---
+A clean, bright-tech abstract background for a solar lighting product catalog section. Base color: warm charcoal (#221e18), significantly lighter than pure black. A subtle (12-16% opacity) hexagonal or geometric grid pattern — like solar panel cells or honeycomb structure — in fine golden (#c9a24e) and warm grey lines. Sparse golden nodes/intersection points with a tiny soft glow effect, distributed evenly across the image like stars but warmer and more industrial.
+
+The pattern should be clearly visible on close inspection but not distracting behind product cards. Some very diffuse, soft golden light blooms (like bokeh from distant lights) scattered across the upper third. The overall feel: organized, technical, premium — like looking at a beautifully designed spec sheet or engineering blueprint, but warm and inviting.
+
+Much brighter overall than the V1 version which was nearly invisible on pure black. This version should make white product titles and descriptions feel naturally readable against the background. No text. No obvious shapes. Suitable as a CSS background-image behind product grid cards.
+
+--- 关键词 ---
+warm charcoal background, hexagonal solar panel grid, golden nodes with soft glow, tech blueprint aesthetic, subtle bokeh light blooms, premium industrial, organized geometric pattern, warm tones
+
+--- 参数建议 ---
+Midjourney: --style raw --ar 16:9 --no text,logo,watermark
+DALL·E 3: 直接粘贴上述提示词
+Stable Diffusion: cfg 7-8, steps 30+, negative: pure black, dark, harsh lines
