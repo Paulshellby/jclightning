@@ -1287,6 +1287,35 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
       <rect class="vlg-sky-day" width="1600" height="900" fill="url(#vlg-sky-day)"/>
       <rect class="vlg-sky-dusk" width="1600" height="900" fill="url(#vlg-sky-dusk)"/>
 
+      <!-- ============ CLOUDS (day only, animated drift) ============ -->
+      <g class="vlg-clouds" aria-hidden="true">
+        <g class="vlg-cloud vlg-cloud-1">
+          <ellipse cx="380" cy="132" rx="95" ry="30" fill="rgba(255,255,255,0.58)"/>
+          <ellipse cx="426" cy="115" rx="68" ry="24" fill="rgba(255,255,255,0.55)"/>
+          <ellipse cx="335" cy="124" rx="55" ry="21" fill="rgba(255,255,255,0.48)"/>
+          <ellipse cx="458" cy="130" rx="40" ry="16" fill="rgba(255,255,255,0.42)"/>
+        </g>
+        <g class="vlg-cloud vlg-cloud-2">
+          <ellipse cx="920" cy="88" rx="80" ry="26" fill="rgba(255,255,255,0.50)"/>
+          <ellipse cx="964" cy="73" rx="55" ry="20" fill="rgba(255,255,255,0.50)"/>
+          <ellipse cx="876" cy="82" rx="50" ry="18" fill="rgba(255,255,255,0.42)"/>
+        </g>
+        <g class="vlg-cloud vlg-cloud-3">
+          <ellipse cx="1320" cy="158" rx="88" ry="28" fill="rgba(255,255,255,0.52)"/>
+          <ellipse cx="1360" cy="142" rx="62" ry="22" fill="rgba(255,255,255,0.52)"/>
+          <ellipse cx="1278" cy="150" rx="52" ry="19" fill="rgba(255,255,255,0.44)"/>
+        </g>
+      </g>
+
+      <!-- ============ BIRDS (day only) ============ -->
+      <g class="vlg-birds" transform="translate(200, 200)" aria-hidden="true">
+        <path d="M0,0 Q5,-5 10,0 Q15,-5 20,0" stroke="#2a1e14" stroke-width="1.4" fill="none"/>
+        <path d="M28,10 Q33,5 38,10 Q43,5 48,10" stroke="#2a1e14" stroke-width="1.4" fill="none"/>
+        <path d="M58,3 Q63,-3 68,3 Q73,-3 78,3" stroke="#2a1e14" stroke-width="1.3" fill="none"/>
+        <path d="M88,14 Q93,8 98,14 Q103,8 108,14" stroke="#2a1e14" stroke-width="1.2" fill="none"/>
+        <path d="M118,5 Q123,0 128,5 Q133,0 138,5" stroke="#2a1e14" stroke-width="1.2" fill="none"/>
+      </g>
+
       <!-- Sun (animates position) -->
       <g class="vlg-sun-group">
         <circle class="vlg-sun-day-orb" cx="280" cy="160" r="60" fill="url(#vlg-sun-day)" opacity="0.85"/>
@@ -1307,6 +1336,21 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
         <circle cx="380" cy="220" r="0.7"/>
         <circle cx="960" cy="200" r="0.8"/>
         <circle cx="1340" cy="220" r="0.7"/>
+      </g>
+
+      <!-- ============ MOON (dusk/night only) ============ -->
+      <g class="vlg-moon" aria-hidden="true">
+        <!-- Moon body -->
+        <circle cx="1410" cy="108" r="38" fill="#f0e0c0"/>
+        <!-- Crescent shadow (gives 3D feel) -->
+        <circle cx="1424" cy="100" r="34" fill="#1f2238"/>
+        <!-- Soft halo glow rings -->
+        <circle cx="1410" cy="108" r="58" fill="#fde9b9" opacity="0.09"/>
+        <circle cx="1410" cy="108" r="80" fill="#fde9b9" opacity="0.04"/>
+        <!-- Surface detail -->
+        <circle cx="1396" cy="115" r="4" fill="#d8c89a" opacity="0.55"/>
+        <circle cx="1404" cy="100" r="2.5" fill="#d8c89a" opacity="0.45"/>
+        <circle cx="1386" cy="104" r="3" fill="#d8c89a" opacity="0.40"/>
       </g>
 
       <!-- ============ GROUND (isometric plane) ============ -->
@@ -1330,6 +1374,38 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
         <rect x="1240" y="752" width="40" height="3"/>
         <rect x="1360" y="752" width="40" height="3"/>
         <rect x="1480" y="752" width="40" height="3"/>
+      </g>
+
+      <!-- ============ FAR BACKGROUND CITY SKYLINE ============ -->
+      <!-- Adds depth — muted isometric silhouettes behind main buildings -->
+      <g class="vlg-far-city" aria-hidden="true">
+        <!-- BG-A: Tall office tower behind & left of apartment -->
+        <polygon points="162,345 232,308 302,345 232,382" fill="#8fa5b8" opacity="0.28"/>
+        <polygon points="232,382 302,345 302,488 232,525" fill="#6a7f90" opacity="0.28"/>
+        <polygon points="162,345 232,382 232,525 162,488" fill="#7d96a8" opacity="0.28"/>
+        <!-- tiny windows -->
+        <g opacity="0.15" fill="#e8d5a8">
+          <rect x="172" y="400" width="7" height="9"/>
+          <rect x="186" y="400" width="7" height="9"/>
+          <rect x="172" y="420" width="7" height="9"/>
+          <rect x="186" y="420" width="7" height="9"/>
+          <rect x="172" y="440" width="7" height="9"/>
+          <rect x="186" y="440" width="7" height="9"/>
+        </g>
+        <!-- BG-B: Mid-height block, between apt and villa -->
+        <polygon points="468,302 528,272 588,302 528,332" fill="#9bb5c4" opacity="0.24"/>
+        <polygon points="528,332 588,302 588,428 528,458" fill="#72909e" opacity="0.24"/>
+        <polygon points="468,302 528,332 528,458 468,428" fill="#839ead" opacity="0.24"/>
+        <!-- solar panel on BG-B -->
+        <polygon points="476,302 528,276 566,302 514,328" fill="#1c3a62" opacity="0.20"/>
+        <!-- BG-C: Between villa and warehouse (right side) -->
+        <polygon points="1040,295 1102,262 1164,295 1102,328" fill="#93a8bc" opacity="0.26"/>
+        <polygon points="1102,328 1164,295 1164,445 1102,478" fill="#6a8090" opacity="0.26"/>
+        <polygon points="1040,295 1102,328 1102,478 1040,445" fill="#7c96a8" opacity="0.26"/>
+        <!-- BG-D: Far right behind EV canopy -->
+        <polygon points="1492,295 1546,265 1600,295 1546,325" fill="#8898ac" opacity="0.20"/>
+        <polygon points="1546,325 1600,295 1600,440 1546,470" fill="#6a7888" opacity="0.20"/>
+        <polygon points="1492,295 1546,325 1546,470 1492,440" fill="#7888a0" opacity="0.20"/>
       </g>
 
       <!-- ============ BUILDING 1 — Apartment (back-left) ============ -->
@@ -1468,6 +1544,35 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
         <rect x="1370" y="765" width="40" height="14" fill="#3a4858" rx="3"/>
         <circle cx="1370" cy="800" r="6" fill="#1a1a1a"/>
         <circle cx="1410" cy="800" r="6" fill="#1a1a1a"/>
+      </g>
+
+      <!-- ============ TROPICAL VEGETATION (palm trees) ============ -->
+      <!-- Palm 1 — left of villa gate, creates tropical atmosphere -->
+      <g class="vlg-palm" transform="translate(575,640)" aria-hidden="true">
+        <rect x="-2.5" y="0" width="5" height="55" fill="#5c3c1e" rx="2.5" transform="rotate(-6 -2.5 55)"/>
+        <ellipse cx="-14" cy="-8" rx="22" ry="9" fill="#3d7030" transform="rotate(-38 -14 -8)"/>
+        <ellipse cx="10" cy="-12" rx="19" ry="8" fill="#4d8238" transform="rotate(22 10 -12)"/>
+        <ellipse cx="-4" cy="-18" rx="17" ry="7" fill="#3a6a2a" transform="rotate(-14 -4 -18)"/>
+        <ellipse cx="-16" cy="-20" rx="18" ry="7" fill="#4a7a30" transform="rotate(44 -16 -20)"/>
+        <ellipse cx="14" cy="-22" rx="16" ry="6" fill="#406030" transform="rotate(-26 14 -22)"/>
+        <ellipse cx="2" cy="-26" rx="14" ry="6" fill="#48742e" transform="rotate(8 2 -26)"/>
+      </g>
+      <!-- Palm 2 — right side of road near warehouse, smaller -->
+      <g class="vlg-palm" transform="translate(1260,665)" aria-hidden="true">
+        <rect x="-2" y="0" width="4" height="42" fill="#5c3c1e" rx="2" transform="rotate(5 -2 42)"/>
+        <ellipse cx="-11" cy="-6" rx="17" ry="7" fill="#4a8038" transform="rotate(-40 -11 -6)"/>
+        <ellipse cx="8" cy="-9" rx="15" ry="6" fill="#5a8e40" transform="rotate(20 8 -9)"/>
+        <ellipse cx="-3" cy="-14" rx="14" ry="6" fill="#3c7030" transform="rotate(-10 -3 -14)"/>
+        <ellipse cx="-12" cy="-16" rx="15" ry="6" fill="#487830" transform="rotate(42 -12 -16)"/>
+        <ellipse cx="10" cy="-17" rx="13" ry="5" fill="#3e6828" transform="rotate(-22 10 -17)"/>
+      </g>
+      <!-- Shrub cluster near shop left -->
+      <g class="vlg-shrub" transform="translate(80,730)" aria-hidden="true">
+        <ellipse cx="0" cy="0" rx="12" ry="8" fill="#4a7a30"/>
+        <ellipse cx="14" cy="2" rx="10" ry="7" fill="#5a8a38"/>
+        <ellipse cx="7" cy="-5" rx="9" ry="6" fill="#3d6e28"/>
+        <rect x="-2" y="4" width="4" height="8" fill="#3a2614"/>
+        <rect x="12" y="6" width="4" height="7" fill="#3a2614"/>
       </g>
 
       <!-- ===================================================== -->
@@ -1678,6 +1783,41 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
         <circle cx="40" cy="782" r="3" fill="#0e0c0a"/>
       </g>
 
+      <!-- Delivery van going right (large, y=726) -->
+      <g class="vlg-car vlg-car-r3">
+        <rect x="-85" y="724" width="76" height="20" rx="2" fill="#3a4858"/>
+        <rect x="-83" y="718" width="30" height="11" rx="2" fill="#48586a"/>
+        <circle cx="-75" cy="748" r="4.5" fill="#0e0c0a"/>
+        <circle cx="-20" cy="748" r="4.5" fill="#0e0c0a"/>
+        <rect x="-15" y="728" width="5" height="3" fill="#fde9b9" opacity="0.9"/>
+        <rect x="-78" y="728" width="18" height="8" fill="#5a78b0" opacity="0.65"/>
+        <!-- JC logo sticker on van side -->
+        <rect x="-50" y="730" width="24" height="9" rx="1" fill="#c9a24e" opacity="0.55"/>
+        <text x="-38" y="737.5" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="5.5" font-weight="700" fill="#0e0c0a" opacity="0.8">JC ⚡</text>
+      </g>
+
+      <!-- Motorcycle going left (y=768) -->
+      <g class="vlg-car vlg-car-l3">
+        <rect x="0" y="769" width="28" height="10" rx="4" fill="#c9a24e"/>
+        <circle cx="4" cy="782" r="4" fill="#1a1410"/>
+        <circle cx="24" cy="782" r="4" fill="#1a1410"/>
+        <ellipse cx="14" cy="765" rx="4.5" ry="3.5" fill="#a07820"/>
+        <rect x="11" y="763" width="8" height="4" fill="#8a6218"/>
+        <!-- Headlight -->
+        <circle cx="27" cy="774" r="2" fill="#fde9b9" opacity="0.8"/>
+      </g>
+
+      <!-- Bicycle going right (y=713, sidewalk) -->
+      <g class="vlg-car vlg-car-r4">
+        <circle cx="-8" cy="718" r="4" fill="none" stroke="#5a3a16" stroke-width="1.5"/>
+        <circle cx="8" cy="718" r="4" fill="none" stroke="#5a3a16" stroke-width="1.5"/>
+        <line x1="-8" y1="714" x2="0" y2="710" stroke="#5a3a16" stroke-width="1.2"/>
+        <line x1="0" y1="710" x2="8" y2="714" stroke="#5a3a16" stroke-width="1.2"/>
+        <line x1="0" y1="710" x2="0" y2="720" stroke="#5a3a16" stroke-width="1.2"/>
+        <ellipse cx="0" cy="706" rx="2.5" ry="3" fill="#3a2614"/><!-- rider head -->
+        <rect x="-2" y="708" width="4" height="5" fill="#5a8030"/><!-- rider body -->
+      </g>
+
       <!-- Pedestrians walking on sidewalk (y=712, just above road) -->
       <g class="vlg-person vlg-person-1">
         <ellipse cx="0" cy="708" rx="2" ry="2.5" fill="#3a2614"/>
@@ -1696,6 +1836,30 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
         <rect x="-1.5" y="710" width="3" height="6" fill="#3a5a40"/>
         <line x1="-1" y1="716" x2="-1" y2="720" stroke="#3a2614" stroke-width="1"/>
         <line x1="1" y1="716" x2="1" y2="720" stroke="#3a2614" stroke-width="1"/>
+      </g>
+
+      <!-- Two people chatting near shop entrance -->
+      <g class="vlg-person vlg-person-chat" transform="translate(270,698)" aria-hidden="true">
+        <!-- Person A standing -->
+        <ellipse cx="0" cy="0" rx="2.5" ry="3" fill="#3a2614"/>
+        <rect x="-2" y="3" width="4" height="7" fill="#c9a24e"/>
+        <line x1="-2" y1="10" x2="-3" y2="16" stroke="#3a2614" stroke-width="1.2"/>
+        <line x1="2" y1="10" x2="3" y2="16" stroke="#3a2614" stroke-width="1.2"/>
+        <!-- Person B -->
+        <ellipse cx="12" cy="0" rx="2.5" ry="3" fill="#5a3010"/>
+        <rect x="10" y="3" width="4" height="7" fill="#2a4a38"/>
+        <line x1="10" y1="10" x2="9" y2="16" stroke="#3a2614" stroke-width="1.2"/>
+        <line x1="14" y1="10" x2="15" y2="16" stroke="#3a2614" stroke-width="1.2"/>
+      </g>
+      <!-- Person sitting on bench near villa garden (static) -->
+      <g transform="translate(640,710)" aria-hidden="true">
+        <!-- Bench -->
+        <rect x="-10" y="4" width="22" height="3" fill="#5a3a1e" rx="1"/>
+        <rect x="-8" y="7" width="3" height="6" fill="#5a3a1e"/>
+        <rect x="7" y="7" width="3" height="6" fill="#5a3a1e"/>
+        <!-- Sitting person -->
+        <ellipse cx="2" cy="0" rx="2.5" ry="3" fill="#3a2614"/>
+        <rect x="-2" y="3" width="6" height="4" fill="#a87d2a"/>
       </g>
 
       <!-- ===================================================== -->
@@ -1904,11 +2068,48 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
   50% { opacity: 1; }
 }
 
-/* Traffic — cars driving along the road in both directions */
+/* ===== Cloud drift (day only — fade at night) ===== */
+.vlg-cloud-1 { animation: vlg-cloud-drift 95s linear infinite, vlg-cloud-day 32s ease-in-out infinite; }
+.vlg-cloud-2 { animation: vlg-cloud-drift 120s linear infinite -40s, vlg-cloud-day 32s ease-in-out infinite; }
+.vlg-cloud-3 { animation: vlg-cloud-drift 150s linear infinite -75s, vlg-cloud-day 32s ease-in-out infinite; }
+@keyframes vlg-cloud-drift {
+  from { transform: translateX(-350px); }
+  to   { transform: translateX(500px); }
+}
+@keyframes vlg-cloud-day {
+  0%, 57% { opacity: 1; }
+  70%, 90% { opacity: 0; }
+  100%     { opacity: 1; }
+}
+
+/* ===== Birds flying (day only) ===== */
+.vlg-birds { animation: vlg-birds-fly 24s linear infinite, vlg-birds-day 32s ease-in-out infinite; }
+@keyframes vlg-birds-fly {
+  from { transform: translate(-400px, 0px) scale(0.7); }
+  to   { transform: translate(1900px, -50px) scale(1.1); }
+}
+@keyframes vlg-birds-day {
+  0%, 54% { opacity: 0.7; }
+  68%, 90% { opacity: 0; }
+  100%     { opacity: 0.7; }
+}
+
+/* ===== Moon (dusk/night only) ===== */
+.vlg-moon { animation: vlg-moon-fade 32s ease-in-out infinite; }
+@keyframes vlg-moon-fade {
+  0%, 62% { opacity: 0; }
+  74%, 88% { opacity: 1; }
+  98%, 100% { opacity: 0; }
+}
+
+/* ===== Traffic — cars driving along the road in both directions ===== */
 .vlg-car-r1 { animation: vlg-car-r 14s linear infinite; }
-.vlg-car-r2 { animation: vlg-car-r 19s linear infinite; animation-delay: -7s; }
+.vlg-car-r2 { animation: vlg-car-r 19s linear infinite -7s; }
+.vlg-car-r3 { animation: vlg-car-r 25s linear infinite -11s; } /* delivery van — slower */
+.vlg-car-r4 { animation: vlg-car-r 38s linear infinite -5s; }  /* bicycle — much slower */
 .vlg-car-l1 { animation: vlg-car-l 16s linear infinite; }
-.vlg-car-l2 { animation: vlg-car-l 22s linear infinite; animation-delay: -10s; }
+.vlg-car-l2 { animation: vlg-car-l 22s linear infinite -10s; }
+.vlg-car-l3 { animation: vlg-car-l 18s linear infinite -4s; }  /* motorcycle */
 @keyframes vlg-car-r {
   0%   { transform: translateX(0); }
   100% { transform: translateX(1700px); }
