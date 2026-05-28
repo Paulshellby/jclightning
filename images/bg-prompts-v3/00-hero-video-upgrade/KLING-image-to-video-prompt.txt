@@ -1,67 +1,235 @@
-=== Hero 3D 场景升级为动画视频 ===
+============================================================
+JC Lightning · Hero 3D 场景 → 动画视频 升级 prompt 包 v2
+============================================================
 
-目标：把当前的静态 hero-3d.jpg 升级为 5 秒 MP4/WebM 循环视频
-最接近 FOX ESS 那种动态 3D 效果
+目标：把静态 hero-3d.jpg 变成 5 秒丰富叙事的循环视频
+最接近 FOX ESS + Tesla 官网级别的 B2B 动态展示
 
-========================================
+============================================================
+平台选择（推荐顺序）
+============================================================
 
-平台选择（推荐顺序）：
-1. **Kling AI**（kling.kuaishou.com）—— image-to-video 最强，5 秒约 35 credits
-2. **Runway Gen-3**（runwayml.com）—— 质量好但贵
-3. **Pika 1.5**（pika.art）—— 便宜但质量一般
-4. **Sora**（sora.com）—— 如果你有访问权限
+1. **Kling AI 2.0 (kling.kuaishou.com)** — image-to-video 最强，5秒 ≈35 credits
+2. **Runway Gen-3 Alpha (runwayml.com)** — 质量好但贵
+3. **Pika 2.0 (pika.art)** — 便宜，质量一般
+4. **Hailuo MiniMax (hailuoai.video)** — 国产，免费额度多
+5. **Vidu (vidu.studio)** — 中国版，便宜
 
-========================================
+============================================================
+操作流程
+============================================================
 
-操作步骤：
+1. 进入平台 Image-to-Video 功能
+2. 上传 D:\嘉晨灯饰JC Lightning\网站\images\hero-3d.jpg 作为首帧
+3. 粘贴下方 prompt（任选一版，推荐 V3）
+4. 设置：5 秒 / 16:9 / 高质量 / Motion intensity 中等
+5. 生成 → 下载 MP4
+6. 重命名为 hero-3d.mp4
+7. 放回 D:\嘉晨灯饰JC Lightning\网站\images\hero-3d.mp4
+8. 告诉我 "视频好了"，我升级代码
 
-1. 进入平台的 "Image to Video" 功能
-2. 上传当前的 hero-3d.jpg
-   路径: D:\嘉晨灯饰JC Lightning\网站\images\hero-3d.jpg
-3. 粘贴下面的 prompt
-4. 设置：5 秒 / 16:9 / 高质量
-5. 生成
-6. 下载 MP4 文件，重命名为 hero-3d.mp4
-7. 放回到 D:\嘉晨灯饰JC Lightning\网站\images\hero-3d.mp4
-8. 告诉我 "视频准备好了"，我把代码改成 <video> 背景
+============================================================
+🎬 V1 prompt — 极简版（10 个动态元素）
+============================================================
 
-========================================
+Static cinematic camera, no panning. Premium B2B product showcase coming alive:
 
-完整 Prompt（直接复制粘贴）：
+GOLDEN ENERGY FLOW (主线):
+- Bright pulsing golden energy dots travel along the glowing platform edges, flowing continuously from villa → garden gate → warehouse, and parking → garden gate → pergola
+- Each platform's gold edge breathes with a 3-second pulse rhythm
 
-Static camera, no panning. The isometric 3D scene comes alive:
-- Glowing golden energy lines pulse and flow between the platforms, traveling from villa to garden gate, gate to warehouse, gate to outdoor pergola, and parking to gate
-- Small warm amber lights on each platform softly pulse with a gentle breathing rhythm (3-4 second cycle)
-- The white Tesla on bottom-left platform slowly rolls forward 1-2 meters
-- Subtle ambient golden bokeh particles float gently upward across the entire scene
-- Edison string lights inside the pergola twinkle individually
-- Solar panels on warehouse roof have a faint shimmer reflection sweeping across them once
-- Wall sconces by the garden gate glow brighter then dimmer (breathing)
-- Everything else stays static — buildings, palm trees, structures don't move
-- Soft cinematic lighting, premium Tesla / Apple product video aesthetic
-- Photorealistic, 8K render quality, smooth 30fps motion
-- Seamless loop: end frame matches start frame exactly so the video can loop indefinitely
+VEHICLES:
+- The white Tesla on bottom-left platform slowly rolls forward 1 meter
+- A second smaller dark vehicle appears from off-screen left and drives slowly along the front street, exiting right
 
-========================================
+LIGHTS:
+- Two wall sconces by the garden gate brighten then dim (breathing)
+- Solar panels on warehouse roof have a subtle metallic shimmer sweep across them once
+- Edison string lights inside the pergola twinkle individually, warm amber color
 
-Negative Prompt（如果平台支持）：
+ATMOSPHERE:
+- Gentle golden bokeh particles drift slowly upward across the scene
+- Palm trees sway very subtly from light breeze
 
-shaky camera, zoom, panning, text overlay, watermark, distortion, glitch,
-unrealistic motion, characters appearing, cars driving fast, dramatic camera angles,
-weather changes, day to night transition
+LOOP: end frame matches start frame seamlessly.
 
-========================================
+Cinematic photorealistic, 8K, Tesla product video aesthetic, 30fps smooth.
 
-预算说明：
+============================================================
+🎬 V2 prompt — 标准版（20 个动态元素，推荐）
+============================================================
 
-- Kling AI: 35 credits ≈ $1 (注册送 free credits 可以免费试)
-- Runway Gen-3: 5 credits ≈ $0.50
-- 5 秒视频导出大小约 2-4 MB，加载性能 OK
+Static cinematic camera, no panning. The isometric 3D solar lighting scene comes alive in 5 seconds:
 
-========================================
+⚡ ENERGY FLOW (the storytelling backbone):
+- Bright pulsing GOLDEN energy dots travel continuously along the glowing platform edges
+- Flow direction 1: villa platform → garden gate platform → warehouse platform (upper U-shape)
+- Flow direction 2: parking platform → garden gate platform → pergola platform (lower U-shape)
+- 3-4 dots traveling simultaneously on each path, like data packets
+- Energy lines themselves softly pulse from amber to bright gold
 
-视频上线后效果：
+🚗 VEHICLES (subtle motion):
+- White Tesla SUV on bottom-left platform slowly rolls forward 1 meter then stops
+- Tesla's headlights turn on with soft warm glow at second 2
+- A second dark sedan enters from off-screen left, drives slowly along front road, exits right (3-4 seconds duration)
+- A small motorcycle/scooter zips by quickly across mid-ground
 
-✅ 现在已经做了 CSS+SVG 动画覆盖层（金色流光 + 小车 + 平台呼吸光）
-🎬 升级到视频后：每个细节都真实动起来（特斯拉真实移动、灯光真实闪烁、光流真实流动）
-   FOX ESS 同款效果，B2B 网站天花板水平
+💡 LIGHTING SEQUENCE (motion-activated like real PIR sensors):
+- Wall sconces by the garden gate sequentially light up brighter as if motion-triggered
+- Solar panels on warehouse roof: faint metallic shimmer reflection sweeps across them once
+- Edison string lights inside the pergola twinkle individually in random pattern, warm amber
+- Garden bollard lights along villa pathway pulse in sequence (1→2→3→4) like landing strip
+- Villa interior: one window light turns ON at second 3, second window at second 4
+
+🌿 ATMOSPHERE (background life):
+- Gentle golden bokeh particles drift slowly upward across entire scene
+- Subtle warm haze/depth in distance
+- Palm fronds sway very subtly from light breeze
+- Hedges around garden gate have soft micro-movement
+
+🌅 LIGHTING MOOD:
+- Slight golden-hour intensity shift: scene gets ~5% warmer in middle, returns to start by end
+- Soft cinematic lighting throughout, premium product video aesthetic
+
+📸 CAMERA:
+- Completely static, no zoom, no pan, no rotation
+- Optional very subtle 1-2px camera breathing (organic feel)
+
+🔁 LOOP: First and last frame match exactly so video loops seamlessly forever.
+
+Style: photorealistic 8K, Octane render quality, Tesla/Apple/Bang & Olufsen product video aesthetic, 30fps smooth motion.
+
+============================================================
+🎬 V3 prompt — 满配版（30+ 元素 + 时间轴叙事，最推荐）
+============================================================
+
+This is a 5-second seamless loop. Static cinematic camera. Premium B2B solar lighting showcase.
+
+═══ TIMING NARRATIVE ═══
+
+[0.0s] Scene at rest. Gentle ambient state.
+
+[0.0-1.0s — AWAKENING]
+- Soft golden bokeh particles begin floating upward across entire scene
+- All platform edges start a faint golden glow pulse
+- Slight warm color grading shift begins
+
+[1.0-2.0s — ENERGY ACTIVATES]
+- Bright pulsing golden energy DOTS spawn at villa platform, travel rightward along glowing edges toward garden gate
+- Simultaneously: energy dots spawn at parking platform, travel upward-right toward garden gate
+- Warehouse solar panels shimmer with a single metallic reflection sweep (left-to-right)
+- White Tesla SUV's headlights turn on, casting warm pool of light forward
+- Garden gate wall sconces brighten to full intensity (PIR motion-sensor effect)
+
+[2.0-3.0s — FULL FLOW]
+- Energy dots now flowing on BOTH upper paths: villa→gate→warehouse, parking→gate→pergola
+- 6-8 golden dots traveling simultaneously, evenly spaced like data packets
+- White Tesla slowly rolls forward 1 meter (subtle, realistic)
+- Pergola's Edison string lights begin twinkling individually in random pattern (warm amber)
+- Villa first interior window light turns ON (warm yellow)
+- Bollard path lights along villa garden pulse in sequence 1→2→3→4 like airport runway
+
+[3.0-4.0s — PEAK ACTIVITY]
+- A second dark sedan enters from off-screen left, drives slowly across front road
+- Pergola Edison lights at full twinkle, all bulbs active
+- All platform pulses synchronized at peak brightness
+- Solar panel array on warehouse: second shimmer sweep
+- Villa second window light turns ON
+- A small flock of 3-4 birds silhouettes flies across the upper sky (very subtle)
+
+[4.0-5.0s — SETTLE TO LOOP]
+- Dark sedan continues exiting right edge
+- Tesla rolls back 1 meter to original position (perfect for loop reset)
+- Wall sconces dim back to ambient
+- Villa interior lights fade to original state
+- All elements return to exact start positions for seamless loop
+
+═══ CONTINUOUS ELEMENTS (throughout 5 seconds) ═══
+
+⚡ Golden energy dots: 8 continuous traveling along glowing platform paths
+🌟 Bokeh particles: gentle upward drift, density 20-30 particles visible
+🌬️ Palm trees: very subtle 2-3 frond sway from breeze
+💨 Hedges: micro-movement on edges
+🌫️ Atmospheric haze: warm depth fog in distance
+☀️ Subtle 5% warmth shift in middle of timeline
+
+═══ NEGATIVE / AVOID ═══
+
+NO camera movement (no zoom, no pan, no rotation, no shake)
+NO text appearing
+NO watermarks or logos appearing
+NO cars driving fast (all motion must be slow and premium)
+NO weather changes (no rain, no snow)
+NO day-to-night transition (mood stays consistent)
+NO new buildings appearing or disappearing
+NO unrealistic motion (no flying cars, no morphing)
+NO color casts (stay warm/amber, no blue or green tints)
+NO style change mid-video
+
+═══ LOOP REQUIREMENT (CRITICAL) ═══
+
+First frame and last frame MUST match exactly. Element positions at 5.0s = element positions at 0.0s. This is a continuous loop for a website hero background — visible seams will be noticed.
+
+═══ STYLE ═══
+
+Photorealistic 8K Octane render quality.
+Cinematic 30fps smooth motion.
+Premium product video aesthetic: think Tesla Cybertruck reveal, Apple Watch product page video, Bang & Olufsen showroom, FOX ESS company animation, Rolex luxury video.
+Soft golden-hour lighting throughout.
+Deep professional shadows, shallow depth of field maintained.
+
+============================================================
+🎬 V4 prompt — 极致剧情版（如果支持 7-10 秒）
+============================================================
+
+[第一幕 0-2s — 黎明][第二幕 2-4s — 全活动][第三幕 4-5s — 回归]
+
+完整版前面 V3 全部内容 +
+
+- A child silhouette walks along villa garden path (just shadow, no face)
+- Garage door at warehouse slowly opens to reveal interior light
+- Solar panels physically tilt 5 degrees to track the sun (mechanical tracker effect)
+- Wind turbine appears in far distance, rotating slowly (background depth)
+- A drone with small blinking red light flies overhead in background
+- Drone delivery package being placed at villa doorstep
+- Dog silhouette walking across garden gate platform
+- Smart home Ring doorbell at villa lights up briefly
+- Solar street lamp at warehouse turns ON with warm amber gradient
+
+注意：元素越多 Kling 越可能跑偏，V3 是质量/丰富度最平衡的选择。
+
+============================================================
+💰 预算说明
+============================================================
+
+- Kling 1.5: 35 credits / 5秒 ≈ $1（注册送 free credits）
+- Kling 2.0: 80 credits / 5秒 ≈ $2.5
+- Runway Gen-3: 5 credits / 秒 ≈ $0.5/秒
+- Pika 2.0: 6 credits / 5秒 ≈ $0.3
+- Vidu: 国内免费 4 个/天
+
+视频文件大小：5秒 1080p 约 3-5 MB，加载性能 OK
+
+============================================================
+🎯 推荐操作
+============================================================
+
+第一步：用 Kling 1.5 + V2 prompt 试 1-2 次（便宜）
+第二步：满意 V2 效果就直接用，不满意就上 Kling 2.0 + V3 prompt
+第三步：拿到 5 秒视频 .mp4，告诉我 "视频好了"
+
+============================================================
+📝 升级到视频后我会改什么
+============================================================
+
+代码层面 (HTML):
+- <img class="hero-3d-bg" src="images/hero-3d.jpg"> 改成
+- <video class="hero-3d-bg" autoplay loop muted playsinline poster="images/hero-3d.jpg">
+-   <source src="images/hero-3d.mp4" type="video/mp4">
+- </video>
+
+效果层面：
+- 当前 SVG+CSS 动画覆盖层依然保留（叠在视频上做增强）
+- 视频 5 秒无缝循环
+- poster 用静态图做加载占位（视频还没下载完时显示）
+- 移动端会自动用 poster + 不播放视频（省流量）
