@@ -1232,10 +1232,13 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
   <video class="hero-3d-bg" autoplay loop muted playsinline
          poster="images/hero-3d.jpg?v=2" preload="auto"
          aria-label="JC Lightning solar lighting showcase — villa, EV charging, solar street lamps, garden lights">
-    <source src="images/hero-3d.mp4?v=1" type="video/mp4">
+    <source src="images/hero-3d.mp4?v=2" type="video/mp4">
     <!-- Fallback for browsers without video support: show poster image -->
     <img class="hero-3d-bg" src="images/hero-3d.jpg?v=2" alt="JC Lightning solar lighting showcase" loading="eager" fetchpriority="high"/>
   </video>
+
+  <!-- Cover for Kling AI 3.0 4K watermark (bottom-right corner of video) -->
+  <div class="hero-wm-cover" aria-hidden="true"></div>
 
   <!-- ===== Animated Flow Overlay (energy flow + traveling cars + platform pulse) ===== -->
   <svg class="hero-flow-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -2062,8 +2065,26 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
   object-fit:cover; object-position:center center;
   z-index:1;
 }
-/* Ensure <video> matches <img> behavior */
-video.hero-3d-bg { background:#f5f0eb; }
+/* Video: scaled up slightly to push Kling AI watermark off-screen (anchored top-left) */
+video.hero-3d-bg {
+  background:#f5f0eb;
+  transform: scale(1.09);
+  transform-origin: 0 0;
+}
+
+/* Watermark cover — radial gradient blending bottom-right corner into page bg.
+   Backup in case scale doesn't fully hide it on certain aspect ratios. */
+.hero-wm-cover {
+  position:absolute; bottom:0; right:0;
+  width: clamp(160px, 17vw, 260px);
+  height: clamp(50px, 6vw, 80px);
+  background: radial-gradient(ellipse at bottom right,
+    rgba(245,240,235,0.98) 0%,
+    rgba(245,240,235,0.75) 38%,
+    rgba(245,240,235,0.25) 72%,
+    transparent 100%);
+  z-index:3; pointer-events:none;
+}
 
 /* Mobile: hide video, use static poster image as hero background (saves data) */
 @media (max-width:768px) {
