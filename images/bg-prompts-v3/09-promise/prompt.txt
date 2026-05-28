@@ -1,0 +1,30 @@
+=== 区块用途 ===
+"Importing from 12,000 km away shouldn't be a gamble" 信任承诺区
+4 张玻璃态保证卡片 (specs / photos / docs / after-sale)
+
+=== 目标文件名 ===
+bg-09-promise.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-09-promise.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Warm reassuring abstract background suggesting trust and quality assurance. Deep ink #0e0c0a base, soft warm spotlight pool in center suggesting inspection light examining a product, defocused shipping container metal texture in deep brass-bronze tones on the sides, faint paper document texture overlay at 6% opacity (suggesting certificates and inspection reports), wisps of warm amber atmospheric light, subtle film grain.
+
+Aesthetic: premium logistics company brand photography, BMW quality control inspection scene, Patek Philippe atelier lighting.
+
+Photorealistic premium documentary photography, soft golden-hour warehouse lighting, Phase One medium format, deep professional shadows.
+
+Color palette: 85% deep ink #0e0c0a, 8% warm amber #a87d2a center pool, 5% deep brass-bronze #5a3a16, 2% pale brass #e2c98a highlights. NO bright colors.
+
+Composition: ultra-wide horizontal, soft central light pool, slightly darker corners, perfect 2x2 quadrant safe zones for 4 glass promise cards to be overlaid in grid.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, certificates with actual text, signs, person face, model, busy composition, neon, bright white, colorful, cartoon
+
+=== 备注 ===
+重点：温暖可信 + 中心光池 + 适合 2x2 卡片网格
+有质检/文件感（但不要真的有可读文字）

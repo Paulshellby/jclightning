@@ -1,0 +1,67 @@
+=== Hero 3D 场景升级为动画视频 ===
+
+目标：把当前的静态 hero-3d.jpg 升级为 5 秒 MP4/WebM 循环视频
+最接近 FOX ESS 那种动态 3D 效果
+
+========================================
+
+平台选择（推荐顺序）：
+1. **Kling AI**（kling.kuaishou.com）—— image-to-video 最强，5 秒约 35 credits
+2. **Runway Gen-3**（runwayml.com）—— 质量好但贵
+3. **Pika 1.5**（pika.art）—— 便宜但质量一般
+4. **Sora**（sora.com）—— 如果你有访问权限
+
+========================================
+
+操作步骤：
+
+1. 进入平台的 "Image to Video" 功能
+2. 上传当前的 hero-3d.jpg
+   路径: D:\嘉晨灯饰JC Lightning\网站\images\hero-3d.jpg
+3. 粘贴下面的 prompt
+4. 设置：5 秒 / 16:9 / 高质量
+5. 生成
+6. 下载 MP4 文件，重命名为 hero-3d.mp4
+7. 放回到 D:\嘉晨灯饰JC Lightning\网站\images\hero-3d.mp4
+8. 告诉我 "视频准备好了"，我把代码改成 <video> 背景
+
+========================================
+
+完整 Prompt（直接复制粘贴）：
+
+Static camera, no panning. The isometric 3D scene comes alive:
+- Glowing golden energy lines pulse and flow between the platforms, traveling from villa to garden gate, gate to warehouse, gate to outdoor pergola, and parking to gate
+- Small warm amber lights on each platform softly pulse with a gentle breathing rhythm (3-4 second cycle)
+- The white Tesla on bottom-left platform slowly rolls forward 1-2 meters
+- Subtle ambient golden bokeh particles float gently upward across the entire scene
+- Edison string lights inside the pergola twinkle individually
+- Solar panels on warehouse roof have a faint shimmer reflection sweeping across them once
+- Wall sconces by the garden gate glow brighter then dimmer (breathing)
+- Everything else stays static — buildings, palm trees, structures don't move
+- Soft cinematic lighting, premium Tesla / Apple product video aesthetic
+- Photorealistic, 8K render quality, smooth 30fps motion
+- Seamless loop: end frame matches start frame exactly so the video can loop indefinitely
+
+========================================
+
+Negative Prompt（如果平台支持）：
+
+shaky camera, zoom, panning, text overlay, watermark, distortion, glitch,
+unrealistic motion, characters appearing, cars driving fast, dramatic camera angles,
+weather changes, day to night transition
+
+========================================
+
+预算说明：
+
+- Kling AI: 35 credits ≈ $1 (注册送 free credits 可以免费试)
+- Runway Gen-3: 5 credits ≈ $0.50
+- 5 秒视频导出大小约 2-4 MB，加载性能 OK
+
+========================================
+
+视频上线后效果：
+
+✅ 现在已经做了 CSS+SVG 动画覆盖层（金色流光 + 小车 + 平台呼吸光）
+🎬 升级到视频后：每个细节都真实动起来（特斯拉真实移动、灯光真实闪烁、光流真实流动）
+   FOX ESS 同款效果，B2B 网站天花板水平

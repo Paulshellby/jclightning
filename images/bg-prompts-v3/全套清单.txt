@@ -1,0 +1,51 @@
+JC Lightning 网站背景图 14 张生成清单
+========================================
+
+操作流程：
+1. 进入每个 0X-xxx 文件夹
+2. 打开 prompt.txt 复制完整 prompt（含 negative prompt）
+3. 粘到 Leonardo.AI 提示词框
+4. 设置：Fast 模式 + 16:9 Small + 4 张
+5. 出 4 张挑最满意的下载
+6. 下载文件重命名为 prompt.txt 里指定的 "目标文件名"
+7. 放回到 D:\嘉晨灯饰JC Lightning\网站\images\ 根目录
+8. 14 张全部完成后告诉我，我帮你逐个上线
+
+========================================
+
+清单（按制作优先级排序）：
+
+【优先级 ★★★ 必须做的（用户最常看到）】
+□ 01-brand-quote/    → bg-01-brand-quote.jpg     "电网失灵"引言区
+□ 02-categories/     → bg-02-categories.jpg      "Five Solar Ranges"
+□ 03-products/       → bg-03-products.jpg        "Every Light"目录
+□ 06-numbers/        → bg-06-numbers.jpg         数据展示
+□ 13-contact/        → bg-13-contact.jpg         联系表单
+
+【优先级 ★★ 重要（提升整体观感）】
+□ 05-factory/        → bg-05-factory.jpg         工厂叙事
+□ 07-global-map/     → bg-07-global-map.jpg      世界地图底
+□ 08-why-choose-us/  → bg-08-why-choose-us.jpg   "Why Choose Us"
+□ 09-promise/        → bg-09-promise.jpg         信任承诺
+□ 10-testimonials/   → bg-10-testimonials.jpg    客户证言
+
+【优先级 ★ 锦上添花】
+□ 04-scenarios/      → bg-04-scenarios.jpg       应用场景
+□ 11-faq/            → bg-11-faq.jpg             FAQ 区
+□ 12-matchmaker/     → bg-12-matchmaker.jpg      选灯向导
+□ 14-footer/         → bg-14-footer.jpg          页脚
+
+========================================
+
+预计 token 消耗（按 Leonardo Fast 模式，4 张/次）：
+- 单次 Fast + Small + 4 张 ≈ 15-25 tokens
+- 14 张全做 ≈ 210-350 tokens
+- 升 $12/月会员（10000 tokens）一次性出完绰绰有余
+
+========================================
+
+后续操作（你做完之后）：
+1. 把 14 张图都放到 images/ 根目录
+2. 给我列表确认（"X 张图都准备好了"）
+3. 我会用 git 一次性推送 + 修改 HTML 启用所有背景图
+4. 1-2 分钟后全部上线

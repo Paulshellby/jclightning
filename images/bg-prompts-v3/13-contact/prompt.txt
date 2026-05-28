@@ -1,0 +1,32 @@
+=== 区块用途 ===
+"Get In Touch — Tell us your market" 联系表单区
+左侧文字说明 + 右侧 Formspree 表单
+
+=== 目标文件名 ===
+bg-13-contact.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-13-contact.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Clean professional abstract background for a B2B contact form section. Very light cream #f7f3ec base 88% of image, very subtle warm amber gradient sweeping from upper-left to lower-right, faint brushed aluminum sheen texture across center at 6% opacity, tiny scattered brass particles like office sunlight dust, gentle soft shadow at bottom suggesting depth, premium minimal feel.
+
+Aesthetic: Apple support page, Stripe contact page, Linear documentation page — clean B2B professional.
+
+NO objects, NO logos, NO recognizable shapes.
+
+Photorealistic studio softbox lighting, ultra-clean editorial photography style.
+
+Color palette: 92% cream #f7f3ec, 5% pale brass #e2c98a, 2% warm brass shadow #a87d2a, 1% deep accent. NO dark blacks, NO bright primaries.
+
+Composition: ultra-wide horizontal, gentle diagonal flow, perfectly clean two-column safe zones (left for text, right for form fields), no focal point, even balance.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, signs, dark, black, neon, colorful, busy, person, building, product, form fields, input boxes, cartoon
+
+=== 备注 ===
+重点：浅色 + 极简 + 两栏构图（左文字右表单）
+不要有任何具象元素（表单字段会在上层）

@@ -1,0 +1,29 @@
+=== 区块用途 ===
+"Trusted across 30+ markets" 世界地图区
+上面叠 SVG 世界地图 + 国家 pin
+
+=== 目标文件名 ===
+bg-07-global-map.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-07-global-map.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Ultra-dark cosmic abstract background for a global presence world map section. Deep space ink black #0e0c0a base, very subtle starfield with tiny pinpoint stars scattered across upper half, faint brass-gold orbital arc lines #a87d2a sweeping across the canvas at 8% opacity suggesting global trade routes, atmospheric haze with hint of warm amber emanating from one focal point (representing Shenzhen HQ position roughly 80% from left), subtle latitude/longitude grid in deep brass #5a3a16 at 4% opacity, soft volumetric glow.
+
+Aesthetic: NASA Earth observatory imagery, Bloomberg geopolitical dashboard, Tesla global delivery map background.
+
+Color palette: 92% pure ink #0e0c0a, 5% deep brass grid #5a3a16, 2% warm brass arcs #a87d2a, 1% pale brass starlight #fde9b9. NO blues, NO greens.
+
+Composition: ultra-wide horizontal, slight darker corners (vignette), focal warm glow positioned at upper-right third (where Shenzhen would be on a Mercator projection map), perfectly clean background for SVG world map overlay.
+
+=== Negative Prompt ===
+
+text, watermark, logo, country names, words, letters, signs, actual continents, land masses, geographic shapes, bright, blue oceans, green land, neon, colorful, cartoon, illustration, satellite photo
+
+=== 备注 ===
+重点：不要画地球/大洲（SVG 地图会叠在上面）
+只要纯空间感 + 金色光晕 + 经纬网格
+焦点光晕在右上（深圳位置）

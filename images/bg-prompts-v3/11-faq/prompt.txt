@@ -1,0 +1,32 @@
+=== 区块用途 ===
+"Frequently Asked Questions" FAQ 折叠区
+深色背景 + 6 条 Q&A 折叠条
+
+=== 目标文件名 ===
+bg-11-faq.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-11-faq.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Subtle tech-forward abstract background for an FAQ section. Very dark ink #0e0c0a base, faint geometric circuit-board pattern in deep brass #5a3a16 at 4% opacity (suggesting precision engineering), single soft brass radial glow from upper-right corner #a87d2a like a thinking-spotlight, scattered tiny floating particles, smooth gradient darkening toward edges, atmospheric depth.
+
+NO distinct objects, NO icons, NO question marks.
+
+Aesthetic: premium SaaS dashboard background, Anthropic / OpenAI documentation backdrop, Tesla manual page.
+
+Photorealistic ultra-clean Octane render, professional dark UI design.
+
+Color palette: 92% ink #0e0c0a, 5% deep brass circuit #5a3a16, 2% warm brass glow #a87d2a, 1% pale amber accent. Strictly NO bright colors.
+
+Composition: ultra-wide horizontal, soft asymmetric light from upper-right corner, left side and lower 2/3 perfectly clean for stacked FAQ question rows, gentle vignette.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, signs, question marks, icons, bright, white, neon, blue glow, green, person, busy composition, cartoon
+
+=== 备注 ===
+重点：技术感 + 大量留白给 FAQ 折叠条
+右上一束光做装饰即可

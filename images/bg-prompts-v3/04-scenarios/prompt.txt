@@ -1,0 +1,30 @@
+=== 区块用途 ===
+"Solutions by Scenario" 应用场景区
+展示太阳能灯在不同行业的应用（住宅/商业/市政/酒店）
+
+=== 目标文件名 ===
+bg-04-scenarios.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-04-scenarios.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Wide cinematic photograph blending four solar lighting application scenes in a single softly-blurred panoramic landscape — abstract montage suggesting: residential villa at dusk with warm window glow (left third), commercial warehouse with rooftop solar array silhouette (mid-left), hotel garden with golden bollard lights along a path (mid-right), municipal street with tall solar street lamps (right third).
+
+All scenes desaturated to 30%, blended through soft cross-fade transitions, golden hour amber lighting throughout, very shallow depth of field creating dreamy bokeh on all background elements.
+
+Photorealistic photographic montage, National Geographic editorial style, shot on 85mm anamorphic lens, painterly atmospheric compression.
+
+Color palette: warm amber #c9a24e dominant across the whole image, deep shadow ink #0e0c0a in transitions, muted brown #5a3a16 mid-tones. NO bright colors, NO neon.
+
+Composition: horizontal panoramic flow left-to-right, slightly darker top and bottom (vignette) for text overlay safety, hazy unified atmosphere.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, signs, sharp foreground objects, faces, busy composition, modern people, cars, cartoon, illustration, neon
+
+=== 备注 ===
+重点：4 个应用场景柔焦融合，整体暖金色调
+不需要清晰可见的产品，只要"灯具应用感"

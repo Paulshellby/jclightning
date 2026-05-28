@@ -1,0 +1,31 @@
+=== 区块用途 ===
+"Every Light. Every Spec." 完整产品目录区
+深色背景，下面是 30 款产品卡片大网格
+
+=== 目标文件名 ===
+bg-03-products.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-03-products.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536) — 区块很高，重复 tile 即可
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Dark industrial-tech abstract background for a solar lighting product catalog. Very dark ink #0e0c0a base, subtle dark blueprint grid pattern in deep brass #5a3a16 at 5% opacity covering entire image, ambient warm light glow emanating from upper-right corner suggesting workshop overhead light, faint bokeh particles like floating dust catching brass light #a87d2a, hint of brushed dark aluminum texture across surface.
+
+Atmosphere: premium engineering workshop after hours, professional product photography backdrop.
+
+NO distinct objects, NO logos, NO text, NO recognizable shapes.
+
+Photorealistic ultra-detail, cinematic Octane render, soft top lighting, deep shadows.
+
+Color palette: 90% deep ink #0e0c0a, 6% dark brass #5a3a16, 3% warm brass glow #a87d2a, 1% ambient amber. Strictly NO other colors.
+
+Composition: ultra-clean texture, perfectly tileable, no focal point, designed as backdrop for foreground product cards arranged in grid.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, signs, light, bright, white, person, product, building, busy composition, neon, colorful, cartoon, blurry, oversaturated
+
+=== 备注 ===
+重点：深黑底 + 工程感 + 不要任何具象物（产品卡片要清楚显示）

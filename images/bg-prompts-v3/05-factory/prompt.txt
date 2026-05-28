@@ -1,0 +1,32 @@
+=== 区块用途 ===
+"Built for markets where ordinary lighting gives up" 工厂叙事区
+体现 JC Lightning 的制造能力、品质把控
+
+=== 目标文件名 ===
+bg-05-factory.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-05-factory.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Wide cinematic photograph of a modern Chinese precision manufacturing facility for solar lighting — clean white industrial workshop interior with skylights, rows of CNC machines, brushed aluminum LED housings being assembled on stainless steel benches, soft natural light streaming from overhead skylights creating gentle shafts, defocused blue solar panel rooftop visible through far window, workers in dark grey uniforms (silhouettes only, no faces).
+
+Foreground: extreme bokeh on a precision aluminum LED housing being inspected.
+Mid-ground: organized assembly line with workshop tools.
+Background: clean white wall, faint subtle JC brass-gold accent stripe.
+
+Photorealistic premium industrial photography, Tesla Gigafactory aesthetic, BMW factory photography style, shot on Phase One 80mm f/2.8, soft golden hour through skylight, deep professional shadows.
+
+Color palette: brushed aluminum silver, deep charcoal #2a2520, warm amber from work lights #c9a24e, hint of muted brass #a87d2a. Mostly desaturated, professional.
+
+Composition: ultra-wide horizontal, depth from foreground to background, slight motion blur on machinery suggesting precision in action, lots of negative space upper-left for headline text.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, signs, person face, smile, model, oversaturated, neon, dirty, cluttered, low-tech, vintage, cartoon, illustration
+
+=== 备注 ===
+重点：现代化精密制造感 + 没有人脸（避免出戏）
+左上要留白给"Built for markets where..."标题

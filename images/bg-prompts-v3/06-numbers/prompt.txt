@@ -1,0 +1,30 @@
+=== 区块用途 ===
+30+ Markets / 4 Continents / 2,000+ LiFePO4 Cycles
+超大数字数据展示区，戏剧化深色背景
+
+=== 目标文件名 ===
+bg-06-numbers.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-06-numbers.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Dramatic ultra-dark abstract background for a B2B statistics counter section. Pitch black ink #0e0c0a base 95% of the image, dramatic warm brass radial light source emanating from center casting subtle golden halo #a87d2a fading to black, faint horizontal data-line grid pattern (1px lines every 40px) in deep brass #5a3a16 at 6% opacity, scattered tiny golden bokeh particles like floating embers, atmospheric volumetric haze in lower third.
+
+Cinematic Octane render style, premium financial dashboard aesthetic, Bloomberg terminal nighttime feel, ultra-detailed.
+
+Aesthetic: Tesla quarterly report cover, FOX ESS company dashboard, premium HUD interface.
+
+Color palette: pure ink #0e0c0a (90%), warm brass glow #a87d2a (8%), pale brass #fde9b9 highlights only at center (2%). Strictly NO blue, NO green, NO white.
+
+Composition: perfectly centered radial composition, three equal vertical zones (for three giant stat numbers to be placed on top), gradient darker at edges (vignette), extreme negative space upper and lower thirds.
+
+=== Negative Prompt ===
+
+text, watermark, logo, numbers, words, letters, signs, person, building, bright, colorful, neon, blue, green, white, busy composition, cluttered, cartoon
+
+=== 备注 ===
+重点：超暗 + 中心金色光晕 + 三栏构图（数字往上叠）
+不能有任何数字/文字（否则和我们的真实数字冲突）

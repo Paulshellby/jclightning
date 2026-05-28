@@ -1,0 +1,30 @@
+=== 区块用途 ===
+"What buyers say about working with us" 客户证言区
+4 张玻璃态证言卡（哥伦比亚/南非/西班牙/澳大利亚等）
+
+=== 目标文件名 ===
+bg-10-testimonials.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-10-testimonials.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Warm human-centered abstract background for customer testimonials. Deep ink black #0e0c0a base, soft warm sunset-amber gradient sweeping diagonally across image suggesting different geographic time zones, defocused silhouettes of architectural skylines from multiple continents blended into hazy bokeh background (resembling layered city horizons but completely abstract), scattered tiny warm light points like distant city lights, atmospheric haze with film grain.
+
+Aesthetic: international airline brand photography, premium travel magazine spread, BMW global campaign visual.
+
+Photorealistic cinematic composition, golden hour worldwide montage, shot on anamorphic 50mm f/2, soft warm grading, deep professional shadows.
+
+Color palette: 85% deep ink #0e0c0a, 8% warm amber sunset #c9a24e, 5% deep brass shadow #5a3a16, 2% pale brass starlight #e2c98a. NO blue, NO green, NO white.
+
+Composition: ultra-wide horizontal panoramic, diagonal soft gradient from upper-right to lower-left, slightly darker corners (vignette), perfect 4-column safe zone in center for testimonial glass cards.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, signs, person face, recognizable buildings, country flags, neon, bright white, colorful, cartoon, illustration
+
+=== 备注 ===
+重点：4 大洲客户感 + 抽象城市轮廓 + 暖色
+适合 4 卡片横排

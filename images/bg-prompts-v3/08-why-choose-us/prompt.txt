@@ -1,0 +1,30 @@
+=== 区块用途 ===
+"Why Choose Us — The difference is in the details" 4 张玻璃态卡片区
+深色背景 + 玻璃毛玻璃卡片在上
+
+=== 目标文件名 ===
+bg-08-why-choose-us.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-08-why-choose-us.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Elegant dark abstract background suggesting craftsmanship and precision. Deep ink black #0e0c0a base, extreme close-up macro defocused photograph of premium brushed aluminum surface with brass-gold light reflections, soft amber halo emanating from upper-left corner like a workshop spotlight, faint geometric blueprint lines in deep brass at 5% opacity overlay, hint of glass surface refraction with subtle prismatic light, atmospheric depth with floating dust motes.
+
+Aesthetic: Apple Pro product page backdrop, B&O speaker macro shot, Rolex watch material close-up.
+
+Photorealistic ultra-detailed macro photography, shot on 100mm macro f/2.8, soft cinematic lighting, deep professional shadows, premium tactile feel.
+
+Color palette: 88% deep ink #0e0c0a, 6% brushed aluminum charcoal #2a2520, 4% warm brass glow #a87d2a, 2% pale brass highlight #fde9b9. Strictly NO other colors.
+
+Composition: ultra-wide horizontal, asymmetric soft light from upper-left, vast smooth area in center-right for 4 glass cards to be overlaid, gentle vignette edges.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, signs, person, face, product, recognizable objects, busy composition, neon, bright, white, colorful, cartoon, illustration
+
+=== 备注 ===
+重点：超精致质感 + 大量负空间放 4 张玻璃卡片
+左上一束暖光做光源即可

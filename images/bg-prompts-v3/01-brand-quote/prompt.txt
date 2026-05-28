@@ -1,0 +1,31 @@
+=== 区块用途 ===
+"The grid is failing markets across Africa, Latin America, Oceania" 引言区
+深色背景，文字居中显示金色衬线引言
+
+=== 目标文件名 ===
+bg-01-brand-quote.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-01-brand-quote.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Cinematic photograph, ultra-wide aerial perspective of an African or Latin American city at night during a blackout — silhouettes of buildings against deep indigo sky, only a few isolated windows glowing warm amber, scattered solar lights dotting the dark cityscape like fireflies, moody atmospheric haze.
+
+Foreground: extreme bokeh, suggesting fragility of grid power.
+Mid-ground: dim outline of residential rooftops, water towers, transmission line silhouettes.
+Background: distant horizon glow.
+
+Photorealistic, B2B premium documentary aesthetic, National Geographic style, shot on Hasselblad 50mm f/1.4, long exposure, soft cinematic grading.
+
+Color palette: deep ink black #0e0c0a, indigo navy, warm brass amber accents #c9a24e from scattered lights, no other colors.
+
+Composition: ultra-wide, lots of negative space for text overlay in center, vignette edges, subtle film grain.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, signs, low-quality, cartoon, illustration, anime, oversaturated, neon, busy composition, person faces, blurry, fake HDR
+
+=== 备注 ===
+重点：暗色 + 中心大量留白给文字 + 暖金光点（呼应"solar lighting is the answer"）

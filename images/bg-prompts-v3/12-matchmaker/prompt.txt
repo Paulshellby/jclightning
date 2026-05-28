@@ -1,0 +1,30 @@
+=== 区块用途 ===
+"Find Your Light" 互动选灯向导区
+4 个选项卡片 → 推荐对应产品
+
+=== 目标文件名 ===
+bg-12-matchmaker.jpg
+最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-12-matchmaker.jpg
+
+=== 推荐尺寸 ===
+16:9 Small (2752×1536)
+
+=== 完整 Prompt（直接复制粘贴）===
+
+Warm inviting abstract background for an interactive product finder. Dark warm-brown ink #1a1410 base, gentle radial glow in center suggesting a stage spotlight on the user's choice, subtle premium fabric texture overlay at 5% opacity (suggesting luxury showroom carpet), defocused multiple warm light fixtures of various types blurred into bokeh in deep background (suggesting variety of lighting options), atmospheric haze, soft cinematic depth.
+
+Aesthetic: B&O showroom, Tesla configurator background, Louis Poulsen brand experience page.
+
+Photorealistic showroom photography, golden hour interior lighting, shot on 35mm f/1.8, soft amber grading.
+
+Color palette: 78% deep warm ink #1a1410, 12% warm amber bokeh #c9a24e, 6% brass shadows #5a3a16, 4% pale brass highlights #e2c98a. NO bright cold colors.
+
+Composition: ultra-wide horizontal, soft central spotlight (where wizard CTA goes), even balanced bokeh on sides, vignette edges, dramatic depth.
+
+=== Negative Prompt ===
+
+text, watermark, logo, words, letters, signs, recognizable light products, person, faces, busy composition, neon, white, blue, green, cartoon
+
+=== 备注 ===
+重点：showroom 感 + 中心聚光（突出互动 CTA）
+背景虚化的多种灯具感（不要清晰可识别）
