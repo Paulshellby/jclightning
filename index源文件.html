@@ -540,12 +540,17 @@ h2 em { font-style:italic; color:var(--brass); }
   z-index:1; pointer-events:none;
 }
 
-/* SVG continents layer on top of video — semi-transparent so video shows through */
+/* SVG continents layer on top of video — minimal so video shows clearly */
 .global-map-wrap .global-map {
   position:relative; z-index:2;
-  opacity:0.55;
-  mix-blend-mode:screen;
+  opacity:0.22;
+  pointer-events:none;
 }
+/* Hide SVG arcs/grid (video already provides them, prevents visual clutter) */
+.global-map-wrap .global-map .gl-arcs,
+.global-map-wrap .global-map .gl-grid,
+.global-map-wrap .global-map .gl-hud,
+.global-map-wrap .global-map .gl-scanline { display:none; }
 
 /* Country pin labels reveal sequence — synchronized with video pulse waves */
 .global-map-wrap .map-pin {
@@ -1351,7 +1356,7 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
 <section class="hero hero-village" id="hero">
   <!-- ===== 3D Hero Background Video (with image poster fallback) ===== -->
   <video class="hero-3d-bg" autoplay loop muted playsinline
-         poster="images/hero-3d.jpg?v=2" preload="auto"
+         poster="images/hero-3d.jpg?v=2" preload="metadata"
          aria-label="JC Lightning solar lighting showcase — villa, EV charging, solar street lamps, garden lights">
     <source src="images/hero-3d.mp4?v=2" type="video/mp4">
     <!-- Fallback for browsers without video support: show poster image -->
@@ -2199,6 +2204,9 @@ video.hero-3d-bg {
   transform: scale(1.09);
   transform-origin: 0 0;
 }
+
+/* ===== HERO PERF: Hide SVG animation overlay when video plays (saves GPU) ===== */
+.hero-village:has(video.hero-3d-bg) .hero-flow-svg { display:none; }
 
 /* ===== Hero floating eyebrow (small tag inside hero, doesn't block scene) ===== */
 .hero-eyebrow-float {
@@ -4865,6 +4873,23 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove(
       card.style.boxShadow = '';
     });
   });
+})();
+
+// ===== Performance: Pause videos when off-screen (HUGE perf gain) =====
+(function(){
+  const videos = document.querySelectorAll('video.hero-3d-bg, video.global-map-video');
+  if(!videos.length || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      const v = e.target;
+      if(e.isIntersecting){
+        if(v.paused) v.play().catch(()=>{});
+      } else {
+        if(!v.paused) v.pause();
+      }
+    });
+  }, { threshold: 0.1 });
+  videos.forEach(v=>io.observe(v));
 })();
 
 // FAQ 展开折叠
