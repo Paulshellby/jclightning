@@ -1228,8 +1228,14 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
 </div>
 
 <section class="hero hero-village" id="hero">
-  <!-- ===== 3D Hero Background Image ===== -->
-  <img class="hero-3d-bg" src="images/hero-3d.jpg?v=2" alt="JC Lightning solar lighting showcase — villa, EV charging, solar street lamps, garden lights" loading="eager" fetchpriority="high"/>
+  <!-- ===== 3D Hero Background Video (with image poster fallback) ===== -->
+  <video class="hero-3d-bg" autoplay loop muted playsinline
+         poster="images/hero-3d.jpg?v=2" preload="auto"
+         aria-label="JC Lightning solar lighting showcase — villa, EV charging, solar street lamps, garden lights">
+    <source src="images/hero-3d.mp4?v=1" type="video/mp4">
+    <!-- Fallback for browsers without video support: show poster image -->
+    <img class="hero-3d-bg" src="images/hero-3d.jpg?v=2" alt="JC Lightning solar lighting showcase" loading="eager" fetchpriority="high"/>
+  </video>
 
   <!-- ===== Animated Flow Overlay (energy flow + traveling cars + platform pulse) ===== -->
   <svg class="hero-flow-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -2050,11 +2056,21 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
    Activated automatically when <picture>.hero-3d-bg is present.
    =================================================================== */
 
-/* Image covers the full hero section */
+/* Video/Image covers the full hero section */
 .hero-3d-bg {
   position:absolute; inset:0; width:100%; height:100%;
   object-fit:cover; object-position:center center;
   z-index:1;
+}
+/* Ensure <video> matches <img> behavior */
+video.hero-3d-bg { background:#f5f0eb; }
+
+/* Mobile: hide video, use static poster image as hero background (saves data) */
+@media (max-width:768px) {
+  video.hero-3d-bg { display:none; }
+  .hero-village {
+    background: #f5f0eb url('images/hero-3d.jpg?v=2') center/cover no-repeat;
+  }
 }
 
 /* === Animated Flow SVG Overlay === */
