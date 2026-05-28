@@ -1289,6 +1289,13 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
           <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.55"/>
           <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
         </radialGradient>
+        <!-- Clip mask — cars/pedestrians are invisible inside shop & EV footprints -->
+        <clipPath id="vlg-traffic-mask" clipPathUnits="userSpaceOnUse">
+          <path d="M 0,0 H 1600 V 900 H 0 Z
+                   M 100,640 L 220,580 L 360,640 L 360,790 L 240,850 L 100,790 Z
+                   M 1280,560 L 1430,500 L 1580,560 L 1580,820 L 1280,820 Z"
+                fill-rule="evenodd"/>
+        </clipPath>
         <!-- Solar panel pattern -->
         <pattern id="vlg-solar" x="0" y="0" width="20" height="14" patternUnits="userSpaceOnUse">
           <rect width="20" height="14" fill="#1c3a62"/>
@@ -1535,9 +1542,11 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
       </g>
 
       <!-- ===================================================== -->
-      <!-- TRAFFIC + PEDESTRIANS — rendered here so Shop/EV     -->
-      <!-- building faces occlude vehicles correctly            -->
+      <!-- TRAFFIC + PEDESTRIANS — wrapped in clipPath so they  -->
+      <!-- vanish into Shop/EV footprints (no clipping artifact)-->
       <!-- ===================================================== -->
+
+      <g clip-path="url(#vlg-traffic-mask)">
 
       <!-- Cars going RIGHT (lane 1, y=735) -->
       <g class="vlg-car vlg-car-r1">
@@ -1641,6 +1650,8 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
         <ellipse cx="2" cy="0" rx="2.5" ry="3" fill="#3a2614"/>
         <rect x="-2" y="3" width="6" height="4" fill="#a87d2a"/>
       </g>
+
+      </g><!-- /clip-path traffic group -->
 
       <!-- ============ BUILDING 4 — Convenience Shop (front-left) ============ -->
       <g class="vlg-bldg" data-bldg="shop">
