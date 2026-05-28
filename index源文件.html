@@ -2165,20 +2165,33 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
 
 </section>
 
-<!-- ===== Hero Headline Section (moved out of hero so 3D scene stays fully visible) ===== -->
-<section class="hero-headline" id="hero-headline">
-  <div class="hh-grid reveal">
-    <div class="hh-left">
+<!-- ===== MANIFESTO (merged: hero-headline + brand quote)
+       One coherent narrative: Problem → Promise → Evidence → Action → Authority
+==================================================================== -->
+<section class="manifesto" id="manifesto">
+  <!-- Epigraph quote: the PROBLEM -->
+  <p class="man-quote reveal" data-i18n="brand_q">"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn't an upgrade — it's the answer."</span></p>
+
+  <div class="man-rule"></div>
+
+  <!-- Main headline + description (two-column editorial) -->
+  <div class="man-grid reveal">
+    <div class="man-left">
       <h1 data-i18n="hero_h1">Light that works<br>when the power<br><em>doesn't.</em></h1>
     </div>
-    <div class="hh-right">
-      <p class="hero-sub" data-i18n="hero_sub">Colombia faces a projected 3,100 GWh energy deficit by 2027. Ecuador already suffers cuts of up to 10 hours a day. South Africa averages 6–8 hours of load-shedding daily. Solar security, garden, decorative, home and portable lighting — built so your clients never go dark.</p>
+    <div class="man-right">
+      <p class="man-sub" data-i18n="hero_sub">Colombia faces a projected 3,100 GWh energy deficit by 2027. Ecuador already suffers cuts of up to 10 hours a day. South Africa averages 6–8 hours of load-shedding daily. Solar security, garden, decorative, home and portable lighting — built so your clients never go dark.</p>
       <div class="hero-btns">
         <a href="#contact" class="btn-fill" data-i18n="hero_cta1">Request a Quote</a>
         <a href="#categories" class="btn-text" data-i18n="hero_cta2">View Products →</a>
       </div>
     </div>
   </div>
+
+  <div class="man-rule"></div>
+
+  <!-- Authority paragraph: WHAT WE DO -->
+  <p class="man-body reveal" data-i18n="brand_b">JC Lightning supplies outdoor solar lighting to distributors, installers, and project contractors in markets where reliable grid power cannot be assumed. Five solar ranges — Security &amp; Street, Garden &amp; Landscape, Decorative &amp; Ambiance, Off-Grid &amp; Portable — plus an AC Commercial line for mains-powered industrial sites, all engineered with cast aluminium housings, LiFePO4 batteries, and IP65 seals for sustained operation in high-heat, high-UV environments. CE certified. OEM and ODM available.</p>
 </section>
 
 <style>
@@ -2231,36 +2244,68 @@ video.hero-3d-bg {
   .hero-eyebrow-float { top:80px; font-size:0.6rem; padding:6px 12px; letter-spacing:0.16em; white-space:normal; max-width:88%; text-align:center; line-height:1.4; }
 }
 
-/* ===== Hero Headline Section (NEW — text moved here, hero stays pure 3D) ===== */
-.hero-headline {
-  background: linear-gradient(180deg, #0a0806 0%, #14110e 60%, #0a0806 100%);
+/* ===== MANIFESTO SECTION (merged hero-headline + brand quote) ===== */
+.manifesto {
+  background: linear-gradient(180deg, #0a0806 0%, #14110e 50%, #0a0806 100%);
   padding: 120px 56px;
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
-.hero-headline::before {
+.manifesto::before {
   content:''; position:absolute; top:-15%; left:-8%;
-  width:55%; height:130%;
-  background: radial-gradient(ellipse, rgba(201,162,78,0.08) 0%, transparent 60%);
+  width:50%; height:130%;
+  background: radial-gradient(ellipse, rgba(201,162,78,0.07) 0%, transparent 60%);
   pointer-events:none;
 }
-.hero-headline::after {
+.manifesto::after {
   content:''; position:absolute; bottom:-15%; right:-8%;
-  width:55%; height:130%;
+  width:50%; height:130%;
   background: radial-gradient(ellipse, rgba(168,125,42,0.05) 0%, transparent 60%);
   pointer-events:none;
 }
-.hh-grid {
+
+/* Top epigraph quote */
+.man-quote {
+  font-family:'Playfair Display',serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+  font-weight:400;
+  font-style:italic;
+  color:var(--chalk-w);
+  line-height:1.4;
+  max-width:1100px;
+  margin:0 auto;
+  letter-spacing:-0.01em;
+  position:relative;
+  z-index:1;
+}
+.man-quote span {
+  color:#f5e2b0;
+  display:inline-block;
+  margin-top:6px;
+}
+
+/* Brass divider */
+.man-rule {
+  width:80px; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass-lt), transparent);
+  margin:48px auto;
+  position:relative; z-index:1;
+}
+
+/* Middle headline + description grid (editorial 2-col) */
+.man-grid {
   display:grid;
   grid-template-columns: 1.15fr 1fr;
   gap:80px;
   max-width:1400px;
   margin:0 auto;
   align-items:center;
+  text-align:left;
   position:relative;
   z-index:1;
 }
-.hh-left h1 {
+.man-left h1 {
   font-family:'Playfair Display',serif;
   font-size: clamp(2.8rem, 5.2vw, 5.2rem);
   font-weight:400;
@@ -2270,30 +2315,47 @@ video.hero-3d-bg {
   margin:0;
   text-shadow:0 2px 6px rgba(0,0,0,0.5);
 }
-.hh-left h1 em {
+.man-left h1 em {
   color:#f5e2b0;
   font-style:italic;
   text-shadow:0 0 2px var(--brass), 0 4px 14px rgba(0,0,0,0.5);
 }
-.hh-right {
+.man-right {
   padding-left:48px;
   border-left:1px solid rgba(201,162,78,0.22);
 }
-.hh-right .hero-sub {
+.man-sub {
   font-size:1.02rem;
   line-height:1.78;
   color:var(--mist);
   margin:0 0 40px 0;
   font-weight:400;
 }
-.hh-right .hero-btns {
+.man-right .hero-btns {
   display:flex; gap:22px; align-items:center; flex-wrap:wrap;
 }
+
+/* Bottom authority paragraph */
+.man-body {
+  max-width:920px;
+  margin:0 auto;
+  font-size:0.95rem;
+  line-height:1.85;
+  color:rgba(240,235,226,0.65);
+  font-weight:300;
+  letter-spacing:0.005em;
+  position:relative; z-index:1;
+}
+
 @media (max-width:960px) {
-  .hero-headline { padding:72px 22px; }
-  .hh-grid { grid-template-columns:1fr; gap:36px; }
-  .hh-right { padding-left:0; padding-top:32px; border-left:none; border-top:1px solid rgba(201,162,78,0.22); }
-  .hh-right .hero-sub { font-size:0.95rem; margin-bottom:28px; }
+  .manifesto { padding:72px 22px; }
+  .man-quote { font-size:1.3rem; line-height:1.5; }
+  .man-rule { margin:32px auto; }
+  .man-grid { grid-template-columns:1fr; gap:32px; text-align:center; }
+  .man-right { padding-left:0; padding-top:28px; border-left:none; border-top:1px solid rgba(201,162,78,0.22); }
+  .man-right .hero-btns { justify-content:center; }
+  .man-sub { font-size:0.95rem; margin-bottom:24px; }
+  .man-body { font-size:0.88rem; line-height:1.75; }
 }
 
 /* Watermark cover — radial gradient blending bottom-right corner into page bg.
@@ -2738,11 +2800,7 @@ polygon[fill="url(#vlg-solar)"] {
 </script>
 
 
-<div class="brand">
-  <p class="brand-q reveal" data-i18n="brand_q">"The grid is failing markets across Africa, Latin America, and Oceania.<br><span>Solar lighting isn't an upgrade — it's the answer."</span></p>
-  <div class="brand-rule"></div>
-  <p class="brand-b reveal" data-i18n="brand_b">JC Lightning supplies outdoor solar lighting to distributors, installers, and project contractors in markets where reliable grid power cannot be assumed. Five solar ranges — Security &amp; Street, Garden &amp; Landscape, Decorative &amp; Ambiance, Off-Grid &amp; Portable — plus an AC Commercial line for mains-powered industrial sites, all engineered with cast aluminium housings, LiFePO4 batteries, and IP65 seals for sustained operation in high-heat, high-UV environments. CE certified. OEM and ODM available.</p>
-</div>
+<!-- (brand quote section removed — merged into <section class="manifesto"> above) -->
 
 <!-- ===== Marquee Ticker Strip ===== -->
 <div class="marquee-strip" aria-hidden="true">
