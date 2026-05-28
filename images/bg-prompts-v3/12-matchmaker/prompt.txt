@@ -1,30 +1,44 @@
-=== 区块用途 ===
-"Find Your Light" 互动选灯向导区
-4 个选项卡片 → 推荐对应产品
+═══════════════════════════════════════════════════
+区块用途: "Find Your Light" 互动选灯向导
+         4 个使用场景选项 → 推荐对应产品
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-12-matchmaker.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-12-matchmaker.jpg
+故事: B&O / Tesla 配置器风格的暖色 showroom 氛围,
+     中心聚光突出"选择互动"动作。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-12-matchmaker.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-12-matchmaker.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Warm inviting abstract background for an interactive product finder. Dark warm-brown ink #1a1410 base, gentle radial glow in center suggesting a stage spotlight on the user's choice, subtle premium fabric texture overlay at 5% opacity (suggesting luxury showroom carpet), defocused multiple warm light fixtures of various types blurred into bokeh in deep background (suggesting variety of lighting options), atmospheric haze, soft cinematic depth.
+Warm inviting cinematic dark showroom background for an interactive product matchmaker / wizard section. Deep warm-brown ink #1a1410 base covering 75% of canvas, gentle radial spotlight in exact center suggesting a configurator stage where customer makes their choice, subtle premium fabric texture overlay at 5% opacity (suggesting luxury B2B showroom carpet or felt presentation surface).
 
-Aesthetic: B&O showroom, Tesla configurator background, Louis Poulsen brand experience page.
+In the deep defocused background: multiple warm light fixtures of various types blurred into beautiful golden bokeh #c9a24e — hints of pendant lights, wall sconces, bollard lights, floor lamps all blended together suggesting variety of lighting options without being recognizable, atmospheric haze and soft cinematic depth.
 
-Photorealistic showroom photography, golden hour interior lighting, shot on 35mm f/1.8, soft amber grading.
+Photorealistic premium showroom photography, shot on 35mm f/1.8 at golden hour interior lighting, soft warm color grading, deep professional shadows.
 
-Color palette: 78% deep warm ink #1a1410, 12% warm amber bokeh #c9a24e, 6% brass shadows #5a3a16, 4% pale brass highlights #e2c98a. NO bright cold colors.
+Aesthetic: Bang & Olufsen flagship showroom backdrop, Tesla Model Y configurator background, Louis Poulsen brand experience page, Vibia lighting showroom photography.
 
-Composition: ultra-wide horizontal, soft central spotlight (where wizard CTA goes), even balanced bokeh on sides, vignette edges, dramatic depth.
+Color palette: 72% deep warm ink #1a1410, 14% warm amber bokeh #c9a24e, 8% brass shadows #2d2824, 6% pale brass highlights #e2c98a. NO cold colors, NO bright neon, NO white.
 
-=== Negative Prompt ===
+Composition: ultra-wide horizontal, soft central spotlight pool (where matchmaker CTA / question lives), even balanced bokeh distributed on left and right, vignette darkening at edges, dramatic atmospheric depth.
 
-text, watermark, logo, words, letters, signs, recognizable light products, person, faces, busy composition, neon, white, blue, green, cartoon
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
 
-=== 备注 ===
-重点：showroom 感 + 中心聚光（突出互动 CTA）
-背景虚化的多种灯具感（不要清晰可识别）
+text, watermark, logo, words, letters, signs, recognizable light products, sharp lighting fixtures, person, faces, busy composition, neon, fluorescent white, blue, green, red, cartoon, illustration
+
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- showroom 氛围让人感觉在"挑灯具"
+- 背景虚化灯具暗示我们品类丰富
+- 中心聚光池突出互动 CTA 按钮
+- 暖色配 hero 视频的暖金调一致
+- 像 Tesla configurator 那种沉浸感

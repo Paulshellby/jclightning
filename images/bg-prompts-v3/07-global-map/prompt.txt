@@ -1,29 +1,46 @@
-=== 区块用途 ===
-"Trusted across 30+ markets" 世界地图区
-上面叠 SVG 世界地图 + 国家 pin
+═══════════════════════════════════════════════════
+区块用途: "Trusted across 30+ markets" 世界地图区
+         上层叠 SVG 世界地图 + 25+ 国家 pin
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-07-global-map.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-07-global-map.jpg
+故事: 深空背景 + 经纬网格 + 暖金光晕 (深圳总部位置),
+     就像 NASA 卫星图。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-07-global-map.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-07-global-map.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Ultra-dark cosmic abstract background for a global presence world map section. Deep space ink black #0e0c0a base, very subtle starfield with tiny pinpoint stars scattered across upper half, faint brass-gold orbital arc lines #a87d2a sweeping across the canvas at 8% opacity suggesting global trade routes, atmospheric haze with hint of warm amber emanating from one focal point (representing Shenzhen HQ position roughly 80% from left), subtle latitude/longitude grid in deep brass #5a3a16 at 4% opacity, soft volumetric glow.
+Ultra-dark cosmic abstract space background for a global trade network visualization section. Deep space ink black #12100e base covering 95% of the canvas, very subtle starfield of tiny pinpoint stars scattered evenly across the upper half (low density, premium feel not busy), faint brass-gold orbital arc curves #a87d2a sweeping across the canvas at only 8% opacity suggesting global flight paths or trade routes connecting continents.
 
-Aesthetic: NASA Earth observatory imagery, Bloomberg geopolitical dashboard, Tesla global delivery map background.
+Atmospheric warm brass volumetric haze with a single focal glow point positioned at upper-right third of the image (this represents Shenzhen HQ position on a flat Mercator world projection), the glow emanating soft warm amber light #fde9b9 fading gradually.
 
-Color palette: 92% pure ink #0e0c0a, 5% deep brass grid #5a3a16, 2% warm brass arcs #a87d2a, 1% pale brass starlight #fde9b9. NO blues, NO greens.
+Subtle latitude/longitude grid in deep brass #2d2824 at 4% opacity barely visible covering entire canvas, hint of curvature suggesting earth from space, soft cinematic depth.
 
-Composition: ultra-wide horizontal, slight darker corners (vignette), focal warm glow positioned at upper-right third (where Shenzhen would be on a Mercator projection map), perfectly clean background for SVG world map overlay.
+NO actual continents, NO land masses, NO geographic shapes, NO country outlines — these will be added as SVG overlay separately.
 
-=== Negative Prompt ===
+Aesthetic: NASA Earth observatory nighttime imagery, Bloomberg geopolitical dashboard, Tesla global delivery map background, JPMorgan trade flow visualization.
 
-text, watermark, logo, country names, words, letters, signs, actual continents, land masses, geographic shapes, bright, blue oceans, green land, neon, colorful, cartoon, illustration, satellite photo
+Color palette absolute strict: 92% pure ink #12100e, 4% deep brass grid #2d2824, 3% warm brass arcs and glow #a87d2a, 1% pale brass starlight #fde9b9. ZERO blues (NOT ocean blue), ZERO greens (NOT land green), ZERO white.
 
-=== 备注 ===
-重点：不要画地球/大洲（SVG 地图会叠在上面）
-只要纯空间感 + 金色光晕 + 经纬网格
-焦点光晕在右上（深圳位置）
+Composition: ultra-wide horizontal, slight darker corners (vignette), focal warm glow positioned at upper-right third, perfectly clean background designed for SVG world map continents overlay.
+
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
+
+text, watermark, logo, country names, words, letters, signs, actual continents, land masses, geographic shapes, North America, Africa shape, bright spots, blue oceans, green land, satellite photo of earth, cartoon, illustration, neon
+
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- 绝对不能画大洲/海洋 (我们的 SVG 地图会叠在上面)
+- 右上焦点光晕 = 深圳总部位置 (出口起点)
+- 经纬网格 + 轨道弧线 = 全球贸易感
+- 暗空 + 星点 = 高端国际化感
+- 完全为 SVG 地图层做透明背景

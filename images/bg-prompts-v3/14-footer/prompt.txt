@@ -1,30 +1,46 @@
-=== 区块用途 ===
-页脚区
-公司 logo + 产品链接 + 社交媒体图标
+═══════════════════════════════════════════════════
+区块用途: 页脚 Footer
+         公司 logo + 产品链接 + 社交图标 + 版权
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-14-footer.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-14-footer.jpg
+故事: 超暗深邃 + 底部一条金色地平线 = "夜尽天将明"的暗示,
+     呼应 hero "Light that works when the power doesn't"。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)（区块比较扁，会按 cover 拉伸）
+目标文件名: bg-14-footer.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-14-footer.jpg
+尺寸: 16:9 Small (2752×1536) (区块扁,会按 cover 拉伸)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Ultra-dark premium abstract background for a corporate website footer. Pitch black ink #06040a base 95% of image, very faint horizon glow at the very bottom edge in deep brass #a87d2a 4% (like a city skyline glow at midnight), extremely subtle constellation of tiny brass-gold points scattered across upper area like distant stars, faint orbital arc lines in deep brass at 3% opacity, atmospheric haze with film grain.
+Ultra-dark premium cinematic abstract background for a corporate B2B website footer. Pitch black ink #0a0806 base covering 96% of the canvas, very faint thin horizon glow line at the very bottom edge in deep brass #a87d2a at only 4% opacity (like a distant city skyline glow at midnight, or the first hint of dawn breaking — symbolizing "Light that works when the power doesn't").
 
-Aesthetic: end credits roll of a premium documentary, Apple footer aesthetic, Tesla brand footer, premium agency dark mode.
+Extremely subtle constellation of tiny brass-gold pinpoint stars scattered across the upper area (very low density, premium not busy), faint orbital arc lines in deep brass #2d2824 at 3% opacity sweeping across (suggesting global trade network reach), atmospheric haze with subtle film grain.
+
+NO logos, NO text, NO social icons, NO recognizable shapes.
+
+Aesthetic: end credits roll of a premium Tesla product film, Apple website footer dark mode, premium agency dark theme footer, Bang & Olufsen brand footer, FOX ESS company page bottom.
 
 Photorealistic ultra-clean cinematic composition, Octane render quality.
 
-Color palette: 96% pitch ink #06040a, 3% deep brass #5a3a16, 1% pale brass starlight #a87d2a. Strictly NO bright colors, NO white.
+Color palette absolute strict: 96% pitch ink #0a0806, 2% deep brass orbital lines #2d2824, 1% pale brass starlight #e2c98a, 1% warm brass horizon glow #a87d2a. ZERO bright colors, ZERO white, ZERO blue, ZERO green.
 
-Composition: ultra-wide horizontal, perfectly even darkness across image, soft horizon glow only at very bottom edge, vast negative space for footer columns to be overlaid in 4-column layout.
+Composition: ultra-wide horizontal, perfectly even darkness across most of image, soft horizon glow only at very bottom edge as a thin gradient line, vast negative space for footer columns to be overlaid in 4-column layout, no focal point.
 
-=== Negative Prompt ===
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
 
-text, watermark, logo, words, letters, social icons, signs, person, building, product, bright, white, neon, colorful, blue, green, busy, cartoon
+text, watermark, logo, words, letters, social icons, signs, person, building, product, bright, white, neon, fluorescent, colorful, blue, green, red, busy composition, cluttered, cartoon, illustration
 
-=== 备注 ===
-重点：超暗 + 底部一条细金色地平线 + 上方少量星点
-让 footer 链接清晰可见
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- 超暗 + 底部金色地平线 = "Light that works when the power doesn't" 收束
+- 与 hero 视频的暖金调形成首尾呼应
+- 大量留白让 footer 链接清晰可读
+- 星点和轨道线呼应 07-global-map
+- 全站终章感

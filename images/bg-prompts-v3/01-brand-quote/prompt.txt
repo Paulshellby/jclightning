@@ -1,31 +1,43 @@
-=== 区块用途 ===
-"The grid is failing markets across Africa, Latin America, Oceania" 引言区
-深色背景，文字居中显示金色衬线引言
+═══════════════════════════════════════════════════
+区块用途: "The grid is failing markets across Africa,
+         Latin America, Oceania. Solar lighting is the answer."
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-01-brand-quote.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-01-brand-quote.jpg
+故事: 这是品牌叙事的核心 - 展示电网失灵的市场，
+     而 JC 太阳能灯像星星一样点亮黑暗。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-01-brand-quote.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-01-brand-quote.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin (Leonardo) 或 Midjourney v6
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Cinematic photograph, ultra-wide aerial perspective of an African or Latin American city at night during a blackout — silhouettes of buildings against deep indigo sky, only a few isolated windows glowing warm amber, scattered solar lights dotting the dark cityscape like fireflies, moody atmospheric haze.
+Cinematic aerial photograph of a sprawling African or Latin American suburb at deep dusk during a load-shedding blackout. Aerial drone perspective from 200 meters high, looking down at 30 degree angle.
 
-Foreground: extreme bokeh, suggesting fragility of grid power.
-Mid-ground: dim outline of residential rooftops, water towers, transmission line silhouettes.
-Background: distant horizon glow.
+The cityscape is mostly dark — silhouettes of single-story homes, terracotta rooftops, dirt roads, scattered acacia trees. Only a handful of isolated points of light remain active across the entire scene: warm amber #fde9b9 glow from solar PIR wall lights mounted on home exteriors, golden #c9a24e bollard lights tracing a few garden paths, two or three solar street lamps casting circular pools of warm light onto dirt roads — these solar lights stand out like fireflies against the dark city.
 
-Photorealistic, B2B premium documentary aesthetic, National Geographic style, shot on Hasselblad 50mm f/1.4, long exposure, soft cinematic grading.
+The deep ink #12100e sky transitions to brass #a87d2a horizon glow at the very edge, suggesting recent sunset.
 
-Color palette: deep ink black #0e0c0a, indigo navy, warm brass amber accents #c9a24e from scattered lights, no other colors.
+Atmospheric haze, soft cinematic grading, photorealistic National Geographic editorial style, shot on Phase One 80mm f/2.8, long exposure, deep professional shadows.
 
-Composition: ultra-wide, lots of negative space for text overlay in center, vignette edges, subtle film grain.
+Color palette: 75% deep ink #12100e, 15% brass #a87d2a horizon, 8% warm amber #fde9b9 solar light points, 2% terracotta roof tones. Strictly NO blue, NO green, NO neon.
 
-=== Negative Prompt ===
+Composition: ultra-wide horizontal, central vast dark area for headline text overlay, scattered light points balanced across the canvas, vignette darkening at corners, subtle film grain.
 
-text, watermark, logo, words, letters, signs, low-quality, cartoon, illustration, anime, oversaturated, neon, busy composition, person faces, blurry, fake HDR
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
 
-=== 备注 ===
-重点：暗色 + 中心大量留白给文字 + 暖金光点（呼应"solar lighting is the answer"）
+text, watermark, logo, words, letters, signs, neon, electric blue, fluorescent green, bright white street lights, modern skyscrapers, cars with headlights, person face, cartoon, illustration, daytime, sun, oversaturated, fake HDR, low quality
+
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- 暗示 "电网失灵" 的真实痛点 (大片黑暗)
+- 暗示 JC 产品就是答案 (零星暖金光点 = 我们的太阳能灯)
+- 中间留大块暗区给金色衬线引言文字
+- 整体调性配品牌色: 深 ink + 暖 brass amber

@@ -1,30 +1,43 @@
-=== 区块用途 ===
-"Importing from 12,000 km away shouldn't be a gamble" 信任承诺区
-4 张玻璃态保证卡片 (specs / photos / docs / after-sale)
+═══════════════════════════════════════════════════
+区块用途: "Importing from 12,000 km away shouldn't be a gamble"
+         4 张玻璃态承诺卡 (规格/拍照/文件/售后)
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-09-promise.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-09-promise.jpg
+故事: 集装箱海运 + 质检报告氛围, 强化"放心进口"信任感。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-09-promise.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-09-promise.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Warm reassuring abstract background suggesting trust and quality assurance. Deep ink #0e0c0a base, soft warm spotlight pool in center suggesting inspection light examining a product, defocused shipping container metal texture in deep brass-bronze tones on the sides, faint paper document texture overlay at 6% opacity (suggesting certificates and inspection reports), wisps of warm amber atmospheric light, subtle film grain.
+Warm cinematic dark abstract background suggesting trust, quality assurance, and international shipping reliability. Deep ink #12100e base covering 85% of canvas, soft warm spotlight pool in center suggesting a quality inspector's light examining a product on a checkpoint table, defocused brushed aluminum shipping container metal texture visible on left and right edges in deep brass-bronze tones #2d2824 (suggesting containers ready for export).
 
-Aesthetic: premium logistics company brand photography, BMW quality control inspection scene, Patek Philippe atelier lighting.
+Faint paper texture overlay at 5% opacity hinting at CE/RoHS certificates, packing lists, bills of lading laid out on the table — all blurred and unreadable. Wisps of warm amber atmospheric light catching dust particles, soft cinematic vignette, subtle film grain.
 
-Photorealistic premium documentary photography, soft golden-hour warehouse lighting, Phase One medium format, deep professional shadows.
+Aesthetic: premium global logistics brand photography, BMW quality control inspection scene, Lloyd's of London documentation, Maersk shipping campaign visual.
 
-Color palette: 85% deep ink #0e0c0a, 8% warm amber #a87d2a center pool, 5% deep brass-bronze #5a3a16, 2% pale brass #e2c98a highlights. NO bright colors.
+Photorealistic premium documentary photography, shot on Phase One medium format 80mm f/2.8, soft golden-hour warehouse lighting, deep professional shadows.
 
-Composition: ultra-wide horizontal, soft central light pool, slightly darker corners, perfect 2x2 quadrant safe zones for 4 glass promise cards to be overlaid in grid.
+Color palette: 82% deep ink #12100e, 8% warm amber center spotlight #c9a24e, 7% deep brass-bronze container metal #2d2824, 3% pale brass paper highlights #e2c98a. NO bright colors, NO white papers, NO neon.
 
-=== Negative Prompt ===
+Composition: ultra-wide horizontal, soft central light pool drawing eye to center, slightly darker corners (vignette), perfect 2x2 quadrant safe zones for 4 glass promise cards to be overlaid in grid layout.
 
-text, watermark, logo, words, letters, certificates with actual text, signs, person face, model, busy composition, neon, bright white, colorful, cartoon
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
 
-=== 备注 ===
-重点：温暖可信 + 中心光池 + 适合 2x2 卡片网格
-有质检/文件感（但不要真的有可读文字）
+text, watermark, logo, words, letters, readable certificates, signs, person face, model, smile, busy composition, neon, bright white papers, fluorescent, colorful, blue, green, red, cartoon, illustration
+
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- 集装箱质感暗示海运出口 (FOB Shenzhen 卖点)
+- 中心检查光池暗示质检流程 (pre-shipment inspection)
+- 桌上模糊文件暗示证书齐全 (CE/RoHS)
+- 2x2 网格留给 4 张承诺玻璃卡
+- 深色配玻璃态最显高级

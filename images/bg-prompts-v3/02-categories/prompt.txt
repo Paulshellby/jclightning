@@ -1,33 +1,42 @@
-=== 区块用途 ===
-"Five Solar Ranges + AC Commercial" 产品分类区
-浅色背景，下面是 5 个分类卡片网格
-背景要轻盈、不抢卡片视觉
+═══════════════════════════════════════════════════
+区块用途: "Five Solar Ranges + AC Commercial"
+         5个产品分类卡片网格 (Security/Garden/Decorative/Off-Grid/AC)
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-02-categories.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-02-categories.jpg
+故事: 浅色优雅打底，让 5 个产品分类卡片成为主角。
+     背景仅作为质感支撑，不抢镜。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-02-categories.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-02-categories.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Ultra-minimal abstract background texture for a B2B solar lighting product catalog page. Soft cream paper texture base #f0ebe2, very subtle warm beige gradient sweeping from top-left to bottom-right, faint architectural blueprint grid lines in pale brass #c9a24e at 8% opacity, scattered tiny golden bokeh particles like dust in sunlight, extremely subtle aluminum brushed metal sheen in upper corners.
+Ultra-minimal warm cream paper texture background for a B2B premium solar lighting catalog page. Base color chalk cream #f0ebe2 covering 92% of the image, very gentle warm gradient sweeping from upper-left brushed brass #e2c98a to lower-right cream, faint architectural blueprint grid lines in pale brass #c9a24e at only 6% opacity, scattered tiny golden dust particles like sunlight through a workshop window, very subtle aluminum brushed metal sheen in upper-right corner, soft top-down studio lighting creating gentle natural shadows around the edges (light vignette).
 
-NO distinct objects, NO buildings, NO products — purely abstract premium texture.
+NO distinct objects, NO buildings, NO products, NO logos — purely abstract premium texture designed as backdrop.
 
-Photorealistic studio lighting, soft top-light, very shallow depth, gentle vignette on edges to focus attention on center.
+Aesthetic: Bang & Olufsen catalogue page, Apple Pro product page background, Tesla Powerwall product page — minimal luxury B2B premium.
 
-Aesthetic: Bang & Olufsen catalogue page background, Apple iPhone product page, Tesla Powerwall page — minimal luxury B2B.
+Color palette strict: 88% cream #f0ebe2, 7% pale brass #e2c98a, 3% warm brass shadow #a87d2a, 2% subtle metallic highlights. Absolutely NO dark blacks, NO bright primaries, NO blue, NO green.
 
-Color palette: cream #f0ebe2 (90% of image), pale brass accents #e2c98a (8%), warm shadows (2%). NO bright colors, NO dark areas.
+Composition: even balance, no focal point, designed as backdrop for foreground product category cards arranged in 3+2 grid layout. Soft natural vignette at edges focuses attention center.
 
-Composition: even balance, no focal point — designed as backdrop for foreground product cards.
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
 
-=== Negative Prompt ===
+text, watermark, logo, words, letters, signs, dark, black, neon, busy composition, colorful, cartoon, illustration, person, building, solar panel, light fixture, product, sharp objects, blue, green, red, oversaturated, fake HDR
 
-text, watermark, logo, words, letters, dark, black, busy, colorful, neon, cartoon, illustration, person, building, solar panel, light fixture, product, signs
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
 
-=== 备注 ===
-重点：极简浅色 + 不要有任何具象物体（卡片在上面要清楚）
-图片只是质感打底
+- 极简浅色配合产品卡片网格
+- 与 hero 视频的白底 + 暖金调延续
+- 工程蓝图网格隐喻 "engineering precision"
+- 上方右侧金属光泽暗示铝合金灯具外壳
+- 大量负空间让卡片成为主角

@@ -1,32 +1,48 @@
-=== 区块用途 ===
-"Get In Touch — Tell us your market" 联系表单区
-左侧文字说明 + 右侧 Formspree 表单
+═══════════════════════════════════════════════════
+区块用途: "Get In Touch — Tell us your market"
+         左侧文字 + 右侧 Formspree 表单
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-13-contact.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-13-contact.jpg
+故事: 浅色清爽的"邀请填表"氛围,
+     像走进 Apple Store 的 Genius Bar — 专业又温暖。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-13-contact.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-13-contact.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Clean professional abstract background for a B2B contact form section. Very light cream #f7f3ec base 88% of image, very subtle warm amber gradient sweeping from upper-left to lower-right, faint brushed aluminum sheen texture across center at 6% opacity, tiny scattered brass particles like office sunlight dust, gentle soft shadow at bottom suggesting depth, premium minimal feel.
+Clean professional warm cream abstract background for a B2B contact form section of a premium solar lighting exporter website. Very light warm cream #f7f3ec base covering 88% of the image, very subtle warm amber diagonal gradient sweeping gently from upper-left to lower-right (suggesting morning sunlight through a window), faint brushed aluminum metallic sheen texture across center at only 6% opacity (suggesting premium product surface).
 
-Aesthetic: Apple support page, Stripe contact page, Linear documentation page — clean B2B professional.
+Scattered tiny brass particles like office sunlight dust motes #e2c98a catching morning light, gentle soft natural shadow at bottom suggesting depth and grounding, premium minimal Scandinavian feel.
+
+Hint of very defocused desk surface texture in lower edge (suggesting a clean professional workspace ready to receive inquiries).
 
 NO objects, NO logos, NO recognizable shapes.
 
+Aesthetic: Apple Genius Bar online support page, Stripe contact page, Linear documentation page, Tesla customer service page — clean B2B professional warm.
+
 Photorealistic studio softbox lighting, ultra-clean editorial photography style.
 
-Color palette: 92% cream #f7f3ec, 5% pale brass #e2c98a, 2% warm brass shadow #a87d2a, 1% deep accent. NO dark blacks, NO bright primaries.
+Color palette: 90% cream #f7f3ec, 5% pale brass #e2c98a, 3% warm brass shadow #a87d2a, 2% deep accent for grounding. ZERO dark blacks, ZERO bright primaries, ZERO blue, ZERO green.
 
-Composition: ultra-wide horizontal, gentle diagonal flow, perfectly clean two-column safe zones (left for text, right for form fields), no focal point, even balance.
+Composition: ultra-wide horizontal, gentle diagonal flow from upper-left, perfectly clean two-column safe zones (left for headline + description, right for form input fields), no focal point, even balanced light, soft natural shadow at bottom edge.
 
-=== Negative Prompt ===
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
 
-text, watermark, logo, words, letters, signs, dark, black, neon, colorful, busy, person, building, product, form fields, input boxes, cartoon
+text, watermark, logo, words, letters, signs, dark, black, neon, colorful, busy, person, building, product, form fields, input boxes, buttons, sharp objects, blue, green, red, cartoon, illustration
 
-=== 备注 ===
-重点：浅色 + 极简 + 两栏构图（左文字右表单）
-不要有任何具象元素（表单字段会在上层）
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- 浅色营造"易于联系"的友好感
+- 两栏构图配合左字右表单布局
+- 自然光感像 Genius Bar 那种专业暖
+- 完全不抢表单视觉
+- 与 02-categories 浅色统一调性

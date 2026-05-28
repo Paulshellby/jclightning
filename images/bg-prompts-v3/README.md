@@ -1,78 +1,117 @@
-# JC Lightning · 网站背景图生成 Prompt 包 v3
+# JC Lightning · 网站背景图 Prompt 包 v4 (品牌深度优化版)
 
-## 使用流程
+## 设计哲学
 
-1. 进入对应区块文件夹（按 01-14 编号顺序）
-2. 打开 `prompt.txt`，复制全部内容
-3. 粘到 Leonardo.AI 提示词框
-4. 按 `settings.txt` 设置 Generation Mode / Dimensions / Number
-5. 生成 4 张挑最佳的
-6. 下载，重命名为文件夹里指定的 `target-filename`
-7. 放回到 `D:\嘉晨灯饰JC Lightning\网站\images\` 根目录
-8. 全部完成后告诉我，我帮你逐个上线
+这套 prompt 围绕 **3 个核心元素** 重新设计：
+
+1. **品牌色调** — 严格使用网站 CSS 变量定义的色板
+2. **产品故事** — 每张图都暗示我们卖什么（太阳能灯/LiFePO4/IP65/出口）
+3. **市场场景** — 体现我们的客户在哪（非洲限电/拉美 apagones/澳洲偏远/中东沙漠）
 
 ---
 
-## 全套品牌色板（写在每个 prompt 里）
+## 品牌色板（严格遵守，每个 prompt 都内嵌）
 
-- **Brass gold**: #a87d2a
-- **Bright brass**: #c9a24e
-- **Pale brass**: #e2c98a
-- **Ink black**: #0e0c0a
-- **Chalk cream**: #f0ebe2
+| 用途 | HEX | 描述 |
+|------|-----|------|
+| 主背景深色 | `#12100e` | ink black (CSS `--ink`) |
+| 主背景浅色 | `#f0ebe2` | chalk cream (CSS `--chalk`) |
+| 浅色变体 | `#f7f3ec` | warm white |
+| **品牌金** | `#a87d2a` | brass (主品牌色) |
+| 亮金 | `#c9a24e` | bright brass |
+| 浅金 | `#e2c98a` | pale brass |
+| 黄昏暖光 | `#fde9b9` | warm amber (灯光发光色) |
+| 暗调辅助 | `#2d2824` | warm dark stone |
+
+**禁用色**: 蓝色 / 绿色 / 紫色 / 红色 / 霓虹色
 
 ---
 
-## 全套统一风格关键词（每个 prompt 都包含）
+## 视觉一致性原则
+
+| 维度 | 标准 |
+|------|------|
+| **整体光线** | Golden hour（黄昏暖金色调）从早到晚都保持 |
+| **质感** | 哑光 + 金属反光（铝合金外壳的感觉）|
+| **景深** | 浅景深 f/2-f/2.8 摄影感 |
+| **构图** | 大量负空间留给文字内容 |
+| **细节** | 暗示但不突出产品 — 背景永远是配角 |
+| **避免** | 卡通 / 矢量插画 / 平面设计感 / 文字 / 水印 / 人脸 |
+
+---
+
+## 操作流程
+
+1. 进对应 `0X-xxx/` 文件夹
+2. 打开 `prompt.txt` 复制全部
+3. 粘到 Leonardo / Midjourney / Lucid 等
+4. 推荐 Leonardo: **Lucid Origin** 模型 + **Cinematic** style
+5. 推荐设置: **Fast 模式** 试 → 满意再 **Ultra** 出终稿
+6. 16:9 Small (2752×1536) + 4 张
+7. 下载，按 `prompt.txt` 里指定的 `目标文件名` 重命名
+8. 放回 `images/` 根目录
+9. 全做完通知我，一次性上线
+
+---
+
+## 14 个区块清单（按优先级）
+
+### ⭐⭐⭐ 必做（用户最常看）
+
+| # | 文件夹 | 用途 | 色调 | 文件名 |
+|---|--------|------|------|--------|
+| 01 | brand-quote | "电网失灵"引言 | 深色 | bg-01-brand-quote.jpg |
+| 02 | categories | "Five Solar Ranges" | 浅色 | bg-02-categories.jpg |
+| 03 | products | "Every Light" 目录 | 深色 | bg-03-products.jpg |
+| 06 | numbers | 数据展示 | 深+金 | bg-06-numbers.jpg |
+| 13 | contact | 联系表单 | 浅色 | bg-13-contact.jpg |
+
+### ⭐⭐ 重要
+
+| # | 文件夹 | 用途 | 色调 | 文件名 |
+|---|--------|------|------|--------|
+| 05 | factory | 工厂叙事 | 工业暖灰 | bg-05-factory.jpg |
+| 07 | global-map | 世界地图底 | 深空 | bg-07-global-map.jpg |
+| 08 | why-choose-us | Why Choose Us | 深色 | bg-08-why-choose-us.jpg |
+| 09 | promise | 信任承诺 | 深色 | bg-09-promise.jpg |
+| 10 | testimonials | 客户证言 | 深色 | bg-10-testimonials.jpg |
+
+### ⭐ 锦上添花
+
+| # | 文件夹 | 用途 | 色调 | 文件名 |
+|---|--------|------|------|--------|
+| 04 | scenarios | 应用场景 | 中性 | bg-04-scenarios.jpg |
+| 11 | faq | FAQ | 深色 | bg-11-faq.jpg |
+| 12 | matchmaker | 选灯向导 | 暖色 | bg-12-matchmaker.jpg |
+| 14 | footer | 页脚 | 深黑 | bg-14-footer.jpg |
+
+---
+
+## Token 预算
+
+- 14 张全 Fast 模式: ≈ 210-350 tokens
+- 5 张 Ultra 出终稿: ≈ 100-150 tokens
+- **建议**: 升级 Leonardo $12/月（10000 tokens）一次性出完最划算
+
+---
+
+## 与 Hero 3D 视频的关系
+
+Hero 区域用 10秒视频（已上线）作为顶部入口。
+往下滚动时，14 个区块的背景图要与 hero 形成 **连贯的视觉叙事**：
 
 ```
-photorealistic, cinematic, B2B premium aesthetic,
-FOX ESS / Tesla / Bang & Olufsen-inspired,
-ultra-detailed, soft studio lighting,
-shallow depth of field, ultra-wide composition,
-NEGATIVE: text, watermark, logo, low-quality, cartoon, illustration, person face, blurry
+顶部 Hero 视频（白底 + 暖金光 + 动态）
+  ↓
+brand quote (深色，城市夜景剪影)
+  ↓
+categories (浅色，产品分类网格)
+  ↓
+products (深色目录页风格)
+  ↓
+... 深浅交替 ...
+  ↓
+footer (深黑，与 hero 收束)
 ```
 
----
-
-## 区块清单
-
-| 序号 | 文件夹 | 用途 | 主色调 | 文件尺寸 |
-|------|--------|------|--------|----------|
-| 01 | brand-quote | "电网失灵" 引言区 | 深色暗调 | 1920×800 |
-| 02 | categories | "Five Solar Ranges" 产品分类 | 浅米色 | 1920×800 |
-| 03 | products | "Every Light" 产品目录 | 深色 | 1920×1200 |
-| 04 | scenarios | "Solutions by Scenario" 应用场景 | 中性 | 1920×800 |
-| 05 | factory | "Built for markets" 工厂叙事 | 工业暖灰 | 1920×1000 |
-| 06 | numbers | 30+ / 4 / 2000+ 数据展示 | 深黑+金 | 1920×600 |
-| 07 | global-map | "Trusted across 30 markets" 世界地图 | 深空蓝 | 1920×900 |
-| 08 | why-choose-us | "Why Choose Us" 玻璃卡片 | 深色 | 1920×900 |
-| 09 | promise | "Our Promise" 信任承诺 | 深色 | 1920×900 |
-| 10 | testimonials | "Client Voices" 客户证言 | 深色 | 1920×900 |
-| 11 | faq | "FAQ" 常见问题 | 深色 | 1920×800 |
-| 12 | matchmaker | "Find Your Light" 互动选灯 | 中性暖 | 1920×900 |
-| 13 | contact | "Get In Touch" 联系表单 | 浅色 | 1920×800 |
-| 14 | footer | 页脚 | 深色 | 1920×600 |
-
----
-
-## 推荐 Leonardo 通用设置
-
-| 项目 | 值 |
-|------|---|
-| Model | Lucid Origin（或 Phoenix） |
-| Style | Cinematic / Dynamic |
-| Generation Mode | 先 **Fast** 试效果, 满意后 **Ultra** 出终稿 |
-| Image Dimensions | **16:9 Small (2752×1536)** 默认；contact/footer 可用 **Landscape Wide** |
-| Number of generations | **4** |
-| Prompt Enhance | Auto |
-| Negative Prompt | （每个 prompt 末尾已附） |
-
----
-
-## 注意事项
-
-- 所有图最终都要放回 `images/` 根目录（不是 v3 子文件夹）
-- 文件名严格按 `target-filename` 命名，否则我换图会出错
-- 如果某张图你不满意，可以多生成一轮或微调 prompt 第一行
-- 14 张图 token 用量大，建议升级 Leonardo $12 一个月版本（10000 tokens）一次性出完
+这种"深浅交替"的节奏让用户滚动时有呼吸感、不疲劳。

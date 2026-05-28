@@ -1,51 +1,90 @@
-JC Lightning 网站背景图 14 张生成清单
-========================================
+═══════════════════════════════════════════════════════════
+JC Lightning 网站背景图 14 张生成清单 v4 (品牌深度优化版)
+═══════════════════════════════════════════════════════════
 
-操作流程：
-1. 进入每个 0X-xxx 文件夹
-2. 打开 prompt.txt 复制完整 prompt（含 negative prompt）
+✨ v4 升级了什么：
+
+1. 每张图都内嵌品牌色 HEX (#12100e / #a87d2a / #c9a24e / #fde9b9)
+2. 每张图都暗示产品故事 (太阳能板/LiFePO4/IP65/出口)
+3. 每张图都对应"目标市场" (非洲限电/拉美 apagones/澳洲 outback)
+4. 每张图都和 hero 10秒视频的暖金调延续一致
+5. "深-浅交替"节奏让用户滚动有呼吸感
+6. 每个 prompt 包含完整 NEGATIVE prompt
+7. 每个 prompt 包含设计意图说明 (你可以判断是否符合品牌)
+
+═══════════════════════════════════════════════════════════
+
+操作流程 (每张图):
+
+1. 进入对应 0X-xxx 文件夹
+2. 打开 prompt.txt 复制【PROMPT】整段
 3. 粘到 Leonardo.AI 提示词框
-4. 设置：Fast 模式 + 16:9 Small + 4 张
-5. 出 4 张挑最满意的下载
-6. 下载文件重命名为 prompt.txt 里指定的 "目标文件名"
-7. 放回到 D:\嘉晨灯饰JC Lightning\网站\images\ 根目录
-8. 14 张全部完成后告诉我，我帮你逐个上线
+4. 复制 NEGATIVE PROMPT 整段 → 粘到 negative prompt 框
+5. 设置：Lucid Origin + Cinematic + 16:9 Small + 4 张 + Fast 模式
+6. 生成 → 挑最满意的下载
+7. 严格按 prompt.txt 顶部的"目标文件名"重命名
+   (例如: bg-01-brand-quote.jpg)
+8. 放到 D:\嘉晨灯饰JC Lightning\网站\images\ 根目录
+9. 14 张全部完成后告诉我，我帮你逐个上线
 
-========================================
+═══════════════════════════════════════════════════════════
 
-清单（按制作优先级排序）：
+清单 (按制作优先级排序):
 
-【优先级 ★★★ 必须做的（用户最常看到）】
-□ 01-brand-quote/    → bg-01-brand-quote.jpg     "电网失灵"引言区
-□ 02-categories/     → bg-02-categories.jpg      "Five Solar Ranges"
-□ 03-products/       → bg-03-products.jpg        "Every Light"目录
-□ 06-numbers/        → bg-06-numbers.jpg         数据展示
-□ 13-contact/        → bg-13-contact.jpg         联系表单
+【⭐⭐⭐ 必做 - 用户最常看到】
+□ 01-brand-quote/    → bg-01-brand-quote.jpg     深色 · 城市夜景+零星暖光
+□ 02-categories/     → bg-02-categories.jpg      浅色 · 极简产品分类底
+□ 03-products/       → bg-03-products.jpg        深色 · 工程蓝图目录底
+□ 06-numbers/        → bg-06-numbers.jpg         深色 · 中心戏剧光晕
+□ 13-contact/        → bg-13-contact.jpg         浅色 · Apple Genius 风
 
-【优先级 ★★ 重要（提升整体观感）】
-□ 05-factory/        → bg-05-factory.jpg         工厂叙事
-□ 07-global-map/     → bg-07-global-map.jpg      世界地图底
-□ 08-why-choose-us/  → bg-08-why-choose-us.jpg   "Why Choose Us"
-□ 09-promise/        → bg-09-promise.jpg         信任承诺
-□ 10-testimonials/   → bg-10-testimonials.jpg    客户证言
+【⭐⭐ 重要 - 提升整体观感】
+□ 05-factory/        → bg-05-factory.jpg         工业暖灰 · 深圳精密制造
+□ 07-global-map/     → bg-07-global-map.jpg      深空 · NASA 卫星图风
+□ 08-why-choose-us/  → bg-08-why-choose-us.jpg   深色 · 铝合金宏观摄影
+□ 09-promise/        → bg-09-promise.jpg         深色 · 集装箱质检氛围
+□ 10-testimonials/   → bg-10-testimonials.jpg    深色 · 4 大洲城市轮廓
 
-【优先级 ★ 锦上添花】
-□ 04-scenarios/      → bg-04-scenarios.jpg       应用场景
-□ 11-faq/            → bg-11-faq.jpg             FAQ 区
-□ 12-matchmaker/     → bg-12-matchmaker.jpg      选灯向导
-□ 14-footer/         → bg-14-footer.jpg          页脚
+【⭐ 锦上添花】
+□ 04-scenarios/      → bg-04-scenarios.jpg       中性 · 5 场景柔焦融合
+□ 11-faq/            → bg-11-faq.jpg             深色 · 电路板+答疑灯
+□ 12-matchmaker/     → bg-12-matchmaker.jpg      暖色 · B&O showroom 风
+□ 14-footer/         → bg-14-footer.jpg          超黑 · 底部金色地平线
 
-========================================
+═══════════════════════════════════════════════════════════
 
-预计 token 消耗（按 Leonardo Fast 模式，4 张/次）：
-- 单次 Fast + Small + 4 张 ≈ 15-25 tokens
-- 14 张全做 ≈ 210-350 tokens
-- 升 $12/月会员（10000 tokens）一次性出完绰绰有余
+预计 token 消耗 (按 Leonardo Fast 模式, 4 张/次):
 
-========================================
+- 单次 Fast + 16:9 Small + 4 张 ≈ 15-25 tokens
+- 14 张全做 ≈ 210-350 tokens (够你试好几轮)
+- 升 $12/月会员 (10000 tokens) 一次性出完绰绰有余
 
-后续操作（你做完之后）：
+═══════════════════════════════════════════════════════════
+
+视觉一致性自检清单 (做完每张图问自己):
+
+□ 主色调是否为深 ink + 暖 brass (不能出现蓝绿紫)
+□ 整体光线是否为黄昏暖金 (不能正午冷光)
+□ 有没有出现可识别的人脸 (NG)
+□ 有没有出现文字/水印 (NG)
+□ 有没有具象的产品照片 (背景永远是配角)
+□ 有没有大量负空间给文字/卡片
+□ 是否与 hero 10秒视频的调性延续
+
+═══════════════════════════════════════════════════════════
+
+完成后的下一步:
+
 1. 把 14 张图都放到 images/ 根目录
-2. 给我列表确认（"X 张图都准备好了"）
-3. 我会用 git 一次性推送 + 修改 HTML 启用所有背景图
-4. 1-2 分钟后全部上线
+2. 给我发消息: "14 张背景图都准备好了"
+3. 我会做的事:
+   - git 一次性提交所有图片
+   - 修改 HTML 启用所有 14 个区块背景
+   - 每个区块加暗色遮罩 layer 保证文字可读性
+   - 推送上线
+   - 1-2 分钟后全站新背景生效
+
+═══════════════════════════════════════════════════════════
+
+如果某张你不满意 → 微调 prompt 第一段重新生成即可
+如果都不满意 → 截图告诉我你看到的问题，我帮你重写 prompt

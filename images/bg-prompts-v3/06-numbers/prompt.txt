@@ -1,30 +1,46 @@
-=== 区块用途 ===
-30+ Markets / 4 Continents / 2,000+ LiFePO4 Cycles
-超大数字数据展示区，戏剧化深色背景
+═══════════════════════════════════════════════════
+区块用途: 30+ Markets · 4 Continents · 2,000+ LiFePO4 Cycles
+         超大数字戏剧化展示区
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-06-numbers.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-06-numbers.jpg
+故事: 极致戏剧化深色背景, 让超大金色数字成为绝对主角。
+     画面中心一束戏剧性光晕汇聚视觉焦点。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-06-numbers.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-06-numbers.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Dramatic ultra-dark abstract background for a B2B statistics counter section. Pitch black ink #0e0c0a base 95% of the image, dramatic warm brass radial light source emanating from center casting subtle golden halo #a87d2a fading to black, faint horizontal data-line grid pattern (1px lines every 40px) in deep brass #5a3a16 at 6% opacity, scattered tiny golden bokeh particles like floating embers, atmospheric volumetric haze in lower third.
+Ultra-dark dramatic abstract background for a B2B statistics display section. Pitch black ink #12100e covering 92% of the image, single dramatic warm brass radial light source emanating from exact horizontal center casting golden halo #a87d2a fading smoothly into pitch black, faint horizontal data-line grid pattern (subtle 1px horizontal lines every 50px) in deep brass #2d2824 at only 5% opacity (suggesting a financial terminal display), scattered tiny golden bokeh embers floating in the warm light beam like sparks from a forge.
 
-Cinematic Octane render style, premium financial dashboard aesthetic, Bloomberg terminal nighttime feel, ultra-detailed.
+Atmospheric volumetric haze in lower third giving depth, very subtle warm gradient sweeping diagonally from center light source.
 
-Aesthetic: Tesla quarterly report cover, FOX ESS company dashboard, premium HUD interface.
+NO text, NO numbers, NO logos, NO buildings, NO products.
 
-Color palette: pure ink #0e0c0a (90%), warm brass glow #a87d2a (8%), pale brass #fde9b9 highlights only at center (2%). Strictly NO blue, NO green, NO white.
+Aesthetic: Tesla quarterly investor report cover, FOX ESS company dashboard nighttime mode, Bloomberg terminal HUD interface, premium financial visualization.
 
-Composition: perfectly centered radial composition, three equal vertical zones (for three giant stat numbers to be placed on top), gradient darker at edges (vignette), extreme negative space upper and lower thirds.
+Photorealistic Octane render, ultra-detailed cinematic composition.
 
-=== Negative Prompt ===
+Color palette absolute strict: 90% pitch ink #12100e, 7% warm brass glow #a87d2a, 2% pale brass center highlight #fde9b9, 1% deep brass grid #2d2824. ZERO blue, ZERO green, ZERO white, ZERO other colors.
 
-text, watermark, logo, numbers, words, letters, signs, person, building, bright, colorful, neon, blue, green, white, busy composition, cluttered, cartoon
+Composition: perfectly centered radial composition with three equal vertical zones (designed for three giant stat numbers to be placed on top), gradient progressively darker at edges (heavy vignette), extreme negative space upper third and lower third for label text.
 
-=== 备注 ===
-重点：超暗 + 中心金色光晕 + 三栏构图（数字往上叠）
-不能有任何数字/文字（否则和我们的真实数字冲突）
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
+
+text, watermark, logo, numbers, words, letters, signs, person, building, bright spots, neon, blue, green, white, fluorescent, busy composition, cluttered, cartoon, harsh edges
+
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- 超暗背景 + 中心戏剧光晕
+- 让金色巨型数字成为绝对视觉焦点
+- 像 Bloomberg 终端的 HUD 仪表盘
+- 三栏构图配合 30+ / 4 / 2000+ 三个数字
+- 严禁出现任何文字/数字 (避免和我们真实数字冲突)

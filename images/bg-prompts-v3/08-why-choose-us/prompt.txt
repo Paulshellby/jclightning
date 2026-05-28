@@ -1,30 +1,44 @@
-=== 区块用途 ===
-"Why Choose Us — The difference is in the details" 4 张玻璃态卡片区
-深色背景 + 玻璃毛玻璃卡片在上
+═══════════════════════════════════════════════════
+区块用途: "Why Choose Us — The difference is in the details"
+         4 张玻璃态卡片区 (Quality/Speed/Markets/Consistency)
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-08-why-choose-us.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-08-why-choose-us.jpg
+故事: 极致质感深色背景, 展现精密工艺细节,
+     让玻璃态卡片漂浮在上面有重量感。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-08-why-choose-us.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-08-why-choose-us.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Elegant dark abstract background suggesting craftsmanship and precision. Deep ink black #0e0c0a base, extreme close-up macro defocused photograph of premium brushed aluminum surface with brass-gold light reflections, soft amber halo emanating from upper-left corner like a workshop spotlight, faint geometric blueprint lines in deep brass at 5% opacity overlay, hint of glass surface refraction with subtle prismatic light, atmospheric depth with floating dust motes.
+Elegant dark macro photographic abstract background suggesting precision craftsmanship and engineering quality. Deep ink black #12100e base covering 88% of the canvas, extreme close-up macro defocused photograph of premium brushed aluminum LED housing surface with subtle brass-gold light reflections catching the curved surface, soft warm amber halo emanating from upper-left corner #c9a24e like a workshop inspection spotlight examining the product.
 
-Aesthetic: Apple Pro product page backdrop, B&O speaker macro shot, Rolex watch material close-up.
+Hint of glass diffuser lens texture with very subtle prismatic light refraction in the highlights, faint geometric blueprint grid lines in deep brass #2d2824 at only 5% opacity overlaying the metal surface, atmospheric depth with floating dust motes catching the light.
 
-Photorealistic ultra-detailed macro photography, shot on 100mm macro f/2.8, soft cinematic lighting, deep professional shadows, premium tactile feel.
+Photorealistic ultra-detailed macro photography, shot on 100mm macro f/2.8, soft cinematic warm lighting, deep professional shadows, premium tactile material feel.
 
-Color palette: 88% deep ink #0e0c0a, 6% brushed aluminum charcoal #2a2520, 4% warm brass glow #a87d2a, 2% pale brass highlight #fde9b9. Strictly NO other colors.
+Aesthetic: Apple Pro product page backdrop, Bang & Olufsen speaker macro detail shot, Rolex watch case material close-up, Patek Philippe movement close-up.
 
-Composition: ultra-wide horizontal, asymmetric soft light from upper-left, vast smooth area in center-right for 4 glass cards to be overlaid, gentle vignette edges.
+Color palette: 86% deep ink #12100e, 6% brushed aluminum charcoal #2d2824, 5% warm brass glow #c9a24e, 3% pale brass highlight #fde9b9. Absolutely ZERO other colors, NO blue, NO white.
 
-=== Negative Prompt ===
+Composition: ultra-wide horizontal, asymmetric soft warm light source from upper-left corner, vast smooth area in center and right for 4 glassmorphism cards to be overlaid in a row, gentle vignette at edges.
 
-text, watermark, logo, words, letters, signs, person, face, product, recognizable objects, busy composition, neon, bright, white, colorful, cartoon, illustration
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
 
-=== 备注 ===
-重点：超精致质感 + 大量负空间放 4 张玻璃卡片
-左上一束暖光做光源即可
+text, watermark, logo, words, letters, signs, person, face, recognizable products, light fixture front view, solar panel, busy composition, neon, bright white, fluorescent, colorful, blue, green, cartoon, illustration
+
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- 极致材质感暗示我们 LED 外壳 = 铝合金不是塑料
+- 蓝图纹路暗示精密工程
+- 左上聚光像在检查产品 (呼应 quality control)
+- 大量负空间放 4 张毛玻璃卡片
+- 暖金调与全站统一

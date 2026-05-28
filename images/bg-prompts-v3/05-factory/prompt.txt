@@ -1,32 +1,46 @@
-=== 区块用途 ===
-"Built for markets where ordinary lighting gives up" 工厂叙事区
-体现 JC Lightning 的制造能力、品质把控
+═══════════════════════════════════════════════════
+区块用途: "Built for markets where ordinary lighting gives up"
+         工厂叙事区 - 强调制造能力
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-05-factory.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-05-factory.jpg
+故事: 深圳 26000m² 现代化精密制造车间, 200+ 工程师,
+     体现 JC 不是贸易商而是真正的制造商。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-05-factory.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-05-factory.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Wide cinematic photograph of a modern Chinese precision manufacturing facility for solar lighting — clean white industrial workshop interior with skylights, rows of CNC machines, brushed aluminum LED housings being assembled on stainless steel benches, soft natural light streaming from overhead skylights creating gentle shafts, defocused blue solar panel rooftop visible through far window, workers in dark grey uniforms (silhouettes only, no faces).
+Wide cinematic photograph of a modern Shenzhen precision manufacturing workshop for solar LED lighting fixtures at golden hour. Clean white industrial interior with high ceilings and skylights, rows of CNC aluminum casting machines, LED housing components arranged on stainless steel workbenches, defocused brushed aluminum LED housing in extreme foreground bokeh suggesting quality inspection underway.
 
-Foreground: extreme bokeh on a precision aluminum LED housing being inspected.
-Mid-ground: organized assembly line with workshop tools.
-Background: clean white wall, faint subtle JC brass-gold accent stripe.
+Mid-ground: organized assembly line with precision tools, LiFePO4 battery cells stacked neatly on shelves, solar panel testing rig in soft focus.
 
-Photorealistic premium industrial photography, Tesla Gigafactory aesthetic, BMW factory photography style, shot on Phase One 80mm f/2.8, soft golden hour through skylight, deep professional shadows.
+Background: floor-to-ceiling factory windows revealing defocused blue solar panel array on adjacent rooftop, late afternoon golden sunlight streaming through skylights creating dramatic light shafts catching dust particles, dark grey worker uniform silhouettes in deep background (NO visible faces).
 
-Color palette: brushed aluminum silver, deep charcoal #2a2520, warm amber from work lights #c9a24e, hint of muted brass #a87d2a. Mostly desaturated, professional.
+Warm brass accent stripe #a87d2a subtly visible on factory wall in background (JC corporate accent).
 
-Composition: ultra-wide horizontal, depth from foreground to background, slight motion blur on machinery suggesting precision in action, lots of negative space upper-left for headline text.
+Photorealistic premium industrial photography, Tesla Gigafactory aesthetic, BMW factory at twilight, Apple precision manufacturing video style, shot on Phase One 80mm f/2.8 medium format, soft warm grading.
 
-=== Negative Prompt ===
+Color palette: 55% brushed aluminum silver and white #c8c8c8, 25% deep charcoal #2d2824, 15% warm amber sunlight #c9a24e, 5% brass accents #a87d2a. Mostly desaturated professional industrial.
 
-text, watermark, logo, words, letters, signs, person face, smile, model, oversaturated, neon, dirty, cluttered, low-tech, vintage, cartoon, illustration
+Composition: ultra-wide horizontal, depth from foreground to background, subtle motion blur on machinery suggesting precision in action, vast negative space upper-left for headline text overlay, golden light shafts adding cinematic depth.
 
-=== 备注 ===
-重点：现代化精密制造感 + 没有人脸（避免出戏）
-左上要留白给"Built for markets where..."标题
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
+
+text, watermark, logo, words, letters, signs, person face, smile, model, oversaturated, neon, dirty workshop, cluttered, low-tech, vintage industrial, cartoon, illustration, dark gloomy, scary, blue tint
+
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- 现代化精密 (Tesla/BMW 制造美学)
+- 真实展示 LiFePO4 电池/LED外壳/太阳能板 (产品组件)
+- 自然光做主光源 (呼应我们做太阳能)
+- 左上留白给 "Built for markets where ordinary lighting gives up." 标题
+- 无人脸 (合规 + 避免出戏)

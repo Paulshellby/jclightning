@@ -1,30 +1,48 @@
-=== 区块用途 ===
-"What buyers say about working with us" 客户证言区
-4 张玻璃态证言卡（哥伦比亚/南非/西班牙/澳大利亚等）
+═══════════════════════════════════════════════════
+区块用途: "What buyers say about working with us"
+         4 张玻璃态客户证言卡 (Colombia/South Africa/Spain/etc.)
+═══════════════════════════════════════════════════
 
-=== 目标文件名 ===
-bg-10-testimonials.jpg
-最终路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-10-testimonials.jpg
+故事: 4 大洲城市天际线柔焦融合, 暗示客户来自全球,
+     金色暮光统一氛围, 让证言卡有"世界客户"感。
 
-=== 推荐尺寸 ===
-16:9 Small (2752×1536)
+目标文件名: bg-10-testimonials.jpg
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-10-testimonials.jpg
+尺寸: 16:9 Small (2752×1536)
+模型: Lucid Origin
 
-=== 完整 Prompt（直接复制粘贴）===
+═══════════════════════════════════════════════════
+PROMPT (直接复制粘贴):
+═══════════════════════════════════════════════════
 
-Warm human-centered abstract background for customer testimonials. Deep ink black #0e0c0a base, soft warm sunset-amber gradient sweeping diagonally across image suggesting different geographic time zones, defocused silhouettes of architectural skylines from multiple continents blended into hazy bokeh background (resembling layered city horizons but completely abstract), scattered tiny warm light points like distant city lights, atmospheric haze with film grain.
+Warm human-centered cinematic abstract background for international customer testimonials section. Deep ink black #12100e base covering 80% of the canvas, soft warm sunset-amber diagonal gradient sweeping from upper-right to lower-left suggesting different geographic time zones converging.
 
-Aesthetic: international airline brand photography, premium travel magazine spread, BMW global campaign visual.
+In the deep background: extremely defocused silhouettes of layered city horizons from 4 continents blending together — hints of Cartagena Colombia colonial rooftops (left), Johannesburg South Africa modern skyline (center-left), Spanish Andalusian tile rooftops with church spire (center-right), Australian coastal town low buildings (right) — all blurred into hazy dreamy bokeh that suggests "global customers" without being recognizable.
 
-Photorealistic cinematic composition, golden hour worldwide montage, shot on anamorphic 50mm f/2, soft warm grading, deep professional shadows.
+Scattered tiny warm light points like distant city lights at dusk #fde9b9 across the horizons, atmospheric haze giving depth, subtle film grain.
 
-Color palette: 85% deep ink #0e0c0a, 8% warm amber sunset #c9a24e, 5% deep brass shadow #5a3a16, 2% pale brass starlight #e2c98a. NO blue, NO green, NO white.
+NO faces, NO recognizable landmarks, NO country flags, NO text.
+
+Aesthetic: international airline brand campaign visual (Emirates, Cathay Pacific), premium travel magazine spread, BMW global brand photography, IKEA worldwide store photography style.
+
+Photorealistic cinematic composition, golden-hour worldwide montage, shot on anamorphic 50mm f/2, soft warm color grading, deep professional shadows.
+
+Color palette: 80% deep ink #12100e, 10% warm amber sunset glow #c9a24e, 7% deep brass shadow #2d2824, 3% pale brass distant lights #e2c98a. ZERO blue tints, ZERO green, ZERO white.
 
 Composition: ultra-wide horizontal panoramic, diagonal soft gradient from upper-right to lower-left, slightly darker corners (vignette), perfect 4-column safe zone in center for testimonial glass cards.
 
-=== Negative Prompt ===
+═══════════════════════════════════════════════════
+NEGATIVE PROMPT:
+═══════════════════════════════════════════════════
 
-text, watermark, logo, words, letters, signs, person face, recognizable buildings, country flags, neon, bright white, colorful, cartoon, illustration
+text, watermark, logo, words, letters, signs, person face, recognizable buildings, country flags, modern skyscrapers, Statue of Liberty, Eiffel Tower, neon, bright white street lights, fluorescent, colorful, blue, green, cartoon, illustration
 
-=== 备注 ===
-重点：4 大洲客户感 + 抽象城市轮廓 + 暖色
-适合 4 卡片横排
+═══════════════════════════════════════════════════
+设计意图:
+═══════════════════════════════════════════════════
+
+- 4 大洲城市轮廓暗示 30+ 出口市场
+- 暖色暮光统一氛围 (与全站调性一致)
+- 不要可识别地标 (避免出戏)
+- 4 列负空间放 4 张证言玻璃卡
+- 深色配玻璃态最有高级感
