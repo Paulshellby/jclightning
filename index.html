@@ -1228,6 +1228,16 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
 </div>
 
 <section class="hero hero-village" id="hero">
+  <!-- ===== 3D Hero Background Image (FOX ESS-style)                      =====
+       To use a rendered 3D image instead of the SVG scene:
+       1. Save your image to: images/hero-3d.webp  (recommended: 2560×1440)
+       2. Uncomment the <img> tag below
+       3. The SVG scene will be hidden automatically via CSS
+       ============================================================== -->
+  <!--
+  <img class="hero-3d-bg" src="images/hero-3d.webp" alt="JC Lightning solar product showcase" loading="eager"/>
+  -->
+
   <!-- ===== Isometric Solar Smart Community SVG (full-bleed background) ===== -->
   <!-- Floating golden particles (dusk only) -->
   <div class="hero-particles" aria-hidden="true">
@@ -1979,6 +1989,19 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
 .hero-village { position:relative; min-height:100vh; padding:0; overflow:hidden; background:#0e0c0a; }
 .hero-scene { position:absolute; inset:0; z-index:0; }
 .hero-svg { width:100%; height:100%; display:block; }
+
+/* ===== 3D Background Image (FOX ESS-style)                        =====
+   When .hero-3d-bg <img> is present (uncommented), it covers the full hero
+   and hides the SVG scene. Use this for photorealistic 3D rendered scenes.
+   ============================================================== */
+.hero-3d-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+.hero-village:has(.hero-3d-bg) { background:#f7f3ec; } /* light fallback */
+.hero-village:has(.hero-3d-bg) .hero-scene,
+.hero-village:has(.hero-3d-bg) .hero-particles,
+.hero-village:has(.hero-3d-bg) .hero-detail,
+.hero-village:has(.hero-3d-bg) .hero-hint { display:none; }
+/* When using image bg, give the text overlay a stronger contrast backdrop */
+.hero-village:has(.hero-3d-bg) .hero-content::before { background:linear-gradient(105deg, rgba(14,12,10,0.88) 0%, rgba(14,12,10,0.7) 60%, rgba(14,12,10,0.3) 100%); }
 
 /* Hero golden particles — visible only during dusk phase of the 32s cycle */
 .hero-particles { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
