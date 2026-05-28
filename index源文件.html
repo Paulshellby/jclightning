@@ -2865,31 +2865,175 @@ polygon[fill="url(#vlg-solar)"] {
       <!-- Animated scan line -->
       <rect class="gl-scanline" x="0" y="0" width="1600" height="3" fill="url(#gl-scan-grad)" opacity="0.7"/>
 
-      <!-- North America -->
-      <path d="M 100,190 L 200,150 L 280,135 L 340,160 L 370,210 L 395,240 L 410,290 L 380,320 L 350,360 L 290,395 L 230,420 L 175,405 L 130,365 L 105,310 L 95,250 Z" fill="url(#gl-stripe-primary)" opacity="0.85"/>
-      <!-- Greenland -->
-      <path d="M 395,95 L 445,85 L 470,120 L 460,165 L 425,175 L 395,150 L 390,115 Z" fill="url(#gl-stripe-primary)" opacity="0.7"/>
-      <!-- South America -->
-      <path d="M 380,425 L 445,425 L 500,460 L 545,520 L 555,585 L 530,650 L 485,695 L 440,705 L 395,665 L 370,600 L 355,530 L 360,475 Z" fill="url(#gl-stripe-primary)" opacity="0.9"/>
-      <!-- Europe -->
-      <path d="M 700,210 L 760,180 L 825,180 L 880,200 L 905,235 L 890,275 L 850,305 L 800,320 L 740,310 L 705,275 L 695,240 Z" fill="url(#gl-stripe-primary)" opacity="0.85"/>
-      <!-- Africa -->
-      <path d="M 770,330 L 850,335 L 910,355 L 960,395 L 985,455 L 995,520 L 970,590 L 925,640 L 875,660 L 830,650 L 790,615 L 770,560 L 755,495 L 745,430 L 750,375 Z" fill="url(#gl-stripe-primary)" opacity="0.9"/>
-      <!-- Asia -->
-      <path d="M 880,165 L 950,135 L 1050,120 L 1180,130 L 1290,155 L 1380,190 L 1430,235 L 1450,290 L 1435,345 L 1395,395 L 1340,420 L 1265,420 L 1200,430 L 1140,440 L 1085,425 L 1030,415 L 975,395 L 935,365 L 905,320 L 890,265 L 880,215 Z" fill="url(#gl-stripe-primary)" opacity="0.85"/>
+      <!-- ============ REALISTIC CONTINENT OUTLINES ============ -->
+
+      <!-- Greenland (ice cap with eastern bulge) -->
+      <path d="M 400,95 C 440,80 478,90 495,120 C 500,155 488,180 458,188 C 422,188 395,178 388,152 C 385,122 395,105 400,95 Z" fill="url(#gl-stripe-primary)" opacity="0.75"/>
+
+      <!-- Iceland -->
+      <path d="M 740,162 C 762,158 782,172 780,192 C 768,205 745,200 738,188 C 735,178 738,168 740,162 Z" fill="url(#gl-stripe-primary)" opacity="0.65"/>
+
+      <!-- North America (Alaska panhandle, Canada, USA, Florida bulge, Mexico tail) -->
+      <path d="M 60,200
+               C 78,160 130,140 195,135
+               C 260,132 322,140 372,160
+               C 402,180 415,215 415,255
+               C 415,290 405,318 388,338
+               C 395,360 400,385 392,412
+               C 380,438 360,440 348,422
+               C 338,402 330,388 320,378
+               C 305,375 282,378 258,388
+               C 232,402 218,422 210,448
+               C 208,468 222,480 235,475
+               C 248,465 242,448 228,442
+               C 218,442 218,455 215,448
+               C 205,432 195,415 178,395
+               C 152,365 125,332 102,295
+               C 78,255 62,225 60,200 Z"
+            fill="url(#gl-stripe-primary)" opacity="0.85"/>
+
+      <!-- Central America / Caribbean -->
+      <path d="M 235,470 C 268,478 295,488 305,500 C 295,510 270,505 248,495 C 232,488 230,478 235,470 Z" fill="url(#gl-stripe-primary)" opacity="0.7"/>
+      <!-- Cuba -->
+      <path d="M 340,438 C 365,432 395,442 405,452 C 388,460 360,458 340,452 C 332,445 335,440 340,438 Z" fill="url(#gl-stripe-primary)" opacity="0.65"/>
+
+      <!-- South America (wide north, narrow south, Brazil east bulge) -->
+      <path d="M 380,450
+               C 415,440 460,442 500,452
+               C 545,468 575,498 585,535
+               C 590,575 580,615 562,648
+               C 538,678 510,700 482,712
+               C 452,722 425,720 405,705
+               C 392,682 382,650 375,615
+               C 365,575 358,535 360,498
+               C 365,470 375,455 380,450 Z"
+            fill="url(#gl-stripe-primary)" opacity="0.9"/>
+
+      <!-- British Isles — Great Britain -->
+      <path d="M 728,205 C 752,200 768,218 770,238 C 765,260 748,268 732,262 C 718,252 718,228 728,205 Z" fill="url(#gl-stripe-primary)" opacity="0.85"/>
+      <!-- Ireland -->
+      <path d="M 705,230 C 720,228 725,242 720,255 C 708,258 698,250 698,238 C 700,232 705,230 705,230 Z" fill="url(#gl-stripe-primary)" opacity="0.75"/>
+
+      <!-- Europe (Iberian peninsula, Italian boot, Scandinavia) -->
+      <path d="M 780,205
+               C 810,195 855,192 900,200
+               C 950,210 998,228 1035,250
+               C 1058,272 1062,300 1045,318
+               C 1018,328 988,332 962,330
+               C 948,342 940,360 935,378
+               C 925,385 915,378 908,365
+               C 902,358 892,358 880,358
+               C 870,378 862,400 850,410
+               C 838,412 832,398 838,378
+               C 845,365 848,355 848,350
+               C 828,355 802,358 782,348
+               C 770,332 770,310 775,290
+               C 768,275 758,265 752,252
+               C 758,232 770,215 780,205 Z"
+            fill="url(#gl-stripe-primary)" opacity="0.85"/>
+      <!-- Scandinavia / Norway+Sweden -->
+      <path d="M 875,155 C 905,148 935,160 945,185 C 942,210 928,225 905,225 C 882,215 870,195 870,175 C 872,162 875,155 875,155 Z" fill="url(#gl-stripe-primary)" opacity="0.8"/>
+
+      <!-- Africa (wide north Mediterranean, West African bulge, Horn of Africa, Cape) -->
+      <path d="M 752,355
+               C 815,345 880,348 945,358
+               C 985,370 1010,388 1020,410
+               C 1025,432 1040,452 1058,470
+               C 1068,490 1058,512 1038,525
+               C 1018,548 1010,580 1000,612
+               C 985,645 962,675 938,695
+               C 912,712 882,718 855,715
+               C 830,710 812,692 802,668
+               C 792,640 786,608 782,575
+               C 775,540 770,505 762,470
+               C 752,438 745,408 745,385
+               C 748,368 750,358 752,355 Z"
+            fill="url(#gl-stripe-primary)" opacity="0.9"/>
+
       <!-- Madagascar -->
-      <path d="M 1015,575 L 1035,580 L 1040,615 L 1025,640 L 1010,625 L 1005,595 Z" fill="url(#gl-stripe-primary)" opacity="0.8"/>
-      <!-- Southeast Asia islands (Indonesia / Philippines area, abstract) -->
-      <path d="M 1290,510 L 1325,510 L 1335,520 L 1320,530 L 1295,525 Z" fill="url(#gl-stripe-primary)" opacity="0.7"/>
-      <path d="M 1265,565 L 1340,570 L 1370,580 L 1345,595 L 1280,590 L 1255,580 Z" fill="url(#gl-stripe-primary)" opacity="0.7"/>
-      <!-- Australia (expansion market — lighter stripe) -->
-      <path d="M 1310,615 L 1395,605 L 1455,615 L 1495,640 L 1490,685 L 1455,710 L 1400,715 L 1345,705 L 1315,680 L 1305,645 Z" fill="url(#gl-stripe-aus)" opacity="0.95"/>
-      <!-- New Zealand -->
-      <path d="M 1530,710 L 1545,715 L 1550,735 L 1535,745 L 1525,730 Z" fill="url(#gl-stripe-aus)" opacity="0.7"/>
-      <!-- Japan -->
-      <path d="M 1390,330 L 1410,330 L 1420,345 L 1418,365 L 1410,390 L 1395,395 L 1385,375 L 1382,355 Z" fill="url(#gl-stripe-aus)" opacity="0.85"/>
-      <!-- UK / British Isles -->
-      <path d="M 750,210 L 770,205 L 778,225 L 770,245 L 755,240 L 745,225 Z" fill="url(#gl-stripe-primary)" opacity="0.8"/>
+      <path d="M 1018,558 C 1035,558 1045,580 1045,612 C 1040,640 1028,658 1015,650 C 1005,632 1000,610 1002,585 C 1008,568 1015,558 1018,558 Z" fill="url(#gl-stripe-primary)" opacity="0.8"/>
+
+      <!-- Arabian Peninsula -->
+      <path d="M 1018,398 C 1055,398 1085,415 1090,445 C 1085,478 1075,505 1060,528 C 1042,545 1020,540 1008,520 C 998,498 998,475 1005,452 C 1010,425 1015,408 1018,398 Z" fill="url(#gl-stripe-primary)" opacity="0.88"/>
+
+      <!-- Asia mainland (Russia, China, Korea, SE Asia) -->
+      <path d="M 1020,180
+               C 1095,155 1190,145 1280,142
+               C 1350,148 1410,168 1452,195
+               C 1480,222 1495,255 1492,290
+               C 1485,318 1470,340 1450,358
+               C 1440,382 1420,400 1395,412
+               C 1370,425 1342,432 1315,438
+               C 1290,448 1275,465 1268,485
+               C 1262,498 1252,500 1248,490
+               C 1248,470 1258,452 1268,438
+               C 1268,422 1255,418 1242,420
+               C 1222,425 1208,440 1202,460
+               C 1198,485 1200,510 1202,532
+               C 1195,545 1180,540 1170,525
+               C 1158,505 1152,482 1152,458
+               C 1148,442 1138,432 1122,432
+               C 1100,432 1082,442 1075,460
+               C 1070,478 1065,495 1062,510
+               C 1058,492 1058,475 1058,455
+               C 1058,432 1058,408 1052,388
+               C 1042,378 1030,378 1018,385
+               C 1018,362 1018,338 1018,310
+               C 1018,275 1018,235 1020,200
+               C 1020,188 1020,182 1020,180 Z"
+            fill="url(#gl-stripe-primary)" opacity="0.85"/>
+
+      <!-- India subcontinent (peninsula) -->
+      <path d="M 1140,440
+               C 1170,438 1198,448 1208,478
+               C 1212,510 1208,540 1198,555
+               C 1185,562 1170,555 1162,535
+               C 1155,510 1150,485 1145,468
+               C 1140,452 1138,442 1140,440 Z"
+            fill="url(#gl-stripe-primary)" opacity="0.88"/>
+
+      <!-- Japan (4 islands chain) -->
+      <path d="M 1442,318 C 1462,310 1475,325 1475,348 C 1468,372 1458,392 1448,402 C 1438,402 1430,388 1432,365 C 1435,342 1440,322 1442,318 Z" fill="url(#gl-stripe-aus)" opacity="0.9"/>
+      <ellipse cx="1428" cy="395" rx="6" ry="4" fill="url(#gl-stripe-aus)" opacity="0.7"/>
+
+      <!-- Korea peninsula -->
+      <path d="M 1390,338 C 1408,338 1412,358 1408,378 C 1398,388 1388,378 1388,360 C 1388,348 1390,340 1390,338 Z" fill="url(#gl-stripe-primary)" opacity="0.8"/>
+
+      <!-- Southeast Asia / Indochina peninsula -->
+      <path d="M 1255,460 C 1280,455 1300,470 1295,495 C 1285,515 1265,520 1255,505 C 1252,490 1252,475 1255,460 Z" fill="url(#gl-stripe-primary)" opacity="0.82"/>
+
+      <!-- Philippines (several islands) -->
+      <path d="M 1390,478 C 1410,475 1420,492 1416,512 C 1410,528 1398,530 1390,520 C 1385,505 1385,488 1390,478 Z" fill="url(#gl-stripe-primary)" opacity="0.78"/>
+      <ellipse cx="1402" cy="540" rx="5" ry="8" fill="url(#gl-stripe-primary)" opacity="0.7"/>
+
+      <!-- Indonesia — Sumatra -->
+      <path d="M 1245,548 C 1285,540 1320,552 1320,568 C 1300,578 1265,575 1248,565 C 1242,558 1242,552 1245,548 Z" fill="url(#gl-stripe-primary)" opacity="0.75"/>
+      <!-- Java -->
+      <path d="M 1325,575 C 1365,572 1395,580 1402,592 C 1388,602 1358,602 1335,592 C 1325,585 1322,578 1325,575 Z" fill="url(#gl-stripe-primary)" opacity="0.75"/>
+      <!-- Borneo (Kalimantan) -->
+      <path d="M 1342,515 C 1378,510 1408,522 1410,540 C 1392,552 1362,552 1342,540 C 1332,528 1338,520 1342,515 Z" fill="url(#gl-stripe-primary)" opacity="0.75"/>
+      <!-- Sulawesi (curvy) -->
+      <path d="M 1418,545 C 1432,540 1438,555 1432,570 C 1422,575 1415,565 1418,545 Z" fill="url(#gl-stripe-primary)" opacity="0.7"/>
+      <!-- New Guinea -->
+      <path d="M 1455,575 C 1490,570 1525,580 1530,595 C 1515,605 1485,605 1462,598 C 1452,590 1452,580 1455,575 Z" fill="url(#gl-stripe-primary)" opacity="0.7"/>
+
+      <!-- Australia (with Cape York peninsula northeast) -->
+      <path d="M 1295,620
+               C 1335,605 1385,602 1432,605
+               C 1455,608 1472,615 1480,605
+               C 1490,605 1495,618 1492,635
+               C 1498,652 1500,670 1492,688
+               C 1472,708 1438,718 1400,720
+               C 1360,720 1325,712 1305,698
+               C 1295,680 1290,658 1290,635
+               C 1290,625 1295,620 1295,620 Z"
+            fill="url(#gl-stripe-aus)" opacity="0.95"/>
+      <!-- Tasmania -->
+      <ellipse cx="1395" cy="745" rx="14" ry="10" fill="url(#gl-stripe-aus)" opacity="0.8"/>
+
+      <!-- New Zealand (North + South Island) -->
+      <path d="M 1540,705 C 1558,708 1565,725 1558,738 C 1545,742 1535,732 1535,720 C 1538,710 1540,705 1540,705 Z" fill="url(#gl-stripe-aus)" opacity="0.85"/>
+      <path d="M 1550,745 C 1565,748 1568,760 1558,765 C 1548,765 1542,755 1545,748 C 1548,745 1550,745 1550,745 Z" fill="url(#gl-stripe-aus)" opacity="0.78"/>
 
       <!-- Connection arcs from Shenzhen HQ (1280, 380) to core markets -->
       <g class="gl-arcs" stroke="#c9a24e" stroke-width="1" fill="none" opacity="0.55">
