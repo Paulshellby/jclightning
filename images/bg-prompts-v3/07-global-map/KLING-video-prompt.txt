@@ -1,0 +1,215 @@
+═══════════════════════════════════════════════════════════
+JC Lightning · 世界地图区 → 动画视频 v1
+═══════════════════════════════════════════════════════════
+
+区块用途: "Trusted across 30+ markets" 全球网络区
+         视频做底, HTML 国家 pin 叠在上面
+
+目标文件名: bg-07-global-map.mp4
+保存路径: D:\嘉晨灯饰JC Lightning\网站\images\bg-07-global-map.mp4
+时长: 10 秒 seamless loop
+尺寸: 16:9 (1920×1080 或 2560×1440)
+平台推荐: Kling 1.6 / Hailuo (国内免费) / Runway Gen-3
+
+═══════════════════════════════════════════════════════════
+🎬 设计哲学
+═══════════════════════════════════════════════════════════
+
+色调严格延续 hero 视频:
+- 主色: 深空 ink #12100e
+- 强调: 品牌金 #a87d2a / 亮金 #c9a24e / 浅金 #fde9b9
+- 完全禁用: 蓝色/绿色/白色/霓虹
+
+但题材完全不同于 hero:
+- Hero = 平视等距 isometric 城市建筑
+- Map = 俯视星空 + 网络脉冲 + 地球感
+
+形成视觉对比, 但品牌调性统一。
+
+═══════════════════════════════════════════════════════════
+🎬 V3 满配版 prompt — 10秒 (推荐, 直接粘贴)
+═══════════════════════════════════════════════════════════
+
+This is a 10-second seamless looping video. STATIC overhead aerial camera (absolutely no zoom, pan, rotation). Premium B2B global trade network visualization background.
+
+═══ ACT 1: AWAKENING (0-3s) ═══
+
+[0.0-1.0s]
+- Pitch black ink #12100e starfield background, very subtle pinpoint gold stars scattered across upper canvas
+- Faint latitude/longitude grid pattern in deep brass #2d2824 at 5% opacity barely visible
+- Soft warm brass radial glow begins emerging at upper-right area #a87d2a (this represents Shenzhen HQ position on a flat Mercator projection)
+- Subtle warm atmospheric haze starts forming
+
+[1.0-2.0s]
+- First golden energy PULSE wave emanates from upper-right glow point #fde9b9, expanding outward as a concentric ring spreading slowly across the entire canvas
+- Ring fades to nothing by the time it reaches canvas edges
+- A few faint golden trade route arc lines start drawing themselves across the canvas in brass #a87d2a — curves sweeping from upper-right toward distant points (left, center, lower-left)
+
+[2.0-3.0s]
+- 2-3 trade route arc lines now fully drawn, gently glowing with 4-second breathing pulse
+- Tiny golden light dots begin traveling slowly ALONG these arc lines (like ships sailing the trade routes)
+- Stars in upper canvas begin gentle twinkling
+- Atmospheric haze intensifies slightly
+
+═══ ACT 2: PEAK NETWORK ACTIVITY (3-7s) ═══
+
+[3.0-4.5s]
+- All 4-6 trade route arcs now visible, each with 1-2 golden light dots traveling along them
+- Second pulse wave emanates from Shenzhen HQ position
+- A few additional gold stars twinkle into existence
+- Subtle vertical light beams (auroras-like) faintly visible in upper area
+
+[4.5-6.0s]
+- Peak network activity: 8-10 golden light dots all in transit on various arc routes
+- Third pulse wave emanates from Shenzhen
+- Subtle scan-line effect: a single thin golden horizontal sweep travels from top to bottom of canvas across 1.5 seconds
+- Star twinkling at peak intensity
+
+[6.0-7.0s]
+- Light dots beginning to complete their journeys, fading out at arc endpoints
+- One more pulse wave from Shenzhen, slightly weaker
+- Subtle warmth shift in color grading at peak (10% warmer than start)
+
+═══ ACT 3: SETTLE TO LOOP (7-10s) ═══
+
+[7.0-8.5s]
+- Number of traveling dots decreases gradually
+- Trade route arc lines begin gentle fade
+- Pulse wave intensity decreases
+- Atmospheric haze settles
+
+[8.5-9.5s]
+- Only 2-3 dots still in transit
+- Subtle aurora light beams fade
+- Star twinkling slows
+
+[9.5-10.0s]
+- All elements return to EXACT positions of frame 0
+- Final frame matches frame 0 perfectly for seamless loop
+- Single dot still in transit at exact same starting position
+
+═══ CONTINUOUS ELEMENTS (all 10 seconds) ═══
+
+⭐ Starfield: gentle twinkling in upper area, low density
+✨ Atmospheric haze: warm subtle volumetric
+🌐 Latitude/longitude grid: 5% opacity throughout
+🔆 Shenzhen HQ glow point: continuous breathing pulse at upper-right
+💫 Pulse waves: emanate every 2 seconds (5 total across 10s)
+〰️ Trade route arcs: persistent with gentle glow breathing
+
+═══ NEGATIVE / AVOID (CRITICAL) ═══
+
+NO camera movement (no zoom, no pan, no rotation, no shake, no breathing)
+NO actual continents drawn
+NO land masses or ocean shapes visible
+NO country outlines or borders
+NO Earth globe sphere (this is a flat space dashboard view)
+NO bright white lights
+NO blue tints (no electric blue, no ocean blue)
+NO green tints (no aurora green, no land green)
+NO neon colors
+NO recognizable landmarks
+NO text appearing anywhere
+NO watermarks or logos
+NO fast motion (everything slow and premium)
+NO weather effects
+NO sun or moon visible
+NO satellites visible
+NO unrealistic motion (no flying objects, no morphing shapes)
+
+═══ LOOP REQUIREMENT (CRITICAL) ═══
+
+This is a website background that plays forever. First frame and last frame MUST match exactly. All pulse wave positions, dot positions, star brightness, haze intensity at 10.0s must equal frame 0.0s. Any visible "seam" between loop cycles will be noticed.
+
+═══ STYLE ═══
+
+Photorealistic 8K Octane render quality.
+Cinematic 30fps smooth motion.
+Premium aesthetic: NASA Earth observatory nighttime imagery, Bloomberg terminal dashboard, Tesla quarterly investor presentation, FOX ESS company network animation.
+Warm golden palette throughout, cosmic darkness with brass accents.
+Deep professional shadows.
+Soft atmospheric depth.
+
+═══════════════════════════════════════════════════════════
+🎬 V2 简化版 prompt — 10秒 (如果 V3 平台跑偏用这版)
+═══════════════════════════════════════════════════════════
+
+10-second seamless loop video. STATIC overhead camera, no movement.
+
+SCENE: Deep space ink black #12100e background with subtle starfield (gold pinpoints only, low density). Faint latitude/longitude grid pattern in deep brass at 5% opacity.
+
+KEY ANIMATION: Single warm brass glow point #a87d2a positioned at upper-right of canvas (Shenzhen HQ symbolic position) emanates concentric pulse waves outward every 2 seconds (5 pulses total across 10s). Pulses spread as expanding rings of gold light fading to nothing at edges.
+
+NETWORK: 4-6 golden trade route arc lines #c9a24e sweep across the canvas, each carrying 1-2 small golden light dots that travel slowly along the arc paths (like data packets).
+
+ATMOSPHERE: Warm volumetric haze, subtle gold star twinkling, gentle 5% warmth shift in middle of timeline.
+
+NO continents, NO land masses, NO countries, NO text.
+NO blue, NO green, NO white, NO neon.
+NO camera movement.
+
+LOOP: first frame = last frame exactly. All pulse positions, dot positions, star brightness reset for seamless loop.
+
+Style: photorealistic 8K Octane render, NASA Earth observatory at night, Bloomberg terminal aesthetic, warm cosmic minimalism, 30fps smooth.
+
+═══════════════════════════════════════════════════════════
+🎬 V1 极简版 prompt — 10秒 (最稳定不跑偏)
+═══════════════════════════════════════════════════════════
+
+10-second seamless loop. Static camera. Deep space ink black background. Subtle gold starfield in upper area. Warm brass radial glow at upper-right emanates pulse waves outward every 2 seconds. A few golden arc lines sweep across the canvas with traveling golden dots. Faint latitude grid pattern. NO continents, NO blue, NO green, NO white. Cinematic premium aesthetic, NASA Earth observatory mood. First frame matches last frame for seamless loop.
+
+═══════════════════════════════════════════════════════════
+💰 成本
+═══════════════════════════════════════════════════════════
+
+Kling 1.6 (10s): ≈$2
+Hailuo (10s): 国内每天免费 4 次 ← 推荐先试
+Runway Gen-3 (10s): ≈$5
+Vidu (10s): ≈$1.5
+
+═══════════════════════════════════════════════════════════
+🎯 操作流程
+═══════════════════════════════════════════════════════════
+
+1. 这个区块**不需要**上传起始帧 (这是 text-to-video,不是 image-to-video)
+   (因为我们没有现成的星空 PNG, 让 AI 直接生成)
+
+2. 选平台 → text-to-video 功能
+3. 粘贴 V3 prompt → 选 10s 16:9 高质量
+4. 生成 → 满意就下载
+5. 重命名为 bg-07-global-map.mp4
+6. 放到 D:\嘉晨灯饰JC Lightning\网站\images\bg-07-global-map.mp4
+7. 告诉我 "地图视频好了"
+
+═══════════════════════════════════════════════════════════
+📝 拿到视频后我会做什么
+═══════════════════════════════════════════════════════════
+
+在 global 区块的 SVG world map 容器后面插入一层 video:
+
+HTML 改动:
+<section class="global">
+  <video class="global-map-video" autoplay loop muted playsinline
+         src="images/bg-07-global-map.mp4"></video>
+  <svg class="global-map">...</svg>  <!-- 现有地图叠在视频上 -->
+</section>
+
+CSS 改动:
+- 视频做底层 z-index:0
+- SVG 大洲dot pattern 叠在上面 z-index:1
+- 城市 pin 在最上面 z-index:2
+- 视频带 brightness 控制确保 pin 文字可读
+
+效果:
+- 用户看到星空+脉冲波在动 (你的视频)
+- 国家 dot 大洲地图叠在上面静止
+- 国家 pin 浮在最上层互动
+
+═══════════════════════════════════════════════════════════
+⚠️ 注意事项
+═══════════════════════════════════════════════════════════
+
+1. **prompt 强调"NO continents"** — 因为 SVG 地图会叠在上面, AI 画的大洲反而会冲突
+2. **重点是"星空 + 脉冲 + 网络arcs"** — 这是装饰性背景, 不是地图本身
+3. **10 秒循环更难做对** — LOOP 部分别删
+4. **如果 Hailuo 免费版效果不好** — 升级到 Kling 1.6 出终稿
