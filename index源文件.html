@@ -516,46 +516,84 @@ h2 em { font-style:italic; color:var(--brass); }
 .global-head h2 em { font-style:italic; color:var(--brass-lt); }
 .global-sub { color:var(--mist); font-size:0.95rem; line-height:1.65; font-weight:300; max-width:620px; margin:0 auto; }
 
-.global-map-wrap { position:relative; max-width:1720px; margin:0 auto; aspect-ratio: 2 / 1; overflow:hidden; border-radius:8px; }
+.global-map-wrap { position:relative; max-width:1720px; margin:0 auto; aspect-ratio: 2 / 1; }
 
-/* AI video background — layer 0 */
-.global-map-video {
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; object-position:center center;
-  z-index:0;
-  /* Scale up slightly to push Kling watermark out of view */
-  transform: scale(1.08);
-  transform-origin: 0 0;
-  background:#0e0c0a;
-  /* Slight blur + saturation to hide AI-generated garbled text labels;
-     pin labels overlaid via HTML stay crisp */
-  filter: blur(1.2px) saturate(1.15) contrast(1.05);
-}
-
-/* Watermark cover bottom-right (Kling/Hailuo signature mask) */
-.global-map-wm-cover {
-  position:absolute; bottom:0; right:0;
-  width: clamp(140px, 14vw, 220px);
-  height: clamp(40px, 5vw, 70px);
-  background: radial-gradient(ellipse at bottom right,
-    rgba(14,12,10,0.98) 0%,
-    rgba(14,12,10,0.78) 38%,
-    rgba(14,12,10,0.25) 72%,
-    transparent 100%);
-  z-index:1; pointer-events:none;
-}
-
-/* SVG continents layer on top of video — minimal so video shows clearly */
+/* SVG map — restored to full opacity (no video layer anymore) */
 .global-map-wrap .global-map {
   position:relative; z-index:2;
-  opacity:0.22;
-  pointer-events:none;
+  opacity:1;
 }
-/* Hide SVG arcs/grid (video already provides them, prevents visual clutter) */
+/* SVG arcs/grid/hud restored (video gone) */
 .global-map-wrap .global-map .gl-arcs,
 .global-map-wrap .global-map .gl-grid,
 .global-map-wrap .global-map .gl-hud,
-.global-map-wrap .global-map .gl-scanline { display:none; }
+.global-map-wrap .global-map .gl-scanline { display:initial; }
+
+/* === ENHANCED CONTINENT ANIMATIONS (replaces removed video) === */
+
+/* Continents subtle breathing — gentle opacity pulse */
+.global-map > path[fill^="url(#gl-stripe"] {
+  animation: gl-cont-breathe 6s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes gl-cont-breathe {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
+}
+
+/* Arc lines — flowing dashes from Shenzhen outward */
+.gl-arcs .gl-arc {
+  stroke-dasharray: 6 8;
+  animation: gl-arc-flow 4s linear infinite;
+}
+@keyframes gl-arc-flow {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -140; }
+}
+.gl-arcs .gl-arc:nth-child(2) { animation-duration: 5s; }
+.gl-arcs .gl-arc:nth-child(3) { animation-duration: 4.5s; }
+.gl-arcs .gl-arc:nth-child(4) { animation-duration: 5.5s; }
+.gl-arcs .gl-arc:nth-child(5) { animation-duration: 4.2s; }
+.gl-arcs .gl-arc:nth-child(6) { animation-duration: 5.2s; }
+.gl-arcs .gl-arc:nth-child(7) { animation-duration: 4.8s; }
+.gl-arcs .gl-arc:nth-child(8) { animation-duration: 5.3s; }
+
+/* Grid lines — very subtle steady pulse */
+.gl-grid line {
+  animation: gl-grid-fade 8s ease-in-out infinite;
+}
+@keyframes gl-grid-fade {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+/* Scanline — restored animation */
+.gl-scanline {
+  animation: gl-scan 5s linear infinite;
+}
+@keyframes gl-scan {
+  0%   { transform: translateY(0); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.7; }
+  100% { transform: translateY(800px); opacity: 0; }
+}
+
+/* Pulse waves emanating from Shenzhen HQ (1280, 380) — added via inline SVG */
+.gl-pulse-circle {
+  fill: none;
+  stroke: #fde9b9;
+  stroke-width: 2;
+  opacity: 0;
+  transform-origin: 1280px 380px;
+  animation: gl-pulse-expand 3.5s ease-out infinite;
+}
+.gl-pulse-circle:nth-child(2) { animation-delay: 1.2s; }
+.gl-pulse-circle:nth-child(3) { animation-delay: 2.3s; }
+@keyframes gl-pulse-expand {
+  0%   { opacity: 0; transform: scale(0); }
+  20%  { opacity: 0.85; }
+  100% { opacity: 0; transform: scale(8); }
+}
 
 /* Country pin labels reveal sequence — synchronized with video pulse waves */
 .global-map-wrap .map-pin {
@@ -3345,15 +3383,7 @@ polygon[fill="url(#vlg-solar)"] {
   </div>
 
   <div class="global-map-wrap reveal" aria-label="World map showing JC Lightning markets">
-    <!-- ===== AI-generated animated map video (background layer) ===== -->
-    <video class="global-map-video" autoplay loop muted playsinline preload="metadata"
-           poster="images/bg-prompts-v3/07-global-map/lucid-origin_a_cinematic_photo_of_Top-down_Mercator_world_map_visualization_for_premium_B2B_g-0.jpg"
-           aria-hidden="true">
-      <source src="images/bg-07-global-map.mp4" type="video/mp4">
-    </video>
-    <!-- Watermark cover for bottom-right corner (Kling/Hailuo signature) -->
-    <div class="global-map-wm-cover" aria-hidden="true"></div>
-
+    <!-- Video removed per request — back to pure SVG with CSS/SVG animations -->
     <svg class="global-map" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="gl-stripe-primary" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
@@ -3573,16 +3603,60 @@ polygon[fill="url(#vlg-solar)"] {
       <path d="M 1540,705 C 1558,708 1565,725 1558,738 C 1545,742 1535,732 1535,720 C 1538,710 1540,705 1540,705 Z" fill="url(#gl-stripe-aus)" opacity="0.85"/>
       <path d="M 1550,745 C 1565,748 1568,760 1558,765 C 1548,765 1542,755 1545,748 C 1548,745 1550,745 1550,745 Z" fill="url(#gl-stripe-aus)" opacity="0.78"/>
 
+      <!-- HQ Shenzhen pulse waves (3 staggered concentric rings expanding outward) -->
+      <g class="gl-pulse-group" aria-hidden="true">
+        <circle class="gl-pulse-circle" cx="1280" cy="380" r="20"/>
+        <circle class="gl-pulse-circle" cx="1280" cy="380" r="20"/>
+        <circle class="gl-pulse-circle" cx="1280" cy="380" r="20"/>
+      </g>
+
       <!-- Connection arcs from Shenzhen HQ (1280, 380) to core markets -->
-      <g class="gl-arcs" stroke="#c9a24e" stroke-width="1" fill="none" opacity="0.55">
-        <path d="M 1280,380 Q 900,150 440,460" stroke-dasharray="4,4" class="gl-arc"/>
-        <path d="M 1280,380 Q 950,180 530,555" stroke-dasharray="4,4" class="gl-arc"/>
-        <path d="M 1280,380 Q 1100,180 805,350" stroke-dasharray="4,4" class="gl-arc"/>
-        <path d="M 1280,380 Q 1180,520 925,615" stroke-dasharray="4,4" class="gl-arc"/>
-        <path d="M 1280,380 Q 1380,500 1390,660" stroke-dasharray="4,4" class="gl-arc"/>
-        <path d="M 1280,380 Q 1200,420 1145,460" stroke-dasharray="3,3" class="gl-arc"/>
-        <path d="M 1280,380 Q 800,80 220,310"  stroke-dasharray="4,4" class="gl-arc"/>
-        <path d="M 1280,380 Q 1200,260 1400,355" stroke-dasharray="3,3" class="gl-arc"/>
+      <defs>
+        <path id="arc-1" d="M 1280,380 Q 900,150 440,460" fill="none"/>
+        <path id="arc-2" d="M 1280,380 Q 950,180 530,555" fill="none"/>
+        <path id="arc-3" d="M 1280,380 Q 1100,180 805,350" fill="none"/>
+        <path id="arc-4" d="M 1280,380 Q 1180,520 925,615" fill="none"/>
+        <path id="arc-5" d="M 1280,380 Q 1380,500 1390,660" fill="none"/>
+        <path id="arc-6" d="M 1280,380 Q 1200,420 1145,460" fill="none"/>
+        <path id="arc-7" d="M 1280,380 Q 800,80 220,310" fill="none"/>
+        <path id="arc-8" d="M 1280,380 Q 1200,260 1400,355" fill="none"/>
+      </defs>
+      <g class="gl-arcs" stroke="#c9a24e" stroke-width="1.2" fill="none" opacity="0.7">
+        <use href="#arc-1" stroke-dasharray="4,4" class="gl-arc"/>
+        <use href="#arc-2" stroke-dasharray="4,4" class="gl-arc"/>
+        <use href="#arc-3" stroke-dasharray="4,4" class="gl-arc"/>
+        <use href="#arc-4" stroke-dasharray="4,4" class="gl-arc"/>
+        <use href="#arc-5" stroke-dasharray="4,4" class="gl-arc"/>
+        <use href="#arc-6" stroke-dasharray="3,3" class="gl-arc"/>
+        <use href="#arc-7" stroke-dasharray="4,4" class="gl-arc"/>
+        <use href="#arc-8" stroke-dasharray="3,3" class="gl-arc"/>
+      </g>
+      <!-- Traveling data packets — gold orbs flowing from Shenzhen along each arc -->
+      <g class="gl-packets" aria-hidden="true">
+        <circle r="6" fill="#fde9b9" style="filter:drop-shadow(0 0 6px #c9a24e) drop-shadow(0 0 12px #a87d2a)">
+          <animateMotion dur="4s" repeatCount="indefinite"><mpath href="#arc-1"/></animateMotion>
+        </circle>
+        <circle r="6" fill="#fde9b9" style="filter:drop-shadow(0 0 6px #c9a24e) drop-shadow(0 0 12px #a87d2a)">
+          <animateMotion dur="5s" repeatCount="indefinite" begin="0.6s"><mpath href="#arc-2"/></animateMotion>
+        </circle>
+        <circle r="6" fill="#fde9b9" style="filter:drop-shadow(0 0 6px #c9a24e) drop-shadow(0 0 12px #a87d2a)">
+          <animateMotion dur="4.5s" repeatCount="indefinite" begin="1.2s"><mpath href="#arc-3"/></animateMotion>
+        </circle>
+        <circle r="6" fill="#fde9b9" style="filter:drop-shadow(0 0 6px #c9a24e) drop-shadow(0 0 12px #a87d2a)">
+          <animateMotion dur="5.5s" repeatCount="indefinite" begin="1.8s"><mpath href="#arc-4"/></animateMotion>
+        </circle>
+        <circle r="6" fill="#fde9b9" style="filter:drop-shadow(0 0 6px #c9a24e) drop-shadow(0 0 12px #a87d2a)">
+          <animateMotion dur="4.2s" repeatCount="indefinite" begin="2.4s"><mpath href="#arc-5"/></animateMotion>
+        </circle>
+        <circle r="5" fill="#fde9b9" style="filter:drop-shadow(0 0 5px #c9a24e)">
+          <animateMotion dur="3s" repeatCount="indefinite" begin="0.3s"><mpath href="#arc-6"/></animateMotion>
+        </circle>
+        <circle r="6" fill="#fde9b9" style="filter:drop-shadow(0 0 6px #c9a24e) drop-shadow(0 0 12px #a87d2a)">
+          <animateMotion dur="6s" repeatCount="indefinite" begin="1.5s"><mpath href="#arc-7"/></animateMotion>
+        </circle>
+        <circle r="5" fill="#fde9b9" style="filter:drop-shadow(0 0 5px #c9a24e)">
+          <animateMotion dur="3.5s" repeatCount="indefinite" begin="2.1s"><mpath href="#arc-8"/></animateMotion>
+        </circle>
       </g>
     </svg>
 
