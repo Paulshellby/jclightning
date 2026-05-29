@@ -121,9 +121,20 @@ body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink
 }
 /* Mobile 鈥?slightly smaller root size so layouts stay tight */
 @media (max-width:960px) { html { font-size: 16px; } }
-/* Preloader */
-.preloader { position:fixed; inset:0; z-index:99999; background:#06040a; display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .6s ease, visibility .6s ease; overflow:hidden; }
-.preloader.hide { opacity:0; visibility:hidden; pointer-events:none; }
+/* Preloader — with CSS auto-hide failsafe (works even if JS errors out) */
+.preloader {
+  position:fixed; inset:0; z-index:99999; background:#06040a;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  overflow:hidden;
+  /* Pure CSS auto-hide: starts fading at 2.5s, fully hidden by 3s — no JS required */
+  animation: pre-autohide 3s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes pre-autohide {
+  0%, 83%   { opacity:1; visibility:visible; pointer-events:auto; }
+  99%       { opacity:0; visibility:visible; pointer-events:none; }
+  100%      { opacity:0; visibility:hidden; pointer-events:none; }
+}
+.preloader.hide { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; animation:none !important; }
 .pre-ray { position:absolute; top:50%; left:50%; width:0; height:200vh; background:linear-gradient(180deg, rgba(253,233,185,0) 0%, rgba(253,233,185,0.7) 50%, rgba(253,233,185,0) 100%); transform-origin:50% 50%; animation: pre-ray-expand 1.4s cubic-bezier(.22,1,.36,1) forwards; pointer-events:none; }
 .pre-orb { position:absolute; top:50%; left:50%; width:0; height:0; border-radius:50%; background:radial-gradient(circle, rgba(253,233,185,1) 0%, rgba(201,162,78,0.6) 30%, rgba(201,162,78,0) 70%); transform:translate(-50%,-50%); animation: pre-orb-pulse 1.4s cubic-bezier(.22,1,.36,1) forwards; pointer-events:none; }
 .pre-stage { position:relative; z-index:1; opacity:0; animation: pre-stage-in 0.8s ease-out 0.9s forwards; display:flex; flex-direction:column; align-items:center; }
