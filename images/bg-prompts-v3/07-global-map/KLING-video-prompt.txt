@@ -1,290 +1,187 @@
 ═══════════════════════════════════════════════════════════
-JC Lightning · 世界地图区 → 动画视频 v3
-(清晰大洲 + 国家名渐现 + HQ突出方案)
+JC Lightning · 地图视频 v4 (零文字超严格版)
 ═══════════════════════════════════════════════════════════
 
-⚠️ 核心策略变更:
-
-❌ 让 AI 视频里直接生成"国家名文字"会乱码:
-   - Kling/Runway 生成的英文/汉字经常拼错 (USAA, Соlombiа, 西班牙乱码)
-   - 即使 Sora 也搞不定多个准确的国家名
-   - 字体不可控, 颜色不可控, 位置不可控
-   - 一旦视频生成出错就要重做
-
-✅ 正确方案: 双层叠加 (这是 FOX ESS / Tesla 官网做法)
-   - 底层视频: 只画"会动的视觉" (脉冲波 + 弧线 + 大陆轮廓 + 光点)
-   - 上层 HTML: 由我用 CSS/SVG 写"国家名标签"
-                按你要的顺序逐个浮现, 关键市场加粗加亮, HQ独立放大
-
-这样:
-✓ 文字100%准确, 字体统一
-✓ 顺序/速度/特效完全可控
-✓ 中英西法葡 5 语言切换都对
-✓ 关键市场和 HQ 可单独突出
-✓ 想改国家名直接改 HTML, 不用重做视频
+v4 升级核心:
+1. ❌ 之前版本会出现奇怪发光符号/乱码 = AI 试图写国家名失败
+2. ✅ Part A 起始图严格禁止任何文字/符号/标签
+3. ✅ Part B 视频 prompt 反复多次禁止任何文字生成
+4. ✅ NEGATIVE prompt 大幅加强 (列出所有可能的文字类型)
+5. ✅ 改用纯抽象动效 (脉冲圈/弧线/光点), 完全不需要任何标签
 
 ═══════════════════════════════════════════════════════════
-🎯 JC 关键市场清单 (决定动画顺序和样式)
+🛑 关键认知: 为什么 AI 会画乱码符号?
 ═══════════════════════════════════════════════════════════
 
-🏢 总部 HQ (最高级别 - 永远第一个亮 + 永远高亮):
-   ★ Shenzhen, China (深圳)
+AI 视频生成器(Kling/Runway)看到地图就联想到"地图上应该有国家名",
+于是擅自添加文字 → 但它写不准 → 出现乱码/伪文字/发光符号块。
 
-🌟 核心市场 (3 大洲 - 7 个国家, 大字体 + 亮金色):
-   ⭐ Colombia (哥伦比亚) - 拉美
-   ⭐ Ecuador (厄瓜多尔) - 拉美
-   ⭐ Brazil (巴西) - 拉美
-   ⭐ South Africa (南非) - 非洲
-   ⭐ Spain (西班牙) - 欧洲
-   ⭐ UAE (阿联酋) - 中东
-   ⭐ Australia (澳洲) - 大洋洲
-
-🌐 扩展市场 (5 大洲 - 18 个国家, 标准字体):
-   北美: USA, Canada, Mexico
-   南美: (已在核心)
-   欧洲: UK, Germany, France, Italy
-   非洲: Nigeria, Kenya, Tanzania
-   亚洲: Saudi Arabia, Pakistan, India, Thailand, Vietnam, Philippines, Indonesia, Japan
+解决方案: 在 prompt 里**反复多次明确禁止任何文字**, 用 5-6 种表达方式,
+让 AI 完全放弃添加文字的念头。
 
 ═══════════════════════════════════════════════════════════
-🎬 PART A: 生成静态精准地图 (Midjourney/Leonardo)
+🎨 PART A: 起始图 (Midjourney v6 / Leonardo Lucid Origin)
 ═══════════════════════════════════════════════════════════
 
-平台: Midjourney v6 (地图最准) / Leonardo Lucid Origin
+平台: Midjourney v6 优先 (理解 "no text" 最好)
 尺寸: 16:9 (1920×1080)
 
-────────── PROMPT (复制粘贴) ──────────
+────────── PROMPT 复制粘贴 ──────────
 
-Top-down Mercator world map for premium B2B global trade dashboard. Pitch black ink #12100e background covering entire frame.
+Top-down Mercator world map for premium B2B dashboard background. Pitch black ink #12100e canvas covering entire frame.
 
-All 7 continents clearly drawn with accurate geographic shapes — North America (Alaska, Canada, USA, Mexico, Central America), South America (Colombia, Brazil, Argentina narrowing south), Africa (recognizable shape with Horn of Africa east), Europe (Iberian peninsula, Italian boot), Asia (Arabian peninsula, India peninsula, Indochina peninsula, Japan archipelago), Australia (with Tasmania), Antarctica (small at bottom).
+All 7 continents rendered as luminous dot-matrix patterns in warm brass gold #c9a24e — each tiny dot like a city light at night, density medium, forming clearly recognizable continent shapes (North America, South America, Africa, Europe, Asia, Australia, Antarctica small at bottom). Coastlines have subtle pale brass edge glow #fde9b9 at 20% opacity.
 
-Continents rendered as dot-matrix pattern in warm brass gold #c9a24e — each dot small and luminous, density medium (not too sparse, not too dense). Coastlines have a subtle bright brass edge highlight #fde9b9 at 30% opacity giving definition.
+Subtle latitude/longitude grid lines in deep brass #2d2824 at 4% opacity overlay (very faint).
 
-Country borders within continents visible as fine brass gold lines at 20% opacity.
+A single warm radial glow point at China's Shenzhen position (eastern Asia coast, around 22°N 114°E) emanating soft amber halo #a87d2a.
 
-Major coastal cities marked as tiny luminous gold points #fde9b9 (small dots).
+ABSOLUTELY NO TEXT OF ANY KIND. NO country names. NO city names. NO labels. NO captions. NO numbers. NO letters. NO Chinese characters. NO logos. NO watermarks. NO glowing rectangular badges. NO sign elements. NO pin markers with text. NO date stamps. NO coordinate labels. The map must be COMPLETELY TEXT-FREE, just continent dot patterns and a glow point.
 
-Latitude and longitude grid lines in deep brass #2d2824 at 5% opacity overlaying everything (8 horizontal lines, 12 vertical lines).
+Cinematic dark UI aesthetic. NASA earth night observatory style. Bloomberg terminal dashboard mood. Warm amber palette only.
 
-A warm radial glow point positioned at China's Shenzhen location (eastern Asia coast, approximately 22.5°N 114°E) emanating soft amber halo #a87d2a — this is the HQ focal point.
-
-Subtle warm atmospheric haze. Cinematic dark UI aesthetic. NASA earth night observatory + Bloomberg trade dashboard style.
-
-Color palette absolutely strict: 80% deep ink #12100e, 10% brass dots and lines #c9a24e, 5% pale brass coastline highlights #fde9b9, 5% deep brass grid + borders #2d2824. ZERO blue, ZERO green, ZERO white, ZERO red, ZERO oceans colored, ZERO sun.
+Color palette strict: 82% deep ink #12100e, 12% brass dots #c9a24e, 4% pale brass coastline edges #fde9b9, 2% deep brass grid #2d2824. ZERO blue, ZERO green, ZERO white, ZERO red.
 
 Composition: flat top-down Mercator projection, perfect 16:9 horizontal frame, continents centered with Asia slightly right of center, oceans pitch black space.
 
-NEGATIVE PROMPT: text, country names, city names, watermark, logo, capital labels, neon, fluorescent, blue oceans, green continents, white land, satellite photo realism, cloud cover, sun glare, 3D globe sphere, distorted shapes, missing continents, fictional landmasses, words, letters, numbers
+────────── NEGATIVE PROMPT (Midjourney 用 --no, Leonardo 用单独 negative 框) ──────────
+
+text, words, letters, numbers, Chinese characters, country names, city names, labels, captions, watermarks, logos, signs, badges, rectangular UI elements, glowing text boxes, pins, markers, runes, symbols, fake text, gibberish characters, garbled writing, coordinate readouts, neon, fluorescent, blue oceans, green continents, white land, satellite cloud cover, 3D globe sphere, distorted continents, missing continents, fictional landmasses, fake script
 
 ═══════════════════════════════════════════════════════════
-🎬 PART B: image-to-video 加动效 (无文字版!)
+🎬 PART B: image-to-video (Kling 2.0 / Hailuo)
 ═══════════════════════════════════════════════════════════
 
-平台: Kling 1.6/2.0 / Hailuo / Runway Gen-3
-上传图片: 上面 Part A 生成的地图 PNG
-设置: 10s, 16:9, motion intensity 中等
+⚠️ 关键设置:
+- 上传 Part A 生成的纯净地图 PNG
+- Motion intensity: **3-4** (低!)  ← 太高 AI 会乱发挥
+- 时长: 10 秒
+- 比例: 16:9
 
-────────── PROMPT (复制粘贴) ──────────
+────────── PROMPT 复制粘贴 ──────────
 
-10-second seamless looping video. STATIC overhead camera throughout (absolutely no zoom, no pan, no rotation, no shake). The world map stays completely still — only ANIMATED OVERLAY ELEMENTS are added on top.
+10-second seamless loop video. STATIC overhead camera throughout — no zoom, no pan, no rotation, no shake. The base world map stays COMPLETELY UNCHANGED. The map continents, dot patterns, and grid lines remain EXACTLY as in the starting image — do NOT redraw, do NOT regenerate, do NOT add anything to the map itself.
 
-═══ MAP REMAINS UNCHANGED ═══
+The ONLY allowed animated elements are these abstract overlays:
 
-The continents, country borders, coastlines, grid lines stay EXACTLY as in the starting image. Do NOT redraw, do NOT regenerate, do NOT warp the map. The map is a static base layer. Continents are sacred — do not touch them.
+🌟 PULSE WAVES (continuous):
+The warm glow point at Shenzhen (eastern Asia, upper right area) emanates concentric ring pulses outward every 2 seconds. Each pulse is a thin bright golden ring #fde9b9 that expands from small to large across 2 seconds, fading from 80% opacity to 0%. 5 pulse rings total across 10 seconds. They are pure smooth circles — no text inside, no labels attached.
 
-═══ ANIMATED ELEMENTS TO ADD ═══
+✈️ TRADE ROUTE ARCS:
+6 thin smooth golden curved lines #c9a24e draw themselves from Shenzhen outward to 6 destination points across the map (one to lower-left for Brazil region, one to lower-center for South Africa region, one to upper-center for Spain region, one to lower-right for Australia region, one to lower-center-right for India region, one to upper-far-left for USA region). Arc thickness ~2px. Each arc has gentle pulse glow rhythm.
 
-🌟 SHENZHEN HQ PULSE (continuous, prominent):
-- The warm glow point at Shenzhen (eastern Asia coast) emanates radial pulse waves outward every 2 seconds
-- Each pulse spreads as expanding concentric ring of bright gold light #fde9b9, growing from 100px radius to 1500px radius across 2 seconds, fading from 100% to 0% opacity
-- 5 pulse waves total across 10 seconds
+💫 TRAVELING LIGHT DOTS:
+Small bright smooth golden circular dots #fde9b9 (8px radius with soft glow) travel slowly along each arc from Shenzhen toward destinations. 1-2 dots per arc, evenly spaced. 8-12 dots in motion at peak. Each dot is a pure circle of light — no text, no symbols inside.
 
-✈️ TRADE ROUTE ARCS (drawn progressively from HQ):
-- Golden arc lines #c9a24e draw themselves from Shenzhen to 6 destination points across the map
-- Targets (in order of appearance):
-  1. South Africa (lower-center-left, draws at 1s)
-  2. Brazil (lower-far-left, draws at 2s)
-  3. Spain (upper-center-left, draws at 3s)
-  4. Australia (lower-right, draws at 4s)
-  5. India (just below HQ, draws at 5s)
-  6. USA (upper-far-left, draws at 6s)
-- Each arc has gentle golden glow with breathing pulse rhythm
-- Arc thickness ~3px
+✨ AMBIENT TWINKLE:
+Existing tiny gold dots on continents (the city lights from base image) gently twinkle in brightness 60%-100%. Different timing for organic feel. Stay in their exact positions.
 
-💫 DATA PACKETS (traveling along arcs):
-- Small bright golden orbs #fde9b9 (10px radius with glow) travel slowly ALONG each trade arc line
-- Like data/orders moving from Shenzhen origin to destinations
-- 1-2 packets per arc, evenly spaced in time
-- 8-12 packets in motion simultaneously at peak
+🌫️ ATMOSPHERIC:
+Very subtle warm haze drifts slowly across canvas. Gentle film grain.
 
-✨ CITY LIGHTS TWINKLE:
-- The tiny gold city point lights on continents gently twinkle (brightness varies subtly 60%-100%)
-- Different cities twinkle at different times for organic feel
-- All stay positioned exactly where they are in the image
+═══ ABSOLUTELY NO TEXT GENERATION ═══
 
-🌫️ ATMOSPHERIC EFFECTS:
-- Very subtle warm haze drifts slowly across canvas
-- 5% warmth shift in color grading peaks at 5 seconds, returns to start by 10 seconds
-- Gentle film grain throughout
+DO NOT add country name labels.
+DO NOT add city name labels.
+DO NOT add coordinate readouts.
+DO NOT add any numbers or letters anywhere.
+DO NOT add badges or rectangular UI elements with text inside.
+DO NOT add glowing text boxes.
+DO NOT add fake/gibberish characters that look like text.
+DO NOT add runes, symbols, or pictographs.
+DO NOT animate any existing text or text-like marks (if any are visible in source image, IGNORE them, do not move them, do not enhance them).
+The video must contain ZERO writing of any kind.
 
-═══ LOOP REQUIREMENT (CRITICAL) ═══
+═══ LOOP REQUIREMENT ═══
 
-First frame and last frame MUST match EXACTLY. Pulse wave positions, packet positions, arc visibility, twinkle states all reset for seamless loop. No visible seam between cycles.
+Frame 0.0s = Frame 10.0s exactly. Pulse positions, dot positions, arc visibility, twinkle states reset perfectly.
 
-═══ NEGATIVE / AVOID ═══
+═══ NEGATIVE — what NOT to generate ═══
 
-NO text, NO letters, NO numbers appearing anywhere
-NO country name labels added
-NO city name labels added
-NO watermarks or logos
-NO camera movement of any kind
-NO redrawing continents
-NO changing country borders
-NO sea/ocean color change
-NO sun, moon, satellites, clouds
-NO 3D globe sphere rendering
-NO blue tints
-NO green tints
-NO white bright flashes
-NO neon colors
-NO fast motion
+text, words, letters, numbers, Chinese characters, country names, city names, labels, captions, watermarks, logos, signs, badges, glowing rectangles with characters, glowing yellow text boxes, fake script, gibberish runes, symbols, pictographs, hieroglyphs, coordinate readouts, neon flashes, bright white explosions, blue oceans, green land, recognizable landmarks, cars, people, animals, weather, clouds, sun, moon, satellites, 3D globe rendering, camera zoom, camera pan, camera rotation, camera shake, redrawing of continents, changing continent shapes, adding new landmasses.
 
 ═══ STYLE ═══
 
-Photorealistic 8K Octane render quality.
-Smooth 30fps motion.
-Premium B2B aesthetic: Bloomberg terminal trade dashboard, Tesla investor presentation, NASA Earth observatory at night, FOX ESS company animation.
+Photorealistic Octane render 8K quality.
+30fps smooth motion.
+Premium B2B aesthetic — Bloomberg trade terminal, NASA Earth observatory at night, Tesla investor dashboard, FOX ESS company global animation.
 Warm golden brass palette throughout.
 Deep cosmic darkness.
 Soft glowing pulse waves.
 
 ═══════════════════════════════════════════════════════════
-🎬 PART C: 我做的事 — HTML/CSS 国家名按顺序浮现
+🆘 如果还出现乱码符号 — 3 个保底方案
 ═══════════════════════════════════════════════════════════
 
-你拿到视频上传后, 我立刻在地图区上层加 HTML 动画:
+方案 1: 切换平台
+试 Hailuo MiniMax (对 "no text" 指令更听话) 或 Runway Gen-3
+不要用 Kling 1.6 (这个版本最爱自由发挥)
 
-⏱️ 国家名出现时间表 (随视频脉冲波节奏):
+方案 2: 用 image-to-video 但 motion intensity 调到最低 (1-2)
+低 motion = AI 几乎不发挥, 只让起始图的元素轻微浮动
+缺点: 动效会变弱
 
-[0.0s] HQ SHENZHEN 大字体 + 金底框 + 持续脉冲 (永远显示, 视频一开始就出现)
-
-[第 1 波脉冲 - 1s] 拉美核心市场出现:
-  ⭐ Colombia
-  ⭐ Ecuador
-  ⭐ Brazil
-
-[第 2 波脉冲 - 3s] 非洲+欧洲核心市场出现:
-  ⭐ South Africa
-  ⭐ Spain
-  ⭐ UAE
-
-[第 3 波脉冲 - 5s] 大洋洲+亚洲核心出现:
-  ⭐ Australia
-  (核心市场全部到位, 高亮显示)
-
-[第 4 波脉冲 - 7s] 北美扩展市场出现:
-  USA, Canada, Mexico
-
-[第 5 波脉冲 - 8s] 欧洲扩展市场出现:
-  UK, Germany, France, Italy
-
-[第 5 波脉冲 - 9s] 亚洲+非洲扩展市场出现:
-  Saudi Arabia, Pakistan, India, Thailand,
-  Vietnam, Philippines, Indonesia, Japan,
-  Nigeria, Kenya, Tanzania
-
-[10s 视频循环] 所有 25 个国家全部显示, 进入下一轮循环
-              第二轮开始时国家名保持显示, 只是脉冲波重新开始
-
-🎨 视觉差异化:
-
-| 等级 | 字体 | 颜色 | 边框 | 大小 |
-|------|------|------|------|------|
-| HQ SHENZHEN | bold 700 | #fde9b9 浅金 | 实金底 + 脉冲呼吸光晕 | 1.5x |
-| 核心市场 ⭐ | bold 600 | #c9a24e 亮金 | 金边 + dot 大 | 1.2x |
-| 扩展市场 | regular 500 | #e2c98a 浅金 | 透明 + dot 小 | 1x |
-
-🎬 出现动画效果:
-- 国家名从对应 pin 位置 fade-in + 向上 8px 平移 (0.5s 缓动)
-- HQ Shenzhen 还会附加金色光晕脉冲
-- 一旦出现就保持显示, 不会再消失 (视频循环时不重置)
+方案 3: 完全放弃视频, 用我的 SVG+CSS 动画方案
+告诉我 "用 SVG 动画", 我直接给现有 SVG 地图加动效:
+  ✓ 脉冲波从深圳扩散 (CSS @keyframes)
+  ✓ 6 条贸易弧线呼吸发光 (SVG stroke-dashoffset)
+  ✓ 光点沿弧线穿梭 (SVG <animateMotion>)
+  ✓ 国家 pin 按 JC 市场优先级依次浮现 (CSS staggered delay)
+  ✓ HQ 深圳永久脉冲高亮
+  ✓ 100% 文字精准 (HTML 写, 不靠 AI)
+  ✓ 0 加载延迟 (无 mp4)
+  ✓ 完全免费
+  缺点: 没有真实图片的丰富层次
 
 ═══════════════════════════════════════════════════════════
-💰 总成本
+🎯 操作流程
 ═══════════════════════════════════════════════════════════
 
-Part A 静态地图: Leonardo 免费 OR Midjourney $10
-Part B 动效视频:
-  - Hailuo: 免费 (国内每天 4 次)
-  - Kling 1.6: ≈$2
-  - Kling 2.0: ≈$5
-Part C HTML/CSS 动画: 我做, 免费
+【Step 1】重新出静态图
+1. 平台首选 Midjourney v6
+2. 粘 Part A prompt
+3. 出 4 张挑无文字、大洲清晰的
+4. ⚠️ 检查清单:
+   - 任何位置都没有发光小方块 ← 关键!
+   - 任何位置都没有可识别字符
+   - 大洲形状正确
+   - 海洋纯黑
 
-最便宜路线: Leonardo 免费 + Hailuo 免费 = $0
-推荐路线: Leonardo 免费 + Kling 1.6 = $2
-
-═══════════════════════════════════════════════════════════
-🎯 完整操作流程
-═══════════════════════════════════════════════════════════
-
-【Step 1: 出静态精准地图】
-1. 打开 Midjourney 或 Leonardo
-2. 粘贴 Part A prompt (生成纯地图, 无文字)
-3. 生成 4 张挑大洲最准的下载
-
-   ✅ 检查清单:
-   - 北美洲是否上宽下窄的倒三角
-   - 非洲是否中间宽两头尖
-   - 澳洲是否右下方独立椭圆
-   - 印度半岛是否明显凸出
-   - 阿拉伯半岛是否清晰
-   - 没有蓝色海洋
-   - 没有任何文字
-
-【Step 2: 出动效视频】
-1. 打开 Kling/Hailuo 选 image-to-video
-2. 上传 Step 1 的地图 PNG
-3. 粘贴 Part B prompt (强调 STAY EXACTLY, NO TEXT)
-4. 选 10 秒 16:9
-5. 生成 → 下载
-
-   ✅ 检查清单:
-   - 大洲形状没变形
-   - 没有出现任何乱码文字
-   - 脉冲波从右上 (深圳) 扩散
-   - 弧线从深圳画到 6 个市场
-   - 光点沿弧线移动
-
-【Step 3: 放回本地】
-1. 重命名为 bg-07-global-map.mp4
-2. 放到 D:\嘉晨灯饰JC Lightning\网站\images\
-3. 告诉我 "地图视频好了"
-
-【Step 4: 我做 HTML 动画 (Part C)】
-1. 改 HTML 把视频做底, SVG 国家 pin 做上层
-2. 加 CSS 动画按上面时间表逐个浮现国家名
-3. HQ Shenzhen 特殊高亮, 核心市场加亮
-4. 推送上线
+【Step 2】重新出视频
+1. 上传 Step 1 干净图到 Kling 2.0 或 Hailuo
+2. ⚠️ Motion intensity 设到 3-4 不要更高
+3. 粘 Part B prompt
+4. 选 10s 16:9
+5. 生成 → 仔细看预览, 没乱码再下载
+6. 重命名 bg-07-global-map.mp4
+7. 放回 D:\嘉晨灯饰JC Lightning\网站\images\
+8. 告诉我 "新地图视频好了"
 
 ═══════════════════════════════════════════════════════════
-🆘 兜底方案: 纯 SVG + CSS 动画 (不用视频)
+💰 成本
 ═══════════════════════════════════════════════════════════
 
-如果视频效果不满意, 我可以**完全不用视频**:
+Part A 静态图: Midjourney $10/月  OR Leonardo 免费
+Part B 视频:
+  Hailuo: 国内免费 4次/天 ← 推荐先试
+  Kling 2.0: ≈$5
+  Runway Gen-3: ≈$5
 
-- 现有 SVG 大洲dot pattern (已经准了)
-- 加 CSS 动画: 深圳脉冲波扩散
-- 加 CSS 动画: 6 条弧线从深圳呼吸发光
-- 加 CSS 动画: 数据包沿弧线穿梭
-- 加 CSS 动画: 国家名按顺序浮现 (上面 Part C 一样)
+═══════════════════════════════════════════════════════════
+⚠️ 关键提醒
+═══════════════════════════════════════════════════════════
 
-效果:
-✓ 完全免费
-✓ 即时上线
-✓ 文字100%准确 (本来就是 HTML 文字)
-✓ 加载零延迟 (无 mp4)
-✗ 没有真实图片的层次感
-✗ 全靠 CSS 模拟视觉效果
+1. **Part A 起始图必须是干净的** — 没有任何文字痕迹
+   否则视频 AI 会"动画化"那些痕迹变成乱码符号
 
-如果你想直接走这条路, 告诉我 "用纯 SVG 方案", 我立刻做。
+2. **Part B 中 motion intensity 必须低 (3-4)**
+   高 motion 让 AI 自由发挥, 它就会想加各种东西
+
+3. **Kling 2.0 > Kling 1.6**
+   2.0 对约束指令更服从
+
+4. **如果出图就有乱码** — 别上传, 重新生成 Part A
+   坏的输入 + 视频生成 = 更糟的输出
+
+5. **走 SVG 方案** 是最稳的兜底
+   如果你试 2-3 次还是不满意, 直接走 SVG, 完全可控
