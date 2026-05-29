@@ -1,268 +1,226 @@
 ═══════════════════════════════════════════════════════════
-JC Lightning · Hero 视频 V5 (15秒 · 真人 · 完整动作弧)
+JC Lightning · Hero 视频 V6 (新6平台图 · 15秒 · 真人 · 完整动作弧)
 ═══════════════════════════════════════════════════════════
 
-V5 核心修复 (针对你的 V4 测试反馈):
+⚠️ 重要: 这版 prompt 专门针对你新上传的 6 平台图
+   (不是之前的 hero-3d.jpg, 是新的更丰富那张)
 
-❌ V4 问题: 人物是纯黑剪影 (因为 prompt 用了 "silhouette" 一词, AI 真画黑了)
-✅ V5 修复: 改用 "small human figures in modern casual/business clothing viewed
-            from isometric overhead angle" — 等距俯视角度天然让脸部细节小,
-            不需要 "silhouette" 也不会出现诡异脸部细节
+新图布局识别:
+  [top-left]      Spanish villa with terracotta tile roof + side stairs + palm trees
+  [top-center]    Modern flat-roof home with HUGE rooftop solar array + carport (white Tesla parked)
+  [top-right]     Modern wood-and-white office/commercial building with rooftop solar
+  [bottom-left]   Small white box with rooftop solar + utility pole + small garage
+  [bottom-center] Garden pavilion with pendant lights + hedges (no people yet)
+  [bottom-right]  Modern pergola with glass/solar roof + outdoor dining table + dark Tesla parked
 
-❌ V4 问题: 动作没有完整起承转合 (车开过去就没了, 没收尾)
-✅ V5 修复: 每个动作必须 START → MIDDLE → END:
-            - 车: 接近 → 减速 → 停车 → 司机下车 → 关门
-            - 货车: 接近 → 进车库 → 停在内部 → 卷帘门关上
-            - 人: 走来 → 到门口 → 开门 → 进屋 → 室内灯亮 → 门关上
-
-❌ V4 时长: 10秒 (节奏紧凑)
-✅ V5 时长: 15秒 (5 幕 × 3秒/幕, 更舒展)
+V6 升级 (相比 V5):
+1. ✅ 针对新图 6 平台重新设计叙事
+2. ✅ 利用两辆 Tesla (白色在 top-center 车棚, 灰色在 bottom-right 凉亭)
+3. ✅ 没有"接近 → 停车"开场了, 因为车都已经停好
+4. ✅ 改用"业主回家进入活动" 的叙事路径
+5. ✅ 15 秒, 真实穿衣人物, 每个动作有头有尾
 
 ═══════════════════════════════════════════════════════════
-🎬 V5 满配版 15秒 prompt (直接复制粘贴推荐)
+🎬 V6 满配版 15秒 prompt (直接复制粘贴)
 ═══════════════════════════════════════════════════════════
 
-This is a 15-second seamless looping video. STATIC cinematic camera throughout (absolutely no zoom, pan, rotation, shake). Premium B2B solar lighting showcase telling ONE coherent dusk-to-evening story across 6 platforms — every action has a clear beginning, middle, AND end.
+This is a 15-second seamless looping video. STATIC overhead isometric camera throughout (absolutely no zoom, pan, rotation, shake). Premium B2B solar lighting showcase telling ONE coherent dusk-to-evening story across 6 platforms. Every action has a clear beginning, middle, AND end.
 
-Important: this is an isometric overhead scene where any human figures are SMALL due to perspective. Render people as small modern human figures in normal everyday clothing (NOT black silhouettes, NOT cartoons) — they should look like real miniature people you'd see in an architectural visualization or model showcase. Facial detail naturally simplified due to camera distance, but bodies should be properly proportioned with visible clothing colors and natural walking poses.
+Important rendering note: This is a tilt-shift miniature isometric scene where any human figures are SMALL due to overhead perspective. Render people as small modern miniature human figures in normal everyday clothing — NOT black silhouettes, NOT cartoon characters, NOT shadow figures. They should look like real tiny people you'd see in an architectural visualization, wearing visible clothing colors (beige jacket, dark jeans, olive coat, warm grey sweater, etc.). Bodies properly proportioned with natural walking poses. Faces simplified due to camera distance, but figures are clearly clothed humans.
 
-═══ ACT 1: ARRIVAL (0-3s) — Setup ═══
+═══ SCENE LAYOUT (refer to starting image positions) ═══
+
+Platform A (top-left): Spanish two-story villa with terracotta tile roof, side stairs, palm trees, ground-floor garden
+Platform B (top-center): Modern flat-roof home with HUGE rooftop solar panel array + carport with WHITE Tesla SUV already parked underneath
+Platform C (top-right): Modern wood-and-white commercial building with rooftop solar panel
+Platform D (bottom-left): Small white box building with rooftop solar + tall utility pole + small garage door
+Platform E (bottom-center): Garden pavilion area with pendant Edison lights + green hedges
+Platform F (bottom-right): Modern pergola with glass solar roof + outdoor dining table + DARK GRAY Tesla parked beside
+
+═══ ACT 1: DUSK ARRIVAL AT MODERN HOME (0-3s) — Setup ═══
 
 [0.0-1.5s]
-- Scene at calm warm dusk. All platform edges at 30% glow (standby).
-- A white Tesla SUV approaches the parking platform from off-screen LEFT, driving slowly along the front road with its headlights on (warm amber pool of light cast forward).
-- Tesla decelerates gradually as it nears the designated parking spot.
+- Scene starts at calm warm dusk. All 6 platform edge glow lights at 30% standby intensity.
+- The WHITE Tesla SUV in Platform B (modern home carport) has headlights just turning OFF — the homeowner has just arrived home.
+- The driver's door of the white Tesla opens slowly.
 
 [1.5-3.0s]
-- Tesla finishes parking in marked spot on the bottom-left platform. Comes to a complete gentle stop.
-- Headlights remain on momentarily, then turn off (one fade-out beat).
-- Driver's door opens slowly. A small human figure (man in dark blue jeans and beige jacket, or similar modern casual attire — small but clearly clothed person, not black silhouette) steps out, closes door behind them.
+- A small clearly-clothed human figure (homeowner, wearing dark navy jeans and a warm beige cardigan, small but visible clothing) steps out of the white Tesla.
+- They close the door behind them, then walk naturally (visible walking gait) toward Platform A villa direction.
+- As they walk, the rooftop solar array on Platform B catches the last dusk sunlight with a subtle metallic shimmer sweep.
 
-═══ ACT 2: HOMECOMING (3-6s) — Action Chain ═══
+═══ ACT 2: ENTERING THE SPANISH VILLA (3-6s) — Lighting cascade ═══
 
 [3.0-4.5s]
-- The driver walks naturally (visible walking gait, arms swinging slightly) from Tesla toward the villa entrance, passing through the garden gate area.
-- As the driver passes through the gate, the two sphere pillar lights atop the garden gate columns brighten to full warm amber glow.
-- The garden bollard path lights along the walkway activate in CLEAR SEQUENCE 1→2→3→4 (each light brightens 0.3s after the previous) as the driver walks past — like airport runway, demonstrating JC PIR-triggered product working.
+- The homeowner figure walks across the connection path toward Platform A villa.
+- As they approach the villa's side stairs and walkway, PIR-triggered wall sconces beside the villa entrance brighten from 30% to 100% (clear cause-effect, showing JC PIR sensor product working).
+- The homeowner walks up the side stairs naturally.
 
 [4.5-6.0s]
-- Driver reaches the villa front door. Opens it (door swings inward). ENTERS the villa completely (figure disappears into doorway). Door swings closed behind them.
-- Villa first interior window light turns ON (warm yellow soft glow visible through window).
-- The PIR wall sconces beside the villa door, which had brightened as the driver approached, now fade back to ambient 50% level (motion-sensor automatic timeout demonstrated).
+- Homeowner reaches Platform A villa front door, opens it (door swings inward).
+- Homeowner ENTERS villa completely, door swings closed behind them.
+- Platform A villa first interior window light turns ON (warm yellow glow visible through window) — proof the homeowner is now inside.
+- The PIR wall sconces by villa entrance gradually fade back to ambient 60% (motion-sensor timeout demonstrated).
 
-═══ ACT 3: ESTATE ALIVE (6-9s) — Layered scenes ═══
+═══ ACT 3: GARDEN PAVILION COMES ALIVE (6-9s) — Hospitality ═══
 
 [6.0-7.5s]
-- A second person figure (woman in olive green coat, modern casual outfit, small but clothed) walks naturally from the parking area along a side path, heading toward the pergola dining area.
-- Villa second interior window light turns ON (different room, warm yellow).
-- Garden gate wall sconces remain steady at full glow.
+- On Platform E (garden pavilion bottom-center), the pendant Edison string lights begin sequential activation — bulb #1 brightens first, then #2 (0.3s later), then #3, #4 — organic warm twinkle pattern.
+- A second human figure (woman in olive green coat, small clearly-clothed person) walks from the villa direction toward Platform E garden pavilion.
 
 [7.5-9.0s]
-- The woman reaches the pergola, walks underneath the canopy, sits down at the outdoor dining table.
-- Pergola Edison string lights begin sequential activation — bulb #1 turns on, then #2 (0.3s later), then #3, #4, #5, #6 — organic warm twinkle pattern, finishing fully lit.
-- A third figure (also clothed, walking from villa direction) joins the table at pergola. Two people now seated for dinner.
+- The woman reaches Platform E pavilion, walks under the structure, takes a seat at one of the chairs by the pendant lights.
+- All Platform E Edison pendants now at full warm glow.
+- The woman is settled, enjoying the garden ambiance.
 
-═══ ACT 4: COMMERCIAL ARRIVAL (9-12s) — Delivery cycle ═══
+═══ ACT 4: COMMERCIAL / OFFICE EVENING ACTIVITY (9-12s) — B2B scenes ═══
 
 [9.0-10.5s]
-- A medium-sized delivery van (dark navy blue, modern commercial vehicle, not a silhouette) approaches the warehouse from off-screen RIGHT, driving along the road with headlights on.
-- As the van nears warehouse, the warehouse PIR motion flood lights mounted on exterior walls activate suddenly with clean amber spotlight beams.
-- The warehouse rolling garage door slowly begins opening UPWARD, revealing warm interior light pouring out.
+- On Platform C (top-right commercial building), interior office lights begin turning ON sequentially — first window lights up warm yellow, then second window 0.5s later, suggesting evening work session beginning.
+- Platform C rooftop solar panel: subtle metallic shimmer sweep across it.
+- On Platform D (bottom-left small commercial box), the tall utility/street lamp brightens to full glow, casting circular pool of warm light onto the platform surface.
 
 [10.5-12.0s]
-- Van decelerates, drives slowly FORWARD INTO the open garage. The van fully enters the warehouse interior (most of the vehicle disappears inside).
-- Garage door slowly begins CLOSING DOWNWARD behind the van. By 12.0s, the garage door is fully closed with the van inside (action COMPLETED).
-- Warehouse rooftop solar panels: subtle metallic shimmer reflection sweep across them.
+- On Platform D, the small garage door slowly OPENS UPWARD revealing warm interior light pouring out (someone working inside).
+- A third human figure (worker, wearing warm grey hoodie and dark pants) appears briefly at Platform D garage doorway, then walks inside.
+- Garage door SLOWLY CLOSES back down with worker inside (action completed).
 
-═══ ACT 5: NIGHT SETTLE (12-15s) — Coordinated peak + reset ═══
+═══ ACT 5: EVENING DINING AT PERGOLA (12-15s) — Lifestyle + Reset ═══
 
 [12.0-13.5s]
-- EV charging port on parking platform activates next to the parked Tesla — small warm amber LED indicator light begins glowing (suggesting overnight charging started).
-- All platform edge glow lights now at full 100% intensity, coordinated breathing rhythm.
-- Pergola dining couple still seated, scene appears settled.
+- On Platform F (bottom-right pergola), the glass solar roof catches last twilight reflection (gentle shimmer).
+- Two human figures appear seated at the pergola outdoor dining table — a couple having evening dinner. They wear warm casual clothing (one in warm grey sweater, one in olive cardigan), naturally posed, small but clothed.
+- Soft warm glow emanates from pergola interior pendant light.
+- The dark gray Tesla beside Platform F has a small EV charging indicator LED glowing warm amber (overnight charging starting).
 
 [13.5-15.0s]
-- Subtle ambient breathing of all lights, scene completely settled.
-- Final reset for loop: the villa front door subtly opens again (preparing for next loop's driver arrival), Tesla headlights cycle once — these last beats reset elements to frame-0 positions.
-- By exactly 15.0s, all positions/states match frame 0.0 for seamless loop:
-   * Tesla: parked but headlights off (will turn on again as if just arriving)
-   * Garage: closed (van inside, never seen as drove-out)
-   * People: back at starting positions (driver "re-arriving", woman not yet visible)
-   * Lights: ambient 30% (re-arming for next pulse)
+- All 6 platform edge glow lights now at full 100% coordinated breathing rhythm.
+- Scene settles into peaceful evening state.
+- Final reset for loop: by exactly 15.0s, all positions/states match frame 0.0:
+   * White Tesla in Platform B: parked but headlights ABOUT to turn off again (loop restart)
+   * All people figures: at their final positions (homeowner inside villa, woman at pavilion, worker in garage, couple at pergola)
+   * Lights: fully on, ready to "restart cycle"
+- The loop seam shows the daily evening rhythm restarting.
 
 ═══ CONTINUOUS BACKGROUND (all 15s) ═══
 
-✨ Soft golden bokeh particles drift slowly upward (20 visible, low density)
-🌅 Warm dusk color grading throughout — no day-night flip
-🌬️ Palm trees sway very subtly (1-2 degrees breeze movement)
-💛 Platform edge glow: synchronized 5-second breathing rhythm
+✨ Soft golden bokeh particles drift slowly upward across scene (20 visible, low density)
+🌅 Warm dusk amber color grading throughout — no day-night flip
+🌬️ Palm trees on Platforms A, B, F sway very subtly (1-2 degrees breeze)
+💛 Platform edge glow lights: synchronized 5-second breathing rhythm
 🌫️ Faint warm atmospheric haze for cinematic depth
+🌃 Center connection lines between platforms gently pulse with warm energy flow
 
 ═══ ABSOLUTE NEGATIVE / AVOID ═══
 
 NO black silhouettes (people must wear visible clothing)
-NO 2D cardboard cutout figures (people are 3D miniature humans)
+NO 2D cardboard cutout figures
 NO cartoon character style
 NO creepy/distorted faces (faces simplified by distance, not warped)
 NO birds, NO flying objects
 NO camera movement (no zoom, no pan, no rotation, no shake)
 NO text appearing
 NO watermarks visible
-NO weather changes (no rain, no snow)
+NO weather changes (no rain, no snow, no clouds)
 NO day-to-night flip (mood stays warm dusk consistently)
 NO new buildings appearing
-NO unrealistic motion (no flying cars, no morphing)
-NO color casts other than warm amber
-NO fast motion (all motions slow, deliberate, premium-paced)
-NO actions without endings (every motion must complete: car parks, door closes, person enters)
+NO unrealistic motion
+NO color casts other than warm amber/gold
+NO fast motion (everything slow, deliberate, premium-paced)
+NO actions without endings (every motion must complete)
 NO disconnected random sparkles
 NO over 6 platforms
 NO morphing objects
-NO realistic detailed faces (kept simple due to scale, but not silhouettes either)
+NO realistic detailed facial features (kept simple due to scale)
+NO Tesla SUV physically driving across the scene (both Teslas stay parked)
 
 ═══ LOOP REQUIREMENT (CRITICAL) ═══
 
-Frame 0.0s = Frame 15.0s. The dusk arrival cycle repeats forever. Tesla parked but "freshly arrived", garage closed with van inside, lights at ambient 30%, ready for the homecoming sequence to restart. This represents the daily evening rhythm of the estate.
+Frame 0.0s = Frame 15.0s. The dusk evening cycle repeats forever. White Tesla parked with headlights cycling off, homeowner inside villa, woman at pavilion, worker in garage, couple at pergola, all lights at full glow — these match the start state for seamless loop. The "story" loop represents this estate's daily 6pm-9pm rhythm.
 
 ═══ STYLE ═══
 
 Photorealistic 8K Octane render quality.
 Cinematic 30fps smooth motion.
-Premium aesthetic: Tesla product reveal video, Apple HomePod page, BMW iX twilight campaign, Bang & Olufsen showroom.
+Premium aesthetic: Tesla product video, Apple HomePod page, BMW iX twilight campaign, Bang & Olufsen showroom.
 Soft golden-hour lighting throughout (warm amber palette).
 Deep professional shadows preserved.
 Shallow depth of field on far elements.
-Architectural model / miniature visualization style for people (small clothed figures, not detailed but not silhouettes).
-Slow deliberate premium-paced motion.
+Tilt-shift miniature architectural model aesthetic for people (small clothed figures with proper proportions, not detailed but clearly humans).
+Slow, deliberate, premium-paced motion (no fast cuts).
 
 ═══════════════════════════════════════════════════════════
-🎬 V5 简化版 (如果 V5 满配太复杂跑偏)
+🎬 V6 简化版 (如果满配跑偏)
 ═══════════════════════════════════════════════════════════
 
-15-second seamless loop video. STATIC overhead camera. Premium isometric solar lighting showcase with COMPLETE action arcs.
+15-second seamless loop. STATIC isometric overhead camera. Premium tilt-shift miniature solar lighting showcase, dusk to evening.
 
-PEOPLE: small modern miniature human figures wearing normal casual clothes (jeans, jackets, dresses — visible colors and clothing details, NOT black silhouettes). Architectural visualization style. Faces small due to overhead perspective, no need for detail.
+KEY: People are small modern miniature figures in NORMAL clothing (jeans, jackets, coats — visible colors like beige, navy, olive). NOT black silhouettes. NOT cartoons. Architectural visualization scale.
 
-NARRATIVE (each action has start AND end):
+[0-3s] White Tesla SUV in carport (top-center platform) — headlights turn off, driver wearing beige cardigan exits, closes door, starts walking toward Spanish villa (top-left).
 
-[0-3s] Tesla approaches from left → decelerates → parks → headlights off → driver (clothed person) exits.
+[3-6s] Driver approaches Spanish villa → PIR wall sconces brighten as they reach → driver enters villa → door closes → villa first window lights up (warm yellow).
 
-[3-6s] Driver walks to villa → PIR wall sconces activate → garden bollards pulse 1→2→3→4 → driver opens villa door → ENTERS → door closes → villa window lights up.
+[6-9s] Garden pavilion (bottom-center) Edison pendants light up bulb by bulb → woman in olive coat walks from villa, sits at pavilion.
 
-[6-9s] Second person (different clothing) walks to pergola → sits at table → Edison string lights turn on bulb-by-bulb → third person joins.
+[9-12s] Commercial building (top-right) office windows turn on sequentially → small box building (bottom-left) utility pole light brightens → garage door opens → worker enters → garage door closes.
 
-[9-12s] Delivery van approaches warehouse from right → PIR security floods activate → garage door opens → van DRIVES INTO garage → garage door CLOSES with van inside.
+[12-15s] Pergola (bottom-right) — couple seated at dining table eating, warm pendant glow, gray Tesla EV charging indicator lights up. All platforms at full glow. Reset for loop.
 
-[12-15s] EV charger glows next to Tesla → all platforms at full warm glow → settle → reset for loop seamlessly.
+ABSOLUTE NO: black silhouettes, cartoon people, birds, faces detailed, camera movement, fast motion, weather, text, watermarks, actions without ending, Tesla driving across scene.
 
-ABSOLUTE NO: black silhouettes, birds, faces, camera movement, fast motion, weather, text, watermarks, actions without ending, random sparkles.
-
-STYLE: Photorealistic 8K, premium B2B product video, warm dusk amber palette, miniature architectural model aesthetic for people, slow deliberate motion, 30fps.
+STYLE: 8K photorealistic, premium B2B video, warm dusk palette, miniature architectural model people, slow deliberate motion, 30fps. First frame = last frame for seamless loop.
 
 ═══════════════════════════════════════════════════════════
-💡 关于"真实人物"的细节说明
+📌 关键操作提示
 ═══════════════════════════════════════════════════════════
 
-⚠️ 重点: 等距俯视图 (isometric overhead) 里人物本来就很小,
-     所以脸部细节自然简化。不需要 "silhouette" 这个词!
+1. 上传起始帧: **你最新这张 6 平台图** (不是 hero-3d.jpg!)
+   保存路径需要确认, 请把新图保存为:
+   D:\嘉晨灯饰JC Lightning\网站\images\hero-3d-v2.jpg
+   或者直接覆盖 hero-3d.jpg
 
-✅ 正确说法:
-   "small human figures in modern casual clothing"
-   "miniature architectural model people, wearing visible clothes"
-   "people seen from elevated angle, clothing colors visible"
-
-❌ 错误说法 (会出黑剪影):
-   "silhouette" "shadow figure" "dark figure" "no face"
-   "person without features" "anonymous person"
-
-💡 衣服颜色建议 (与品牌色搭):
-   - 米色/驼色外套 (beige/camel jacket)
-   - 深蓝牛仔裤 (dark blue jeans)
-   - 橄榄绿大衣 (olive green coat)
-   - 暖灰针织衫 (warm grey sweater)
-   - 不要荧光色, 不要纯黑
-
-═══════════════════════════════════════════════════════════
-🎯 完整动作收尾清单 (每个都要有 START + END)
-═══════════════════════════════════════════════════════════
-
-特斯拉 SUV:
-   START: 从左侧开过来 + 车灯亮
-   MIDDLE: 减速到停车位
-   END: 完全停下 + 车灯熄灭 + 司机下车 + 关门 ✓
-
-司机:
-   START: 从特斯拉下车
-   MIDDLE: 走过花园门 (灯亮) + 走过路灯 (跑马灯)
-   END: 到达别墅门 + 开门 + 进入 + 门关上 ✓
-
-花园地灯:
-   START: 全部熄灭
-   MIDDLE: 1→2→3→4 按序点亮
-   END: 全部亮起保持 ✓
-
-别墅:
-   START: 全暗
-   MIDDLE: 一楼窗亮 → 二楼窗亮
-   END: 两窗持续亮 ✓
-
-送货车:
-   START: 从右侧开过来 + 车灯亮
-   MIDDLE: 减速 + 车库门开 + 开进车库
-   END: 完全进入 + 车库门关上 (车在里面) ✓
-
-凉亭 Edison 灯:
-   START: 全部熄灭
-   MIDDLE: 一颗一颗依次点亮
-   END: 6 颗全亮保持 ✓
-
-两位用餐者:
-   START: 走向凉亭
-   MIDDLE: 走进凉亭
-   END: 坐在桌边吃饭 ✓
-
-EV 充电:
-   START: 充电指示灯熄灭
-   END: 充电指示灯亮 (持续) ✓
-
-═══════════════════════════════════════════════════════════
-💰 成本 (15s vs 10s)
-═══════════════════════════════════════════════════════════
-
-Kling 1.6 15s: ≈$3 (但可能跑偏)
-Kling 2.0 15s: ≈$7-8 ← 推荐 (15s 复杂叙事要 2.0)
-Runway Gen-3 10s + 10s 拼接: $10 (Runway 单次只 10s)
-Hailuo 10s: 国内免费 4 次/天 (15s 部分平台不支持)
-
-⚠️ 注意: 部分平台只支持 5/10 秒, 不支持 15 秒.
-       Kling 2.0 / Hailuo 2.0 支持 15 秒, 选这两个之一.
-
-═══════════════════════════════════════════════════════════
-🎯 操作流程
-═══════════════════════════════════════════════════════════
-
-1. 平台首选 Kling 2.0 (15s 复杂叙事质量稳)
-2. 上传 D:\嘉晨灯饰JC Lightning\网站\images\hero-3d.jpg
-3. 时长选 15 秒 (不是 10 秒!)
+2. 平台首选 Kling 2.0 (15秒复杂叙事必须 2.0)
+3. 时长选 15 秒
 4. 比例 16:9
-5. Motion intensity 5-6 (中等, 不要更高)
-6. 粘贴 V5 满配 prompt
-7. 生成 → 仔细预览 (检查人物是否穿衣服, 不是黑剪影)
-8. 满意下载 → 重命名 hero-3d.mp4
-9. 放回 D:\嘉晨灯饰JC Lightning\网站\images\
-10. 告诉我 "15秒新视频好了"
+5. Motion intensity 5-6 (中等)
+6. 粘贴 V6 满配 prompt
 
 ═══════════════════════════════════════════════════════════
-📌 关键检查清单 (出视频后逐条核对)
+📋 出视频后检查清单
 ═══════════════════════════════════════════════════════════
 
-□ 人物穿正常衣服, 不是纯黑剪影
-□ 特斯拉完整开进停车位 + 司机下车
-□ 司机完整走到别墅 + 进门 + 关门
-□ 货车开进车库 + 卷帘门关上
-□ Edison 串灯逐颗点亮 (不是同时全亮)
-□ 没有鸟
+□ 人物穿可见衣服 (不是黑剪影)
+□ 白特斯拉司机下车 → 走向别墅 → 进门
+□ 别墅窗户依次亮起
+□ 凉亭 Edison 灯逐颗点亮 (不是同时)
+□ 第二人坐在花园凉亭
+□ 商业楼办公室窗户依次亮
+□ 小仓库门开 → 工人进 → 门关
+□ 用餐者坐在凉亭餐桌
+□ 没有飞鸟
 □ 没有乱码文字/符号
-□ 镜头完全静止 (没有抖/移)
-□ 首尾帧大致相同 (循环过渡顺)
+□ 镜头完全静止
 □ 整体调性暖金色 (没冷蓝绿)
+
+═══════════════════════════════════════════════════════════
+💰 成本
+═══════════════════════════════════════════════════════════
+
+Kling 2.0 15s: ≈$7-8 (推荐, 15s 叙事质量稳)
+Kling 1.6 15s: ≈$3 (可能跑偏)
+Hailuo 15s: 国内免费 4次/天 (如果支持)
+
+═══════════════════════════════════════════════════════════
+🆘 如果还是不满意
+═══════════════════════════════════════════════════════════
+
+告诉我"用 SVG 动画方案", 我直接在现有 hero 图上用 CSS 加:
+  ✓ 平台边缘金光呼吸
+  ✓ 平台之间能量线脉冲
+  ✓ Tesla 车灯偶尔亮
+  ✓ Edison 灯逐颗闪烁
+  ✓ 窗户灯时序亮起
+
+完全免费, 100% 可控, 无文件加载延迟
+缺点: 没有真人动效, 没有车开动效
