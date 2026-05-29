@@ -929,9 +929,11 @@ h2 em { font-style:italic; color:var(--brass); }
 .why-card h3 { font-family:'Playfair Display',serif; font-weight:400; font-size:1.25rem; color:#fff; margin-bottom:16px; letter-spacing:-0.01em; }
 .why-card p { font-size:0.95rem; font-weight:500; color:var(--mist); line-height:1.75; }
 /* Contact section — DARK theme to merge seamlessly with Matchmaker above */
-.contact { padding:100px 56px 120px; background:radial-gradient(ellipse at center, #1c1814 0%, #0e0c0a 70%); display:grid; grid-template-columns:1fr 1fr; gap:120px; align-items:start; position:relative; overflow:hidden; }
+.contact { padding:32px 56px 80px; background:radial-gradient(ellipse at center, #1c1814 0%, #0e0c0a 70%); display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; position:relative; overflow:hidden; }
 .contact::before { content:''; position:absolute; top:-20%; left:-10%; width:60%; height:140%; background:radial-gradient(ellipse, rgba(201,162,78,0.06) 0%, transparent 60%); pointer-events:none; }
 .contact > * { position:relative; z-index:1; }
+/* Force-visible: contact reveal elements always show (no scroll-wait empty void) */
+.contact .reveal { opacity:1 !important; transform:none !important; }
 .con-l h2 { color:var(--chalk-w); margin-bottom:22px; }
 .con-l h2 em { color:var(--brass-lt); font-style:italic; }
 .con-l .sec-label { color:var(--brass-lt); }
@@ -1054,7 +1056,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
   .sc-grid { grid-template-columns:1fr; gap:12px; }
   .sc-card { padding:22px 18px 20px; }
   .factory { grid-template-columns:1fr; gap:48px; padding:80px 22px; }
-  .contact { grid-template-columns:1fr; gap:48px; padding:80px 22px; }
+  .contact { grid-template-columns:1fr; gap:36px; padding:24px 22px 60px; }
   .form-row { grid-template-columns:1fr; }
   .ft-top { grid-template-columns:1fr; gap:32px; }
   footer { padding:52px 22px 28px; }
