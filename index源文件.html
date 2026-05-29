@@ -972,8 +972,15 @@ textarea { min-height:105px; }
 .btn-submit:disabled { opacity:0.45; cursor:not-allowed; }
 #form-ok { display:none; font-size:0.82rem; font-weight:300; color:#7adb7a; margin-top:4px; }
 #form-err { display:none; font-size:0.82rem; font-weight:300; color:#ff7676; margin-top:4px; }
-footer { background:var(--ink); padding:70px 56px 34px; }
-.ft-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px; padding-bottom:52px; border-bottom:1px solid var(--bdk); margin-bottom:32px; }
+
+/* Contact section: NO bottom padding — footer continues seamlessly */
+.contact { padding-bottom: 24px !important; }
+
+/* Footer: continues the dark contact zone (no visible break) */
+footer { background:#0e0c0a; padding:36px 56px 28px; position:relative; }
+/* Subtle brass divider between contact form and footer nav */
+footer::before { content:''; position:absolute; top:0; left:8%; right:8%; height:1px; background:linear-gradient(90deg, transparent, rgba(201,162,78,0.25), transparent); }
+.ft-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px; padding-bottom:32px; border-bottom:1px solid var(--bdk); margin-bottom:24px; }
 .ft-logo { font-family:'Playfair Display',serif; font-size:1.35rem; font-weight:400; color:#fff; text-decoration:none; display:block; margin-bottom:18px; }
 .ft-logo em { font-style:italic; color:var(--brass-lt); }
 .ft-desc { font-size:0.9rem; font-weight:400; color:var(--mist); line-height:1.85; max-width:300px; }
@@ -982,7 +989,7 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 .ft-col a { font-size:0.9rem; font-weight:400; color:rgba(212,206,196,0.85); text-decoration:none; transition:color .2s; }
 .ft-col a:hover { color:#fff; }
 /* Footer social strip — Fox ESS style large icons */
-.ft-social-strip { display:flex; gap:22px; align-items:center; margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); }
+.ft-social-strip { display:flex; gap:22px; align-items:center; margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.06); }
 .ft-soc { width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); transition:color 0.25s ease, transform 0.25s ease; }
 .ft-soc:hover { color:var(--brass-lt); transform:translateY(-2px); }
 .ft-soc svg { width:100%; height:100%; }
