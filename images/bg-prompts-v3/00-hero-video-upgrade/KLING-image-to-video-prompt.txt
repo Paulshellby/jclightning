@@ -83,7 +83,17 @@ Small golden light orbs travel slowly ALONG these connection lines between platf
 ⛔ NO black silhouettes (if any figures, must wear visible clothing)
 ⛔ NO cartoon-style people
 ⛔ NO Tesla cars moving (both Teslas stay parked, only their EV indicator LEDs animate)
+
+🚫 NO CAR DOORS OPENING / CLOSING — CRITICAL (this was a major flaw in previous video):
+   - Tesla doors stay CLOSED at all times throughout video
+   - Do NOT animate any door opening, swinging, or closing on any vehicle
+   - Do NOT show driver "stepping out" of car (it looks broken in isometric overhead view —
+     open doors stick out like butterfly wings, ruining the scene)
+   - If a figure appears near the car, they are ALREADY standing beside it (no exit animation)
+   - Tesla appears exactly as in starting image: doors fully closed, no movement
+
 ⛔ NO garage doors opening (the starting image doesn't have clear garage doors)
+⛔ NO building doors swinging open/closed (all doors stay in their starting image state)
 ⛔ NO new objects appearing on platforms (only lights animate, no new furniture/vehicles)
 ⛔ NO birds, NO flying objects
 ⛔ NO camera movement (no zoom, no pan, no rotation, no shake)
@@ -131,7 +141,7 @@ ANIMATIONS PER PLATFORM:
 
 INTER-PLATFORM: golden energy pulses travel along visible connection lines, 3 small golden orbs slowly journey between platforms.
 
-ABSOLUTE NO: people walking, cars moving, walking into empty white space, black silhouettes, garage doors opening, cartoon people, birds, camera movement, text, watermarks.
+ABSOLUTE NO: people walking, cars moving, CAR DOORS OPENING (Tesla doors stay closed throughout — open doors look like butterfly wings in isometric view, broken visual), walking into empty white space, black silhouettes, garage doors opening, building doors opening, cartoon people, birds, camera movement, text, watermarks.
 
 STYLE: 8K photorealistic, premium B2B video, warm dusk amber, miniature architectural model aesthetic, slow deliberate motion, 30fps. Seamless loop.
 
@@ -155,6 +165,8 @@ STYLE: 8K photorealistic, premium B2B video, warm dusk amber, miniature architec
 
 □ 没有人在平台之间走动 (这是 V7 最重要的)
 □ 两辆 Tesla 都没有开动 (只是 EV 指示灯亮)
+□ **Tesla 车门全程关闭** (不能打开像翅膀那样, 不能有人下车动画)
+□ 所有建筑门 / 车库门 / 大门**全程保持起始图状态** (不开不关)
 □ 凉亭餐桌的两个人是穿衣服的 (不是黑色块)
 □ Edison 串灯是**逐颗**点亮 (不是同时全亮)
 □ 平台边缘金光线在脉冲流动
