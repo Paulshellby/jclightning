@@ -1132,7 +1132,19 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 .matchmaker .sec-label { display:inline-block; color:var(--brass-lt); margin-bottom:20px; letter-spacing:0.24em; font-size:0.7rem; font-weight:500; text-transform:uppercase; padding:6px 14px; border:1px solid rgba(201,162,78,0.4); background:rgba(14,12,10,0.5); border-radius:999px; }
 .matchmaker h2 { font-size:clamp(2rem,5vw,3.6rem); font-weight:400; font-family:'Playfair Display',serif; margin-bottom:18px; color:var(--chalk-w); letter-spacing:-0.01em; text-shadow:0 4px 32px rgba(0,0,0,0.6); line-height:1.1; }
 .matchmaker h2 em { font-style:italic; background:linear-gradient(120deg, var(--brass-pale) 0%, var(--brass-lt) 70%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-.match-sub { color:var(--mist); font-size:1rem; font-weight:300; max-width:580px; margin:0 auto 52px; line-height:1.7; }
+.match-sub { color:var(--mist); font-size:1rem; font-weight:300; max-width:580px; margin:0 auto 28px; line-height:1.7; }
+
+/* Global coverage row — flags + label */
+.mm-global { display:inline-flex; align-items:center; gap:14px; padding:10px 18px; margin:0 auto 40px; background:rgba(201,162,78,0.06); border:1px solid rgba(201,162,78,0.18); border-radius:999px; flex-wrap:wrap; justify-content:center; max-width:880px; }
+.mm-global-lbl { font-size:0.72rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--brass-lt); white-space:nowrap; }
+.mm-global-flags { display:inline-flex; gap:7px; flex-wrap:wrap; justify-content:center; font-size:1.15rem; line-height:1; }
+.mm-global-more { font-size:0.7rem; font-weight:500; color:rgba(240,235,226,0.6); white-space:nowrap; }
+@media (max-width:768px) {
+  .mm-global { padding:10px 14px; gap:10px; border-radius:14px; }
+  .mm-global-lbl { font-size:0.6rem; letter-spacing:0.12em; }
+  .mm-global-flags { font-size:1rem; gap:5px; }
+  .mm-global-more { font-size:0.6rem; }
+}
 
 .match-path { display:flex; gap:24px; max-width:760px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
 .match-path-btn { flex:1; min-width:280px; padding:46px 32px; border:1px solid rgba(201,162,78,0.4); border-radius:14px; background:rgba(14,12,10,0.55); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); cursor:pointer; transition:all .35s cubic-bezier(.25,.8,.25,1); text-align:center; position:relative; overflow:hidden; }
@@ -1316,6 +1328,17 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 /* --- Section Hairline Divider --- */
 hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transparent,rgba(168,125,42,0.22) 30%,rgba(201,162,78,0.35) 50%,rgba(168,125,42,0.22) 70%,transparent); margin:0; }
 
+/* ===== RTL Support (Arabic) ===== */
+html[dir="rtl"] body { direction: rtl; text-align: right; }
+html[dir="rtl"] .hero-btns,
+html[dir="rtl"] .nav-r,
+html[dir="rtl"] .ft-social-strip { flex-direction: row-reverse; }
+html[dir="rtl"] .nav ul { flex-direction: row-reverse; }
+html[dir="rtl"] .marquee-track { animation-direction: reverse; }
+html[dir="rtl"] .man-right { border-left: none; border-right: 1px solid rgba(201,162,78,0.22); padding-left: 0; padding-right: 48px; }
+html[dir="rtl"] .con-detail { flex-direction: row-reverse; text-align: right; }
+html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-align: right; }
+
 /* ===== MOBILE OPTIMIZATION ≤ 768px ===== */
 @media (max-width: 768px) {
   html { font-size: 15px; }
@@ -1439,8 +1462,11 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
       <button class="lang-btn" onclick="setLang('es')">ES</button>
-	      <button class="lang-btn" onclick="setLang('fr')">FR</button>
-	      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" onclick="setLang('ar')" lang="ar" aria-label="العربية">AR</button>
+      <button class="lang-btn" onclick="setLang('ru')" lang="ru" aria-label="Русский">RU</button>
+      <button class="lang-btn" onclick="setLang('hi')" lang="hi" aria-label="हिन्दी">HI</button>
     </div>
     <a href="#contact" class="nav-cta" data-i18n="nav_quote">Get a Quote</a>
     <a href="#" class="nav-dl" title="Download Catalog">Catalog ↓</a>
@@ -3849,6 +3875,35 @@ polygon[fill="url(#vlg-solar)"] {
   <h2 class="reveal" data-i18n="mm_h2">Not sure which light fits? <em>Answer a few questions.</em></h2>
   <p class="match-sub reveal" data-i18n="mm_sub">Tailored product recommendations · FOB pricing within 24 hours · Direct WhatsApp to a JC engineer.</p>
 
+  <!-- Global coverage flags row — visual proof of worldwide reach -->
+  <div class="mm-global reveal" aria-label="Tailored recommendations for 30+ markets">
+    <span class="mm-global-lbl" data-i18n="mm_global">Tailored for 30+ markets</span>
+    <span class="mm-global-flags" aria-hidden="true">
+      <span title="Colombia">🇨🇴</span>
+      <span title="Ecuador">🇪🇨</span>
+      <span title="Brazil">🇧🇷</span>
+      <span title="Mexico">🇲🇽</span>
+      <span title="South Africa">🇿🇦</span>
+      <span title="Nigeria">🇳🇬</span>
+      <span title="Kenya">🇰🇪</span>
+      <span title="Spain">🇪🇸</span>
+      <span title="UK">🇬🇧</span>
+      <span title="Germany">🇩🇪</span>
+      <span title="UAE">🇦🇪</span>
+      <span title="Saudi Arabia">🇸🇦</span>
+      <span title="India">🇮🇳</span>
+      <span title="Thailand">🇹🇭</span>
+      <span title="Vietnam">🇻🇳</span>
+      <span title="Philippines">🇵🇭</span>
+      <span title="Indonesia">🇮🇩</span>
+      <span title="Australia">🇦🇺</span>
+      <span title="Japan">🇯🇵</span>
+      <span title="USA">🇺🇸</span>
+      <span title="Canada">🇨🇦</span>
+    </span>
+    <span class="mm-global-more">+15 more</span>
+  </div>
+
   <!-- Path Selection -->
   <div class="match-path reveal" id="matchPath">
     <button class="match-path-btn" onclick="startQuiz('biz')">
@@ -4697,24 +4752,56 @@ document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
 });
 
 function setLang(l){
-  const t=T[l];
+  // For languages without full translation yet (ar/ru/hi), fall back to English content
+  // but still set the lang attribute + dir for RTL (Arabic) — proper translations to follow
+  const fallbackLangs = ['ar','ru','hi'];
+  const t = fallbackLangs.includes(l) ? T['en'] : T[l];
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const k=el.getAttribute('data-i18n');
-    if(t[k]!==undefined) el.innerHTML=t[k];
+    if(t && t[k]!==undefined) el.innerHTML=t[k];
     else if(I18N_DEFAULTS[k]!==undefined) el.innerHTML=I18N_DEFAULTS[k];
   });
   document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
     const k=el.getAttribute('data-i18n-ph');
-    if(t[k]!==undefined) el.placeholder=t[k];
+    if(t && t[k]!==undefined) el.placeholder=t[k];
     else if(I18N_DEFAULTS['__ph__'+k]!==undefined) el.placeholder=I18N_DEFAULTS['__ph__'+k];
   });
   document.querySelectorAll('.lang-btn').forEach(btn=>{
-    const m={EN:'en','中文':'zh',ES:'es',FR:'fr',PT:'pt'};
+    const m={EN:'en','中文':'zh',ES:'es',FR:'fr',PT:'pt',AR:'ar',RU:'ru',HI:'hi'};
     btn.classList.toggle('active', m[btn.textContent]===l);
   });
-  document.documentElement.lang=l==='zh'?'zh-CN':l==='fr'?'fr':l==='pt'?'pt-BR':l;
+  const langMap = {zh:'zh-CN', fr:'fr', pt:'pt-BR', ar:'ar', ru:'ru', hi:'hi'};
+  document.documentElement.lang = langMap[l] || l;
+  // RTL support for Arabic
+  document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  // Show "machine-translation recommended" notice for unsupported languages
+  if(fallbackLangs.includes(l)){
+    showI18nNotice(l);
+  } else {
+    hideI18nNotice();
+  }
   if(window._inqInject) window._inqInject();
   if(window._inqRefresh) window._inqRefresh();
+}
+
+function showI18nNotice(lang){
+  let el = document.getElementById('i18nNotice');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'i18nNotice';
+    el.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9998;background:rgba(14,12,10,0.95);color:#fde9b9;padding:11px 22px;border:1px solid rgba(201,162,78,0.5);border-radius:999px;font-size:0.78rem;font-weight:500;box-shadow:0 8px 28px rgba(0,0,0,0.5);max-width:90vw;text-align:center;backdrop-filter:blur(10px);';
+    document.body.appendChild(el);
+  }
+  const msgs = {
+    ar: '⚠ المحتوى باللغة الإنجليزية حالياً · ترجمة عربية كاملة قريباً',
+    ru: '⚠ Содержание сейчас на английском · Полный русский перевод скоро',
+    hi: '⚠ सामग्री वर्तमान में अंग्रेज़ी में · पूर्ण हिंदी अनुवाद जल्द'
+  };
+  el.innerHTML = (msgs[lang] || '⚠ Translation in progress · English shown') + ' &nbsp;<button onclick="document.getElementById(\'i18nNotice\').remove()" style="background:transparent;border:0;color:inherit;cursor:pointer;font-size:1.1rem;padding:0 4px;line-height:1">×</button>';
+}
+function hideI18nNotice(){
+  const el = document.getElementById('i18nNotice');
+  if(el) el.remove();
 }
 
 // Market Tabs JS removed — section deprecated
