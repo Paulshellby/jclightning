@@ -2277,11 +2277,12 @@ hr.brass-rule { border:none; height:1px; background:linear-gradient(90deg,transp
   object-fit:cover; object-position:center center;
   z-index:1;
 }
-/* Video: scaled up + slow Ken Burns zoom (watermark stays hidden — min scale 1.09) */
+/* Video: scaled up to hide watermark — zoom in/out animation DISABLED per user request */
 video.hero-3d-bg {
   background:#f5f0eb;
+  transform: scale(1.09);
   transform-origin: 0 0;
-  animation: hero-ken-burns 28s ease-in-out infinite alternate;
+  animation: none;
 }
 @keyframes hero-ken-burns {
   0%   { transform: scale(1.09) translate(0, 0); }
@@ -2469,7 +2470,7 @@ video.hero-3d-bg {
 .hf-pulse-5 { animation: hf-breath 4.8s ease-in-out infinite -3.2s; }
 @keyframes hf-breath {
   0%, 100% { opacity: 0.55; transform: scale(1); }
-  50%      { opacity: 1;   transform: scale(1.12); }
+  50%      { opacity: 1;   transform: scale(1); }
 }
 
 /* Moving cars on the road */
