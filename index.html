@@ -1025,7 +1025,10 @@ footer { background:var(--ink); padding:70px 56px 34px; }
 .prod-card img { cursor:pointer; transition:opacity .25s; }
 .prod-card img:hover { opacity:0.85; }
 /* .social-row / .soc-btn removed — replaced by .ft-social-strip at footer bottom */
-.reveal { opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease; }
+/* .reveal — default to VISIBLE to prevent empty voids when scroll observer misses elements.
+   Animation now used only when JS adds .reveal-pending class before element enters viewport. */
+.reveal { opacity:1; transform:none; transition:opacity .6s ease, transform .6s ease; }
+.reveal-pending { opacity:0; transform:translateY(22px); }
 .reveal.on { opacity:1; transform:translateY(0); }
 @media(max-width:960px){
   nav { padding:15px 22px; }
