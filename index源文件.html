@@ -1203,6 +1203,15 @@ footer::before { content:''; position:absolute; top:0; left:8%; right:8%; height
 .match-q-num { font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--brass); margin-bottom:6px; }
 .match-q-title { font-size:1.18rem; font-weight:700; color:var(--ink); line-height:1.4; }
 .match-options { display:flex; flex-direction:column; gap:10px; }
+/* Grid mode — for 25+ country picker, compact tile grid */
+.match-options.match-options-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; max-height:520px; overflow-y:auto; padding-right:6px; }
+.match-options.match-options-grid::-webkit-scrollbar { width:6px; }
+.match-options.match-options-grid::-webkit-scrollbar-thumb { background:rgba(201,162,78,0.35); border-radius:3px; }
+.match-opt.match-opt-compact { padding:10px 12px; font-size:0.82rem; text-align:left; display:flex; align-items:center; gap:8px; line-height:1.3; }
+.match-opt.match-opt-compact .mo-icon { font-size:1.15rem; flex-shrink:0; }
+@media(max-width:960px){ .match-options.match-options-grid { grid-template-columns:repeat(3,1fr); } }
+@media(max-width:680px){ .match-options.match-options-grid { grid-template-columns:repeat(2,1fr); max-height:480px; } .match-opt.match-opt-compact { font-size:0.76rem; padding:9px 10px; } }
+@media(max-width:400px){ .match-options.match-options-grid { grid-template-columns:1fr; max-height:380px; } }
 .match-opt { padding:16px 20px; border:1px solid var(--blt); border-radius:10px; background:#fff; cursor:pointer; transition:all .18s; font-size:.95rem; color:var(--ink); text-align:left; display:flex; align-items:center; gap:12px; }
 .match-opt:hover { border-color:var(--brass); background:#fefcf7; }
 .match-opt.selected { border-color:var(--brass); background:rgba(168,125,42,.06); }
@@ -5648,12 +5657,56 @@ var quizState={path:null,answers:[],qIdx:0};
 
 var Q = {
   biz:[
-    {qEn:'Which market are you importing to?',qEs:'¿A qué mercado está importando?',qZh:'您的目标市场是哪个？',key:'mkt',
+    {qEn:'Which market are you importing to?',qEs:'¿A qué mercado está importando?',qZh:'您的目标市场是哪个？',key:'mkt',grid:true,
       opts:[
-        {v:'africa',en:'Africa',es:'África',zh:'非洲',icon:'🌍'},
-        {v:'latam',en:'Latin America',es:'América Latina',zh:'拉丁美洲',icon:'🌎'},
-        {v:'oceania',en:'Oceania / Australia',es:'Oceanía / Australia',zh:'大洋洲/澳洲',icon:'🏝️'},
-        {v:'europe',en:'Europe / Spain',es:'Europa / España',zh:'欧洲/西班牙',icon:'🏰'}
+        /* Latin America */
+        {v:'CO',en:'Colombia',es:'Colombia',zh:'哥伦比亚',icon:'🇨🇴'},
+        {v:'EC',en:'Ecuador',es:'Ecuador',zh:'厄瓜多尔',icon:'🇪🇨'},
+        {v:'BR',en:'Brazil',es:'Brasil',zh:'巴西',icon:'🇧🇷'},
+        {v:'MX',en:'Mexico',es:'México',zh:'墨西哥',icon:'🇲🇽'},
+        {v:'AR',en:'Argentina',es:'Argentina',zh:'阿根廷',icon:'🇦🇷'},
+        {v:'PE',en:'Peru',es:'Perú',zh:'秘鲁',icon:'🇵🇪'},
+        {v:'CL',en:'Chile',es:'Chile',zh:'智利',icon:'🇨🇱'},
+        /* Africa */
+        {v:'ZA',en:'South Africa',es:'Sudáfrica',zh:'南非',icon:'🇿🇦'},
+        {v:'NG',en:'Nigeria',es:'Nigeria',zh:'尼日利亚',icon:'🇳🇬'},
+        {v:'KE',en:'Kenya',es:'Kenia',zh:'肯尼亚',icon:'🇰🇪'},
+        {v:'TZ',en:'Tanzania',es:'Tanzania',zh:'坦桑尼亚',icon:'🇹🇿'},
+        {v:'EG',en:'Egypt',es:'Egipto',zh:'埃及',icon:'🇪🇬'},
+        {v:'MA',en:'Morocco',es:'Marruecos',zh:'摩洛哥',icon:'🇲🇦'},
+        /* Europe */
+        {v:'ES',en:'Spain',es:'España',zh:'西班牙',icon:'🇪🇸'},
+        {v:'GB',en:'United Kingdom',es:'Reino Unido',zh:'英国',icon:'🇬🇧'},
+        {v:'DE',en:'Germany',es:'Alemania',zh:'德国',icon:'🇩🇪'},
+        {v:'FR',en:'France',es:'Francia',zh:'法国',icon:'🇫🇷'},
+        {v:'IT',en:'Italy',es:'Italia',zh:'意大利',icon:'🇮🇹'},
+        {v:'NL',en:'Netherlands',es:'Países Bajos',zh:'荷兰',icon:'🇳🇱'},
+        {v:'PT',en:'Portugal',es:'Portugal',zh:'葡萄牙',icon:'🇵🇹'},
+        {v:'PL',en:'Poland',es:'Polonia',zh:'波兰',icon:'🇵🇱'},
+        /* Middle East */
+        {v:'AE',en:'United Arab Emirates',es:'Emiratos Árabes Unidos',zh:'阿联酋',icon:'🇦🇪'},
+        {v:'SA',en:'Saudi Arabia',es:'Arabia Saudita',zh:'沙特阿拉伯',icon:'🇸🇦'},
+        {v:'IL',en:'Israel',es:'Israel',zh:'以色列',icon:'🇮🇱'},
+        {v:'TR',en:'Türkiye',es:'Turquía',zh:'土耳其',icon:'🇹🇷'},
+        /* Asia (ex-Greater China) */
+        {v:'IN',en:'India',es:'India',zh:'印度',icon:'🇮🇳'},
+        {v:'PK',en:'Pakistan',es:'Pakistán',zh:'巴基斯坦',icon:'🇵🇰'},
+        {v:'BD',en:'Bangladesh',es:'Bangladés',zh:'孟加拉',icon:'🇧🇩'},
+        {v:'TH',en:'Thailand',es:'Tailandia',zh:'泰国',icon:'🇹🇭'},
+        {v:'VN',en:'Vietnam',es:'Vietnam',zh:'越南',icon:'🇻🇳'},
+        {v:'PH',en:'Philippines',es:'Filipinas',zh:'菲律宾',icon:'🇵🇭'},
+        {v:'ID',en:'Indonesia',es:'Indonesia',zh:'印度尼西亚',icon:'🇮🇩'},
+        {v:'MY',en:'Malaysia',es:'Malasia',zh:'马来西亚',icon:'🇲🇾'},
+        {v:'JP',en:'Japan',es:'Japón',zh:'日本',icon:'🇯🇵'},
+        {v:'KR',en:'South Korea',es:'Corea del Sur',zh:'韩国',icon:'🇰🇷'},
+        /* North America */
+        {v:'US',en:'United States',es:'Estados Unidos',zh:'美国',icon:'🇺🇸'},
+        {v:'CA',en:'Canada',es:'Canadá',zh:'加拿大',icon:'🇨🇦'},
+        /* Oceania */
+        {v:'AU',en:'Australia',es:'Australia',zh:'澳大利亚',icon:'🇦🇺'},
+        {v:'NZ',en:'New Zealand',es:'Nueva Zelanda',zh:'新西兰',icon:'🇳🇿'},
+        /* Catch-all */
+        {v:'OTHER',en:'Other / Multiple markets',es:'Otro / Varios mercados',zh:'其他/多个市场',icon:'🌐'}
       ]},
     {qEn:'What type of lighting are you looking for?',qEs:'¿Qué tipo de iluminación busca?',qZh:'您需要什么类型的照明产品？',key:'cat',
       opts:[
@@ -5738,9 +5791,12 @@ function showQuestion(){
   html+='</div>';
   html+='<div class="match-q-head"><div class="match-q-num">'+(lang==='zh'?'问题 ':'Question ')+(quizState.qIdx+1)+' / '+questions.length+'</div>';
   html+='<div class="match-q-title">'+t(q,lang)+'</div></div>';
-  html+='<div class="match-options">';
+  /* Grid mode = many options (e.g. 40+ countries) → use multi-column compact grid */
+  var optsClass = q.grid ? 'match-options match-options-grid' : 'match-options';
+  var btnClass  = q.grid ? 'match-opt match-opt-compact' : 'match-opt';
+  html+='<div class="'+optsClass+'">';
   q.opts.forEach(function(o){
-    html+='<button class="match-opt" onclick="pickAnswer(\''+q.key+'\',\''+o.v+'\')"><span class="mo-icon">'+o.icon+'</span> '+t(o,lang)+'</button>';
+    html+='<button class="'+btnClass+'" onclick="pickAnswer(\''+q.key+'\',\''+o.v+'\')"><span class="mo-icon">'+o.icon+'</span> '+t(o,lang)+'</button>';
   });
   html+='</div>';
   if(quizState.qIdx>0){
