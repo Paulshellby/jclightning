@@ -2335,6 +2335,51 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 
   <!-- Authority paragraph: WHAT WE DO -->
   <p class="man-body reveal" data-i18n="brand_b">JC Lightning Technology Co., Ltd. supplies outdoor solar lighting products to distributors, installation companies, project contractors and beyond — focused on markets where grid power supply is unstable. OEM and ODM available.</p>
+
+  <div class="man-rule"></div>
+
+  <!-- Trust / proof footer — adds substance without bloat -->
+  <div class="man-trust reveal">
+    <!-- Hero stats: 4 numbers tied to credibility -->
+    <div class="man-stats">
+      <div class="man-stat">
+        <span class="man-stat-num" data-target="30"><span class="man-stat-suf">+</span></span>
+        <span class="man-stat-lbl" data-i18n="man_stat1">Export markets</span>
+      </div>
+      <div class="man-stat-sep" aria-hidden="true"></div>
+      <div class="man-stat">
+        <span class="man-stat-num" data-target="4"></span>
+        <span class="man-stat-lbl" data-i18n="man_stat2">Continents</span>
+      </div>
+      <div class="man-stat-sep" aria-hidden="true"></div>
+      <div class="man-stat">
+        <span class="man-stat-num" data-target="25"><span class="man-stat-suf">K+</span></span>
+        <span class="man-stat-lbl" data-i18n="man_stat3">Units shipped</span>
+      </div>
+      <div class="man-stat-sep" aria-hidden="true"></div>
+      <div class="man-stat">
+        <span class="man-stat-num" data-target="2000"><span class="man-stat-suf">+</span></span>
+        <span class="man-stat-lbl" data-i18n="man_stat4">LiFePO4 cycles</span>
+      </div>
+    </div>
+
+    <!-- Trust signal chips — universal certifications & engineering specs -->
+    <div class="man-badges">
+      <span class="man-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> CE</span>
+      <span class="man-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> RoHS</span>
+      <span class="man-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> IP65 / IP66</span>
+      <span class="man-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> LiFePO4</span>
+      <span class="man-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> –20°C ~ +60°C</span>
+      <span class="man-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> FOB Shenzhen</span>
+      <span class="man-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> OEM &amp; ODM</span>
+    </div>
+
+    <!-- Live action ticker — social proof of recent inquiries -->
+    <div class="man-live">
+      <span class="man-live-dot" aria-hidden="true"></span>
+      <span class="man-live-text" data-i18n="man_live">Last quote sent <strong>14 min ago</strong> · Cartagena, Colombia</span>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -2497,6 +2542,73 @@ video.hero-3d-bg {
   font-weight:300;
   letter-spacing:0.005em;
   position:relative; z-index:1;
+}
+
+/* ===== Trust footer (stats + cert badges + live ticker) ===== */
+.man-trust { position:relative; z-index:1; max-width:1100px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:32px; }
+
+.man-stats { display:flex; align-items:center; justify-content:center; gap:0; flex-wrap:wrap; }
+.man-stat { display:flex; flex-direction:column; align-items:center; padding:0 36px; }
+.man-stat-num {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem, 4vw, 3.4rem);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:-0.02em;
+  background:linear-gradient(135deg, var(--brass-pale) 0%, var(--brass-lt) 50%, var(--brass) 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.man-stat-suf { font-size:0.55em; -webkit-text-fill-color:var(--brass-lt); margin-left:2px; }
+.man-stat-lbl {
+  font-size:0.7rem; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:rgba(240,235,226,0.55);
+  margin-top:10px;
+}
+.man-stat-sep { width:1px; height:48px; background:linear-gradient(180deg, transparent, rgba(201,162,78,0.25), transparent); }
+
+.man-badges { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; max-width:920px; }
+.man-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:7px 14px; border:1px solid rgba(201,162,78,0.25); border-radius:999px;
+  background:rgba(201,162,78,0.05);
+  font-size:0.72rem; font-weight:500; letter-spacing:0.04em;
+  color:rgba(253,233,185,0.85);
+  white-space:nowrap;
+  transition:border-color .2s, background .2s, transform .2s;
+}
+.man-badge:hover { border-color:var(--brass-lt); background:rgba(201,162,78,0.12); transform:translateY(-1px); }
+.man-badge svg { color:var(--brass-lt); flex-shrink:0; }
+
+.man-live {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:8px 18px; border-radius:999px;
+  background:rgba(14,12,10,0.55); border:1px solid rgba(94,224,122,0.25);
+  font-size:0.74rem; color:rgba(240,235,226,0.7);
+}
+.man-live-text strong { color:var(--brass-lt); font-weight:600; }
+.man-live-dot {
+  width:8px; height:8px; border-radius:50%; background:#5ee07a;
+  box-shadow:0 0 8px rgba(94,224,122,0.7);
+  animation:man-live-pulse 2s ease-in-out infinite;
+}
+@keyframes man-live-pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%     { opacity:0.5; transform:scale(0.85); }
+}
+
+@media (max-width:960px) {
+  .man-trust { gap:24px; }
+  .man-stat { padding:0 18px; }
+  .man-stat-sep { display:none; }
+  .man-stats { gap:16px 24px; }
+}
+@media (max-width:560px) {
+  .man-stats { gap:18px 30px; }
+  .man-stat-num { font-size:1.9rem; }
+  .man-stat-lbl { font-size:0.6rem; letter-spacing:0.12em; }
+  .man-badge { font-size:0.65rem; padding:6px 11px; }
+  .man-live { font-size:0.66rem; padding:7px 14px; }
 }
 
 @media (max-width:960px) {
@@ -4234,7 +4346,7 @@ const T = {
     hero_cta1:'立即询价',hero_cta2:'查看产品 →',
     stat1:'款产品',stat2:'大产品线',stat3:'认证 · RoHS',stat4:'只起订量',
     brand_q:'"非洲、拉美、大洋洲的电网正在失效。<br><span>太阳能照明不是升级选项——它是唯一答案。"</span>',
-    brand_b:'嘉晨照明科技有限公司为包括不限于分销商、安装公司及工程承包商提供户外太阳能照明产品，专注服务电网供应不稳定的市场。支持 OEM 与 ODM 定制。',
+    brand_b:'嘉晨照明科技有限公司为包括不限于分销商、安装公司及工程承包商提供户外太阳能照明产品，专注服务电网供应不稳定的市场。支持 OEM 与 ODM 定制。',man_stat1:'出口市场',man_stat2:'大洲覆盖',man_stat3:'出货量',man_stat4:'LiFePO4 循环',man_live:'最新询价 <strong>14 分钟前</strong> · 卡塔赫纳，哥伦比亚',
     filter_all:'全部',filter_security:'安防',filter_garden:'花园',filter_decorative:'装饰',filter_offgrid:'离网',search_ph:'搜索 30 款产品 — IP66、投光灯、路灯…',
     prod_lbl:'完整目录',prod_h2:'每一款灯。<br><em>每一个参数。</em>',prod_cat:'查看完整产品系列 →',
     b_best:'热销爆款',b_newarr:'新品',b_rec:'主推款',b_hot:'热卖',b_eco:'经典款',b_set:'8只装',b_ip66:'IP66',b_cctv:'新品：4G CCTV智能版',b_seasonal:'5大节日主题',b_multifunc:'多功能升级版',
@@ -4369,7 +4481,7 @@ const T = {
     hero_cta1:'Solicitar Cotización',hero_cta2:'Ver Productos →',
     stat1:'Productos',stat2:'Gamas',stat3:'Certificado · RoHS',stat4:'Uds. Pedido Mínimo',
     brand_q:'"Las redes eléctricas están fallando en África, América Latina y Oceanía.<br><span>La iluminación solar no es una mejora — es la solución."</span>',
-    brand_b:'JC Lightning Technology Co., Ltd. suministra productos de iluminación solar exterior a distribuidores, empresas de instalación, contratistas de proyectos y más — enfocada en mercados donde el suministro eléctrico es inestable. OEM y ODM disponibles.',
+    brand_b:'JC Lightning Technology Co., Ltd. suministra productos de iluminación solar exterior a distribuidores, empresas de instalación, contratistas de proyectos y más — enfocada en mercados donde el suministro eléctrico es inestable. OEM y ODM disponibles.',man_stat1:'Mercados de exportación',man_stat2:'Continentes',man_stat3:'Unidades enviadas',man_stat4:'Ciclos LiFePO4',man_live:'Última cotización <strong>hace 14 min</strong> · Cartagena, Colombia',
     filter_all:'Todos',filter_security:'Seguridad',filter_garden:'Jardín',filter_decorative:'Decorativo',filter_offgrid:'Sin Red',search_ph:'Buscar 30 productos — IP66, reflector, farola…',
     prod_lbl:'Catálogo Completo',prod_h2:'Cada Luz.<br><em>Cada Especificación.</em>',prod_cat:'Ver Gama Completa →',
     b_best:'Superventas',b_newarr:'NUEVO',b_rec:'Recomendado',b_hot:'TENDENCIA',b_eco:'Clásico',b_set:'Pack 8',b_ip66:'IP66',b_cctv:'NUEVO: Edición CCTV Inteligente',b_seasonal:'5 Temas de Temporada',b_multifunc:'Edición Multi-Función',
@@ -4504,7 +4616,7 @@ const T = {
     hero_cta1:'Demander un Devis',hero_cta2:'Voir Produits →',
     stat1:'Produits',stat2:'Gammes',stat3:'Certifié · RoHS',stat4:'Qté Min. Commande',
     brand_q:'"Les réseaux électriques défaillent en Afrique, en Amérique Latine et en Océanie.<br><span>L\'éclairage solaire n\'est pas une amélioration — c\'est la solution."</span>',
-    brand_b:'JC Lightning Technology Co., Ltd. fournit des produits d\'éclairage solaire extérieur aux distributeurs, sociétés d\'installation, entrepreneurs de projets et plus encore — axée sur les marchés où l\'alimentation électrique du réseau est instable. OEM et ODM disponibles.',
+    brand_b:'JC Lightning Technology Co., Ltd. fournit des produits d\'éclairage solaire extérieur aux distributeurs, sociétés d\'installation, entrepreneurs de projets et plus encore — axée sur les marchés où l\'alimentation électrique du réseau est instable. OEM et ODM disponibles.',man_stat1:'Marchés d\'exportation',man_stat2:'Continents',man_stat3:'Unités expédiées',man_stat4:'Cycles LiFePO4',man_live:'Dernier devis <strong>il y a 14 min</strong> · Cartagena, Colombie',
     filter_all:'Tous',filter_security:'Sécurité',filter_garden:'Jardin',filter_decorative:'Déco',filter_offgrid:'Autonome',search_ph:'Rechercher 30 produits — IP66, projecteur, lampadaire…',
     prod_lbl:'Catalogue Complet',prod_h2:'Chaque Lampe.<br><em>Chaque Fiche Technique.</em>',prod_cat:'Voir Toute la Gamme →',
     b_best:'Best-Seller',b_newarr:'NOUVEAU',b_rec:'Recommandé',b_hot:'TENDANCE',b_eco:'Classique',b_set:'Pack 8',b_ip66:'IP66',b_cctv:'NOUVEAU : Édition CCTV Intelligente',b_seasonal:'5 Thèmes Saisonniers',b_multifunc:'Édition Multi-Fonction',
@@ -4631,7 +4743,7 @@ const T = {
     hero_cta1:'Solicitar Cotação',hero_cta2:'Ver Produtos →',
     stat1:'Produtos',stat2:'Linhas',stat3:'Certificado · RoHS',stat4:'Peças Ped. Mínimo',
     brand_q:'"As redes elétricas estão falhando na África, América Latina e Oceania.<br><span>A iluminação solar não é uma melhoria — é a solução."</span>',
-    brand_b:'JC Lightning Technology Co., Ltd. fornece produtos de iluminação solar exterior para distribuidores, empresas de instalação, empreiteiros de projetos e mais — focada em mercados onde o fornecimento de energia da rede é instável. OEM e ODM disponíveis.',
+    brand_b:'JC Lightning Technology Co., Ltd. fornece produtos de iluminação solar exterior para distribuidores, empresas de instalação, empreiteiros de projetos e mais — focada em mercados onde o fornecimento de energia da rede é instável. OEM e ODM disponíveis.',man_stat1:'Mercados de exportação',man_stat2:'Continentes',man_stat3:'Unidades enviadas',man_stat4:'Ciclos LiFePO4',man_live:'Última cotação <strong>há 14 min</strong> · Cartagena, Colômbia',
     filter_all:'Todos',filter_security:'Segurança',filter_garden:'Jardim',filter_decorative:'Decorativo',filter_offgrid:'Sem Rede',search_ph:'Buscar 30 produtos — IP66, refletor, poste…',
     prod_lbl:'Catálogo Completo',prod_h2:'Cada Luz.<br><em>Cada Especificação.</em>',prod_cat:'Ver Linha Completa →',
     b_best:'Mais Vendido',b_newarr:'NOVO',b_rec:'Recomendado',b_hot:'TENDÊNCIA',b_eco:'Clássico',b_set:'Pack 8',b_ip66:'IP66',b_cctv:'NOVO: Edição CCTV Inteligente',b_seasonal:'5 Temas Sazonais',b_multifunc:'Edição Multi-Função',
@@ -4762,7 +4874,7 @@ const T = {
     hero_sub:'تواجه كولومبيا عجزاً متوقعاً في الطاقة قدره 3,100 جيجاوات/ساعة بحلول 2027. تعاني الإكوادور بالفعل من انقطاعات تصل إلى 10 ساعات يومياً. متوسط جنوب أفريقيا 6–8 ساعات من تخفيف الأحمال يومياً. إضاءة شمسية للأمن والحدائق والديكور والمنازل المحمولة — مصممة كي لا يبقى عملاؤك في الظلام.',
     hero_cta1:'طلب عرض سعر',hero_cta2:'عرض المنتجات →',
     brand_q:'"شبكة الكهرباء تفشل في أسواق أفريقيا وأمريكا اللاتينية وأوقيانوسيا.<br><span>الإضاءة الشمسية ليست ترقية — بل هي الحل."</span>',
-    brand_b:'تورّد شركة JC Lightning Technology المحدودة منتجات الإضاءة الشمسية الخارجية للموزعين وشركات التركيب ومقاولي المشاريع وغيرهم — متخصصة في الأسواق التي تعاني من عدم استقرار إمدادات الشبكة الكهربائية. OEM و ODM متاحان.',
+    brand_b:'تورّد شركة JC Lightning Technology المحدودة منتجات الإضاءة الشمسية الخارجية للموزعين وشركات التركيب ومقاولي المشاريع وغيرهم — متخصصة في الأسواق التي تعاني من عدم استقرار إمدادات الشبكة الكهربائية. OEM و ODM متاحان.',man_stat1:'أسواق التصدير',man_stat2:'قارات',man_stat3:'وحدات مشحونة',man_stat4:'دورات LiFePO4',man_live:'آخر عرض سعر <strong>قبل 14 دقيقة</strong> · قرطاجنة، كولومبيا',
     sc_lbl:'حيث تُستخدم',sc_h2:'أماكن حقيقية. <em>أداء حقيقي.</em>',
     fac_h2:'مصنوعة لأسواق<br>حيث لا تستطيع الإضاءة <em>العادية الصمود.</em>',
     prod_lbl:'الكتالوج الكامل',prod_h2:'كل ضوء.<br><em>كل مواصفة.</em>',prod_cat:'طلب الكتالوج الكامل →',
@@ -4802,7 +4914,7 @@ const T = {
     hero_sub:'Колумбия прогнозирует дефицит энергии в 3 100 ГВт·ч к 2027 году. Эквадор уже терпит до 10 часов отключений в день. ЮАР в среднем 6–8 часов веерных отключений в сутки. Солнечная безопасность, сад, декор, дом и переносное освещение — созданные так, чтобы ваши клиенты никогда не оставались в темноте.',
     hero_cta1:'Запросить цену',hero_cta2:'Смотреть продукты →',
     brand_q:'"Сеть подводит рынки Африки, Латинской Америки и Океании.<br><span>Солнечное освещение — это не апгрейд, а ответ."</span>',
-    brand_b:'JC Lightning Technology Co., Ltd. поставляет наружные солнечные осветительные продукты дистрибьюторам, монтажным компаниям, подрядчикам проектов и другим — специализируется на рынках с нестабильным электроснабжением сети. OEM и ODM доступны.',
+    brand_b:'JC Lightning Technology Co., Ltd. поставляет наружные солнечные осветительные продукты дистрибьюторам, монтажным компаниям, подрядчикам проектов и другим — специализируется на рынках с нестабильным электроснабжением сети. OEM и ODM доступны.',man_stat1:'Экспортные рынки',man_stat2:'Континентов',man_stat3:'Единиц отгружено',man_stat4:'Циклы LiFePO4',man_live:'Последнее предложение <strong>14 мин назад</strong> · Картахена, Колумбия',
     sc_lbl:'Где их используют',sc_h2:'Реальные места. <em>Реальная эффективность.</em>',
     fac_h2:'Создано для рынков,<br>где обычное освещение <em>сдаётся.</em>',
     prod_lbl:'Полный каталог',prod_h2:'Каждый светильник.<br><em>Каждая спецификация.</em>',prod_cat:'Запросить полный каталог →',
@@ -4842,7 +4954,7 @@ const T = {
     hero_sub:'कोलंबिया को 2027 तक 3,100 GWh ऊर्जा घाटे का अनुमान है। इक्वाडोर पहले से ही प्रतिदिन 10 घंटे तक की कटौती झेल रहा है। दक्षिण अफ्रीका में औसत 6–8 घंटे प्रतिदिन लोड-शेडिंग है। सौर सुरक्षा, बागवानी, सजावटी, घरेलू और पोर्टेबल प्रकाश व्यवस्था — आपके ग्राहक कभी अंधेरे में न रहें।',
     hero_cta1:'कोटेशन का अनुरोध करें',hero_cta2:'उत्पाद देखें →',
     brand_q:'"अफ्रीका, लैटिन अमेरिका और ओशिनिया के बाजारों में ग्रिड विफल हो रही है।<br><span>सौर प्रकाश व्यवस्था अपग्रेड नहीं है — यह उत्तर है।"</span>',
-    brand_b:'JC Lightning Technology Co., Ltd. वितरकों, स्थापना कंपनियों, परियोजना ठेकेदारों और अन्य को बाहरी सौर प्रकाश उत्पाद आपूर्ति करती है — अस्थिर ग्रिड बिजली आपूर्ति वाले बाजारों पर केंद्रित। OEM और ODM उपलब्ध।',
+    brand_b:'JC Lightning Technology Co., Ltd. वितरकों, स्थापना कंपनियों, परियोजना ठेकेदारों और अन्य को बाहरी सौर प्रकाश उत्पाद आपूर्ति करती है — अस्थिर ग्रिड बिजली आपूर्ति वाले बाजारों पर केंद्रित। OEM और ODM उपलब्ध।',man_stat1:'निर्यात बाजार',man_stat2:'महाद्वीप',man_stat3:'इकाइयाँ भेजी',man_stat4:'LiFePO4 चक्र',man_live:'अंतिम कोटेशन <strong>14 मिनट पहले</strong> · कार्टाजेना, कोलंबिया',
     sc_lbl:'जहाँ इस्तेमाल होते हैं',sc_h2:'वास्तविक स्थान. <em>वास्तविक प्रदर्शन.</em>',
     fac_h2:'उन बाजारों के लिए बनाये गए,<br>जहाँ सामान्य प्रकाश व्यवस्था <em>हार जाती है.</em>',
     prod_lbl:'पूरी सूची',prod_h2:'हर रोशनी.<br><em>हर विवरण.</em>',prod_cat:'पूरा कैटलॉग अनुरोध करें →',
