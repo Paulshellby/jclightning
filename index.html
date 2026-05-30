@@ -95,6 +95,14 @@ html { scroll-behavior: smooth; font-size: 18px; overflow-x:hidden; }
 body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink); overflow-x:hidden; font-size: 1rem; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 /* ═══════════════════════════════════════════════════════════
+   FLOATING-BUTTON CLEANUP — kill the bottom-right pileup.
+   Keep only: chat widget · back-to-top · sticky CTA · progress bar
+   Remove:    side vertical tab · back-bottom arrow · inquiry cart
+   ═══════════════════════════════════════════════════════════ */
+.side-cta, .back-bottom,
+.inq-cart-btn, .inq-panel, .inq-add { display: none !important; }
+
+/* ═══════════════════════════════════════════════════════════
    TYPOGRAPHY POLISH — sharper rendering, better hierarchy,
    universal kerning/ligatures, premium feel
    ═══════════════════════════════════════════════════════════ */
@@ -1644,7 +1652,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 </div>
 
 <div class="progress-bar" id="progressBar"></div>
-<a href="#contact" class="side-cta" id="sideCta">Get a Quote</a>
+<!-- (.side-cta vertical tab removed — redundant with sticky CTA + nav Get a Quote) -->
 
 <!-- Sticky bottom B2B CTA bar — appears after scrolling past hero -->
 <div class="sticky-cta" id="stickyCta" role="region" aria-label="Quote request">
@@ -4351,7 +4359,7 @@ polygon[fill="url(#vlg-solar)"] {
 </script>
 
 <button class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
-<button class="back-bottom" id="backBottom" aria-label="Go to bottom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+<!-- (.back-bottom down arrow removed — useless, users already scroll naturally) -->
 <!-- Inquiry Cart Floating Button -->
 <button class="inq-cart-btn" id="inqCartBtn" aria-label="Inquiry cart">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
