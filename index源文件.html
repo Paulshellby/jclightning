@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="zh" href="https://jclightning.com/?lang=zh">
 <link rel="alternate" hreflang="es" href="https://jclightning.com/?lang=es">
 <link rel="alternate" hreflang="x-default" href="https://jclightning.com/">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" as="style">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <meta property="og:title" content="JC Lightning — Solar Lighting Built for Where the Grid Fails">
 <meta property="og:description" content="Solar security, garden and wall lighting for distributors in Africa, Latin America and Oceania. CE certified. IP65. OEM available.">
@@ -74,7 +74,7 @@
 </script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230e0c0a'/><text x='16' y='23' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%23a87d2a'>J</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -93,6 +93,92 @@
 }
 html { scroll-behavior: smooth; font-size: 18px; overflow-x:hidden; }
 body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink); overflow-x:hidden; font-size: 1rem; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* ═══════════════════════════════════════════════════════════
+   TYPOGRAPHY POLISH — sharper rendering, better hierarchy,
+   universal kerning/ligatures, premium feel
+   ═══════════════════════════════════════════════════════════ */
+html, body {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-text-size-adjust: 100%;
+}
+/* Bump uncomfortably thin body paragraphs from 300 → 400 (Outfit at 300
+   looks washed out on small screens / dark backgrounds). Headings + UI
+   labels keep their declared weights via higher specificity. */
+p { font-weight: 400; }
+/* Numbers use tabular figures so stats line up cleanly */
+.stat-n, .why-mark, .partner-card .pc-num,
+.numbers-grid, .stat-item, .global-stats-row,
+input[type="number"], time, .price {
+  font-feature-settings: "tnum" 1, "kern" 1;
+  font-variant-numeric: tabular-nums;
+}
+/* Headings: tighter tracking + crisp anti-alias */
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+  -webkit-font-smoothing: antialiased;
+}
+/* White headings on dark bg — micro-shadow improves perceived sharpness
+   without making it look bold/blurry */
+section.partner h2, section.contact h2, section.matchmaker h2,
+section.faq h2, section.global h2, section.products h2 {
+  text-shadow: 0 1px 1px rgba(0,0,0,0.25);
+}
+/* Better default paragraph readability */
+.partner-head p, .partner-card p, .qv-info p,
+.faq p, .global-sub, .section-sub, .ft-desc,
+.con-l .con-desc, .con-l p, .mm-disc, .matchmaker-sub,
+.cat-card-body p, .scenarios .sc-card p {
+  font-weight: 400 !important;
+  line-height: 1.72;
+}
+/* Tiny labels stay at 400 (was sometimes 300 — too thin to read) */
+.sec-label, .mm-meta-chip, .mm-benefit, .cs-foot-note,
+.ft-col h5, .partner-label, .cs-panel-title { font-weight: 500 !important; }
+
+/* ═══ Premium selection color (brass on dark; ink on chalk) ═══ */
+::selection { background: var(--brass); color: #fff; text-shadow: none; }
+::-moz-selection { background: var(--brass); color: #fff; }
+
+/* ═══ Custom scrollbar (premium feel) ═══ */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: rgba(14,12,10,0.06); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--brass) 0%, var(--brass-lt) 100%);
+  border: 2px solid var(--chalk);
+  border-radius: 8px;
+  transition: background .25s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--brass-lt) 0%, var(--brass-pale) 100%);
+}
+* { scrollbar-color: var(--brass) rgba(14,12,10,0.06); scrollbar-width: thin; }
+
+/* ═══ Universal focus ring (brass, accessible) ═══ */
+:focus-visible {
+  outline: 2px solid var(--brass-lt);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 0;
+}
+
+/* ═══ Smoother default link/button transitions everywhere ═══ */
+a, button { -webkit-tap-highlight-color: transparent; }
+
+/* ═══ Higher-quality image rendering — sharper edges on icons + photos ═══ */
+img, svg {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+/* Photos exempt — keep smooth scaling for product / hero images */
+.prod-card img, .hero img, .cat-card-img img, .qv-modal img,
+.global-map-wrap img, .lightbox img {
+  image-rendering: auto;
+}
 ::selection { background:var(--brass); color:#fff; }
 
 /* ===== Cyberpunk overlay — global CRT scanlines + subtle horizontal sweep ===== */
@@ -971,7 +1057,8 @@ h2 em { font-style:italic; color:var(--brass); }
 .form-g:focus-within::after, .form-g:focus-within:has(textarea:focus)::after { opacity:1; transform:translate(0,0); }
 label { font-size:0.68rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(240,235,226,0.7); transition: color .2s; }
 .form-g:focus-within label { color:var(--brass-lt); }
-input, textarea, select { background:rgba(255,255,255,0.06); border:1px solid rgba(201,162,78,0.22); padding:12px 14px; font-family:'Outfit',sans-serif; font-size:0.86rem; font-weight:300; color:var(--chalk-w); outline:none; resize:vertical; border-radius:0; transition:border-color .2s, box-shadow .2s, background .2s; }
+input, textarea, select { background:rgba(255,255,255,0.06); border:1px solid rgba(201,162,78,0.22); padding:13px 16px; font-family:'Outfit',sans-serif; font-size:0.9rem; font-weight:400; color:var(--chalk-w); outline:none; resize:vertical; border-radius:0; transition:border-color .2s, box-shadow .2s, background .2s; }
+input::placeholder, textarea::placeholder { color:rgba(242,236,224,0.45); font-weight:400; }
 input::placeholder, textarea::placeholder { color:rgba(240,235,226,0.4); }
 input:focus, textarea:focus, select:focus { border-color:var(--brass-lt); background:rgba(255,255,255,0.09); box-shadow: 0 0 0 1px var(--brass-lt), 0 4px 18px rgba(168,125,42,0.2); }
 select option { background:#1c1814; color:var(--chalk-w); }
