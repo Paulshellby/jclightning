@@ -6237,18 +6237,27 @@ if(glStatVals.length && typeof gsap!=='undefined'){
   });
 }
 
-// 回到顶部 / 去到底部
-const backTop=document.getElementById('backTop');
-const backBottom=document.getElementById('backBottom');
-const docH=()=>document.documentElement.scrollHeight-window.innerHeight;
-window.addEventListener('scroll',()=>{
-  if(window.scrollY>500) backTop.classList.add('show');
-  else backTop.classList.remove('show');
-  if(window.scrollY<docH()-300) backBottom.classList.add('show');
-  else backBottom.classList.remove('show');
-});
-backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
-backBottom.addEventListener('click',()=>{window.scrollTo({top:docH(),behavior:'smooth'});});
+// 回到顶部 / 去到底部 — wrapped in IIFE for safety, fires once on load + on scroll
+(function(){
+  const backTop = document.getElementById('backTop');
+  const backBottom = document.getElementById('backBottom');
+  if (!backTop || !backBottom) return;
+  const docH = () => document.documentElement.scrollHeight - window.innerHeight;
+  function updateVisibility(){
+    const y = window.scrollY || document.documentElement.scrollTop;
+    backTop.classList.toggle('show', y > 500);
+    backBottom.classList.toggle('show', y < docH() - 300);
+  }
+  // Fire immediately so backBottom shows on page load when user is at top
+  updateVisibility();
+  // Also re-check after layout settles (in case docH wasn't ready)
+  setTimeout(updateVisibility, 500);
+  setTimeout(updateVisibility, 1500);
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  window.addEventListener('resize', updateVisibility, { passive: true });
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  backBottom.addEventListener('click', () => window.scrollTo({ top: docH(), behavior: 'smooth' }));
+})();
 
 // 询价车
 (function(){
