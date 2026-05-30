@@ -1053,6 +1053,75 @@ footer::before { content:''; position:absolute; top:0; left:8%; right:8%; height
 .reveal-pending { opacity:0; transform:translateY(22px); }
 .reveal.on { opacity:1; transform:translateY(0); }
 
+/* ═══ Country Switcher (Sigenergy-inspired) ═══
+   Compact globe button in nav, opens a wide panel showing 40+ served countries
+   grouped by region. Builds trust + lets visitors verify "yes we ship to me". */
+.country-switcher { position:relative; display:flex; align-items:center; }
+.cs-btn { font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:400; letter-spacing:0.16em; text-transform:uppercase; color:#fff; background:transparent; border:1px solid rgba(255,255,255,0.22); padding:8px 14px 8px 12px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; transition:all .25s; border-radius:2px; }
+.cs-btn:hover { background:rgba(255,255,255,0.06); border-color:rgba(201,162,78,0.5); color:var(--brass-lt); }
+.cs-btn svg { width:13px; height:13px; }
+.cs-btn .cs-caret { width:7px; height:7px; transition:transform .25s; }
+.country-switcher.open .cs-btn .cs-caret { transform:rotate(180deg); }
+nav.light .cs-btn { color:var(--ink); border-color:rgba(14,12,10,0.25); }
+nav.light .cs-btn:hover { background:rgba(168,125,42,0.08); color:var(--brass); }
+nav.solid .cs-btn { color:var(--ink); border-color:rgba(14,12,10,0.25); }
+nav.solid .cs-btn:hover { color:var(--brass); }
+.cs-panel { position:absolute; top:calc(100% + 14px); right:0; width:780px; max-width:calc(100vw - 40px); background:rgba(14,12,10,0.98); backdrop-filter:blur(20px); border:1px solid rgba(201,162,78,0.28); border-radius:14px; padding:32px 34px 28px; box-shadow:0 30px 90px rgba(0,0,0,0.6); opacity:0; visibility:hidden; transform:translateY(-8px); transition:opacity .28s, transform .28s, visibility 0s linear .28s; z-index:300; }
+html[dir="rtl"] .cs-panel { right:auto; left:0; }
+.country-switcher.open .cs-panel { opacity:1; visibility:visible; transform:translateY(0); transition:opacity .28s, transform .28s, visibility 0s linear 0s; }
+.cs-panel-head { display:flex; justify-content:space-between; align-items:baseline; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid rgba(201,162,78,0.18); }
+.cs-panel-title { font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--brass-lt); }
+.cs-panel-tag { font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:300; color:var(--mist); }
+.cs-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:24px 22px; }
+.cs-col h6 { font-family:'Outfit',sans-serif; font-size:0.58rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); margin-bottom:12px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.06); }
+.cs-col a { display:flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:300; color:var(--mist); text-decoration:none; padding:5px 0; transition:color .15s, transform .15s; }
+.cs-col a:hover { color:var(--brass-lt); transform:translateX(3px); }
+.cs-col a .flag { font-size:0.95rem; line-height:1; }
+.cs-panel-foot { margin-top:22px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; font-family:'Outfit',sans-serif; font-size:0.75rem; }
+.cs-panel-foot .cs-foot-note { color:var(--mist); font-weight:300; }
+.cs-panel-foot .cs-foot-cta { color:var(--brass-lt); text-decoration:none; font-weight:400; letter-spacing:0.08em; }
+.cs-panel-foot .cs-foot-cta:hover { color:#fff; }
+
+/* ═══ Partner Program section ═══ */
+.partner { padding:100px 56px; background:linear-gradient(180deg, #1a1612 0%, #12100e 100%); position:relative; overflow:hidden; color:var(--chalk); }
+.partner::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 80% 30%, rgba(201,162,78,0.07) 0%, transparent 55%); pointer-events:none; }
+.partner > * { position:relative; z-index:1; }
+.partner-head { max-width:780px; margin:0 auto 56px; text-align:center; }
+.partner-label { display:inline-block; font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:500; letter-spacing:0.32em; text-transform:uppercase; color:var(--brass-lt); margin-bottom:18px; padding:6px 14px; border:1px solid rgba(201,162,78,0.3); border-radius:2px; }
+.partner-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2rem,3.6vw,2.9rem); line-height:1.15; color:#fff; margin-bottom:18px; letter-spacing:-0.01em; }
+.partner-head h2 em { color:var(--brass-lt); font-style:italic; }
+.partner-head p { font-size:1rem; font-weight:300; color:var(--mist); line-height:1.7; max-width:640px; margin:0 auto; }
+.partner-benefits { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; max-width:1280px; margin:0 auto 56px; }
+.partner-card { background:rgba(255,255,255,0.025); border:1px solid rgba(201,162,78,0.18); border-radius:10px; padding:32px 26px; transition:transform .3s, border-color .3s, background .3s; }
+.partner-card:hover { transform:translateY(-4px); border-color:rgba(201,162,78,0.45); background:rgba(201,162,78,0.06); }
+.partner-card .pc-num { font-family:'Playfair Display',serif; font-size:1.4rem; font-style:italic; color:var(--brass); margin-bottom:14px; opacity:0.85; }
+.partner-card .pc-icon { width:36px; height:36px; color:var(--brass-lt); margin-bottom:16px; }
+.partner-card h4 { font-family:'Playfair Display',serif; font-weight:400; font-size:1.2rem; color:#fff; margin-bottom:10px; letter-spacing:-0.01em; }
+.partner-card p { font-size:0.86rem; font-weight:300; color:var(--mist); line-height:1.65; }
+.partner-cta-row { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; max-width:780px; margin:0 auto; }
+.partner-cta { display:inline-flex; align-items:center; gap:10px; font-family:'Outfit',sans-serif; font-size:0.7rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; padding:16px 32px; text-decoration:none; transition:all .25s; cursor:pointer; border:none; }
+.partner-cta.primary { background:var(--brass); color:#fff; }
+.partner-cta.primary:hover { background:var(--brass-lt); transform:translateY(-2px); box-shadow:0 12px 30px rgba(201,162,78,0.3); }
+.partner-cta.ghost { background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.4); }
+.partner-cta.ghost:hover { border-color:var(--brass-lt); color:var(--brass-lt); }
+
+/* Nav: brass-tinted "Become a Partner" link */
+.nav-partner { color:var(--brass-lt) !important; position:relative; }
+.nav-partner::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background:var(--brass-lt); opacity:0.4; transition:opacity .2s; }
+.nav-partner:hover::after { opacity:1; }
+
+/* Mobile partner + country switcher tweaks */
+@media (max-width:960px) {
+  .country-switcher { display:none; }
+  .partner { padding:64px 22px; }
+  .partner-head { margin-bottom:40px; }
+  .partner-benefits { grid-template-columns:1fr 1fr; gap:14px; margin-bottom:40px; }
+  .partner-card { padding:24px 20px; }
+  .partner-card h4 { font-size:1.05rem; }
+  .partner-cta { padding:14px 24px; font-size:0.65rem; width:100%; justify-content:center; }
+  .partner-cta-row { flex-direction:column; }
+}
+
 /* ═══ Sigenergy-style scroll-driven progressive reveal ═══
    Each tagged section starts dimmed/blurred and progressively brightens to full clarity
    as it travels through the viewport. Drives via --rp (reveal progress, 0..1) set by JS. */
@@ -1508,10 +1577,79 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
     </li>
     <li><a href="#scenarios"  class="nav-link" data-i18n="nav_solutions">Solutions</a></li>
     <li><a href="#factory"    class="nav-link" data-i18n="nav_about">Our Approach</a></li>
+    <li><a href="#partner"    class="nav-link nav-partner" data-i18n="nav_partner">Become a Partner</a></li>
     <li><a href="#contact"    class="nav-link" data-i18n="nav_contact">Contact</a></li>
   </ul>
   <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
   <div class="nav-r">
+    <!-- ═══ Country Switcher (Sigenergy-inspired) ═══ -->
+    <div class="country-switcher" id="countrySwitcher">
+      <button class="cs-btn" id="csBtn" aria-haspopup="true" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        <span data-i18n="nav_markets">Markets</span>
+        <svg class="cs-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+      </button>
+      <div class="cs-panel" id="csPanel" role="menu">
+        <div class="cs-panel-head">
+          <span class="cs-panel-title" data-i18n="cs_title">Where we ship</span>
+          <span class="cs-panel-tag" data-i18n="cs_tag">40+ countries · 6 continents · FOB Shenzhen</span>
+        </div>
+        <div class="cs-grid">
+          <div class="cs-col">
+            <h6 data-i18n="cs_region_la">Latin America</h6>
+            <a href="#global" data-cs="CO"><span class="flag">🇨🇴</span><span>Colombia</span></a>
+            <a href="#global" data-cs="EC"><span class="flag">🇪🇨</span><span>Ecuador</span></a>
+            <a href="#global" data-cs="MX"><span class="flag">🇲🇽</span><span>Mexico</span></a>
+            <a href="#global" data-cs="BR"><span class="flag">🇧🇷</span><span>Brazil</span></a>
+            <a href="#global" data-cs="AR"><span class="flag">🇦🇷</span><span>Argentina</span></a>
+            <a href="#global" data-cs="PE"><span class="flag">🇵🇪</span><span>Peru</span></a>
+            <a href="#global" data-cs="CL"><span class="flag">🇨🇱</span><span>Chile</span></a>
+          </div>
+          <div class="cs-col">
+            <h6 data-i18n="cs_region_af">Africa</h6>
+            <a href="#global" data-cs="ZA"><span class="flag">🇿🇦</span><span>South Africa</span></a>
+            <a href="#global" data-cs="NG"><span class="flag">🇳🇬</span><span>Nigeria</span></a>
+            <a href="#global" data-cs="KE"><span class="flag">🇰🇪</span><span>Kenya</span></a>
+            <a href="#global" data-cs="TZ"><span class="flag">🇹🇿</span><span>Tanzania</span></a>
+            <a href="#global" data-cs="EG"><span class="flag">🇪🇬</span><span>Egypt</span></a>
+            <a href="#global" data-cs="MA"><span class="flag">🇲🇦</span><span>Morocco</span></a>
+          </div>
+          <div class="cs-col">
+            <h6 data-i18n="cs_region_eu">Europe</h6>
+            <a href="#global" data-cs="ES"><span class="flag">🇪🇸</span><span>Spain</span></a>
+            <a href="#global" data-cs="PT"><span class="flag">🇵🇹</span><span>Portugal</span></a>
+            <a href="#global" data-cs="GB"><span class="flag">🇬🇧</span><span>United Kingdom</span></a>
+            <a href="#global" data-cs="DE"><span class="flag">🇩🇪</span><span>Germany</span></a>
+            <a href="#global" data-cs="FR"><span class="flag">🇫🇷</span><span>France</span></a>
+            <a href="#global" data-cs="IT"><span class="flag">🇮🇹</span><span>Italy</span></a>
+            <a href="#global" data-cs="NL"><span class="flag">🇳🇱</span><span>Netherlands</span></a>
+            <a href="#global" data-cs="PL"><span class="flag">🇵🇱</span><span>Poland</span></a>
+          </div>
+          <div class="cs-col">
+            <h6 data-i18n="cs_region_me">MENA</h6>
+            <a href="#global" data-cs="AE"><span class="flag">🇦🇪</span><span>UAE</span></a>
+            <a href="#global" data-cs="SA"><span class="flag">🇸🇦</span><span>Saudi Arabia</span></a>
+            <a href="#global" data-cs="IL"><span class="flag">🇮🇱</span><span>Israel</span></a>
+            <a href="#global" data-cs="TR"><span class="flag">🇹🇷</span><span>Türkiye</span></a>
+          </div>
+          <div class="cs-col">
+            <h6 data-i18n="cs_region_as">Asia &amp; Pacific</h6>
+            <a href="#global" data-cs="IN"><span class="flag">🇮🇳</span><span>India</span></a>
+            <a href="#global" data-cs="PK"><span class="flag">🇵🇰</span><span>Pakistan</span></a>
+            <a href="#global" data-cs="BD"><span class="flag">🇧🇩</span><span>Bangladesh</span></a>
+            <a href="#global" data-cs="VN"><span class="flag">🇻🇳</span><span>Vietnam</span></a>
+            <a href="#global" data-cs="PH"><span class="flag">🇵🇭</span><span>Philippines</span></a>
+            <a href="#global" data-cs="ID"><span class="flag">🇮🇩</span><span>Indonesia</span></a>
+            <a href="#global" data-cs="AU"><span class="flag">🇦🇺</span><span>Australia</span></a>
+            <a href="#global" data-cs="NZ"><span class="flag">🇳🇿</span><span>New Zealand</span></a>
+          </div>
+        </div>
+        <div class="cs-panel-foot">
+          <span class="cs-foot-note" data-i18n="cs_foot_note">Country not listed? We export worldwide.</span>
+          <a href="#find-light" class="cs-foot-cta" data-i18n="cs_foot_cta">Get a custom quote →</a>
+        </div>
+      </div>
+    </div>
     <div class="lang-sw">
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
@@ -1530,6 +1668,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   <a href="#products" data-i18n="nav_products">Products</a>
   <a href="#scenarios" data-i18n="nav_solutions">Solutions</a>
   <a href="#factory" data-i18n="nav_about">Our Approach</a>
+  <a href="#partner" data-i18n="nav_partner" style="color:var(--brass-lt)">Become a Partner</a>
   <a href="#contact" data-i18n="nav_contact">Contact</a>
   <a href="#contact" data-i18n="nav_quote" style="color:var(--brass-lt)">Get a Quote</a>
 </div>
@@ -3949,6 +4088,48 @@ polygon[fill="url(#vlg-solar)"] {
   <div id="matchResults" style="display:none"></div>
 </section>
 
+<!-- ═══ Partner Program (Become a Distributor — Sigenergy-inspired) ═══ -->
+<section class="partner" id="partner">
+  <div class="partner-head reveal">
+    <span class="partner-label" data-i18n="partner_label">Partner Program</span>
+    <h2 data-i18n="partner_h">Become a JC Lightning <em>Distributor</em></h2>
+    <p data-i18n="partner_sub">Join importers, contractors and solar installers across 6 continents who stock JC Lightning. Competitive volume pricing, exclusive territory protection, and full sourcing support — direct from our Shenzhen factory.</p>
+  </div>
+
+  <div class="partner-benefits reveal">
+    <div class="partner-card">
+      <svg class="pc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <h4 data-i18n="partner_b1_t">Volume Tier Pricing</h4>
+      <p data-i18n="partner_b1_d">Transparent 4-tier FOB pricing from 500 to 5,000+ units. Margin protection on every reorder.</p>
+    </div>
+    <div class="partner-card">
+      <svg class="pc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg>
+      <h4 data-i18n="partner_b2_t">Exclusive Territory</h4>
+      <p data-i18n="partner_b2_d">Lock in your country or region. We won't sell direct to your competitors while your account is active.</p>
+    </div>
+    <div class="partner-card">
+      <svg class="pc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <h4 data-i18n="partner_b3_t">Marketing &amp; OEM Support</h4>
+      <p data-i18n="partner_b3_d">Free product photography, multi-language datasheets, retail packaging design. Full OEM/ODM available.</p>
+    </div>
+    <div class="partner-card">
+      <svg class="pc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2"/></svg>
+      <h4 data-i18n="partner_b4_t">Dedicated Account Team</h4>
+      <p data-i18n="partner_b4_d">One contact for quotes, shipping, after-sales. English / Spanish / Portuguese / Arabic / Mandarin support.</p>
+    </div>
+  </div>
+
+  <div class="partner-cta-row reveal">
+    <button class="partner-cta primary" onclick="document.getElementById('find-light').scrollIntoView({behavior:'smooth'}); setTimeout(function(){if(typeof startQuiz==='function')startQuiz('biz');},700);">
+      <span data-i18n="partner_apply">Apply Now · 30-Second Quiz</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+    <a class="partner-cta ghost" href="#contact">
+      <span data-i18n="partner_talk">Talk to Partnership Team</span>
+    </a>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <div class="con-l reveal">
     <div class="sec-label" data-i18n="con_lbl">Get In Touch</div>
@@ -4178,7 +4359,14 @@ const T = {
     gl_lbl:'Global Reach',gl_h2:'Trusted across <em>30+ markets.</em>',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'South Africa',gl_au:'Australia',gl_ke:'Kenya',gl_es:'Spain',gl_ae:'UAE',gl_br:'Brazil'},
   zh:{
     logo:'嘉晨照明科技有限公司',ft_logo:'嘉晨照明科技有限公司',
-    nav_products:'产品',nav_cat:'品类',nav_solutions:'应用方案',nav_about:'我们的优势',nav_contact:'联系我们',nav_quote:'立即询价',
+    nav_products:'产品',nav_cat:'品类',nav_solutions:'应用方案',nav_about:'我们的优势',nav_contact:'联系我们',nav_quote:'立即询价',nav_partner:'成为代理商',nav_markets:'市场',
+    cs_title:'我们的发货市场',cs_tag:'40+ 国 · 6 大洲 · FOB 深圳',cs_region_la:'拉丁美洲',cs_region_af:'非洲',cs_region_eu:'欧洲',cs_region_me:'中东北非',cs_region_as:'亚太地区',cs_foot_note:'没有您的国家？我们全球出口。',cs_foot_cta:'获取定制报价 →',
+    partner_label:'代理商计划',partner_h:'成为 JC Lightning <em>代理商</em>',partner_sub:'加入分布在 6 大洲的进口商、承包商和太阳能安装商，他们都在销售 JC Lightning 产品。具有竞争力的批发定价、独家区域保护、深圳工厂直接采购支持。',
+    partner_b1_t:'阶梯批发价',partner_b1_d:'透明的 4 档 FOB 报价，500 到 5,000+ 件。每次返单都保护您的利润。',
+    partner_b2_t:'独家区域保护',partner_b2_d:'锁定您的国家或区域。在您账户活跃期间，我们不会向您的竞争对手直销。',
+    partner_b3_t:'营销与 OEM 支持',partner_b3_d:'免费产品摄影、多语言规格书、零售包装设计。提供完整的 OEM/ODM 定制。',
+    partner_b4_t:'专属客户经理',partner_b4_d:'一个联系人，包办报价、物流、售后。支持英语/西语/葡语/阿语/中文。',
+    partner_apply:'立即申请 · 30 秒问卷',partner_talk:'联系合作伙伴团队',
     hero_eye:'太阳能户外照明 · 停电时，我们的灯还亮着',
     hero_h1:'停电的夜晚<br>我们的灯<br><em>从不熄灭。</em>',
     hero_sub:'哥伦比亚预计2027年电力缺口超过3,100 GWh。厄瓜多尔已出现每天最长10小时停电。南非日均限电6至8小时。太阳能安防、花园、装饰、家庭及便携照明——专为电网不可靠的市场而造。',
@@ -4313,7 +4501,14 @@ const T = {
     gl_lbl:'全球布局',gl_h2:'产品远销<em>30+国家与地区。</em>',gl_sub:'从南非停电市场到拉美离网项目——JC 产品已部署到四大洲，仍在持续扩张。',gl_leg_primary:'主力市场',gl_leg_expansion:'拓展市场',gl_co:'哥伦比亚',gl_ec:'厄瓜多尔',gl_za:'南非',gl_au:'澳大利亚',gl_ke:'肯尼亚',gl_es:'西班牙',gl_ae:'阿联酋',gl_br:'巴西',gl_ng:'尼日利亚',gl_tz:'坦桑尼亚',gl_mx:'墨西哥',gl_pk:'巴基斯坦',gl_in:'印度',gl_th:'泰国',gl_vn:'越南',gl_sa:'沙特阿拉伯',gl_ph:'菲律宾',gl_id:'印度尼西亚',gl_us:'美国',gl_ca:'加拿大',gl_uk:'英国',gl_de:'德国',gl_fr:'法国',gl_it:'意大利',gl_jp:'日本',gl_hq_label:'总部 · 深圳',gl_stat_markets:'出口市场',gl_stat_cont:'覆盖大洲',gl_stat_years:'出口经验',gl_stat_units:'累计出货',hq_tag:'嘉晨照明 · 全球总部',hq_name:'嘉晨照明科技有限公司',hq_meta:'中国 · 广东 · 深圳 &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'生产基地',hq_stat2:'工程师与员工',hq_stat3:'品牌成立',hq_stat4:'深圳 / 盐田 / 广州',hq_cta_wa:'WhatsApp 联系',hq_cta_em:'电邮我们'},
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Productos',nav_cat:'Categorías',nav_solutions:'Soluciones',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',
+    nav_products:'Productos',nav_cat:'Categorías',nav_solutions:'Soluciones',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',nav_partner:'Conviértete en Socio',nav_markets:'Mercados',
+    cs_title:'A dónde enviamos',cs_tag:'40+ países · 6 continentes · FOB Shenzhen',cs_region_la:'América Latina',cs_region_af:'África',cs_region_eu:'Europa',cs_region_me:'MENA',cs_region_as:'Asia y Pacífico',cs_foot_note:'¿No ve su país? Exportamos a todo el mundo.',cs_foot_cta:'Obtener cotización →',
+    partner_label:'Programa de Socios',partner_h:'Conviértete en <em>Distribuidor</em> JC Lightning',partner_sub:'Únete a importadores, contratistas e instaladores solares de 6 continentes que distribuyen JC Lightning. Precios mayoristas competitivos, protección territorial exclusiva, apoyo directo desde nuestra fábrica de Shenzhen.',
+    partner_b1_t:'Precios por Volumen',partner_b1_d:'Precios FOB transparentes en 4 niveles, de 500 a 5.000+ unidades. Margen protegido en cada recompra.',
+    partner_b2_t:'Territorio Exclusivo',partner_b2_d:'Asegure su país o región. No venderemos directamente a sus competidores mientras su cuenta esté activa.',
+    partner_b3_t:'Marketing y OEM',partner_b3_d:'Fotografía de producto gratuita, fichas técnicas multiidioma, diseño de embalaje minorista. OEM/ODM completos disponibles.',
+    partner_b4_t:'Equipo Dedicado',partner_b4_d:'Un contacto único para cotizaciones, envíos y posventa. Soporte en inglés / español / portugués / árabe / chino.',
+    partner_apply:'Postular · Quiz de 30 seg',partner_talk:'Hablar con el Equipo',
     hero_eye:'Iluminación Solar para Exteriores · Cuando la red falla, nosotros seguimos encendidos.',
     hero_h1:'Luz que funciona<br>cuando la corriente<br><em>no llega.</em>',
     hero_sub:'Colombia proyecta un déficit energético de más de 3.100 GWh para 2027. Ecuador ya sufre cortes de hasta 10 horas diarias. Sudáfrica registra entre 6 y 8 horas de cortes al día. Iluminación solar de seguridad, jardín, decorativa, hogar y portátil — fabricada para que tus clientes nunca se queden a oscuras.',
@@ -4448,7 +4643,14 @@ const T = {
     gl_lbl:'Presencia Global',gl_h2:'Confianza en <em>más de 30 mercados.</em>',gl_sub:'Desde la Sudáfrica con apagones hasta los proyectos sin red en América Latina — productos JC desplegados en cuatro continentes y creciendo.',gl_leg_primary:'Mercados Principales',gl_leg_expansion:'Mercados en Expansión',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'Sudáfrica',gl_au:'Australia',gl_ke:'Kenia',gl_es:'España',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigeria',gl_tz:'Tanzania',gl_mx:'México',gl_pk:'Pakistán',gl_in:'India',gl_th:'Tailandia',gl_vn:'Vietnam',gl_sa:'Arabia Saudita',gl_ph:'Filipinas',gl_id:'Indonesia',gl_us:'EE.UU.',gl_ca:'Canadá',gl_uk:'Reino Unido',gl_de:'Alemania',gl_fr:'Francia',gl_it:'Italia',gl_jp:'Japón',gl_hq_label:'Sede · Shenzhen',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Años Exportando',gl_stat_units:'Unidades Enviadas',hq_tag:'JC LIGHTNING · SEDE CENTRAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · China &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Planta de Producción',hq_stat2:'Ingenieros y Personal',hq_stat3:'Fundada',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Chatear por WhatsApp',hq_cta_em:'Escríbanos'},
   fr:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Produits',nav_cat:'Catégories',nav_solutions:'Solutions',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',
+    nav_products:'Produits',nav_cat:'Catégories',nav_solutions:'Solutions',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',nav_partner:'Devenir Partenaire',nav_markets:'Marchés',
+    cs_title:'Nos marchés d\'export',cs_tag:'40+ pays · 6 continents · FOB Shenzhen',cs_region_la:'Amérique Latine',cs_region_af:'Afrique',cs_region_eu:'Europe',cs_region_me:'MOAN',cs_region_as:'Asie &amp; Pacifique',cs_foot_note:'Pays absent ? Nous exportons partout dans le monde.',cs_foot_cta:'Obtenir un devis →',
+    partner_label:'Programme Partenaire',partner_h:'Devenez <em>Distributeur</em> JC Lightning',partner_sub:'Rejoignez les importateurs, entrepreneurs et installateurs solaires de 6 continents qui distribuent JC Lightning. Tarifs volumes compétitifs, protection territoriale exclusive, support direct depuis notre usine de Shenzhen.',
+    partner_b1_t:'Tarifs Dégressifs',partner_b1_d:'Tarifs FOB transparents sur 4 paliers, de 500 à 5 000+ unités. Marge protégée sur chaque réassort.',
+    partner_b2_t:'Territoire Exclusif',partner_b2_d:'Verrouillez votre pays ou région. Nous ne vendons pas en direct à vos concurrents tant que votre compte est actif.',
+    partner_b3_t:'Marketing &amp; OEM',partner_b3_d:'Photographie produit gratuite, fiches techniques multilingues, design d\'emballage retail. OEM/ODM complet disponible.',
+    partner_b4_t:'Équipe Dédiée',partner_b4_d:'Un seul contact pour devis, expédition, SAV. Support en anglais / espagnol / portugais / arabe / mandarin.',
+    partner_apply:'Postuler · Quiz 30 sec',partner_talk:'Parler à l\'équipe partenariat',
     hero_eye:'Éclairage Solaire Extérieur · Quand le réseau lâche, nos lampes restent allumées.',
     hero_h1:'La lumière qui fonctionne<br>quand le courant<br><em>ne passe plus.</em>',
     hero_sub:'La Colombie prévoit un déficit énergétique de plus de 3 100 GWh d\'ici 2027. L\'Équateur subit déjà des coupures de 10 heures par jour. L\'Afrique du Sud connaît 6 à 8 heures de délestage quotidien. Éclairage solaire de sécurité, jardin, déco, maison et portable — conçu pour les marchés où le réseau n\'est pas fiable.',
@@ -4575,7 +4777,14 @@ const T = {
     gl_lbl:'Présence Mondiale',gl_h2:'Une confiance dans <em>plus de 30 marchés.</em>',gl_sub:'Du délestage en Afrique du Sud aux projets hors réseau en Amérique latine — produits JC déployés sur quatre continents et en pleine expansion.',gl_leg_primary:'Marchés Principaux',gl_leg_expansion:'Marchés en Expansion',gl_co:'Colombie',gl_ec:'Équateur',gl_za:'Afrique du Sud',gl_au:'Australie',gl_ke:'Kenya',gl_es:'Espagne',gl_ae:'EAU',gl_br:'Brésil',gl_ng:'Nigéria',gl_tz:'Tanzanie',gl_mx:'Mexique',gl_pk:'Pakistan',gl_in:'Inde',gl_th:'Thaïlande',gl_vn:'Vietnam',gl_sa:'Arabie Saoudite',gl_ph:'Philippines',gl_id:'Indonésie',gl_us:'États-Unis',gl_ca:'Canada',gl_uk:'Royaume-Uni',gl_de:'Allemagne',gl_fr:'France',gl_it:'Italie',gl_jp:'Japon',gl_hq_label:'Siège · Shenzhen',gl_stat_markets:'Marchés',gl_stat_cont:'Continents',gl_stat_years:'Années d\'Export',gl_stat_units:'Unités Expédiées',hq_tag:'JC LIGHTNING · SIÈGE MONDIAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · Chine &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Usine de Production',hq_stat2:'Ingénieurs & Personnel',hq_stat3:'Fondée en',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Discuter sur WhatsApp',hq_cta_em:'Nous Écrire'},
   pt:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Produtos',nav_cat:'Categorias',nav_solutions:'Soluções',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',
+    nav_products:'Produtos',nav_cat:'Categorias',nav_solutions:'Soluções',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',nav_partner:'Torne-se Parceiro',nav_markets:'Mercados',
+    cs_title:'Para onde enviamos',cs_tag:'40+ países · 6 continentes · FOB Shenzhen',cs_region_la:'América Latina',cs_region_af:'África',cs_region_eu:'Europa',cs_region_me:'MENA',cs_region_as:'Ásia e Pacífico',cs_foot_note:'País não listado? Exportamos para todo o mundo.',cs_foot_cta:'Solicitar cotação →',
+    partner_label:'Programa de Parceiros',partner_h:'Torne-se <em>Distribuidor</em> JC Lightning',partner_sub:'Junte-se a importadores, empreiteiros e instaladores solares de 6 continentes que distribuem JC Lightning. Preços de volume competitivos, proteção territorial exclusiva, suporte direto da nossa fábrica em Shenzhen.',
+    partner_b1_t:'Preços por Volume',partner_b1_d:'Preços FOB transparentes em 4 níveis, de 500 a 5.000+ unidades. Margem protegida em cada recompra.',
+    partner_b2_t:'Território Exclusivo',partner_b2_d:'Bloqueie seu país ou região. Não venderemos diretamente aos seus concorrentes enquanto sua conta estiver ativa.',
+    partner_b3_t:'Marketing e OEM',partner_b3_d:'Fotografia de produto gratuita, fichas técnicas multilíngues, design de embalagem de varejo. OEM/ODM completos disponíveis.',
+    partner_b4_t:'Equipe Dedicada',partner_b4_d:'Um único contato para cotações, envios e pós-venda. Suporte em inglês / espanhol / português / árabe / mandarim.',
+    partner_apply:'Inscrever-se · Quiz de 30 seg',partner_talk:'Falar com a Equipe de Parcerias',
     hero_eye:'Iluminação Solar Externa · Quando a rede falha, nossas luzes continuam acesas.',
     hero_h1:'Luz que funciona<br>quando a energia<br><em>não chega.</em>',
     hero_sub:'A Colômbia projeta um déficit de mais de 3.100 GWh até 2027. O Equador já sofre cortes de até 10 horas diárias. A África do Sul tem 6 a 8 horas de apagões por dia. Iluminação solar de segurança, jardim, decoração, residencial e portátil — fabricada para que seus clientes nunca fiquem no escuro.',
@@ -4707,7 +4916,14 @@ const T = {
     gl_lbl:'Presença Global',gl_h2:'Confiável em <em>mais de 30 mercados.</em>',gl_sub:'Da África do Sul com apagões aos projetos sem rede na América Latina — produtos JC implantados em quatro continentes e em crescimento.',gl_leg_primary:'Mercados Principais',gl_leg_expansion:'Mercados em Expansão',gl_co:'Colômbia',gl_ec:'Equador',gl_za:'África do Sul',gl_au:'Austrália',gl_ke:'Quênia',gl_es:'Espanha',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigéria',gl_tz:'Tanzânia',gl_mx:'México',gl_pk:'Paquistão',gl_in:'Índia',gl_th:'Tailândia',gl_vn:'Vietnã',gl_sa:'Arábia Saudita',gl_ph:'Filipinas',gl_id:'Indonésia',gl_us:'EUA',gl_ca:'Canadá',gl_uk:'Reino Unido',gl_de:'Alemanha',gl_fr:'França',gl_it:'Itália',gl_jp:'Japão',gl_hq_label:'Sede · Shenzhen',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Anos Exportando',gl_stat_units:'Unidades Enviadas',hq_tag:'JC LIGHTNING · SEDE GLOBAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · China &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Fábrica de Produção',hq_stat2:'Engenheiros e Equipe',hq_stat3:'Fundada em',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Falar no WhatsApp',hq_cta_em:'Envie-nos um E-mail'},
   ar:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'المنتجات',nav_solutions:'الحلول',nav_about:'منهجنا',nav_contact:'اتصل بنا',nav_quote:'طلب عرض سعر',
+    nav_products:'المنتجات',nav_solutions:'الحلول',nav_about:'منهجنا',nav_contact:'اتصل بنا',nav_quote:'طلب عرض سعر',nav_partner:'كن شريكًا',nav_markets:'الأسواق',
+    cs_title:'أسواق التصدير',cs_tag:'40+ دولة · 6 قارات · FOB شنتشن',cs_region_la:'أمريكا اللاتينية',cs_region_af:'أفريقيا',cs_region_eu:'أوروبا',cs_region_me:'الشرق الأوسط وشمال أفريقيا',cs_region_as:'آسيا والمحيط الهادئ',cs_foot_note:'بلدك غير مدرج؟ نحن نصدّر عالميًا.',cs_foot_cta:'احصل على عرض سعر مخصص →',
+    partner_label:'برنامج الشركاء',partner_h:'كن <em>موزعًا</em> لـ JC Lightning',partner_sub:'انضم إلى المستوردين والمقاولين ومُركبي الطاقة الشمسية في 6 قارات الذين يوزعون JC Lightning. أسعار جملة تنافسية، حماية إقليمية حصرية، ودعم مباشر من مصنعنا في شنتشن.',
+    partner_b1_t:'تسعير حسب الكمية',partner_b1_d:'تسعير FOB شفاف على 4 مستويات، من 500 إلى 5,000+ وحدة. حماية الهامش في كل طلبية إعادة.',
+    partner_b2_t:'حصرية إقليمية',partner_b2_d:'احجز بلدك أو منطقتك. لن نبيع مباشرةً لمنافسيك طالما حسابك نشط.',
+    partner_b3_t:'تسويق ودعم OEM',partner_b3_d:'تصوير منتجات مجاني، أوراق بيانات متعددة اللغات، تصميم تغليف للبيع بالتجزئة. OEM/ODM متاحان بالكامل.',
+    partner_b4_t:'فريق حساب مخصص',partner_b4_d:'جهة اتصال واحدة لطلبات الأسعار والشحن وما بعد البيع. دعم بالإنجليزية / الإسبانية / البرتغالية / العربية / الصينية.',
+    partner_apply:'تقديم الطلب · اختبار 30 ثانية',partner_talk:'تواصل مع فريق الشراكة',
     hero_eye:'الإضاءة الشمسية الخارجية · عندما تنقطع الشبكة، نبقى نضيء',
     hero_h1:'إضاءة تعمل<br>عندما لا<br><em>تعمل الكهرباء.</em>',
     hero_sub:'تواجه كولومبيا عجزاً متوقعاً في الطاقة قدره 3,100 جيجاوات/ساعة بحلول 2027. تعاني الإكوادور بالفعل من انقطاعات تصل إلى 10 ساعات يومياً. متوسط جنوب أفريقيا 6–8 ساعات من تخفيف الأحمال يومياً. إضاءة شمسية للأمن والحدائق والديكور والمنازل المحمولة — مصممة كي لا يبقى عملاؤك في الظلام.',
@@ -4747,7 +4963,14 @@ const T = {
   },
   ru:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Продукция',nav_solutions:'Решения',nav_about:'Наш подход',nav_contact:'Контакты',nav_quote:'Запросить цену',
+    nav_products:'Продукция',nav_solutions:'Решения',nav_about:'Наш подход',nav_contact:'Контакты',nav_quote:'Запросить цену',nav_partner:'Стать партнёром',nav_markets:'Рынки',
+    cs_title:'Куда мы поставляем',cs_tag:'40+ стран · 6 континентов · FOB Шэньчжэнь',cs_region_la:'Латинская Америка',cs_region_af:'Африка',cs_region_eu:'Европа',cs_region_me:'Ближний Восток и Северная Африка',cs_region_as:'Азия и Тихоокеанский регион',cs_foot_note:'Вашей страны нет? Мы экспортируем по всему миру.',cs_foot_cta:'Получить индивидуальное предложение →',
+    partner_label:'Партнёрская программа',partner_h:'Станьте <em>дистрибьютором</em> JC Lightning',partner_sub:'Присоединяйтесь к импортёрам, подрядчикам и установщикам солнечных систем на 6 континентах, которые распространяют JC Lightning. Конкурентные оптовые цены, эксклюзивная защита территории, поддержка напрямую с нашего завода в Шэньчжэне.',
+    partner_b1_t:'Объёмные тарифы',partner_b1_d:'Прозрачные FOB-цены на 4 уровнях, от 500 до 5 000+ единиц. Защита маржи при каждом перезаказе.',
+    partner_b2_t:'Эксклюзивная территория',partner_b2_d:'Закрепите за собой страну или регион. Мы не будем продавать вашим конкурентам напрямую, пока ваш аккаунт активен.',
+    partner_b3_t:'Маркетинг и OEM',partner_b3_d:'Бесплатная фотосъёмка продукции, многоязычные техлисты, дизайн розничной упаковки. Полное OEM/ODM.',
+    partner_b4_t:'Персональный менеджер',partner_b4_d:'Один контакт для котировок, доставки и поддержки. Поддержка на английском / испанском / португальском / арабском / китайском.',
+    partner_apply:'Подать заявку · Опрос 30 сек',partner_talk:'Связаться с командой партнёрства',
     hero_eye:'Солнечное наружное освещение · Когда сеть отключается, мы остаёмся',
     hero_h1:'Свет, который работает,<br>когда сеть<br><em>выходит из строя.</em>',
     hero_sub:'Колумбия прогнозирует дефицит энергии в 3 100 ГВт·ч к 2027 году. Эквадор уже терпит до 10 часов отключений в день. ЮАР в среднем 6–8 часов веерных отключений в сутки. Солнечная безопасность, сад, декор, дом и переносное освещение — созданные так, чтобы ваши клиенты никогда не оставались в темноте.',
@@ -4787,7 +5010,14 @@ const T = {
   },
   hi:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'उत्पाद',nav_solutions:'समाधान',nav_about:'हमारा दृष्टिकोण',nav_contact:'संपर्क',nav_quote:'कोटेशन प्राप्त करें',
+    nav_products:'उत्पाद',nav_solutions:'समाधान',nav_about:'हमारा दृष्टिकोण',nav_contact:'संपर्क',nav_quote:'कोटेशन प्राप्त करें',nav_partner:'भागीदार बनें',nav_markets:'बाज़ार',
+    cs_title:'हम कहाँ भेजते हैं',cs_tag:'40+ देश · 6 महाद्वीप · FOB शेन्ज़ेन',cs_region_la:'लैटिन अमेरिका',cs_region_af:'अफ्रीका',cs_region_eu:'यूरोप',cs_region_me:'मध्य पूर्व और उत्तरी अफ्रीका',cs_region_as:'एशिया और प्रशांत',cs_foot_note:'आपका देश सूची में नहीं? हम वैश्विक स्तर पर निर्यात करते हैं।',cs_foot_cta:'कस्टम कोटेशन प्राप्त करें →',
+    partner_label:'भागीदार कार्यक्रम',partner_h:'JC Lightning के <em>वितरक</em> बनें',partner_sub:'6 महाद्वीपों के आयातकों, ठेकेदारों और सोलर इंस्टॉलरों से जुड़ें जो JC Lightning वितरित करते हैं। प्रतिस्पर्धी थोक मूल्य, अनन्य क्षेत्र संरक्षण, हमारी शेन्ज़ेन फैक्ट्री से सीधा समर्थन।',
+    partner_b1_t:'वॉल्यूम स्तरीय मूल्य',partner_b1_d:'500 से 5,000+ इकाइयों के लिए पारदर्शी 4-स्तरीय FOB मूल्य। हर रीऑर्डर पर मार्जिन सुरक्षा।',
+    partner_b2_t:'अनन्य क्षेत्र',partner_b2_d:'अपने देश या क्षेत्र को लॉक करें। जब तक आपका खाता सक्रिय है, हम आपके प्रतिस्पर्धियों को सीधे नहीं बेचेंगे।',
+    partner_b3_t:'विपणन और OEM',partner_b3_d:'मुफ्त उत्पाद फोटोग्राफी, बहुभाषी डेटाशीट, रिटेल पैकेजिंग डिज़ाइन। पूर्ण OEM/ODM उपलब्ध।',
+    partner_b4_t:'समर्पित खाता टीम',partner_b4_d:'कोटेशन, शिपिंग, बिक्री-पश्चात के लिए एक संपर्क। अंग्रेज़ी / स्पेनिश / पुर्तगाली / अरबी / मंदारिन समर्थन।',
+    partner_apply:'अभी आवेदन करें · 30 सेकंड क्विज़',partner_talk:'भागीदारी टीम से बात करें',
     hero_eye:'सौर बाह्य प्रकाश व्यवस्था · जब ग्रिड बंद हो जाती है, हम चालू रहते हैं',
     hero_h1:'प्रकाश जो काम करता है<br>जब बिजली<br><em>नहीं करती.</em>',
     hero_sub:'कोलंबिया को 2027 तक 3,100 GWh ऊर्जा घाटे का अनुमान है। इक्वाडोर पहले से ही प्रतिदिन 10 घंटे तक की कटौती झेल रहा है। दक्षिण अफ्रीका में औसत 6–8 घंटे प्रतिदिन लोड-शेडिंग है। सौर सुरक्षा, बागवानी, सजावटी, घरेलू और पोर्टेबल प्रकाश व्यवस्था — आपके ग्राहक कभी अंधेरे में न रहें।',
@@ -4998,6 +5228,33 @@ window.addEventListener('scroll',()=>{
 // 滚动显示动画
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ═══ Country Switcher dropdown ═══
+(function(){
+  const cs = document.getElementById('countrySwitcher');
+  const btn = document.getElementById('csBtn');
+  const panel = document.getElementById('csPanel');
+  if (!cs || !btn || !panel) return;
+  function close(){ cs.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  function open(){ cs.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    cs.classList.contains('open') ? close() : open();
+  });
+  // Outside click closes
+  document.addEventListener('click', e => {
+    if (cs.classList.contains('open') && !cs.contains(e.target)) close();
+  });
+  // ESC closes
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  // Country chip click: close + scroll
+  panel.querySelectorAll('a[data-cs]').forEach(a => {
+    a.addEventListener('click', () => { close(); });
+  });
+  // Foot CTA close too
+  const footCta = panel.querySelector('.cs-foot-cta');
+  if (footCta) footCta.addEventListener('click', close);
+})();
 
 // ═══ Sigenergy-style scroll-driven progressive reveal ═══
 // Each non-hero section gets .scroll-reveal and gets its --rp updated based on
