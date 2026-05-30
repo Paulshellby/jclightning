@@ -187,10 +187,12 @@ nav {
 nav.dark  { background:transparent; }
 nav.solid { background:rgba(14,12,10,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--bdk); }
 nav.light { background:rgba(247,243,236,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--blt); }
-.logo { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:400; letter-spacing:0.03em; text-decoration:none; }
+.logo { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:400; letter-spacing:0.03em; text-decoration:none; white-space:nowrap; }
 nav.dark .logo, nav.solid .logo { color:#fff; }
 nav.light .logo { color:var(--ink); }
 .logo em { font-style:italic; color:var(--brass-lt); }
+/* Hide "Technology Co., Ltd." in nav at widths where space gets tight */
+@media (max-width:1400px) { .logo .logo-long { display:none; } }
 nav ul { list-style:none; display:flex; gap:40px; }
 .nav-link { font-size:0.78rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none; transition:color .2s; }
 nav.dark .nav-link, nav.solid .nav-link { color:var(--mist); font-weight:400; }
@@ -210,15 +212,22 @@ nav.light .nav-link:hover { color:var(--brass); }
 .mega-col a span:first-child { color:inherit; font-size:inherit; }
 .mega-col a span:last-child { font-size:0.66rem; color:var(--brass-lt); font-weight:500; padding:2px 7px; background:rgba(201,162,78,0.12); border-radius:10px; flex-shrink:0; margin-left:6px; }
 .mega-col a:hover span:last-child { background:rgba(201,162,78,0.25); color:var(--brass-pale); }
-.nav-r { display:flex; align-items:center; gap:18px; }
-.lang-sw { display:flex; gap:3px; }
-.lang-btn { font-family:'Outfit',sans-serif; font-size:0.82rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:7px 13px; border:1px solid transparent; background:transparent; cursor:pointer; transition:all .2s; min-width:38px; }
-nav.dark .lang-btn, nav.solid .lang-btn { color:#fff; border-color:rgba(201,162,78,0.4); }
-nav.dark .lang-btn:hover, nav.solid .lang-btn:hover { color:var(--brass-pale); border-color:var(--brass-lt); background:rgba(201,162,78,0.08); }
-nav.dark .lang-btn.active, nav.solid .lang-btn.active { background:var(--brass); border-color:var(--brass); color:#0e0c0a; box-shadow:0 0 12px rgba(201,162,78,0.4); }
-nav.light .lang-btn { color:var(--ink); border-color:rgba(168,125,42,0.35); }
-nav.light .lang-btn:hover { color:var(--brass); border-color:var(--brass); background:rgba(201,162,78,0.06); }
-nav.light .lang-btn.active { background:var(--brass); border-color:var(--brass); color:#fff; box-shadow:0 0 12px rgba(201,162,78,0.4); }
+.nav-r { display:flex; align-items:center; gap:14px; }
+/* Language switcher — collapsed to dropdown to save nav width */
+.lang-sw { position:relative; display:inline-flex; }
+.lang-current { font-family:'Outfit',sans-serif; font-size:0.7rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; padding:8px 12px 8px 14px; background:transparent; border:1px solid rgba(201,162,78,0.4); color:#fff; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:all .2s; border-radius:2px; min-width:62px; justify-content:center; }
+.lang-current::after { content:''; width:7px; height:7px; border-right:1.4px solid currentColor; border-bottom:1.4px solid currentColor; transform:rotate(45deg) translate(-2px,-2px); transition:transform .25s; }
+.lang-sw.open .lang-current::after { transform:rotate(-135deg) translate(-2px,-2px); }
+.lang-current:hover { color:var(--brass-pale); border-color:var(--brass-lt); background:rgba(201,162,78,0.08); }
+nav.light .lang-current { color:var(--ink); border-color:rgba(168,125,42,0.35); }
+nav.light .lang-current:hover { color:var(--brass); border-color:var(--brass); }
+nav.solid .lang-current { color:#fff; }
+.lang-menu { position:absolute; top:calc(100% + 8px); right:0; background:rgba(14,12,10,0.98); backdrop-filter:blur(14px); border:1px solid rgba(201,162,78,0.28); border-radius:8px; padding:6px; min-width:130px; display:none; flex-direction:column; gap:2px; z-index:280; box-shadow:0 16px 50px rgba(0,0,0,0.5); }
+.lang-sw.open .lang-menu { display:flex; }
+html[dir="rtl"] .lang-menu { right:auto; left:0; }
+.lang-btn { font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:400; letter-spacing:0.06em; padding:9px 14px; border:none; background:transparent; cursor:pointer; transition:background .15s, color .15s; color:var(--mist); text-align:left; border-radius:4px; }
+.lang-btn:hover { background:rgba(201,162,78,0.12); color:var(--brass-lt); }
+.lang-btn.active { background:var(--brass); color:#fff; }
 .nav-cta { font-size:0.65rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; padding:10px 22px; border:1px solid; text-decoration:none; transition:all .25s; }
 nav.dark .nav-cta, nav.solid .nav-cta { color:#fff; border-color:rgba(255,255,255,0.35); }
 nav.dark .nav-cta:hover, nav.solid .nav-cta:hover { background:var(--brass); border-color:var(--brass); }
@@ -1154,6 +1163,13 @@ section.scroll-reveal.sr-locked, footer.scroll-reveal.sr-locked {
     transform: translate3d(0, calc((1 - var(--rp)) * 12px), 0);
   }
 }
+/* Tablet/small-laptop in-between: hide CATALOG button + tighten nav gaps before burger kicks in */
+@media(max-width:1180px) and (min-width:961px) {
+  nav { padding:18px 32px; }
+  nav ul { gap:26px; }
+  .nav-r { gap:10px; }
+  .nav-r .nav-dl { display:none; }
+}
 @media(max-width:960px){
   nav { padding:15px 22px; }
   nav ul { display:none; }
@@ -1563,7 +1579,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 </div>
 
 <nav class="dark" id="mainnav">
-  <a href="#" class="logo" data-i18n="logo">JC <em>Lightning</em> Technology Co., Ltd.</a>
+  <a href="#" class="logo" data-i18n="logo">JC <em>Lightning</em><span class="logo-long"> Technology Co., Ltd.</span></a>
   <ul>
     <li class="mega-trigger"><a href="#products" class="nav-link" data-i18n="nav_products">Products</a>
       <div class="mega-panel">
@@ -1577,7 +1593,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
     </li>
     <li><a href="#scenarios"  class="nav-link" data-i18n="nav_solutions">Solutions</a></li>
     <li><a href="#factory"    class="nav-link" data-i18n="nav_about">Our Approach</a></li>
-    <li><a href="#partner"    class="nav-link nav-partner" data-i18n="nav_partner">Become a Partner</a></li>
+    <li><a href="#partner"    class="nav-link nav-partner" data-i18n="nav_partner">Partners</a></li>
     <li><a href="#contact"    class="nav-link" data-i18n="nav_contact">Contact</a></li>
   </ul>
   <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -1650,15 +1666,20 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
         </div>
       </div>
     </div>
-    <div class="lang-sw">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('zh')">中文</button>
-      <button class="lang-btn" onclick="setLang('es')">ES</button>
-      <button class="lang-btn" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" onclick="setLang('pt')">PT</button>
-      <button class="lang-btn" onclick="setLang('ar')" lang="ar" aria-label="العربية">AR</button>
-      <button class="lang-btn" onclick="setLang('ru')" lang="ru" aria-label="Русский">RU</button>
-      <button class="lang-btn" onclick="setLang('hi')" lang="hi" aria-label="हिन्दी">HI</button>
+    <div class="lang-sw" id="langSw">
+      <button class="lang-current" id="langCurrent" aria-haspopup="true" aria-expanded="false">
+        <span id="langLabel">EN</span>
+      </button>
+      <div class="lang-menu" role="menu">
+        <button class="lang-btn active" onclick="setLang('en')">English</button>
+        <button class="lang-btn" onclick="setLang('zh')">中文</button>
+        <button class="lang-btn" onclick="setLang('es')">Español</button>
+        <button class="lang-btn" onclick="setLang('fr')">Français</button>
+        <button class="lang-btn" onclick="setLang('pt')">Português</button>
+        <button class="lang-btn" onclick="setLang('ar')" lang="ar">العربية</button>
+        <button class="lang-btn" onclick="setLang('ru')" lang="ru">Русский</button>
+        <button class="lang-btn" onclick="setLang('hi')" lang="hi">हिन्दी</button>
+      </div>
     </div>
     <a href="#contact" class="nav-cta" data-i18n="nav_quote">Get a Quote</a>
     <a href="#" class="nav-dl" title="Download Catalog">Catalog ↓</a>
@@ -4359,7 +4380,7 @@ const T = {
     gl_lbl:'Global Reach',gl_h2:'Trusted across <em>30+ markets.</em>',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'South Africa',gl_au:'Australia',gl_ke:'Kenya',gl_es:'Spain',gl_ae:'UAE',gl_br:'Brazil'},
   zh:{
     logo:'嘉晨照明科技有限公司',ft_logo:'嘉晨照明科技有限公司',
-    nav_products:'产品',nav_cat:'品类',nav_solutions:'应用方案',nav_about:'我们的优势',nav_contact:'联系我们',nav_quote:'立即询价',nav_partner:'成为代理商',nav_markets:'市场',
+    nav_products:'产品',nav_cat:'品类',nav_solutions:'应用方案',nav_about:'我们的优势',nav_contact:'联系我们',nav_quote:'立即询价',nav_partner:'代理商',nav_markets:'市场',
     cs_title:'我们的发货市场',cs_tag:'40+ 国 · 6 大洲 · FOB 深圳',cs_region_la:'拉丁美洲',cs_region_af:'非洲',cs_region_eu:'欧洲',cs_region_me:'中东北非',cs_region_as:'亚太地区',cs_foot_note:'没有您的国家？我们全球出口。',cs_foot_cta:'获取定制报价 →',
     partner_label:'代理商计划',partner_h:'成为 JC Lightning <em>代理商</em>',partner_sub:'加入分布在 6 大洲的进口商、承包商和太阳能安装商，他们都在销售 JC Lightning 产品。具有竞争力的批发定价、独家区域保护、深圳工厂直接采购支持。',
     partner_b1_t:'阶梯批发价',partner_b1_d:'透明的 4 档 FOB 报价，500 到 5,000+ 件。每次返单都保护您的利润。',
@@ -4501,7 +4522,7 @@ const T = {
     gl_lbl:'全球布局',gl_h2:'产品远销<em>30+国家与地区。</em>',gl_sub:'从南非停电市场到拉美离网项目——JC 产品已部署到四大洲，仍在持续扩张。',gl_leg_primary:'主力市场',gl_leg_expansion:'拓展市场',gl_co:'哥伦比亚',gl_ec:'厄瓜多尔',gl_za:'南非',gl_au:'澳大利亚',gl_ke:'肯尼亚',gl_es:'西班牙',gl_ae:'阿联酋',gl_br:'巴西',gl_ng:'尼日利亚',gl_tz:'坦桑尼亚',gl_mx:'墨西哥',gl_pk:'巴基斯坦',gl_in:'印度',gl_th:'泰国',gl_vn:'越南',gl_sa:'沙特阿拉伯',gl_ph:'菲律宾',gl_id:'印度尼西亚',gl_us:'美国',gl_ca:'加拿大',gl_uk:'英国',gl_de:'德国',gl_fr:'法国',gl_it:'意大利',gl_jp:'日本',gl_hq_label:'总部 · 深圳',gl_stat_markets:'出口市场',gl_stat_cont:'覆盖大洲',gl_stat_years:'出口经验',gl_stat_units:'累计出货',hq_tag:'嘉晨照明 · 全球总部',hq_name:'嘉晨照明科技有限公司',hq_meta:'中国 · 广东 · 深圳 &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'生产基地',hq_stat2:'工程师与员工',hq_stat3:'品牌成立',hq_stat4:'深圳 / 盐田 / 广州',hq_cta_wa:'WhatsApp 联系',hq_cta_em:'电邮我们'},
   es:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Productos',nav_cat:'Categorías',nav_solutions:'Soluciones',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',nav_partner:'Conviértete en Socio',nav_markets:'Mercados',
+    nav_products:'Productos',nav_cat:'Categorías',nav_solutions:'Soluciones',nav_about:'Nuestro Enfoque',nav_contact:'Contacto',nav_quote:'Solicitar Cotización',nav_partner:'Socios',nav_markets:'Mercados',
     cs_title:'A dónde enviamos',cs_tag:'40+ países · 6 continentes · FOB Shenzhen',cs_region_la:'América Latina',cs_region_af:'África',cs_region_eu:'Europa',cs_region_me:'MENA',cs_region_as:'Asia y Pacífico',cs_foot_note:'¿No ve su país? Exportamos a todo el mundo.',cs_foot_cta:'Obtener cotización →',
     partner_label:'Programa de Socios',partner_h:'Conviértete en <em>Distribuidor</em> JC Lightning',partner_sub:'Únete a importadores, contratistas e instaladores solares de 6 continentes que distribuyen JC Lightning. Precios mayoristas competitivos, protección territorial exclusiva, apoyo directo desde nuestra fábrica de Shenzhen.',
     partner_b1_t:'Precios por Volumen',partner_b1_d:'Precios FOB transparentes en 4 niveles, de 500 a 5.000+ unidades. Margen protegido en cada recompra.',
@@ -4643,7 +4664,7 @@ const T = {
     gl_lbl:'Presencia Global',gl_h2:'Confianza en <em>más de 30 mercados.</em>',gl_sub:'Desde la Sudáfrica con apagones hasta los proyectos sin red en América Latina — productos JC desplegados en cuatro continentes y creciendo.',gl_leg_primary:'Mercados Principales',gl_leg_expansion:'Mercados en Expansión',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'Sudáfrica',gl_au:'Australia',gl_ke:'Kenia',gl_es:'España',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigeria',gl_tz:'Tanzania',gl_mx:'México',gl_pk:'Pakistán',gl_in:'India',gl_th:'Tailandia',gl_vn:'Vietnam',gl_sa:'Arabia Saudita',gl_ph:'Filipinas',gl_id:'Indonesia',gl_us:'EE.UU.',gl_ca:'Canadá',gl_uk:'Reino Unido',gl_de:'Alemania',gl_fr:'Francia',gl_it:'Italia',gl_jp:'Japón',gl_hq_label:'Sede · Shenzhen',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Años Exportando',gl_stat_units:'Unidades Enviadas',hq_tag:'JC LIGHTNING · SEDE CENTRAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · China &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Planta de Producción',hq_stat2:'Ingenieros y Personal',hq_stat3:'Fundada',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Chatear por WhatsApp',hq_cta_em:'Escríbanos'},
   fr:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Produits',nav_cat:'Catégories',nav_solutions:'Solutions',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',nav_partner:'Devenir Partenaire',nav_markets:'Marchés',
+    nav_products:'Produits',nav_cat:'Catégories',nav_solutions:'Solutions',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',nav_partner:'Partenaires',nav_markets:'Marchés',
     cs_title:'Nos marchés d\'export',cs_tag:'40+ pays · 6 continents · FOB Shenzhen',cs_region_la:'Amérique Latine',cs_region_af:'Afrique',cs_region_eu:'Europe',cs_region_me:'MOAN',cs_region_as:'Asie &amp; Pacifique',cs_foot_note:'Pays absent ? Nous exportons partout dans le monde.',cs_foot_cta:'Obtenir un devis →',
     partner_label:'Programme Partenaire',partner_h:'Devenez <em>Distributeur</em> JC Lightning',partner_sub:'Rejoignez les importateurs, entrepreneurs et installateurs solaires de 6 continents qui distribuent JC Lightning. Tarifs volumes compétitifs, protection territoriale exclusive, support direct depuis notre usine de Shenzhen.',
     partner_b1_t:'Tarifs Dégressifs',partner_b1_d:'Tarifs FOB transparents sur 4 paliers, de 500 à 5 000+ unités. Marge protégée sur chaque réassort.',
@@ -4777,7 +4798,7 @@ const T = {
     gl_lbl:'Présence Mondiale',gl_h2:'Une confiance dans <em>plus de 30 marchés.</em>',gl_sub:'Du délestage en Afrique du Sud aux projets hors réseau en Amérique latine — produits JC déployés sur quatre continents et en pleine expansion.',gl_leg_primary:'Marchés Principaux',gl_leg_expansion:'Marchés en Expansion',gl_co:'Colombie',gl_ec:'Équateur',gl_za:'Afrique du Sud',gl_au:'Australie',gl_ke:'Kenya',gl_es:'Espagne',gl_ae:'EAU',gl_br:'Brésil',gl_ng:'Nigéria',gl_tz:'Tanzanie',gl_mx:'Mexique',gl_pk:'Pakistan',gl_in:'Inde',gl_th:'Thaïlande',gl_vn:'Vietnam',gl_sa:'Arabie Saoudite',gl_ph:'Philippines',gl_id:'Indonésie',gl_us:'États-Unis',gl_ca:'Canada',gl_uk:'Royaume-Uni',gl_de:'Allemagne',gl_fr:'France',gl_it:'Italie',gl_jp:'Japon',gl_hq_label:'Siège · Shenzhen',gl_stat_markets:'Marchés',gl_stat_cont:'Continents',gl_stat_years:'Années d\'Export',gl_stat_units:'Unités Expédiées',hq_tag:'JC LIGHTNING · SIÈGE MONDIAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · Chine &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Usine de Production',hq_stat2:'Ingénieurs & Personnel',hq_stat3:'Fondée en',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Discuter sur WhatsApp',hq_cta_em:'Nous Écrire'},
   pt:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Produtos',nav_cat:'Categorias',nav_solutions:'Soluções',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',nav_partner:'Torne-se Parceiro',nav_markets:'Mercados',
+    nav_products:'Produtos',nav_cat:'Categorias',nav_solutions:'Soluções',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',nav_partner:'Parceiros',nav_markets:'Mercados',
     cs_title:'Para onde enviamos',cs_tag:'40+ países · 6 continentes · FOB Shenzhen',cs_region_la:'América Latina',cs_region_af:'África',cs_region_eu:'Europa',cs_region_me:'MENA',cs_region_as:'Ásia e Pacífico',cs_foot_note:'País não listado? Exportamos para todo o mundo.',cs_foot_cta:'Solicitar cotação →',
     partner_label:'Programa de Parceiros',partner_h:'Torne-se <em>Distribuidor</em> JC Lightning',partner_sub:'Junte-se a importadores, empreiteiros e instaladores solares de 6 continentes que distribuem JC Lightning. Preços de volume competitivos, proteção territorial exclusiva, suporte direto da nossa fábrica em Shenzhen.',
     partner_b1_t:'Preços por Volume',partner_b1_d:'Preços FOB transparentes em 4 níveis, de 500 a 5.000+ unidades. Margem protegida em cada recompra.',
@@ -4916,7 +4937,7 @@ const T = {
     gl_lbl:'Presença Global',gl_h2:'Confiável em <em>mais de 30 mercados.</em>',gl_sub:'Da África do Sul com apagões aos projetos sem rede na América Latina — produtos JC implantados em quatro continentes e em crescimento.',gl_leg_primary:'Mercados Principais',gl_leg_expansion:'Mercados em Expansão',gl_co:'Colômbia',gl_ec:'Equador',gl_za:'África do Sul',gl_au:'Austrália',gl_ke:'Quênia',gl_es:'Espanha',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigéria',gl_tz:'Tanzânia',gl_mx:'México',gl_pk:'Paquistão',gl_in:'Índia',gl_th:'Tailândia',gl_vn:'Vietnã',gl_sa:'Arábia Saudita',gl_ph:'Filipinas',gl_id:'Indonésia',gl_us:'EUA',gl_ca:'Canadá',gl_uk:'Reino Unido',gl_de:'Alemanha',gl_fr:'França',gl_it:'Itália',gl_jp:'Japão',gl_hq_label:'Sede · Shenzhen',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Anos Exportando',gl_stat_units:'Unidades Enviadas',hq_tag:'JC LIGHTNING · SEDE GLOBAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · China &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Fábrica de Produção',hq_stat2:'Engenheiros e Equipe',hq_stat3:'Fundada em',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Falar no WhatsApp',hq_cta_em:'Envie-nos um E-mail'},
   ar:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'المنتجات',nav_solutions:'الحلول',nav_about:'منهجنا',nav_contact:'اتصل بنا',nav_quote:'طلب عرض سعر',nav_partner:'كن شريكًا',nav_markets:'الأسواق',
+    nav_products:'المنتجات',nav_solutions:'الحلول',nav_about:'منهجنا',nav_contact:'اتصل بنا',nav_quote:'طلب عرض سعر',nav_partner:'الشركاء',nav_markets:'الأسواق',
     cs_title:'أسواق التصدير',cs_tag:'40+ دولة · 6 قارات · FOB شنتشن',cs_region_la:'أمريكا اللاتينية',cs_region_af:'أفريقيا',cs_region_eu:'أوروبا',cs_region_me:'الشرق الأوسط وشمال أفريقيا',cs_region_as:'آسيا والمحيط الهادئ',cs_foot_note:'بلدك غير مدرج؟ نحن نصدّر عالميًا.',cs_foot_cta:'احصل على عرض سعر مخصص →',
     partner_label:'برنامج الشركاء',partner_h:'كن <em>موزعًا</em> لـ JC Lightning',partner_sub:'انضم إلى المستوردين والمقاولين ومُركبي الطاقة الشمسية في 6 قارات الذين يوزعون JC Lightning. أسعار جملة تنافسية، حماية إقليمية حصرية، ودعم مباشر من مصنعنا في شنتشن.',
     partner_b1_t:'تسعير حسب الكمية',partner_b1_d:'تسعير FOB شفاف على 4 مستويات، من 500 إلى 5,000+ وحدة. حماية الهامش في كل طلبية إعادة.',
@@ -4963,7 +4984,7 @@ const T = {
   },
   ru:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'Продукция',nav_solutions:'Решения',nav_about:'Наш подход',nav_contact:'Контакты',nav_quote:'Запросить цену',nav_partner:'Стать партнёром',nav_markets:'Рынки',
+    nav_products:'Продукция',nav_solutions:'Решения',nav_about:'Наш подход',nav_contact:'Контакты',nav_quote:'Запросить цену',nav_partner:'Партнёры',nav_markets:'Рынки',
     cs_title:'Куда мы поставляем',cs_tag:'40+ стран · 6 континентов · FOB Шэньчжэнь',cs_region_la:'Латинская Америка',cs_region_af:'Африка',cs_region_eu:'Европа',cs_region_me:'Ближний Восток и Северная Африка',cs_region_as:'Азия и Тихоокеанский регион',cs_foot_note:'Вашей страны нет? Мы экспортируем по всему миру.',cs_foot_cta:'Получить индивидуальное предложение →',
     partner_label:'Партнёрская программа',partner_h:'Станьте <em>дистрибьютором</em> JC Lightning',partner_sub:'Присоединяйтесь к импортёрам, подрядчикам и установщикам солнечных систем на 6 континентах, которые распространяют JC Lightning. Конкурентные оптовые цены, эксклюзивная защита территории, поддержка напрямую с нашего завода в Шэньчжэне.',
     partner_b1_t:'Объёмные тарифы',partner_b1_d:'Прозрачные FOB-цены на 4 уровнях, от 500 до 5 000+ единиц. Защита маржи при каждом перезаказе.',
@@ -5010,7 +5031,7 @@ const T = {
   },
   hi:{
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',
-    nav_products:'उत्पाद',nav_solutions:'समाधान',nav_about:'हमारा दृष्टिकोण',nav_contact:'संपर्क',nav_quote:'कोटेशन प्राप्त करें',nav_partner:'भागीदार बनें',nav_markets:'बाज़ार',
+    nav_products:'उत्पाद',nav_solutions:'समाधान',nav_about:'हमारा दृष्टिकोण',nav_contact:'संपर्क',nav_quote:'कोटेशन प्राप्त करें',nav_partner:'भागीदार',nav_markets:'बाज़ार',
     cs_title:'हम कहाँ भेजते हैं',cs_tag:'40+ देश · 6 महाद्वीप · FOB शेन्ज़ेन',cs_region_la:'लैटिन अमेरिका',cs_region_af:'अफ्रीका',cs_region_eu:'यूरोप',cs_region_me:'मध्य पूर्व और उत्तरी अफ्रीका',cs_region_as:'एशिया और प्रशांत',cs_foot_note:'आपका देश सूची में नहीं? हम वैश्विक स्तर पर निर्यात करते हैं।',cs_foot_cta:'कस्टम कोटेशन प्राप्त करें →',
     partner_label:'भागीदार कार्यक्रम',partner_h:'JC Lightning के <em>वितरक</em> बनें',partner_sub:'6 महाद्वीपों के आयातकों, ठेकेदारों और सोलर इंस्टॉलरों से जुड़ें जो JC Lightning वितरित करते हैं। प्रतिस्पर्धी थोक मूल्य, अनन्य क्षेत्र संरक्षण, हमारी शेन्ज़ेन फैक्ट्री से सीधा समर्थन।',
     partner_b1_t:'वॉल्यूम स्तरीय मूल्य',partner_b1_d:'500 से 5,000+ इकाइयों के लिए पारदर्शी 4-स्तरीय FOB मूल्य। हर रीऑर्डर पर मार्जिन सुरक्षा।',
@@ -5080,16 +5101,51 @@ function setLang(l){
     if(t && t[k]!==undefined) el.placeholder=t[k];
     else if(I18N_DEFAULTS['__ph__'+k]!==undefined) el.placeholder=I18N_DEFAULTS['__ph__'+k];
   });
+  // Highlight active in dropdown menu — match by onclick attr
   document.querySelectorAll('.lang-btn').forEach(btn=>{
-    const m={EN:'en','中文':'zh',ES:'es',FR:'fr',PT:'pt',AR:'ar',RU:'ru',HI:'hi'};
-    btn.classList.toggle('active', m[btn.textContent]===l);
+    const oc = btn.getAttribute('onclick') || '';
+    const m = oc.match(/setLang\('(\w+)'\)/);
+    btn.classList.toggle('active', !!(m && m[1] === l));
   });
+  // Update compact trigger label
+  const langCodes = {en:'EN', zh:'中文', es:'ES', fr:'FR', pt:'PT', ar:'AR', ru:'RU', hi:'HI'};
+  const lbl = document.getElementById('langLabel');
+  if (lbl) lbl.textContent = langCodes[l] || l.toUpperCase();
+  // Close dropdown after selection
+  const sw = document.getElementById('langSw');
+  if (sw) sw.classList.remove('open');
+  const lc = document.getElementById('langCurrent');
+  if (lc) lc.setAttribute('aria-expanded','false');
   const langMap = {zh:'zh-CN', fr:'fr', pt:'pt-BR', ar:'ar', ru:'ru', hi:'hi'};
   document.documentElement.lang = langMap[l] || l;
   document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
   if(window._inqInject) window._inqInject();
   if(window._inqRefresh) window._inqRefresh();
 }
+
+// Language dropdown toggle
+(function(){
+  const sw = document.getElementById('langSw');
+  const trig = document.getElementById('langCurrent');
+  if (!sw || !trig) return;
+  trig.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = sw.classList.toggle('open');
+    trig.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  document.addEventListener('click', e => {
+    if (sw.classList.contains('open') && !sw.contains(e.target)) {
+      sw.classList.remove('open');
+      trig.setAttribute('aria-expanded','false');
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && sw.classList.contains('open')) {
+      sw.classList.remove('open');
+      trig.setAttribute('aria-expanded','false');
+    }
+  });
+})();
 
 // Market Tabs JS removed — section deprecated
 
