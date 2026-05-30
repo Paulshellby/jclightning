@@ -1132,35 +1132,28 @@ html[dir="rtl"] .cs-panel { right:auto; left:0; }
 }
 
 /* ═══ Sigenergy-style scroll-driven progressive reveal ═══
-   Each tagged section starts dimmed/blurred and progressively brightens to full clarity
-   as it travels through the viewport. Drives via --rp (reveal progress, 0..1) set by JS. */
-section.scroll-reveal, footer.scroll-reveal {
+   Each tagged section starts dimmed and progressively brightens to full clarity
+   as it travels through the viewport. NO blur filter (caused edge bleed on
+   full-bleed dark sections + dimmed footer near page bottom). */
+section.scroll-reveal {
   --rp: 0;
-  opacity: calc(0.32 + var(--rp) * 0.68);
-  filter: blur(calc((1 - var(--rp)) * 3px)) saturate(calc(0.78 + var(--rp) * 0.22));
-  transform: translate3d(0, calc((1 - var(--rp)) * 18px), 0);
+  opacity: calc(0.42 + var(--rp) * 0.58);
+  transform: translate3d(0, calc((1 - var(--rp)) * 16px), 0);
   transition: opacity .35s cubic-bezier(.22,.61,.36,1),
-              filter .35s cubic-bezier(.22,.61,.36,1),
               transform .35s cubic-bezier(.22,.61,.36,1);
-  will-change: opacity, filter, transform;
+  will-change: opacity, transform;
 }
-/* Hero is always full-clarity (it's the entry point) */
-section.hero { --rp: 1; opacity:1; filter:none; transform:none; }
-/* Once fully revealed, keep it that way to avoid re-dimming on scroll-up */
-section.scroll-reveal.sr-locked, footer.scroll-reveal.sr-locked {
-  --rp: 1; opacity:1; filter:none; transform:none;
+section.hero { --rp: 1; opacity:1; transform:none; }
+section.scroll-reveal.sr-locked {
+  --rp: 1; opacity:1; transform:none;
 }
 @media (prefers-reduced-motion: reduce) {
-  section.scroll-reveal, footer.scroll-reveal {
-    --rp: 1; opacity:1; filter:none; transform:none;
-  }
+  section.scroll-reveal { --rp: 1; opacity:1; transform:none; }
 }
-/* Mobile: lighter effect (no blur — costly on phones, can look fuzzy) */
 @media (max-width: 960px) {
-  section.scroll-reveal, footer.scroll-reveal {
-    filter: none;
-    opacity: calc(0.5 + var(--rp) * 0.5);
-    transform: translate3d(0, calc((1 - var(--rp)) * 12px), 0);
+  section.scroll-reveal {
+    opacity: calc(0.55 + var(--rp) * 0.45);
+    transform: translate3d(0, calc((1 - var(--rp)) * 10px), 0);
   }
 }
 /* Tablet/small-laptop in-between: hide CATALOG button + tighten nav gaps before burger kicks in */
@@ -5319,37 +5312,43 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 (function(){
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Auto-tag every <section> except hero, plus the <footer>
+  // Auto-tag every <section> except hero. Footer excluded — it's a short copyright
+  // strip that never gets enough scroll room to reach the "full" threshold and would
+  // be permanently dimmed.
   const targets = [];
   document.querySelectorAll('section').forEach(sec => {
     if (sec.classList.contains('hero')) return;
     sec.classList.add('scroll-reveal');
     targets.push(sec);
   });
-  const ft = document.querySelector('footer');
-  if (ft) { ft.classList.add('scroll-reveal'); targets.push(ft); }
   if (!targets.length) return;
 
   let ticking = false;
   function update(){
     const vh = window.innerHeight || document.documentElement.clientHeight;
-    // Reveal zone: starts at 90% of viewport, fully revealed at 45%
+    const docHeight = document.documentElement.scrollHeight;
+    const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    // Detect "page near bottom" → force-lock any short sections that can't otherwise
+    // reach the full-reveal threshold (e.g. Contact when page can't scroll further).
+    const nearBottom = (scrolled + vh) >= (docHeight - 80);
+    // Reveal zone: starts at 90% of viewport, fully revealed at 50%
     const enter = vh * 0.90;
-    const full  = vh * 0.45;
+    const full  = vh * 0.50;
     const span  = enter - full;
     for (let i = 0; i < targets.length; i++) {
       const sec = targets[i];
       if (sec.classList.contains('sr-locked')) continue;
       const rect = sec.getBoundingClientRect();
-      // Already scrolled past top edge → fully revealed
-      if (rect.top <= full) {
-        sec.style.setProperty('--rp', '1');
-        // Lock it once revealed so scrolling back up doesn't re-dim
-        sec.classList.add('sr-locked');
-        continue;
-      }
+      // Fully off-screen below viewport → keep dimmed
       if (rect.top >= enter) {
         sec.style.setProperty('--rp', '0');
+        continue;
+      }
+      // Lock if: top crossed threshold OR bottom is already above middle (section
+      // mostly past us) OR we're near the page bottom (last section can't scroll more).
+      if (rect.top <= full || rect.bottom <= vh * 0.6 || nearBottom) {
+        sec.style.setProperty('--rp', '1');
+        sec.classList.add('sr-locked');
         continue;
       }
       const rp = (enter - rect.top) / span;
