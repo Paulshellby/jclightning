@@ -990,6 +990,11 @@ footer::before { content:''; position:absolute; top:0; left:8%; right:8%; height
 .ft-col a:hover { color:#fff; }
 /* Footer social strip — Fox ESS style large icons */
 .ft-social-strip { display:flex; gap:22px; align-items:center; margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.06); }
+/* Social row inside Contact (moved from footer) */
+.con-social { display:flex; gap:18px; align-items:center; margin-top:24px; padding-top:20px; border-top:1px solid rgba(201,162,78,0.18); }
+.con-social .ft-soc { width:28px; height:28px; display:flex; align-items:center; justify-content:center; color:rgba(253,233,185,0.55); transition:color .25s ease, transform .25s ease; }
+.con-social .ft-soc:hover { color:var(--brass-lt); transform:translateY(-2px); }
+.con-social .ft-soc svg { width:100%; height:100%; }
 .ft-soc { width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); transition:color 0.25s ease, transform 0.25s ease; }
 .ft-soc:hover { color:var(--brass-lt); transform:translateY(-2px); }
 .ft-soc svg { width:100%; height:100%; }
@@ -3985,7 +3990,26 @@ polygon[fill="url(#vlg-solar)"] {
     <p data-i18n="con_p">Share product type, target quantity, and destination port. We respond within 24 hours — FOB price, spec sheet, lead time, and certification documents included.</p>
     <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><path d="M2 5l8 6 8-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/></svg><span><a href="mailto:info@jclightning.com" style="color:inherit;text-decoration:none">info@jclightning.com</a> &nbsp;·&nbsp; <a href="mailto:qq1781282955@gmail.com" style="color:inherit;text-decoration:none">qq1781282955@gmail.com</a></span></div>
     <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><path d="M16.5 14.3l-2.3 2.3a14.5 14.5 0 01-10.8-10.8l2.3-2.3a1 1 0 011.4 0l2 2a1 1 0 010 1.4l-1 1a8.5 8.5 0 004.5 4.5l1-1a1 1 0 011.4 0l2 2a1 1 0 010 1.4z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Rania &nbsp;·&nbsp; WhatsApp <a href="https://wa.me/8613138189642" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">0086 131 3818 9642</a></span></div>
-    <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span data-i18n="con_hrs">Mon–Fri, 9:00–18:00 CST (UTC+8)</span></div>
+    <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span data-i18n="con_hrs">Open 24/7 · Across all time zones</span></div>
+
+    <!-- Social media row (moved from footer) -->
+    <div class="con-social">
+      <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95 0-5.52-4.48-10-10-10z"/></svg>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.34 17V9.67H6V17h2.34M7.17 8.61a1.36 1.36 0 100-2.72 1.36 1.36 0 000 2.72M18 17v-4.27c0-2.16-1.38-3.06-2.74-3.06a2.56 2.56 0 00-2.27 1.16V9.67h-2.34V17h2.34v-4.06a1.56 1.56 0 011.41-1.68 1.42 1.42 0 011.27 1.6V17H18z"/></svg>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8M9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+      <a href="https://wa.me/8613138189642" target="_blank" rel="noopener" class="ft-soc" aria-label="WhatsApp">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.88 1.92 7.02L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.1 19.42c-.3.84-1.76 1.6-2.42 1.66-.66.06-1.28.3-4.32-.9-3.66-1.44-6-5.18-6.18-5.42-.18-.24-1.44-1.92-1.44-3.66s.9-2.58 1.24-2.94c.34-.36.72-.44.96-.44l.7.01c.22 0 .52-.08.8.62l1.14 2.8c.1.22.04.48-.06.66l-.42.52-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.6-.08l.82-1c.16-.2.32-.14.54-.06l2.72 1.28c.28.14.46.2.52.32.06.48-.22 1.96-.52 2.8z"/></svg>
+      </a>
+    </div>
   </div>
   <form class="con-form reveal" style="transition-delay:.1s" id="contactForm" action="https://formsubmit.co/info@jclightning.com" method="POST">
     <div class="form-row">
@@ -4014,50 +4038,7 @@ polygon[fill="url(#vlg-solar)"] {
 </section>
 
 <footer>
-  <div class="ft-top">
-    <div>
-      <a href="#" class="ft-logo" data-i18n="ft_logo">JC <em>Lightning</em> Technology Co., Ltd.</a>
-      <p class="ft-desc" data-i18n="ft_desc">Engineered outdoor solar lighting for markets where the grid can't be trusted. Five solar ranges + AC Commercial. CE / RoHS · IP65/IP66 · LiFePO4 · OEM &amp; ODM ready. <strong>Trusted across 30+ markets on four continents.</strong></p>
-    </div>
-    <div class="ft-col">
-      <h5 data-i18n="ft_products_h">Product Ranges</h5>
-      <ul>
-        <li><a href="#products" data-i18n="ft_link1">Solar Security & Street Lights</a></li>
-        <li><a href="#products" data-i18n="ft_link2">Solar Garden & Gate Lights</a></li>
-        <li><a href="#products" data-i18n="ft_link3">Solar Wall & String Lights</a></li>
-        <li><a href="#products" data-i18n="ft_link4">Solar Ambiance & Decorative</a></li>
-        <li><a href="#products" data-i18n="ft_link5">Off-Grid Home Lighting</a></li>
-        <li><a href="#products" data-i18n="ft_link6">View All 26 Products →</a></li>
-      </ul>
-    </div>
-    <div class="ft-col">
-      <h5 data-i18n="ft_company_h">Company</h5>
-      <ul>
-        <li><a href="#factory" data-i18n="ft_our_approach">Our Approach</a></li>
-        <li><a href="#faq" data-i18n="ft_faq">FAQ</a></li>
-        <li><a href="#certs" data-i18n="ft_cert_link">Certifications</a></li>
-        <li><a href="#contact" data-i18n="ft_contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <!-- Social media strip — Fox ESS style, large icons at footer bottom -->
-  <div class="ft-social-strip">
-    <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95 0-5.52-4.48-10-10-10z"/></svg>
-    </a>
-    <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-    </a>
-    <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.34 17V9.67H6V17h2.34M7.17 8.61a1.36 1.36 0 100-2.72 1.36 1.36 0 000 2.72M18 17v-4.27c0-2.16-1.38-3.06-2.74-3.06a2.56 2.56 0 00-2.27 1.16V9.67h-2.34V17h2.34v-4.06a1.56 1.56 0 011.41-1.68 1.42 1.42 0 011.27 1.6V17H18z"/></svg>
-    </a>
-    <a href="#" target="_blank" rel="noopener" class="ft-soc" aria-label="YouTube">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8M9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
-    </a>
-    <a href="https://wa.me/8613138189642" target="_blank" rel="noopener" class="ft-soc" aria-label="WhatsApp">
-      <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.88 1.92 7.02L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.1 19.42c-.3.84-1.76 1.6-2.42 1.66-.66.06-1.28.3-4.32-.9-3.66-1.44-6-5.18-6.18-5.42-.18-.24-1.44-1.92-1.44-3.66s.9-2.58 1.24-2.94c.34-.36.72-.44.96-.44l.7.01c.22 0 .52-.08.8.62l1.14 2.8c.1.22.04.48-.06.66l-.42.52-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.6-.08l.82-1c.16-.2.32-.14.54-.06l2.72 1.28c.28.14.46.2.52.32.06.48-.22 1.96-.52 2.8z"/></svg>
-    </a>
-  </div>
+  <!-- (ft-top + social-strip moved to Contact section) -->
 
   <div class="ft-btm">
     <span data-i18n="ft_copyright">© 2026 JC Lightning. All rights reserved.</span>
@@ -4293,7 +4274,7 @@ const T = {
     prm4_t:'货到了，我们还在',prm4_d:'终端客户有疑问？需要配件？用了半年出了问题？WhatsApp那头还是同一个人。货柜离港不代表我们的服务结束。',
     con_lbl:'联系我们',con_h2:'告诉我们你的市场，<em>我们来告诉你什么产品最适合。</em>',
     con_p:'提供产品类型、目标数量及目的地港口，24小时内回复完整报价，含FOB单价、规格说明书、交期及认证文件。',
-    con_hrs:'周一至周五，9:00–18:00（北京时间 UTC+8）',
+    con_hrs:'全周全天 · 跨时区响应',
     f_name:'您的姓名',f_co:'公司名称',f_email:'电子邮箱',f_prod:'感兴趣的产品',f_sel:'请选择产品类别…',f_msg:'产品类型 · 目标数量 · 目的地港口',f_send:'发送询盘',
     f_ok:'✓ 询盘已收到，我们将在24小时内回复含完整报价的邮件。',
     ft_desc:'为电网不可靠的市场专门打造的户外太阳能照明。五大太阳能系列 + AC 商业照明。CE / RoHS · IP65/IP66 · 磷酸铁锂 · 支持 OEM 与 ODM 定制。<strong>产品已在四大洲 30+ 国家市场稳定运行。</strong>',
@@ -4428,7 +4409,7 @@ const T = {
     prm4_t:'Seguimos aquí después de la entrega',prm4_d:'¿Tus clientes tienen preguntas? ¿Necesitan repuestos? ¿Problema técnico a los seis meses? El mismo WhatsApp, la misma persona. El contacto no termina cuando el contenedor sale del puerto.',
     con_lbl:'Contáctenos',con_h2:'Cuéntanos tu mercado. <em>Nosotros te decimos qué funciona allí.</em>',
     con_p:'Comparte tipo de producto, cantidad objetivo y puerto de destino. Respuesta en 24 horas — precio FOB, ficha técnica, plazo y certificaciones incluidos.',
-    con_hrs:'Lun–Vie, 9:00–18:00 CST (UTC+8)',
+    con_hrs:'Disponible 24/7 · En todas las zonas horarias',
     f_name:'Su Nombre',f_co:'Empresa',f_email:'Correo Electrónico',f_prod:'Producto de Interés',f_sel:'Seleccione una categoría…',f_msg:'Tipo de Producto · Cantidad · Puerto de Destino',f_send:'Enviar Consulta',
     f_ok:'✓ Consulta recibida. Le responderemos en 24 horas con una cotización completa.',
     ft_desc:'Iluminación solar exterior diseñada para mercados donde la red eléctrica no es confiable. Cinco gamas solares + Comercial AC. CE / RoHS · IP65/IP66 · LiFePO4 · OEM y ODM disponibles. <strong>Presente en más de 30 mercados en cuatro continentes.</strong>',
@@ -4555,7 +4536,7 @@ const T = {
     prm4_t:'Nous Sommes Encore Là Après la Livraison',prm4_d:'Vos clients ont des questions ? Besoin de pièces détachées ? Un problème technique après six mois ? Le même WhatsApp, la même personne. Le contact ne s\'arrête pas quand le conteneur quitte le port.',
     con_lbl:'Contactez-Nous',con_h2:'Dites-nous votre marché, <em>nous vous dirons ce qui y fonctionne.</em>',
     con_p:'Partagez le type de produit, la quantité cible et le port de destination. Réponse sous 24 h — prix FOB, fiche technique, délai et certifications inclus.',
-    con_hrs:'Lun–Ven, 9h00–18h00 CST (UTC+8)',
+    con_hrs:'Disponible 24/7 · Dans tous les fuseaux horaires',
     f_name:'Votre Nom',f_co:'Entreprise',f_email:'Adresse Email',f_prod:'Produit Recherché',f_sel:'Sélectionnez une catégorie…',f_msg:'Type de Produit · Quantité · Port de Destination',f_send:'Envoyer la Demande',
     f_ok:'✓ Demande reçue. Nous vous répondrons sous 24 h avec un devis complet.',
     ft_desc:'Éclairage solaire extérieur conçu pour les marchés où le réseau n\'est pas fiable. Cinq gammes solaires + Commercial AC. CE / RoHS · IP65/IP66 · LiFePO4 · OEM et ODM disponibles. <strong>Présent dans plus de 30 marchés sur quatre continents.</strong>',
@@ -4687,7 +4668,7 @@ const T = {
     prm4_t:'Continuamos Aqui Após a Entrega',prm4_d:'Seus clientes têm dúvidas? Precisam de peças de reposição? Problema técnico após seis meses? O mesmo WhatsApp, a mesma pessoa. O contato não termina quando o contêiner sai do porto.',
     con_lbl:'Entre em Contato',con_h2:'Conte-nos seu mercado, <em>nós dizemos o que funciona lá.</em>',
     con_p:'Compartilhe tipo de produto, quantidade desejada e porto de destino. Resposta em 24 horas — preço FOB, ficha técnica, prazo e certificações incluídos.',
-    con_hrs:'Seg–Sex, 9h00–18h00 CST (UTC+8)',
+    con_hrs:'Disponível 24/7 · Em todos os fusos horários',
     f_name:'Seu Nome',f_co:'Empresa',f_email:'E-mail',f_prod:'Produto de Interesse',f_sel:'Selecione uma categoria…',f_msg:'Tipo de Produto · Quantidade · Porto de Destino',f_send:'Enviar Consulta',
     f_ok:'✓ Consulta recebida. Responderemos em até 24 horas com uma cotação completa.',
     ft_desc:'Iluminação solar externa projetada para mercados onde a rede elétrica não é confiável. Cinco linhas solares + Comercial AC. CE / RoHS · IP65/IP66 · LiFePO4 · OEM e ODM disponíveis. <strong>Presente em mais de 30 mercados nos quatro continentes.</strong>',
@@ -4787,7 +4768,7 @@ const T = {
     mm_meta_q:'4 أسئلة',mm_meta_t:'~30 ثانية',mm_meta_fob:'عرض FOB · 24 ساعة',mm_meta_unit:'تسعير فردي',
     mm_benefit1:'منتجات يختارها المهندسون',mm_benefit2:'تسعير FOB خلال 24 ساعة',mm_benefit3:'خط WhatsApp مباشر',mm_benefit4:'ورقة مواصفات PDF مجانية',
     mm_disc:'بدون تسجيل. بدون قائمة بريدية. بياناتك تذهب فقط إلى مهندس مبيعات JC.',
-    con_lbl:'تواصل معنا',con_h2:'أخبرنا عن سوقك. <em>سنخبرك بما يصلح فيه.</em>',con_p:'شارك نوع المنتج، الكمية المستهدفة، وميناء الوصول. نرد خلال 24 ساعة — سعر FOB، ورقة مواصفات، مدة التسليم، ووثائق الاعتماد متضمنة.',con_hrs:'الإثنين–الجمعة، 9:00–18:00 بتوقيت الصين (UTC+8)',
+    con_lbl:'تواصل معنا',con_h2:'أخبرنا عن سوقك. <em>سنخبرك بما يصلح فيه.</em>',con_p:'شارك نوع المنتج، الكمية المستهدفة، وميناء الوصول. نرد خلال 24 ساعة — سعر FOB، ورقة مواصفات، مدة التسليم، ووثائق الاعتماد متضمنة.',con_hrs:'متاحون 24/7 · في جميع المناطق الزمنية',
     f_name:'اسمك',f_co:'الشركة',f_email:'البريد الإلكتروني',f_prod:'المنتج المهتم به',f_sel:'اختر فئة…',f_msg:'نوع المنتج · الكمية · ميناء الوصول',f_send:'إرسال الاستفسار',f_ok:'✓ تم استلام الاستفسار. سنرد خلال 24 ساعة بعرض سعر كامل.',
     ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     ft_desc:'إضاءة شمسية خارجية مصممة هندسياً للأسواق التي لا يُعتمد فيها على الشبكة. خمس فئات شمسية + تجاري AC. CE / RoHS · IP65/IP66 · LiFePO4 · OEM & ODM. <strong>موثوقة في أكثر من 30 سوقاً عبر أربع قارات.</strong>',
@@ -4827,7 +4808,7 @@ const T = {
     mm_meta_q:'4 вопроса',mm_meta_t:'~30 сек',mm_meta_fob:'Цена FOB · 24ч',mm_meta_unit:'Цена за единицу',
     mm_benefit1:'Выбор инженеров',mm_benefit2:'Цена FOB за 24 часа',mm_benefit3:'Прямая линия WhatsApp',mm_benefit4:'Бесплатный PDF со спецификациями',
     mm_disc:'Без регистрации. Без рассылки. Ваши данные идут только инженеру по продажам JC.',
-    con_lbl:'Связаться с нами',con_h2:'Расскажите свой рынок. <em>Мы скажем, что там работает.</em>',con_p:'Поделитесь типом продукта, целевым количеством и портом назначения. Мы отвечаем за 24 часа — цена FOB, спецификация, сроки и сертификаты включены.',con_hrs:'Пн–Пт, 9:00–18:00 по времени Китая (UTC+8)',
+    con_lbl:'Связаться с нами',con_h2:'Расскажите свой рынок. <em>Мы скажем, что там работает.</em>',con_p:'Поделитесь типом продукта, целевым количеством и портом назначения. Мы отвечаем за 24 часа — цена FOB, спецификация, сроки и сертификаты включены.',con_hrs:'Доступны 24/7 · Во всех часовых поясах',
     f_name:'Ваше имя',f_co:'Компания',f_email:'Email',f_prod:'Интересует продукт',f_sel:'Выберите категорию…',f_msg:'Тип продукта · Количество · Порт назначения',f_send:'Отправить запрос',f_ok:'✓ Запрос получен. Ответим в течение 24 часов полным предложением.',
     ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     ft_desc:'Инженерное наружное солнечное освещение для рынков, где сети нельзя доверять. Пять солнечных линеек + AC коммерческая. CE / RoHS · IP65/IP66 · LiFePO4 · OEM & ODM. <strong>Доверено на 30+ рынках на четырёх континентах.</strong>',
@@ -4867,7 +4848,7 @@ const T = {
     mm_meta_q:'4 प्रश्न',mm_meta_t:'~30 सेकंड',mm_meta_fob:'FOB कोटेशन · 24 घंटे',mm_meta_unit:'इकाई-वार मूल्य',
     mm_benefit1:'इंजीनियर-क्यूरेटेड चुनाव',mm_benefit2:'24 घंटे में FOB मूल्य',mm_benefit3:'सीधी WhatsApp लाइन',mm_benefit4:'मुफ़्त PDF स्पेक शीट',
     mm_disc:'कोई पंजीकरण नहीं. कोई मेलिंग सूची नहीं. आपका डेटा केवल एक JC सेल्स इंजीनियर तक जाता है।',
-    con_lbl:'संपर्क करें',con_h2:'अपना बाजार बताएं. <em>हम बताएंगे कि वहाँ क्या काम करता है.</em>',con_p:'उत्पाद का प्रकार, लक्ष्य मात्रा और गंतव्य पोर्ट साझा करें। हम 24 घंटे में उत्तर देते हैं — FOB मूल्य, स्पेसिफिकेशन, समयरेखा और प्रमाणन दस्तावेज़ शामिल।',con_hrs:'सोम–शुक्र, 9:00–18:00 CST (UTC+8)',
+    con_lbl:'संपर्क करें',con_h2:'अपना बाजार बताएं. <em>हम बताएंगे कि वहाँ क्या काम करता है.</em>',con_p:'उत्पाद का प्रकार, लक्ष्य मात्रा और गंतव्य पोर्ट साझा करें। हम 24 घंटे में उत्तर देते हैं — FOB मूल्य, स्पेसिफिकेशन, समयरेखा और प्रमाणन दस्तावेज़ शामिल।',con_hrs:'24/7 उपलब्ध · सभी समय क्षेत्रों में',
     f_name:'आपका नाम',f_co:'कंपनी',f_email:'ईमेल पता',f_prod:'रुचि का उत्पाद',f_sel:'श्रेणी चुनें…',f_msg:'उत्पाद प्रकार · मात्रा · गंतव्य पोर्ट',f_send:'पूछताछ भेजें',f_ok:'✓ पूछताछ मिल गई। हम 24 घंटे में पूरे कोटेशन के साथ उत्तर देंगे।',
     ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     ft_desc:'उन बाजारों के लिए इंजीनियर्ड बाह्य सौर प्रकाश जहाँ ग्रिड पर भरोसा नहीं किया जा सकता। पाँच सौर रेंज + AC कमर्शियल। CE / RoHS · IP65/IP66 · LiFePO4 · OEM & ODM। <strong>चार महाद्वीपों के 30+ बाजारों में विश्वसनीय।</strong>',
