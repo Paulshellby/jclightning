@@ -1052,6 +1052,39 @@ footer::before { content:''; position:absolute; top:0; left:8%; right:8%; height
 .reveal { opacity:1; transform:none; transition:opacity .6s ease, transform .6s ease; }
 .reveal-pending { opacity:0; transform:translateY(22px); }
 .reveal.on { opacity:1; transform:translateY(0); }
+
+/* ═══ Sigenergy-style scroll-driven progressive reveal ═══
+   Each tagged section starts dimmed/blurred and progressively brightens to full clarity
+   as it travels through the viewport. Drives via --rp (reveal progress, 0..1) set by JS. */
+section.scroll-reveal, footer.scroll-reveal {
+  --rp: 0;
+  opacity: calc(0.32 + var(--rp) * 0.68);
+  filter: blur(calc((1 - var(--rp)) * 3px)) saturate(calc(0.78 + var(--rp) * 0.22));
+  transform: translate3d(0, calc((1 - var(--rp)) * 18px), 0);
+  transition: opacity .35s cubic-bezier(.22,.61,.36,1),
+              filter .35s cubic-bezier(.22,.61,.36,1),
+              transform .35s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, filter, transform;
+}
+/* Hero is always full-clarity (it's the entry point) */
+section.hero { --rp: 1; opacity:1; filter:none; transform:none; }
+/* Once fully revealed, keep it that way to avoid re-dimming on scroll-up */
+section.scroll-reveal.sr-locked, footer.scroll-reveal.sr-locked {
+  --rp: 1; opacity:1; filter:none; transform:none;
+}
+@media (prefers-reduced-motion: reduce) {
+  section.scroll-reveal, footer.scroll-reveal {
+    --rp: 1; opacity:1; filter:none; transform:none;
+  }
+}
+/* Mobile: lighter effect (no blur — costly on phones, can look fuzzy) */
+@media (max-width: 960px) {
+  section.scroll-reveal, footer.scroll-reveal {
+    filter: none;
+    opacity: calc(0.5 + var(--rp) * 0.5);
+    transform: translate3d(0, calc((1 - var(--rp)) * 12px), 0);
+  }
+}
 @media(max-width:960px){
   nav { padding:15px 22px; }
   nav ul { display:none; }
@@ -4965,6 +4998,63 @@ window.addEventListener('scroll',()=>{
 // 滚动显示动画
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ═══ Sigenergy-style scroll-driven progressive reveal ═══
+// Each non-hero section gets .scroll-reveal and gets its --rp updated based on
+// where its top sits relative to the viewport. As you scroll down, the section
+// fades from dimmed/slightly blurred to full-clarity.
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Auto-tag every <section> except hero, plus the <footer>
+  const targets = [];
+  document.querySelectorAll('section').forEach(sec => {
+    if (sec.classList.contains('hero')) return;
+    sec.classList.add('scroll-reveal');
+    targets.push(sec);
+  });
+  const ft = document.querySelector('footer');
+  if (ft) { ft.classList.add('scroll-reveal'); targets.push(ft); }
+  if (!targets.length) return;
+
+  let ticking = false;
+  function update(){
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    // Reveal zone: starts at 90% of viewport, fully revealed at 45%
+    const enter = vh * 0.90;
+    const full  = vh * 0.45;
+    const span  = enter - full;
+    for (let i = 0; i < targets.length; i++) {
+      const sec = targets[i];
+      if (sec.classList.contains('sr-locked')) continue;
+      const rect = sec.getBoundingClientRect();
+      // Already scrolled past top edge → fully revealed
+      if (rect.top <= full) {
+        sec.style.setProperty('--rp', '1');
+        // Lock it once revealed so scrolling back up doesn't re-dim
+        sec.classList.add('sr-locked');
+        continue;
+      }
+      if (rect.top >= enter) {
+        sec.style.setProperty('--rp', '0');
+        continue;
+      }
+      const rp = (enter - rect.top) / span;
+      sec.style.setProperty('--rp', rp.toFixed(3));
+    }
+    ticking = false;
+  }
+  function onScroll(){
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  // Initial paint
+  update();
+})();
 
 // 在线客服弹窗
 const chatWidget=document.getElementById('chatWidget');
