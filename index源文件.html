@@ -91,8 +91,14 @@
   --bdk:       rgba(255,255,255,0.09);
   --blt:       rgba(14,12,10,0.11);
 }
-html { scroll-behavior: smooth; font-size: 18px; overflow-x:hidden; }
-body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink); overflow-x:hidden; font-size: 1rem; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+html { scroll-behavior: smooth; font-size: 18px; overflow-x:clip; }
+body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink); overflow-x:clip; font-size: 1rem; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+/* Fallback for browsers without overflow:clip support (Chrome <90, Safari <16) —
+   restore overflow:hidden so horizontal-overflow protection still works, at the
+   cost of breaking descendant position:sticky (acceptable on old browsers). */
+@supports not (overflow: clip) {
+  html, body { overflow-x: hidden; }
+}
 
 /* ═══════════════════════════════════════════════════════════
    FLOATING-BUTTON CLEANUP — kill the bottom-right pileup.
