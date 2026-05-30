@@ -1738,8 +1738,9 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   .scenarios-grid, .hh-grid, .num-grid, .gl-stats, .ft-top, .form-row,
   .why-grid.why-grid-8 { grid-template-columns: 1fr !important; gap: 16px !important; }
   .hero-village { min-height: 60vh; }
-  video.hero-3d-bg, .hero-3d-bg { display: none; }
-  .hero-village { background: #0e0c0a url('images/hero-3d.jpg') center/cover no-repeat; }
+  /* Mobile: keep video visible (user requested) — poster image is fallback if video fails to load */
+  video.hero-3d-bg { display: block !important; width: 100% !important; height: 100% !important; object-fit: cover !important; }
+  .hero-village { background: #0e0c0a; }
   .hero-eyebrow-float { top: 70px !important; font-size: 0.55rem !important; max-width: 92%; line-height: 1.5; padding: 6px 14px !important; white-space: normal !important; text-align: center; }
   .man-quote { font-size: 1.15rem !important; line-height: 1.45; padding: 0 8px; }
   .man-left h1 { font-size: clamp(2rem, 8vw, 2.8rem) !important; text-align: center; }
@@ -3036,12 +3037,10 @@ video.hero-3d-bg {
   z-index:3; pointer-events:none;
 }
 
-/* Mobile: hide video, use static poster image as hero background (saves data) */
+/* Mobile: keep video playing (user requested) — poster JPG fallback if video can't load */
 @media (max-width:768px) {
-  video.hero-3d-bg { display:none; }
-  .hero-village {
-    background: #f5f0eb url('images/hero-3d.jpg?v=2') center/cover no-repeat;
-  }
+  video.hero-3d-bg { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .hero-village { background: #0e0c0a; }
 }
 
 /* === Animated Flow SVG Overlay === */
