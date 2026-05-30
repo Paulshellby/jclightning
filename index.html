@@ -1305,6 +1305,9 @@ section.scroll-reveal {
 section.hero { --rp: 1; opacity:1; transform:none; }
 section.scroll-reveal.sr-locked {
   --rp: 1; opacity:1; transform:none;
+  /* CRITICAL: release will-change so the section stops being a containing block;
+     otherwise descendant `position: sticky` would clamp to this section, not viewport. */
+  will-change: auto;
 }
 @media (prefers-reduced-motion: reduce) {
   section.scroll-reveal { --rp: 1; opacity:1; transform:none; }
