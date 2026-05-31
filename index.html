@@ -4707,8 +4707,10 @@ polygon[fill="url(#vlg-solar)"] {
 
 <button class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
 
-<!-- ═══ Sticky TOC sidebar — desktop only (≤1100px hidden) ═══ -->
-<nav class="toc-sidebar" id="tocSidebar" aria-label="Section navigation">
+<!-- ═══ Sticky TOC sidebar — desktop only (≤1100px hidden) ═══
+     IMPORTANT: must be <aside> not <nav> — global `nav { padding... }` rules would
+     stretch this to full width and `nav.light` would paint it white. -->
+<aside class="toc-sidebar" id="tocSidebar" aria-label="Section navigation" role="navigation">
   <a href="#manifesto"  class="toc-dot" aria-label="Brand"><span class="toc-label" data-i18n="toc_brand">Brand</span></a>
   <a href="#scenarios"  class="toc-dot" aria-label="Scenarios"><span class="toc-label" data-i18n="toc_scenarios">Scenarios</span></a>
   <a href="#certs"      class="toc-dot" aria-label="Certifications"><span class="toc-label" data-i18n="toc_certs">Certifications</span></a>
@@ -4719,7 +4721,7 @@ polygon[fill="url(#vlg-solar)"] {
   <a href="#faq"        class="toc-dot" aria-label="FAQ"><span class="toc-label" data-i18n="toc_faq">FAQ</span></a>
   <a href="#partner"    class="toc-dot" aria-label="Partners"><span class="toc-label" data-i18n="nav_partner">Partners</span></a>
   <a href="#contact"    class="toc-dot" aria-label="Contact"><span class="toc-label" data-i18n="nav_contact">Contact</span></a>
-</nav>
+</aside>
 <button class="back-bottom" id="backBottom" aria-label="Go to bottom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
 <!-- Inquiry Cart Floating Button -->
 <button class="inq-cart-btn" id="inqCartBtn" aria-label="Inquiry cart">
