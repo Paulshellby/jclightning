@@ -2942,8 +2942,16 @@ video.hero-3d-bg {
   video.hero-3d-bg { animation: none; transform: scale(1.09); }
 }
 
-/* ===== HERO PERF: Hide SVG animation overlay when video plays (saves GPU) ===== */
-.hero-village:has(video.hero-3d-bg) .hero-flow-svg { display:none; }
+/* ===== HERO: SVG animation overlay ON TOP of video — gives FOX ESS-style energy flow + cars ===== */
+.hero-village:has(video.hero-3d-bg) .hero-flow-svg {
+  display: block;
+  opacity: 0.65;
+  mix-blend-mode: screen;  /* blend with video instead of opaque overlay */
+  pointer-events: none;
+  z-index: 5;
+}
+/* Hide the platform-pulse glows (they conflict with the video's already-glowing platforms) */
+.hero-village:has(video.hero-3d-bg) .hero-flow-svg .hf-pulses { display: none; }
 
 /* ===== Hero floating eyebrow (small tag inside hero, doesn't block scene) ===== */
 .hero-eyebrow-float {
