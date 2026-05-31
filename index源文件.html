@@ -217,8 +217,9 @@ body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink
    Keep only: chat widget · back-to-top · sticky CTA · progress bar
    Remove:    side vertical tab · back-bottom arrow · inquiry cart
    ═══════════════════════════════════════════════════════════ */
-.side-cta, .sticky-cta,
-.inq-cart-btn, .inq-panel, .inq-add { display: none !important; }
+.side-cta, .sticky-cta, .sticky-cta-inner, .sticky-cta-pulse, .sticky-cta-text, .sticky-cta-actions, .sticky-cta-btn, .sticky-cta-close,
+.marquee-strip, .ticker-strip, .floating-banner, .promo-banner,
+.inq-cart-btn, .inq-panel, .inq-add { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
 
 /* ═══════════════════════════════════════════════════════════
    SECTION RHYTHM — smooth L→D bridge between Certs and Global
