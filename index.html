@@ -2067,14 +2067,295 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 </div>
 
 <section class="hero hero-village" id="hero">
-  <!-- ===== 3D Hero Background Video (with image poster fallback) ===== -->
-  <video class="hero-3d-bg" autoplay loop muted playsinline
-         poster="images/hero-3d.jpg?v=2" preload="metadata"
-         aria-label="JC Lightning solar lighting showcase — villa, EV charging, solar street lamps, garden lights">
-    <source src="images/hero-3d.mp4?v=7" type="video/mp4">
-    <!-- Fallback for browsers without video support: show poster image -->
-    <img class="hero-3d-bg" src="images/hero-3d.jpg?v=2" alt="JC Lightning solar lighting showcase" loading="eager" fetchpriority="high"/>
-  </video>
+
+<!-- ═══ Hero Carousel — 3 slides ═══ -->
+<div class="hero-carousel" id="heroCarousel">
+
+  <!-- ───────── Slide 1: 3D Solar Smart Community Video ───────── -->
+  <div class="hero-slide active" data-slide="0">
+    <video class="hero-3d-bg" autoplay loop muted playsinline
+           poster="images/hero-3d.jpg?v=2" preload="metadata"
+           aria-label="JC Lightning solar lighting showcase — villa, EV charging, solar street lamps, garden lights">
+      <source src="images/hero-3d.mp4?v=7" type="video/mp4">
+      <img class="hero-3d-bg" src="images/hero-3d.jpg?v=2" alt="JC Lightning solar lighting showcase" loading="eager" fetchpriority="high"/>
+    </video>
+  </div>
+
+  <!-- ───────── Slide 2: Night Solar Street Lights ───────── -->
+  <div class="hero-slide" data-slide="1" aria-label="Solar street lights illuminating a road at night">
+    <svg class="hero-slide-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="s2-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#04060f"/>
+          <stop offset="55%" stop-color="#0a1024"/>
+          <stop offset="100%" stop-color="#1a1d2e"/>
+        </linearGradient>
+        <linearGradient id="s2-road" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1a1814"/>
+          <stop offset="100%" stop-color="#0a0805"/>
+        </linearGradient>
+        <radialGradient id="s2-lamp-glow">
+          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.95"/>
+          <stop offset="40%" stop-color="#fbcc6e" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="s2-ground-pool" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.45"/>
+          <stop offset="60%" stop-color="#c9a24e" stop-opacity="0.18"/>
+          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="s2-soft-glow"><feGaussianBlur stdDeviation="6"/></filter>
+      </defs>
+
+      <!-- Sky -->
+      <rect width="1920" height="780" fill="url(#s2-sky)"/>
+      <!-- Stars -->
+      <g fill="#fff" opacity="0.85">
+        <circle cx="180" cy="120" r="1.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="320" cy="80" r="1"><animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" begin="-1s"/></circle>
+        <circle cx="450" cy="180" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.5s" repeatCount="indefinite" begin="-1.5s"/></circle>
+        <circle cx="640" cy="60" r="1.2"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/></circle>
+        <circle cx="820" cy="140" r="1"><animate attributeName="opacity" values="0.7;1;0.7" dur="4.2s" repeatCount="indefinite" begin="-2s"/></circle>
+        <circle cx="990" cy="90" r="1.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite" begin="-0.8s"/></circle>
+        <circle cx="1160" cy="170" r="1.2"><animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite" begin="-1.2s"/></circle>
+        <circle cx="1320" cy="50" r="1"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="1480" cy="200" r="1.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="4.5s" repeatCount="indefinite" begin="-1.7s"/></circle>
+        <circle cx="1640" cy="100" r="1.2"><animate attributeName="opacity" values="0.6;1;0.6" dur="3.4s" repeatCount="indefinite" begin="-2.2s"/></circle>
+        <circle cx="1800" cy="160" r="1"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.6s" repeatCount="indefinite"/></circle>
+      </g>
+
+      <!-- Distant city skyline silhouette -->
+      <g fill="#0a0c18" opacity="0.85">
+        <rect x="0" y="500" width="120" height="280"/>
+        <rect x="140" y="540" width="80" height="240"/>
+        <rect x="230" y="480" width="100" height="300"/>
+        <rect x="340" y="560" width="70" height="220"/>
+        <rect x="1520" y="510" width="90" height="270"/>
+        <rect x="1620" y="490" width="110" height="290"/>
+        <rect x="1740" y="540" width="80" height="240"/>
+        <rect x="1830" y="520" width="90" height="260"/>
+      </g>
+      <!-- Lit windows in skyline (warm yellow) -->
+      <g fill="#fbcc6e">
+        <rect x="20" y="540" width="6" height="8"><animate attributeName="opacity" values="0.5;1;0.5" dur="5s" repeatCount="indefinite"/></rect>
+        <rect x="40" y="570" width="6" height="8" opacity="0.7"/>
+        <rect x="60" y="600" width="6" height="8"><animate attributeName="opacity" values="0.6;1;0.6" dur="6s" repeatCount="indefinite" begin="-2s"/></rect>
+        <rect x="260" y="540" width="6" height="8" opacity="0.8"/>
+        <rect x="280" y="580" width="6" height="8"><animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/></rect>
+        <rect x="300" y="620" width="6" height="8" opacity="0.7"/>
+        <rect x="1550" y="550" width="6" height="8"><animate attributeName="opacity" values="0.4;1;0.4" dur="5.5s" repeatCount="indefinite" begin="-1s"/></rect>
+        <rect x="1640" y="540" width="6" height="8" opacity="0.8"/>
+        <rect x="1660" y="580" width="6" height="8"><animate attributeName="opacity" values="0.6;1;0.6" dur="4.5s" repeatCount="indefinite" begin="-2.5s"/></rect>
+        <rect x="1850" y="560" width="6" height="8" opacity="0.7"/>
+      </g>
+
+      <!-- Road (perspective with ground) -->
+      <polygon points="0,780 1920,780 1920,1080 0,1080" fill="url(#s2-road)"/>
+      <!-- Road center dashed line -->
+      <g stroke="#fde9b9" stroke-width="6" stroke-dasharray="40 30" opacity="0.35">
+        <line x1="0" y1="950" x2="1920" y2="950"/>
+      </g>
+
+      <!-- 4 Solar Street Lamps with light pools -->
+      <!-- Lamp 1 (left) -->
+      <g transform="translate(280,780)">
+        <ellipse cx="0" cy="170" rx="280" ry="60" fill="url(#s2-ground-pool)"/>
+        <line x1="0" y1="0" x2="0" y2="-380" stroke="#2a2520" stroke-width="6"/>
+        <line x1="0" y1="-380" x2="80" y2="-380" stroke="#2a2520" stroke-width="6"/>
+        <rect x="60" y="-395" width="50" height="14" rx="3" fill="#3a3530"/>
+        <!-- Solar panel on top -->
+        <polygon points="-30,-385 30,-385 22,-410 -22,-410" fill="#1a2438" stroke="#3a4458" stroke-width="1"/>
+        <!-- Light glow -->
+        <circle cx="85" cy="-378" r="40" fill="url(#s2-lamp-glow)" filter="url(#s2-soft-glow)">
+          <animate attributeName="r" values="38;46;38" dur="3.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="85" cy="-378" r="8" fill="#fde9b9"/>
+      </g>
+
+      <!-- Lamp 2 -->
+      <g transform="translate(720,800)">
+        <ellipse cx="0" cy="160" rx="300" ry="55" fill="url(#s2-ground-pool)"/>
+        <line x1="0" y1="0" x2="0" y2="-360" stroke="#2a2520" stroke-width="6"/>
+        <line x1="0" y1="-360" x2="80" y2="-360" stroke="#2a2520" stroke-width="6"/>
+        <rect x="60" y="-375" width="50" height="14" rx="3" fill="#3a3530"/>
+        <polygon points="-30,-365 30,-365 22,-390 -22,-390" fill="#1a2438" stroke="#3a4458" stroke-width="1"/>
+        <circle cx="85" cy="-358" r="40" fill="url(#s2-lamp-glow)" filter="url(#s2-soft-glow)">
+          <animate attributeName="r" values="38;46;38" dur="3.5s" begin="-1s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="85" cy="-358" r="8" fill="#fde9b9"/>
+      </g>
+
+      <!-- Lamp 3 -->
+      <g transform="translate(1200,800)">
+        <ellipse cx="0" cy="160" rx="300" ry="55" fill="url(#s2-ground-pool)"/>
+        <line x1="0" y1="0" x2="0" y2="-360" stroke="#2a2520" stroke-width="6"/>
+        <line x1="0" y1="-360" x2="80" y2="-360" stroke="#2a2520" stroke-width="6"/>
+        <rect x="60" y="-375" width="50" height="14" rx="3" fill="#3a3530"/>
+        <polygon points="-30,-365 30,-365 22,-390 -22,-390" fill="#1a2438" stroke="#3a4458" stroke-width="1"/>
+        <circle cx="85" cy="-358" r="40" fill="url(#s2-lamp-glow)" filter="url(#s2-soft-glow)">
+          <animate attributeName="r" values="38;46;38" dur="3.5s" begin="-2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="85" cy="-358" r="8" fill="#fde9b9"/>
+      </g>
+
+      <!-- Lamp 4 -->
+      <g transform="translate(1640,780)">
+        <ellipse cx="0" cy="170" rx="280" ry="60" fill="url(#s2-ground-pool)"/>
+        <line x1="0" y1="0" x2="0" y2="-380" stroke="#2a2520" stroke-width="6"/>
+        <line x1="0" y1="-380" x2="80" y2="-380" stroke="#2a2520" stroke-width="6"/>
+        <rect x="60" y="-395" width="50" height="14" rx="3" fill="#3a3530"/>
+        <polygon points="-30,-385 30,-385 22,-410 -22,-410" fill="#1a2438" stroke="#3a4458" stroke-width="1"/>
+        <circle cx="85" cy="-378" r="40" fill="url(#s2-lamp-glow)" filter="url(#s2-soft-glow)">
+          <animate attributeName="r" values="38;46;38" dur="3.5s" begin="-2.7s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="85" cy="-378" r="8" fill="#fde9b9"/>
+      </g>
+
+      <!-- "GRID DOWN" badge top-right -->
+      <g transform="translate(1620,90)">
+        <rect x="0" y="0" width="240" height="42" rx="21" fill="rgba(196,21,28,0.18)" stroke="#c4151c" stroke-width="1.5"/>
+        <circle cx="22" cy="21" r="5" fill="#c4151c">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <text x="40" y="27" fill="#ff6b6b" font-family="Outfit, sans-serif" font-size="14" font-weight="600" letter-spacing="2">GRID OUTAGE · 22:47</text>
+      </g>
+
+      <!-- "WE STAY ON" tag bottom-left -->
+      <g transform="translate(40,940)">
+        <rect x="0" y="0" width="320" height="46" rx="23" fill="rgba(168,125,42,0.2)" stroke="#c9a24e" stroke-width="1.5"/>
+        <circle cx="22" cy="23" r="5" fill="#fde9b9">
+          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="40" y="29" fill="#fde9b9" font-family="Outfit, sans-serif" font-size="14" font-weight="600" letter-spacing="2">SOLAR · LIGHT STAYS ON</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ───────── Slide 3: Daytime Villa with Solar Garden Lights ───────── -->
+  <div class="hero-slide" data-slide="2" aria-label="Modern villa with solar perimeter and garden lighting">
+    <svg class="hero-slide-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="s3-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f4d2a8"/>
+          <stop offset="40%" stop-color="#e8b885"/>
+          <stop offset="100%" stop-color="#a87d5a"/>
+        </linearGradient>
+        <linearGradient id="s3-ground" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3a3023"/>
+          <stop offset="100%" stop-color="#1a1410"/>
+        </linearGradient>
+        <radialGradient id="s3-warmpool" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.5"/>
+          <stop offset="60%" stop-color="#c9a24e" stop-opacity="0.2"/>
+          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="s3-villa" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3a3530"/>
+          <stop offset="100%" stop-color="#2a2520"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Dusk sky -->
+      <rect width="1920" height="700" fill="url(#s3-sky)"/>
+      <!-- Sun -->
+      <circle cx="1500" cy="280" r="80" fill="#fde9b9" opacity="0.7">
+        <animate attributeName="opacity" values="0.65;0.85;0.65" dur="6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1500" cy="280" r="120" fill="#fbcc6e" opacity="0.25"/>
+      <!-- Distant mountains -->
+      <polygon points="0,650 200,540 380,610 580,500 800,580 1000,520 1200,600 1450,510 1700,590 1920,540 1920,700 0,700" fill="#5a4a3a" opacity="0.5"/>
+      <polygon points="0,700 250,620 500,680 800,600 1100,670 1400,610 1700,680 1920,640 1920,720 0,720" fill="#3a2c20" opacity="0.7"/>
+
+      <!-- Ground -->
+      <rect y="700" width="1920" height="380" fill="url(#s3-ground)"/>
+
+      <!-- Villa silhouette (centered) -->
+      <g transform="translate(640,440)">
+        <!-- Main body -->
+        <rect x="0" y="120" width="640" height="280" fill="url(#s3-villa)"/>
+        <!-- Roof (pitched) -->
+        <polygon points="0,120 320,30 640,120" fill="#1a1410"/>
+        <!-- Solar panels on roof -->
+        <g transform="translate(80,55)">
+          <rect width="200" height="55" fill="#1a2438" transform="skewX(-25)" stroke="#3a4458" stroke-width="1"/>
+          <line x1="50" y1="0" x2="50" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
+          <line x1="100" y1="0" x2="100" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
+          <line x1="150" y1="0" x2="150" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
+        </g>
+        <g transform="translate(360,55)">
+          <rect width="200" height="55" fill="#1a2438" transform="skewX(-25)" stroke="#3a4458" stroke-width="1"/>
+          <line x1="50" y1="0" x2="50" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
+          <line x1="100" y1="0" x2="100" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
+          <line x1="150" y1="0" x2="150" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
+        </g>
+        <!-- Windows (lit) -->
+        <rect x="60" y="170" width="60" height="80" fill="#fde9b9" opacity="0.85"><animate attributeName="opacity" values="0.7;0.95;0.7" dur="5s" repeatCount="indefinite"/></rect>
+        <rect x="160" y="170" width="60" height="80" fill="#fde9b9" opacity="0.85"/>
+        <rect x="280" y="280" width="80" height="120" fill="#3a3530"/>
+        <rect x="420" y="170" width="60" height="80" fill="#fde9b9" opacity="0.85"><animate attributeName="opacity" values="0.75;1;0.75" dur="4s" repeatCount="indefinite" begin="-1s"/></rect>
+        <rect x="520" y="170" width="60" height="80" fill="#fde9b9" opacity="0.85"/>
+        <!-- Wall-mounted up-down lights -->
+        <g transform="translate(40,280)">
+          <rect x="-3" y="-2" width="6" height="20" fill="#3a3530"/>
+          <ellipse cx="0" cy="-10" rx="40" ry="14" fill="url(#s3-warmpool)"><animate attributeName="ry" values="12;16;12" dur="4s" repeatCount="indefinite"/></ellipse>
+          <ellipse cx="0" cy="28" rx="40" ry="14" fill="url(#s3-warmpool)"/>
+        </g>
+        <g transform="translate(600,280)">
+          <rect x="-3" y="-2" width="6" height="20" fill="#3a3530"/>
+          <ellipse cx="0" cy="-10" rx="40" ry="14" fill="url(#s3-warmpool)"><animate attributeName="ry" values="12;16;12" dur="4s" begin="-2s" repeatCount="indefinite"/></ellipse>
+          <ellipse cx="0" cy="28" rx="40" ry="14" fill="url(#s3-warmpool)"/>
+        </g>
+      </g>
+
+      <!-- Garden path with stake lights -->
+      <path d="M 200 1050 Q 500 950 850 880 Q 1100 830 1280 850" stroke="#1a1410" stroke-width="50" fill="none" opacity="0.7"/>
+
+      <!-- Path stake lights (5 lights along path) -->
+      <g>
+        <g transform="translate(280,990)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
+        <g transform="translate(480,940)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" begin="-0.6s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
+        <g transform="translate(700,900)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" begin="-1.2s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
+        <g transform="translate(950,870)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" begin="-1.8s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
+        <g transform="translate(1200,860)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" begin="-2.4s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
+      </g>
+
+      <!-- Sphere gate pillars (2 at entrance) -->
+      <g transform="translate(330,860)">
+        <rect x="-12" y="0" width="24" height="120" fill="#2a2520"/>
+        <circle cx="0" cy="-12" r="20" fill="#fde9b9" opacity="0.85"><animate attributeName="opacity" values="0.7;1;0.7" dur="3.5s" repeatCount="indefinite"/></circle>
+        <circle cx="0" cy="-12" r="32" fill="url(#s3-warmpool)"/>
+      </g>
+      <g transform="translate(1640,860)">
+        <rect x="-12" y="0" width="24" height="120" fill="#2a2520"/>
+        <circle cx="0" cy="-12" r="20" fill="#fde9b9" opacity="0.85"><animate attributeName="opacity" values="0.75;1;0.75" dur="3.5s" begin="-1.7s" repeatCount="indefinite"/></circle>
+        <circle cx="0" cy="-12" r="32" fill="url(#s3-warmpool)"/>
+      </g>
+
+      <!-- "RESIDENTIAL · SECURITY + AMBIANCE" tag -->
+      <g transform="translate(40,90)">
+        <rect x="0" y="0" width="320" height="42" rx="21" fill="rgba(168,125,42,0.18)" stroke="#c9a24e" stroke-width="1.5"/>
+        <circle cx="22" cy="21" r="5" fill="#c9a24e"><animate attributeName="opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite"/></circle>
+        <text x="40" y="27" fill="#fde9b9" font-family="Outfit, sans-serif" font-size="13" font-weight="600" letter-spacing="2">VILLA · SECURITY + AMBIANCE</text>
+      </g>
+    </svg>
+  </div>
+
+</div>
+
+<!-- Carousel arrows -->
+<button class="hero-nav-arrow prev" id="heroPrev" aria-label="Previous slide">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+</button>
+<button class="hero-nav-arrow next" id="heroNext" aria-label="Next slide">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+
+<!-- Slide pagination dots -->
+<div class="hero-dots" id="heroDots">
+  <button class="hero-dot active" data-go="0" aria-label="Go to slide 1"></button>
+  <button class="hero-dot" data-go="1" aria-label="Go to slide 2"></button>
+  <button class="hero-dot" data-go="2" aria-label="Go to slide 3"></button>
+</div>
 
   <!-- Cover for Kling AI 3.0 4K watermark (bottom-right corner of video) -->
   <div class="hero-wm-cover" aria-hidden="true"></div>
@@ -2912,6 +3193,62 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 <style>
 /* ===== V2 Hero — Isometric Solar Smart Community ===== */
 .hero-village { position:relative; min-height:100vh; padding:0; overflow:hidden; background:#0e0c0a; }
+
+/* ═══ Hero Carousel — FOX ESS-style 3-slide swipe ═══ */
+.hero-carousel { position:absolute; inset:0; z-index:1; }
+.hero-slide {
+  position:absolute; inset:0;
+  opacity:0; visibility:hidden;
+  transition: opacity .85s cubic-bezier(.4,0,.2,1), visibility 0s linear .85s;
+  pointer-events:none;
+}
+.hero-slide.active { opacity:1; visibility:visible; pointer-events:auto; transition: opacity .85s cubic-bezier(.4,0,.2,1), visibility 0s linear 0s; }
+.hero-slide-svg { width:100%; height:100%; display:block; }
+
+/* Slide navigation arrows */
+.hero-nav-arrow {
+  position:absolute; top:50%; transform:translateY(-50%);
+  z-index:30;
+  width:50px; height:50px; border-radius:50%;
+  background:rgba(14,12,10,0.5); backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.18);
+  color:#fff; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition: background .25s, border-color .25s, transform .25s;
+  opacity:0.7;
+}
+.hero-nav-arrow:hover { background:rgba(168,125,42,0.7); border-color:var(--brass-lt); opacity:1; transform:translateY(-50%) scale(1.06); }
+.hero-nav-arrow.prev { left:20px; }
+.hero-nav-arrow.next { right:20px; }
+.hero-nav-arrow svg { width:22px; height:22px; }
+
+/* Slide dots pagination */
+.hero-dots {
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
+  z-index:30;
+  display:flex; gap:10px;
+  padding:8px 16px;
+  background:rgba(14,12,10,0.4); backdrop-filter:blur(10px);
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+.hero-dot {
+  width:8px; height:8px; border-radius:50%;
+  background:rgba(255,255,255,0.35);
+  border:none; cursor:pointer; padding:0;
+  transition: background .25s, transform .25s, width .3s;
+}
+.hero-dot:hover { background:var(--brass-pale); transform:scale(1.2); }
+.hero-dot.active { background:var(--brass-lt); width:24px; border-radius:4px; }
+
+/* Mobile: smaller arrows, hide dots on very small */
+@media (max-width:768px) {
+  .hero-nav-arrow { width:40px; height:40px; }
+  .hero-nav-arrow.prev { left:10px; }
+  .hero-nav-arrow.next { right:10px; }
+  .hero-nav-arrow svg { width:18px; height:18px; }
+  .hero-dots { bottom:90px; padding:6px 12px; gap:8px; }
+}
 .hero-scene { position:absolute; inset:0; z-index:0; }
 .hero-svg { width:100%; height:100%; display:block; }
 
@@ -5770,6 +6107,74 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   // Foot CTA close too
   const footCta = panel.querySelector('.cs-foot-cta');
   if (footCta) footCta.addEventListener('click', close);
+})();
+
+// ═══ Hero Carousel — 3-slide swipe with auto-advance + arrows + dots ═══
+(function(){
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  const prev = document.getElementById('heroPrev');
+  const next = document.getElementById('heroNext');
+  if (slides.length < 2) return;
+
+  let current = 0;
+  let autoTimer = null;
+  const AUTO_MS = 7000;
+
+  function show(i) {
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+    // Pause non-active video, resume active video (if it is one)
+    slides.forEach((s, idx) => {
+      const v = s.querySelector('video');
+      if (!v) return;
+      if (idx === current) { v.play().catch(()=>{}); }
+      else { v.pause(); }
+    });
+  }
+  function nextSlide() { show(current + 1); }
+  function prevSlide() { show(current - 1); }
+  function resetAuto() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, AUTO_MS);
+  }
+
+  if (prev) prev.addEventListener('click', () => { prevSlide(); resetAuto(); });
+  if (next) next.addEventListener('click', () => { nextSlide(); resetAuto(); });
+  dots.forEach(d => d.addEventListener('click', () => {
+    show(parseInt(d.dataset.go || '0', 10));
+    resetAuto();
+  }));
+
+  // Keyboard arrows (when hero in view)
+  document.addEventListener('keydown', e => {
+    const heroRect = document.getElementById('hero')?.getBoundingClientRect();
+    if (!heroRect || heroRect.bottom < 0 || heroRect.top > innerHeight) return;
+    if (e.key === 'ArrowLeft')  { prevSlide(); resetAuto(); }
+    if (e.key === 'ArrowRight') { nextSlide(); resetAuto(); }
+  });
+
+  // Touch swipe (mobile)
+  let touchX = 0;
+  const carousel = document.getElementById('heroCarousel');
+  if (carousel) {
+    carousel.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) < 50) return;
+      if (dx > 0) prevSlide(); else nextSlide();
+      resetAuto();
+    }, { passive: true });
+  }
+
+  // Pause auto-advance when tab is hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { clearInterval(autoTimer); }
+    else { resetAuto(); }
+  });
+
+  resetAuto();
 })();
 
 // ═══ Hero video — iOS Safari autoplay fallback ═══
