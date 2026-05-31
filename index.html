@@ -2081,9 +2081,28 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
     </video>
   </div>
 
-  <!-- ───────── Slide 2: Night Solar Street Lights ───────── -->
-  <div class="hero-slide" data-slide="1" aria-label="Solar street lights illuminating a road at night">
-    <svg class="hero-slide-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <!-- ───────── Slide 2: Night Solar Street Lights (photorealistic AI image) ───────── -->
+  <div class="hero-slide" data-slide="1" aria-label="Solar street lights illuminating a road at night during a grid outage">
+    <img class="hero-slide-img" src="images/hero-slide-2-night.jpg" alt="Solar-powered LED street lamps illuminating a wet asphalt road at night, with distant residential houses mostly dark except a few warm windows — JC Lightning solar lighting stays on when the grid fails" loading="lazy" decoding="async">
+    <!-- "GRID OUTAGE" + "SOLAR · LIGHT STAYS ON" badges overlaid on the photo -->
+    <svg class="hero-slide-overlay" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g transform="translate(1620,90)">
+        <rect x="0" y="0" width="240" height="42" rx="21" fill="rgba(196,21,28,0.22)" stroke="#c4151c" stroke-width="1.5"/>
+        <circle cx="22" cy="21" r="5" fill="#c4151c">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+        <text x="40" y="27" fill="#ff6b6b" font-family="Outfit, sans-serif" font-size="14" font-weight="600" letter-spacing="2">GRID OUTAGE · 22:47</text>
+      </g>
+      <g transform="translate(40,940)">
+        <rect x="0" y="0" width="320" height="46" rx="23" fill="rgba(168,125,42,0.25)" stroke="#c9a24e" stroke-width="1.5"/>
+        <circle cx="22" cy="23" r="5" fill="#fde9b9">
+          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="40" y="29" fill="#fde9b9" font-family="Outfit, sans-serif" font-size="14" font-weight="600" letter-spacing="2">SOLAR · LIGHT STAYS ON</text>
+      </g>
+    </svg>
+    <!-- Legacy SVG kept hidden as a fallback (in case image fails to load) -->
+    <svg class="hero-slide-svg" style="display:none" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="s2-sky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="#04060f"/>
@@ -3204,6 +3223,18 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 }
 .hero-slide.active { opacity:1; visibility:visible; pointer-events:auto; transition: opacity .85s cubic-bezier(.4,0,.2,1), visibility 0s linear 0s; }
 .hero-slide-svg { width:100%; height:100%; display:block; }
+.hero-slide-img {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center center;
+  display:block;
+}
+.hero-slide-overlay {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  z-index:2;
+}
 
 /* Slide navigation arrows */
 .hero-nav-arrow {
