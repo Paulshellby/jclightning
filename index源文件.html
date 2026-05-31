@@ -3322,9 +3322,11 @@ video.hero-3d-bg {
   video.hero-3d-bg { animation: none; transform: scale(1.09); }
 }
 
-/* ===== HERO: kill the energy-flow SVG overlay entirely (was leaking floating
-   white dots + cars onto the photo slides which broke the realism) ===== */
+/* ===== HERO: kill ALL legacy overlay effects that were designed for the 3D scene
+   but now leak ghostly orbs / cars onto the photo slides ===== */
 .hero-flow-svg { display: none !important; }
+.hero-particles { display: none !important; }   /* 12 floating golden bokeh dots */
+.hero-scene { display: none !important; }       /* old SVG community scene if any */
 
 /* ===== Hero floating eyebrow (small tag inside hero, doesn't block scene) ===== */
 .hero-eyebrow-float {
