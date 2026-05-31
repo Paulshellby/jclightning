@@ -2250,9 +2250,21 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
     </svg>
   </div>
 
-  <!-- ───────── Slide 3: Daytime Villa with Solar Garden Lights ───────── -->
-  <div class="hero-slide" data-slide="2" aria-label="Modern villa with solar perimeter and garden lighting">
-    <svg class="hero-slide-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <!-- ───────── Slide 3: Modern Villa with Solar Garden Lights (photorealistic AI image) ───────── -->
+  <div class="hero-slide" data-slide="2" aria-label="Modern villa at dusk with solar garden sphere lights and rooftop solar panels">
+    <img class="hero-slide-img" src="images/hero-slide-3-villa.jpg" alt="Modern minimalist villa at dusk — full rooftop solar panel array, glowing sphere garden stake lights on the lawn, warm wall sconces beside the entry door, mountain silhouette in the background — JC Lightning residential solar lighting" loading="lazy" decoding="async">
+    <!-- "RESIDENTIAL · SECURITY + AMBIANCE" badge overlay -->
+    <svg class="hero-slide-overlay" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g transform="translate(40,90)">
+        <rect x="0" y="0" width="380" height="42" rx="21" fill="rgba(168,125,42,0.22)" stroke="#c9a24e" stroke-width="1.5"/>
+        <circle cx="22" cy="21" r="5" fill="#c9a24e">
+          <animate attributeName="opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="40" y="27" fill="#fde9b9" font-family="Outfit, sans-serif" font-size="13" font-weight="600" letter-spacing="2">RESIDENTIAL · SECURITY + AMBIANCE</text>
+      </g>
+    </svg>
+    <!-- Legacy SVG kept hidden as a fallback -->
+    <svg class="hero-slide-svg" style="display:none" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="s3-sky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="#f4d2a8"/>
