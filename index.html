@@ -39,7 +39,7 @@
 <link rel="alternate" hreflang="zh" href="https://jclightning.com/?lang=zh">
 <link rel="alternate" hreflang="es" href="https://jclightning.com/?lang=es">
 <link rel="alternate" hreflang="x-default" href="https://jclightning.com/">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700;800&display=swap" as="style">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <meta property="og:title" content="JC Lightning — Solar Lighting Built for Where the Grid Fails">
 <meta property="og:description" content="Solar security, garden and wall lighting for distributors in Africa, Latin America and Oceania. CE certified. IP65. OEM available.">
@@ -101,7 +101,7 @@
 </script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230e0c0a'/><text x='16' y='23' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%23a87d2a'>J</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -153,8 +153,9 @@ body { font-family:'Outfit',sans-serif; background:var(--chalk); color:var(--ink
 .insight-cat { display: inline-block; font-family:'Outfit',sans-serif; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); margin-bottom: 12px; }
 .insight-card h3 { font-family:'Playfair Display',serif; font-weight: 400; font-size: 1.25rem; color: #fff; margin-bottom: 12px; letter-spacing: -0.005em; line-height: 1.25; }
 .insight-card .insight-excerpt { font-size: 0.88rem; font-weight: 400; color: var(--mist); line-height: 1.65; flex: 1; margin-bottom: 18px; }
-.insight-read { display: inline-flex; align-items: center; gap: 8px; font-family:'Outfit',sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass-lt); transition: gap .2s, color .2s; }
+.insight-read { display: inline-flex; align-items: center; gap: 8px; font-family:'Outfit',sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass-lt); transition: gap .2s, color .2s; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; -webkit-appearance: none; appearance: none; }
 .insight-card:hover .insight-read { gap: 14px; color: #fff; }
+.insight-read:focus-visible { outline: 2px solid var(--brass-lt); outline-offset: 4px; border-radius: 3px; }
 .insight-read svg { width: 14px; height: 14px; }
 
 /* ─── Insight Drawer (right slide-in modal) ─── */
@@ -399,6 +400,16 @@ img, svg {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100%); }
 }
+
+/* ===== Hyperframe — decorative brass border wrapping the whole page (non-interactive) ===== */
+.page-frame { position:fixed; inset:14px; z-index:9300; pointer-events:none; border:1px solid rgba(168,125,42,0.42); border-radius:3px; }
+.pf-corner { position:absolute; width:24px; height:24px; border:2px solid var(--brass, #a87d2a); }
+.pf-tl { top:-1px; left:-1px; border-right:0; border-bottom:0; }
+.pf-tr { top:-1px; right:-1px; border-left:0; border-bottom:0; }
+.pf-bl { bottom:-1px; left:-1px; border-right:0; border-top:0; }
+.pf-br { bottom:-1px; right:-1px; border-left:0; border-top:0; }
+@media (max-width:768px) { .page-frame { inset:8px; } .pf-corner { width:16px; height:16px; } }
+@media print { .page-frame { display:none; } }
 
 /* Glitch on hero h1 em — periodic RGB split every 9s */
 @keyframes cyber-glitch {
@@ -1867,7 +1878,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   .hero-wm-cover { display: none !important; }
   .hero-eyebrow-float { top: 70px !important; font-size: 0.55rem !important; max-width: 92%; line-height: 1.5; padding: 6px 14px !important; white-space: normal !important; text-align: center; }
   .man-quote { font-size: 1.15rem !important; line-height: 1.45; padding: 0 8px; }
-  .man-left h1 { font-size: clamp(2rem, 8vw, 2.8rem) !important; text-align: center; }
+  .man-left h2 { font-size: clamp(2rem, 8vw, 2.8rem) !important; text-align: center; }
   .man-right { padding: 24px 0 0 0 !important; border-left: none !important; border-top: 1px solid rgba(201,162,78,0.22); text-align: center; }
   .man-right .hero-btns { justify-content: center; }
   .man-body { font-size: 0.82rem !important; line-height: 1.7; padding: 0 8px; }
@@ -1923,6 +1934,14 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 <!-- Cyberpunk FX overlay — CRT scanlines + noise (fixed, non-interactive) -->
 <div class="cyber-fx" aria-hidden="true"></div>
 
+<!-- Hyperframe — decorative brass border wrapping the whole page (non-interactive) -->
+<div class="page-frame" aria-hidden="true">
+  <span class="pf-corner pf-tl"></span>
+  <span class="pf-corner pf-tr"></span>
+  <span class="pf-corner pf-bl"></span>
+  <span class="pf-corner pf-br"></span>
+</div>
+
 <div class="preloader" id="preloader">
   <div class="pre-ray"></div>
   <div class="pre-orb"></div>
@@ -1962,7 +1981,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
       </div>
     </li>
     <li><a href="#scenarios"  class="nav-link" data-i18n="nav_solutions">Solutions</a></li>
-    <li><a href="#factory"    class="nav-link" data-i18n="nav_about">Our Approach</a></li>
+    <li><a href="#certs"    class="nav-link" data-i18n="nav_about">Our Approach</a></li>
     <li><a href="#insights"   class="nav-link" data-i18n="nav_insights">Insights</a></li>
     <li><a href="#partner"    class="nav-link nav-partner" data-i18n="nav_partner">Partners</a></li>
     <li><a href="#contact"    class="nav-link" data-i18n="nav_contact">Contact</a></li>
@@ -2053,13 +2072,13 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
       </div>
     </div>
     <a href="#contact" class="nav-cta" data-i18n="nav_quote">Get a Quote</a>
-    <a href="#" class="nav-dl" title="Download Catalog">Catalog ↓</a>
+    <a href="#products" class="nav-dl" title="View Catalogue">Catalog ↓</a>
   </div>
 </nav>
 <div class="nav-drop" id="navDrop">
   <a href="#products" data-i18n="nav_products">Products</a>
   <a href="#scenarios" data-i18n="nav_solutions">Solutions</a>
-  <a href="#factory" data-i18n="nav_about">Our Approach</a>
+  <a href="#certs" data-i18n="nav_about">Our Approach</a>
   <a href="#insights" data-i18n="nav_insights">Insights</a>
   <a href="#partner" data-i18n="nav_partner" style="color:var(--brass-lt)">Become a Partner</a>
   <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -2068,1136 +2087,58 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 
 <section class="hero hero-village" id="hero">
 
-<!-- ═══ Hero Carousel — 3 slides ═══ -->
-<div class="hero-carousel" id="heroCarousel">
-
-  <!-- ───────── Slide 1: 3D Solar Smart Community Video ───────── -->
-  <div class="hero-slide active" data-slide="0">
-    <video class="hero-3d-bg" autoplay loop muted playsinline
-           preload="metadata"
-           aria-label="JC Lightning solar lighting showcase — villa, EV charging, solar street lamps, garden lights">
-      <source src="images/hero-3d.mp4?v=9" type="video/mp4">
-      <img class="hero-3d-bg" src="images/hero-3d.jpg?v=2" alt="JC Lightning solar lighting showcase" loading="eager" fetchpriority="high"/>
-    </video>
-  </div>
-
-  <!-- ───────── Slide 2: Night Solar Street Lights (photorealistic AI image) ───────── -->
-  <div class="hero-slide" data-slide="1" aria-label="Solar street lights illuminating a road at night during a grid outage">
-    <video class="hero-slide-img" autoplay loop muted playsinline
-           poster="images/hero-slide-2-night.jpg" preload="metadata"
-           aria-label="Solar-powered LED street lamps illuminating a wet asphalt road at night — JC Lightning solar lighting stays on when the grid fails">
-      <source src="images/hero-slide-2.mp4" type="video/mp4">
-      <img src="images/hero-slide-2-night.jpg" alt="Solar-powered LED street lamps illuminating a wet asphalt road at night — JC Lightning solar lighting" loading="lazy"/>
-    </video>
-    <!-- "GRID OUTAGE" + "SOLAR · LIGHT STAYS ON" badges overlaid on the photo -->
-    <svg class="hero-slide-overlay" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g transform="translate(1620,90)">
-        <rect x="0" y="0" width="240" height="42" rx="21" fill="rgba(196,21,28,0.22)" stroke="#c4151c" stroke-width="1.5"/>
-        <circle cx="22" cy="21" r="5" fill="#c4151c">
-          <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
-        </circle>
-        <text x="40" y="27" fill="#ff6b6b" font-family="Outfit, sans-serif" font-size="14" font-weight="600" letter-spacing="2">GRID OUTAGE · 22:47</text>
-      </g>
-      <g transform="translate(40,940)">
-        <rect x="0" y="0" width="320" height="46" rx="23" fill="rgba(168,125,42,0.25)" stroke="#c9a24e" stroke-width="1.5"/>
-        <circle cx="22" cy="23" r="5" fill="#fde9b9">
-          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
-        </circle>
-        <text x="40" y="29" fill="#fde9b9" font-family="Outfit, sans-serif" font-size="14" font-weight="600" letter-spacing="2">SOLAR · LIGHT STAYS ON</text>
-      </g>
-    </svg>
-    <!-- Legacy SVG kept hidden as a fallback (in case image fails to load) -->
-    <svg class="hero-slide-svg" style="display:none" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="s2-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#04060f"/>
-          <stop offset="55%" stop-color="#0a1024"/>
-          <stop offset="100%" stop-color="#1a1d2e"/>
-        </linearGradient>
-        <linearGradient id="s2-road" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#1a1814"/>
-          <stop offset="100%" stop-color="#0a0805"/>
-        </linearGradient>
-        <radialGradient id="s2-lamp-glow">
-          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.95"/>
-          <stop offset="40%" stop-color="#fbcc6e" stop-opacity="0.55"/>
-          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="s2-ground-pool" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.45"/>
-          <stop offset="60%" stop-color="#c9a24e" stop-opacity="0.18"/>
-          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
-        </radialGradient>
-        <filter id="s2-soft-glow"><feGaussianBlur stdDeviation="6"/></filter>
-      </defs>
-
-      <!-- Sky -->
-      <rect width="1920" height="780" fill="url(#s2-sky)"/>
-      <!-- Stars -->
-      <g fill="#fff" opacity="0.85">
-        <circle cx="180" cy="120" r="1.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/></circle>
-        <circle cx="320" cy="80" r="1"><animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" begin="-1s"/></circle>
-        <circle cx="450" cy="180" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.5s" repeatCount="indefinite" begin="-1.5s"/></circle>
-        <circle cx="640" cy="60" r="1.2"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/></circle>
-        <circle cx="820" cy="140" r="1"><animate attributeName="opacity" values="0.7;1;0.7" dur="4.2s" repeatCount="indefinite" begin="-2s"/></circle>
-        <circle cx="990" cy="90" r="1.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite" begin="-0.8s"/></circle>
-        <circle cx="1160" cy="170" r="1.2"><animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite" begin="-1.2s"/></circle>
-        <circle cx="1320" cy="50" r="1"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
-        <circle cx="1480" cy="200" r="1.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="4.5s" repeatCount="indefinite" begin="-1.7s"/></circle>
-        <circle cx="1640" cy="100" r="1.2"><animate attributeName="opacity" values="0.6;1;0.6" dur="3.4s" repeatCount="indefinite" begin="-2.2s"/></circle>
-        <circle cx="1800" cy="160" r="1"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.6s" repeatCount="indefinite"/></circle>
-      </g>
-
-      <!-- Distant city skyline silhouette -->
-      <g fill="#0a0c18" opacity="0.85">
-        <rect x="0" y="500" width="120" height="280"/>
-        <rect x="140" y="540" width="80" height="240"/>
-        <rect x="230" y="480" width="100" height="300"/>
-        <rect x="340" y="560" width="70" height="220"/>
-        <rect x="1520" y="510" width="90" height="270"/>
-        <rect x="1620" y="490" width="110" height="290"/>
-        <rect x="1740" y="540" width="80" height="240"/>
-        <rect x="1830" y="520" width="90" height="260"/>
-      </g>
-      <!-- Lit windows in skyline (warm yellow) -->
-      <g fill="#fbcc6e">
-        <rect x="20" y="540" width="6" height="8"><animate attributeName="opacity" values="0.5;1;0.5" dur="5s" repeatCount="indefinite"/></rect>
-        <rect x="40" y="570" width="6" height="8" opacity="0.7"/>
-        <rect x="60" y="600" width="6" height="8"><animate attributeName="opacity" values="0.6;1;0.6" dur="6s" repeatCount="indefinite" begin="-2s"/></rect>
-        <rect x="260" y="540" width="6" height="8" opacity="0.8"/>
-        <rect x="280" y="580" width="6" height="8"><animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/></rect>
-        <rect x="300" y="620" width="6" height="8" opacity="0.7"/>
-        <rect x="1550" y="550" width="6" height="8"><animate attributeName="opacity" values="0.4;1;0.4" dur="5.5s" repeatCount="indefinite" begin="-1s"/></rect>
-        <rect x="1640" y="540" width="6" height="8" opacity="0.8"/>
-        <rect x="1660" y="580" width="6" height="8"><animate attributeName="opacity" values="0.6;1;0.6" dur="4.5s" repeatCount="indefinite" begin="-2.5s"/></rect>
-        <rect x="1850" y="560" width="6" height="8" opacity="0.7"/>
-      </g>
-
-      <!-- Road (perspective with ground) -->
-      <polygon points="0,780 1920,780 1920,1080 0,1080" fill="url(#s2-road)"/>
-      <!-- Road center dashed line -->
-      <g stroke="#fde9b9" stroke-width="6" stroke-dasharray="40 30" opacity="0.35">
-        <line x1="0" y1="950" x2="1920" y2="950"/>
-      </g>
-
-      <!-- 4 Solar Street Lamps with light pools -->
-      <!-- Lamp 1 (left) -->
-      <g transform="translate(280,780)">
-        <ellipse cx="0" cy="170" rx="280" ry="60" fill="url(#s2-ground-pool)"/>
-        <line x1="0" y1="0" x2="0" y2="-380" stroke="#2a2520" stroke-width="6"/>
-        <line x1="0" y1="-380" x2="80" y2="-380" stroke="#2a2520" stroke-width="6"/>
-        <rect x="60" y="-395" width="50" height="14" rx="3" fill="#3a3530"/>
-        <!-- Solar panel on top -->
-        <polygon points="-30,-385 30,-385 22,-410 -22,-410" fill="#1a2438" stroke="#3a4458" stroke-width="1"/>
-        <!-- Light glow -->
-        <circle cx="85" cy="-378" r="40" fill="url(#s2-lamp-glow)" filter="url(#s2-soft-glow)">
-          <animate attributeName="r" values="38;46;38" dur="3.5s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="85" cy="-378" r="8" fill="#fde9b9"/>
-      </g>
-
-      <!-- Lamp 2 -->
-      <g transform="translate(720,800)">
-        <ellipse cx="0" cy="160" rx="300" ry="55" fill="url(#s2-ground-pool)"/>
-        <line x1="0" y1="0" x2="0" y2="-360" stroke="#2a2520" stroke-width="6"/>
-        <line x1="0" y1="-360" x2="80" y2="-360" stroke="#2a2520" stroke-width="6"/>
-        <rect x="60" y="-375" width="50" height="14" rx="3" fill="#3a3530"/>
-        <polygon points="-30,-365 30,-365 22,-390 -22,-390" fill="#1a2438" stroke="#3a4458" stroke-width="1"/>
-        <circle cx="85" cy="-358" r="40" fill="url(#s2-lamp-glow)" filter="url(#s2-soft-glow)">
-          <animate attributeName="r" values="38;46;38" dur="3.5s" begin="-1s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="85" cy="-358" r="8" fill="#fde9b9"/>
-      </g>
-
-      <!-- Lamp 3 -->
-      <g transform="translate(1200,800)">
-        <ellipse cx="0" cy="160" rx="300" ry="55" fill="url(#s2-ground-pool)"/>
-        <line x1="0" y1="0" x2="0" y2="-360" stroke="#2a2520" stroke-width="6"/>
-        <line x1="0" y1="-360" x2="80" y2="-360" stroke="#2a2520" stroke-width="6"/>
-        <rect x="60" y="-375" width="50" height="14" rx="3" fill="#3a3530"/>
-        <polygon points="-30,-365 30,-365 22,-390 -22,-390" fill="#1a2438" stroke="#3a4458" stroke-width="1"/>
-        <circle cx="85" cy="-358" r="40" fill="url(#s2-lamp-glow)" filter="url(#s2-soft-glow)">
-          <animate attributeName="r" values="38;46;38" dur="3.5s" begin="-2s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="85" cy="-358" r="8" fill="#fde9b9"/>
-      </g>
-
-      <!-- Lamp 4 -->
-      <g transform="translate(1640,780)">
-        <ellipse cx="0" cy="170" rx="280" ry="60" fill="url(#s2-ground-pool)"/>
-        <line x1="0" y1="0" x2="0" y2="-380" stroke="#2a2520" stroke-width="6"/>
-        <line x1="0" y1="-380" x2="80" y2="-380" stroke="#2a2520" stroke-width="6"/>
-        <rect x="60" y="-395" width="50" height="14" rx="3" fill="#3a3530"/>
-        <polygon points="-30,-385 30,-385 22,-410 -22,-410" fill="#1a2438" stroke="#3a4458" stroke-width="1"/>
-        <circle cx="85" cy="-378" r="40" fill="url(#s2-lamp-glow)" filter="url(#s2-soft-glow)">
-          <animate attributeName="r" values="38;46;38" dur="3.5s" begin="-2.7s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="85" cy="-378" r="8" fill="#fde9b9"/>
-      </g>
-
-      <!-- "GRID DOWN" badge top-right -->
-      <g transform="translate(1620,90)">
-        <rect x="0" y="0" width="240" height="42" rx="21" fill="rgba(196,21,28,0.18)" stroke="#c4151c" stroke-width="1.5"/>
-        <circle cx="22" cy="21" r="5" fill="#c4151c">
-          <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
-        </circle>
-        <text x="40" y="27" fill="#ff6b6b" font-family="Outfit, sans-serif" font-size="14" font-weight="600" letter-spacing="2">GRID OUTAGE · 22:47</text>
-      </g>
-
-      <!-- "WE STAY ON" tag bottom-left -->
-      <g transform="translate(40,940)">
-        <rect x="0" y="0" width="320" height="46" rx="23" fill="rgba(168,125,42,0.2)" stroke="#c9a24e" stroke-width="1.5"/>
-        <circle cx="22" cy="23" r="5" fill="#fde9b9">
-          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
-        </circle>
-        <text x="40" y="29" fill="#fde9b9" font-family="Outfit, sans-serif" font-size="14" font-weight="600" letter-spacing="2">SOLAR · LIGHT STAYS ON</text>
-      </g>
-    </svg>
-  </div>
-
-  <!-- ───────── Slide 3: Modern Villa with Solar Garden Lights (photorealistic AI image) ───────── -->
-  <div class="hero-slide" data-slide="2" aria-label="Modern villa at dusk with solar garden sphere lights and rooftop solar panels">
-    <video class="hero-slide-img" autoplay loop muted playsinline
-           poster="images/hero-slide-3-villa.jpg" preload="metadata"
-           aria-label="Modern villa at dusk — rooftop solar panels, glowing garden sphere lights, warm wall sconces — JC Lightning residential solar lighting">
-      <source src="images/hero-slide-3.mp4" type="video/mp4">
-      <img src="images/hero-slide-3-villa.jpg" alt="Modern villa at dusk with solar garden sphere lights and wall sconces — JC Lightning residential solar lighting" loading="lazy"/>
-    </video>
-    <!-- "RESIDENTIAL · SECURITY + AMBIANCE" badge overlay -->
-    <svg class="hero-slide-overlay" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g transform="translate(40,90)">
-        <rect x="0" y="0" width="380" height="42" rx="21" fill="rgba(168,125,42,0.22)" stroke="#c9a24e" stroke-width="1.5"/>
-        <circle cx="22" cy="21" r="5" fill="#c9a24e">
-          <animate attributeName="opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite"/>
-        </circle>
-        <text x="40" y="27" fill="#fde9b9" font-family="Outfit, sans-serif" font-size="13" font-weight="600" letter-spacing="2">RESIDENTIAL · SECURITY + AMBIANCE</text>
-      </g>
-    </svg>
-    <!-- Legacy SVG kept hidden as a fallback -->
-    <svg class="hero-slide-svg" style="display:none" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="s3-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#f4d2a8"/>
-          <stop offset="40%" stop-color="#e8b885"/>
-          <stop offset="100%" stop-color="#a87d5a"/>
-        </linearGradient>
-        <linearGradient id="s3-ground" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#3a3023"/>
-          <stop offset="100%" stop-color="#1a1410"/>
-        </linearGradient>
-        <radialGradient id="s3-warmpool" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.5"/>
-          <stop offset="60%" stop-color="#c9a24e" stop-opacity="0.2"/>
-          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
-        </radialGradient>
-        <linearGradient id="s3-villa" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#3a3530"/>
-          <stop offset="100%" stop-color="#2a2520"/>
-        </linearGradient>
-      </defs>
-
-      <!-- Dusk sky -->
-      <rect width="1920" height="700" fill="url(#s3-sky)"/>
-      <!-- Sun -->
-      <circle cx="1500" cy="280" r="80" fill="#fde9b9" opacity="0.7">
-        <animate attributeName="opacity" values="0.65;0.85;0.65" dur="6s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="1500" cy="280" r="120" fill="#fbcc6e" opacity="0.25"/>
-      <!-- Distant mountains -->
-      <polygon points="0,650 200,540 380,610 580,500 800,580 1000,520 1200,600 1450,510 1700,590 1920,540 1920,700 0,700" fill="#5a4a3a" opacity="0.5"/>
-      <polygon points="0,700 250,620 500,680 800,600 1100,670 1400,610 1700,680 1920,640 1920,720 0,720" fill="#3a2c20" opacity="0.7"/>
-
-      <!-- Ground -->
-      <rect y="700" width="1920" height="380" fill="url(#s3-ground)"/>
-
-      <!-- Villa silhouette (centered) -->
-      <g transform="translate(640,440)">
-        <!-- Main body -->
-        <rect x="0" y="120" width="640" height="280" fill="url(#s3-villa)"/>
-        <!-- Roof (pitched) -->
-        <polygon points="0,120 320,30 640,120" fill="#1a1410"/>
-        <!-- Solar panels on roof -->
-        <g transform="translate(80,55)">
-          <rect width="200" height="55" fill="#1a2438" transform="skewX(-25)" stroke="#3a4458" stroke-width="1"/>
-          <line x1="50" y1="0" x2="50" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
-          <line x1="100" y1="0" x2="100" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
-          <line x1="150" y1="0" x2="150" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
-        </g>
-        <g transform="translate(360,55)">
-          <rect width="200" height="55" fill="#1a2438" transform="skewX(-25)" stroke="#3a4458" stroke-width="1"/>
-          <line x1="50" y1="0" x2="50" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
-          <line x1="100" y1="0" x2="100" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
-          <line x1="150" y1="0" x2="150" y2="55" stroke="#3a4458" stroke-width="0.5" transform="skewX(-25)"/>
-        </g>
-        <!-- Windows (lit) -->
-        <rect x="60" y="170" width="60" height="80" fill="#fde9b9" opacity="0.85"><animate attributeName="opacity" values="0.7;0.95;0.7" dur="5s" repeatCount="indefinite"/></rect>
-        <rect x="160" y="170" width="60" height="80" fill="#fde9b9" opacity="0.85"/>
-        <rect x="280" y="280" width="80" height="120" fill="#3a3530"/>
-        <rect x="420" y="170" width="60" height="80" fill="#fde9b9" opacity="0.85"><animate attributeName="opacity" values="0.75;1;0.75" dur="4s" repeatCount="indefinite" begin="-1s"/></rect>
-        <rect x="520" y="170" width="60" height="80" fill="#fde9b9" opacity="0.85"/>
-        <!-- Wall-mounted up-down lights -->
-        <g transform="translate(40,280)">
-          <rect x="-3" y="-2" width="6" height="20" fill="#3a3530"/>
-          <ellipse cx="0" cy="-10" rx="40" ry="14" fill="url(#s3-warmpool)"><animate attributeName="ry" values="12;16;12" dur="4s" repeatCount="indefinite"/></ellipse>
-          <ellipse cx="0" cy="28" rx="40" ry="14" fill="url(#s3-warmpool)"/>
-        </g>
-        <g transform="translate(600,280)">
-          <rect x="-3" y="-2" width="6" height="20" fill="#3a3530"/>
-          <ellipse cx="0" cy="-10" rx="40" ry="14" fill="url(#s3-warmpool)"><animate attributeName="ry" values="12;16;12" dur="4s" begin="-2s" repeatCount="indefinite"/></ellipse>
-          <ellipse cx="0" cy="28" rx="40" ry="14" fill="url(#s3-warmpool)"/>
-        </g>
-      </g>
-
-      <!-- Garden path with stake lights -->
-      <path d="M 200 1050 Q 500 950 850 880 Q 1100 830 1280 850" stroke="#1a1410" stroke-width="50" fill="none" opacity="0.7"/>
-
-      <!-- Path stake lights (5 lights along path) -->
-      <g>
-        <g transform="translate(280,990)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
-        <g transform="translate(480,940)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" begin="-0.6s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
-        <g transform="translate(700,900)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" begin="-1.2s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
-        <g transform="translate(950,870)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" begin="-1.8s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
-        <g transform="translate(1200,860)"><ellipse cx="0" cy="0" rx="60" ry="14" fill="url(#s3-warmpool)"><animate attributeName="rx" values="55;65;55" dur="3s" begin="-2.4s" repeatCount="indefinite"/></ellipse><circle cx="0" cy="-4" r="6" fill="#fde9b9"/></g>
-      </g>
-
-      <!-- Sphere gate pillars (2 at entrance) -->
-      <g transform="translate(330,860)">
-        <rect x="-12" y="0" width="24" height="120" fill="#2a2520"/>
-        <circle cx="0" cy="-12" r="20" fill="#fde9b9" opacity="0.85"><animate attributeName="opacity" values="0.7;1;0.7" dur="3.5s" repeatCount="indefinite"/></circle>
-        <circle cx="0" cy="-12" r="32" fill="url(#s3-warmpool)"/>
-      </g>
-      <g transform="translate(1640,860)">
-        <rect x="-12" y="0" width="24" height="120" fill="#2a2520"/>
-        <circle cx="0" cy="-12" r="20" fill="#fde9b9" opacity="0.85"><animate attributeName="opacity" values="0.75;1;0.75" dur="3.5s" begin="-1.7s" repeatCount="indefinite"/></circle>
-        <circle cx="0" cy="-12" r="32" fill="url(#s3-warmpool)"/>
-      </g>
-
-      <!-- "RESIDENTIAL · SECURITY + AMBIANCE" tag -->
-      <g transform="translate(40,90)">
-        <rect x="0" y="0" width="320" height="42" rx="21" fill="rgba(168,125,42,0.18)" stroke="#c9a24e" stroke-width="1.5"/>
-        <circle cx="22" cy="21" r="5" fill="#c9a24e"><animate attributeName="opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite"/></circle>
-        <text x="40" y="27" fill="#fde9b9" font-family="Outfit, sans-serif" font-size="13" font-weight="600" letter-spacing="2">VILLA · SECURITY + AMBIANCE</text>
-      </g>
-    </svg>
-  </div>
-
+<!-- Hero background: big cinematic night-street photo (Birds-style) -->
+<div class="hero-aurora" aria-hidden="true">
+  <div class="hero-photo"></div>
+  <div class="hero-photo-tint"></div>
+  <span class="hero-beam"></span>
+  <span class="hero-spark s1"></span>
+  <span class="hero-spark s2"></span>
+  <span class="hero-spark s3"></span>
+  <span class="hero-spark s4"></span>
+  <span class="hero-spark s5"></span>
+  <span class="hero-spark s6"></span>
 </div>
 
-<!-- Carousel arrows -->
-<button class="hero-nav-arrow prev" id="heroPrev" aria-label="Previous slide">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-</button>
-<button class="hero-nav-arrow next" id="heroNext" aria-label="Next slide">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-</button>
-
-<!-- Slide pagination dots -->
-<div class="hero-dots" id="heroDots">
-  <button class="hero-dot active" data-go="0" aria-label="Go to slide 1"></button>
-  <button class="hero-dot" data-go="1" aria-label="Go to slide 2"></button>
-  <button class="hero-dot" data-go="2" aria-label="Go to slide 3"></button>
-</div>
-
-  <!-- Cover for Kling AI 3.0 4K watermark (bottom-right corner of video) -->
-  <div class="hero-wm-cover" aria-hidden="true"></div>
-
-  <!-- ===== Animated Flow Overlay (energy flow + traveling cars + platform pulse) ===== -->
-  <svg class="hero-flow-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs>
-      <filter id="hf-glow" x="-100%" y="-100%" width="300%" height="300%">
-        <feGaussianBlur stdDeviation="6" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-      <radialGradient id="hf-dot">
-        <stop offset="0%" stop-color="#fff8dc" stop-opacity="1"/>
-        <stop offset="35%" stop-color="#fde9b9" stop-opacity="0.95"/>
-        <stop offset="100%" stop-color="#c9a24e" stop-opacity="0"/>
-      </radialGradient>
-      <radialGradient id="hf-pulse" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.55"/>
-        <stop offset="60%" stop-color="#c9a24e" stop-opacity="0.18"/>
-        <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
-      </radialGradient>
-      <!-- Flow paths: connecting platform centers along visible golden edges -->
-      <path id="hf-p1" d="M 660,560 Q 800,610 920,650" fill="none"/><!-- Villa → Center -->
-      <path id="hf-p2" d="M 1080,640 Q 1240,580 1400,500" fill="none"/><!-- Center → Warehouse -->
-      <path id="hf-p3" d="M 1000,720 Q 1150,780 1340,830" fill="none"/><!-- Center → Pergola -->
-      <path id="hf-p4" d="M 660,870 Q 780,820 920,720" fill="none"/><!-- Parking → Center -->
-      <path id="hf-p5" d="M 720,650 Q 800,680 900,690" fill="none"/><!-- short flow -->
-    </defs>
-
-    <!-- Soft pulsing glow under each platform -->
-    <g class="hf-pulses">
-      <ellipse cx="500" cy="540" rx="240" ry="35" fill="url(#hf-pulse)" class="hf-pulse-1"/>
-      <ellipse cx="1380" cy="460" rx="260" ry="40" fill="url(#hf-pulse)" class="hf-pulse-2"/>
-      <ellipse cx="940" cy="700" rx="220" ry="32" fill="url(#hf-pulse)" class="hf-pulse-3"/>
-      <ellipse cx="500" cy="900" rx="260" ry="38" fill="url(#hf-pulse)" class="hf-pulse-4"/>
-      <ellipse cx="1400" cy="860" rx="260" ry="40" fill="url(#hf-pulse)" class="hf-pulse-5"/>
-    </g>
-
-    <!-- Traveling energy dots along flow paths -->
-    <g filter="url(#hf-glow)">
-      <circle r="9" fill="url(#hf-dot)"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#hf-p1"/></animateMotion></circle>
-      <circle r="9" fill="url(#hf-dot)"><animateMotion dur="3.2s" begin="-1.2s" repeatCount="indefinite"><mpath href="#hf-p1"/></animateMotion></circle>
-      <circle r="9" fill="url(#hf-dot)"><animateMotion dur="3.8s" repeatCount="indefinite"><mpath href="#hf-p2"/></animateMotion></circle>
-      <circle r="9" fill="url(#hf-dot)"><animateMotion dur="3.8s" begin="-1.6s" repeatCount="indefinite"><mpath href="#hf-p2"/></animateMotion></circle>
-      <circle r="9" fill="url(#hf-dot)"><animateMotion dur="3.5s" repeatCount="indefinite"><mpath href="#hf-p3"/></animateMotion></circle>
-      <circle r="9" fill="url(#hf-dot)"><animateMotion dur="3.5s" begin="-1.4s" repeatCount="indefinite"><mpath href="#hf-p3"/></animateMotion></circle>
-      <circle r="9" fill="url(#hf-dot)"><animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#hf-p4"/></animateMotion></circle>
-      <circle r="9" fill="url(#hf-dot)"><animateMotion dur="3.6s" begin="-1.5s" repeatCount="indefinite"><mpath href="#hf-p4"/></animateMotion></circle>
-    </g>
-
-    <!-- Animated tiny vehicles driving on bottom road area -->
-    <g class="hf-car hf-car-1">
-      <rect width="40" height="16" rx="3" fill="#2a2520" filter="url(#hf-glow)"/>
-      <rect x="6" y="-7" width="26" height="10" rx="2" fill="#5a4a3a"/>
-      <circle cx="9" cy="18" r="3" fill="#0a0805"/>
-      <circle cx="31" cy="18" r="3" fill="#0a0805"/>
-      <rect x="36" y="3" width="4" height="4" fill="#fde9b9" filter="url(#hf-glow)"/>
-    </g>
-    <g class="hf-car hf-car-2">
-      <rect width="34" height="14" rx="3" fill="#c9a24e"/>
-      <rect x="5" y="-6" width="22" height="8" rx="2" fill="#fde9b9"/>
-      <circle cx="7" cy="16" r="2.5" fill="#0a0805"/>
-      <circle cx="27" cy="16" r="2.5" fill="#0a0805"/>
-    </g>
-  </svg>
-
-  <!-- ===== Isometric Solar Smart Community SVG (full-bleed background) ===== -->
-  <!-- Floating golden particles (dusk only) -->
-  <div class="hero-particles" aria-hidden="true">
-    <span class="hp" style="left:8%;animation-delay:0s"></span>
-    <span class="hp" style="left:14%;animation-delay:-3s"></span>
-    <span class="hp" style="left:22%;animation-delay:-7s"></span>
-    <span class="hp" style="left:30%;animation-delay:-1.5s"></span>
-    <span class="hp" style="left:38%;animation-delay:-9s"></span>
-    <span class="hp" style="left:46%;animation-delay:-4s"></span>
-    <span class="hp" style="left:54%;animation-delay:-11s"></span>
-    <span class="hp" style="left:62%;animation-delay:-6s"></span>
-    <span class="hp" style="left:70%;animation-delay:-2s"></span>
-    <span class="hp" style="left:78%;animation-delay:-8s"></span>
-    <span class="hp" style="left:86%;animation-delay:-5s"></span>
-    <span class="hp" style="left:92%;animation-delay:-10s"></span>
+  <!-- Trust pill — Birds "Active Users" equivalent -->
+  <div class="hero-trust-pill">
+    <span class="htp-mark">CE · RoHS</span>
+    <span class="htp-label" data-i18n="htp_label">Certified hardware</span>
   </div>
 
-  <div class="hero-scene" aria-hidden="true">
-    <svg class="hero-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <!-- Day sky — richer atmospheric gradient -->
-        <linearGradient id="vlg-sky-day" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#6a8fb0"/>
-          <stop offset="30%" stop-color="#a8c4d8"/>
-          <stop offset="65%" stop-color="#d8cab0"/>
-          <stop offset="100%" stop-color="#e8d098"/>
-        </linearGradient>
-        <!-- Horizon haze (day only) -->
-        <linearGradient id="vlg-haze" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#e8d5a8" stop-opacity="0"/>
-          <stop offset="100%" stop-color="#e8c888" stop-opacity="0.35"/>
-        </linearGradient>
-        <!-- Dusk sky -->
-        <linearGradient id="vlg-sky-dusk" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#1f2238"/>
-          <stop offset="45%" stop-color="#5a3c40"/>
-          <stop offset="80%" stop-color="#c97a3a"/>
-          <stop offset="100%" stop-color="#2a1a08"/>
-        </linearGradient>
-        <!-- Sun (day) -->
-        <radialGradient id="vlg-sun-day" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#fff8e0"/>
-          <stop offset="60%" stop-color="#f5d27a" stop-opacity="0.95"/>
-          <stop offset="100%" stop-color="#e8a040" stop-opacity="0"/>
-        </radialGradient>
-        <!-- Sun (dusk) -->
-        <radialGradient id="vlg-sun-dusk" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ffd078"/>
-          <stop offset="50%" stop-color="#e07028" stop-opacity="0.95"/>
-          <stop offset="100%" stop-color="#a02818" stop-opacity="0"/>
-        </radialGradient>
-        <!-- Product light glow -->
-        <radialGradient id="vlg-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.95"/>
-          <stop offset="40%" stop-color="#e2c98a" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="vlg-cone" cx="50%" cy="0%" r="80%">
-          <stop offset="0%" stop-color="#fde9b9" stop-opacity="0.55"/>
-          <stop offset="100%" stop-color="#a87d2a" stop-opacity="0"/>
-        </radialGradient>
-        <!-- Clip mask — cars/pedestrians are invisible inside shop & EV footprints -->
-        <clipPath id="vlg-traffic-mask" clipPathUnits="userSpaceOnUse">
-          <path d="M 0,0 H 1600 V 900 H 0 Z
-                   M 100,640 L 220,580 L 360,640 L 360,790 L 240,850 L 100,790 Z
-                   M 1280,560 L 1430,500 L 1580,560 L 1580,820 L 1280,820 Z"
-                fill-rule="evenodd"/>
-        </clipPath>
-        <!-- Solar panel pattern -->
-        <pattern id="vlg-solar" x="0" y="0" width="20" height="14" patternUnits="userSpaceOnUse">
-          <rect width="20" height="14" fill="#1c3a62"/>
-          <line x1="10" y1="0" x2="10" y2="14" stroke="#2a5080" stroke-width="0.6"/>
-          <line x1="0" y1="7" x2="20" y2="7" stroke="#2a5080" stroke-width="0.6"/>
-        </pattern>
-      </defs>
-
-      <!-- ============ SKY (day + dusk crossfade) ============ -->
-      <rect class="vlg-sky-day" width="1600" height="900" fill="url(#vlg-sky-day)"/>
-      <!-- Horizon atmospheric glow (day) -->
-      <rect class="vlg-sky-day" x="0" y="450" width="1600" height="150" fill="url(#vlg-haze)" opacity="0.5"/>
-      <rect class="vlg-sky-dusk" width="1600" height="900" fill="url(#vlg-sky-dusk)"/>
-
-      <!-- ============ CLOUDS (day only, animated drift) ============ -->
-      <g class="vlg-clouds" aria-hidden="true">
-        <g class="vlg-cloud vlg-cloud-1">
-          <ellipse cx="380" cy="132" rx="95" ry="30" fill="rgba(255,255,255,0.58)"/>
-          <ellipse cx="426" cy="115" rx="68" ry="24" fill="rgba(255,255,255,0.55)"/>
-          <ellipse cx="335" cy="124" rx="55" ry="21" fill="rgba(255,255,255,0.48)"/>
-          <ellipse cx="458" cy="130" rx="40" ry="16" fill="rgba(255,255,255,0.42)"/>
-        </g>
-        <g class="vlg-cloud vlg-cloud-2">
-          <ellipse cx="920" cy="88" rx="80" ry="26" fill="rgba(255,255,255,0.50)"/>
-          <ellipse cx="964" cy="73" rx="55" ry="20" fill="rgba(255,255,255,0.50)"/>
-          <ellipse cx="876" cy="82" rx="50" ry="18" fill="rgba(255,255,255,0.42)"/>
-        </g>
-        <g class="vlg-cloud vlg-cloud-3">
-          <ellipse cx="1320" cy="158" rx="88" ry="28" fill="rgba(255,255,255,0.52)"/>
-          <ellipse cx="1360" cy="142" rx="62" ry="22" fill="rgba(255,255,255,0.52)"/>
-          <ellipse cx="1278" cy="150" rx="52" ry="19" fill="rgba(255,255,255,0.44)"/>
-        </g>
-      </g>
-
-      <!-- ============ BIRDS (day only) ============ -->
-      <g class="vlg-birds" transform="translate(200, 200)" aria-hidden="true">
-        <path d="M0,0 Q5,-5 10,0 Q15,-5 20,0" stroke="#2a1e14" stroke-width="1.4" fill="none"/>
-        <path d="M28,10 Q33,5 38,10 Q43,5 48,10" stroke="#2a1e14" stroke-width="1.4" fill="none"/>
-        <path d="M58,3 Q63,-3 68,3 Q73,-3 78,3" stroke="#2a1e14" stroke-width="1.3" fill="none"/>
-        <path d="M88,14 Q93,8 98,14 Q103,8 108,14" stroke="#2a1e14" stroke-width="1.2" fill="none"/>
-        <path d="M118,5 Q123,0 128,5 Q133,0 138,5" stroke="#2a1e14" stroke-width="1.2" fill="none"/>
-      </g>
-
-      <!-- Sun (animates position) -->
-      <g class="vlg-sun-group">
-        <circle class="vlg-sun-day-orb" cx="280" cy="160" r="60" fill="url(#vlg-sun-day)" opacity="0.85"/>
-        <circle class="vlg-sun-dusk-orb" cx="180" cy="380" r="75" fill="url(#vlg-sun-dusk)" opacity="0"/>
-      </g>
-
-      <!-- Stars (dusk only) -->
-      <g class="vlg-stars" fill="#f5e9c8">
-        <circle cx="120" cy="80" r="1.2"/>
-        <circle cx="280" cy="40" r="0.9"/>
-        <circle cx="450" cy="120" r="1.1"/>
-        <circle cx="620" cy="60" r="0.8"/>
-        <circle cx="820" cy="100" r="1.3"/>
-        <circle cx="1020" cy="50" r="0.9"/>
-        <circle cx="1240" cy="130" r="1.1"/>
-        <circle cx="1420" cy="80" r="1.0"/>
-        <circle cx="1540" cy="160" r="0.9"/>
-        <circle cx="380" cy="220" r="0.7"/>
-        <circle cx="960" cy="200" r="0.8"/>
-        <circle cx="1340" cy="220" r="0.7"/>
-      </g>
-
-      <!-- ============ MOON (dusk/night only) ============ -->
-      <g class="vlg-moon" aria-hidden="true">
-        <!-- Moon body -->
-        <circle cx="1410" cy="108" r="38" fill="#f0e0c0"/>
-        <!-- Crescent shadow (gives 3D feel) -->
-        <circle cx="1424" cy="100" r="34" fill="#1f2238"/>
-        <!-- Soft halo glow rings -->
-        <circle cx="1410" cy="108" r="58" fill="#fde9b9" opacity="0.09"/>
-        <circle cx="1410" cy="108" r="80" fill="#fde9b9" opacity="0.04"/>
-        <!-- Surface detail -->
-        <circle cx="1396" cy="115" r="4" fill="#d8c89a" opacity="0.55"/>
-        <circle cx="1404" cy="100" r="2.5" fill="#d8c89a" opacity="0.45"/>
-        <circle cx="1386" cy="104" r="3" fill="#d8c89a" opacity="0.40"/>
-      </g>
-
-      <!-- ============ GROUND (isometric plane) ============ -->
-      <polygon class="vlg-ground" points="0,600 1600,600 1600,900 0,900" fill="#9c8460"/>
-      <!-- Ground texture gradient — darker near road -->
-      <polygon points="0,660 1600,660 1600,900 0,900" fill="url(#vlg-haze)" opacity="0.4"/>
-      <polygon class="vlg-ground-shade" points="0,600 1600,600 1600,900 0,900" fill="#1a140e" opacity="0"/>
-      <!-- Road (horizontal across middle) -->
-      <polygon class="vlg-road" points="0,720 1600,720 1600,790 0,790" fill="#4a3e2e"/>
-      <!-- Road side kerbs (slightly lighter strips) -->
-      <rect x="0" y="720" width="1600" height="3" fill="#6a5a48" opacity="0.7"/>
-      <rect x="0" y="787" width="1600" height="3" fill="#6a5a48" opacity="0.7"/>
-      <!-- Sidewalks on both sides of road -->
-      <polygon points="0,705 1600,705 1600,720 0,720" fill="#7a6a54" opacity="0.6"/>
-      <polygon points="0,790 1600,790 1600,808 0,808" fill="#7a6a54" opacity="0.5"/>
-      <polygon class="vlg-road-shade" points="0,720 1600,720 1600,790 0,790" fill="#0a0805" opacity="0"/>
-
-      <!-- Building ground shadows (day only, fade at dusk) -->
-      <g class="vlg-day-shadows">
-        <!-- Apartment shadow (sun upper-left → shadow lower-right) -->
-        <ellipse cx="500" cy="685" rx="110" ry="18" fill="#0a0806" opacity="0.15"/>
-        <!-- Villa shadow -->
-        <ellipse cx="960" cy="690" rx="100" ry="16" fill="#0a0806" opacity="0.14"/>
-        <!-- Warehouse shadow -->
-        <ellipse cx="1360" cy="690" rx="130" ry="20" fill="#0a0806" opacity="0.13"/>
-        <!-- Shop shadow (small, very front) -->
-        <ellipse cx="250" cy="795" rx="80" ry="10" fill="#0a0806" opacity="0.1"/>
-      </g>
-      <!-- Road center dashes -->
-      <g class="vlg-dashes" fill="#e8d5a8" opacity="0.55">
-        <rect x="40" y="752" width="40" height="3"/>
-        <rect x="160" y="752" width="40" height="3"/>
-        <rect x="280" y="752" width="40" height="3"/>
-        <rect x="400" y="752" width="40" height="3"/>
-        <rect x="520" y="752" width="40" height="3"/>
-        <rect x="640" y="752" width="40" height="3"/>
-        <rect x="760" y="752" width="40" height="3"/>
-        <rect x="880" y="752" width="40" height="3"/>
-        <rect x="1000" y="752" width="40" height="3"/>
-        <rect x="1120" y="752" width="40" height="3"/>
-        <rect x="1240" y="752" width="40" height="3"/>
-        <rect x="1360" y="752" width="40" height="3"/>
-        <rect x="1480" y="752" width="40" height="3"/>
-      </g>
-
-      <!-- ============ FAR BACKGROUND CITY SKYLINE ============ -->
-      <!-- Adds depth — muted isometric silhouettes behind main buildings -->
-      <g class="vlg-far-city" aria-hidden="true">
-        <!-- BG-A: Tall office tower behind & left of apartment -->
-        <polygon points="162,345 232,308 302,345 232,382" fill="#8fa5b8" opacity="0.28"/>
-        <polygon points="232,382 302,345 302,488 232,525" fill="#6a7f90" opacity="0.28"/>
-        <polygon points="162,345 232,382 232,525 162,488" fill="#7d96a8" opacity="0.28"/>
-        <!-- tiny windows -->
-        <g opacity="0.15" fill="#e8d5a8">
-          <rect x="172" y="400" width="7" height="9"/>
-          <rect x="186" y="400" width="7" height="9"/>
-          <rect x="172" y="420" width="7" height="9"/>
-          <rect x="186" y="420" width="7" height="9"/>
-          <rect x="172" y="440" width="7" height="9"/>
-          <rect x="186" y="440" width="7" height="9"/>
-        </g>
-        <!-- BG-B: Mid-height block, between apt and villa -->
-        <polygon points="468,302 528,272 588,302 528,332" fill="#9bb5c4" opacity="0.24"/>
-        <polygon points="528,332 588,302 588,428 528,458" fill="#72909e" opacity="0.24"/>
-        <polygon points="468,302 528,332 528,458 468,428" fill="#839ead" opacity="0.24"/>
-        <!-- solar panel on BG-B -->
-        <polygon points="476,302 528,276 566,302 514,328" fill="#1c3a62" opacity="0.20"/>
-        <!-- BG-C: Between villa and warehouse (right side) -->
-        <polygon points="1040,295 1102,262 1164,295 1102,328" fill="#93a8bc" opacity="0.26"/>
-        <polygon points="1102,328 1164,295 1164,445 1102,478" fill="#6a8090" opacity="0.26"/>
-        <polygon points="1040,295 1102,328 1102,478 1040,445" fill="#7c96a8" opacity="0.26"/>
-        <!-- BG-D: Far right behind EV canopy -->
-        <polygon points="1492,295 1546,265 1600,295 1546,325" fill="#8898ac" opacity="0.20"/>
-        <polygon points="1546,325 1600,295 1600,440 1546,470" fill="#6a7888" opacity="0.20"/>
-        <polygon points="1492,295 1546,325 1546,470 1492,440" fill="#7888a0" opacity="0.20"/>
-      </g>
-
-      <!-- ============ BUILDING 1 — Apartment (back-left) ============ -->
-      <g class="vlg-bldg" data-bldg="apt">
-        <!-- TOP face -->
-        <polygon points="280,400 400,340 520,400 400,460" fill="#bda57f" class="vlg-top"/>
-        <polygon points="280,400 400,340 520,400 400,460" fill="#1a140e" opacity="0" class="vlg-top-shade"/>
-        <!-- East face -->
-        <polygon points="400,460 520,400 520,640 400,700" fill="#9c8966" class="vlg-east"/>
-        <polygon points="400,460 520,400 520,640 400,700" fill="#1a140e" opacity="0" class="vlg-east-shade"/>
-        <!-- South face -->
-        <polygon points="280,400 400,460 400,700 280,640" fill="#a89572" class="vlg-south"/>
-        <polygon points="280,400 400,460 400,700 280,640" fill="#1a140e" opacity="0" class="vlg-south-shade"/>
-        <!-- Windows on south face (3 rows × 2 cols) -->
-        <g class="vlg-windows">
-          <rect x="300" y="490" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
-          <rect x="340" y="500" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
-          <rect x="300" y="540" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
-          <rect x="340" y="550" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
-          <rect x="300" y="590" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
-          <rect x="340" y="600" width="22" height="28" fill="#e8d5a8" class="vlg-win"/>
-        </g>
-        <!-- Windows on east face -->
-        <g class="vlg-windows">
-          <rect x="420" y="490" width="22" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="420 490"/>
-          <rect x="470" y="475" width="22" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="470 475"/>
-          <rect x="420" y="540" width="22" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="420 540"/>
-          <rect x="470" y="525" width="22" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="470 525"/>
-        </g>
-        <!-- Solar panels on roof -->
-        <polygon points="310,400 400,355 470,400 380,445" fill="url(#vlg-solar)"/>
-      </g>
-
-      <!-- ============ BUILDING 2 — Warehouse (back-right) ============ -->
-      <g class="vlg-bldg" data-bldg="warehouse">
-        <!-- TOP face (wide, low building) -->
-        <polygon points="1000,440 1200,340 1430,440 1230,540" fill="#a8b0b8" class="vlg-top"/>
-        <polygon points="1000,440 1200,340 1430,440 1230,540" fill="#1a140e" opacity="0" class="vlg-top-shade"/>
-        <!-- East face -->
-        <polygon points="1230,540 1430,440 1430,600 1230,700" fill="#7c8088" class="vlg-east"/>
-        <polygon points="1230,540 1430,440 1430,600 1230,700" fill="#1a140e" opacity="0" class="vlg-east-shade"/>
-        <!-- South face -->
-        <polygon points="1000,440 1230,540 1230,700 1000,600" fill="#8c9098" class="vlg-south"/>
-        <polygon points="1000,440 1230,540 1230,700 1000,600" fill="#1a140e" opacity="0" class="vlg-south-shade"/>
-        <!-- Loading bay opening (dark) -->
-        <polygon points="1080,560 1180,600 1180,690 1080,650" fill="#1a1814"/>
-        <!-- Massive solar panel array on roof -->
-        <polygon points="1030,440 1200,355 1380,440 1210,525" fill="url(#vlg-solar)"/>
-        <line x1="1100" y1="397" x2="1280" y2="482" stroke="#3a5d8a" stroke-width="1"/>
-        <line x1="1145" y1="376" x2="1330" y2="463" stroke="#3a5d8a" stroke-width="1"/>
-        <!-- Warehouse signage -->
-        <rect x="1020" y="455" width="170" height="14" fill="#c9a24e" opacity="0.8" transform="skewY(26.5)"/>
-      </g>
-
-      <!-- ============ BUILDING 3 — Main JC Villa (center) ============ -->
-      <g class="vlg-bldg" data-bldg="villa">
-        <!-- Pitched roof — two triangular slopes -->
-        <polygon points="640,380 800,300 960,380 920,400 800,335 680,400" fill="#5a3a26" class="vlg-roof-front"/>
-        <polygon points="640,380 800,460 960,380 920,400 800,420 680,400" fill="#3a2316" class="vlg-roof-east"/>
-        <!-- East face -->
-        <polygon points="800,460 920,400 920,640 800,700" fill="#c5a878" class="vlg-east"/>
-        <polygon points="800,460 920,400 920,640 800,700" fill="#1a140e" opacity="0" class="vlg-east-shade"/>
-        <!-- South face -->
-        <polygon points="680,400 800,460 800,700 680,640" fill="#d5b888" class="vlg-south"/>
-        <polygon points="680,400 800,460 800,700 680,640" fill="#1a140e" opacity="0" class="vlg-south-shade"/>
-        <!-- Door (south face) -->
-        <polygon points="725,520 760,538 760,640 725,623" fill="#5a3a22" class="vlg-door"/>
-        <polygon points="730,528 755,540 755,635 730,621" fill="#7a5232"/>
-        <!-- Windows south -->
-        <rect x="697" y="480" width="20" height="28" fill="#e8d5a8" class="vlg-win"/>
-        <rect x="697" y="540" width="20" height="28" fill="#e8d5a8" class="vlg-win"/>
-        <!-- Windows east -->
-        <rect x="840" y="475" width="20" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="840 475"/>
-        <rect x="880" y="450" width="20" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="880 450"/>
-        <rect x="840" y="535" width="20" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="840 535"/>
-        <rect x="880" y="510" width="20" height="28" fill="#d4c096" class="vlg-win" transform="skewY(-26.5)" transform-origin="880 510"/>
-        <!-- Solar panels on roof (front slope) -->
-        <polygon points="700,380 800,330 870,380 800,422" fill="url(#vlg-solar)" opacity="0.95"/>
-        <!-- Property fence -->
-        <line x1="600" y1="700" x2="680" y2="660" stroke="#5a3a22" stroke-width="2" stroke-dasharray="4,6"/>
-        <line x1="600" y1="700" x2="600" y2="710" stroke="#5a3a22" stroke-width="3"/>
-        <line x1="1000" y1="700" x2="920" y2="660" stroke="#5a3a22" stroke-width="2" stroke-dasharray="4,6"/>
-        <line x1="1000" y1="700" x2="1000" y2="710" stroke="#5a3a22" stroke-width="3"/>
-        <!-- Garden path from gate to door -->
-        <polygon points="725,700 760,700 745,628 728,628" fill="#8c7050"/>
-        <!-- Small trees -->
-        <ellipse cx="630" cy="690" rx="14" ry="20" fill="#6d8a4a"/>
-        <rect x="628" y="690" width="4" height="14" fill="#3a2614"/>
-        <ellipse cx="980" cy="685" rx="16" ry="22" fill="#6d8a4a"/>
-        <rect x="978" y="685" width="4" height="16" fill="#3a2614"/>
-      </g>
-
-      <!-- ===================================================== -->
-      <!-- TRAFFIC + PEDESTRIANS — wrapped in clipPath so they  -->
-      <!-- vanish into Shop/EV footprints (no clipping artifact)-->
-      <!-- ===================================================== -->
-
-      <g clip-path="url(#vlg-traffic-mask)">
-
-      <!-- Cars going RIGHT (lane 1, y=735) -->
-      <g class="vlg-car vlg-car-r1">
-        <rect x="-50" y="735" width="40" height="13" rx="3" fill="#c9a24e"/>
-        <rect x="-44" y="730" width="22" height="7" rx="2" fill="#fde9b9"/>
-        <circle cx="-40" cy="751" r="3" fill="#0e0c0a"/>
-        <circle cx="-18" cy="751" r="3" fill="#0e0c0a"/>
-        <rect x="-12" y="738" width="3" height="2" fill="#fde9b9" opacity="0.8"/>
-      </g>
-      <g class="vlg-car vlg-car-r2">
-        <rect x="-50" y="735" width="48" height="14" rx="3" fill="#2a2520"/>
-        <rect x="-44" y="729" width="28" height="8" rx="2" fill="#3a3530"/>
-        <circle cx="-40" cy="752" r="3" fill="#0e0c0a"/>
-        <circle cx="-12" cy="752" r="3" fill="#0e0c0a"/>
-      </g>
-
-      <!-- Cars going LEFT (lane 2, y=765) -->
-      <g class="vlg-car vlg-car-l1">
-        <rect x="0" y="765" width="42" height="13" rx="3" fill="#f0ebe2"/>
-        <rect x="6" y="760" width="24" height="7" rx="2" fill="#d4cec4"/>
-        <circle cx="6" cy="781" r="3" fill="#0e0c0a"/>
-        <circle cx="34" cy="781" r="3" fill="#0e0c0a"/>
-        <rect x="38" y="768" width="3" height="2" fill="#fde9b9" opacity="0.8"/>
-      </g>
-      <g class="vlg-car vlg-car-l2">
-        <rect x="0" y="765" width="50" height="14" rx="3" fill="#5a3a16"/>
-        <rect x="8" y="759" width="30" height="8" rx="2" fill="#7a5232"/>
-        <circle cx="8" cy="782" r="3" fill="#0e0c0a"/>
-        <circle cx="40" cy="782" r="3" fill="#0e0c0a"/>
-      </g>
-
-      <!-- Delivery van going right (large, y=726) -->
-      <g class="vlg-car vlg-car-r3">
-        <rect x="-85" y="724" width="76" height="20" rx="2" fill="#3a4858"/>
-        <rect x="-83" y="718" width="30" height="11" rx="2" fill="#48586a"/>
-        <circle cx="-75" cy="748" r="4.5" fill="#0e0c0a"/>
-        <circle cx="-20" cy="748" r="4.5" fill="#0e0c0a"/>
-        <rect x="-15" y="728" width="5" height="3" fill="#fde9b9" opacity="0.9"/>
-        <rect x="-78" y="728" width="18" height="8" fill="#5a78b0" opacity="0.65"/>
-        <!-- JC brand strip on van side — no SVG text, just graphic -->
-        <rect x="-52" y="730" width="26" height="8" rx="1" fill="#a87d2a" opacity="0.7"/>
-        <rect x="-50" y="732" width="22" height="4" rx="1" fill="#fde9b9" opacity="0.4"/>
-      </g>
-
-      <!-- Motorcycle going left (y=768) -->
-      <g class="vlg-car vlg-car-l3">
-        <rect x="0" y="769" width="28" height="10" rx="4" fill="#c9a24e"/>
-        <circle cx="4" cy="782" r="4" fill="#1a1410"/>
-        <circle cx="24" cy="782" r="4" fill="#1a1410"/>
-        <ellipse cx="14" cy="765" rx="4.5" ry="3.5" fill="#a07820"/>
-        <rect x="11" y="763" width="8" height="4" fill="#8a6218"/>
-        <circle cx="27" cy="774" r="2" fill="#fde9b9" opacity="0.8"/>
-      </g>
-
-      <!-- Bicycle going right (y=713, sidewalk) -->
-      <g class="vlg-car vlg-car-r4">
-        <circle cx="-8" cy="718" r="4" fill="none" stroke="#5a3a16" stroke-width="1.5"/>
-        <circle cx="8" cy="718" r="4" fill="none" stroke="#5a3a16" stroke-width="1.5"/>
-        <line x1="-8" y1="714" x2="0" y2="710" stroke="#5a3a16" stroke-width="1.2"/>
-        <line x1="0" y1="710" x2="8" y2="714" stroke="#5a3a16" stroke-width="1.2"/>
-        <line x1="0" y1="710" x2="0" y2="720" stroke="#5a3a16" stroke-width="1.2"/>
-        <ellipse cx="0" cy="706" rx="2.5" ry="3" fill="#3a2614"/>
-        <rect x="-2" y="708" width="4" height="5" fill="#5a8030"/>
-      </g>
-
-      <!-- Pedestrians on sidewalk -->
-      <g class="vlg-person vlg-person-1">
-        <ellipse cx="0" cy="708" rx="2" ry="2.5" fill="#3a2614"/>
-        <rect x="-1.5" y="710" width="3" height="6" fill="#5a4030"/>
-        <line x1="-1" y1="716" x2="-1" y2="720" stroke="#3a2614" stroke-width="1"/>
-        <line x1="1" y1="716" x2="1" y2="720" stroke="#3a2614" stroke-width="1"/>
-      </g>
-      <g class="vlg-person vlg-person-2">
-        <ellipse cx="0" cy="708" rx="2" ry="2.5" fill="#3a2614"/>
-        <rect x="-1.5" y="710" width="3" height="6" fill="#a87d2a"/>
-        <line x1="-1" y1="716" x2="-1" y2="720" stroke="#3a2614" stroke-width="1"/>
-        <line x1="1" y1="716" x2="1" y2="720" stroke="#3a2614" stroke-width="1"/>
-      </g>
-      <g class="vlg-person vlg-person-3">
-        <ellipse cx="0" cy="708" rx="2" ry="2.5" fill="#3a2614"/>
-        <rect x="-1.5" y="710" width="3" height="6" fill="#3a5a40"/>
-        <line x1="-1" y1="716" x2="-1" y2="720" stroke="#3a2614" stroke-width="1"/>
-        <line x1="1" y1="716" x2="1" y2="720" stroke="#3a2614" stroke-width="1"/>
-      </g>
-      <!-- Two people chatting near shop entrance -->
-      <g class="vlg-person vlg-person-chat" transform="translate(270,698)" aria-hidden="true">
-        <ellipse cx="0" cy="0" rx="2.5" ry="3" fill="#3a2614"/>
-        <rect x="-2" y="3" width="4" height="7" fill="#c9a24e"/>
-        <line x1="-2" y1="10" x2="-3" y2="16" stroke="#3a2614" stroke-width="1.2"/>
-        <line x1="2" y1="10" x2="3" y2="16" stroke="#3a2614" stroke-width="1.2"/>
-        <ellipse cx="12" cy="0" rx="2.5" ry="3" fill="#5a3010"/>
-        <rect x="10" y="3" width="4" height="7" fill="#2a4a38"/>
-        <line x1="10" y1="10" x2="9" y2="16" stroke="#3a2614" stroke-width="1.2"/>
-        <line x1="14" y1="10" x2="15" y2="16" stroke="#3a2614" stroke-width="1.2"/>
-      </g>
-      <!-- Person sitting on bench near villa garden -->
-      <g transform="translate(640,710)" aria-hidden="true">
-        <rect x="-10" y="4" width="22" height="3" fill="#5a3a1e" rx="1"/>
-        <rect x="-8" y="7" width="3" height="6" fill="#5a3a1e"/>
-        <rect x="7" y="7" width="3" height="6" fill="#5a3a1e"/>
-        <ellipse cx="2" cy="0" rx="2.5" ry="3" fill="#3a2614"/>
-        <rect x="-2" y="3" width="6" height="4" fill="#a87d2a"/>
-      </g>
-
-      </g><!-- /clip-path traffic group -->
-
-      <!-- ============ BUILDING 4 — Convenience Shop (front-left) ============ -->
-      <g class="vlg-bldg" data-bldg="shop">
-        <!-- Top -->
-        <polygon points="100,640 220,580 360,640 240,700" fill="#c08a5e" class="vlg-top"/>
-        <polygon points="100,640 220,580 360,640 240,700" fill="#1a140e" opacity="0" class="vlg-top-shade"/>
-        <!-- East face -->
-        <polygon points="240,700 360,640 360,790 240,850" fill="#a07050" class="vlg-east"/>
-        <polygon points="240,700 360,640 360,790 240,850" fill="#1a140e" opacity="0" class="vlg-east-shade"/>
-        <!-- South face -->
-        <polygon points="100,640 240,700 240,850 100,790" fill="#b07a58" class="vlg-south"/>
-        <polygon points="100,640 240,700 240,850 100,790" fill="#1a140e" opacity="0" class="vlg-south-shade"/>
-        <!-- Shop window (large) -->
-        <polygon points="125,710 200,747 200,805 125,768" fill="#e8d5a8" class="vlg-shop-win"/>
-        <!-- Door -->
-        <polygon points="210,754 230,764 230,818 210,808" fill="#3a2614"/>
-        <!-- Awning -->
-        <polygon points="100,690 240,755 240,768 100,703" fill="#a87d2a"/>
-        <!-- Awning stripes -->
-        <line x1="120" y1="697" x2="120" y2="709" stroke="#5a3a16" stroke-width="3"/>
-        <line x1="160" y1="715" x2="160" y2="727" stroke="#5a3a16" stroke-width="3"/>
-        <line x1="200" y1="734" x2="200" y2="746" stroke="#5a3a16" stroke-width="3"/>
-      </g>
-
-      <!-- ============ BUILDING 5 — EV / Solar Canopy (front-right) ============ -->
-      <g class="vlg-bldg" data-bldg="ev">
-        <!-- Solar canopy top (huge panel) -->
-        <polygon points="1280,620 1430,560 1580,620 1430,680" fill="url(#vlg-solar)"/>
-        <!-- Canopy underside -->
-        <polygon points="1280,620 1430,680 1580,620 1580,628 1430,688 1280,628" fill="#3a2c1a"/>
-        <!-- Support columns -->
-        <rect x="1306" y="630" width="6" height="170" fill="#3a2614" transform="skewY(26.5)" transform-origin="1306 630"/>
-        <rect x="1554" y="630" width="6" height="170" fill="#3a2614" transform="skewY(26.5)" transform-origin="1554 630"/>
-        <rect x="1426" y="690" width="6" height="115" fill="#3a2614"/>
-        <!-- Ground pad -->
-        <polygon points="1280,800 1580,800 1580,820 1280,820" fill="#5a4a36"/>
-        <!-- EV charger units -->
-        <rect x="1340" y="760" width="18" height="40" fill="#1c1814" rx="2"/>
-        <rect x="1342" y="765" width="14" height="10" fill="#c9a24e"/>
-        <rect x="1490" y="760" width="18" height="40" fill="#1c1814" rx="2"/>
-        <rect x="1492" y="765" width="14" height="10" fill="#c9a24e"/>
-        <!-- A car at one charger -->
-        <ellipse cx="1390" cy="800" rx="40" ry="6" fill="#1a1410" opacity="0.4"/>
-        <rect x="1360" y="775" width="60" height="22" fill="#2a3548" rx="4"/>
-        <rect x="1370" y="765" width="40" height="14" fill="#3a4858" rx="3"/>
-        <circle cx="1370" cy="800" r="6" fill="#1a1a1a"/>
-        <circle cx="1410" cy="800" r="6" fill="#1a1a1a"/>
-      </g>
-
-      <!-- ============ TROPICAL VEGETATION (palm trees) ============ -->
-      <!-- Palm 1 — left of villa gate, creates tropical atmosphere -->
-      <g class="vlg-palm" transform="translate(575,640)" aria-hidden="true">
-        <rect x="-2.5" y="0" width="5" height="55" fill="#5c3c1e" rx="2.5" transform="rotate(-6 -2.5 55)"/>
-        <ellipse cx="-14" cy="-8" rx="22" ry="9" fill="#3d7030" transform="rotate(-38 -14 -8)"/>
-        <ellipse cx="10" cy="-12" rx="19" ry="8" fill="#4d8238" transform="rotate(22 10 -12)"/>
-        <ellipse cx="-4" cy="-18" rx="17" ry="7" fill="#3a6a2a" transform="rotate(-14 -4 -18)"/>
-        <ellipse cx="-16" cy="-20" rx="18" ry="7" fill="#4a7a30" transform="rotate(44 -16 -20)"/>
-        <ellipse cx="14" cy="-22" rx="16" ry="6" fill="#406030" transform="rotate(-26 14 -22)"/>
-        <ellipse cx="2" cy="-26" rx="14" ry="6" fill="#48742e" transform="rotate(8 2 -26)"/>
-      </g>
-      <!-- Palm 2 — right side of road near warehouse, smaller -->
-      <g class="vlg-palm" transform="translate(1260,665)" aria-hidden="true">
-        <rect x="-2" y="0" width="4" height="42" fill="#5c3c1e" rx="2" transform="rotate(5 -2 42)"/>
-        <ellipse cx="-11" cy="-6" rx="17" ry="7" fill="#4a8038" transform="rotate(-40 -11 -6)"/>
-        <ellipse cx="8" cy="-9" rx="15" ry="6" fill="#5a8e40" transform="rotate(20 8 -9)"/>
-        <ellipse cx="-3" cy="-14" rx="14" ry="6" fill="#3c7030" transform="rotate(-10 -3 -14)"/>
-        <ellipse cx="-12" cy="-16" rx="15" ry="6" fill="#487830" transform="rotate(42 -12 -16)"/>
-        <ellipse cx="10" cy="-17" rx="13" ry="5" fill="#3e6828" transform="rotate(-22 10 -17)"/>
-      </g>
-      <!-- Shrub cluster near shop left -->
-      <g class="vlg-shrub" transform="translate(80,730)" aria-hidden="true">
-        <ellipse cx="0" cy="0" rx="12" ry="8" fill="#4a7a30"/>
-        <ellipse cx="14" cy="2" rx="10" ry="7" fill="#5a8a38"/>
-        <ellipse cx="7" cy="-5" rx="9" ry="6" fill="#3d6e28"/>
-        <rect x="-2" y="4" width="4" height="8" fill="#3a2614"/>
-        <rect x="12" y="6" width="4" height="7" fill="#3a2614"/>
-      </g>
-
-      <!-- ===================================================== -->
-      <!-- ============== JC PRODUCT LIGHTS ==================== -->
-      <!-- (glows fade in during dusk only) -->
-      <!-- ===================================================== -->
-
-      <!-- 01 — Solar Street Light (p9) left of villa -->
-      <g class="vlg-product" data-prod="p9">
-        <rect x="560" y="720" width="6" height="6" fill="#3a2614"/>
-        <rect x="562" y="450" width="3" height="280" fill="#3a2614"/>
-        <rect x="563" y="450" width="40" height="3" fill="#3a2614"/>
-        <polygon points="555,442 583,442 585,448 553,448" fill="url(#vlg-solar)"/>
-        <rect x="595" y="452" width="12" height="6" fill="#5a3a16" rx="1"/>
-        <ellipse cx="601" cy="463" rx="3" ry="2" fill="#fde9b9" class="vlg-bulb"/>
-        <polygon points="585,465 617,465 670,720 535,720" fill="url(#vlg-cone)" class="vlg-cone vlg-light"/>
-        <circle cx="601" cy="462" r="50" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        <g class="vlg-hotspot" transform="translate(601, 420)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">01</text>
-        </g>
-      </g>
-
-      <!-- 02 — Solar Street Light (p9) right of villa -->
-      <g class="vlg-product" data-prod="p9b">
-        <rect x="1030" y="720" width="6" height="6" fill="#3a2614"/>
-        <rect x="1032" y="450" width="3" height="280" fill="#3a2614"/>
-        <rect x="996" y="450" width="40" height="3" fill="#3a2614"/>
-        <polygon points="993,442 1021,442 1023,448 991,448" fill="url(#vlg-solar)"/>
-        <rect x="987" y="452" width="12" height="6" fill="#5a3a16" rx="1"/>
-        <ellipse cx="993" cy="463" rx="3" ry="2" fill="#fde9b9" class="vlg-bulb"/>
-        <polygon points="977,465 1009,465 1060,720 925,720" fill="url(#vlg-cone)" class="vlg-cone vlg-light"/>
-        <circle cx="993" cy="462" r="50" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-      </g>
-
-      <!-- 03 — Sphere Gate Pillar Lights (p28) — both villa gate posts -->
-      <g class="vlg-product" data-prod="p28">
-        <circle cx="600" cy="700" r="7" fill="#3a2614"/>
-        <circle cx="600" cy="700" r="5" fill="#fde9b9" class="vlg-bulb"/>
-        <circle cx="600" cy="700" r="30" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        <circle cx="1000" cy="700" r="7" fill="#3a2614"/>
-        <circle cx="1000" cy="700" r="5" fill="#fde9b9" class="vlg-bulb"/>
-        <circle cx="1000" cy="700" r="30" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        <g class="vlg-hotspot" transform="translate(1000, 672)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">02</text>
-        </g>
-      </g>
-
-      <!-- 04 — 3-Head Solar Motion Flood (p1) — villa front-east corner -->
-      <g class="vlg-product" data-prod="p1">
-        <rect x="795" y="440" width="22" height="3" fill="#3a2614"/>
-        <circle cx="798" cy="445" r="3" fill="#3a2614"/>
-        <circle cx="806" cy="444" r="3" fill="#3a2614"/>
-        <circle cx="814" cy="445" r="3" fill="#3a2614"/>
-        <circle cx="798" cy="447" r="2" fill="#fde9b9" class="vlg-bulb"/>
-        <circle cx="806" cy="446" r="2" fill="#fde9b9" class="vlg-bulb"/>
-        <circle cx="814" cy="447" r="2" fill="#fde9b9" class="vlg-bulb"/>
-        <polygon points="790,450 822,450 880,640 740,640" fill="url(#vlg-cone)" opacity="0.6" class="vlg-cone vlg-light"/>
-        <circle cx="806" cy="445" r="40" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        <g class="vlg-hotspot" transform="translate(806, 405)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">03</text>
-        </g>
-      </g>
-
-      <!-- 05 — PIR Wall Light (p3) — villa south face near door -->
-      <g class="vlg-product" data-prod="p3">
-        <rect x="765" y="550" width="6" height="18" fill="#3a2614" rx="2"/>
-        <rect x="766" y="555" width="4" height="10" fill="#fde9b9" class="vlg-bulb"/>
-        <circle cx="768" cy="560" r="25" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        <g class="vlg-hotspot" transform="translate(800, 540)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">04</text>
-        </g>
-      </g>
-
-      <!-- 06 — Outdoor Wall Lantern (p10) — villa east side -->
-      <g class="vlg-product" data-prod="p10">
-        <rect x="855" y="510" width="5" height="5" fill="#3a2614"/>
-        <polygon points="850,514 866,514 868,532 848,532" fill="#3a2614"/>
-        <rect x="853" y="516" width="11" height="14" fill="#fde9b9" opacity="0.9" class="vlg-bulb"/>
-        <circle cx="858" cy="522" r="28" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        <g class="vlg-hotspot" transform="translate(890, 500)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">05</text>
-        </g>
-      </g>
-
-      <!-- 07 — Stake Lights (p13) — along garden path -->
-      <g class="vlg-product" data-prod="p13">
-        <g>
-          <rect x="715" y="666" width="1.5" height="12" fill="#5a4030"/>
-          <circle cx="716" cy="664" r="2.5" fill="#3a2614"/>
-          <circle cx="716" cy="664" r="1.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="716" cy="664" r="14" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        </g>
-        <g>
-          <rect x="772" y="666" width="1.5" height="12" fill="#5a4030"/>
-          <circle cx="773" cy="664" r="2.5" fill="#3a2614"/>
-          <circle cx="773" cy="664" r="1.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="773" cy="664" r="14" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        </g>
-        <g>
-          <rect x="708" y="690" width="1.5" height="12" fill="#5a4030"/>
-          <circle cx="709" cy="688" r="2.5" fill="#3a2614"/>
-          <circle cx="709" cy="688" r="1.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="709" cy="688" r="14" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        </g>
-        <g>
-          <rect x="780" y="690" width="1.5" height="12" fill="#5a4030"/>
-          <circle cx="781" cy="688" r="2.5" fill="#3a2614"/>
-          <circle cx="781" cy="688" r="1.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="781" cy="688" r="14" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        </g>
-        <g class="vlg-hotspot" transform="translate(709, 668)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">06</text>
-        </g>
-      </g>
-
-      <!-- 08 — AC Floodlight (p31) — on warehouse south face -->
-      <g class="vlg-product" data-prod="p31">
-        <rect x="1062" y="492" width="12" height="6" fill="#3a2614"/>
-        <rect x="1064" y="494" width="8" height="3" fill="#fde9b9" class="vlg-bulb"/>
-        <polygon points="1060,500 1078,500 1130,680 1010,680" fill="url(#vlg-cone)" opacity="0.5" class="vlg-cone vlg-light"/>
-        <circle cx="1068" cy="495" r="36" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        <g class="vlg-hotspot" transform="translate(1095, 480)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">07</text>
-        </g>
-      </g>
-
-      <!-- 09 — AC High Bay (p32) — visible inside warehouse loading bay -->
-      <g class="vlg-product" data-prod="p32">
-        <rect x="1124" y="572" width="6" height="6" fill="#3a2614"/>
-        <ellipse cx="1127" cy="582" rx="4" ry="2" fill="#fde9b9" class="vlg-bulb"/>
-        <circle cx="1127" cy="582" r="22" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        <g class="vlg-hotspot" transform="translate(1155, 568)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">08</text>
-        </g>
-      </g>
-
-      <!-- 10 — Edison String Lights (p11) — across the shop awning -->
-      <g class="vlg-product" data-prod="p11">
-        <g class="vlg-string">
-          <path d="M 105,693 Q 130,710 155,712 T 235,755" stroke="#5a3a16" stroke-width="1" fill="none"/>
-          <circle cx="120" cy="703" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="140" cy="711" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="160" cy="715" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="180" cy="725" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="200" cy="735" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="220" cy="747" r="2.5" fill="#fde9b9" class="vlg-bulb"/>
-          <circle cx="120" cy="703" r="12" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-          <circle cx="160" cy="715" r="12" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-          <circle cx="200" cy="735" r="12" fill="url(#vlg-glow)" class="vlg-glow vlg-light"/>
-        </g>
-        <g class="vlg-hotspot" transform="translate(165, 685)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">09</text>
-        </g>
-      </g>
-
-      <!-- 11 — Bug Zapper (p15) — at shop side, near small tree -->
-      <g class="vlg-product" data-prod="p15">
-        <rect x="80" y="700" width="3" height="14" fill="#5a4030"/>
-        <rect x="74" y="690" width="15" height="14" fill="#2a3548" rx="2"/>
-        <rect x="76" y="692" width="11" height="10" fill="#5a78a8" class="vlg-bulb" opacity="0.7"/>
-        <circle cx="81" cy="697" r="16" fill="#5a78a8" opacity="0.35" class="vlg-glow vlg-light"/>
-        <g class="vlg-hotspot" transform="translate(50, 695)">
-          <circle r="14" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1.5"/>
-          <text y="4" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" fill="#c9a24e">10</text>
-        </g>
-      </g>
-
-      <!-- ===================================================== -->
-      <!-- ============ BUILDING NAME LABELS =================== -->
-      <!-- ===================================================== -->
-
-      <!-- Apartment label -->
-      <g class="vlg-label vlg-label-apt">
-        <line x1="400" y1="278" x2="400" y2="310" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
-        <rect x="354" y="250" width="92" height="26" rx="13" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1"/>
-        <text x="400" y="266" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="600" fill="#fde9b9" letter-spacing="1.5">APARTMENT</text>
-      </g>
-
-      <!-- Warehouse label -->
-      <g class="vlg-label vlg-label-warehouse">
-        <line x1="1200" y1="280" x2="1200" y2="330" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
-        <rect x="1150" y="252" width="100" height="26" rx="13" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1"/>
-        <text x="1200" y="268" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="600" fill="#fde9b9" letter-spacing="1.5">WAREHOUSE</text>
-      </g>
-
-      <!-- Villa label (special — brass filled) -->
-      <g class="vlg-label vlg-label-villa">
-        <line x1="800" y1="190" x2="800" y2="220" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2"/>
-        <rect x="730" y="162" width="140" height="28" rx="14" fill="url(#vlg-sun-day)" stroke="#fde9b9" stroke-width="1.2"/>
-        <rect x="730" y="162" width="140" height="28" rx="14" fill="#c9a24e"/>
-        <text x="800" y="179" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="700" fill="#0e0c0a" letter-spacing="2">JC CLIENT VILLA</text>
-      </g>
-
-      <!-- Shop label -->
-      <g class="vlg-label vlg-label-shop">
-        <line x1="220" y1="595" x2="220" y2="635" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
-        <rect x="170" y="568" width="100" height="26" rx="13" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1"/>
-        <text x="220" y="584" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="600" fill="#fde9b9" letter-spacing="1.5">SHOPPING</text>
-      </g>
-
-      <!-- EV Station label -->
-      <g class="vlg-label vlg-label-ev">
-        <line x1="1430" y1="555" x2="1430" y2="600" stroke="#c9a24e" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
-        <rect x="1360" y="528" width="140" height="26" rx="13" fill="#0e0c0a" stroke="#c9a24e" stroke-width="1"/>
-        <text x="1430" y="544" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="10" font-weight="600" fill="#fde9b9" letter-spacing="1.5">EV CHARGING</text>
-      </g>
-
-    </svg>
+  <!-- Floating glassmorphism feature cards (Birds-style) -->
+  <div class="hero-glass-row">
+    <article class="hglass">
+      <span class="hglass-badge" data-i18n="hglass1_badge">IP66 Rated</span>
+      <span class="hglass-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6l7-3z"/><path d="M9.2 12l1.9 1.9 3.7-3.8"/></svg></span>
+      <h3 class="hglass-title" data-i18n="hglass1_title">Built to outlast the storm</h3>
+    </article>
+    <article class="hglass hglass-feat">
+      <span class="hglass-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l-8 10h6l-1 8 8-10h-6l1-8z"/></svg></span>
+      <h3 class="hglass-title" data-i18n="hglass2_title">LiFePO4 Inside</h3>
+      <p class="hglass-sub" data-i18n="hglass2_sub">Safe chemistry, longer cycle life, –20°C to +50°C.</p>
+      <a href="#why" class="hglass-arrow" aria-label="Learn more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    </article>
+    <article class="hglass hglass-stat">
+      <div class="hglass-num">3500<span data-i18n="hglass3_unit">lm</span></div>
+      <p class="hglass-sub" data-i18n="hglass3_sub">Floodlight-grade output — free fuel, every night.</p>
+    </article>
   </div>
 
-  <!-- Hero text moved to <section class="hero-headline"> below — keeps 3D scene fully visible -->
-  <!-- Subtle floating eyebrow tag stays inside hero (small, top-center, doesn't block scene) -->
-  <div class="hero-eyebrow-float" data-i18n="hero_eye">Solar Outdoor Lighting · When the grid goes down, we stay on.</div>
-
-  <!-- Detail card (right side) — appears only when hovering a hotspot -->
-  <aside class="hero-detail" id="heroDetail" aria-live="polite">
-    <div class="hero-detail-num" id="hdNum">01</div>
-    <div class="hero-detail-cat" id="hdCat">Security &amp; Street</div>
-    <h3 class="hero-detail-name" id="hdName" data-i18n="vlg_p9_n">All-in-One Solar Street Light</h3>
-    <div class="hero-detail-spec" id="hdSpec">100/200/300W · IP66 · radar sensor · LiFePO4</div>
-    <a href="#cat-security" class="hero-detail-cta" id="hdLink" data-i18n="vlg_cta">View in catalog →</a>
-  </aside>
-
-  <!-- Subtle hint to discover hotspots -->
-  <div class="hero-hint" id="heroHint" data-i18n="vlg_hint">Hover any light dot to identify the product</div>
-
+  <!-- Hero headline + CTA — Altro-style two-zone band (above the fold) -->
+  <div class="hero-cta-overlay">
+    <div class="hero-cta-inner">
+      <div class="hero-cta-left">
+        <span class="hero-cta-eyebrow" data-i18n="hero_kick">Engineered for Off-Grid Markets</span>
+        <h1 class="hero-h1" data-i18n="hero_hl">Where Sunlight<br>Meets <em>Resilience</em></h1>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-fill" data-i18n="hero_cta1">Request a Quote</a>
+          <a href="#products" class="btn-text" data-i18n="hero_cta2">View Products →</a>
+        </div>
+      </div>
+      <p class="hero-cta-side" data-i18n="hero_side">Solar security, street &amp; garden lighting — built for markets the grid keeps failing. Free fuel, certified hardware, <em>nonstop light.</em></p>
+    </div>
+  </div>
 </section>
 
 <!-- ===== MANIFESTO (merged: hero-headline + brand quote)
@@ -3212,7 +2153,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   <!-- Main headline + description (two-column editorial) -->
   <div class="man-grid reveal">
     <div class="man-left">
-      <h1 data-i18n="hero_h1">Light that works<br>when the power<br><em>doesn't.</em></h1>
+      <h2 data-i18n="hero_h1">Light that works<br>when the power<br><em>doesn't.</em></h2>
     </div>
     <div class="man-right">
       <p class="man-sub" data-i18n="hero_sub">Colombia faces a projected 3,100 GWh energy deficit by 2027. Ecuador already suffers cuts of up to 10 hours a day. South Africa averages 6–8 hours of load-shedding daily. Solar security, garden, decorative, home and portable lighting — built so your clients never go dark.</p>
@@ -3234,6 +2175,67 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 <style>
 /* ===== V2 Hero — Isometric Solar Smart Community ===== */
 .hero-village { position:relative; min-height:100vh; padding:0; overflow:hidden; background:#0e0c0a; }
+
+/* ═══ Hero — big cinematic photo + frosted glass cards (Birds-style) ═══ */
+.hero-aurora { position:absolute; inset:0; z-index:0; overflow:hidden; background:#070605; }
+.hero-photo { position:absolute; inset:0; background:url('images/hero-night-street.jpg') center 40% / cover no-repeat; transform:scale(1.06); animation:hero-photo-drift 28s ease-in-out infinite alternate; }
+.hero-photo-tint { position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,6,5,0.40) 0%, rgba(7,6,5,0.16) 30%, rgba(7,6,5,0.30) 58%, rgba(7,6,5,0.80) 100%); }
+@keyframes hero-photo-drift { from{ transform:scale(1.06) translate(0,0); } to{ transform:scale(1.12) translate(-1.4%,-1%); } }
+
+/* warm light beam — sweeps across once on load */
+.hero-beam { position:absolute; top:-30%; left:-45%; width:42%; height:170%; pointer-events:none; transform:translateX(0) rotate(18deg); background:linear-gradient(90deg, transparent 0%, rgba(255,206,128,0.16) 48%, rgba(255,224,170,0.04) 72%, transparent 100%); filter:blur(24px); opacity:0; animation:hero-beam-sweep 2.6s cubic-bezier(.22,.61,.36,1) .35s both; }
+@keyframes hero-beam-sweep { 0%{ transform:translateX(0) rotate(18deg); opacity:0; } 16%{ opacity:1; } 80%{ opacity:.65; } 100%{ transform:translateX(340%) rotate(18deg); opacity:0; } }
+
+/* drifting warm photon sparks */
+.hero-spark { position:absolute; width:4px; height:4px; border-radius:50%; background:rgba(255,210,140,0.92); box-shadow:0 0 10px 2px rgba(255,196,110,0.55); opacity:0; pointer-events:none; animation:hero-spark-float linear infinite; }
+.hero-spark.s1 { left:14%; bottom:16%; animation-duration:13s; animation-delay:.4s; }
+.hero-spark.s2 { left:24%; bottom:30%; width:3px; height:3px; animation-duration:17s; animation-delay:2.6s; }
+.hero-spark.s3 { left:41%; bottom:11%; animation-duration:15s; animation-delay:1.2s; }
+.hero-spark.s4 { left:57%; bottom:24%; width:3px; height:3px; animation-duration:19s; animation-delay:3.5s; }
+.hero-spark.s5 { left:72%; bottom:15%; animation-duration:14s; animation-delay:.9s; }
+.hero-spark.s6 { left:85%; bottom:28%; width:5px; height:5px; animation-duration:21s; animation-delay:4.3s; }
+@keyframes hero-spark-float { 0%{ transform:translateY(0) scale(.6); opacity:0; } 12%{ opacity:.95; } 78%{ opacity:.6; } 100%{ transform:translateY(-48vh) scale(1); opacity:0; } }
+
+/* Trust pill — Birds "Active Users" equivalent */
+.hero-trust-pill { position:absolute; z-index:22; top:clamp(82px,12vh,116px); right:clamp(22px,6vw,96px); display:inline-flex; align-items:center; gap:10px; padding:9px 16px 9px 14px; border-radius:999px; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.22); backdrop-filter:blur(14px) saturate(120%); -webkit-backdrop-filter:blur(14px) saturate(120%); box-shadow:0 8px 30px rgba(0,0,0,0.28); }
+.hero-trust-pill .htp-mark { font-family:'Outfit',sans-serif; font-weight:700; font-size:0.82rem; letter-spacing:0.04em; color:#fff; }
+.hero-trust-pill .htp-label { font-family:'Outfit',sans-serif; font-size:0.78rem; color:rgba(255,255,255,0.72); }
+
+/* Floating glass cards */
+.hero-glass-row { position:absolute; z-index:21; top:clamp(138px,23vh,236px); right:clamp(22px,6vw,96px); display:flex; gap:16px; align-items:stretch; width:min(600px,84vw); pointer-events:none; }
+.hglass { position:relative; flex:1 1 0; min-width:0; pointer-events:auto; padding:20px 18px; border-radius:20px; background:rgba(20,16,11,0.34); border:1px solid rgba(255,255,255,0.16); backdrop-filter:blur(18px) saturate(130%); -webkit-backdrop-filter:blur(18px) saturate(130%); box-shadow:0 18px 50px rgba(0,0,0,0.40); display:flex; flex-direction:column; gap:10px; transition:transform .35s ease, border-color .35s ease, background .35s ease; }
+.hglass:hover { transform:translateY(-5px); border-color:rgba(201,162,78,0.55); background:rgba(30,24,15,0.44); }
+.hglass-badge { align-self:flex-start; font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:0.62rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-lt); padding:4px 10px; border-radius:999px; background:rgba(201,162,78,0.14); border:1px solid rgba(201,162,78,0.34); }
+.hglass-ic { width:34px; height:34px; color:var(--brass-lt); }
+.hglass-ic svg { width:100%; height:100%; display:block; }
+.hglass-title { font-family:'Outfit',sans-serif; font-weight:700; font-size:1.04rem; line-height:1.22; color:#fff; margin:0; }
+.hglass-sub { font-family:'Outfit',sans-serif; font-size:0.8rem; line-height:1.5; color:rgba(255,255,255,0.68); margin:0; }
+.hglass-feat { flex:1.3 1 0; }
+.hglass-arrow { position:absolute; top:16px; right:16px; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; color:#fff; border:1px solid rgba(255,255,255,0.24); background:rgba(255,255,255,0.06); transition:color .25s ease, border-color .25s ease, background .25s ease; }
+.hglass-arrow svg { width:15px; height:15px; }
+.hglass-arrow:hover { color:#0e0c0a; background:var(--brass-lt); border-color:var(--brass-lt); }
+.hglass-num { font-family:'Outfit',sans-serif; font-weight:800; font-size:clamp(2.1rem,2.8vw,2.8rem); line-height:1; letter-spacing:-0.02em; background:linear-gradient(96deg,var(--brass) 0%,var(--brass-lt) 45%,#fff 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.hglass-num span { font-size:0.42em; font-weight:600; margin-left:4px; -webkit-text-fill-color:rgba(255,255,255,0.62); color:rgba(255,255,255,0.62); }
+
+@media (max-width:1080px) {
+  .hero-glass-row { width:min(420px,78vw); top:clamp(120px,18vh,200px); }
+  .hglass-stat { display:none; }
+}
+@media (max-width:768px) {
+  .hero-photo { animation:none; }
+  .hero-beam, .hero-spark { display:none; }
+  .hero-trust-pill { top:72px; right:14px; padding:7px 12px; }
+  .hero-trust-pill .htp-label { display:none; }
+  .hero-glass-row { left:0; right:0; top:clamp(96px,14vh,140px); width:auto; padding:0 14px; gap:10px; pointer-events:auto; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .hero-glass-row::-webkit-scrollbar { display:none; }
+  .hglass { flex:0 0 74%; padding:15px 16px; border-radius:16px; }
+  .hglass-stat { display:flex; }
+  .hglass-title { font-size:0.98rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo, .hero-beam, .hero-spark { animation:none; }
+  .hero-beam { display:none; }
+}
 
 /* ═══ Hero Carousel — FOX ESS-style 3-slide swipe ═══ */
 .hero-carousel { position:absolute; inset:0; z-index:1; }
@@ -3304,6 +2306,63 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 }
 .hero-scene { position:absolute; inset:0; z-index:0; }
 .hero-svg { width:100%; height:100%; display:block; }
+
+/* ═══ Hero headline + CTA — Altro-style two-zone band over the video carousel ═══ */
+.hero-cta-overlay {
+  position:absolute; left:0; right:0; bottom:0; z-index:20;
+  pointer-events:none;
+  padding:0 clamp(22px,6vw,96px) clamp(56px,11vh,118px);
+  background:linear-gradient(to top, rgba(10,9,7,0.84) 0%, rgba(10,9,7,0.48) 36%, rgba(10,9,7,0) 72%);
+}
+.hero-cta-inner {
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:clamp(24px,5vw,72px); width:100%; max-width:1280px; margin:0 auto;
+}
+.hero-cta-left { max-width:760px; }
+.hero-cta-eyebrow {
+  display:inline-block; pointer-events:auto;
+  font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  font-size:0.72rem; font-weight:500; letter-spacing:0.24em; text-transform:uppercase;
+  color:var(--brass-lt); margin-bottom:22px;
+  text-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+.hero-cta-overlay .hero-h1 {
+  font-family:'Outfit',sans-serif; font-weight:800;
+  font-size:clamp(2.7rem,7.2vw,6.2rem); line-height:0.98;
+  letter-spacing:-0.035em; color:#fff; margin:0 0 32px;
+  text-shadow:0 2px 36px rgba(0,0,0,0.55);
+}
+.hero-cta-overlay .hero-h1 em {
+  font-style:normal;
+  background:linear-gradient(96deg, var(--brass) 0%, var(--brass-lt) 48%, #fff 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  filter:drop-shadow(0 2px 14px rgba(0,0,0,0.45));
+}
+.hero-cta-side {
+  max-width:340px; margin:0 0 10px; pointer-events:auto;
+  font-family:'Outfit',sans-serif; font-size:clamp(0.98rem,1.2vw,1.12rem);
+  line-height:1.6; color:rgba(255,255,255,0.72);
+  text-shadow:0 1px 10px rgba(0,0,0,0.5);
+}
+.hero-cta-side em { font-style:normal; color:var(--brass-lt); font-weight:500; }
+.hero-cta-overlay .hero-btns { display:flex; gap:16px; flex-wrap:wrap; pointer-events:auto; }
+/* Pill-shaped CTAs (Altro) */
+.hero-cta-overlay .btn-fill { border-radius:999px; border:1px solid transparent; }
+.hero-cta-overlay .btn-text {
+  color:#fff; padding:14px 34px; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
+  transition:color .25s ease, border-color .25s ease, background .25s ease;
+}
+.hero-cta-overlay .btn-text:hover { color:var(--brass-lt); border-color:var(--brass-lt); background:rgba(255,255,255,0.05); }
+@media (max-width:860px) {
+  .hero-cta-inner { flex-direction:column; align-items:flex-start; gap:18px; }
+  .hero-cta-side { max-width:520px; }
+}
+@media (max-width:768px) {
+  .hero-cta-overlay { padding-bottom:140px; }
+  .hero-cta-overlay .hero-h1 { font-size:clamp(2rem,9vw,3rem); }
+  .hero-cta-overlay .hero-btns { gap:12px; }
+}
 
 /* ===================================================================
    3D RENDERED IMAGE HERO MODE
@@ -3419,7 +2478,7 @@ video.hero-3d-bg {
   position:relative;
   z-index:1;
 }
-.man-left h1 {
+.man-left h2 {
   font-family:'Playfair Display',serif;
   font-size: clamp(2.8rem, 5.2vw, 5.2rem);
   font-weight:400;
@@ -3429,7 +2488,7 @@ video.hero-3d-bg {
   margin:0;
   text-shadow:0 2px 6px rgba(0,0,0,0.5);
 }
-.man-left h1 em {
+.man-left h2 em {
   color:#f5e2b0;
   font-style:italic;
   text-shadow:0 0 2px var(--brass), 0 4px 14px rgba(0,0,0,0.5);
@@ -3589,17 +2648,17 @@ video.hero-3d-bg {
 }
 
 /* Hero section adapts to light background */
-.hero-village:has(.hero-3d-bg) {
+.hero-village:has(.hero-aurora) {
   background:#f5f0eb; /* warm white fallback while image loads */
 }
 
 /* Hide SVG scene and its related elements */
-.hero-village:has(.hero-3d-bg) .hero-scene,
-.hero-village:has(.hero-3d-bg) .hero-particles,
-.hero-village:has(.hero-3d-bg) .hero-hint { display:none; }
+.hero-village:has(.hero-aurora) .hero-scene,
+.hero-village:has(.hero-aurora) .hero-particles,
+.hero-village:has(.hero-aurora) .hero-hint { display:none; }
 
 /* Hero overlay: text sits LEFT, image scene dominates RIGHT */
-.hero-village:has(.hero-3d-bg) .hero-overlay {
+.hero-village:has(.hero-aurora) .hero-overlay {
   position:relative; z-index:2;
   min-height:100vh;
   display:flex; align-items:center;
@@ -3608,7 +2667,7 @@ video.hero-3d-bg {
 }
 
 /* Text panel: solid dark card for readability on white image bg */
-.hero-village:has(.hero-3d-bg) .hero-content {
+.hero-village:has(.hero-aurora) .hero-content {
   max-width:500px;
   background:rgba(14,12,10,0.88);
   backdrop-filter:blur(12px);
@@ -3621,31 +2680,31 @@ video.hero-3d-bg {
 }
 
 /* Remove the pseudo-element backdrop (replaced by actual bg above) */
-.hero-village:has(.hero-3d-bg) .hero-content::before { display:none; }
+.hero-village:has(.hero-aurora) .hero-content::before { display:none; }
 
 /* Eyebrow stays legible */
-.hero-village:has(.hero-3d-bg) .hero-eyebrow {
+.hero-village:has(.hero-aurora) .hero-eyebrow {
   color:var(--brass-lt);
   border-color:rgba(201,162,78,0.5);
   background:rgba(168,125,42,0.15);
 }
 
 /* Nav adapts to: transparent over image = needs dark-text mode */
-.hero-village:has(.hero-3d-bg) ~ nav,
+.hero-village:has(.hero-aurora) ~ nav,
 #mainnav.over-image {
   background:rgba(255,255,255,0.92) !important;
   backdrop-filter:blur(14px) !important;
   border-bottom:1px solid rgba(0,0,0,0.08) !important;
 }
 /* Handle nav adaptation via JS class instead */
-.hero-village:has(.hero-3d-bg) + * { --img-hero:1; }
+.hero-village:has(.hero-aurora) + * { --img-hero:1; }
 
 /* Stat bar beneath hero content */
-.hero-village:has(.hero-3d-bg) .hero-stats {
+.hero-village:has(.hero-aurora) .hero-stats {
   display:none;
 }
 /* Hide CRT scanline overlay on image hero (looks bad on light bg) */
-.hero-village:has(.hero-3d-bg) ~ .cyber-fx { display:none; }
+.hero-village:has(.hero-aurora) ~ .cyber-fx { display:none; }
 
 /* Hero golden particles — visible only during dusk phase of the 32s cycle */
 .hero-particles { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
@@ -4481,6 +3540,101 @@ polygon[fill="url(#vlg-solar)"] {
 <!-- (Categories section removed — Products section below has full catalog) -->
 
 <!-- ===== Products Grouped by Category ===== -->
+<section class="matchmaker" id="find-light">
+  <!-- HUD-style eyebrow with pulse dot -->
+  <div class="mm-eyebrow reveal">
+    <span class="mm-eyebrow-pulse"></span>
+    <span class="sec-label" data-i18n="mm_lbl">FIND YOUR LIGHT</span>
+    <span class="mm-eyebrow-sep">·</span>
+    <span class="mm-eyebrow-status" data-i18n="mm_status">RECOMMENDATION ENGINE · ACTIVE</span>
+  </div>
+
+  <h2 class="reveal" data-i18n="mm_h2">Not sure which light fits? <em>Answer a few questions.</em></h2>
+  <p class="match-sub reveal" data-i18n="mm_sub">Tailored product recommendations · FOB pricing within 24 hours · Direct WhatsApp to a JC engineer.</p>
+
+  <!-- Global coverage flags row — visual proof of worldwide reach -->
+  <div class="mm-global reveal" aria-label="Tailored recommendations for 30+ markets">
+    <span class="mm-global-lbl" data-i18n="mm_global">Tailored for 30+ markets</span>
+    <span class="mm-global-flags" aria-hidden="true">
+      <span title="Colombia">🇨🇴</span>
+      <span title="Ecuador">🇪🇨</span>
+      <span title="Brazil">🇧🇷</span>
+      <span title="Mexico">🇲🇽</span>
+      <span title="South Africa">🇿🇦</span>
+      <span title="Nigeria">🇳🇬</span>
+      <span title="Kenya">🇰🇪</span>
+      <span title="Spain">🇪🇸</span>
+      <span title="UK">🇬🇧</span>
+      <span title="Germany">🇩🇪</span>
+      <span title="UAE">🇦🇪</span>
+      <span title="Saudi Arabia">🇸🇦</span>
+      <span title="India">🇮🇳</span>
+      <span title="Thailand">🇹🇭</span>
+      <span title="Vietnam">🇻🇳</span>
+      <span title="Philippines">🇵🇭</span>
+      <span title="Indonesia">🇮🇩</span>
+      <span title="Australia">🇦🇺</span>
+      <span title="Japan">🇯🇵</span>
+      <span title="USA">🇺🇸</span>
+      <span title="Canada">🇨🇦</span>
+    </span>
+    <span class="mm-global-more">+15 more</span>
+  </div>
+
+  <!-- Path Selection -->
+  <div class="match-path reveal" id="matchPath">
+    <button class="match-path-btn" onclick="startQuiz('biz')">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#a87d2a" stroke-width="1.4"/><path d="M8 21h8M12 17v4" stroke="#a87d2a" stroke-width="1.4" stroke-linecap="round"/><path d="M6 10h12M6 13h8" stroke="#a87d2a" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+      <h4 data-i18n="mm_biz_t">I'm a Business Buyer</h4>
+      <p data-i18n="mm_biz_d">Importer, distributor, contractor, or project buyer sourcing in bulk.</p>
+      <div class="mm-btn-meta">
+        <span class="mm-meta-chip" data-i18n="mm_meta_q">4 questions</span>
+        <span class="mm-meta-chip" data-i18n="mm_meta_t">~30 sec</span>
+        <span class="mm-meta-chip mm-meta-chip-gold" data-i18n="mm_meta_fob">FOB quote · 24h</span>
+      </div>
+    </button>
+    <button class="match-path-btn" onclick="startQuiz('home')">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M3 12l9-9 9 9" stroke="#a87d2a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10a1 1 0 001 1h3v-4h6v4h3a1 1 0 001-1V10" stroke="#a87d2a" stroke-width="1.4"/><circle cx="12" cy="14" r="1" fill="#a87d2a"/></svg>
+      <h4 data-i18n="mm_home_t">I'm a Homeowner</h4>
+      <p data-i18n="mm_home_d">Looking for outdoor solar lighting for my own property or project.</p>
+      <div class="mm-btn-meta">
+        <span class="mm-meta-chip" data-i18n="mm_meta_q">4 questions</span>
+        <span class="mm-meta-chip" data-i18n="mm_meta_t">~30 sec</span>
+        <span class="mm-meta-chip mm-meta-chip-gold" data-i18n="mm_meta_unit">Single-unit pricing</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Benefit chips below buttons -->
+  <div class="mm-benefits reveal">
+    <div class="mm-benefit">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+      <span data-i18n="mm_benefit1">Engineer-curated picks</span>
+    </div>
+    <div class="mm-benefit">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M9 9h6v6H9z"/></svg>
+      <span data-i18n="mm_benefit2">FOB pricing in 24h</span>
+    </div>
+    <div class="mm-benefit">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-1 4 8.5 8.5 0 0 1-7.5 4.5 8.4 8.4 0 0 1-4-1L3 21l2-5a8.4 8.4 0 0 1-1-4 8.5 8.5 0 0 1 4.5-7.5 8.4 8.4 0 0 1 4-1h.5a8.5 8.5 0 0 1 8 8z"/></svg>
+      <span data-i18n="mm_benefit3">Direct WhatsApp line</span>
+    </div>
+    <div class="mm-benefit">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      <span data-i18n="mm_benefit4">Free PDF spec sheet</span>
+    </div>
+  </div>
+
+  <!-- Fine-print reassurance -->
+  <p class="mm-disclaimer reveal" data-i18n="mm_disc">No registration. No mailing list. Your data goes only to a JC sales engineer.</p>
+
+  <!-- Quiz Area (hidden initially) -->
+  <div id="matchQuiz" style="display:none"></div>
+
+  <!-- Results Area (hidden initially) -->
+  <div id="matchResults" style="display:none"></div>
+</section>
+
 <section class="products" id="products">
   <div class="prod-head reveal">
     <div>
@@ -4495,8 +3649,8 @@ polygon[fill="url(#vlg-solar)"] {
     <button class="prod-filter-btn active" onclick="scrollToCat('all')"><span data-i18n="filter_all">All</span><span class="prod-filter-count">30</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-security')"><span data-i18n="filter_security">Security</span><span class="prod-filter-count">8</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-garden')"><span data-i18n="filter_garden">Garden</span><span class="prod-filter-count">3</span></button>
-    <button class="prod-filter-btn" onclick="scrollToCat('cat-decorative')"><span data-i18n="filter_decorative">Decorative</span><span class="prod-filter-count">8</span></button>
-    <button class="prod-filter-btn" onclick="scrollToCat('cat-offgrid')"><span data-i18n="filter_offgrid">Off-Grid</span><span class="prod-filter-count">8</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-decorative')"><span data-i18n="filter_decorative">Decorative</span><span class="prod-filter-count">7</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-offgrid')"><span data-i18n="filter_offgrid">Off-Grid</span><span class="prod-filter-count">9</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-ac')"><span data-i18n="filter_ac">AC Commercial</span><span class="prod-filter-count">3</span></button>
   </div>
 
@@ -4720,101 +3874,6 @@ polygon[fill="url(#vlg-solar)"] {
   </div>
 </section>
 
-<section class="matchmaker" id="find-light">
-  <!-- HUD-style eyebrow with pulse dot -->
-  <div class="mm-eyebrow reveal">
-    <span class="mm-eyebrow-pulse"></span>
-    <span class="sec-label" data-i18n="mm_lbl">FIND YOUR LIGHT</span>
-    <span class="mm-eyebrow-sep">·</span>
-    <span class="mm-eyebrow-status" data-i18n="mm_status">RECOMMENDATION ENGINE · ACTIVE</span>
-  </div>
-
-  <h2 class="reveal" data-i18n="mm_h2">Not sure which light fits? <em>Answer a few questions.</em></h2>
-  <p class="match-sub reveal" data-i18n="mm_sub">Tailored product recommendations · FOB pricing within 24 hours · Direct WhatsApp to a JC engineer.</p>
-
-  <!-- Global coverage flags row — visual proof of worldwide reach -->
-  <div class="mm-global reveal" aria-label="Tailored recommendations for 30+ markets">
-    <span class="mm-global-lbl" data-i18n="mm_global">Tailored for 30+ markets</span>
-    <span class="mm-global-flags" aria-hidden="true">
-      <span title="Colombia">🇨🇴</span>
-      <span title="Ecuador">🇪🇨</span>
-      <span title="Brazil">🇧🇷</span>
-      <span title="Mexico">🇲🇽</span>
-      <span title="South Africa">🇿🇦</span>
-      <span title="Nigeria">🇳🇬</span>
-      <span title="Kenya">🇰🇪</span>
-      <span title="Spain">🇪🇸</span>
-      <span title="UK">🇬🇧</span>
-      <span title="Germany">🇩🇪</span>
-      <span title="UAE">🇦🇪</span>
-      <span title="Saudi Arabia">🇸🇦</span>
-      <span title="India">🇮🇳</span>
-      <span title="Thailand">🇹🇭</span>
-      <span title="Vietnam">🇻🇳</span>
-      <span title="Philippines">🇵🇭</span>
-      <span title="Indonesia">🇮🇩</span>
-      <span title="Australia">🇦🇺</span>
-      <span title="Japan">🇯🇵</span>
-      <span title="USA">🇺🇸</span>
-      <span title="Canada">🇨🇦</span>
-    </span>
-    <span class="mm-global-more">+15 more</span>
-  </div>
-
-  <!-- Path Selection -->
-  <div class="match-path reveal" id="matchPath">
-    <button class="match-path-btn" onclick="startQuiz('biz')">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#a87d2a" stroke-width="1.4"/><path d="M8 21h8M12 17v4" stroke="#a87d2a" stroke-width="1.4" stroke-linecap="round"/><path d="M6 10h12M6 13h8" stroke="#a87d2a" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
-      <h4 data-i18n="mm_biz_t">I'm a Business Buyer</h4>
-      <p data-i18n="mm_biz_d">Importer, distributor, contractor, or project buyer sourcing in bulk.</p>
-      <div class="mm-btn-meta">
-        <span class="mm-meta-chip" data-i18n="mm_meta_q">4 questions</span>
-        <span class="mm-meta-chip" data-i18n="mm_meta_t">~30 sec</span>
-        <span class="mm-meta-chip mm-meta-chip-gold" data-i18n="mm_meta_fob">FOB quote · 24h</span>
-      </div>
-    </button>
-    <button class="match-path-btn" onclick="startQuiz('home')">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M3 12l9-9 9 9" stroke="#a87d2a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10a1 1 0 001 1h3v-4h6v4h3a1 1 0 001-1V10" stroke="#a87d2a" stroke-width="1.4"/><circle cx="12" cy="14" r="1" fill="#a87d2a"/></svg>
-      <h4 data-i18n="mm_home_t">I'm a Homeowner</h4>
-      <p data-i18n="mm_home_d">Looking for outdoor solar lighting for my own property or project.</p>
-      <div class="mm-btn-meta">
-        <span class="mm-meta-chip" data-i18n="mm_meta_q">4 questions</span>
-        <span class="mm-meta-chip" data-i18n="mm_meta_t">~30 sec</span>
-        <span class="mm-meta-chip mm-meta-chip-gold" data-i18n="mm_meta_unit">Single-unit pricing</span>
-      </div>
-    </button>
-  </div>
-
-  <!-- Benefit chips below buttons -->
-  <div class="mm-benefits reveal">
-    <div class="mm-benefit">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
-      <span data-i18n="mm_benefit1">Engineer-curated picks</span>
-    </div>
-    <div class="mm-benefit">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M9 9h6v6H9z"/></svg>
-      <span data-i18n="mm_benefit2">FOB pricing in 24h</span>
-    </div>
-    <div class="mm-benefit">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-1 4 8.5 8.5 0 0 1-7.5 4.5 8.4 8.4 0 0 1-4-1L3 21l2-5a8.4 8.4 0 0 1-1-4 8.5 8.5 0 0 1 4.5-7.5 8.4 8.4 0 0 1 4-1h.5a8.5 8.5 0 0 1 8 8z"/></svg>
-      <span data-i18n="mm_benefit3">Direct WhatsApp line</span>
-    </div>
-    <div class="mm-benefit">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-      <span data-i18n="mm_benefit4">Free PDF spec sheet</span>
-    </div>
-  </div>
-
-  <!-- Fine-print reassurance -->
-  <p class="mm-disclaimer reveal" data-i18n="mm_disc">No registration. No mailing list. Your data goes only to a JC sales engineer.</p>
-
-  <!-- Quiz Area (hidden initially) -->
-  <div id="matchQuiz" style="display:none"></div>
-
-  <!-- Results Area (hidden initially) -->
-  <div id="matchResults" style="display:none"></div>
-</section>
-
 <!-- ═══ Insights — solar lighting education + thought leadership ═══ -->
 <section class="insights" id="insights">
   <div class="insights-head reveal">
@@ -4827,37 +3886,37 @@ polygon[fill="url(#vlg-solar)"] {
       <span class="insight-cat" data-i18n="ins1_cat">Basics</span>
       <h3 data-i18n="ins1_t">What Is Solar Lighting?</h3>
       <p class="insight-excerpt" data-i18n="ins1_x">A self-contained lighting system that captures sunlight by day and runs at night — no grid, no wiring, no electricity bill.</p>
-      <span class="insight-read"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      <button class="insight-read" type="button"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
     </article>
     <article class="insight-card" data-insight-id="i2">
       <span class="insight-cat" data-i18n="ins2_cat">Value</span>
       <h3 data-i18n="ins2_t">Why Switch to Solar Lighting?</h3>
       <p class="insight-excerpt" data-i18n="ins2_x">Eliminates electricity costs, survives blackouts, installs in minutes, and pays for itself in 2–4 years.</p>
-      <span class="insight-read"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      <button class="insight-read" type="button"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
     </article>
     <article class="insight-card" data-insight-id="i3">
       <span class="insight-cat" data-i18n="ins3_cat">Technology</span>
       <h3 data-i18n="ins3_t">LiFePO4 vs Lithium-ion</h3>
       <p class="insight-excerpt" data-i18n="ins3_x">One battery chemistry lasts 3× longer in hot climates. The other can catch fire if overcharged.</p>
-      <span class="insight-read"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      <button class="insight-read" type="button"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
     </article>
     <article class="insight-card" data-insight-id="i4">
       <span class="insight-cat" data-i18n="ins4_cat">Selection</span>
       <h3 data-i18n="ins4_t">IP65 vs IP66 vs IP67: A Buyer's Guide</h3>
       <p class="insight-excerpt" data-i18n="ins4_x">The wrong IP rating fails in months. Here's exactly what each number means for your install environment.</p>
-      <span class="insight-read"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      <button class="insight-read" type="button"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
     </article>
     <article class="insight-card" data-insight-id="i5">
       <span class="insight-cat" data-i18n="ins5_cat">How It Works</span>
       <h3 data-i18n="ins5_t">How Solar Panels + LED Work Together</h3>
       <p class="insight-excerpt" data-i18n="ins5_x">A 4-component system that turns 8 hours of sunlight into 12 hours of bright light. Here's the chain.</p>
-      <span class="insight-read"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      <button class="insight-read" type="button"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
     </article>
     <article class="insight-card" data-insight-id="i6">
       <span class="insight-cat" data-i18n="ins6_cat">Markets</span>
       <h3 data-i18n="ins6_t">Load-Shedding Survival Guide</h3>
       <p class="insight-excerpt" data-i18n="ins6_x">Stage 6 cuts mean 12+ hours daily without power. Solar security lighting is no longer optional.</p>
-      <span class="insight-read"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      <button class="insight-read" type="button"><span data-i18n="ins_read">Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
     </article>
   </div>
 </section>
@@ -4971,18 +4030,6 @@ polygon[fill="url(#vlg-solar)"] {
 
     <!-- Social media row (moved from footer) -->
     <div class="con-social">
-      <a href="#" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95 0-5.52-4.48-10-10-10z"/></svg>
-      </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-      </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14M8.34 17V9.67H6V17h2.34M7.17 8.61a1.36 1.36 0 100-2.72 1.36 1.36 0 000 2.72M18 17v-4.27c0-2.16-1.38-3.06-2.74-3.06a2.56 2.56 0 00-2.27 1.16V9.67h-2.34V17h2.34v-4.06a1.56 1.56 0 011.41-1.68 1.42 1.42 0 011.27 1.6V17H18z"/></svg>
-      </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="YouTube">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8M9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
-      </a>
       <a href="https://wa.me/8613138189642" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="WhatsApp">
         <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.88 1.92 7.02L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.1 19.42c-.3.84-1.76 1.6-2.42 1.66-.66.06-1.28.3-4.32-.9-3.66-1.44-6-5.18-6.18-5.42-.18-.24-1.44-1.92-1.44-3.66s.9-2.58 1.24-2.94c.34-.36.72-.44.96-.44l.7.01c.22 0 .52-.08.8.62l1.14 2.8c.1.22.04.48-.06.66l-.42.52-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.6-.08l.82-1c.16-.2.32-.14.54-.06l2.72 1.28c.28.14.46.2.52.32.06.48-.22 1.96-.52 2.8z"/></svg>
       </a>
@@ -5224,6 +4271,15 @@ const T = {
     hero_h1:'停电的夜晚<br>我们的灯<br><em>从不熄灭。</em>',
     hero_sub:'哥伦比亚预计2027年电力缺口超过3,100 GWh。厄瓜多尔已出现每天最长10小时停电。南非日均限电6至8小时。太阳能安防、花园、装饰、家庭及便携照明——专为电网不可靠的市场而造。',
     hero_cta1:'立即询价',hero_cta2:'查看产品 →',
+    hero_kick:'为离网市场而生',
+    hero_hl:'阳光所至<br><em>永不断电</em>',
+    hero_side:'太阳能安防、路灯与花园照明——专为电网频繁失灵的市场打造。零电费、认证硬件，<em>从不熄灭。</em>',
+    htp_label:'认证硬件',
+    hglass1_badge:'IP66 防护',
+    hglass1_title:'扛得住风雨的坚固',
+    hglass2_title:'内置磷酸铁锂电池',
+    hglass2_sub:'安全电芯，循环寿命更长，–20°C 至 +50°C 稳定运行。',
+    hglass3_sub:'泛光级亮度——零电费，夜夜长明。',
     stat1:'款产品',stat2:'大产品线',stat3:'认证 · RoHS',stat4:'只起订量',
     brand_q:'"非洲、拉美、大洋洲的电网正在失效。<br><span>太阳能照明不是升级选项——它是唯一答案。"</span>',
     brand_b:'嘉晨照明科技有限公司为包括不限于分销商、安装公司及工程承包商提供户外太阳能照明产品，专注服务电网供应不稳定的市场。支持 OEM 与 ODM 定制。',man_stat1:'出口市场',man_stat2:'大洲覆盖',man_stat3:'出货量',man_stat4:'LiFePO4 循环',man_live:'最新询价 <strong>14 分钟前</strong> · 卡塔赫纳，哥伦比亚',
@@ -5366,6 +4422,15 @@ const T = {
     hero_h1:'Luz que funciona<br>cuando la corriente<br><em>no llega.</em>',
     hero_sub:'Colombia proyecta un déficit energético de más de 3.100 GWh para 2027. Ecuador ya sufre cortes de hasta 10 horas diarias. Sudáfrica registra entre 6 y 8 horas de cortes al día. Iluminación solar de seguridad, jardín, decorativa, hogar y portátil — fabricada para que tus clientes nunca se queden a oscuras.',
     hero_cta1:'Solicitar Cotización',hero_cta2:'Ver Productos →',
+    hero_kick:'Diseñado para Mercados Sin Red',
+    hero_hl:'Donde el Sol<br><em>Nunca se Apaga</em>',
+    hero_side:'Iluminación solar de seguridad, vial y de jardín — para mercados donde la red falla. Sin costo de energía, equipo certificado, <em>luz sin interrupciones.</em>',
+    htp_label:'Equipo certificado',
+    hglass1_badge:'Clasificación IP66',
+    hglass1_title:'Resiste cualquier tormenta',
+    hglass2_title:'Batería LiFePO4',
+    hglass2_sub:'Química segura, mayor vida útil, –20 °C a +50 °C.',
+    hglass3_sub:'Potencia de reflector — sin costo de energía, cada noche.',
     stat1:'Productos',stat2:'Gamas',stat3:'Certificado · RoHS',stat4:'Uds. Pedido Mínimo',
     brand_q:'"Las redes eléctricas están fallando en África, América Latina y Oceanía.<br><span>La iluminación solar no es una mejora — es la solución."</span>',
     brand_b:'JC Lightning Technology Co., Ltd. suministra productos de iluminación solar exterior a distribuidores, empresas de instalación, contratistas de proyectos y más — enfocada en mercados donde el suministro eléctrico es inestable. OEM y ODM disponibles.',man_stat1:'Mercados de exportación',man_stat2:'Continentes',man_stat3:'Unidades enviadas',man_stat4:'Ciclos LiFePO4',man_live:'Última cotización <strong>hace 14 min</strong> · Cartagena, Colombia',
@@ -6144,6 +5209,23 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   if (footCta) footCta.addEventListener('click', close);
 })();
 
+// ═══ Mobile: swap hero <video> → poster <img> so phones never download the hero videos ═══
+(function(){
+  if (!(window.matchMedia && window.matchMedia('(max-width:768px)').matches)) return;
+  document.querySelectorAll('#heroCarousel video').forEach(v => {
+    const fallback = v.querySelector('img');
+    const src = v.getAttribute('poster') || (fallback && fallback.getAttribute('src')) || '';
+    if (!src) return;
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = (fallback && fallback.getAttribute('alt')) || v.getAttribute('aria-label') || 'JC Lightning solar lighting';
+    img.className = v.className;
+    img.loading = 'eager';
+    img.decoding = 'async';
+    v.replaceWith(img);
+  });
+})();
+
 // ═══ Hero Carousel — 3-slide swipe with auto-advance + arrows + dots ═══
 (function(){
   const slides = document.querySelectorAll('.hero-slide');
@@ -6905,8 +5987,10 @@ window.addEventListener('load',()=>{
       pl.classList.add('hide');
       // Hero entrance stagger
       if(typeof gsap!=='undefined'){
-        gsap.from('.hero-left > *',{y:40,opacity:0,duration:.8,stagger:.15,ease:'power3.out',delay:.15});
-        gsap.from('.hero-right',{opacity:0,scale:1.03,duration:1.2,ease:'power2.out',delay:.1});
+        // Hero overlay — staggered rise-up (eyebrow → headline → buttons → side line)
+        gsap.from('.hero-cta-overlay .hero-cta-eyebrow, .hero-cta-overlay .hero-h1, .hero-cta-overlay .hero-btns, .hero-cta-overlay .hero-cta-side',{y:42,opacity:0,duration:.9,stagger:.13,ease:'power3.out',delay:.15});
+        gsap.from('.hero-trust-pill',{y:-14,opacity:0,duration:.7,ease:'power3.out',delay:.7});
+        gsap.from('.hero-glass-row .hglass',{y:30,opacity:0,duration:.8,stagger:.13,ease:'power3.out',delay:.85});
         gsap.from('.scroll-indicator',{opacity:0,y:-12,duration:.6,delay:.7});
       }
       setTimeout(()=>pl.remove(),500);
