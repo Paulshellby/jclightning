@@ -3541,17 +3541,7 @@ video.hero-3d-bg {
 
 /* Watermark cover — radial gradient blending bottom-right corner into page bg.
    Backup in case scale doesn't fully hide it on certain aspect ratios. */
-.hero-wm-cover {
-  position:absolute; bottom:0; right:0;
-  width: clamp(160px, 17vw, 260px);
-  height: clamp(50px, 6vw, 80px);
-  background: radial-gradient(ellipse at bottom right,
-    rgba(245,240,235,0.98) 0%,
-    rgba(245,240,235,0.75) 38%,
-    rgba(245,240,235,0.25) 72%,
-    transparent 100%);
-  z-index:3; pointer-events:none;
-}
+.hero-wm-cover { display: none !important; } /* new videos have no watermark */
 
 /* Mobile: handled comprehensively in the ≤768px media block earlier in <style> */
 
