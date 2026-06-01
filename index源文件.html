@@ -2264,6 +2264,135 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   </div>
 </section>
 
+<!-- ===== APPLICATION SCENES (isometric network — light flows scene to scene) ===== -->
+<style>
+.scenes-net{ position:relative; padding:clamp(4rem,8vw,7rem) 1.5rem clamp(4.5rem,9vw,7.5rem); background:linear-gradient(180deg,#f2ede4 0%,#eef1f3 50%,#f4efe6 100%); overflow:hidden; }
+.scenes-net::before{ content:''; position:absolute; inset:0; background:radial-gradient(60% 56% at 50% 52%, rgba(201,162,78,0.16), rgba(201,162,78,0) 70%); pointer-events:none; }
+.scn-head{ position:relative; z-index:2; max-width:800px; margin:0 auto clamp(2.2rem,4vw,3.4rem); text-align:center; }
+.scn-kick{ display:inline-block; font-family:'Outfit',sans-serif; font-weight:600; letter-spacing:.22em; text-transform:uppercase; font-size:.72rem; color:#a87d2a; margin-bottom:1rem; }
+.scn-head h2{ font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(2rem,4.6vw,3.3rem); line-height:1.08; color:#16120c; margin:0 0 1rem; }
+.scn-head h2 em{ font-style:italic; color:#a87d2a; }
+.scn-sub{ font-family:'Outfit',sans-serif; font-size:clamp(.98rem,1.4vw,1.1rem); line-height:1.6; color:#5b5247; margin:0 auto; max-width:660px; }
+
+.scn-stage{ position:relative; z-index:2; max-width:1080px; margin:0 auto; }
+.scn-frame{ position:relative; border-radius:24px; overflow:hidden; background:#e9eaec; border:1px solid rgba(255,255,255,0.6); box-shadow:0 44px 96px -34px rgba(20,18,14,0.5), 0 10px 28px rgba(20,18,14,0.12); }
+.scn-frame::after{ content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; box-shadow:inset 0 0 130px rgba(20,18,14,0.10); }
+.scn-img{ display:block; width:100%; height:auto; }
+
+/* flowing light pulses along the baked-in amber wires */
+.scn-flow{ position:absolute; inset:0; width:100%; height:100%; z-index:3; pointer-events:none; }
+.scn-flow .scn-pulse{ fill:none; stroke:url(#scnGrad); stroke-width:5; stroke-linecap:round; filter:url(#scnGlow); stroke-dasharray:34 1000; stroke-dashoffset:34; animation:scn-flow 3.8s linear infinite; }
+.scn-flow .scn-p2{ animation-delay:.95s; } .scn-flow .scn-p3{ animation-delay:1.9s; } .scn-flow .scn-p4{ animation-delay:2.85s; }
+@keyframes scn-flow{ from{ stroke-dashoffset:34; } to{ stroke-dashoffset:-1000; } }
+
+/* faint dashed leader lines + pulsing nodes (anatomy logic) */
+.scn-leads{ position:absolute; inset:0; width:100%; height:100%; z-index:4; pointer-events:none; }
+.scn-leads line{ stroke:rgba(255,244,221,0.7); stroke-width:1; stroke-dasharray:3 4; vector-effect:non-scaling-stroke; filter:drop-shadow(0 0 2px rgba(20,18,14,.5)); }
+.scn-node{ position:absolute; width:11px; height:11px; border-radius:50%; background:#ffd98a; transform:translate(-50%,-50%); box-shadow:0 0 0 4px rgba(255,217,138,0.22), 0 0 10px rgba(255,217,138,.9); z-index:4; animation:scn-node 2.6s ease-in-out infinite; }
+@keyframes scn-node{ 0%,100%{ box-shadow:0 0 0 4px rgba(255,217,138,0.22), 0 0 10px rgba(255,217,138,.9);} 50%{ box-shadow:0 0 0 9px rgba(255,217,138,0.06), 0 0 16px rgba(255,217,138,.6);} }
+.scn-n1{ left:28.5%; top:49.8%; } .scn-n2{ left:72.5%; top:39.2%; } .scn-n3{ left:32.6%; top:76.8%; } .scn-n4{ left:74.2%; top:72.8%; }
+
+/* glass annotation pills */
+.scn-grid-m{ display:contents; }
+.scn-pill{ position:absolute; z-index:5; width:clamp(200px,20vw,248px); display:flex; gap:.7rem; align-items:flex-start; padding:.85rem .95rem; border-radius:16px; background:rgba(255,255,255,0.62); backdrop-filter:blur(16px) saturate(1.15); -webkit-backdrop-filter:blur(16px) saturate(1.15); border:1px solid rgba(255,255,255,0.85); box-shadow:0 16px 38px rgba(20,18,14,0.18), inset 0 1px 0 rgba(255,255,255,0.9); opacity:0; animation:scn-pill-in .8s cubic-bezier(.22,.61,.36,1) forwards; }
+@keyframes scn-pill-in{ from{ opacity:0; transform:translateY(16px) scale(.96);} to{ opacity:1; transform:translateY(0) scale(1);} }
+.scn-pill .scn-ic{ flex:0 0 auto; width:38px; height:38px; border-radius:11px; display:grid; place-items:center; background:linear-gradient(135deg,#c9a24e,#a87d2a); box-shadow:0 4px 12px rgba(168,125,42,.35); }
+.scn-pill .scn-ic svg{ width:20px; height:20px; stroke:#fff; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.scn-pill .scn-tx{ min-width:0; }
+.scn-pill .scn-t{ font-family:'Outfit',sans-serif; font-weight:700; font-size:.92rem; color:#16120c; line-height:1.2; margin:0 0 .22rem; }
+.scn-pill .scn-s{ font-family:'Outfit',sans-serif; font-weight:400; font-size:.76rem; line-height:1.42; color:#5b5247; margin:0; }
+.scn-p1{ top:3%;  left:1.5%;  animation-delay:.15s; }
+.scn-p2{ top:3%;  right:1.5%; animation-delay:.30s; }
+.scn-p3{ bottom:11%; left:1.5%;  animation-delay:.45s; }
+.scn-p4{ bottom:11%; right:1.5%; animation-delay:.60s; }
+
+.scn-badge{ position:absolute; left:50%; bottom:3%; transform:translateX(-50%); z-index:5; display:inline-flex; align-items:center; gap:.55rem; padding:.5rem .95rem; border-radius:999px; background:rgba(22,18,12,0.82); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); color:#f0ebe2; font-family:'Outfit',sans-serif; font-weight:600; font-size:.78rem; letter-spacing:.03em; box-shadow:0 10px 26px rgba(20,18,14,.28); opacity:0; animation:scn-pill-in .8s cubic-bezier(.22,.61,.36,1) .75s forwards; }
+.scn-badge svg{ width:15px; height:15px; stroke:#c9a24e; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.scn-badge b{ color:#c9a24e; font-weight:700; }
+
+@media (prefers-reduced-motion: reduce){
+  .scn-flow .scn-pulse{ animation:none; opacity:0; }
+  .scn-pill, .scn-badge, .scn-node{ animation:none; opacity:1; }
+}
+@media (max-width:920px){
+  .scenes-net::before{ background:radial-gradient(72% 42% at 50% 28%, rgba(201,162,78,0.16), rgba(201,162,78,0) 72%); }
+  .scn-stage{ max-width:620px; }
+  .scn-leads, .scn-node{ display:none; }
+  .scn-badge{ font-size:.72rem; }
+  .scn-grid-m{ display:grid; grid-template-columns:1fr 1fr; gap:.85rem; margin-top:1.4rem; }
+  .scn-pill{ position:static; width:auto; opacity:1; animation:none; }
+}
+@media (max-width:520px){ .scn-grid-m{ grid-template-columns:1fr; } }
+</style>
+<section class="scenes-net" id="scenes">
+  <div class="scn-head">
+    <span class="scn-kick" data-i18n="scn_kick">Every Corner Covered</span>
+    <h2 data-i18n="scn_h2">One Property. <em>Lit End to End.</em></h2>
+    <p class="scn-sub" data-i18n="scn_sub">From the front gate to the back patio, each scene runs on its own captured sunlight — no trenching, no meters, nothing to lose when the grid goes dark.</p>
+  </div>
+
+  <div class="scn-stage">
+    <div class="scn-frame">
+      <img class="scn-img" src="images/scenes-iso.jpg" alt="Isometric view of a solar-lit property — villa, driveway, gated garden, street and pergola linked by glowing solar light lines" loading="lazy" decoding="async">
+
+      <svg class="scn-flow" viewBox="0 0 1792 1000" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="scnGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff4dd"/><stop offset="50%" stop-color="#f3c66f"/><stop offset="100%" stop-color="#c9a24e"/></linearGradient>
+          <filter id="scnGlow" x="-40%" y="-60%" width="180%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <path class="scn-pulse scn-p1" pathLength="1000" d="M806 552 C 740 535, 620 512, 510 498"/>
+        <path class="scn-pulse scn-p2" pathLength="1000" d="M1035 548 C 1110 500, 1200 445, 1300 392"/>
+        <path class="scn-pulse scn-p3" pathLength="1000" d="M806 640 C 740 685, 660 730, 585 768"/>
+        <path class="scn-pulse scn-p4" pathLength="1000" d="M1040 628 C 1120 660, 1230 695, 1330 728"/>
+      </svg>
+
+      <svg class="scn-leads" viewBox="0 0 1792 1000" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="300" y1="165" x2="510" y2="498"/>
+        <line x1="1420" y1="170" x2="1300" y2="392"/>
+        <line x1="320" y1="805" x2="585" y2="768"/>
+        <line x1="1400" y1="805" x2="1330" y2="728"/>
+      </svg>
+      <span class="scn-node scn-n1"></span>
+      <span class="scn-node scn-n2"></span>
+      <span class="scn-node scn-n3"></span>
+      <span class="scn-node scn-n4"></span>
+
+      <span class="scn-badge" data-i18n="scn_badge"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><b>Off-Grid</b> · One Solar Network</span>
+    </div>
+
+    <div class="scn-grid-m">
+      <article class="scn-pill scn-p1">
+        <span class="scn-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M9 19v-5h6v5"/></svg></span>
+        <span class="scn-tx">
+          <p class="scn-t" data-i18n="scn_p1_t">Homes &amp; Gardens</p>
+          <p class="scn-s" data-i18n="scn_p1_s">Bollards, stake spots and step lights trace every path and border after dusk.</p>
+        </span>
+      </article>
+      <article class="scn-pill scn-p2">
+        <span class="scn-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg></span>
+        <span class="scn-tx">
+          <p class="scn-t" data-i18n="scn_p2_t">Driveways &amp; Garages</p>
+          <p class="scn-s" data-i18n="scn_p2_s">Motion flood and sensor wall lights snap on the instant a car or visitor arrives.</p>
+        </span>
+      </article>
+      <article class="scn-pill scn-p3">
+        <span class="scn-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 21V4a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v17"/><path d="M11 7h4l1.5 4H11"/><path d="M5 21h14"/></svg></span>
+        <span class="scn-tx">
+          <p class="scn-t" data-i18n="scn_p3_t">Streets &amp; Parking</p>
+          <p class="scn-s" data-i18n="scn_p3_s">All-in-One radar street lights blanket roads and lots — install in minutes, no cabling.</p>
+        </span>
+      </article>
+      <article class="scn-pill scn-p4">
+        <span class="scn-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h16"/><path d="M5 10V6h14v4"/><path d="M6 10l1 11M18 10l-1 11M12 10v11"/></svg></span>
+        <span class="scn-tx">
+          <p class="scn-t" data-i18n="scn_p4_t">Patios &amp; Pergolas</p>
+          <p class="scn-s" data-i18n="scn_p4_s">Warm Edison string lights and deck lights turn any evening space inviting.</p>
+        </span>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ===== MANIFESTO (merged: hero-headline + brand quote)
        One coherent narrative: Problem → Promise → Evidence → Action → Authority
 ==================================================================== -->
@@ -4420,6 +4549,18 @@ const T = {
     an_p4_t:'雷达感应器',
     an_p4_s:'感应到人即刻全亮，无人时自动调暗省电。',
     an_ip:'<b>IP66</b> · 整机防护',
+    scn_kick:'每个角落，皆有光',
+    scn_h2:'一处宅院，<em>从头到尾点亮。</em>',
+    scn_sub:'从前门到后院，每个场景都靠自身蓄存的阳光发光——无需开沟布线、无需电表，停电也无所畏惧。',
+    scn_p1_t:'住宅与花园',
+    scn_p1_s:'柱头灯、插地射灯与台阶灯，入夜后勾勒每条小径与边界。',
+    scn_p2_t:'车道与车库',
+    scn_p2_s:'感应泛光灯与壁灯，车辆或访客一到即刻亮起。',
+    scn_p3_t:'街道与停车场',
+    scn_p3_s:'一体化雷达路灯铺满道路与场地——几分钟装好，无需布线。',
+    scn_p4_t:'露台与凉棚',
+    scn_p4_s:'暖光爱迪生灯串与地脚灯，让每个夜晚都温馨宜人。',
+    scn_badge:'<b>离网</b> · 一张太阳能光网',
     stat1:'款产品',stat2:'大产品线',stat3:'认证 · RoHS',stat4:'只起订量',
     brand_q:'"非洲、拉美、大洋洲的电网正在失效。<br><span>太阳能照明不是升级选项——它是唯一答案。"</span>',
     brand_b:'嘉晨照明科技有限公司为包括不限于分销商、安装公司及工程承包商提供户外太阳能照明产品，专注服务电网供应不稳定的市场。支持 OEM 与 ODM 定制。',man_stat1:'出口市场',man_stat2:'大洲覆盖',man_stat3:'出货量',man_stat4:'LiFePO4 循环',man_live:'最新询价 <strong>14 分钟前</strong> · 卡塔赫纳，哥伦比亚',
@@ -4583,6 +4724,18 @@ const T = {
     an_p4_t:'Sensor de movimiento por radar',
     an_p4_s:'Se enciende al detectarte y se atenúa para ahorrar.',
     an_ip:'<b>IP66</b> · Totalmente sellada',
+    scn_kick:'Cada rincón cubierto',
+    scn_h2:'Una propiedad. <em>Iluminada de punta a punta.</em>',
+    scn_sub:'Del portón de entrada al patio trasero, cada escena funciona con su propia luz solar captada — sin zanjas, sin medidores, sin nada que perder cuando se va la red.',
+    scn_p1_t:'Casas y jardines',
+    scn_p1_s:'Balizas, focos de estaca y luces de escalón marcan cada sendero y borde al anochecer.',
+    scn_p2_t:'Entradas y garajes',
+    scn_p2_s:'Focos con sensor y apliques de movimiento se encienden al llegar un auto o visita.',
+    scn_p3_t:'Calles y aparcamientos',
+    scn_p3_s:'Las farolas solares Todo-en-Uno con radar cubren calles y lotes — se instalan en minutos, sin cableado.',
+    scn_p4_t:'Patios y pérgolas',
+    scn_p4_s:'Guirnaldas Edison cálidas y luces de cubierta hacen acogedor cualquier espacio nocturno.',
+    scn_badge:'<b>Sin red</b> · Una red solar',
     stat1:'Productos',stat2:'Gamas',stat3:'Certificado · RoHS',stat4:'Uds. Pedido Mínimo',
     brand_q:'"Las redes eléctricas están fallando en África, América Latina y Oceanía.<br><span>La iluminación solar no es una mejora — es la solución."</span>',
     brand_b:'JC Lightning Technology Co., Ltd. suministra productos de iluminación solar exterior a distribuidores, empresas de instalación, contratistas de proyectos y más — enfocada en mercados donde el suministro eléctrico es inestable. OEM y ODM disponibles.',man_stat1:'Mercados de exportación',man_stat2:'Continentes',man_stat3:'Unidades enviadas',man_stat4:'Ciclos LiFePO4',man_live:'Última cotización <strong>hace 14 min</strong> · Cartagena, Colombia',
