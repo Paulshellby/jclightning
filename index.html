@@ -2091,13 +2091,16 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 <div class="hero-aurora" aria-hidden="true">
   <div class="hero-photo"></div>
   <div class="hero-photo-tint"></div>
-  <span class="hero-beam"></span>
   <span class="hero-spark s1"></span>
   <span class="hero-spark s2"></span>
   <span class="hero-spark s3"></span>
   <span class="hero-spark s4"></span>
   <span class="hero-spark s5"></span>
   <span class="hero-spark s6"></span>
+  <div class="hero-wordmark">RESILIENCE</div>
+  <div class="hero-bird">
+    <svg viewBox="0 0 200 140" aria-hidden="true"><defs><radialGradient id="heroBirdGrad" cx="50%" cy="38%" r="72%"><stop offset="0%" stop-color="#fff4dd"/><stop offset="46%" stop-color="#f3c66f"/><stop offset="100%" stop-color="#c9a24e"/></radialGradient></defs><path fill="url(#heroBirdGrad)" d="M100 14 C104 14 106 20 106 30 L107 36 C130 42 160 64 190 104 C168 92 140 78 110 70 L108 96 L113 124 L100 110 L87 124 L92 96 L90 70 C60 78 32 92 10 104 C40 64 70 42 93 36 L94 30 C94 20 96 14 100 14 Z"/></svg>
+  </div>
 </div>
 
   <!-- Trust pill — Birds "Active Users" equivalent -->
@@ -2138,6 +2141,114 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
       </div>
       <p class="hero-cta-side" data-i18n="hero_side">Solar security, street &amp; garden lighting — built for markets the grid keeps failing. Free fuel, certified hardware, <em>nonstop light.</em></p>
     </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCT ANATOMY (SolEase-style annotated centerpiece) ===== -->
+<style>
+.anatomy{ position:relative; padding:clamp(4rem,8vw,7rem) 1.5rem clamp(4.5rem,9vw,7.5rem); background:linear-gradient(180deg,#f7f3ec 0%,#eef2f4 46%,#f2ede4 100%); overflow:hidden; }
+.anatomy::before{ content:''; position:absolute; inset:0; background:radial-gradient(58% 54% at 50% 46%, rgba(201,162,78,0.17), rgba(201,162,78,0) 70%); pointer-events:none; }
+.an-head{ position:relative; z-index:2; max-width:780px; margin:0 auto clamp(2rem,4vw,3.4rem); text-align:center; }
+.an-kick{ display:inline-block; font-family:'Outfit',sans-serif; font-weight:600; letter-spacing:.22em; text-transform:uppercase; font-size:.72rem; color:#a87d2a; margin-bottom:1rem; }
+.an-head h2{ font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(2rem,4.6vw,3.3rem); line-height:1.08; color:#16120c; margin:0 0 1rem; }
+.an-head h2 em{ font-style:italic; color:#a87d2a; }
+.an-sub{ font-family:'Outfit',sans-serif; font-size:clamp(.98rem,1.4vw,1.1rem); line-height:1.6; color:#5b5247; margin:0 auto; max-width:640px; }
+
+.an-stage{ position:relative; z-index:2; max-width:1100px; height:clamp(470px,58vw,670px); margin:0 auto; }
+.an-product{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); height:80%; width:auto; filter:drop-shadow(0 30px 60px rgba(20,18,14,0.18)); animation:an-prod-float 9s ease-in-out infinite; }
+@keyframes an-prod-float{ 0%,100%{ transform:translate(-50%,-50%) translateY(0);} 50%{ transform:translate(-50%,-50%) translateY(-14px);} }
+
+.an-lines{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:3; }
+.an-lines line{ stroke:rgba(168,125,42,0.55); stroke-width:1; stroke-dasharray:3 4; vector-effect:non-scaling-stroke; }
+.an-node{ position:absolute; width:11px; height:11px; border-radius:50%; background:#a87d2a; transform:translate(-50%,-50%); box-shadow:0 0 0 4px rgba(168,125,42,0.16); z-index:3; animation:an-node-pulse 2.6s ease-in-out infinite; }
+@keyframes an-node-pulse{ 0%,100%{ box-shadow:0 0 0 4px rgba(168,125,42,0.16);} 50%{ box-shadow:0 0 0 8px rgba(168,125,42,0.05);} }
+.an-n1{ left:49%; top:20.5%; } .an-n2{ left:50.5%; top:40%; } .an-n3{ left:48.5%; top:60%; } .an-n4{ left:46%; top:73%; }
+
+.an-grid-m{ display:contents; }
+.an-pill{ position:absolute; z-index:4; width:clamp(196px,19vw,240px); display:flex; gap:.7rem; align-items:flex-start; padding:.85rem .95rem; border-radius:16px; background:rgba(255,255,255,0.6); backdrop-filter:blur(16px) saturate(1.15); -webkit-backdrop-filter:blur(16px) saturate(1.15); border:1px solid rgba(255,255,255,0.85); box-shadow:0 14px 34px rgba(20,18,14,0.12), inset 0 1px 0 rgba(255,255,255,0.9); opacity:0; animation:an-pill-in .8s cubic-bezier(.22,.61,.36,1) forwards; }
+@keyframes an-pill-in{ from{ opacity:0; transform:translateY(16px) scale(.96);} to{ opacity:1; transform:translateY(0) scale(1);} }
+.an-pill .an-ic{ flex:0 0 auto; width:38px; height:38px; border-radius:11px; display:grid; place-items:center; background:linear-gradient(135deg,#c9a24e,#a87d2a); box-shadow:0 4px 12px rgba(168,125,42,.35); }
+.an-pill .an-ic svg{ width:20px; height:20px; stroke:#fff; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.an-pill .an-tx{ min-width:0; }
+.an-pill .an-t{ font-family:'Outfit',sans-serif; font-weight:700; font-size:.92rem; color:#16120c; line-height:1.2; margin:0 0 .22rem; }
+.an-pill .an-s{ font-family:'Outfit',sans-serif; font-weight:400; font-size:.76rem; line-height:1.42; color:#5b5247; margin:0; }
+.an-p1{ top:8%;  left:1%;  animation-delay:.15s; }
+.an-p2{ top:23%; right:1%; animation-delay:.30s; }
+.an-p3{ bottom:27%; left:1%; animation-delay:.45s; }
+.an-p4{ bottom:14%; right:1%; animation-delay:.60s; }
+
+.an-ip{ position:absolute; left:50%; bottom:1%; transform:translateX(-50%); z-index:4; display:inline-flex; align-items:center; gap:.55rem; padding:.5rem .95rem; border-radius:999px; background:rgba(22,18,12,0.82); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); color:#f0ebe2; font-family:'Outfit',sans-serif; font-weight:600; font-size:.78rem; letter-spacing:.03em; box-shadow:0 10px 26px rgba(20,18,14,.22); opacity:0; animation:an-pill-in .8s cubic-bezier(.22,.61,.36,1) .75s forwards; }
+.an-ip svg{ width:15px; height:15px; stroke:#c9a24e; fill:none; stroke-width:1.6; }
+.an-ip b{ color:#c9a24e; font-weight:700; }
+
+@media (prefers-reduced-motion: reduce){
+  .an-product{ animation:none; transform:translate(-50%,-50%); }
+  .an-pill, .an-ip, .an-node{ animation:none; opacity:1; }
+}
+@media (max-width:920px){
+  .anatomy::before{ background:radial-gradient(70% 40% at 50% 30%, rgba(201,162,78,0.16), rgba(201,162,78,0) 72%); }
+  .an-stage{ height:auto; max-width:560px; }
+  .an-lines, .an-node{ display:none; }
+  .an-product{ position:static; transform:none; height:auto; width:min(72%,300px); display:block; margin:0 auto clamp(1.6rem,5vw,2.4rem); animation:none; }
+  .an-grid-m{ display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+  .an-pill{ position:static; width:auto; opacity:1; animation:none; }
+  .an-ip{ position:static; transform:none; margin:1.3rem auto 0; opacity:1; animation:none; }
+}
+@media (max-width:520px){ .an-grid-m{ grid-template-columns:1fr; } }
+</style>
+<section class="anatomy" id="anatomy">
+  <div class="an-head">
+    <span class="an-kick" data-i18n="an_kick">Engineered To Endure</span>
+    <h2 data-i18n="an_h2">One Light. <em>Every Detail Engineered.</em></h2>
+    <p class="an-sub" data-i18n="an_sub">Take apart our All-in-One Solar Street Light — a sealed, self-powered system with nothing to wire and nothing to bill.</p>
+  </div>
+
+  <div class="an-stage">
+    <img class="an-product" src="images/product-02.jpg" alt="All-in-One Solar Street Light" loading="lazy" decoding="async">
+
+    <svg class="an-lines" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="210" y1="155" x2="490" y2="205"/>
+      <line x1="785" y1="290" x2="505" y2="400"/>
+      <line x1="215" y1="690" x2="485" y2="600"/>
+      <line x1="785" y1="820" x2="460" y2="730"/>
+    </svg>
+    <span class="an-node an-n1"></span>
+    <span class="an-node an-n2"></span>
+    <span class="an-node an-n3"></span>
+    <span class="an-node an-n4"></span>
+
+    <div class="an-grid-m">
+      <article class="an-pill an-p1">
+        <span class="an-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M3 8h18M3 12h18M9 4v12M15 4v12M8 20h8M12 16v4"/></svg></span>
+        <span class="an-tx">
+          <p class="an-t" data-i18n="an_p1_t">Monocrystalline Panel</p>
+          <p class="an-s" data-i18n="an_p1_s">High-conversion cell charges all day — even under haze.</p>
+        </span>
+      </article>
+      <article class="an-pill an-p2">
+        <span class="an-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg></span>
+        <span class="an-tx">
+          <p class="an-t" data-i18n="an_p2_t">High-Output LED Array</p>
+          <p class="an-s" data-i18n="an_p2_s">Up to 300W of even, glare-free flood across the street.</p>
+        </span>
+      </article>
+      <article class="an-pill an-p3">
+        <span class="an-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 10v4"/><path d="M11 9.4l-2.6 3.3H11l-.7 2.4 2.9-3.4H11z" fill="#fff" stroke="none"/></svg></span>
+        <span class="an-tx">
+          <p class="an-t" data-i18n="an_p3_t">LiFePO4 Battery</p>
+          <p class="an-s" data-i18n="an_p3_s">Safe chemistry, 2000+ cycles, runs –20 °C to +60 °C.</p>
+        </span>
+      </article>
+      <article class="an-pill an-p4">
+        <span class="an-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="16" r="1.6" fill="#fff" stroke="none"/><path d="M8.5 13a5 5 0 0 1 7 0M5.8 10.4a9 9 0 0 1 12.4 0"/></svg></span>
+        <span class="an-tx">
+          <p class="an-t" data-i18n="an_p4_t">Radar Motion Sensor</p>
+          <p class="an-s" data-i18n="an_p4_s">Brightens the moment it senses you; dims to save when clear.</p>
+        </span>
+      </article>
+    </div>
+
+    <span class="an-ip" data-i18n="an_ip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6z"/></svg><b>IP66</b> · Fully Weather-Sealed</span>
   </div>
 </section>
 
@@ -2182,9 +2293,15 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 .hero-photo-tint { position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,6,5,0.40) 0%, rgba(7,6,5,0.16) 30%, rgba(7,6,5,0.30) 58%, rgba(7,6,5,0.80) 100%); }
 @keyframes hero-photo-drift { from{ transform:scale(1.06) translate(0,0); } to{ transform:scale(1.12) translate(-1.4%,-1%); } }
 
-/* warm light beam — sweeps across once on load */
-.hero-beam { position:absolute; top:-30%; left:-45%; width:42%; height:170%; pointer-events:none; transform:translateX(0) rotate(18deg); background:linear-gradient(90deg, transparent 0%, rgba(255,206,128,0.16) 48%, rgba(255,224,170,0.04) 72%, transparent 100%); filter:blur(24px); opacity:0; animation:hero-beam-sweep 2.6s cubic-bezier(.22,.61,.36,1) .35s both; }
-@keyframes hero-beam-sweep { 0%{ transform:translateX(0) rotate(18deg); opacity:0; } 16%{ opacity:1; } 80%{ opacity:.65; } 100%{ transform:translateX(340%) rotate(18deg); opacity:0; } }
+/* giant ghosted serif wordmark — Birds-style watermark */
+.hero-wordmark { position:absolute; top:46%; left:50%; transform:translate(-50%,-50%); white-space:nowrap; pointer-events:none; user-select:none; font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(5rem,18vw,16rem); line-height:0.9; letter-spacing:0.01em; color:rgba(255,247,236,0.10); animation:hero-wordmark-in 1.7s cubic-bezier(.22,.61,.36,1) .2s both; }
+@keyframes hero-wordmark-in { from{ opacity:0; letter-spacing:0.16em; } to{ opacity:1; letter-spacing:0.01em; } }
+
+/* luminous bird of light — glides in, sharpens, then settles + floats */
+.hero-bird { position:absolute; top:29%; left:15%; width:clamp(96px,12vw,170px); pointer-events:none; will-change:transform,filter; animation:hero-bird-glide 2.9s cubic-bezier(.22,.61,.36,1) .25s both, hero-bird-float 7s ease-in-out 3.25s infinite; }
+.hero-bird svg { width:100%; height:auto; display:block; filter:drop-shadow(0 0 12px rgba(255,196,110,0.7)) drop-shadow(0 0 40px rgba(255,168,78,0.36)); }
+@keyframes hero-bird-glide { 0%{ opacity:0; transform:translate(-62vw,-12vh) rotate(-14deg) scale(.66); filter:blur(6px); } 18%{ opacity:1; } 72%{ transform:translate(2.5vw,1.5vh) rotate(3deg) scale(1.04); filter:blur(0); } 100%{ opacity:1; transform:translate(0,0) rotate(0deg) scale(1); filter:blur(0); } }
+@keyframes hero-bird-float { 0%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-10px) rotate(-1.5deg); } 100%{ transform:translateY(0) rotate(0deg); } }
 
 /* drifting warm photon sparks */
 .hero-spark { position:absolute; width:4px; height:4px; border-radius:50%; background:rgba(255,210,140,0.92); box-shadow:0 0 10px 2px rgba(255,196,110,0.55); opacity:0; pointer-events:none; animation:hero-spark-float linear infinite; }
@@ -2223,7 +2340,8 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 }
 @media (max-width:768px) {
   .hero-photo { animation:none; }
-  .hero-beam, .hero-spark { display:none; }
+  .hero-spark, .hero-bird { display:none; }
+  .hero-wordmark { font-size:clamp(3rem,21vw,6.5rem); top:40%; }
   .hero-trust-pill { top:72px; right:14px; padding:7px 12px; }
   .hero-trust-pill .htp-label { display:none; }
   .hero-glass-row { left:0; right:0; top:clamp(96px,14vh,140px); width:auto; padding:0 14px; gap:10px; pointer-events:auto; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
@@ -2233,8 +2351,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   .hglass-title { font-size:0.98rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-photo, .hero-beam, .hero-spark { animation:none; }
-  .hero-beam { display:none; }
+  .hero-photo, .hero-spark, .hero-wordmark, .hero-bird { animation:none; }
 }
 
 /* ═══ Hero Carousel — FOX ESS-style 3-slide swipe ═══ */
@@ -4280,6 +4397,18 @@ const T = {
     hglass2_title:'内置磷酸铁锂电池',
     hglass2_sub:'安全电芯，循环寿命更长，–20°C 至 +50°C 稳定运行。',
     hglass3_sub:'泛光级亮度——零电费，夜夜长明。',
+    an_kick:'为耐用而生',
+    an_h2:'一盏灯，<em>每个细节皆精心设计</em>',
+    an_sub:'拆解我们的一体化太阳能路灯——无需布线、零电费的全密封自供电系统。',
+    an_p1_t:'单晶硅太阳能板',
+    an_p1_s:'高转换率电芯，全天蓄电，薄雾天也能充。',
+    an_p2_t:'高亮度 LED 阵列',
+    an_p2_s:'最高 300W 均匀泛光，照亮整条街道，无眩光。',
+    an_p3_t:'磷酸铁锂电池',
+    an_p3_s:'安全电芯，2000+ 次循环，–20°C 至 +60°C 稳定运行。',
+    an_p4_t:'雷达感应器',
+    an_p4_s:'感应到人即刻全亮，无人时自动调暗省电。',
+    an_ip:'<b>IP66</b> · 整机防护',
     stat1:'款产品',stat2:'大产品线',stat3:'认证 · RoHS',stat4:'只起订量',
     brand_q:'"非洲、拉美、大洋洲的电网正在失效。<br><span>太阳能照明不是升级选项——它是唯一答案。"</span>',
     brand_b:'嘉晨照明科技有限公司为包括不限于分销商、安装公司及工程承包商提供户外太阳能照明产品，专注服务电网供应不稳定的市场。支持 OEM 与 ODM 定制。',man_stat1:'出口市场',man_stat2:'大洲覆盖',man_stat3:'出货量',man_stat4:'LiFePO4 循环',man_live:'最新询价 <strong>14 分钟前</strong> · 卡塔赫纳，哥伦比亚',
@@ -4431,6 +4560,18 @@ const T = {
     hglass2_title:'Batería LiFePO4',
     hglass2_sub:'Química segura, mayor vida útil, –20 °C a +50 °C.',
     hglass3_sub:'Potencia de reflector — sin costo de energía, cada noche.',
+    an_kick:'Diseñada para durar',
+    an_h2:'Una luz. <em>Cada detalle, diseñado.</em>',
+    an_sub:'Desarma nuestra Farola Solar Todo-en-Uno: un sistema sellado y autoalimentado, sin cableado y sin facturas.',
+    an_p1_t:'Panel monocristalino',
+    an_p1_s:'Celda de alta conversión que carga todo el día, incluso con neblina.',
+    an_p2_t:'Matriz LED de alta potencia',
+    an_p2_s:'Hasta 300 W de luz uniforme y sin deslumbramiento por toda la calle.',
+    an_p3_t:'Batería LiFePO4',
+    an_p3_s:'Química segura, +2000 ciclos, de –20 °C a +60 °C.',
+    an_p4_t:'Sensor de movimiento por radar',
+    an_p4_s:'Se enciende al detectarte y se atenúa para ahorrar.',
+    an_ip:'<b>IP66</b> · Totalmente sellada',
     stat1:'Productos',stat2:'Gamas',stat3:'Certificado · RoHS',stat4:'Uds. Pedido Mínimo',
     brand_q:'"Las redes eléctricas están fallando en África, América Latina y Oceanía.<br><span>La iluminación solar no es una mejora — es la solución."</span>',
     brand_b:'JC Lightning Technology Co., Ltd. suministra productos de iluminación solar exterior a distribuidores, empresas de instalación, contratistas de proyectos y más — enfocada en mercados donde el suministro eléctrico es inestable. OEM y ODM disponibles.',man_stat1:'Mercados de exportación',man_stat2:'Continentes',man_stat3:'Unidades enviadas',man_stat4:'Ciclos LiFePO4',man_live:'Última cotización <strong>hace 14 min</strong> · Cartagena, Colombia',
