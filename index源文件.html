@@ -431,48 +431,22 @@ img, svg {
 @media (max-width:960px) { html { font-size: 16px; } }
 /* Preloader — with CSS auto-hide failsafe (works even if JS errors) */
 .preloader {
-  position:fixed; inset:0; z-index:99999; background:#06040a;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  overflow:hidden;
-  animation: pre-autohide 3s cubic-bezier(.22,1,.36,1) forwards;
+  position:fixed; inset:0; z-index:99999;
+  background:radial-gradient(ellipse at center, #14110e 0%, #06040a 80%);
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
 }
-@keyframes pre-autohide {
-  0%, 83% { opacity:1; visibility:visible; pointer-events:auto; }
-  99%     { opacity:0; visibility:visible; pointer-events:none; }
-  100%    { opacity:0; visibility:hidden; pointer-events:none; }
+.intro-vid { width:100%; height:100%; object-fit:cover; display:block; }
+.intro-skip {
+  position:absolute; bottom:26px; right:26px; z-index:2;
+  font-family:'Outfit',sans-serif; font-size:0.68rem; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase; color:var(--brass-lt);
+  background:rgba(10,8,7,0.45); border:1px solid rgba(201,162,78,0.4);
+  padding:9px 16px; border-radius:2px; cursor:pointer; transition:all .2s;
+  -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);
 }
+.intro-skip:hover { background:var(--brass-lt); color:#0a0807; }
 .preloader.hide { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; animation:none !important; }
-.pre-ray { position:absolute; top:50%; left:50%; width:0; height:200vh; background:linear-gradient(180deg, rgba(253,233,185,0) 0%, rgba(253,233,185,0.7) 50%, rgba(253,233,185,0) 100%); transform-origin:50% 50%; animation: pre-ray-expand 1.4s cubic-bezier(.22,1,.36,1) forwards; pointer-events:none; }
-.pre-orb { position:absolute; top:50%; left:50%; width:0; height:0; border-radius:50%; background:radial-gradient(circle, rgba(253,233,185,1) 0%, rgba(201,162,78,0.6) 30%, rgba(201,162,78,0) 70%); transform:translate(-50%,-50%); animation: pre-orb-pulse 1.4s cubic-bezier(.22,1,.36,1) forwards; pointer-events:none; }
-.pre-stage { position:relative; z-index:1; opacity:0; animation: pre-stage-in 0.8s ease-out 0.9s forwards; display:flex; flex-direction:column; align-items:center; }
-.preloader-logo { font-family:'Playfair Display',serif; font-size:2.4rem; color:#fff; letter-spacing:0.08em; }
-.preloader-logo em { font-style:italic; color:var(--brass-lt); }
-.preloader-line { width:0; height:1px; background:var(--brass-lt); margin-top:18px; animation: pre-line-draw 0.8s ease-out 1.3s forwards; }
-.pre-tag { font-family:'Outfit',sans-serif; font-size:0.62rem; letter-spacing:0.32em; color:var(--brass-lt); margin-top:16px; opacity:0; animation: pre-tag-in 0.6s ease-out 1.7s forwards; }
-@keyframes pre-ray-expand {
-  0%   { width:0; opacity:0; }
-  20%  { width:1px; opacity:1; }
-  80%  { width:60vw; opacity:0.5; }
-  100% { width:120vw; opacity:0; }
-}
-@keyframes pre-orb-pulse {
-  0%   { width:0; height:0; opacity:1; }
-  60%  { width:300px; height:300px; opacity:0.8; }
-  100% { width:800px; height:800px; opacity:0; }
-}
-@keyframes pre-stage-in {
-  from { opacity:0; transform:translateY(8px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-@keyframes pre-line-draw {
-  from { width:0; }
-  to   { width:80px; }
-}
-@keyframes pre-tag-in {
-  from { opacity:0; letter-spacing:0.5em; }
-  to   { opacity:0.7; letter-spacing:0.32em; }
-}
-/* Old prePulse/preLine keyframes removed — replaced by pre-ray/pre-orb cinematic intro */
+/* Old CSS-animation preloader (light-ray + orb + JC logo) removed — replaced by intro video */
 /* Smart nav hide */
 nav.nav-hidden { transform:translateY(-100%); transition:transform .4s cubic-bezier(.4,0,.2,1); }
 nav.nav-visible { transform:translateY(0); transition:transform .4s cubic-bezier(.4,0,.2,1); }
@@ -1943,13 +1917,10 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 </div>
 
 <div class="preloader" id="preloader">
-  <div class="pre-ray"></div>
-  <div class="pre-orb"></div>
-  <div class="pre-stage">
-    <div class="preloader-logo">JC <em>Lightning</em></div>
-    <div class="preloader-line"></div>
-    <div class="pre-tag">SOLAR · ENGINEERING · EXPORT</div>
-  </div>
+  <video class="intro-vid" id="introVid" autoplay muted playsinline preload="auto">
+    <source src="intro.mp4" type="video/mp4">
+  </video>
+  <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro">SKIP &rarr;</button>
 </div>
 
 <div class="progress-bar" id="progressBar"></div>
@@ -6278,30 +6249,39 @@ let lenis=null;
   if(lang&&T[lang]) setLang(lang);
 })();
 
-// Preloader failsafe: always hide after 5s max
-setTimeout(()=>{
+// Intro video preloader → plays once per session, then reveals the site
+(function(){
   const pl=document.getElementById('preloader');
-  if(pl){pl.classList.add('hide');setTimeout(()=>pl.remove(),500);}
-},5000);
-
-// Preloader + Hero entrance
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    const pl=document.getElementById('preloader');
-    if(pl){
-      pl.classList.add('hide');
-      // Hero entrance stagger
-      if(typeof gsap!=='undefined'){
-        // Hero overlay — staggered rise-up (eyebrow → headline → buttons → side line)
-        gsap.from('.hero-cta-overlay .hero-cta-eyebrow, .hero-cta-overlay .hero-h1, .hero-cta-overlay .hero-btns, .hero-cta-overlay .hero-cta-side',{y:42,opacity:0,duration:.9,stagger:.13,ease:'power3.out',delay:.15});
-        gsap.from('.hero-trust-pill',{y:-14,opacity:0,duration:.7,ease:'power3.out',delay:.7});
-        gsap.from('.hero-glass-row .hglass',{y:30,opacity:0,duration:.8,stagger:.13,ease:'power3.out',delay:.85});
-        gsap.from('.scroll-indicator',{opacity:0,y:-12,duration:.6,delay:.7});
-      }
-      setTimeout(()=>pl.remove(),500);
-    }
-  },800);
-});
+  if(!pl) return;
+  let done=false;
+  function heroIn(){
+    if(typeof gsap==='undefined') return;
+    // Hero overlay — staggered rise-up (eyebrow → headline → buttons → side line)
+    gsap.from('.hero-cta-overlay .hero-cta-eyebrow, .hero-cta-overlay .hero-h1, .hero-cta-overlay .hero-btns, .hero-cta-overlay .hero-cta-side',{y:42,opacity:0,duration:.9,stagger:.13,ease:'power3.out',delay:.15});
+    gsap.from('.hero-trust-pill',{y:-14,opacity:0,duration:.7,ease:'power3.out',delay:.7});
+    gsap.from('.hero-glass-row .hglass',{y:30,opacity:0,duration:.8,stagger:.13,ease:'power3.out',delay:.85});
+    gsap.from('.scroll-indicator',{opacity:0,y:-12,duration:.6,delay:.7});
+  }
+  function dismiss(){
+    if(done) return; done=true;
+    try{sessionStorage.setItem('jcIntroSeen','1');}catch(e){}
+    pl.classList.add('hide');
+    heroIn();
+    setTimeout(()=>{ if(pl&&pl.parentNode) pl.remove(); },600);
+  }
+  const vid=document.getElementById('introVid');
+  const skip=document.getElementById('introSkip');
+  if(skip) skip.addEventListener('click',dismiss);
+  let seen=false; try{seen=sessionStorage.getItem('jcIntroSeen')==='1';}catch(e){}
+  if(seen){ pl.classList.add('hide'); pl.style.display='none'; window.addEventListener('load',()=>{ heroIn(); if(pl.parentNode) pl.remove(); }); return; }
+  if(vid){
+    vid.addEventListener('ended',dismiss);
+    vid.addEventListener('error',()=>setTimeout(dismiss,400));
+    const pr=vid.play&&vid.play();
+    if(pr&&pr.catch) pr.catch(()=>{}); // autoplay blocked → SKIP / failsafe handles it
+  } else { dismiss(); }
+  setTimeout(dismiss,9000); // never trap the visitor
+})();
 
 // Custom cursor — REMOVED (was causing perceived sluggishness; native cursor is faster)
 
