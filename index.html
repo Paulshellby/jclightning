@@ -411,27 +411,22 @@ img, svg {
 /* Preloader 锟?with CSS auto-hide failsafe (works even if JS errors) */
 .preloader {
   position:fixed; inset:0; z-index:99999;
-  background:radial-gradient(ellipse 70% 60% at 50% 40%, #1a1510 0%, #0a0806 70%);
+  background:radial-gradient(ellipse at center, #14110e 0%, #06040a 80%);
   display:flex; align-items:center; justify-content:center; overflow:hidden;
-  cursor:pointer;
 }
-.preloader.hide { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
-/* Interactive GSAP intro stage */
-.intro-stage { position:relative; width:100%; max-width:780px; height:100%; max-height:640px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0; perspective:800px; }
-.intro-line { position:absolute; top:52%; left:50%; transform:translate(-50%,-50%); width:0; height:1px; background:linear-gradient(90deg,transparent 0%,var(--brass-lt) 30%,var(--brass) 50%,var(--brass-lt) 70%,transparent 100%); }
-.intro-dot { position:absolute; width:3px; height:3px; border-radius:50%; background:var(--brass-pale); opacity:0; }
-.i-dot-1 { top:22%; left:18%; }
-.i-dot-2 { top:68%; right:14%; }
-.intro-logo-wrap { position:relative; display:flex; flex-direction:column; align-items:center; gap:6px; z-index:2; }
-.intro-logo-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:180px; height:60px; border-radius:50%; background:radial-gradient(ellipse,rgba(201,162,78,0.18) 0%,transparent 70%); filter:blur(14px); }
-.intro-logo { font-family:'Playfair Display',serif; font-size:clamp(2.6rem,5vw,3.6rem); font-weight:400; color:#fff; letter-spacing:0.02em; line-height:1; }
-.intro-logo span { color:var(--brass); font-style:italic; }
-.intro-logo-sub { font-family:'Outfit',sans-serif; font-size:0.58rem; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.42); }
-.intro-prods { display:flex; gap:clamp(12px,2.5vw,24px); margin-top:clamp(24px,5vh,48px); z-index:2; }
-.intro-prod { width:clamp(100px,16vw,160px); aspect-ratio:4/3; border-radius:8px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.06); }
-.intro-prod img { display:block; width:100%; height:100%; object-fit:cover; }
-.intro-hint { font-family:'Outfit',sans-serif; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--brass-lt); margin-top:clamp(28px,5vh,48px); z-index:2; }
-/* Old CSS-animation preloader replaced by GSAP interactive intro *//* Smart nav hide */
+.intro-vid { width:100%; height:100%; object-fit:cover; display:block; }
+.intro-skip {
+  position:absolute; bottom:26px; right:26px; z-index:2;
+  font-family:'Outfit',sans-serif; font-size:0.68rem; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase; color:var(--brass-lt);
+  background:rgba(10,8,7,0.45); border:1px solid rgba(201,162,78,0.4);
+  padding:9px 16px; border-radius:2px; cursor:pointer; transition:all .2s;
+  -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);
+}
+.intro-skip:hover { background:var(--brass-lt); color:#0a0807; }
+.preloader.hide { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; animation:none !important; }
+/* Old CSS-animation preloader (light-ray + orb + JC logo) removed 锟?replaced by intro video */
+/* Smart nav hide */
 nav.nav-hidden { transform:translateY(-100%); transition:transform .4s cubic-bezier(.4,0,.2,1); }
 nav.nav-visible { transform:translateY(0); transition:transform .4s cubic-bezier(.4,0,.2,1); }
 /* Link underline animation */
@@ -1909,22 +1904,10 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 </div>
 
 <div class="preloader" id="preloader">
-  <div class="intro-stage" id="introStage">
-    <span class="intro-line" aria-hidden="true"></span>
-    <span class="intro-dot i-dot-1" aria-hidden="true"></span>
-    <span class="intro-dot i-dot-2" aria-hidden="true"></span>
-    <div class="intro-logo-wrap">
-      <span class="intro-logo-glow" aria-hidden="true"></span>
-      <div class="intro-logo">JC<span>Lightning</span></div>
-      <span class="intro-logo-sub">Technology Co., Ltd.</span>
-    </div>
-    <div class="intro-prods" aria-hidden="true">
-      <div class="intro-prod ip-1"><img src="images/product-09.jpg" alt="" /></div>
-      <div class="intro-prod ip-2"><img src="images/product-31.webp" alt="" /></div>
-      <div class="intro-prod ip-3"><img src="images/product-10.jpg" alt="" /></div>
-    </div>
-    <span class="intro-hint">Tap anywhere to enter</span>
-  </div>
+  <video class="intro-vid" id="introVid" autoplay muted playsinline preload="auto">
+    <source src="intro.mp4" type="video/mp4">
+  </video>
+  <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro">SKIP &rarr;</button>
 </div>
 
 <div class="progress-bar" id="progressBar"></div>
@@ -6341,91 +6324,44 @@ let lenis=null;
   if(lang&&T[lang]) setLang(lang);
 })();
 
-// Interactive GSAP intro — logo reveal + product float + mouse parallax (Recipe A: Dieter Rams)
+// Intro video preloader 锟?plays once per session, then reveals the site
 (function(){
   const pl=document.getElementById('preloader');
   if(!pl) return;
-  const stage=document.getElementById('introStage');
   let done=false;
-
   function heroIn(){
     if(typeof gsap==='undefined') return;
+    // Hero overlay 锟?staggered rise-up (eyebrow 锟?headline 锟?buttons 锟?side line)
     gsap.from('.hero-cta-overlay .hero-cta-eyebrow, .hero-cta-overlay .hero-h1, .hero-cta-overlay .hero-btns, .hero-cta-overlay .hero-cta-side',{y:42,opacity:0,duration:.9,stagger:.13,ease:'power3.out',delay:.15});
     gsap.from('.hero-trust-pill',{y:-14,opacity:0,duration:.7,ease:'power3.out',delay:.7});
     gsap.from('.hero-glass-row .hglass',{y:30,opacity:0,duration:.8,stagger:.13,ease:'power3.out',delay:.85});
     gsap.from('.scroll-indicator',{opacity:0,y:-12,duration:.6,delay:.7});
   }
-
   function dismiss(){
     if(done) return; done=true;
     try{sessionStorage.setItem('jcIntroSeen','1');}catch(e){}
-    // Exit animation — scale down + fade
-    if(stage&&typeof gsap!=='undefined'){
-      gsap.to(stage,{scale:0.96,opacity:0,duration:.35,ease:'power2.in'});
-    }
-    gsap.to(pl,{opacity:0,duration:.4,ease:'power2.in',onComplete:()=>{
-      pl.classList.add('hide');
-      heroIn();
-      setTimeout(()=>{ if(pl&&pl.parentNode) pl.remove(); },400);
-    }});
+    pl.classList.add('hide');
+    heroIn();
+    setTimeout(()=>{ if(pl&&pl.parentNode) pl.remove(); },600);
   }
-
-  // Return visitor — skip intro
+  const vid=document.getElementById('introVid');
+  const skip=document.getElementById('introSkip');
+  // Click anywhere on preloader to dismiss
+  pl.addEventListener('click', (e) => { e.stopPropagation(); dismiss(); });
+  if(skip) skip.addEventListener('click', (e) => { e.stopPropagation(); dismiss(); });
   let seen=false; try{seen=sessionStorage.getItem('jcIntroSeen')==='1';}catch(e){}
   if(seen){ pl.classList.add('hide'); pl.style.display='none'; heroIn(); setTimeout(()=>{ if(pl&&pl.parentNode) pl.remove(); },100); return; }
+  if(vid){
+    vid.addEventListener('ended',dismiss);
+    vid.addEventListener('error',()=>setTimeout(dismiss,200));
+    vid.addEventListener('stalled',()=>setTimeout(dismiss,2500));
+    const pr=vid.play&&vid.play();
+    if(pr&&pr.catch) pr.catch(()=>setTimeout(dismiss,1800));
+  } else { dismiss(); }
+  setTimeout(dismiss,4000); // fallback: never trap the visitor
+	})();
 
-  // Build GSAP timeline
-  if(stage&&typeof gsap!=='undefined'){
-    const tl=gsap.timeline({paused:true});
-
-    // 1. Background warm-in + logo glow
-    tl.from('.intro-logo-glow',{opacity:0,scale:0.6,duration:.8,ease:'power3.out'},0);
-    tl.from('.intro-logo',{y:24,opacity:0,duration:.7,ease:'power3.out'},0.15);
-    tl.from('.intro-logo span',{opacity:0,duration:.5},0.25);
-    tl.from('.intro-logo-sub',{y:8,opacity:0,duration:.5,ease:'power2.out'},0.35);
-
-    // 2. Golden line draws from center
-    tl.to('.intro-line',{width:'min(280px,60vw)',duration:.9,ease:'power3.inOut'},0.55);
-    tl.to('.intro-line',{opacity:0.6,duration:.6},0.55);
-
-    // 3. Decorative dots fade in
-    tl.to('.intro-dot',{opacity:0.55,duration:.6,stagger:.15,ease:'power2.out'},0.7);
-
-    // 4. Product cards float up with stagger
-    tl.from('.intro-prod',{y:60,opacity:0,scale:0.92,duration:.75,stagger:.14,ease:'power3.out'},0.75);
-
-    // 5. Hint text pulses in
-    tl.from('.intro-hint',{y:12,opacity:0,duration:.6,ease:'power2.out'},1.2);
-    tl.to('.intro-hint',{opacity:0.55,duration:1.5,repeat:-1,yoyo:true,ease:'sine.inOut'},1.8);
-
-    tl.play();
-
-    // Mouse parallax — subtle depth response
-    const qtLogo=gsap.quickTo('.intro-logo-wrap','x',{duration:.5,ease:'power2.out'});
-    const qtLogoY=gsap.quickTo('.intro-logo-wrap','y',{duration:.5,ease:'power2.out'});
-    const qtLine=gsap.quickTo('.intro-line','y',{duration:.6,ease:'power2.out'});
-    const qtProds=gsap.quickTo('.intro-prods','y',{duration:.4,ease:'power2.out'});
-    const qtProdsX=gsap.quickTo('.intro-prods','x',{duration:.4,ease:'power2.out'});
-    pl.addEventListener('mousemove',(e)=>{
-      const cx=(e.clientX/window.innerWidth-.5)*2;  // -1 to 1
-      const cy=(e.clientY/window.innerHeight-.5)*2;
-      qtLogo(cx*12);
-      qtLogoY(cy*8);
-      qtLine(cy*4);
-      qtProds(-cy*10);
-      qtProdsX(-cx*16);
-    });
-  }
-
-  // Click to dismiss
-  pl.addEventListener('click',(e)=>{ e.stopPropagation(); dismiss(); });
-  // Keyboard dismiss
-  document.addEventListener('keydown',(e)=>{ if(!done&&(e.key==='Enter'||e.key===' '||e.key==='Escape')){ e.preventDefault(); dismiss(); } });
-  // Fallback timeout
-  setTimeout(dismiss,8000);
-})();
-
-// Custom cursor// Custom cursor 锟?REMOVED (was causing perceived sluggishness; native cursor is faster)
+// Custom cursor 锟?REMOVED (was causing perceived sluggishness; native cursor is faster)
 
 // Magnetic buttons (not cards)
 document.querySelectorAll('.btn-fill,.btn-text,.nav-cta,.nav-dl').forEach(btn=>{
