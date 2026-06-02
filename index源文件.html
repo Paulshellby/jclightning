@@ -6347,7 +6347,7 @@ let lenis=null;
   const vid=document.getElementById('introVid');
   const skip=document.getElementById('introSkip');
   // Click anywhere on preloader to dismiss
-  pl.addEventListener('click', (e) => { e.stopPropagation(); dismiss(); });
+  pl.addEventListener('click', (e) => { if (e.target === pl || e.target === skip) dismiss(); });
   if(skip) skip.addEventListener('click', (e) => { e.stopPropagation(); dismiss(); });
   let seen=false; try{seen=sessionStorage.getItem('jcIntroSeen')==='1';}catch(e){}
   if(seen){ pl.classList.add('hide'); pl.style.display='none'; heroIn(); setTimeout(()=>{ if(pl&&pl.parentNode) pl.remove(); },100); return; }
