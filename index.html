@@ -2058,7 +2058,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 
 <section class="hero hero-village" id="hero">
 
-<!-- Hero background: big cinematic night-street photo (Birds-style) -->
+<!-- Hero background: cinematic dusk villa lit by solar fixtures (Birds-style) -->
 <div class="hero-aurora" aria-hidden="true">
   <div class="hero-photo"></div>
   <div class="hero-photo-tint"></div>
@@ -2401,7 +2401,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 
 /* ═══ Hero — big cinematic photo + frosted glass cards (Birds-style) ═══ */
 .hero-aurora { position:absolute; inset:0; z-index:0; overflow:hidden; background:#070605; }
-.hero-photo { position:absolute; inset:0; background:url('images/hero-night-street.jpg') center 40% / cover no-repeat; transform:scale(1.06); animation:hero-photo-drift 28s ease-in-out infinite alternate; }
+.hero-photo { position:absolute; inset:0; background:url('images/hero-villa-solar.jpg') center 46% / cover no-repeat; transform:scale(1.06); animation:hero-photo-drift 28s ease-in-out infinite alternate; }
 .hero-photo-tint { position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,6,5,0.40) 0%, rgba(7,6,5,0.16) 30%, rgba(7,6,5,0.30) 58%, rgba(7,6,5,0.80) 100%); }
 @keyframes hero-photo-drift { from{ transform:scale(1.06) translate(0,0); } to{ transform:scale(1.12) translate(-1.4%,-1%); } }
 
@@ -2424,12 +2424,12 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 @keyframes hero-spark-float { 0%{ transform:translateY(0) scale(.6); opacity:0; } 12%{ opacity:.95; } 78%{ opacity:.6; } 100%{ transform:translateY(-48vh) scale(1); opacity:0; } }
 
 /* Trust pill — Birds "Active Users" equivalent */
-.hero-trust-pill { position:absolute; z-index:22; top:clamp(82px,12vh,116px); right:clamp(22px,6vw,96px); display:inline-flex; align-items:center; gap:10px; padding:9px 16px 9px 14px; border-radius:999px; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.22); backdrop-filter:blur(14px) saturate(120%); -webkit-backdrop-filter:blur(14px) saturate(120%); box-shadow:0 8px 30px rgba(0,0,0,0.28); }
+.hero-trust-pill { position:absolute; z-index:22; top:clamp(82px,12vh,116px); left:clamp(22px,6vw,96px); display:inline-flex; align-items:center; gap:10px; padding:9px 16px 9px 14px; border-radius:999px; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.22); backdrop-filter:blur(14px) saturate(120%); -webkit-backdrop-filter:blur(14px) saturate(120%); box-shadow:0 8px 30px rgba(0,0,0,0.28); }
 .hero-trust-pill .htp-mark { font-family:'Outfit',sans-serif; font-weight:700; font-size:0.82rem; letter-spacing:0.04em; color:#fff; }
 .hero-trust-pill .htp-label { font-family:'Outfit',sans-serif; font-size:0.78rem; color:rgba(255,255,255,0.72); }
 
 /* Floating glass cards */
-.hero-glass-row { position:absolute; z-index:21; top:clamp(138px,23vh,236px); right:clamp(22px,6vw,96px); display:flex; gap:16px; align-items:stretch; width:min(600px,84vw); pointer-events:none; }
+.hero-glass-row { position:absolute; z-index:21; top:clamp(138px,23vh,236px); left:clamp(22px,6vw,96px); display:flex; gap:16px; align-items:stretch; width:min(560px,82vw); pointer-events:none; }
 .hglass { position:relative; flex:1 1 0; min-width:0; pointer-events:auto; padding:20px 18px; border-radius:20px; background:rgba(20,16,11,0.34); border:1px solid rgba(255,255,255,0.16); backdrop-filter:blur(18px) saturate(130%); -webkit-backdrop-filter:blur(18px) saturate(130%); box-shadow:0 18px 50px rgba(0,0,0,0.40); display:flex; flex-direction:column; gap:10px; transition:transform .35s ease, border-color .35s ease, background .35s ease; }
 .hglass:hover { transform:translateY(-5px); border-color:rgba(201,162,78,0.55); background:rgba(30,24,15,0.44); }
 .hglass-badge { align-self:flex-start; font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:0.62rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-lt); padding:4px 10px; border-radius:999px; background:rgba(201,162,78,0.14); border:1px solid rgba(201,162,78,0.34); }
@@ -2451,7 +2451,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 @media (max-width:768px) {
   .hero-photo { animation:none; }
   .hero-spark, .hero-current { display:none; }
-  .hero-trust-pill { top:72px; right:14px; padding:7px 12px; }
+  .hero-trust-pill { top:72px; left:14px; padding:7px 12px; }
   .hero-trust-pill .htp-label { display:none; }
   .hero-glass-row { left:0; right:0; top:clamp(96px,14vh,140px); width:auto; padding:0 14px; gap:10px; pointer-events:auto; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
   .hero-glass-row::-webkit-scrollbar { display:none; }
