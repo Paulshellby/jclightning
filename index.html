@@ -2546,7 +2546,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   display:flex; align-items:flex-end; justify-content:space-between;
   gap:clamp(24px,5vw,72px); width:100%; max-width:1280px; margin:0 auto;
 }
-.hero-cta-left { max-width:760px; }
+.hero-cta-left { max-width:820px; }
 .hero-cta-eyebrow {
   display:inline-block; pointer-events:auto;
   font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
@@ -2556,8 +2556,9 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 }
 .hero-cta-overlay .hero-h1 {
   font-family:'Outfit',sans-serif; font-weight:800;
-  font-size:clamp(2.7rem,7.2vw,6.2rem); line-height:0.98;
-  letter-spacing:-0.035em; color:#fff; margin:0 0 32px;
+  font-size:clamp(2.4rem,5vw,4.6rem); line-height:1.04;
+  letter-spacing:-0.035em; color:#fff; margin:0 0 26px;
+  text-wrap:balance; overflow-wrap:break-word;
   text-shadow:0 2px 36px rgba(0,0,0,0.55);
 }
 .hero-cta-overlay .hero-h1 em {
@@ -2590,6 +2591,13 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   .hero-cta-overlay { padding-bottom:140px; }
   .hero-cta-overlay .hero-h1 { font-size:clamp(2rem,9vw,3rem); }
   .hero-cta-overlay .hero-btns { gap:12px; }
+}
+/* Short desktop viewports (laptops): keep glass cards + headline from colliding */
+@media (min-width:861px) and (max-height:780px) {
+  .hero-glass-row { top:clamp(92px,13vh,150px); }
+  .hero-cta-overlay { padding-bottom:clamp(38px,6vh,64px); }
+  .hero-cta-overlay .hero-h1 { font-size:clamp(2rem,4.2vw,3.3rem); margin:0 0 18px; }
+  .hero-cta-eyebrow { margin-bottom:13px; }
 }
 
 /* ===================================================================
@@ -4836,6 +4844,7 @@ const T = {
     vlg_p1_n:'Reflector Solar 3 Cabezas con PIR',vlg_p3_n:'Aplique de Pared con Sensor PIR',vlg_p9_n:'Farola Solar Todo-en-Uno',vlg_p10_n:'Aplique Exterior · Solar/AC',vlg_p11_n:'Guirnalda Solar Edison',vlg_p13_n:'Estacas Solares de Jardín · Pack de 8',vlg_p15_n:'Mata-Insectos Solar',vlg_p28_n:'Luz Esférica para Pilar',vlg_p31_n:'Reflector LED AC (50-1000W)',vlg_p32_n:'Luminaria Industrial UFO (100-300W)',vlg_cta:'Ver producto completo →',vlg_hint:'Pase el cursor sobre cualquier luz para identificar el producto',cookie_text:'Usamos cookies para mejorar su experiencia y analizar el tráfico del sitio. Al aceptar, consiente nuestro uso de cookies. Lea nuestra <a href="#" id="cookiePrivacy">Política de Privacidad</a>.',cookie_reject:'Rechazar todo',cookie_accept:'Aceptar todo',cookie_privacy:'Política de Privacidad',sticky_cta_txt:'¿Construyendo un proyecto solar? <strong>Cotización FOB en 24 horas.</strong>',sticky_cta_btn:'Solicitar Cotización →',
     gl_lbl:'Presencia Global',gl_h2:'Confianza en <em>más de 30 mercados.</em>',gl_sub:'Desde la Sudáfrica con apagones hasta los proyectos sin red en América Latina — productos JC desplegados en cuatro continentes y creciendo.',gl_leg_primary:'Mercados Principales',gl_leg_expansion:'Mercados en Expansión',gl_co:'Colombia',gl_ec:'Ecuador',gl_za:'Sudáfrica',gl_au:'Australia',gl_ke:'Kenia',gl_es:'España',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigeria',gl_tz:'Tanzania',gl_mx:'México',gl_pk:'Pakistán',gl_in:'India',gl_th:'Tailandia',gl_vn:'Vietnam',gl_sa:'Arabia Saudita',gl_ph:'Filipinas',gl_id:'Indonesia',gl_us:'EE.UU.',gl_ca:'Canadá',gl_uk:'Reino Unido',gl_de:'Alemania',gl_fr:'Francia',gl_it:'Italia',gl_jp:'Japón',gl_hq_label:'Sede · Shenzhen',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Años Exportando',gl_stat_units:'Unidades Enviadas',hq_tag:'JC LIGHTNING · SEDE CENTRAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · China &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Planta de Producción',hq_stat2:'Ingenieros y Personal',hq_stat3:'Fundada',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Chatear por WhatsApp',hq_cta_em:'Escríbanos'},
   fr:{
+    hero_kick:'Conçu pour les Marchés Hors-Réseau',hero_hl:'Là où le Soleil<br>Rencontre la <em>Résilience</em>',hero_side:'Éclairage solaire de sécurité, urbain et de jardin — pour les marchés où le réseau lâche. Énergie gratuite, matériel certifié, <em>lumière sans interruption.</em>',
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produits',nav_cat:'Catégories',nav_solutions:'Solutions',nav_about:'Nos Atouts',nav_contact:'Contact',nav_quote:'Demander un Devis',nav_partner:'Partenaires',nav_markets:'Marchés',prod_view_all:'Voir les',prod_items:'produits de cette catégorie',toc_brand:'Marque',toc_scenarios:'Usages',toc_certs:'Certif.',toc_global:'Global',toc_match:'Choix',toc_faq:'FAQ',nav_insights:'Insights',ins_label:'Insights',ins_h2:'Éclairage solaire, <em>expliqué.</em>',ins_sub:'Guides d\'achat indépendants, analyses techniques et briefings de marché — par notre équipe ingénierie et export.',ins_read:'Lire plus',
     cs_title:'Nos marchés d\'export',cs_tag:'40+ pays · 6 continents · FOB Shenzhen',cs_region_la:'Amérique Latine',cs_region_af:'Afrique',cs_region_eu:'Europe',cs_region_me:'MOAN',cs_region_as:'Asie &amp; Pacifique',cs_foot_note:'Pays absent ? Nous exportons partout dans le monde.',cs_foot_cta:'Obtenir un devis →',
@@ -4970,6 +4979,7 @@ const T = {
     vlg_p1_n:'Projecteur Solaire 3 Têtes PIR',vlg_p3_n:'Applique Murale à Détection PIR',vlg_p9_n:'Lampadaire Solaire Tout-en-Un',vlg_p10_n:'Applique Extérieure · Solaire/AC',vlg_p11_n:'Guirlande Solaire Edison',vlg_p13_n:'Bornes Solaires de Jardin · Pack de 8',vlg_p15_n:'Anti-Moustique Solaire',vlg_p28_n:'Lampe Sphère pour Pilier',vlg_p31_n:'Projecteur LED AC (50-1000W)',vlg_p32_n:'Luminaire Industriel UFO (100-300W)',vlg_cta:'Voir le produit complet →',vlg_hint:'Survolez chaque lumière pour identifier le produit',cookie_text:'Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. En acceptant, vous consentez à notre utilisation des cookies. Consultez notre <a href="#" id="cookiePrivacy">Politique de Confidentialité</a>.',cookie_reject:'Tout refuser',cookie_accept:'Tout accepter',cookie_privacy:'Politique de Confidentialité',sticky_cta_txt:'Un projet solaire en cours ? <strong>Devis FOB sous 24 heures.</strong>',sticky_cta_btn:'Demander un Devis →',
     gl_lbl:'Présence Mondiale',gl_h2:'Une confiance dans <em>plus de 30 marchés.</em>',gl_sub:'Du délestage en Afrique du Sud aux projets hors réseau en Amérique latine — produits JC déployés sur quatre continents et en pleine expansion.',gl_leg_primary:'Marchés Principaux',gl_leg_expansion:'Marchés en Expansion',gl_co:'Colombie',gl_ec:'Équateur',gl_za:'Afrique du Sud',gl_au:'Australie',gl_ke:'Kenya',gl_es:'Espagne',gl_ae:'EAU',gl_br:'Brésil',gl_ng:'Nigéria',gl_tz:'Tanzanie',gl_mx:'Mexique',gl_pk:'Pakistan',gl_in:'Inde',gl_th:'Thaïlande',gl_vn:'Vietnam',gl_sa:'Arabie Saoudite',gl_ph:'Philippines',gl_id:'Indonésie',gl_us:'États-Unis',gl_ca:'Canada',gl_uk:'Royaume-Uni',gl_de:'Allemagne',gl_fr:'France',gl_it:'Italie',gl_jp:'Japon',gl_hq_label:'Siège · Shenzhen',gl_stat_markets:'Marchés',gl_stat_cont:'Continents',gl_stat_years:'Années d\'Export',gl_stat_units:'Unités Expédiées',hq_tag:'JC LIGHTNING · SIÈGE MONDIAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · Chine &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Usine de Production',hq_stat2:'Ingénieurs & Personnel',hq_stat3:'Fondée en',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Discuter sur WhatsApp',hq_cta_em:'Nous Écrire'},
   pt:{
+    hero_kick:'Projetado para Mercados Sem Rede',hero_hl:'Onde o Sol<br>Encontra a <em>Resiliência</em>',hero_side:'Iluminação solar de segurança, urbana e de jardim — para mercados onde a rede falha. Energia gratuita, equipamento certificado, <em>luz ininterrupta.</em>',
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',ft_logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Produtos',nav_cat:'Categorias',nav_solutions:'Soluções',nav_about:'Nossa Abordagem',nav_contact:'Contato',nav_quote:'Solicitar Cotação',nav_partner:'Parceiros',nav_markets:'Mercados',prod_view_all:'Ver os',prod_items:'produtos desta categoria',toc_brand:'Marca',toc_scenarios:'Usos',toc_certs:'Cert.',toc_global:'Global',toc_match:'Escolher',toc_faq:'FAQ',nav_insights:'Insights',ins_label:'Insights',ins_h2:'Iluminação solar, <em>explicada.</em>',ins_sub:'Guias independentes de compra, análises técnicas e briefings de mercado — direto da nossa equipe de engenharia e exportação.',ins_read:'Ler mais',
     cs_title:'Para onde enviamos',cs_tag:'40+ países · 6 continentes · FOB Shenzhen',cs_region_la:'América Latina',cs_region_af:'África',cs_region_eu:'Europa',cs_region_me:'MENA',cs_region_as:'Ásia e Pacífico',cs_foot_note:'País não listado? Exportamos para todo o mundo.',cs_foot_cta:'Solicitar cotação →',
@@ -5109,6 +5119,7 @@ const T = {
     vlg_p1_n:'Refletor Solar 3 Cabeças com PIR',vlg_p3_n:'Arandela com Sensor PIR',vlg_p9_n:'Poste Solar Tudo-em-Um',vlg_p10_n:'Arandela Externa · Solar/AC',vlg_p11_n:'Cordão Solar Edison',vlg_p13_n:'Espetos Solares de Jardim · Pack de 8',vlg_p15_n:'Mata-Mosquitos Solar',vlg_p28_n:'Luminária Esférica para Pilar',vlg_p31_n:'Refletor LED AC (50-1000W)',vlg_p32_n:'Luminária Industrial UFO (100-300W)',vlg_cta:'Ver produto completo →',vlg_hint:'Passe o mouse em cada luz para identificar o produto',cookie_text:'Usamos cookies para melhorar sua experiência e analisar o tráfego do site. Ao aceitar, você consente com nosso uso de cookies. Leia nossa <a href="#" id="cookiePrivacy">Política de Privacidade</a>.',cookie_reject:'Rejeitar tudo',cookie_accept:'Aceitar tudo',cookie_privacy:'Política de Privacidade',sticky_cta_txt:'Tem um projeto solar? <strong>Cotação FOB em 24 horas.</strong>',sticky_cta_btn:'Solicitar Cotação →',
     gl_lbl:'Presença Global',gl_h2:'Confiável em <em>mais de 30 mercados.</em>',gl_sub:'Da África do Sul com apagões aos projetos sem rede na América Latina — produtos JC implantados em quatro continentes e em crescimento.',gl_leg_primary:'Mercados Principais',gl_leg_expansion:'Mercados em Expansão',gl_co:'Colômbia',gl_ec:'Equador',gl_za:'África do Sul',gl_au:'Austrália',gl_ke:'Quênia',gl_es:'Espanha',gl_ae:'EAU',gl_br:'Brasil',gl_ng:'Nigéria',gl_tz:'Tanzânia',gl_mx:'México',gl_pk:'Paquistão',gl_in:'Índia',gl_th:'Tailândia',gl_vn:'Vietnã',gl_sa:'Arábia Saudita',gl_ph:'Filipinas',gl_id:'Indonésia',gl_us:'EUA',gl_ca:'Canadá',gl_uk:'Reino Unido',gl_de:'Alemanha',gl_fr:'França',gl_it:'Itália',gl_jp:'Japão',gl_hq_label:'Sede · Shenzhen',gl_stat_markets:'Mercados',gl_stat_cont:'Continentes',gl_stat_years:'Anos Exportando',gl_stat_units:'Unidades Enviadas',hq_tag:'JC LIGHTNING · SEDE GLOBAL',hq_name:'JC Lightning Technology Co., Ltd.',hq_meta:'Shenzhen · Guangdong · China &nbsp;·&nbsp; 22.5°N · 114.0°E',hq_stat1:'Fábrica de Produção',hq_stat2:'Engenheiros e Equipe',hq_stat3:'Fundada em',hq_stat4:'Shenzhen / Yantian / Guangzhou',hq_cta_wa:'Falar no WhatsApp',hq_cta_em:'Envie-nos um E-mail'},
   ar:{
+    hero_kick:'مصمّم للأسواق خارج الشبكة',hero_hl:'حيث تلتقي الشمس<br><em>بالمرونة</em>',hero_side:'إضاءة شمسية للأمن والشوارع والحدائق — للأسواق التي تتكرر فيها انقطاعات الشبكة. طاقة مجانية، أجهزة معتمدة، <em>إضاءة بلا انقطاع.</em>',
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'المنتجات',nav_solutions:'الحلول',nav_about:'منهجنا',nav_contact:'اتصل بنا',nav_quote:'طلب عرض سعر',nav_partner:'الشركاء',nav_markets:'الأسواق',prod_view_all:'عرض جميع',prod_items:'منتجات في هذه الفئة',toc_brand:'العلامة',toc_scenarios:'الاستخدامات',toc_certs:'الشهادات',toc_global:'عالمي',toc_match:'اختر',toc_faq:'الأسئلة',nav_insights:'رؤى',ins_label:'رؤى',ins_h2:'الإضاءة الشمسية، <em>بشكل مفصل.</em>',ins_sub:'أدلة شراء مستقلة، وتحليلات تقنية، وموجزات سوقية — مباشرة من فريق الهندسة والتصدير لدينا.',ins_read:'اقرأ المزيد',
     cs_title:'أسواق التصدير',cs_tag:'40+ دولة · 6 قارات · FOB شنتشن',cs_region_la:'أمريكا اللاتينية',cs_region_af:'أفريقيا',cs_region_eu:'أوروبا',cs_region_me:'الشرق الأوسط وشمال أفريقيا',cs_region_as:'آسيا والمحيط الهادئ',cs_foot_note:'بلدك غير مدرج؟ نحن نصدّر عالميًا.',cs_foot_cta:'احصل على عرض سعر مخصص →',
@@ -5156,6 +5167,7 @@ const T = {
     cookie_text:'نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل حركة المرور. بقبولك، توافق على استخدامنا لها. اقرأ <a href="#" id="cookiePrivacy">سياسة الخصوصية</a>.',cookie_reject:'رفض الكل',cookie_accept:'قبول الكل',cookie_privacy:'سياسة الخصوصية'
   },
   ru:{
+    hero_kick:'Создано для автономных рынков',hero_hl:'Там, где солнце<br>встречает <em>надёжность</em>',hero_side:'Солнечное освещение для охраны, улиц и сада — для рынков, где сеть постоянно подводит. Бесплатная энергия, сертифицированное оборудование, <em>свет без перебоев.</em>',
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'Продукция',nav_solutions:'Решения',nav_about:'Наш подход',nav_contact:'Контакты',nav_quote:'Запросить цену',nav_partner:'Партнёры',nav_markets:'Рынки',prod_view_all:'Все',prod_items:'товара(ов) в категории',toc_brand:'Бренд',toc_scenarios:'Кейсы',toc_certs:'Серт.',toc_global:'Глобал',toc_match:'Подбор',toc_faq:'ЧаВо',nav_insights:'Аналитика',ins_label:'Аналитика',ins_h2:'Солнечное освещение, <em>подробно.</em>',ins_sub:'Независимые руководства покупателя, технические обзоры и рыночные брифинги — напрямую от нашей инженерной и экспортной команды.',ins_read:'Читать далее',
     cs_title:'Куда мы поставляем',cs_tag:'40+ стран · 6 континентов · FOB Шэньчжэнь',cs_region_la:'Латинская Америка',cs_region_af:'Африка',cs_region_eu:'Европа',cs_region_me:'Ближний Восток и Северная Африка',cs_region_as:'Азия и Тихоокеанский регион',cs_foot_note:'Вашей страны нет? Мы экспортируем по всему миру.',cs_foot_cta:'Получить индивидуальное предложение →',
@@ -5203,6 +5215,7 @@ const T = {
     cookie_text:'Мы используем cookie для улучшения опыта и анализа трафика. Принимая, вы соглашаетесь с использованием. Читайте <a href="#" id="cookiePrivacy">Политику конфиденциальности</a>.',cookie_reject:'Отклонить всё',cookie_accept:'Принять всё',cookie_privacy:'Политика конфиденциальности'
   },
   hi:{
+    hero_kick:'ऑफ-ग्रिड बाज़ारों के लिए निर्मित',hero_hl:'जहाँ सूरज<br>मिलता है <em>दृढ़ता से</em>',hero_side:'सौर सुरक्षा, स्ट्रीट और गार्डन लाइटिंग — उन बाज़ारों के लिए जहाँ ग्रिड बार-बार फेल होता है। मुफ्त ऊर्जा, प्रमाणित हार्डवेयर, <em>निर्बाध रोशनी।</em>',
     logo:'JC <em>Lightning</em> Technology Co., Ltd.',
     nav_products:'उत्पाद',nav_solutions:'समाधान',nav_about:'हमारा दृष्टिकोण',nav_contact:'संपर्क',nav_quote:'कोटेशन प्राप्त करें',nav_partner:'भागीदार',nav_markets:'बाज़ार',prod_view_all:'सभी देखें',prod_items:'इस श्रेणी में उत्पाद',toc_brand:'ब्रांड',toc_scenarios:'उपयोग',toc_certs:'प्रमाण',toc_global:'वैश्विक',toc_match:'चुनें',toc_faq:'पूछताछ',nav_insights:'अंतर्दृष्टि',ins_label:'अंतर्दृष्टि',ins_h2:'सौर लाइटिंग, <em>विस्तार से।</em>',ins_sub:'स्वतंत्र खरीदार गाइड, तकनीकी विश्लेषण और बाज़ार रिपोर्ट — सीधे हमारी इंजीनियरिंग और निर्यात टीम से।',ins_read:'और पढ़ें',
     cs_title:'हम कहाँ भेजते हैं',cs_tag:'40+ देश · 6 महाद्वीप · FOB शेन्ज़ेन',cs_region_la:'लैटिन अमेरिका',cs_region_af:'अफ्रीका',cs_region_eu:'यूरोप',cs_region_me:'मध्य पूर्व और उत्तरी अफ्रीका',cs_region_as:'एशिया और प्रशांत',cs_foot_note:'आपका देश सूची में नहीं? हम वैश्विक स्तर पर निर्यात करते हैं।',cs_foot_cta:'कस्टम कोटेशन प्राप्त करें →',
@@ -6358,32 +6371,53 @@ document.addEventListener('DOMContentLoaded',()=>{
     scrollTrigger:{trigger:'.products',start:'top bottom',end:'bottom top',scrub:true}
   });
 
-  // Categories cards stagger
-  gsap.from('.cat-card',{
-    y:60,opacity:0,duration:.7,stagger:.12,
+  // ── A-tier section entrances (live sections only) ───────────────────
+  // Each block mirrors the proven .cert-card / .faq-item pattern below:
+  // gsap.from + ScrollTrigger(once) — fail-safe (if GSAP fails to load,
+  // none of this runs and cards stay at their default visible state).
+
+  // Scenarios: each category row's cards cascade as it scrolls into view
+  document.querySelectorAll('.sc-cat-group').forEach(group=>{
+    const cards=group.querySelectorAll('.sc-card');
+    if(!cards.length) return;
+    gsap.from(cards,{
+      y:40,opacity:0,scale:.96,duration:.55,stagger:.1,
+      ease:'power3.out',
+      scrollTrigger:{trigger:group,start:'top 82%',once:true}
+    });
+  });
+
+  // Global: stat figures rise in (number counter runs separately — no conflict)
+  gsap.from('.gl-stat',{
+    y:30,opacity:0,duration:.5,stagger:.12,
     ease:'power3.out',
-    scrollTrigger:{trigger:'.categories',start:'top 80%',once:true}
+    scrollTrigger:{trigger:'.gl-stats',start:'top 85%',once:true}
   });
 
-  // Why cards stagger
-  gsap.from('.why-card',{
-    y:50,opacity:0,duration:.6,stagger:.1,
+  // Matchmaker: path buttons first, then benefit chips
+  gsap.from('.match-path-btn',{
+    y:40,opacity:0,scale:.97,duration:.6,stagger:.14,
     ease:'power3.out',
-    scrollTrigger:{trigger:'.why',start:'top 80%',once:true}
+    scrollTrigger:{trigger:'.match-path',start:'top 82%',once:true}
+  });
+  gsap.from('.mm-benefit',{
+    y:24,opacity:0,duration:.45,stagger:.08,
+    ease:'power2.out',
+    scrollTrigger:{trigger:'.mm-benefits',start:'top 88%',once:true}
   });
 
-  // Process steps stagger
-  gsap.from('.proc-step',{
-    y:40,opacity:0,duration:.5,stagger:.12,
-    ease:'power2.out',
-    scrollTrigger:{trigger:'.process',start:'top 80%',once:true}
+  // Insights: article cards cascade
+  gsap.from('.insight-card',{
+    y:44,opacity:0,scale:.96,duration:.6,stagger:.09,
+    ease:'power3.out',
+    scrollTrigger:{trigger:'.insights-grid',start:'top 82%',once:true}
   });
 
-  // Testimonials stagger
-  gsap.from('.testi-card',{
-    y:40,opacity:0,duration:.5,stagger:.12,
-    ease:'power2.out',
-    scrollTrigger:{trigger:'.testimonials',start:'top 80%',once:true}
+  // Partner: benefit cards cascade
+  gsap.from('.partner-card',{
+    y:40,opacity:0,scale:.96,duration:.55,stagger:.1,
+    ease:'power3.out',
+    scrollTrigger:{trigger:'.partner-benefits',start:'top 82%',once:true}
   });
 
   // Certs stagger
@@ -6398,13 +6432,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     y:30,opacity:0,duration:.4,stagger:.08,
     ease:'power2.out',
     scrollTrigger:{trigger:'.faq',start:'top 85%',once:true}
-  });
-
-  // Promise cards stagger
-  gsap.from('.promise-card',{
-    y:40,opacity:0,duration:.5,stagger:.1,
-    ease:'power3.out',
-    scrollTrigger:{trigger:'.promise',start:'top 80%',once:true}
   });
 
   // Contact section
