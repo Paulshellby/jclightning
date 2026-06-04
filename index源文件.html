@@ -598,8 +598,9 @@ h1 em { font-style:italic; color:var(--brass-lt); }
 /* Apple-style word-by-word reveal */
 .reveal-text { display:inline; }
 .reveal-text .rv-word { display:inline-block; overflow:hidden; vertical-align:top; line-height:1.1; padding:0.04em 0; }
-.reveal-text .rv-word > span { display:inline-block; transform:translateY(115%); opacity:0; transition:transform 0.9s cubic-bezier(.22,.61,.36,1), opacity 0.7s ease; transition-delay:calc(var(--i, 0) * 55ms); }
-.reveal-text.on .rv-word > span { transform:translateY(0); opacity:1; }
+.reveal-text .rv-word > span { display:inline-block; opacity:1; transform:none; }
+.reveal-text.on .rv-word > span { animation:rvWordRise 0.9s cubic-bezier(.22,.61,.36,1) backwards; animation-delay:calc(var(--i, 0) * 55ms); }
+@keyframes rvWordRise { from { opacity:0; transform:translateY(115%); } to { opacity:1; transform:translateY(0); } }
 /* em / span / br kept inline so word stagger still flows naturally */
 .reveal-text em, .reveal-text span:not(.rv-word):not(.rv-word > span) { display:inline; }
 /* Golden particles canvas */
