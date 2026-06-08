@@ -6393,16 +6393,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   // gsap.from + ScrollTrigger(once) — fail-safe (if GSAP fails to load,
   // none of this runs and cards stay at their default visible state).
 
-  // Scenarios: each category row's cards cascade as it scrolls into view
-  document.querySelectorAll('.sc-cat-group').forEach(group=>{
-    const cards=group.querySelectorAll('.sc-card');
-    if(!cards.length) return;
-    gsap.from(cards,{
-      y:40,opacity:0,scale:.96,duration:.55,stagger:.1,
-      ease:'power3.out',
-      scrollTrigger:{trigger:group,start:'top 82%',once:true}
-    });
-  });
+  // Scenarios: cards stay visible by default (CSS opacity:1). We deliberately do NOT
+  // run a gsap.from(opacity:0) on the cards — its ScrollTrigger could be dropped on a
+  // layout refresh (collapse/fonts), freezing the cards invisible. The group-level
+  // .reveal entrance still provides the section's fade-in. Reliability over flourish.
 
   // Global: stat figures rise in (number counter runs separately — no conflict)
   gsap.from('.gl-stat',{
@@ -6411,12 +6405,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     scrollTrigger:{trigger:'.gl-stats',start:'top 85%',once:true}
   });
 
-  // Matchmaker: path buttons first, then benefit chips
-  gsap.from('.match-path-btn',{
-    y:40,opacity:0,scale:.97,duration:.6,stagger:.14,
-    ease:'power3.out',
-    scrollTrigger:{trigger:'.match-path',start:'top 82%',once:true}
-  });
+  // Matchmaker: path buttons stay visible by default (container .match-path has .reveal).
+  // No gsap.from(opacity:0) on the buttons — a dropped ScrollTrigger was freezing the
+  // 2nd button ("I'm a Homeowner") at low opacity. Reliability over flourish.
   gsap.from('.mm-benefit',{
     y:24,opacity:0,duration:.45,stagger:.08,
     ease:'power2.out',
