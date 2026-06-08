@@ -783,6 +783,16 @@ h2 em { font-style:italic; color:var(--brass); }
 .prod-cat-expand-btn:hover { color: #fff; gap: 12px; }
 .prod-cat-expand-btn strong { color: #fff; font-weight: 600; font-size: 0.95rem; }
 .prod-cat-expand-btn svg { width: 16px; height: 16px; }
+.prod-cat-collapse { display: none; }
+.prod-cat-group:not(.collapsed) .prod-cat-collapse {
+  display: flex; align-items: center; gap: 8px; width: fit-content; margin: 20px auto 0;
+  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--brass-lt);
+  background: transparent; border: 1px solid rgba(201,162,78,0.18); border-radius: 8px;
+  padding: 10px 22px; cursor: pointer; transition: color .2s, border-color .2s, gap .2s;
+}
+.prod-cat-group:not(.collapsed) .prod-cat-collapse:hover { color: #fff; border-color: rgba(201,162,78,0.45); gap: 12px; }
+.prod-cat-collapse svg { width: 16px; height: 16px; }
 /* Mobile: stack preview above button, fewer thumbs */
 @media (max-width: 960px) {
   .prod-cat-group.collapsed .prod-cat-expand {
@@ -5834,6 +5844,17 @@ if(chatBtn){
     wrap.addEventListener('click', () => {
       g.classList.remove('collapsed');
       // Smooth scroll to keep header in view after expansion
+      const hdr = g.querySelector('.prod-cat-header');
+      if (hdr) hdr.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+    // "Show less" — manual collapse-back (CSS shows it only when expanded)
+    const collapseBtn = document.createElement('button');
+    collapseBtn.className = 'prod-cat-collapse';
+    collapseBtn.type = 'button';
+    collapseBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg><span data-i18n="prod_show_less">Show less</span>`;
+    g.appendChild(collapseBtn);
+    collapseBtn.addEventListener('click', () => {
+      g.classList.add('collapsed');
       const hdr = g.querySelector('.prod-cat-header');
       if (hdr) hdr.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
