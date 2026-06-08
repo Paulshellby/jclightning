@@ -5802,12 +5802,11 @@ if(chatBtn){
   });
 }
 
-// ═══ Category-group default-collapse (keep #cat-security expanded as featured) ═══
+// ═══ Category-group default-collapse (all categories collapsed by default) ═══
 // Non-destructive: all cards stay in DOM (search still finds them), only visually collapsed.
 (function initCatCollapse(){
   const groups = document.querySelectorAll('.prod-cat-group');
   groups.forEach(g => {
-    if (g.id === 'cat-security') return; // keep first category fully open
     g.classList.add('collapsed');
     // Build preview row from first 4 product images in this group
     const cards = g.querySelectorAll('.prod-card');
@@ -5845,7 +5844,7 @@ if(prodSearch){
     document.querySelectorAll('.prod-cat-group').forEach(g => {
       if (q !== '') {
         g.classList.remove('collapsed');
-      } else if (g.id !== 'cat-security') {
+      } else {
         g.classList.add('collapsed');
       }
     });
