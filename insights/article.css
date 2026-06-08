@@ -69,6 +69,15 @@ h1{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.9rem,4
 .rel-card .rc-cat{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
 .rel-card h4{font-family:'Playfair Display',serif;font-weight:500;font-size:1.12rem;color:var(--ink);margin:8px 0 0;line-height:1.25}
 
+/* Product spec table */
+.spec-table{width:100%;border-collapse:collapse;margin:6px 0 26px;font-size:.95rem}
+.spec-table th,.spec-table td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.spec-table th{width:38%;color:var(--stone-lt);font-weight:600;background:var(--chalk)}
+.spec-table td{color:var(--ink)}
+.spec-table tr:last-child th,.spec-table tr:last-child td{border-bottom:none}
+.spec-cta{display:inline-block;margin:2px 0 4px;color:var(--brass);font-weight:600;border-bottom:1px solid var(--line)}
+.spec-cta:hover{border-color:var(--brass)}
+
 /* Footer */
 .site-ft{background:var(--ink);color:var(--mist);padding:40px 24px;text-align:center;font-size:.8rem;border-top:1px solid rgba(201,162,78,.15)}
 .site-ft .brand{display:inline-block;margin-bottom:12px}
