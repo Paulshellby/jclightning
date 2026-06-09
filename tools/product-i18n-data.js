@@ -29,6 +29,14 @@ const ui = {
         ctaP:'Cuéntanos tu país y volumen y te enviamos la ficha técnica completa, los certificados y el precio mayorista, normalmente en 24 horas.',
         seeRange:'Ver toda la gama', seeAll:'Ver todos los productos', relatedH:'Productos relacionados',
         footerTag:'Fabricante de iluminación solar de exterior', contact:'Contacto' },
+  pt: { ogLocale:'pt_BR', home:'Início', products:'Produtos', quote:'Pedir orçamento',
+        skip:'Ir para o conteúdo', navAria:'Principal', crumbAria:'Trilha de navegação', factory:'fábrica de Shenzhen',
+        specsH:'Especificações', whyH:'Por que os compradores escolhem',
+        specCta:'Solicitar ficha técnica e preço de atacado', builtFor:'Feito para estes mercados',
+        ctaH:'Precisa para o <em>seu mercado?</em>',
+        ctaP:'Conte-nos seu país e volume e enviamos a ficha técnica completa, os certificados e o preço de atacado, normalmente em 24 horas.',
+        seeRange:'Ver toda a linha', seeAll:'Ver todos os produtos', relatedH:'Produtos relacionados',
+        footerTag:'Fabricante de iluminação solar de exterior', contact:'Contato' },
 };
 
 const skus = [
@@ -605,5 +613,13 @@ const skus = [
     bottomLine:'Compradores municipales, de parques industriales y aparcamientos en África, Latinoamérica, Oriente Medio y Oceanía: alumbrado vial con red para complementar la gama solar.',
     related:[['foco-led-ac','AC · foco','Foco LED AC'],['campana-industrial-ufo','AC · campana','Campana Industrial UFO'],['farola-solar-todo-en-uno','Vía · solar','Farola Solar Todo en Uno']] } } },
 ];
+
+// Merge per-language content authored in sibling files (keyed by SKU key).
+['pt','fr'].forEach(function(L){
+  try {
+    const ext = require('./product-i18n-' + L + '.js');
+    skus.forEach(function(s){ if (ext[s.key]) s.content[L] = ext[s.key]; });
+  } catch (e) { /* sibling file not present yet */ }
+});
 
 module.exports = { categories, ui, skus };
