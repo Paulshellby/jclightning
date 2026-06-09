@@ -11,3 +11,5 @@ images/bg-prompts-v2/
 images/bg-prompts-v3/
 images/hero-3d.webp/
 images/leonardo-3d-hero-backups/
+node_modules/
+tools/node_modules/
