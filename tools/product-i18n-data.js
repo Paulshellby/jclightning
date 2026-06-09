@@ -37,6 +37,14 @@ const ui = {
         ctaP:'Conte-nos seu país e volume e enviamos a ficha técnica completa, os certificados e o preço de atacado, normalmente em 24 horas.',
         seeRange:'Ver toda a linha', seeAll:'Ver todos os produtos', relatedH:'Produtos relacionados',
         footerTag:'Fabricante de iluminação solar de exterior', contact:'Contato' },
+  fr: { ogLocale:'fr_FR', home:'Accueil', products:'Produits', quote:'Demander un devis',
+        skip:'Aller au contenu', navAria:'Principal', crumbAria:"Fil d'Ariane", factory:'usine de Shenzhen',
+        specsH:'Spécifications', whyH:'Pourquoi les acheteurs choisissent',
+        specCta:'Demander la fiche technique et le prix de gros', builtFor:'Conçu pour ces marchés',
+        ctaH:'Besoin pour <em>votre marché ?</em>',
+        ctaP:'Indiquez votre pays et votre volume et nous envoyons la fiche technique complète, les certificats et le prix de gros, généralement sous 24 heures.',
+        seeRange:'Voir toute la gamme', seeAll:'Voir tous les produits', relatedH:'Produits associés',
+        footerTag:"Fabricant d'éclairage solaire d'extérieur", contact:'Contact' },
 };
 
 const skus = [
