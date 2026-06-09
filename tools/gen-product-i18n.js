@@ -10,6 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const DATA = require('./product-i18n-data.js');
+const EN_SLUG = require('./en-slugs.js');
 const ROOT = path.resolve(__dirname, '..');           // .../网站
 const ORIGIN = 'https://jclightning.com';
 
@@ -30,6 +31,14 @@ function render(lang, sku) {
     ? `{"@type":"ListItem","position":3,"name":${JSON.stringify(cat.label)}}`
     : `{"@type":"ListItem","position":3,"name":${JSON.stringify(cat.label)},"item":"${catUrl}"}`;
   const footMeta = c.footerMeta || 'CE &middot; RoHS &middot; LiFePO4';
+  const enSlug = EN_SLUG[sku.key];
+  const hreflang = [
+    enSlug ? `<link rel="alternate" hreflang="en" href="${ORIGIN}/products/${enSlug}.html">` : '',
+    sku.content.es ? `<link rel="alternate" hreflang="es" href="${ORIGIN}/products/es/${sku.content.es.slug}.html">` : '',
+    sku.content.pt ? `<link rel="alternate" hreflang="pt" href="${ORIGIN}/products/pt/${sku.content.pt.slug}.html">` : '',
+    sku.content.fr ? `<link rel="alternate" hreflang="fr" href="${ORIGIN}/products/fr/${sku.content.fr.slug}.html">` : '',
+    enSlug ? `<link rel="alternate" hreflang="x-default" href="${ORIGIN}/products/${enSlug}.html">` : '',
+  ].filter(Boolean).join('\n');
 
   const specRows = c.specs.map(([k, v]) => `      <tr><th>${k}</th><td>${v}</td></tr>`).join('\n');
   const whyHtml = c.why.map(p => `    <p>${p}</p>`).join('\n');
@@ -51,6 +60,7 @@ function render(lang, sku) {
 <meta name="robots" content="index, follow">
 <meta name="author" content="JC Lightning">
 <link rel="canonical" href="${selfUrl}">
+${hreflang}
 <meta property="og:type" content="product">
 <meta property="og:title" content="${c.ogTitle}">
 <meta property="og:description" content="${c.ogDesc}">
