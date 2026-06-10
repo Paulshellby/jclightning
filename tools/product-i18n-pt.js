@@ -4,7 +4,7 @@ module.exports = {
 
   p1:{ slug:'foco-solar-movimento-3-cabecas',
     title:'Foco Solar de Movimento 3 Cabeças — 2.500–3.500lm, IP65, PIR 270° | JC Lightning',
-    metaDesc:'Foco solar de movimento de 3 cabeças no atacado, fábrica em Shenzhen: 2.500–3.500 lúmens, IP65, sensor PIR 270°, bateria LiFePO4, três modos. CE + RoHS, OEM.',
+    metaDesc:'Foco solar de movimento de 3 cabeças, 2500-3500 lm, IP65, PIR 270°, LiFePO4. Segurança perimetral de ampla cobertura. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'foco solar movimento, refletor solar segurança atacado, foco solar PIR, refletor LED solar LiFePO4',
     ogTitle:'Foco Solar de Movimento 3 Cabeças — 2.500–3.500lm, IP65, PIR 270°',
     ogDesc:'Foco solar de 3 cabeças ajustáveis: 2.500–3.500lm, IP65, PIR 270°, LiFePO4, três modos. CE + RoHS, OEM.',
@@ -22,7 +22,7 @@ module.exports = {
 
   p2:{ slug:'arandela-solar-sensor-movimento-pir',
     title:'Arandela Solar Sensor de Movimento PIR — 800lm, IP65, LiFePO4 | JC Lightning',
-    metaDesc:'Arandela solar antivandalismo no atacado, fábrica em Shenzhen: 800 lúmens, IP65, PIR duplo 8–12m, 4000mAh LiFePO4, 8–12h. CE + RoHS, OEM. Para muros de perímetro e propriedades comerciais.',
+    metaDesc:'Arandela solar PIR antivandalismo, 800 lm, IP65, duplo PIR 8-12 m, LiFePO4 4000mAh. Para muros e recintos. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'arandela solar sensor movimento, luz solar parede segurança, arandela solar PIR atacado, luz solar perímetro fornecedor',
     ogTitle:'Arandela Solar Sensor PIR — 800lm, IP65, PIR duplo',
     ogDesc:'Arandela solar antivandalismo: 800lm, IP65, PIR duplo 8–12m, 4000mAh LiFePO4. CE + RoHS, OEM.',
@@ -40,7 +40,7 @@ module.exports = {
 
   p7:{ slug:'foco-solar-seguranca-30w',
     title:'Foco Solar de Segurança 30W — 2.400lm, IP66, PIR 270° | JC Lightning',
-    metaDesc:'Foco solar industrial de 30W no atacado, fábrica em Shenzhen: 2.400 lúmens, IP66, PIR 10m 270°, –20°C a +50°C. CE + RoHS, OEM. Para galpões, fazendas e obras.',
+    metaDesc:'Foco solar de segurança 30W, 2400 lm, IP66, PIR 270°, -20 a +50°C. Nível industrial para armazéns e fazendas. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'foco solar 30W, refletor solar industrial, luz solar segurança IP66, refletor solar galpão atacado, foco solar fazenda',
     ogTitle:'Foco Solar de Segurança 30W — 2.400lm, IP66, PIR 270°',
     ogDesc:'Foco solar industrial: 30W, 2.400lm, IP66, PIR 10m 270°, –20°C a +50°C. CE + RoHS, OEM.',
@@ -58,7 +58,7 @@ module.exports = {
 
   p10:{ slug:'arandela-solar-cima-baixo',
     title:'Arandela Solar Cima-Baixo — 2×3W, IP65, Alumínio, 3000K | JC Lightning',
-    metaDesc:'Arandela solar de feixe duplo no atacado, fábrica em Shenzhen: 2×3W, IP65, corpo de alumínio, branco quente 3000K, 10h, preto/branco/cinza. CE + RoHS, OEM. Para fachadas arquitetônicas.',
+    metaDesc:'Arandela solar cima-baixo, 2x3W, IP65, alumínio, 3000K branco quente. Luz de fachada e entrada. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'arandela solar feixe duplo, arandela solar cima baixo, luz solar fachada, arandela solar alumínio atacado, arandela solar 3000K fornecedor',
     ogTitle:'Arandela Solar Cima-Baixo — 2×3W, IP65, Alumínio',
     ogDesc:'Arandela solar de feixe duplo: 2×3W, IP65, alumínio, branco quente 3000K, 10h. Preto/branco/cinza. CE + RoHS, OEM.',
@@ -76,7 +76,7 @@ module.exports = {
 
   p9:{ slug:'poste-solar-tudo-em-um',
     title:'Poste Solar Tudo em Um — 100/200/300W, IP66, Radar | JC Lightning',
-    metaDesc:'Poste solar tudo em um no atacado, fábrica em Shenzhen: 100/200/300W, IP66, sensor radar, LiFePO4, automático do anoitecer ao amanhecer. CE + RoHS, OEM. Para vias municipais, estradas rurais e estacionamentos.',
+    metaDesc:'Poste solar tudo em um, 100/200/300W, IP66, sensor radar, LiFePO4. Vias, parques e recintos sem rede. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'poste solar tudo em um, luminária pública solar integrada, poste solar 300W, poste solar radar, iluminação pública solar atacado, poste solar IP66 fornecedor',
     ogTitle:'Poste Solar Tudo em Um — 100/200/300W, IP66, Radar',
     ogDesc:'Luminária pública solar integrada: 100/200/300W, IP66, radar, LiFePO4, anoitecer-amanhecer. CE + RoHS, OEM.',
@@ -94,7 +94,7 @@ module.exports = {
 
   p27:{ slug:'poste-solar-separado',
     title:'Poste Solar Separado — 30/60/100W, 3.000–10.000lm, IP66, Radar | JC Lightning',
-    metaDesc:'Poste solar tipo separado no atacado, fábrica em Shenzhen: painel + luminária independentes, 30/60/100W, 3.000–10.000lm, IP66, radar, LiFePO4, 10–12h. Suporte de poste incluído. CE + RoHS, OEM.',
+    metaDesc:'Poste solar separado, 30/60/100W, 3000-10000 lm, IP66, sensor radar. Painel à parte para vias sombreadas. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'poste solar separado, luminária pública solar separada, poste solar painel independente, poste solar 100W atacado, poste solar radar fornecedor',
     ogTitle:'Poste Solar Separado — 30/60/100W, IP66, Radar',
     ogDesc:'Painel + luminária independentes: 30/60/100W, 3.000–10.000lm, IP66, radar, LiFePO4. Suporte incluído. CE + RoHS, OEM.',
@@ -112,7 +112,7 @@ module.exports = {
 
   p25:{ slug:'baliza-solar-aviso',
     title:'Baliza Solar de Aviso — Visibilidade 500m+, IP66, LiFePO4 | JC Lightning',
-    metaDesc:'Baliza solar de aviso no atacado, fábrica em Shenzhen: 6 LEDs de alto brilho, vermelho/azul/âmbar/branco, rotativo/estrobo/fixo/flash, visibilidade 500m+, 3000mAh LiFePO4, IP66, –30°C a +60°C, multi-montagem. CE + RoHS, OEM.',
+    metaDesc:'Baliza solar de aviso, visibilidade 500m+, IP66, LiFePO4. Sinalização de segurança viária, marítima e de obra. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'baliza solar aviso, luz solar sinalização, luz solar estrobo, baliza viária solar atacado, luz aviso IP66 fornecedor',
     ogTitle:'Baliza Solar de Aviso — Visibilidade 500m+, IP66',
     ogDesc:'6 LEDs, 4 cores, 4 modos, 500m+ visibilidade, 3000mAh LiFePO4, IP66, –30°C a +60°C. CE + RoHS, OEM.',
@@ -130,7 +130,7 @@ module.exports = {
 
   p26:{ slug:'luz-solar-mastro-bandeira',
     title:'Luz Solar para Mastro de Bandeira — 8W, 600lm, 6500K, IP65 | JC Lightning',
-    metaDesc:'Luz solar para mastro de bandeira no atacado, fábrica em Shenzhen: 8W LED, 600lm, 6500K, 3600mAh LiFePO4, painel ajustável, para mastros de 15–40mm, feixe 120°, 10–12h, IP65. CE + RoHS, OEM.',
+    metaDesc:'Luz solar para mastro de bandeira, 8W, 600 lm, 6500K, IP65, LiFePO4. Ilumina a bandeira à noite, sem fios. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'luz solar mastro bandeira, foco solar bandeira, luz solar mastro atacado, luz solar 8W bandeira, luz mastro IP65 fornecedor',
     ogTitle:'Luz Solar para Mastro de Bandeira — 8W, 600lm, 6500K, IP65',
     ogDesc:'8W LED, 600lm, 6500K, 3600mAh LiFePO4, painel ajustável, mastros 15–40mm, feixe 120°, 10–12h, IP65. CE + RoHS, OEM.',
@@ -148,7 +148,7 @@ module.exports = {
 
   p28:{ slug:'coluna-solar-patio',
     title:'Coluna Solar de Pátio (1–2m) — 10W, 800lm, IP65, LiFePO4 | JC Lightning',
-    metaDesc:'Coluna solar de pátio no atacado, fábrica em Shenzhen: luminária de pilar de alumínio, 10W, 800lm, 3000K, IP65, 8000mAh LiFePO4, 10–12h, preto/branco/antracite. CE + RoHS, OEM. Para pátios, entradas e praças.',
+    metaDesc:'Coluna solar de pátio, 1-2 m, 10W, 800 lm, IP65, LiFePO4. Iluminação de pilares e caminhos para jardins. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'coluna solar pátio, luminária solar pilar, balizador solar moderno atacado, luz entrada solar, coluna alumínio solar fornecedor',
     ogTitle:'Coluna Solar de Pátio (1–2m) — 10W, 800lm, IP65',
     ogDesc:'Luminária de pilar de alumínio: 10W, 800lm, 3000K, IP65, 8000mAh LiFePO4, 10–12h. Preto/branco/antracite. CE + RoHS, OEM.',
@@ -166,7 +166,7 @@ module.exports = {
 
   p6:{ slug:'estaca-solar-jardim-pack-8',
     title:'Estaca Solar de Jardim · Pack 8 — Vidro Fosco, IP65, Caixa Retail | JC Lightning',
-    metaDesc:'Estacas solares de jardim no atacado, fábrica em Shenzhen: pack de 8 e 12 pronto para varejo, vidro fosco, ABS, 1.2W, IP65, 600mAh, 8h. CE + RoHS, OEM. Para jardins e caminhos.',
+    metaDesc:'Estacas solares de jardim, pack de 8, vidro fosco, IP65, caixa de varejo. Caminhos e bordas. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'estaca solar jardim, luz solar caminho pack 8, luzes jardim varejo atacado, estaca vidro fosco solar, luz caminho solar fornecedor',
     ogTitle:'Estaca Solar de Jardim · Pack 8 — Vidro Fosco, IP65',
     ogDesc:'Iluminação de estaca pronta para varejo: vidro fosco, ABS, 1.2W, IP65, 600mAh, 8h. Caixas de 8 e 12. CE + RoHS, OEM.',
@@ -184,7 +184,7 @@ module.exports = {
 
   p8:{ slug:'foco-solar-jardim-espeto',
     title:'Foco Solar de Jardim Espeto — 5W, 400lm, 360° Giratório, IP65 | JC Lightning',
-    metaDesc:'Foco solar de espeto no atacado, fábrica em Shenzhen: ajustável para iluminar árvores e fachadas, 360° giratório, 90° inclinação, 5W, 400lm, IP65, 1200mAh, 8h, 3000K/6000K. CE + RoHS, OEM.',
+    metaDesc:'Foco solar de jardim de espeto, 5W, 400 lm, cabeça giratória 360°, IP65. Destaca árvores e fachadas. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'foco solar espeto, foco solar jardim, luz solar árvore, foco solar ajustável atacado, foco solar fachada fornecedor',
     ogTitle:'Foco Solar de Jardim Espeto — 5W, 400lm, 360° Giratório',
     ogDesc:'Foco de espeto ajustável: 360° giratório, 90° inclinação, 5W, 400lm, IP65, 1200mAh, 8h, 3000K/6000K. CE + RoHS, OEM.',
@@ -202,7 +202,7 @@ module.exports = {
 
   p4:{ slug:'lanterna-parede-exterior-solar-ac',
     title:'Lanterna de Parede Exterior · Solar / AC — IP44, E27, Bronze/Preto/Cobre | JC Lightning',
-    metaDesc:'Lanterna de parede exterior no atacado, fábrica em Shenzhen em versão solar (LiFePO4) ou AC (E27): IP44, acabamentos bronze/preto/cobre. CE / EMC / LVD, OEM. Iluminação decorativa para residências e hotéis.',
+    metaDesc:'Lanterna de parede externa solar ou AC, IP44, soquete E27, acabamentos bronze/preto/cobre. Varanda e entrada. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'lanterna parede exterior, lanterna solar parede, lanterna AC E27, luz decorativa parede atacado, lanterna bronze, lanterna hotel solar fornecedor',
     ogTitle:'Lanterna de Parede Exterior · Solar / AC — IP44, E27',
     ogDesc:'Lanterna de parede em solar (LiFePO4) ou AC (E27): IP44, bronze/preto/cobre. CE / EMC / LVD, OEM.',
@@ -220,7 +220,7 @@ module.exports = {
 
   p11:{ slug:'cordao-luzes-solar-edison',
     title:'Cordão de Luzes Solar Edison — 40/60 LED, IP65, 2700K, 30m | JC Lightning',
-    metaDesc:'Cordão de luzes solar Edison no atacado, fábrica em Shenzhen: 40/60 lâmpadas vintage, IP65, branco quente 2700K, 30m, 8–12h. Embalagem varejo e atacado. CE + RoHS, OEM. Para pátios, jardins e eventos.',
+    metaDesc:'Cordão de luzes solar Edison, 40/60 LED, IP65, 2700K quente, até 30 m. Ambiente para pátios e eventos. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'cordão luzes solar edison, cordão solar pátio, luzes vintage solares atacado, cordão solar 30m, cordão comercial solar fornecedor',
     ogTitle:'Cordão de Luzes Solar Edison — 40/60 LED, IP65, 2700K, 30m',
     ogDesc:'Cordão de lâmpadas Edison: 40/60 LED, IP65, 2700K, 30m, 8–12h. Varejo e atacado. CE + RoHS, OEM.',
@@ -238,7 +238,7 @@ module.exports = {
 
   p19:{ slug:'tocha-solar-chama',
     title:'Tocha Solar de Chama — 120cm, IP67, 96 LED, LiFePO4 | JC Lightning',
-    metaDesc:'Tocha solar de chama no atacado, fábrica em Shenzhen: premium de 120cm com upgrade IP67, 96 LEDs branco quente, chama realista, 2200mAh LiFePO4, 10–12h, ABS UV-estável + haste de alumínio, anoitecer-amanhecer. CE + RoHS, OEM.',
+    metaDesc:'Tocha solar de chama, 120 cm, IP67, 96 LED tremeluzentes, LiFePO4. Ambiente de chama dançante em jardins. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'tocha solar chama, luz solar chama atacado, tocha chama dançante solar, tocha 120cm, tocha solar IP67 fornecedor',
     ogTitle:'Tocha Solar de Chama — 120cm, IP67, 96 LED',
     ogDesc:'Tocha de chama premium 120cm com IP67: 96 LEDs quentes, chama realista, 2200mAh LiFePO4, 10–12h. CE + RoHS, OEM.',
@@ -256,7 +256,7 @@ module.exports = {
 
   p20:{ slug:'luzes-solares-fio-cobre',
     title:'Luzes Solares de Fio de Cobre — 100/200 LED, 2700K, 8 Modos | JC Lightning',
-    metaDesc:'Luzes solares fada de fio de cobre no atacado, fábrica em Shenzhen: 100/200 micro LEDs, 2700K, fio de cobre flexível 0.4mm, 10m/20m, 1200mAh, IP44, 8 modos, 8–10h. CE + RoHS, OEM.',
+    metaDesc:'Cordão solar de fio de cobre, 100/200 LED, 2700K, 8 modos. Decoração flexível para jardins e eventos. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'luzes solares fada, luzes fio de cobre solar, micro led solar cordão atacado, luzes fada 200 led solar, cordão 8 modos fornecedor',
     ogTitle:'Luzes Solares de Fio de Cobre — 100/200 LED, 8 Modos',
     ogDesc:'100/200 micro LEDs, 2700K, fio de cobre 0.4mm, 10m/20m, 1200mAh, IP44, 8 modos, 8–10h. CE + RoHS, OEM.',
@@ -274,7 +274,7 @@ module.exports = {
 
   p21:{ slug:'luz-solar-guarda-sol',
     title:'Luz Solar para Guarda-Sol — 28/48/64 LED, Quente + RGB, Controle, IP44 | JC Lightning',
-    metaDesc:'Luz solar para guarda-sol no atacado, fábrica em Shenzhen: 28/48/64 LED, branco quente + RGB, braçadeira para hastes de 25–55mm, 2000mAh, quente 8h / RGB 6h, controle IR, IP44. CE + RoHS, OEM. Para pátios e ombrelones.',
+    metaDesc:'Luz solar para guarda-sol, 28/48/64 LED, branco quente + RGB, controle IR, IP44. Guarda-sóis e gazebos. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'luz solar guarda-sol, luz solar ombrelone, luz pátio guarda-sol atacado, luz RGB guarda-sol, luz solar braçadeira fornecedor',
     ogTitle:'Luz Solar para Guarda-Sol — 28/48/64 LED, Quente + RGB, Controle',
     ogDesc:'28/48/64 LED, branco quente + RGB, braçadeira 25–55mm, 2000mAh, controle IR, IP44. CE + RoHS, OEM.',
@@ -292,7 +292,7 @@ module.exports = {
 
   p22:{ slug:'luminaria-solar-piso-exterior',
     title:'Luminária Solar de Piso Exterior — 24W, 1800lm, 3000K, IP65, LiFePO4 | JC Lightning',
-    metaDesc:'Luminária solar de piso exterior no atacado, fábrica em Shenzhen: 60/90/120cm, 24W, 1800lm, 3000K, 8000mAh LiFePO4, alumínio + vidro temperado, IP65, preto/branco/cobre, anoitecer-amanhecer + opção PIR. CE + RoHS, OEM.',
+    metaDesc:'Luminária solar de piso externa, 24W, 1800 lm, 3000K, IP65, LiFePO4. Luz ambiente para pátios e cafés. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'luminária solar piso, luminária exterior solar, luminária piso solar atacado, luminária pátio solar, luminária solar alumínio fornecedor',
     ogTitle:'Luminária Solar de Piso Exterior — 24W, 1800lm, 3000K, IP65',
     ogDesc:'60/90/120cm, 24W, 1800lm, 3000K, 8000mAh LiFePO4, alumínio + vidro, IP65, anoitecer-amanhecer + PIR. CE + RoHS, OEM.',
@@ -310,7 +310,7 @@ module.exports = {
 
   p29:{ slug:'luz-solar-flutuante-piscina',
     title:'Luz Solar Flutuante de Piscina — RGB 16 Cores, IP68, Controle IR | JC Lightning',
-    metaDesc:'Luz solar flutuante de piscina no atacado, fábrica em Shenzhen: luz flutuante RGB 16 cores para piscinas, lagos e jacuzzis. IP68 totalmente à prova d\'água, cúpula fosca 15cm, 2000mAh, 6–8h, 8 modos, controle IR, ABS + PC. CE + RoHS, OEM.',
+    metaDesc:'Luz solar flutuante para piscina, RGB 16 cores, IP68, controle IR. Flutua em piscinas e lagos. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'luz solar piscina, luz flutuante solar piscina, luz RGB piscina atacado, luz flutuante IP68, luz lago solar fornecedor',
     ogTitle:'Luz Solar Flutuante de Piscina — RGB 16 Cores, IP68',
     ogDesc:'Luz flutuante RGB 16 cores para piscinas, lagos e jacuzzis. IP68, cúpula 15cm, 2000mAh, 8 modos, controle IR. CE + RoHS, OEM.',
@@ -328,7 +328,7 @@ module.exports = {
 
   p15:{ slug:'luz-solar-interna-painel-separado',
     title:'Luz Solar Interna (Painel Separado) — 400lm, USB, Para Apagões | JC Lightning',
-    metaDesc:'Luz solar interna de painel separado no atacado, fábrica em Shenzhen: o painel fica fora, a luz vai dentro por cabo de 5m, USB carrega celulares durante os apagões. 5W, 400lm, 4000mAh LiFePO4, IP44 interno / IP65 painel. CE + RoHS, OEM.',
+    metaDesc:'Luz solar interna de painel separado, 400 lm, USB, pronta para quedas de energia. Aspecto de luz com fios. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'luz solar interna, luz solar painel separado, luz solar apagão, luz interna solar com cabo, luz solar casa sem rede fornecedor',
     ogTitle:'Luz Solar Interna (Painel Separado) — 400lm, USB',
     ogDesc:'Painel fora, luz dentro por cabo de 5m, USB para celulares. 5W, 400lm, 4000mAh LiFePO4, IP44/IP65. CE + RoHS, OEM.',
@@ -346,7 +346,7 @@ module.exports = {
 
   p16:{ slug:'lampada-led-solar-emergencia',
     title:'Lâmpada LED Solar de Emergência (E27 / B22) — Acende Sozinha no Apagão | JC Lightning',
-    metaDesc:'Lâmpada LED solar de emergência no atacado, fábrica em Shenzhen: 3W/5W, 300/500lm, 1800mAh LiFePO4, base E27 ou B22, acende sozinha no apagão, 4–6h de backup, recarregável por USB, mini painel solar de 3W incluído. CE + RoHS, OEM.',
+    metaDesc:'Lâmpada LED solar de emergência, E27/B22, acende sozinha numa queda de energia, bateria integrada. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'lâmpada solar emergência, lâmpada LED recarregável apagão, lâmpada E27 emergência atacado, lâmpada B22 emergência, lâmpada acende sozinha fornecedor',
     ogTitle:'Lâmpada LED Solar de Emergência (E27 / B22)',
     ogDesc:'3W/5W, 300/500lm, 1800mAh LiFePO4, E27/B22, acende sozinha no apagão, 4–6h, USB + mini painel. CE + RoHS, OEM.',
@@ -364,7 +364,7 @@ module.exports = {
 
   p17:{ slug:'kit-iluminacao-solar-residencial',
     title:'Kit de Iluminação Solar Residencial (2 Luzes) — Painel 10W, USB, Caixa Retail | JC Lightning',
-    metaDesc:'Kit de iluminação solar residencial no atacado, fábrica em Shenzhen: painel 10W + 2 lâmpadas LED 3W + cabos de 5m, 2200mAh LiFePO4 por lâmpada, baixa 12h / alta 6h, carga USB de emergência, caixa retail com guia ilustrado. CE + RoHS, OEM.',
+    metaDesc:'Kit de iluminação solar residencial, 2 luzes, painel 10W, saída USB, caixa de varejo. Casa e comércio sem rede. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'kit iluminação solar residencial, kit solar 2 lâmpadas, kit luz sem rede atacado, kit solar rural, sistema solar residencial fornecedor',
     ogTitle:'Kit de Iluminação Solar Residencial (2 Luzes) — Painel 10W, USB',
     ogDesc:'Painel 10W + 2× lâmpadas 3W + cabos, 2200mAh LiFePO4/lâmpada, baixa 12h / alta 6h, carga USB, caixa retail. CE + RoHS, OEM.',
@@ -382,7 +382,7 @@ module.exports = {
 
   p18:{ slug:'ventilador-teto-solar-com-luz',
     title:'Ventilador de Teto Solar com Luz — 48", 12V CC, 12W LED, Controle | JC Lightning',
-    metaDesc:'Ventilador de teto solar com luz no atacado, fábrica em Shenzhen: 12V CC sem escovas, 3 velocidades, &lt;35dB, 12W LED 900lm, 3000K/6000K, painel 18V 20W, 12.8V 6000mAh LiFePO4, pás ABS 48", controle. CE + RoHS, OEM.',
+    metaDesc:'Ventilador de teto solar com luz, 48 pol., 12V DC, 12W LED, controle. Conforto sem rede para casas. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'ventilador teto solar, ventilador solar com luz, ventilador teto CC sem rede, ventilador solar 12V atacado, ventilador solar fornecedor',
     ogTitle:'Ventilador de Teto Solar com Luz — 48", 12V CC, 12W LED, Controle',
     ogDesc:'12V CC sem escovas, 3 velocidades, &lt;35dB, 12W LED 900lm, 3000K/6000K, 6000mAh LiFePO4, pás 48", controle. CE + RoHS, OEM.',
@@ -400,7 +400,7 @@ module.exports = {
 
   p13:{ slug:'lanterna-solar-camping-portatil',
     title:'Lanterna Solar de Camping Portátil — 5W, 4000mAh, 15h+, Power Bank USB | JC Lightning',
-    metaDesc:'Lanterna solar de camping portátil no atacado, fábrica em Shenzhen: 5W, 4000mAh, 15h+ de autonomia, saída USB (power bank), IP44. CE + RoHS, OEM. Para camping, casas sem rede e emergências.',
+    metaDesc:'Lanterna solar de camping portátil, 5W, 4000mAh, 15h+, power bank USB. Luz para camping e emergências. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'lanterna solar camping, lanterna solar portátil atacado, lanterna solar power bank, lanterna solar emergência, lanterna sem rede fornecedor',
     ogTitle:'Lanterna Solar de Camping Portátil — 5W, 4000mAh, 15h+, USB',
     ogDesc:'Lanterna para camping, casas sem rede e emergências: 5W, 4000mAh, 15h+, power bank USB, IP44. CE + RoHS, OEM.',
@@ -418,7 +418,7 @@ module.exports = {
 
   p14:{ slug:'luz-solar-mata-insetos',
     title:'Luz Solar Mata-Insetos — UV-LED, 2W, IP65, 100–200m² | JC Lightning',
-    metaDesc:'Luz solar mata-insetos no atacado, fábrica em Shenzhen: matador UV-LED de mosquitos e insetos, 2W, IP65, cobertura 100–200m², automático do anoitecer ao amanhecer. CE + RoHS, OEM. Combina com a linha de segurança.',
+    metaDesc:'Luz solar mata-insetos UV-LED, 2W, IP65, cobre 100-200 m². Controle de insetos sem químicos. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'luz solar mata-insetos, mata-mosquito solar, luz UV insetos atacado, mata-insetos exterior solar, mata-insetos IP65 fornecedor',
     ogTitle:'Luz Solar Mata-Insetos — UV-LED, 2W, IP65, 100–200m²',
     ogDesc:'Matador UV-LED: 2W, IP65, cobertura 100–200m², automático anoitecer-amanhecer. CE + RoHS, OEM.',
@@ -436,7 +436,7 @@ module.exports = {
 
   p23:{ slug:'luz-trabalho-solar-portatil',
     title:'Luz de Trabalho Solar Portátil — 10/20/30W, 3000lm, LiFePO4 Removível | JC Lightning',
-    metaDesc:'Luz de trabalho solar portátil no atacado, fábrica em Shenzhen: 10/20/30W, 1000–3000lm, 10000mAh LiFePO4 removível, painel dobrável 10W, cabeça 180°, base magnética + gancho, IP65, 3 brilhos + SOS + power bank USB. CE + RoHS, OEM.',
+    metaDesc:'Luz de trabalho solar portátil, 10/20/30W, 3000 lm, bateria LiFePO4 removível. Iluminação sem fios de obra. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'luz trabalho solar, luz trabalho solar portátil atacado, luz trabalho recarregável LiFePO4, luz trabalho magnética, luz obra solar fornecedor',
     ogTitle:'Luz de Trabalho Solar Portátil — 10/20/30W, 3000lm, LiFePO4 Removível',
     ogDesc:'10/20/30W, 1000–3000lm, 10000mAh LiFePO4 removível, painel dobrável, cabeça 180°, magnética + gancho, IP65, SOS, USB. CE + RoHS, OEM.',
@@ -454,7 +454,7 @@ module.exports = {
 
   p24:{ slug:'lanterna-solar-power-bank-pro',
     title:'Lanterna Solar Power Bank Pro — COB, USB-C PD 18W, 8000mAh | JC Lightning',
-    metaDesc:'Lanterna Solar Power Bank Pro no atacado, fábrica em Shenzhen: painel COB de área ampla e carga rápida real USB-C PD 18W. 400lm, 8000mAh LiFePO4, solar dobrável, QC3.0, 4 brilhos, SOS, base magnética, IP65. CE + RoHS, OEM.',
+    metaDesc:'Lanterna solar power bank Pro, COB, USB-C PD 18W, 8000mAh LiFePO4, 400 lm, IP65. Carga rápida sem rede. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'lanterna solar power bank, lanterna solar USB-C PD, lanterna COB solar atacado, lanterna carga rápida solar, lanterna solar pro fornecedor',
     ogTitle:'Lanterna Solar Power Bank Pro — COB, USB-C PD 18W, 8000mAh',
     ogDesc:'Painel COB de área ampla + carga rápida real USB-C PD 18W. 400lm, 8000mAh LiFePO4, QC3.0, 4 brilhos, SOS, IP65. CE + RoHS, OEM.',
@@ -472,7 +472,7 @@ module.exports = {
 
   p30:{ slug:'luz-emergencia-ufo-recarregavel',
     title:'Luz de Emergência UFO Recarregável — 150/200W, USB-C, Sem Instalação | JC Lightning',
-    metaDesc:'Luz de emergência UFO recarregável no atacado, fábrica em Shenzhen: luz de pendurar por gancho para apagões, sem instalação. 150/200W, dimerização 3 modos, 3000K/4000K/6000K, Φ180–220mm, carga USB-C, 4–6h. CE + RoHS, OEM.',
+    metaDesc:'Luz de emergência UFO recarregável, 150/200W, USB-C, 3 temperaturas, pendurar sem instalação. CE + RoHS, OEM. Para apagões. FOB Shenzhen.',
     keywords:'luz emergência UFO, luz recarregável apagão, luz pendurar emergência atacado, luz USB-C emergência, luz apagão fornecedor',
     ogTitle:'Luz de Emergência UFO Recarregável — 150/200W, USB-C, Sem Instalação',
     ogDesc:'Luz de pendurar recarregável para apagões: 150/200W, dimerização 3 modos, 3000K/4000K/6000K, USB-C, 4–6h. CE + RoHS, OEM.',
@@ -490,7 +490,7 @@ module.exports = {
 
   p31:{ slug:'refletor-led-ac', footerMeta:'CE &middot; RoHS &middot; Rede AC',
     title:'Refletor LED AC (50–1000W) — IP65, 6500K, 30.000h | JC Lightning',
-    metaDesc:'Refletor LED AC no atacado, fábrica em Shenzhen: alimentado pela rede, 50/100/200/300/400/600/800/1000W, IP65, 6500K, 30.000h de vida, carcaça de alumínio. CE + RoHS, OEM. Para fábricas, quadras, estacionamentos e complexos.',
+    metaDesc:'Refletor LED de rede AC, 50-1000W, IP65, 6500K, 30000h. Para fábricas, quadras e pátios. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'refletor LED AC, refletor LED rede atacado, refletor 1000W LED, refletor IP65, refletor industrial fornecedor, refletor quadra esportiva',
     ogTitle:'Refletor LED AC (50–1000W) — IP65, 6500K, 30.000h',
     ogDesc:'Refletor LED de rede: 50–1000W, IP65, 6500K, 30.000h, carcaça de alumínio. CE + RoHS, OEM.',
@@ -508,7 +508,7 @@ module.exports = {
 
   p32:{ slug:'luminaria-industrial-ufo', footerMeta:'CE &middot; RoHS &middot; Rede AC',
     title:'Luminária Industrial UFO (100–300W) — IP65, Feixe 120°, 6500K | JC Lightning',
-    metaDesc:'Luminária industrial UFO no atacado, fábrica em Shenzhen: alimentada pela rede para galpões, fábricas, supermercados e salões de exposição. 100/150/200/300W, IP65 (série à prova d\'água disponível), feixe 120°, 6500K, aletas de alumínio. CE + RoHS, OEM.',
+    metaDesc:'Luminária industrial UFO LED AC, 100-300W, IP65, facho 120°, 6500K. Para armazéns e fábricas. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'luminária industrial UFO, luminária LED galpão, luminária industrial atacado, luminária 200W, luminária IP65 fornecedor, iluminação fábrica',
     ogTitle:'Luminária Industrial UFO (100–300W) — IP65, Feixe 120°, 6500K',
     ogDesc:'Luminária AC para galpões e fábricas: 100/150/200/300W, IP65, feixe 120°, 6500K, aletas de alumínio. CE + RoHS, OEM.',
@@ -526,7 +526,7 @@ module.exports = {
 
   p33:{ slug:'poste-led-ac', footerMeta:'CE &middot; RoHS &middot; Rede AC',
     title:'Poste LED AC (50–100W) — IP65, 6500K, Para Braço 60mm, Fotocélula | JC Lightning',
-    metaDesc:'Poste LED AC no atacado, fábrica em Shenzhen: cabeça alimentada pela rede para vias municipais, parques industriais e estacionamentos. 50/100W, IP65, 6500K, carcaça de alumínio, para braços de 60mm, pronta para fotocélula. CE + RoHS, OEM.',
+    metaDesc:'Poste de luz LED AC, 50/100W, IP65, 6500K, para postes de 60mm, com fotocélula. Vias e parques. CE + RoHS, OEM, FOB Shenzhen.',
     keywords:'poste LED AC, luminária pública LED rede atacado, cabeça poste via, poste 100W, poste IP65 fornecedor, poste fotocélula',
     ogTitle:'Poste LED AC (50–100W) — IP65, 6500K, Pronta para Fotocélula',
     ogDesc:'Cabeça de poste de rede: 50/100W, IP65, 6500K, alumínio, braços de 60mm, pronta para fotocélula. CE + RoHS, OEM.',
