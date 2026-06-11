@@ -5828,7 +5828,7 @@ if(chatBtn){
     const count = cards.length;
     const thumbs = [...cards].slice(0, 4).map(c => {
       const img = c.querySelector('img');
-      return img ? `<img src="${img.src}" alt="" loading="lazy">` : '';
+      return img ? `<img src="${img.src}" alt="${img.alt}" loading="lazy">` : '';
     }).join('');
     const wrap = document.createElement('div');
     wrap.className = 'prod-cat-expand';
