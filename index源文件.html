@@ -5431,9 +5431,57 @@ function setLang(l){
   const langMap = {zh:'zh-CN', fr:'fr', pt:'pt-BR', ar:'ar', ru:'ru', hi:'hi'};
   document.documentElement.lang = langMap[l] || l;
   document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  try{ localStorage.setItem('jc-lang', l); }catch(e){}
+  if(window.rewriteProductLinks) window.rewriteProductLinks(l);
   if(window._inqInject) window._inqInject();
   if(window._inqRefresh) window._inqRefresh();
 }
+
+// Product detail links → switch to translated page when language is es/pt/fr.
+// Translated detail pages exist only for es/pt/fr; other languages keep English.
+var PROD_T = {
+"products/ac-led-floodlight.html":{es:"products/es/foco-led-ac.html",pt:"products/pt/refletor-led-ac.html",fr:"products/fr/projecteur-led-ac.html"},
+"products/ac-street-light.html":{es:"products/es/farola-led-ac.html",pt:"products/pt/poste-led-ac.html",fr:"products/fr/lampadaire-led-ac.html"},
+"products/all-in-one-solar-street-light.html":{es:"products/es/farola-solar-todo-en-uno.html",pt:"products/pt/poste-solar-tudo-em-um.html",fr:"products/fr/lampadaire-solaire-tout-en-un.html"},
+"products/emergency-ufo-rechargeable-light.html":{es:"products/es/luz-emergencia-ufo-recargable.html",pt:"products/pt/luz-emergencia-ufo-recarregavel.html",fr:"products/fr/lampe-secours-ufo-rechargeable.html"},
+"products/off-grid-portable-solar-lights.html":{es:"products/es/luces-solares-sin-red-portatiles.html",pt:"products/pt/luzes-solares-sem-rede-portateis.html",fr:"products/fr/lampes-solaires-autonomes-portables.html"},
+"products/outdoor-wall-lantern-solar-ac.html":{es:"products/es/farol-pared-exterior-solar-ac.html",pt:"products/pt/lanterna-parede-exterior-solar-ac.html",fr:"products/fr/lanterne-murale-exterieure-solaire-ac.html"},
+"products/pir-motion-sensor-wall-light.html":{es:"products/es/aplique-solar-sensor-movimiento-pir.html",pt:"products/pt/arandela-solar-sensor-movimento-pir.html",fr:"products/fr/applique-solaire-detecteur-pir.html"},
+"products/solar-bug-zapper-light.html":{es:"products/es/lampara-solar-antimosquitos.html",pt:"products/pt/luz-solar-mata-insetos.html",fr:"products/fr/lampe-solaire-anti-moustiques.html"},
+"products/solar-ceiling-fan-with-light.html":{es:"products/es/ventilador-techo-solar-con-luz.html",pt:"products/pt/ventilador-teto-solar-com-luz.html",fr:"products/fr/ventilateur-plafond-solaire-lumiere.html"},
+"products/solar-courtyard-column-light.html":{es:"products/es/columna-solar-patio.html",pt:"products/pt/coluna-solar-patio.html",fr:"products/fr/colonne-solaire-cour.html"},
+"products/solar-decorative-wall-lights.html":{es:"products/es/luces-solares-decorativas-pared.html",pt:"products/pt/luzes-solares-decorativas-parede.html",fr:"products/fr/lampes-solaires-decoratives-murales.html"},
+"products/solar-edison-string-lights.html":{es:"products/es/guirnalda-solar-edison.html",pt:"products/pt/cordao-luzes-solar-edison.html",fr:"products/fr/guirlande-solaire-edison.html"},
+"products/solar-emergency-led-bulb.html":{es:"products/es/bombilla-led-solar-emergencia.html",pt:"products/pt/lampada-led-solar-emergencia.html",fr:"products/fr/ampoule-led-solaire-secours.html"},
+"products/solar-fairy-copper-wire-string-lights.html":{es:"products/es/luces-solares-hilo-cobre.html",pt:"products/pt/luzes-solares-fio-cobre.html",fr:"products/fr/guirlande-solaire-fil-cuivre.html"},
+"products/solar-flag-pole-light.html":{es:"products/es/luz-solar-asta-bandera.html",pt:"products/pt/luz-solar-mastro-bandeira.html",fr:"products/fr/lampe-solaire-mat-drapeau.html"},
+"products/solar-flame-torch-light.html":{es:"products/es/antorcha-solar-llama.html",pt:"products/pt/tocha-solar-chama.html",fr:"products/fr/torche-solaire-flamme.html"},
+"products/solar-flood-security-light-30w.html":{es:"products/es/foco-solar-seguridad-30w.html",pt:"products/pt/foco-solar-seguranca-30w.html",fr:"products/fr/projecteur-solaire-securite-30w.html"},
+"products/solar-garden-landscape-lights.html":{es:"products/es/luces-solares-jardin-paisaje.html",pt:"products/pt/luzes-solares-jardim-paisagem.html",fr:"products/fr/lampes-solaires-jardin-paysage.html"},
+"products/solar-garden-spike-spotlight.html":{es:"products/es/foco-solar-jardin-clavar.html",pt:"products/pt/foco-solar-jardim-espeto.html",fr:"products/fr/projecteur-solaire-jardin-piquet.html"},
+"products/solar-garden-stake-light-8-pack.html":{es:"products/es/estaca-solar-jardin-pack-8.html",pt:"products/pt/estaca-solar-jardim-pack-8.html",fr:"products/fr/piquet-solaire-jardin-pack-8.html"},
+"products/solar-home-lighting-kit.html":{es:"products/es/kit-iluminacion-solar-hogar.html",pt:"products/pt/kit-iluminacao-solar-residencial.html",fr:"products/fr/kit-eclairage-solaire-maison.html"},
+"products/solar-indoor-wall-light-split-panel.html":{es:"products/es/luz-solar-interior-panel-separado.html",pt:"products/pt/luz-solar-interna-painel-separado.html",fr:"products/fr/applique-solaire-interieure-panneau-separe.html"},
+"products/solar-motion-flood-light-3-head.html":{es:"products/es/foco-solar-movimiento-3-cabezales.html",pt:"products/pt/foco-solar-movimento-3-cabecas.html",fr:"products/fr/projecteur-solaire-detection-3-tetes.html"},
+"products/solar-outdoor-floor-lamp.html":{es:"products/es/lampara-solar-pie-exterior.html",pt:"products/pt/luminaria-solar-piso-exterior.html",fr:"products/fr/lampe-sur-pied-solaire-exterieure.html"},
+"products/solar-pool-float-light.html":{es:"products/es/luz-solar-flotante-piscina.html",pt:"products/pt/luz-solar-flutuante-piscina.html",fr:"products/fr/lampe-solaire-flottante-piscine.html"},
+"products/solar-portable-camping-lantern.html":{es:"products/es/linterna-solar-camping-portatil.html",pt:"products/pt/lanterna-solar-camping-portatil.html",fr:"products/fr/lanterne-solaire-camping-portable.html"},
+"products/solar-portable-work-light.html":{es:"products/es/luz-trabajo-solar-portatil.html",pt:"products/pt/luz-trabalho-solar-portatil.html",fr:"products/fr/lampe-travail-solaire-portable.html"},
+"products/solar-power-bank-lantern-pro.html":{es:"products/es/linterna-solar-power-bank-pro.html",pt:"products/pt/lanterna-solar-power-bank-pro.html",fr:"products/fr/lanterne-solaire-power-bank-pro.html"},
+"products/solar-security-street-lights.html":{es:"products/es/luces-solares-seguridad-vias.html",pt:"products/pt/luzes-solares-seguranca-vias.html",fr:"products/fr/lampes-solaires-securite-voirie.html"},
+"products/solar-umbrella-light.html":{es:"products/es/luz-solar-sombrilla.html",pt:"products/pt/luz-solar-guarda-sol.html",fr:"products/fr/lampe-solaire-parasol.html"},
+"products/solar-warning-beacon-light.html":{es:"products/es/baliza-solar-advertencia.html",pt:"products/pt/baliza-solar-aviso.html",fr:"products/fr/balise-solaire-avertissement.html"},
+"products/split-solar-street-light.html":{es:"products/es/farola-solar-separada.html",pt:"products/pt/poste-solar-separado.html",fr:"products/fr/lampadaire-solaire-separe.html"},
+"products/ufo-high-bay-light.html":{es:"products/es/campana-industrial-ufo.html",pt:"products/pt/luminaria-industrial-ufo.html",fr:"products/fr/cloche-industrielle-ufo.html"},
+"products/up-down-solar-wall-light.html":{es:"products/es/aplique-solar-arriba-abajo.html",pt:"products/pt/arandela-solar-cima-baixo.html",fr:"products/fr/applique-solaire-haut-bas.html"}
+};
+window.rewriteProductLinks = function(lang){
+  document.querySelectorAll('a[href^="products/"]').forEach(function(a){
+    if(!a.dataset.enHref) a.dataset.enHref = a.getAttribute('href');
+    var en = a.dataset.enHref, t = PROD_T[en];
+    a.setAttribute('href', (t && t[lang]) ? t[lang] : en);
+  });
+};
 
 // Language dropdown toggle
 (function(){
@@ -6341,7 +6389,8 @@ let lenis=null;
 // Initial language detection
 (function(){
   const p=new URLSearchParams(location.search);
-  const lang=p.get('lang');
+  let lang=p.get('lang');
+  if(!lang){ try{ lang=localStorage.getItem('jc-lang'); }catch(e){} }
   if(lang&&T[lang]) setLang(lang);
 })();
 
@@ -6510,7 +6559,7 @@ let lenis=null;
       hint.innerHTML='<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line></svg> '+arr.length;
       hint.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); open(arr); });
       wrap.appendChild(hint); }
-    if(href){ wrap.addEventListener('click',function(e){ if(e.target.closest('a')||e.target.closest('.gal-hint')) return; e.stopPropagation(); window.location.href=href; }, true); }
+    if(link){ wrap.addEventListener('click',function(e){ if(e.target.closest('a')||e.target.closest('.gal-hint')) return; e.stopPropagation(); var h=link.getAttribute('href'); if(h) window.location.href=h; }, true); }
   });
 })();
 
