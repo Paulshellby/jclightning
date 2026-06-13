@@ -36,6 +36,8 @@ h1{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.9rem,4
 .hero-fig{margin:30px 0 6px}
 .hero-fig img{width:100%;height:auto;border-radius:6px;border:1px solid rgba(18,16,14,.08)}
 .hero-fig figcaption{font-size:.74rem;color:var(--stone-lt);margin-top:8px;text-align:center;font-style:italic}
+/* perf: below-fold static sections skip layout/paint until scrolled near (faster first paint on slow mobile) */
+.cta,.related{content-visibility:auto;contain-intrinsic-size:auto 320px}
 
 /* Body */
 .art-body{padding:18px 0 10px;font-size:1.06rem}
