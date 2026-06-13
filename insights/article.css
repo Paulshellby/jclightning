@@ -34,7 +34,7 @@ h1{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.9rem,4
 .byline{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:.78rem;color:var(--stone-lt);padding-bottom:24px;border-bottom:1px solid var(--line)}
 .byline b{color:var(--stone);font-weight:600}
 .hero-fig{margin:30px 0 6px}
-.hero-fig img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
+.hero-fig img{width:100%;height:auto;border-radius:6px;border:1px solid rgba(18,16,14,.08)}
 .hero-fig figcaption{font-size:.74rem;color:var(--stone-lt);margin-top:8px;text-align:center;font-style:italic}
 
 /* Body */
