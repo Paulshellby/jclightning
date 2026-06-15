@@ -6354,15 +6354,6 @@ if(glStatVals.length && typeof gsap!=='undefined'){
   window._inqRefresh=function(){ if(panelOpen) renderPanel(); };
 })();
 
-// 视差滚动
-const heroBg=document.querySelector('.hero-bg');
-if(heroBg){
-  window.addEventListener('scroll',()=>{
-    const offset=window.scrollY*0.3;
-    heroBg.style.transform=`translateY(${offset}px)`;
-  });
-}
-
 // 社交通知
 const toastData=[
   {flag:'🇨🇴',msg:'A <strong>Colombia</strong> distributor just sent an enquiry about solar flood lights.'},
@@ -6409,7 +6400,6 @@ let lenis=null;
     gsap.from('.hero-cta-overlay .hero-cta-eyebrow, .hero-cta-overlay .hero-h1, .hero-cta-overlay .hero-btns, .hero-cta-overlay .hero-cta-side',{y:42,opacity:0,duration:.9,stagger:.13,ease:'power3.out',delay:.15});
     gsap.from('.hero-trust-pill',{y:-14,opacity:0,duration:.7,ease:'power3.out',delay:.7});
     gsap.from('.hero-glass-row .hglass',{y:30,opacity:0,duration:.8,stagger:.13,ease:'power3.out',delay:.85});
-    gsap.from('.scroll-indicator',{opacity:0,y:-12,duration:.6,delay:.7});
   }
   function dismiss(){
     if(done) return; done=true; running=false; if(typeof rafId!=='undefined'&&rafId) cancelAnimationFrame(rafId);
@@ -6619,18 +6609,6 @@ document.addEventListener('DOMContentLoaded',()=>{
       onEnter:()=>h2.classList.add('on'),
       once:true
     });
-  });
-
-  // Hero parallax
-  gsap.to('.hero-bg',{
-    y:120,
-    ease:'none',
-    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}
-  });
-  gsap.to('.hero-grid',{
-    y:60,
-    ease:'none',
-    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}
   });
 
   // Products section parallax background
