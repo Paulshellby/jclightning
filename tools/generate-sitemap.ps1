@@ -15,7 +15,8 @@ function Get-Url([string]$rel){
 function Get-Priority([string]$rel){
   $u = $rel -replace '\\','/'
   if ($u -eq 'index.html') { return '1.0' }
-  if ($u -match '^products/(es|pt|fr)/') { return '0.7' }
+  if ($u -eq 'privacy.html') { return '0.3' }
+  if ($u -match '^products/(es|pt|fr|zh)/') { return '0.7' }
   if ($u -match '^products/[^/]+\.html$') {
     $slug = ($u -replace '^products/','') -replace '\.html$',''
     if ($catSlugs -contains $slug) { return '0.8' } else { return '0.7' }
@@ -26,10 +27,12 @@ function Get-Priority([string]$rel){
 }
 
 # Collect pages: home + everything under insights/ and products/.
-# (index源文件.html, the GSC verification file, 404.html etc. at root are excluded by design.)
+# (the GSC verification file, 404.html etc. at root are excluded by design.)
 $files = @()
 $idx = Join-Path $base 'index.html'
 if (Test-Path -LiteralPath $idx) { $files += Get-Item -LiteralPath $idx }
+$priv = Join-Path $base 'privacy.html'
+if (Test-Path -LiteralPath $priv) { $files += Get-Item -LiteralPath $priv }
 foreach ($dir in @('insights','products')) {
   $d = Join-Path $base $dir
   if (Test-Path -LiteralPath $d) { $files += Get-ChildItem -LiteralPath $d -Recurse -Filter *.html }
