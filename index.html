@@ -46,7 +46,7 @@
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- LCP: begin downloading the hero background image immediately -->
-<link rel="preload" href="images/hero-villa-solar.jpg" as="image" fetchpriority="high">
+<link rel="preload" href="images/hero-villa-solar.webp" as="image" fetchpriority="high">
 <!-- Warm the CDN connections that serve GSAP/Lenis (they gate reveal animations) -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -647,7 +647,7 @@ h1 em, h2 em, .text-gold { background:linear-gradient(135deg,#c9a24e 0%,#e2c98a 
 .prod-card:hover .card-glare { opacity:1; }
 /* Marquee removed — Apple-style sites don't use ticker tape */
 
-.products { padding:160px 56px; background:var(--ink) url(images/bg-products.jpg) center/cover no-repeat; position:relative; }
+.products { padding:160px 56px; background:var(--ink) url(images/bg-products.webp) center/cover no-repeat; position:relative; }
 .products::before { content:''; position:absolute; inset:0; opacity:0.04; background-image:radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px); background-size:18px 18px; pointer-events:none; z-index:1; }
 .products::after { content:''; position:absolute; top:0; left:10%; width:800px; height:500px; background:radial-gradient(ellipse, rgba(201,162,78,0.14) 0%, rgba(168,125,42,0.06) 40%, transparent 65%); filter:blur(40px); pointer-events:none; z-index:0; }
 .prod-filter { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:40px; position:sticky; top:56px; z-index:50; background:rgba(20,16,12,0.85); backdrop-filter:blur(16px); padding:12px 16px; border-radius:50px; border:1px solid rgba(255,255,255,0.08); }
@@ -723,7 +723,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .prod-info p { font-size:0.85rem; font-weight:500; color:var(--mist); line-height:1.6; margin-bottom:13px; }
 .prod-enq { font-size:0.61rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); text-decoration:none; transition:letter-spacing .2s; }
 .prod-enq:hover { letter-spacing:0.26em; }
-.categories { padding:140px 56px 120px; background:var(--chalk) url(images/bg-01-categories.jpg) center/cover no-repeat; }
+.categories { padding:140px 56px 120px; background:var(--chalk) url(images/bg-01-categories.webp) center/cover no-repeat; }
 .cat-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 .cat-card { display:flex; flex-direction:column; background:#fff; border:1px solid var(--blt); border-radius:12px; overflow:hidden; transition:all .3s; position:relative; }
 .cat-card:hover { box-shadow:0 14px 38px rgba(168,125,42,.15), 0 0 0 1px var(--brass); border-color:var(--brass); transform:translateY(-3px); }
@@ -839,7 +839,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .prod-subcat:first-of-type { margin-top:0; }
 .prod-subcat-h { font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:400; color:var(--brass-lt); margin-bottom:18px; padding:6px 0 6px 14px; border-left:3px solid var(--brass); letter-spacing:.04em; text-transform:uppercase; }
 /* Application Scenarios */
-.scenarios { padding:150px 56px 130px; text-align:center; background:var(--chalk) url(images/bg-03-scenarios.jpg) center/cover no-repeat; }
+.scenarios { padding:150px 56px 130px; text-align:center; background:var(--chalk) url(images/bg-03-scenarios.webp) center/cover no-repeat; }
 .sc-sub { color:var(--ink-soft); font-size:1rem; font-weight:400; max-width:520px; margin:6px auto 40px; line-height:1.55; }
 .sc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; text-align:left; }
 .sc-card { background:var(--chalk); border:1px solid var(--blt); border-radius:12px; padding:28px 24px 24px; transition:all .25s; }
@@ -860,7 +860,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .sc-cat-head h3 { font-size:1.05rem; font-weight:700; color:var(--ink); margin:0; }
 
 /* Factory section — dark overlay on warehouse bg image for text contrast */
-.factory { padding:160px 56px; background:linear-gradient(115deg, rgba(14,12,10,0.92) 0%, rgba(14,12,10,0.78) 45%, rgba(14,12,10,0.65) 100%), url(images/bg-04-factory.jpg) center/cover no-repeat; display:grid; grid-template-columns:1fr 1fr; gap:120px; align-items:start; position:relative; }
+.factory { padding:160px 56px; background:linear-gradient(115deg, rgba(14,12,10,0.92) 0%, rgba(14,12,10,0.78) 45%, rgba(14,12,10,0.65) 100%), url(images/bg-04-factory.webp) center/cover no-repeat; display:grid; grid-template-columns:1fr 1fr; gap:120px; align-items:start; position:relative; }
 .factory .sec-label { color:var(--brass-lt); }
 .fac-l h2 { color:var(--chalk-w); margin-bottom:24px; text-shadow:0 2px 16px rgba(0,0,0,0.6); }
 .fac-l h2 em { color:var(--brass-lt); }
@@ -877,7 +877,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .cert-b:hover { opacity:1; }
 .cert-b .cn { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:400; color:#fff; }
 .cert-b .cs { font-size:0.6rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--mist); display:block; margin-top:4px; }
-.process { background:var(--chalk-w) url(images/bg-07-process.jpg) center/cover no-repeat; padding:160px 56px; position:relative; overflow:hidden; }
+.process { background:var(--chalk-w) url(images/bg-07-process.webp) center/cover no-repeat; padding:160px 56px; position:relative; overflow:hidden; }
 .proc-head { margin-bottom:64px; max-width:680px; }
 .proc-head .section-sub { font-size:1rem; font-weight:400; line-height:1.85; color:var(--ink-soft); margin-top:18px; max-width:560px; }
 .proc-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
@@ -904,7 +904,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .proc-step p { font-size:0.9rem; font-weight:400; color:var(--ink-soft); line-height:1.8; margin-bottom:22px; min-height:90px; }
 .proc-time { font-size:0.6rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); padding-top:16px; border-top:1px solid var(--blt); }
 
-.certs { background:var(--chalk-w) url(images/bg-10-certs.jpg) center/cover no-repeat; padding:160px 56px; text-align:center; }
+.certs { background:var(--chalk-w) url(images/bg-10-certs.webp) center/cover no-repeat; padding:160px 56px; text-align:center; }
 .certs-head { margin-bottom:64px; }
 .certs-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(1.8rem,3vw,2.6rem); line-height:1.18; color:var(--ink); letter-spacing:-0.01em; }
 .certs-head h2 em { font-style:italic; color:var(--brass); }
@@ -1289,7 +1289,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .wave { position:relative; }
 .wave::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:40px; background:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q150 0 300 20 Q450 40 600 20 Q750 0 900 20 Q1050 40 1200 20 L1200 40 L0 40 Z' fill='%231c1814'/%3E%3C/svg%3E") repeat-x; background-size:600px 40px; z-index:1; pointer-events:none; }
 .wave-light::after { fill:var(--chalk-w); }
-.testimonials { background:var(--chalk-w) url(images/bg-09-testimonials.jpg) center/cover no-repeat; padding:160px 56px; }
+.testimonials { background:var(--chalk-w) url(images/bg-09-testimonials.webp) center/cover no-repeat; padding:160px 56px; }
 .testi-head { text-align:center; margin-bottom:64px; }
 .testi-head h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(1.8rem,3vw,2.6rem); color:var(--ink); line-height:1.18; }
 .testi-head h2 em { font-style:italic; color:var(--brass); }
@@ -1335,7 +1335,7 @@ h2 em { font-style:italic; color:var(--brass); }
   .sticky-cta-text { font-size:0.78rem; text-align:center; }
 }
 /* .ft-industries / .ft-tag removed — footer pills no longer used */
-.faq { background:var(--ink) url(images/bg-faq.jpg) center/cover no-repeat; padding:160px 56px; position:relative; overflow:hidden; }
+.faq { background:var(--ink) url(images/bg-faq.webp) center/cover no-repeat; padding:160px 56px; position:relative; overflow:hidden; }
 .faq::before { content:''; position:absolute; bottom:0; right:10%; width:500px; height:500px; background:radial-gradient(circle, rgba(168,125,42,0.14) 0%, transparent 65%); filter:blur(50px); pointer-events:none; }
 .faq-head { margin-bottom:64px; max-width:720px; position:relative; z-index:1; }
 .faq-head .sec-label { color:var(--brass-lt); }
@@ -1355,7 +1355,7 @@ h2 em { font-style:italic; color:var(--brass); }
 .faq-a { max-height:0; overflow:hidden; transition:max-height .45s ease; }
 .faq-item.open .faq-a { max-height:300px; }
 .faq-a p { padding:0 28px 22px; font-size:0.92rem; font-weight:500; color:var(--mist); line-height:1.85; }
-.why { background:var(--ink) url(images/bg-06-why.jpg) center/cover no-repeat; padding:170px 56px 160px; position:relative; overflow:hidden; }
+.why { background:var(--ink) url(images/bg-06-why.webp) center/cover no-repeat; padding:170px 56px 160px; position:relative; overflow:hidden; }
 .why::before { content:''; position:absolute; top:30%; left:20%; width:700px; height:700px; background:radial-gradient(circle, rgba(201,162,78,0.24) 0%, transparent 60%); filter:blur(50px); pointer-events:none; }
 .why-head { margin-bottom:80px; max-width:720px; position:relative; z-index:1; }
 .why-head .sec-label { color:var(--brass-lt); }
@@ -2021,7 +2021,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   <ul>
     <li class="mega-trigger"><a href="#products" class="nav-link" data-i18n="nav_products">Products</a>
       <div class="mega-panel">
-        <div class="mega-col"><h6 data-i18n="mega_h1">Security & Street</h6><a href="#cat-security" data-preview="images/product-01.webp"><span data-i18n="mega_a1">Solar Flood Lights</span> <span>3</span></a><a href="#cat-security" data-preview="images/product-09.webp"><span data-i18n="mega_a2">Solar Street Lights</span> <span>2</span></a><a href="#cat-security" data-preview="images/product-07.jpg"><span data-i18n="mega_a3">Warning & Signal</span> <span>2</span></a></div>
+        <div class="mega-col"><h6 data-i18n="mega_h1">Security & Street</h6><a href="#cat-security" data-preview="images/product-01.webp"><span data-i18n="mega_a1">Solar Flood Lights</span> <span>3</span></a><a href="#cat-security" data-preview="images/product-09.webp"><span data-i18n="mega_a2">Solar Street Lights</span> <span>2</span></a><a href="#cat-security" data-preview="images/product-07.webp"><span data-i18n="mega_a3">Warning & Signal</span> <span>2</span></a></div>
         <div class="mega-col"><h6 data-i18n="mega_h2">Garden & Landscape</h6><a href="#cat-garden" data-preview="images/product-03.webp"><span data-i18n="mega_a4">Pillars & Columns</span> <span>1</span></a><a href="#cat-garden" data-preview="images/product-06.webp"><span data-i18n="mega_a5">Garden Accent</span> <span>2</span></a></div>
         <div class="mega-col"><h6 data-i18n="mega_h3">Decorative & Ambiance</h6><a href="#cat-decorative" data-preview="images/product-04.webp"><span data-i18n="mega_a7">Wall & String</span> <span>4</span></a><a href="#cat-decorative" data-preview="images/product-11.webp"><span data-i18n="mega_a8">Outdoor Ambiance</span> <span>4</span></a></div>
         <div class="mega-col"><h6 data-i18n="mega_h4">Off-Grid & Portable</h6><a href="#cat-offgrid" data-preview="images/product-13.webp"><span data-i18n="mega_a9">Off-Grid Home</span> <span>4</span></a><a href="#cat-offgrid" data-preview="images/product-14.webp"><span data-i18n="mega_a10">Portable Tools</span> <span>5</span></a></div>
@@ -2505,7 +2505,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 
   <div class="scn-stage">
     <div class="scn-frame">
-      <img class="scn-img" src="images/scenes-iso.jpg" alt="Isometric view of a solar-lit property — villa, driveway, gated garden, street and pergola linked by glowing solar light lines" loading="lazy" decoding="async">
+      <img class="scn-img" src="images/scenes-iso.webp" alt="Isometric view of a solar-lit property — villa, driveway, gated garden, street and pergola linked by glowing solar light lines" loading="lazy" decoding="async">
 
       <svg class="scn-flow" viewBox="0 0 1792 1000" preserveAspectRatio="none" aria-hidden="true">
         <defs>
@@ -2602,7 +2602,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 
 /* ═══ Hero — big cinematic photo + frosted glass cards (Birds-style) ═══ */
 .hero-aurora { position:absolute; inset:0; z-index:0; overflow:hidden; background:#070605; }
-.hero-photo { position:absolute; inset:0; background:url('images/hero-villa-solar.jpg') center 46% / cover no-repeat; transform:scale(1.06); animation:hero-photo-drift 28s ease-in-out infinite alternate; }
+.hero-photo { position:absolute; inset:0; background:url('images/hero-villa-solar.webp') center 46% / cover no-repeat; transform:scale(1.06); animation:hero-photo-drift 28s ease-in-out infinite alternate; }
 .hero-photo-tint { position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,6,5,0.40) 0%, rgba(7,6,5,0.16) 30%, rgba(7,6,5,0.30) 58%, rgba(7,6,5,0.80) 100%); }
 @keyframes hero-photo-drift { from{ transform:scale(1.06) translate(0,0); } to{ transform:scale(1.12) translate(-1.4%,-1%); } }
 
