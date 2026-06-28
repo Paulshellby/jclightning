@@ -1,10 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /images/new/
+Disallow: /images/backup/
 Disallow: /images/bg-prompts/
 Disallow: /images/bg-prompts-v2/
 
 Sitemap: https://jclightning.com/sitemap.xml
 
-# JC Lightning Technology Co., Ltd. — Solar Outdoor Lighting Exporter
+# JC Lightning — Solar Outdoor Lighting Supplier & Exporter
 # https://jclightning.com

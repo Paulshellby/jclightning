@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="article.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Solar Panels and LED Lights Work Together","description":"Inside a solar light: panel, charge controller, LiFePO4 battery and LED driver, the four-component chain that turns daytime sun into a full night of light.","image":"https://jclightning.com/images/product-04.jpg","datePublished":"2026-06-04","dateModified":"2026-06-04","inLanguage":"en","author":{"@type":"Organization","name":"JC Lightning","url":"https://jclightning.com/"},"publisher":{"@type":"Organization","name":"JC Lightning","logo":{"@type":"ImageObject","url":"https://jclightning.com/images/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jclightning.com/insights/how-solar-panels-and-led-work.html"}}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Solar Panels and LED Lights Work Together","description":"Inside a solar light: panel, charge controller, LiFePO4 battery and LED driver, the four-component chain that turns daytime sun into a full night of light.","image":"https://jclightning.com/images/product-04.jpg","datePublished":"2026-06-04","dateModified":"2026-06-23","inLanguage":"en","author":{"@type":"Organization","name":"JC Lightning","url":"https://jclightning.com/"},"publisher":{"@type":"Organization","name":"JC Lightning","logo":{"@type":"ImageObject","url":"https://jclightning.com/images/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jclightning.com/insights/how-solar-panels-and-led-work.html"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jclightning.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://jclightning.com/#insights"},{"@type":"ListItem","position":3,"name":"How Solar Panels + LED Work Together"}]}
@@ -62,13 +62,61 @@
   </figure>
   <div class="art-body">
     <p>Every spec question worth asking — about lumen output, battery life, sensor range or operating temperature — traces back to one of four components. Understanding what each does, and where each one fails when it's underspecified or cheaply built, gives you the right questions to ask before an order is placed rather than after a site visit is required.</p>
-    <p><strong>1. Photovoltaic panel.</strong> Modern monocrystalline silicon converts roughly 20% of incident sunlight into DC electricity. A 6V/3W panel can produce 6,000–8,000 mAh of charge on a clear day.</p>
-    <p><strong>2. Charge controller.</strong> A small chip that regulates the flow from panel to battery — preventing overcharging, optimizing charge current, and managing the panel-to-battery handoff.</p>
-    <p><strong>3. Battery.</strong> LiFePO4 cells store the daytime charge. Capacity ranges from 2,000 mAh (basic stake lights) to 30,000+ mAh (street lights with overnight + reserve capacity).</p>
-    <p><strong>4. LED + driver.</strong> The driver converts battery DC into the precise current the LED chips need. Modern LED chips achieve 150+ lumens per watt — meaning a single 3W chip can produce the equivalent of a 35W incandescent bulb.</p>
-    <p><strong>The cycle.</strong> 8 hours of effective sunlight produces enough charge to run a typical fixture for 8–12 hours at full brightness, plus a 2–3 day reserve in PIR or dim modes.</p>
-    <p>When all four components are correctly sized, the system runs reliably for years. When any one is undersized — most commonly the battery — the fixture goes dark by 2 AM.</p>
-    <div class="bottom-line"><b>Bottom line</b>When all four components are correctly sized, a solar light runs reliably for years. Undersize any one — usually the battery — and it goes dark by 2 AM.</div>
+
+    <h2>The Four Components</h2>
+
+    <h3>1. The Photovoltaic Panel</h3>
+    <p>The solar panel is the energy source. It converts sunlight directly into DC electricity through the photovoltaic effect — photons dislodge electrons in silicon cells, generating current. Modern outdoor solar fixtures use <strong>monocrystalline silicon panels</strong>, which achieve roughly 18–22% efficiency under standard test conditions. Older polycrystalline panels run 15–17% efficiency and are typically only found in very low-cost products today.</p>
+    <p>Panel size is rated in watts. A 6W panel produces more current per hour of sunlight than a 3W panel, and therefore charges the battery faster and more completely. In equatorial climates with 5–6 hours of effective sun daily, a 5W panel can fully charge a 10,000 mAh battery. In temperate or overcast climates, the same recharge may take 2 days.</p>
+    <p><strong>Where it fails:</strong> Panel output degrades slowly over time — typically 0.5–0.7% per year for quality monocrystalline. The faster failure mode is physical: cheap encapsulant (EVA) yellowing from UV exposure, which cuts light transmission and drops output by 20–40% in 2–3 years. Ask suppliers about EVA grade and UV stability.</p>
+
+    <h3>2. The Charge Controller</h3>
+    <p>The charge controller sits between the panel and the battery. Its job is to manage the energy transfer: regulate incoming current to prevent overcharging, optimize the charge rate as the battery nears capacity, and cut off flow when the battery is full. Without a controller, a panel would push current into a full battery and destroy it within months.</p>
+    <p>There are two controller types:</p>
+    <ul style="margin:12px 0;padding-left:24px;line-height:2">
+      <li><strong>PWM (Pulse Width Modulation):</strong> The simpler, cheaper type. Works by rapidly switching the panel connection on and off to regulate current. Effective but slightly wasteful — panel output voltage must match battery voltage closely.</li>
+      <li><strong>MPPT (Maximum Power Point Tracking):</strong> More sophisticated. Continuously adjusts the operating point to extract maximum available power from the panel regardless of temperature or irradiance. 10–30% more efficient than PWM, especially in partial shade or temperature extremes. Used in higher-end street lights and commercial fixtures.</li>
+    </ul>
+    <p><strong>Where it fails:</strong> Low-cost fixtures often use controllers without temperature compensation or proper overcharge protection. In hot climates, a battery charged to the same voltage threshold as in temperate conditions will be overcharged — accelerating degradation. Quality controllers adjust the charge ceiling based on battery temperature.</p>
+
+    <h3>3. The Battery</h3>
+    <p>The battery stores the daytime charge and delivers it through the night. It is the component that most directly determines how long the light stays on and how many years the fixture performs reliably.</p>
+    <p>Capacity is rated in milliamp-hours (mAh) or watt-hours (Wh). A battery rated 10,000 mAh at 3.2V (a typical LiFePO4 pack) stores 32Wh of usable energy. A 5W LED running continuously would drain it in about 6.4 hours. The same battery with a PIR motion sensor — running dim (1W) with bright (5W) bursts only when motion is detected — might last 20+ hours.</p>
+    <p>Chemistry matters here more than any other component. LiFePO4 cells tolerate 2,000–4,000 charge cycles to 80% capacity and operate stably from –20°C to +60°C. Standard lithium-ion (NMC/NCR) cells begin degrading measurably above 40°C and are rated for 500–800 cycles. For solar lighting in tropical markets, this difference determines whether a product is still performing in year 4 or generating warranty claims in year 2.</p>
+    <p><strong>Where it fails:</strong> Undersized battery capacity (a spec that quietly shrinks when a manufacturer reduces costs) and wrong chemistry for the climate. Verify mAh capacity with a third-party test report if possible; ask for the actual cell brand and datasheet.</p>
+
+    <h3>4. The LED Chip and Driver</h3>
+    <p>The LED (light-emitting diode) is the load — the component that converts the stored electrical energy into visible light. Modern LED chips achieve 150–200 lumens per watt, making a 3W chip equivalent to roughly a 40–50W incandescent bulb. The lumen output (brightness) and colour temperature (CCT, measured in Kelvin) are determined by the chip specification.</p>
+    <p>The <strong>LED driver</strong> is a current regulator that sits between the battery and the LED. LEDs require precise, stable current — too much current burns the chip, too little reduces output. The driver converts the variable battery DC voltage into the exact current the LED needs, while also handling the dimming function in smart fixtures.</p>
+    <p>Colour temperature choices for outdoor solar lighting:</p>
+    <ul style="margin:12px 0;padding-left:24px;line-height:2">
+      <li><strong>2700–3000K (warm white):</strong> Preferred for decorative, garden, and residential applications. Warmer and less glaring.</li>
+      <li><strong>4000K (neutral white):</strong> Versatile — comfortable for both security and pathway applications.</li>
+      <li><strong>5000–6500K (cool white/daylight):</strong> Common in security floodlights and street lights where maximum perceived brightness and longer throw distance matter.</li>
+    </ul>
+    <p><strong>Where it fails:</strong> Low-quality LED chips lose lumen output rapidly (lumen depreciation). A quality LED chip maintains 70% of initial output (L70) at 50,000+ hours. Cheap chips may hit L70 in 10,000–15,000 hours. The driver fails most commonly from capacitor degradation in high-temperature environments — a known weak point in fully sealed fixtures where internal heat cannot dissipate.</p>
+
+    <h2>How the Cycle Works</h2>
+    <p>Putting the four components together, here is the daily energy cycle of a correctly spec'd solar security light in a tropical location:</p>
+    <ol style="margin:12px 0;padding-left:24px;line-height:2">
+      <li><strong>Sunrise to sunset (~8–10 hours):</strong> Panel generates current. Charge controller manages flow into the battery. The light's photoresistor (light sensor) keeps the LED off.</li>
+      <li><strong>Sunset trigger:</strong> Photoresistor detects falling light level and switches the fixture to active mode — typically a low-brightness dim mode.</li>
+      <li><strong>Night operation:</strong> In PIR mode, the fixture runs dim (10–20% brightness) continuously, flashing to full brightness for 20–30 seconds when motion is detected. This dramatically extends battery runtime compared to continuous full-brightness operation.</li>
+      <li><strong>Sunrise:</strong> Photoresistor switches the LED off and the charge cycle resumes.</li>
+    </ol>
+    <p>On a clear day with 5 peak sun hours and a correctly matched panel-to-battery ratio, the battery should recharge to 90–100% in time for the next night cycle. The 2–3 day reserve capacity in quality fixtures means several consecutive overcast days don't interrupt operation.</p>
+
+    <h2>Common Failure Patterns</h2>
+    <p>Understanding the failure modes helps you diagnose field issues and ask the right pre-purchase questions:</p>
+    <ul style="margin:12px 0;padding-left:24px;line-height:2">
+      <li><strong>"Stops working by midnight":</strong> Battery undersized for the fixture's power draw — most common failure in budget products</li>
+      <li><strong>"Works in year one, fails in year two":</strong> Standard Li-ion battery degraded by heat cycling, or panel output reduced by yellowed EVA encapsulant</li>
+      <li><strong>"Dim output from day one":</strong> Panel wattage insufficient for the latitude — common when products designed for low-latitude markets are sold into temperate zones</li>
+      <li><strong>"Flickers or won't turn on":</strong> Charge controller failure or LED driver capacitor degradation from heat</li>
+      <li><strong>"Works in summer, fails in winter":</strong> Battery capacity calculated for summer recharge rate — insufficient panel-to-battery ratio for shorter winter days</li>
+    </ul>
+
+    <div class="bottom-line"><b>Bottom line:</b> When all four components — panel, controller, LiFePO4 battery, and LED driver — are correctly sized and quality-matched, a solar light runs reliably for years. Undersize any one (usually the battery), or use the wrong battery chemistry for the climate, and it goes dark by 2 AM. Ask for the spec on all four before placing an order.</div>
   </div>
 </article>
 <section class="cta">
