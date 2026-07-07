@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Prototype — Solar Lighting World | JC Lightning</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --brass:#e8862a; --brass-lt:#f5a94e; --ink:#0e0c0a; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Outfit',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0a0908;color:#fff;overflow-x:hidden}
+
+  .stage{position:relative;width:100%;max-width:1672px;margin:0 auto;aspect-ratio:1672/941;overflow:hidden;background:#0a0908}
+  .scene{position:absolute;inset:0;background:url('夜晚.png') center/cover no-repeat}
+
+  /* ---- Real HTML nav bar ---- */
+  .topnav{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+    padding:20px 42px;background:linear-gradient(180deg,rgba(6,8,14,.9) 0%,rgba(6,8,14,0) 100%)}
+  .topnav .logo{font-family:'Playfair Display',Georgia,serif;font-size:1.45rem;color:#fff;text-decoration:none;font-weight:500;white-space:nowrap}
+  .topnav .logo i{color:var(--brass-lt);font-style:italic}
+  .navlinks{display:flex;align-items:center;gap:28px}
+  .navlinks a{color:#e8e2d6;text-decoration:none;font-size:.9rem;font-weight:500;transition:.2s}
+  .navlinks a:hover{color:var(--brass-lt)}
+  .navlinks .navcta{background:var(--brass);color:#fff;padding:10px 22px;border-radius:999px}
+  .navlinks .navcta:hover{background:var(--brass-lt)}
+
+  /* ---- Hotspot = electric dot + real HTML label ---- */
+  .hotspot{position:absolute;transform:translateY(-50%);z-index:5;display:inline-flex;align-items:center;gap:9px;
+    cursor:pointer;text-decoration:none;padding:7px 14px 7px 0}
+  .hotspot .dot{width:9px;height:9px;border-radius:50%;flex:none;
+    background:radial-gradient(circle,#fff 0%,var(--brass-lt) 42%,var(--brass) 78%);
+    box-shadow:0 0 6px 2px rgba(245,169,78,.85),0 0 15px 5px rgba(232,134,42,.45);
+    animation:spark 1.8s ease-in-out infinite}
+  .hotspot .lbl{color:#fff;font-size:14px;font-weight:500;white-space:nowrap;text-shadow:0 1px 8px rgba(0,0,0,.9);transition:color .2s ease}
+  @keyframes spark{0%,100%{box-shadow:0 0 6px 2px rgba(245,169,78,.8),0 0 15px 5px rgba(232,134,42,.4)}
+    50%{box-shadow:0 0 11px 3px rgba(255,222,150,1),0 0 24px 8px rgba(245,169,78,.7)}}
+  .hotspot:hover .dot,.hotspot:focus-visible .dot{animation:none;width:12px;height:12px;
+    box-shadow:0 0 16px 5px rgba(255,232,175,1),0 0 34px 12px rgba(245,169,78,.9)}
+  .hotspot:hover .lbl,.hotspot:focus-visible .lbl{color:var(--brass-lt)}
+
+  #card{position:absolute;z-index:20;width:250px;background:rgba(14,12,10,.93);backdrop-filter:blur(8px);
+    border:1px solid rgba(245,169,78,.4);border-radius:14px;padding:15px 16px 13px;opacity:0;transform:translateY(8px);
+    pointer-events:none;transition:opacity .2s ease,transform .2s ease;box-shadow:0 20px 50px rgba(0,0,0,.55)}
+  #card.on{opacity:1;transform:translateY(0);pointer-events:auto}
+  #card .ct{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:9px;font-weight:600}
+  #card ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
+  #card li{display:flex;align-items:center;gap:8px;font-size:13.5px;color:#eee}
+  #card li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--brass);flex:none}
+  #card a.go{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--brass-lt);text-decoration:none}
+  #card a.go:hover{color:#fff}
+
+  /* ---- Calibration ---- */
+  .calbar{max-width:1672px;margin:12px auto 0;padding:10px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+    background:#151210;border:1px solid #2a2521;border-radius:10px}
+  .calbar button{background:var(--brass);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font-size:13px}
+  .calbar button.sec{background:#2a2521;color:#cfc8bd}
+  .calbar span{font-size:13px;color:#b9b2a6}
+  #calStatus{color:#f5a94e;font-weight:600}
+  .stage.cal{cursor:crosshair}
+  .stage.cal .hotspot{pointer-events:none}
+  #calCatch{position:absolute;inset:0;z-index:40;display:none}
+  .stage.cal #calCatch{display:block}
+  .calmark{position:absolute;transform:translate(-50%,-50%);z-index:41;width:26px;height:26px;border-radius:50%;
+    background:rgba(245,169,78,.35);border:2px solid #f5a94e;display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;color:#fff;pointer-events:none}
+  #calOut{max-width:1672px;margin:10px auto 0;padding:0 20px;display:none}
+  #calOut textarea{width:100%;height:120px;background:#0e0c0a;color:#9fe0a0;border:1px solid #2a2521;border-radius:8px;
+    padding:12px;font-family:monospace;font-size:12px}
+
+  .ribbon{position:fixed;top:0;left:0;z-index:99;background:var(--brass);color:#fff;font-size:12px;font-weight:700;
+    padding:6px 14px;border-bottom-right-radius:10px;letter-spacing:.05em}
+  .note{max-width:1672px;margin:14px auto 40px;padding:0 20px;color:#b9b2a6;font-size:14px;line-height:1.7}
+  .note b{color:#f0ebe2}
+</style>
+</head>
+<body>
+<div class="ribbon">PROTOTYPE · 原型演示（未上线）</div>
+
+<div class="calbar">
+  <button id="calBtn">🎯 校准热点位置</button>
+  <button id="calReset" class="sec">重置</button>
+  <span id="calStatus">未校准 · 用默认位置</span>
+</div>
+
+<div class="stage" id="stage">
+  <div class="scene"></div>
+
+  <nav class="topnav">
+    <a class="logo" href="index.html">JC <i>Lighting</i> Technology Co., Ltd.</a>
+    <div class="navlinks">
+      <a href="index.html#products">Products</a>
+      <a href="index.html#products">Applications</a>
+      <a href="index.html#products">Solutions</a>
+      <a href="index.html#certs">About Us</a>
+      <a href="index.html#faq">Support</a>
+      <a class="navcta" href="index.html#contact">Contact Us</a>
+    </div>
+  </nav>
+
+  <div id="card"></div>
+  <div id="calCatch"></div>
+</div>
+
+<div id="calOut">
+  <p style="color:#b9b2a6;font-size:13px;margin:0 0 6px">✅ 校准完成。把下面这段发给 Claude 就能永久写死：</p>
+  <textarea id="calText" readonly></textarea>
+</div>
+
+<div class="note">
+  <b>操作：</b>鼠标移到电光点/标签 → 弹产品卡；点标签跳分类页。夜景灯常亮。<br>
+  <b>标签现在是真 HTML 文字了</b> —— 想改哪个词、翻译成别的语言，告诉我就行。导航栏也是真 HTML。<br>
+  <b>位置不准？</b>点上方 <b>🎯 校准热点位置</b> 重新点一遍即可。
+</div>
+
+<script>
+const HOTSPOTS = [
+  {t:'Agriculture & Farms',    d:[31.1,28.4], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','3-Head Motion Flood','30W Flood Light']},
+  {t:'Commercial & Retail',    d:[60.8,12.9], href:'products/solar-security-street-lights.html', items:['3-Head Motion Flood','PIR Wall Light','All-in-One Street Light']},
+  {t:'Port & Marine',          d:[82.8,26.1], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','30W Flood Light','Warning Beacon Light']},
+  {t:'Industrial & Warehouse', d:[62.9,39.7], href:'products/solar-security-street-lights.html', items:['30W Flood Light','UFO High Bay Light','All-in-One Street Light']},
+  {t:'Street & Road Lighting', d:[44.2,48.6], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','Split Street Light','30W Flood Light']},
+  {t:'Sports Lighting',        d:[85,50], href:'products/solar-security-street-lights.html', items:['30W Flood Light','3-Head Motion Flood']},
+  {t:'Villa & Garden',         d:[29.7,55.7], href:'products/solar-decorative-wall-lights.html', items:['Outdoor Wall Lantern','Up-Down Wall Light','PIR Wall Light']},
+  {t:'Parking Area',           d:[59.2,60.8], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','Split Street Light']},
+  {t:'Landscape & Garden',     d:[12.5,76], href:'products/solar-garden-landscape-lights.html', items:['Garden Spike Spotlight','Bollard Path Light','Garden Stake 8-Pack']},
+  {t:'Off-grid & Solar Home',  d:[63.3,76.9], href:'products/off-grid-portable-solar-lights.html', items:['Solar Home Lighting Kit','Emergency LED Bulb','Indoor Wall Light']},
+  {t:'Camping & Portable',     d:[81.7,86.6], href:'products/off-grid-portable-solar-lights.html', items:['Camping Lantern','Power Bank Lantern Pro','Emergency UFO Light']},
+];
+
+const stage = document.getElementById('stage');
+const card = document.getElementById('card');
+let hideTimer, positions;
+
+try { positions = JSON.parse(localStorage.getItem('jc_hotspots_v7')); } catch(e){}
+if (!positions || positions.length !== HOTSPOTS.length) positions = HOTSPOTS.map(h => h.d.slice());
+if (localStorage.getItem('jc_hotspots_v7')) document.getElementById('calStatus').textContent = '已校准 ✓ (本地记住)';
+
+function renderHotspots(){
+  stage.querySelectorAll('.hotspot').forEach(n=>n.remove());
+  HOTSPOTS.forEach((h,i)=>{
+    const a = document.createElement('a');
+    a.className = 'hotspot';
+    a.href = h.href;
+    a.style.left = positions[i][0] + '%';
+    a.style.top  = positions[i][1] + '%';
+    a.setAttribute('aria-label', h.t);
+    a.innerHTML = '<span class="dot"></span><span class="lbl">'+h.t+'</span>';
+    a.addEventListener('mouseenter', ()=>showCard(h,i));
+    a.addEventListener('focus', ()=>showCard(h,i));
+    a.addEventListener('mouseleave', scheduleHide);
+    a.addEventListener('blur', scheduleHide);
+    stage.appendChild(a);
+  });
+}
+function showCard(h,i){
+  clearTimeout(hideTimer);
+  const x = positions[i][0], y = positions[i][1];
+  card.innerHTML = '<div class="ct">'+h.t+'</div><ul>'+h.items.map(it=>'<li>'+it+'</li>').join('')+
+    '</ul><a class="go" href="'+h.href+'">Explore range →</a>';
+  card.style.left = (x > 58 ? x - 17 : x + 4) + '%';
+  card.style.top  = (y > 66 ? y - 26 : y + 5) + '%';
+  card.classList.add('on');
+}
+function scheduleHide(){ hideTimer = setTimeout(()=>card.classList.remove('on'), 260); }
+card.addEventListener('mouseenter', ()=>clearTimeout(hideTimer));
+card.addEventListener('mouseleave', scheduleHide);
+renderHotspots();
+
+// ---- Calibration ----
+const calBtn = document.getElementById('calBtn'), calCatch = document.getElementById('calCatch');
+const calStatus = document.getElementById('calStatus'), calOut = document.getElementById('calOut'), calText = document.getElementById('calText');
+let calOn = false, calIdx = 0, calPts = [];
+function startCal(){
+  calOn = true; calIdx = 0; calPts = [];
+  stage.classList.add('cal'); calBtn.textContent = '取消校准';
+  stage.querySelectorAll('.calmark').forEach(n=>n.remove());
+  calOut.style.display = 'none';
+  calStatus.textContent = '点击 1/'+HOTSPOTS.length+'：'+HOTSPOTS[0].t;
+}
+function endCal(save){
+  calOn = false; stage.classList.remove('cal'); calBtn.textContent = '🎯 校准热点位置';
+  if (save){
+    positions = calPts.map(p=>[+p[0].toFixed(1), +p[1].toFixed(1)]);
+    localStorage.setItem('jc_hotspots_v7', JSON.stringify(positions));
+    renderHotspots();
+    calStatus.textContent = '已校准 ✓ (本地记住)';
+    calText.value = JSON.stringify(positions);
+    calOut.style.display = 'block';
+  } else {
+    stage.querySelectorAll('.calmark').forEach(n=>n.remove());
+    calStatus.textContent = localStorage.getItem('jc_hotspots_v7') ? '已校准 ✓ (本地记住)' : '未校准 · 用默认位置';
+  }
+}
+calBtn.onclick = ()=> calOn ? endCal(false) : startCal();
+document.getElementById('calReset').onclick = ()=>{ localStorage.removeItem('jc_hotspots_v7'); positions = HOTSPOTS.map(h=>h.d.slice()); renderHotspots(); calStatus.textContent='未校准 · 用默认位置'; calOut.style.display='none'; };
+calCatch.addEventListener('click', (e)=>{
+  if (!calOn) return;
+  const r = stage.getBoundingClientRect();
+  const xp = (e.clientX - r.left) / r.width * 100, yp = (e.clientY - r.top) / r.height * 100;
+  calPts.push([xp, yp]);
+  const m = document.createElement('div'); m.className='calmark'; m.textContent = calIdx+1;
+  m.style.left = xp+'%'; m.style.top = yp+'%'; stage.appendChild(m);
+  calIdx++;
+  if (calIdx >= HOTSPOTS.length) endCal(true);
+  else calStatus.textContent = '点击 '+(calIdx+1)+'/'+HOTSPOTS.length+'：'+HOTSPOTS[calIdx].t;
+});
+</script>
+</body>
+</html>
