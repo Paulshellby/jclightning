@@ -2178,6 +2178,10 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   .sw-card li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--brass);flex:none}
   .sw-card a.go{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--brass-lt);text-decoration:none}
   .sw-card a.go:hover{color:#fff}
+  /* scenario cards: offset for fixed nav + brief highlight when a hotspot scrolls to it */
+  .sc-card{scroll-margin-top:96px}
+  .sc-card.sc-flash{animation:sc-flash-anim 1.6s ease-out}
+  @keyframes sc-flash-anim{0%,100%{box-shadow:none}18%{box-shadow:0 0 0 2px var(--brass-lt),0 14px 40px rgba(168,125,42,.28)}}
   /* mobile scenario grid (hidden on desktop) */
   .sw-grid{display:none}
   @media(max-width:768px){
@@ -2212,13 +2216,13 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
     <div class="sc-grid">
       <div class="sc-card">
         <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#a87d2a" stroke-width="1.3"/><path d="M7 10h4M7 14h2" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><circle cx="17" cy="12" r="2.5" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
-        <h4 data-i18n="sc1_t">Perimeter Security</h4>
+        <h4 id="scene-security" data-i18n="sc1_t">Perimeter Security</h4>
         <p data-i18n="sc1_d">Solar floodlights and PIR wall lights protecting commercial compounds, warehouses, and residential perimeter walls. Motion-activated, grid-independent, IP65/IP66 rated.</p>
         <span class="sc-tag" data-i18n="sc1_tag">Security Range</span>
       </div>
       <div class="sc-card">
         <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="3" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
-        <h4 data-i18n="sc5_t">Street &amp; Road Lighting</h4>
+        <h4 id="scene-street" data-i18n="sc5_t">Street &amp; Road Lighting</h4>
         <p data-i18n="sc5_d">All-in-one and split solar street lights for municipal roads, rural highways, parking lots and long driveways. Radar sensing, dusk-to-dawn auto, IP66 rated.</p>
         <span class="sc-tag" data-i18n="sc5_tag">Street Range</span>
       </div>
@@ -2236,13 +2240,13 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
     <div class="sc-grid">
       <div class="sc-card">
         <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 21l7-7-7-7" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 4h9v17h-9z" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
-        <h4 data-i18n="sc2_t">Villa &amp; Estate Entrance</h4>
+        <h4 id="scene-villa" data-i18n="sc2_t">Villa &amp; Estate Entrance</h4>
         <p data-i18n="sc2_d">Courtyard column lights, gate pillar lamps and up-down wall sconces framing grand entrances for villas, hotels and gated communities. Warm white, architectural aluminium finish.</p>
         <span class="sc-tag" data-i18n="sc2_tag">Garden + Decorative</span>
       </div>
       <div class="sc-card">
         <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 9v10a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V9z" stroke="#a87d2a" stroke-width="1.3"/><circle cx="10" cy="13" r="1.5" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
-        <h4 data-i18n="sc3_t">Garden &amp; Pathway</h4>
+        <h4 id="scene-landscape" data-i18n="sc3_t">Garden &amp; Pathway</h4>
         <p data-i18n="sc3_d">Stake lights, spike spotlights and bollards shaping flowerbeds, pathways and tree uplighting. 304 stainless steel and cast aluminium. IP65-IP67 rated.</p>
         <span class="sc-tag" data-i18n="sc3_tag">Garden Range</span>
       </div>
@@ -2290,13 +2294,13 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
       </div>
       <div class="sc-card">
         <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 9v10a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V9z" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
-        <h4 data-i18n="sc11_t">Rural Home Lighting</h4>
+        <h4 id="scene-offgrid" data-i18n="sc11_t">Rural Home Lighting</h4>
         <p data-i18n="sc11_d">Split-panel indoor wall lights, solar home lighting kits and ceiling fans for off-grid rural homes. Panel outside, light inside. USB phone charging during outages. LiFePO4.</p>
         <span class="sc-tag" data-i18n="sc11_tag">Off-Grid Home</span>
       </div>
       <div class="sc-card">
         <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#a87d2a" stroke-width="1.3"/><circle cx="12" cy="12" r="3" stroke="#a87d2a" stroke-width="1.3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/></svg></div>
-        <h4 data-i18n="sc12_t">Camping &amp; Outdoor Adventure</h4>
+        <h4 id="scene-camping" data-i18n="sc12_t">Camping &amp; Outdoor Adventure</h4>
         <p data-i18n="sc12_d">Portable camping lanterns, power bank lanterns, bug zappers and work lights for camping, fishing, hiking and outdoor exploration. USB-C PD fast charge, magnetic base, IP65.</p>
         <span class="sc-tag" data-i18n="sc12_tag">Portable Tools</span>
       </div>
@@ -2308,19 +2312,19 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
     <div class="sc-grid">
       <div class="sc-card">
         <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#a87d2a" stroke-width="1.3"/><path d="M8 21h8M12 17v4" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/></svg></div>
-        <h4 data-i18n="sc13_t">Warehouses &amp; Factories</h4>
+        <h4 id="scene-industrial" data-i18n="sc13_t">Warehouses &amp; Factories</h4>
         <p data-i18n="sc13_d">UFO high bay lights and high-power AC floodlights for warehouses, factories, assembly lines and logistics centres. 100-300W, IP65, aluminium cooling fins, 30,000h lifespan.</p>
         <span class="sc-tag" data-i18n="sc13_tag">Industrial High Bay</span>
       </div>
       <div class="sc-card">
         <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#a87d2a" stroke-width="1.3"/><path d="M12 5v14M5 12h14" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round"/></svg></div>
-        <h4 data-i18n="sc14_t">Sports Courts &amp; Stadiums</h4>
+        <h4 id="scene-sports" data-i18n="sc14_t">Sports Courts &amp; Stadiums</h4>
         <p data-i18n="sc14_d">High-power AC LED floodlights 200-1000W for outdoor sports courts, stadiums, tennis courts and arenas. Wide 120-degree beam, 6500K daylight, IP65 weatherproof.</p>
         <span class="sc-tag" data-i18n="sc14_tag">Sport Lighting</span>
       </div>
       <div class="sc-card">
         <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12l9-9 9 9" stroke="#a87d2a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10a1 1 0 001 1h3v-4h6v4h3a1 1 0 001-1V10" stroke="#a87d2a" stroke-width="1.3"/></svg></div>
-        <h4 data-i18n="sc15_t">Municipal &amp; Parking Lots</h4>
+        <h4 id="scene-parking" data-i18n="sc15_t">Municipal &amp; Parking Lots</h4>
         <p data-i18n="sc15_d">AC street light heads and floodlights for municipal roads, industrial parks, parking lots and commercial compounds. 50-100W, photocell ready, aluminium housing, IP65.</p>
         <span class="sc-tag" data-i18n="sc15_tag">Municipal Road</span>
       </div>
@@ -7159,18 +7163,25 @@ window.restartQuiz=function(){
 <script>
 (function(){
   var SW = [
-    {t:'Agriculture & Farms',    k:'app_agri',   d:[31.1,28.4], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','3-Head Motion Flood','30W Flood Light']},
-    {t:'Commercial & Retail',    k:'app_comm',   d:[60.8,12.9], href:'products/solar-security-street-lights.html', items:['3-Head Motion Flood','PIR Wall Light','All-in-One Street Light']},
-    {t:'Port & Marine',          k:'app_port',   d:[82.8,26.1], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','30W Flood Light','Warning Beacon Light']},
-    {t:'Industrial & Warehouse', k:'app_indus',  d:[62.9,39.7], href:'products/solar-security-street-lights.html', items:['30W Flood Light','UFO High Bay Light','All-in-One Street Light']},
-    {t:'Street & Road Lighting', k:'app_street', d:[44.2,48.6], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','Split Street Light','30W Flood Light']},
-    {t:'Sports Lighting',        k:'app_sports', d:[85,50],     href:'products/solar-security-street-lights.html', items:['30W Flood Light','3-Head Motion Flood']},
-    {t:'Villa & Garden',         k:'app_villa',  d:[29.7,55.7], href:'products/solar-decorative-wall-lights.html', items:['Outdoor Wall Lantern','Up-Down Wall Light','PIR Wall Light']},
-    {t:'Parking Area',           k:'app_park',   d:[59.2,60.8], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','Split Street Light']},
-    {t:'Landscape & Garden',     k:'app_land',   d:[12.5,76],   href:'products/solar-garden-landscape-lights.html', items:['Garden Spike Spotlight','Bollard Path Light','Garden Stake 8-Pack']},
-    {t:'Off-grid & Solar Home',  k:'app_offgrid',d:[63.3,76.9], href:'products/off-grid-portable-solar-lights.html', items:['Solar Home Lighting Kit','Emergency LED Bulb','Indoor Wall Light']},
-    {t:'Camping & Portable',     k:'app_camp',   d:[81.7,86.6], href:'products/off-grid-portable-solar-lights.html', items:['Camping Lantern','Power Bank Lantern Pro','Emergency UFO Light']}
+    {t:'Agriculture & Farms',    k:'app_agri',   d:[31.1,28.4], sc:'scene-security',   href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','3-Head Motion Flood','30W Flood Light']},
+    {t:'Commercial & Retail',    k:'app_comm',   d:[60.8,12.9], sc:'scene-security',   href:'products/solar-security-street-lights.html', items:['3-Head Motion Flood','PIR Wall Light','All-in-One Street Light']},
+    {t:'Port & Marine',          k:'app_port',   d:[82.8,26.1], sc:'scene-industrial', href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','30W Flood Light','Warning Beacon Light']},
+    {t:'Industrial & Warehouse', k:'app_indus',  d:[62.9,39.7], sc:'scene-industrial', href:'products/solar-security-street-lights.html', items:['30W Flood Light','UFO High Bay Light','All-in-One Street Light']},
+    {t:'Street & Road Lighting', k:'app_street', d:[44.2,48.6], sc:'scene-street',     href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','Split Street Light','30W Flood Light']},
+    {t:'Sports Lighting',        k:'app_sports', d:[85,50],     sc:'scene-sports',     href:'products/solar-security-street-lights.html', items:['30W Flood Light','3-Head Motion Flood']},
+    {t:'Villa & Garden',         k:'app_villa',  d:[29.7,55.7], sc:'scene-villa',      href:'products/solar-decorative-wall-lights.html', items:['Outdoor Wall Lantern','Up-Down Wall Light','PIR Wall Light']},
+    {t:'Parking Area',           k:'app_park',   d:[59.2,60.8], sc:'scene-parking',    href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','Split Street Light']},
+    {t:'Landscape & Garden',     k:'app_land',   d:[12.5,76],   sc:'scene-landscape',  href:'products/solar-garden-landscape-lights.html', items:['Garden Spike Spotlight','Bollard Path Light','Garden Stake 8-Pack']},
+    {t:'Off-grid & Solar Home',  k:'app_offgrid',d:[63.3,76.9], sc:'scene-offgrid',    href:'products/off-grid-portable-solar-lights.html', items:['Solar Home Lighting Kit','Emergency LED Bulb','Indoor Wall Light']},
+    {t:'Camping & Portable',     k:'app_camp',   d:[81.7,86.6], sc:'scene-camping',    href:'products/off-grid-portable-solar-lights.html', items:['Camping Lantern','Power Bank Lantern Pro','Emergency UFO Light']}
   ];
+  function scrollToScene(id){
+    var el = document.getElementById(id); if(!el) return;
+    var card = el.closest('.sc-card') || el;
+    card.scrollIntoView({behavior:'smooth', block:'start'});
+    card.classList.remove('sc-flash'); void card.offsetWidth; card.classList.add('sc-flash');
+    setTimeout(function(){ card.classList.remove('sc-flash'); }, 1700);
+  }
   var host = document.getElementById('swHotspots'), grid = document.getElementById('swGrid'), card = document.getElementById('swCard');
   if(!host) return;
   var hideT;
@@ -7186,16 +7197,18 @@ window.restartQuiz=function(){
   function hideCard(){ hideT = setTimeout(function(){ if(card) card.classList.remove('on'); }, 250); }
   SW.forEach(function(h){
     var a = document.createElement('a');
-    a.className = 'sw-hotspot'; a.href = h.href; a.setAttribute('aria-label', h.t);
+    a.className = 'sw-hotspot'; a.href = '#'+h.sc; a.setAttribute('aria-label', h.t);
     a.style.left = h.d[0]+'%'; a.style.top = h.d[1]+'%';
     a.innerHTML = '<span class="dot"></span><span class="lbl" data-i18n="'+h.k+'">'+h.t+'</span>';
     a.addEventListener('mouseenter', function(){ showCard(h); });
     a.addEventListener('mouseleave', hideCard);
+    a.addEventListener('click', function(e){ e.preventDefault(); scrollToScene(h.sc); });
     host.appendChild(a);
     if(grid){
       var g = document.createElement('a');
-      g.className = 'sw-gcard'; g.href = h.href;
+      g.className = 'sw-gcard'; g.href = '#'+h.sc;
       g.innerHTML = '<span class="gdot"></span><span data-i18n="'+h.k+'">'+h.t+'</span>';
+      g.addEventListener('click', function(e){ e.preventDefault(); scrollToScene(h.sc); });
       grid.appendChild(g);
     }
   });
