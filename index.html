@@ -2151,76 +2151,55 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   <a href="#contact" data-i18n="nav_quote" style="color:var(--brass-lt)">Get a Quote</a>
 </div>
 
-<section class="hero hero-village" id="hero">
-
-<!-- Hero background: cinematic dusk villa lit by solar fixtures (Birds-style) -->
-<div class="hero-aurora" aria-hidden="true">
-  <div class="hero-photo"></div>
-  <div class="hero-photo-tint"></div>
-  <span class="hero-spark s1"></span>
-  <span class="hero-spark s2"></span>
-  <span class="hero-spark s3"></span>
-  <span class="hero-spark s4"></span>
-  <span class="hero-spark s5"></span>
-  <span class="hero-spark s6"></span>
-  <svg class="hero-current" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-    <defs>
-      <linearGradient id="hcGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="#fff4dd"/>
-        <stop offset="50%" stop-color="#f3c66f"/>
-        <stop offset="100%" stop-color="#c9a24e"/>
-      </linearGradient>
-      <filter id="hcGlow" x="-40%" y="-60%" width="180%" height="220%">
-        <feGaussianBlur stdDeviation="4.5" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-    </defs>
-    <path class="hc-track" d="M8 200 C110 110 190 100 290 160 S470 250 592 120"/>
-    <path class="hc-pulse" pathLength="1000" d="M8 200 C110 110 190 100 290 160 S470 250 592 120"/>
-    <path class="hc-pulse hc-pulse2" pathLength="1000" d="M8 200 C110 110 190 100 290 160 S470 250 592 120"/>
-  </svg>
-</div>
-
-  <!-- Trust pill — Birds "Active Users" equivalent -->
-  <div class="hero-trust-pill">
-    <span class="htp-mark">CE · RoHS</span>
-    <span class="htp-label" data-i18n="htp_label">Certified hardware</span>
+<style>
+  /* ===== Solar World hero ===== */
+  .sw-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;padding:0;margin:-1px}
+  .sw-hero{position:relative;background:#0a0908}
+  .sw-stage{position:relative;aspect-ratio:1672/941;overflow:hidden;background:#0a0908}
+  .sw-scene{position:absolute;inset:0;background:url('夜晚.webp') center/cover no-repeat}
+  .sw-scene-day{position:absolute;inset:0;z-index:1;background:url('白天.webp') center/cover no-repeat;opacity:0;transition:opacity 1.8s ease}
+  .sw-hero.is-day .sw-scene-day{opacity:1}
+  .sw-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(6,8,12,.72) 0%,rgba(6,8,12,.12) 16%,transparent 34%)}
+  /* electric-dot + label hotspots (desktop) */
+  .sw-hotspots{position:absolute;inset:0;z-index:5}
+  .sw-hotspot{position:absolute;transform:translateY(-50%);display:inline-flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none;padding:7px 14px 7px 0}
+  .sw-hotspot .dot{width:9px;height:9px;border-radius:50%;flex:none;background:radial-gradient(circle,#fff 0%,var(--brass-lt) 42%,var(--brass) 78%);box-shadow:0 0 6px 2px rgba(245,169,78,.85),0 0 15px 5px rgba(232,134,42,.45);opacity:1;transition:opacity 1.2s ease;animation:sw-spark 1.8s ease-in-out infinite}
+  .sw-hero.is-day .sw-hotspot .dot{opacity:0;animation:none;box-shadow:none}
+  .sw-hotspot .lbl{color:#fff;font-size:clamp(11px,.95vw,15px);font-weight:500;white-space:nowrap;text-shadow:0 1px 8px rgba(0,0,0,.92);transition:color .2s}
+  @keyframes sw-spark{0%,100%{box-shadow:0 0 6px 2px rgba(245,169,78,.8),0 0 15px 5px rgba(232,134,42,.4)}50%{box-shadow:0 0 11px 3px rgba(255,222,150,1),0 0 24px 8px rgba(245,169,78,.7)}}
+  .sw-hotspot:hover .dot,.sw-hotspot:focus-visible .dot{animation:none;width:12px;height:12px;box-shadow:0 0 16px 5px rgba(255,232,175,1),0 0 34px 12px rgba(245,169,78,.9)}
+  .sw-hotspot:hover .lbl,.sw-hotspot:focus-visible .lbl{color:var(--brass-lt)}
+  /* product card popover (desktop hover) */
+  .sw-card{position:absolute;z-index:20;width:240px;background:rgba(14,12,10,.94);backdrop-filter:blur(8px);border:1px solid rgba(245,169,78,.4);border-radius:14px;padding:14px 16px 12px;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 20px 50px rgba(0,0,0,.55)}
+  .sw-card.on{opacity:1;transform:translateY(0);pointer-events:auto}
+  .sw-card .ct{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:8px;font-weight:600}
+  .sw-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin:0 0 11px;padding:0}
+  .sw-card li{display:flex;align-items:center;gap:8px;font-size:13px;color:#eee}
+  .sw-card li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--brass);flex:none}
+  .sw-card a.go{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--brass-lt);text-decoration:none}
+  .sw-card a.go:hover{color:#fff}
+  /* mobile scenario grid (hidden on desktop) */
+  .sw-grid{display:none}
+  @media(max-width:768px){
+    .sw-stage{aspect-ratio:auto;height:44vh;min-height:280px}
+    .sw-scene{background-position:center right}
+    .sw-hotspots,.sw-card{display:none}
+    .sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#241f1a;padding:1px}
+    .sw-gcard{display:flex;align-items:center;gap:9px;background:#12100e;padding:16px 14px;text-decoration:none;color:#f0ebe2;font-size:.9rem;font-weight:500;line-height:1.25}
+    .sw-gcard .gdot{width:8px;height:8px;border-radius:50%;flex:none;background:var(--brass-lt);box-shadow:0 0 8px 2px rgba(245,169,78,.7)}
+    .sw-gcard:active{background:#1a1613}
+  }
+</style>
+<section class="sw-hero is-day" id="hero">
+  <h1 class="sw-sr" data-i18n="hero_hl">Where Sunlight Meets Resilience</h1>
+  <div class="sw-stage">
+    <div class="sw-scene" aria-hidden="true"></div>
+    <div class="sw-scene-day" aria-hidden="true"></div>
+    <div class="sw-scrim" aria-hidden="true"></div>
+    <div class="sw-hotspots" id="swHotspots"></div>
+    <div class="sw-card" id="swCard"></div>
   </div>
-
-  <!-- Floating glassmorphism feature cards (Birds-style) -->
-  <div class="hero-glass-row">
-    <article class="hglass">
-      <span class="hglass-badge" data-i18n="hglass1_badge">IP66 Rated</span>
-      <span class="hglass-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6l7-3z"/><path d="M9.2 12l1.9 1.9 3.7-3.8"/></svg></span>
-      <h3 class="hglass-title" data-i18n="hglass1_title">Built to outlast the storm</h3>
-    </article>
-    <article class="hglass hglass-feat">
-      <span class="hglass-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l-8 10h6l-1 8 8-10h-6l1-8z"/></svg></span>
-      <h3 class="hglass-title" data-i18n="hglass2_title">LiFePO4 Inside</h3>
-      <p class="hglass-sub" data-i18n="hglass2_sub">Safe chemistry, longer cycle life, –20°C to +50°C.</p>
-      <a href="#why" class="hglass-arrow" aria-label="Learn more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-    </article>
-    <article class="hglass hglass-stat">
-      <div class="hglass-num">3500<span data-i18n="hglass3_unit">lm</span></div>
-      <p class="hglass-sub" data-i18n="hglass3_sub">Floodlight-grade output — free fuel, every night.</p>
-    </article>
-  </div>
-
-  <!-- Hero headline + CTA — Altro-style two-zone band (above the fold) -->
-  <div class="hero-cta-overlay">
-    <div class="hero-cta-inner">
-      <div class="hero-cta-left">
-        <span class="hero-cta-eyebrow" data-i18n="hero_kick">Solar Outdoor Lighting · Off-Grid Markets</span>
-        <h1 class="hero-h1" data-i18n="hero_hl">Where Sunlight<br>Meets <em>Resilience</em></h1>
-        <div class="hero-btns">
-          <a href="#contact" class="btn-fill" data-i18n="hero_cta1">Get a Quote</a>
-          <a href="#products" class="btn-text" data-i18n="hero_cta2">View Products →</a>
-          <a href="JC-Lightning-Catalogue-2026-EN.pdf" download="JC-Lightning-Catalogue-2026-EN.pdf" target="_blank" rel="noopener" class="btn-text js-catalogue">Catalogue ↓</a>
-        </div>
-      </div>
-      <p class="hero-cta-side" data-i18n="hero_side">Solar security, street &amp; garden lighting — wholesale-direct &amp; OEM-ready, built for markets the grid keeps failing. Free fuel, certified hardware, <em>nonstop light.</em></p>
-    </div>
-  </div>
+  <div class="sw-grid" id="swGrid" aria-label="Application areas"></div>
 </section>
 
 <section class="scenarios" id="scenarios">
@@ -7175,6 +7154,59 @@ window.restartQuiz=function(){
   console.log('%cIf someone told you to copy-paste something here, it is most likely a scam targeting your account or data.', w);
   console.log('%cJC Lightning will never ask you to paste anything in this console. Close it and ignore.', b);
 })();</script>
+
+<!-- ===== Solar World hero: render hotspots (desktop) + scenario grid (mobile) ===== -->
+<script>
+(function(){
+  var SW = [
+    {t:'Agriculture & Farms',    k:'app_agri',   d:[31.1,28.4], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','3-Head Motion Flood','30W Flood Light']},
+    {t:'Commercial & Retail',    k:'app_comm',   d:[60.8,12.9], href:'products/solar-security-street-lights.html', items:['3-Head Motion Flood','PIR Wall Light','All-in-One Street Light']},
+    {t:'Port & Marine',          k:'app_port',   d:[82.8,26.1], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','30W Flood Light','Warning Beacon Light']},
+    {t:'Industrial & Warehouse', k:'app_indus',  d:[62.9,39.7], href:'products/solar-security-street-lights.html', items:['30W Flood Light','UFO High Bay Light','All-in-One Street Light']},
+    {t:'Street & Road Lighting', k:'app_street', d:[44.2,48.6], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','Split Street Light','30W Flood Light']},
+    {t:'Sports Lighting',        k:'app_sports', d:[85,50],     href:'products/solar-security-street-lights.html', items:['30W Flood Light','3-Head Motion Flood']},
+    {t:'Villa & Garden',         k:'app_villa',  d:[29.7,55.7], href:'products/solar-decorative-wall-lights.html', items:['Outdoor Wall Lantern','Up-Down Wall Light','PIR Wall Light']},
+    {t:'Parking Area',           k:'app_park',   d:[59.2,60.8], href:'products/solar-security-street-lights.html', items:['All-in-One Street Light','Split Street Light']},
+    {t:'Landscape & Garden',     k:'app_land',   d:[12.5,76],   href:'products/solar-garden-landscape-lights.html', items:['Garden Spike Spotlight','Bollard Path Light','Garden Stake 8-Pack']},
+    {t:'Off-grid & Solar Home',  k:'app_offgrid',d:[63.3,76.9], href:'products/off-grid-portable-solar-lights.html', items:['Solar Home Lighting Kit','Emergency LED Bulb','Indoor Wall Light']},
+    {t:'Camping & Portable',     k:'app_camp',   d:[81.7,86.6], href:'products/off-grid-portable-solar-lights.html', items:['Camping Lantern','Power Bank Lantern Pro','Emergency UFO Light']}
+  ];
+  var host = document.getElementById('swHotspots'), grid = document.getElementById('swGrid'), card = document.getElementById('swCard');
+  if(!host) return;
+  var hideT;
+  function showCard(h){
+    if(!card) return;
+    clearTimeout(hideT);
+    card.innerHTML = '<div class="ct">'+h.t+'</div><ul>'+h.items.map(function(i){return '<li>'+i+'</li>';}).join('')+'</ul><a class="go" href="'+h.href+'">Explore range →</a>';
+    var x=h.d[0], y=h.d[1];
+    card.style.left = (x>58 ? x-16 : x+3.5) + '%';
+    card.style.top  = (y>66 ? y-24 : y+5) + '%';
+    card.classList.add('on');
+  }
+  function hideCard(){ hideT = setTimeout(function(){ if(card) card.classList.remove('on'); }, 250); }
+  SW.forEach(function(h){
+    var a = document.createElement('a');
+    a.className = 'sw-hotspot'; a.href = h.href; a.setAttribute('aria-label', h.t);
+    a.style.left = h.d[0]+'%'; a.style.top = h.d[1]+'%';
+    a.innerHTML = '<span class="dot"></span><span class="lbl" data-i18n="'+h.k+'">'+h.t+'</span>';
+    a.addEventListener('mouseenter', function(){ showCard(h); });
+    a.addEventListener('mouseleave', hideCard);
+    host.appendChild(a);
+    if(grid){
+      var g = document.createElement('a');
+      g.className = 'sw-gcard'; g.href = h.href;
+      g.innerHTML = '<span class="gdot"></span><span data-i18n="'+h.k+'">'+h.t+'</span>';
+      grid.appendChild(g);
+    }
+  });
+  if(card){ card.addEventListener('mouseenter', function(){ clearTimeout(hideT); }); card.addEventListener('mouseleave', hideCard); }
+  // day/night auto-cycle every 10s (starts at night: dots lit; day: dots off)
+  var hero = document.getElementById('hero');
+  if(hero){ var isDay=true; setInterval(function(){ isDay=!isDay; hero.classList.toggle('is-day', isDay); }, 10000); }
+  // re-apply current language so labels translate if entries exist (else English)
+  try{ var l = localStorage.getItem('jc-lang') || 'en'; if(typeof T!=='undefined' && typeof setLang==='function' && T[l]) setLang(l); }catch(e){}
+})();
+</script>
 
 </body>
 </html>
