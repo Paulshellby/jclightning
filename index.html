@@ -2265,21 +2265,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 }
 @media (max-width:520px){ .an-grid-m{ grid-template-columns:1fr; } }
 </style>
-<style>
-  /* product anatomy shown as a click-to-open detail modal */
-  .anat-modal{position:fixed;inset:0;z-index:2000;display:none;align-items:flex-start;justify-content:center;padding:40px 20px;background:rgba(6,7,10,.72);backdrop-filter:blur(4px);overflow-y:auto}
-  .anat-modal.on{display:flex}
-  .anat-panel{position:relative;width:min(1240px,96vw);border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6);animation:anat-in .32s cubic-bezier(.22,.61,.36,1)}
-  @keyframes anat-in{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
-  .anat-close{position:absolute;top:16px;right:16px;z-index:6;width:42px;height:42px;border:0;border-radius:50%;background:rgba(20,18,14,.55);color:#fff;font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(4px);transition:background .2s}
-  .anat-close:hover{background:rgba(20,18,14,.85)}
-  .anat-panel .anatomy{padding-top:clamp(2.6rem,5vw,4.2rem);padding-bottom:clamp(2.6rem,5vw,4.2rem)}
-  /* the All-in-One Street Light card hints at its exploded detail on hover */
-  .prod-img.has-anatomy::after{content:'View Detail \\2192';letter-spacing:.16em}
-  @media(max-width:768px){.anat-modal{padding:0}.anat-panel{width:100%;min-height:100vh;border-radius:0}}
-</style>
-    <div class="anat-modal" id="anatModal" role="dialog" aria-modal="true" aria-label="Product anatomy"><div class="anat-panel"><button class="anat-close" type="button" aria-label="Close">&times;</button>
-    <section class="anatomy" id="anatomy">
+<section class="anatomy" id="anatomy">
   <div class="an-head">
     <span class="an-kick" data-i18n="an_kick">Engineered To Endure</span>
     <h2 data-i18n="an_h2">One Light. <em>Every Detail Engineered.</em></h2>
@@ -2334,7 +2320,6 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
     <span class="an-ip" data-i18n="an_ip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6z"/></svg><b>IP66</b> · Fully Weather-Sealed</span>
   </div>
 </section>
-    </div></div>
 
 <!-- ===== APPLICATION SCENES (isometric network — light flows scene to scene) ===== -->
 <style>
@@ -6523,25 +6508,9 @@ let lenis=null;
   document.addEventListener('keydown',function(e){ if(!lb.classList.contains('open'))return; if(e.key==='Escape')close(); else if(e.key==='ArrowLeft')show(idx-1); else if(e.key==='ArrowRight')show(idx+1); });
   var sx=0; lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
   lb.addEventListener('touchend',function(e){ var dx=e.changedTouches[0].clientX-sx; if(cur.length>1&&Math.abs(dx)>40) show(idx+(dx<0?1:-1)); },{passive:true});
-  // Product anatomy detail modal (opened by the All-in-One Street Light card)
-  var anatModal=document.getElementById('anatModal');
-  function openAnat(){ if(anatModal){ anatModal.classList.add('on'); document.body.style.overflow='hidden'; } }
-  function closeAnat(){ if(anatModal){ anatModal.classList.remove('on'); document.body.style.overflow=''; } }
-  if(anatModal){
-    var ac=anatModal.querySelector('.anat-close'); if(ac) ac.addEventListener('click',closeAnat);
-    anatModal.addEventListener('click',function(e){ if(e.target===anatModal) closeAnat(); });
-    document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeAnat(); });
-  }
   document.querySelectorAll('.prod-card .prod-img').forEach(function(wrap){
     var im=wrap.querySelector('img'); if(!im) return;
     var card=wrap.closest('.prod-card'), link=card?card.querySelector('.prod-title-link'):null, href=link?link.getAttribute('href'):null;
-    // All-in-One Solar Street Light -> open the annotated anatomy detail (not navigate, not gallery)
-    if(anatModal && href && /all-in-one-solar-street-light\.html$/.test(href)){
-      wrap.classList.add('has-anatomy'); wrap.style.cursor='pointer'; wrap.setAttribute('role','button'); wrap.setAttribute('tabindex','0');
-      wrap.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); openAnat(); }, true);
-      wrap.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openAnat(); } });
-      return;
-    }
     var arr=GAL[im.getAttribute('src')];
     if(arr){ wrap.classList.add('has-gallery');
       var hint=document.createElement('button'); hint.type='button'; hint.className='gal-hint'; hint.setAttribute('aria-label','Quick view photos');
