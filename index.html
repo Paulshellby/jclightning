@@ -1275,10 +1275,6 @@ h2 em { font-style:italic; color:var(--brass); }
 .back-bottom.show { opacity:1; visibility:visible; transform:translateY(0); transition:opacity .3s, transform .3s, visibility 0s linear 0s; }
 .back-bottom:hover { border-color:var(--brass); color:var(--brass-lt); }
 .back-bottom svg { width:18px; height:18px; }
-.social-toast { position:fixed; bottom:100px; left:28px; z-index:997; background:#fff; border-radius:10px; box-shadow:0 6px 30px rgba(0,0,0,0.15); padding:14px 18px; display:flex; align-items:center; gap:12px; max-width:300px; opacity:0; transform:translateX(-20px); transition:opacity .4s ease, transform .4s ease; pointer-events:none; }
-.social-toast.on { opacity:1; transform:translateX(0); }
-.social-toast .st-flag { font-size:1.4rem; flex-shrink:0; }
-.social-toast .st-body { font-size:0.78rem; font-weight:300; color:var(--ink); line-height:1.5; }
 /* Floating Inquiry Cart */
 .inq-cart-btn { position:fixed; bottom:30px; right:190px; z-index:999; width:46px; height:46px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); background:rgba(14,12,10,0.9); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(8px); transition:border-color .25s, transform .25s; }
 .inq-cart-btn:hover { border-color:var(--brass); transform:scale(1.08); }
@@ -1307,7 +1303,6 @@ h2 em { font-style:italic; color:var(--brass); }
 .inq-btn-send { background:var(--brass); border:none; color:#fff; }
 .inq-btn-send:hover { background:#c9a24e; box-shadow:0 6px 20px rgba(168,125,42,0.35); }
 .inq-btn-send:disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
-.social-toast .st-body strong { font-weight:500; color:var(--brass); }
 .wave { position:relative; }
 .wave::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:40px; background:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q150 0 300 20 Q450 40 600 20 Q750 0 900 20 Q1050 40 1200 20 L1200 40 L0 40 Z' fill='%231c1814'/%3E%3C/svg%3E") repeat-x; background-size:600px 40px; z-index:1; pointer-events:none; }
 .wave-light::after { fill:var(--chalk-w); }
@@ -1664,8 +1659,6 @@ section.scroll-reveal.sr-locked {
   .inq-cart-btn .inq-badge { min-width:16px; height:16px; font-size:0.55rem; top:-4px; right:-4px; }
   .inq-panel { right:8px; bottom:128px; width:calc(100vw - 16px); max-width:340px; max-height:380px; }
   .inq-panel-list { max-height:200px; }
-  .social-toast { left:10px; bottom:85px; max-width:250px; padding:10px 14px; }
-  .social-toast .st-body { font-size:0.72rem; }
   .testimonials { padding:64px 22px; }
   .testi-grid { grid-template-columns:1fr; gap:12px; }
   .testi-card { padding:24px 20px; }
@@ -4254,7 +4247,6 @@ polygon[fill="url(#vlg-solar)"] {
     <button class="inq-btn-send" id="inqSend" data-i18n="inq_send" disabled>Send via WhatsApp</button>
   </div>
 </div>
-<div class="social-toast" id="socialToast"><span class="st-flag"></span><span class="st-body"></span></div>
 <div class="chat-widget" id="chatWidget">
   <button class="chat-btn" id="chatBtn" aria-label="Chat with us">
     <svg class="chat-open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 9h8"/><path d="M8 13h4"/></svg>
@@ -6147,28 +6139,7 @@ if(glStatVals.length && typeof gsap!=='undefined'){
   window._inqRefresh=function(){ if(panelOpen) renderPanel(); };
 })();
 
-// 社交通知
-const toastData=[
-  {flag:'🇨🇴',msg:'A <strong>Colombia</strong> distributor just sent an enquiry about solar flood lights.'},
-  {flag:'🇿🇦',msg:'A <strong>South Africa</strong> contractor requested PIR wall light quotation.'},
-  {flag:'🇪🇨',msg:'An <strong>Ecuador</strong> importer is viewing security lighting specs.'},
-  {flag:'🇦🇺',msg:'A <strong>Australia</strong> buyer downloaded product specifications.'},
-  {flag:'🇰🇪',msg:'A <strong>Kenya</strong> project manager is browsing street lights.'},
-];
-let toastIdx=0;
-const toastEl=document.getElementById('socialToast');
-const toastFlag=toastEl.querySelector('.st-flag');
-const toastBody=toastEl.querySelector('.st-body');
-function showToast(){
-  const t=toastData[toastIdx % toastData.length];
-  toastFlag.textContent=t.flag;
-  toastBody.innerHTML=t.msg;
-  toastEl.classList.add('on');
-  setTimeout(()=>toastEl.classList.remove('on'),4000);
-  toastIdx++;
-  setTimeout(showToast,18000+Math.random()*12000);
-}
-setTimeout(showToast,8000);
+// 社交通知弹窗已移除（伪造活跃度/客户询盘，违反"不编造客户案例"原则）
 
 // Lenis DISABLED — using native browser scroll for maximum mouse-wheel responsiveness.
 // CSS `scroll-behavior: smooth` on <html> still gives smooth anchor jumps.
