@@ -1996,6 +1996,23 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   .nav-cta, .nav-dl { font-size: 0.55rem !important; padding: 7px 12px !important; }
 }
 </style>
+<style>
+/* ── unified tail block: partner + matchmaker + contact read as one continuous section ── */
+.tail{ background:linear-gradient(180deg,#1a1612 0%,#141010 46%,#0e0c0a 100%); position:relative; }
+.tail > .partner,
+.tail > .matchmaker,
+.tail > .contact{ background:transparent; }
+.tail > .partner{ padding-top:92px; padding-bottom:52px; }
+.tail > .matchmaker{ padding-top:52px; padding-bottom:36px; }
+.tail > .contact{ padding-top:44px; }
+.tail > .matchmaker,
+.tail > .contact{ border-top:1px solid rgba(201,162,78,.14); }
+@media(max-width:768px){
+  .tail > .partner{ padding-top:56px; padding-bottom:38px; }
+  .tail > .matchmaker{ padding-top:40px; padding-bottom:26px; }
+  .tail > .contact{ padding-top:34px; }
+}
+</style>
 </head>
 <body>
 
@@ -3965,6 +3982,8 @@ polygon[fill="url(#vlg-solar)"] {
 </section>
 
 <!-- ═══ Partner Program (Become a Distributor — Sigenergy-inspired) ═══ -->
+<!-- ===== unified tail block ===== -->
+<div class="tail">
 <section class="partner" id="partner">
   <div class="partner-head reveal">
     <span class="partner-label" data-i18n="partner_label">Partner Program</span>
@@ -4150,6 +4169,8 @@ polygon[fill="url(#vlg-solar)"] {
     <p id="form-err">✗ Something went wrong. Please email us directly at l488789496@outlook.com</p>
   </form>
 </section>
+</div>
+<!-- ===== /tail ===== -->
 
 <footer>
   <!-- (ft-top + social-strip + address moved to Contact section) -->
