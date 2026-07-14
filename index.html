@@ -1997,20 +1997,28 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 }
 </style>
 <style>
-/* ── unified tail block: partner + matchmaker + contact read as one continuous section ── */
-.tail{ background:linear-gradient(180deg,#1a1612 0%,#141010 46%,#0e0c0a 100%); position:relative; }
-.tail > .partner,
-.tail > .matchmaker,
-.tail > .contact{ background:transparent; }
-.tail > .partner{ padding-top:92px; padding-bottom:52px; }
-.tail > .matchmaker{ padding-top:52px; padding-bottom:36px; }
-.tail > .contact{ padding-top:44px; }
-.tail > .matchmaker,
-.tail > .contact{ border-top:1px solid rgba(201,162,78,.14); }
+/* ── fused tail: partner + matchmaker + contact = one #engage section ── */
+.engage{ background:linear-gradient(180deg,#1a1612 0%,#141010 46%,#0e0c0a 100%); position:relative; padding-top:clamp(66px,9vw,104px); }
+.engage-head{ text-align:center; max-width:760px; margin:0 auto clamp(30px,5vw,52px); padding:0 22px; }
+.engage-label{ display:inline-block; font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--brass); font-weight:600; margin-bottom:14px; }
+.engage-head h2{ font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(2rem,4.6vw,3.1rem); color:#f7f3ec; line-height:1.08; margin:0 0 14px; }
+.engage-head h2 em{ font-style:italic; color:var(--brass-lt); }
+.engage-sub{ font-size:1rem; line-height:1.6; color:#cfc7ba; margin:0; }
+.engage > .partner, .engage > .matchmaker, .engage > .contact{ background:transparent; }
+.engage > .partner{ padding-top:6px; padding-bottom:46px; }
+.engage > .matchmaker{ padding-top:46px; padding-bottom:38px; }
+.engage > .contact{ padding-top:46px; }
+.engage-block + .engage-block{ border-top:1px solid rgba(201,162,78,.14); }
+.engage-step{ display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.partner .engage-step, .matchmaker .engage-step{ justify-content:center; }
+.engage-step-n{ font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brass); border:1px solid rgba(201,162,78,.4); width:34px; height:34px; border-radius:50%; display:grid; place-items:center; flex:none; }
+.engage-step-t{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--brass-lt); font-weight:600; }
+.engage-blurb{ text-align:center; max-width:640px; margin:0 auto 30px; color:#b8ad9d; font-size:.95rem; line-height:1.6; }
 @media(max-width:768px){
-  .tail > .partner{ padding-top:56px; padding-bottom:38px; }
-  .tail > .matchmaker{ padding-top:40px; padding-bottom:26px; }
-  .tail > .contact{ padding-top:34px; }
+  .engage > .partner{ padding-bottom:36px; }
+  .engage > .matchmaker{ padding-top:36px; padding-bottom:30px; }
+  .engage > .contact{ padding-top:36px; }
+  .engage-blurb{ padding:0 18px; }
 }
 </style>
 </head>
@@ -3983,13 +3991,16 @@ polygon[fill="url(#vlg-solar)"] {
 
 <!-- ═══ Partner Program (Become a Distributor — Sigenergy-inspired) ═══ -->
 <!-- ===== unified tail block ===== -->
-<div class="tail">
-<section class="partner" id="partner">
-  <div class="partner-head reveal">
-    <span class="partner-label" data-i18n="partner_label">Partner Program</span>
-    <h2 data-i18n="partner_h">Become a JC Lightning <em>Distributor</em></h2>
-    <p data-i18n="partner_sub">Join importers, contractors and solar installers across 6 continents who stock JC Lightning. Competitive volume pricing, exclusive territory protection, and full sourcing support.</p>
+<section class="engage" id="engage">
+  <div class="engage-head reveal">
+    <span class="engage-label" data-i18n="engage_label">Work With Us</span>
+    <h2 data-i18n="engage_h">Let's light <em>your market.</em></h2>
+    <p class="engage-sub" data-i18n="engage_sub">Become a distributor, get matched to the right products, or send an enquiry — the JC team replies within 24 hours.</p>
   </div>
+
+<div class="partner engage-block" id="partner">
+  <div class="engage-step reveal"><span class="engage-step-n">01</span><span class="engage-step-t" data-i18n="partner_label">Partner Program</span></div>
+  <p class="engage-blurb reveal" data-i18n="partner_sub">Join importers, contractors and solar installers across 6 continents who stock JC Lightning. Competitive volume pricing, exclusive territory protection, and full sourcing support.</p>
 
   <div class="partner-benefits reveal">
     <div class="partner-card">
@@ -4023,18 +4034,10 @@ polygon[fill="url(#vlg-solar)"] {
       <span data-i18n="partner_talk">Talk to Partnership Team</span>
     </a>
   </div>
-</section>
+</div>
 
-<section class="matchmaker" id="find-light">
-  <!-- HUD-style eyebrow with pulse dot -->
-  <div class="mm-eyebrow reveal">
-    <span class="mm-eyebrow-pulse"></span>
-    <span class="sec-label" data-i18n="mm_lbl">FIND YOUR LIGHT</span>
-    <span class="mm-eyebrow-sep">·</span>
-    <span class="mm-eyebrow-status" data-i18n="mm_status">RECOMMENDATION ENGINE · ACTIVE</span>
-  </div>
-
-  <h2 class="reveal" data-i18n="mm_h2">Not sure which light fits? <em>Answer a few questions.</em></h2>
+<div class="matchmaker engage-block" id="find-light">
+  <div class="engage-step reveal"><span class="engage-step-n">02</span><span class="engage-step-t" data-i18n="mm_lbl">Find Your Light</span></div>
   <p class="match-sub reveal" data-i18n="mm_sub">Tailored product recommendations · wholesale pricing within 24 hours · Direct WhatsApp to a JC engineer.</p>
 
   <!-- Global coverage flags row — visual proof of worldwide reach -->
@@ -4118,12 +4121,11 @@ polygon[fill="url(#vlg-solar)"] {
 
   <!-- Results Area (hidden initially) -->
   <div id="matchResults" style="display:none"></div>
-</section>
+</div>
 
-<section class="contact" id="contact">
+<div class="contact engage-block" id="contact">
   <div class="con-l reveal">
-    <div class="sec-label" data-i18n="con_lbl">Get In Touch</div>
-    <h2 data-i18n="con_h2">Tell us your market. <em>We'll tell you what works there.</em></h2>
+    <div class="engage-step"><span class="engage-step-n">03</span><span class="engage-step-t" data-i18n="con_lbl">Get In Touch</span></div>
     <p data-i18n="con_p">Share product type, target quantity, and destination port. We respond within 24 hours — pricing, spec sheet, lead time, and certification documents included.</p>
     <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><path d="M2 5l8 6 8-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/></svg><span><a href="mailto:l488789496@outlook.com" style="color:inherit;text-decoration:none">l488789496@outlook.com</a> &nbsp;·&nbsp; <a href="mailto:qq1781282955@gmail.com" style="color:inherit;text-decoration:none">qq1781282955@gmail.com</a></span></div>
     <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><path d="M16.5 14.3l-2.3 2.3a14.5 14.5 0 01-10.8-10.8l2.3-2.3a1 1 0 011.4 0l2 2a1 1 0 010 1.4l-1 1a8.5 8.5 0 004.5 4.5l1-1a1 1 0 011.4 0l2 2a1 1 0 010 1.4z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Rania &nbsp;·&nbsp; WhatsApp <a href="https://wa.me/8613138189642" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px">0086 131 3818 9642</a></span></div>
@@ -4168,9 +4170,9 @@ polygon[fill="url(#vlg-solar)"] {
     <p id="form-ok" data-i18n="f_ok">✓ Enquiry received. We'll respond within 24 hours with a full quotation.</p>
     <p id="form-err">✗ Something went wrong. Please email us directly at l488789496@outlook.com</p>
   </form>
-</section>
 </div>
-<!-- ===== /tail ===== -->
+</section>
+<!-- ===== /engage ===== -->
 
 <footer>
   <!-- (ft-top + social-strip + address moved to Contact section) -->
@@ -4246,9 +4248,7 @@ polygon[fill="url(#vlg-solar)"] {
   <a href="#products"   class="toc-dot" aria-label="Products"><span class="toc-label" data-i18n="nav_products">Products</span></a>
   <a href="#insights"   class="toc-dot" aria-label="Insights"><span class="toc-label" data-i18n="nav_insights">Insights</span></a>
   <a href="#faq"        class="toc-dot" aria-label="FAQ"><span class="toc-label" data-i18n="toc_faq">FAQ</span></a>
-  <a href="#partner"    class="toc-dot" aria-label="Partners"><span class="toc-label" data-i18n="nav_partner">Partners</span></a>
-  <a href="#find-light" class="toc-dot" aria-label="Matchmaker"><span class="toc-label" data-i18n="toc_match">Matchmaker</span></a>
-  <a href="#contact"    class="toc-dot" aria-label="Contact"><span class="toc-label" data-i18n="nav_contact">Contact</span></a>
+  <a href="#engage"     class="toc-dot" aria-label="Work with us"><span class="toc-label" data-i18n="toc_engage">Work With Us</span></a>
 </aside>
 <button class="back-bottom" id="backBottom" aria-label="Go to bottom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
 <!-- Inquiry Cart Floating Button -->
