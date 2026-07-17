@@ -2037,6 +2037,30 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 #engageMatch{max-width:940px;margin:clamp(28px,4vw,44px) auto 0;padding:clamp(34px,4vw,48px) clamp(16px,3vw,40px) 0;border-top:1px solid rgba(201,162,78,.14);text-align:center;animation:eng-match-in .45s ease}
 @keyframes eng-match-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 </style>
+<style>
+/* ===== Solutions — application scenarios ===== */
+.solutions{padding:clamp(70px,9vw,118px) clamp(16px,3vw,56px);background:linear-gradient(180deg,#f7f3ec 0%,#f0ebe2 100%);position:relative}
+.sol-head{text-align:center;max-width:730px;margin:0 auto clamp(32px,5vw,52px)}
+.sol-head .sec-label{color:var(--brass);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.sol-head h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(1.9rem,4.2vw,2.9rem);color:var(--ink);line-height:1.1;margin:0 0 12px}
+.sol-head h2 em{font-style:italic;color:var(--brass)}
+.sol-sub{font-size:.97rem;line-height:1.6;color:#6b6157;margin:0}
+.sol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:14px;max-width:1220px;margin:0 auto}
+.sol-card{text-align:left;background:#fff;border:1px solid #e4dccd;border-radius:14px;padding:20px 20px 17px;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:9px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.sol-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(20,18,14,.11);border-color:var(--brass)}
+.sol-card h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:0;line-height:1.25}
+.sol-card p{font-size:.82rem;line-height:1.52;color:#7a7061;margin:0;flex:1}
+.sol-card .sol-go{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);font-weight:700;display:inline-flex;align-items:center;gap:6px;margin-top:2px}
+.sol-card:hover .sol-go{color:var(--brass-lt)}
+/* modal: features list + product thumbnails */
+.sw-box .bx-feat{list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:7px}
+.sw-box .bx-feat li{position:relative;padding-left:17px;font-size:.85rem;line-height:1.5;color:#cfc8bd}
+.sw-box .bx-feat li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--brass)}
+.sw-box .bx-prods li a{gap:12px;padding:8px 10px}
+.sw-box .bx-prods li a::before{display:none}
+.sw-box .bx-pimg{width:46px;height:46px;border-radius:8px;object-fit:cover;flex:none;background:#221d17}
+.sw-box .bx-pname{flex:1}
+</style>
 </head>
 <body>
 
@@ -2085,7 +2109,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
         <div class="mega-preview"><img src="images/product-01.webp" alt="3-Head solar motion flood light preview" class="active" id="megaPreview"></div>
       </div>
     </li>
-    <li><a href="#products"  class="nav-link" data-i18n="nav_solutions">Solutions</a></li>
+    <li><a href="#solutions"  class="nav-link" data-i18n="nav_solutions">Solutions</a></li>
     <li><a href="#insights"   class="nav-link" data-i18n="nav_insights">Insights</a></li>
     <li><a href="#contact"    class="nav-link nav-partner" data-i18n="nav_partner">Partners</a></li>
     <li><a href="#contact"    class="nav-link" data-i18n="nav_contact">Contact</a></li>
@@ -2177,7 +2201,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 </nav>
 <div class="nav-drop" id="navDrop">
   <a href="#products" data-i18n="nav_products">Products</a>
-  <a href="#products" data-i18n="nav_solutions">Solutions</a>
+  <a href="#solutions" data-i18n="nav_solutions">Solutions</a>
   <a href="#insights" data-i18n="nav_insights">Insights</a>
   <a href="#contact" data-i18n="nav_partner" style="color:var(--brass-lt)">Become a Partner</a>
   <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -3482,6 +3506,16 @@ polygon[fill="url(#vlg-solar)"] {
 
 <!-- (numbers section removed — stats now live inside <section class="global"> below) -->
 
+<!-- ===== SOLUTIONS — application scenarios ===== -->
+<section class="solutions" id="solutions">
+  <div class="sol-head reveal">
+    <div class="sec-label" data-i18n="sol_lbl">Solutions</div>
+    <h2 data-i18n="sol_h2">Every application. <em>The right light.</em></h2>
+    <p class="sol-sub" data-i18n="sol_sub">Pick your scenario — what it is, what the lighting has to handle, and the products we would put on it.</p>
+  </div>
+  <div class="sol-grid reveal" id="solGrid"></div>
+</section>
+
 <section class="global" id="global">
   <div class="global-head reveal">
     <div class="sec-label" data-i18n="gl_lbl">Global Presence</div>
@@ -4185,6 +4219,7 @@ polygon[fill="url(#vlg-solar)"] {
 <aside class="toc-sidebar" id="tocSidebar" aria-label="Section navigation" role="navigation">
   <a href="#global"     class="toc-dot" aria-label="Global markets"><span class="toc-label" data-i18n="toc_global">Global</span></a>
   <a href="#products"   class="toc-dot" aria-label="Products"><span class="toc-label" data-i18n="nav_products">Products</span></a>
+  <a href="#solutions"  class="toc-dot" aria-label="Solutions"><span class="toc-label" data-i18n="nav_solutions">Solutions</span></a>
   <a href="#insights"   class="toc-dot" aria-label="Insights"><span class="toc-label" data-i18n="nav_insights">Insights</span></a>
   <a href="#faq"        class="toc-dot" aria-label="FAQ"><span class="toc-label" data-i18n="toc_faq">FAQ</span></a>
   <a href="#engage"     class="toc-dot" aria-label="Contact"><span class="toc-label" data-i18n="toc_engage">Contact</span></a>
@@ -6806,19 +6841,53 @@ window.restartQuiz=function(){
 (function(){
   var P = 'products/';
   var SW = [
-    {t:'Agriculture & Farms', k:'app_agri', d:[17.2,22], href:P+'solar-security-street-lights.html', desc:'Solar floodlights and PIR wall lights protecting compounds, farms and residential perimeter walls. Motion-activated, grid-independent, IP65/IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['3-Head Motion Flood Light',P+'solar-motion-flood-light-3-head.html'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html']]},
-    {t:'Commercial & Retail', k:'app_comm', d:[61.6,9], href:P+'solar-security-street-lights.html', desc:'Solar floodlights and PIR wall lights protecting commercial compounds, warehouses and perimeter walls. Motion-activated, grid-independent, IP65/IP66.', p:[['3-Head Motion Flood Light',P+'solar-motion-flood-light-3-head.html'],['PIR Motion Sensor Wall Light',P+'pir-motion-sensor-wall-light.html'],['All-in-One Street Light',P+'all-in-one-solar-street-light.html']]},
-    {t:'Port & Marine', k:'app_port', d:[90,20], href:P+'solar-security-street-lights.html', desc:'High-power floodlights and high-mast lighting for ports, container yards and logistics sites. Weatherproof, corrosion-resistant, IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html'],['Solar Warning Beacon Light',P+'solar-warning-beacon-light.html']]},
-    {t:'Industrial & Warehouse', k:'app_indus', d:[65,33], href:P+'solar-security-street-lights.html', desc:'UFO high bay lights and high-power floodlights for warehouses, factories, assembly lines and logistics centres. 100-300W, IP65, 30,000h.', p:[['30W Flood Security Light',P+'solar-flood-security-light-30w.html'],['UFO High Bay Light',P+'ufo-high-bay-light.html'],['AC LED Floodlight',P+'ac-led-floodlight.html']]},
-    {t:'Street & Road Lighting', k:'app_street', d:[37.6,57.2], href:P+'solar-security-street-lights.html', desc:'All-in-one and split solar street lights for municipal roads, rural highways, parking lots and long driveways. Radar sensing, dusk-to-dawn, IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['Split Solar Street Light',P+'split-solar-street-light.html'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html']]},
-    {t:'Sports Lighting', k:'app_sports', d:[80,42], href:P+'solar-security-street-lights.html', desc:'High-power LED floodlights 200-1000W for sports courts, stadiums, tennis courts and arenas. Wide 120° beam, 6500K daylight, IP65.', p:[['30W Flood Security Light',P+'solar-flood-security-light-30w.html'],['AC LED Floodlight',P+'ac-led-floodlight.html'],['UFO High Bay Light',P+'ufo-high-bay-light.html']]},
-    {t:'Villa & Garden', k:'app_villa', d:[24.6,47], href:P+'solar-decorative-wall-lights.html', desc:'Courtyard column lights, gate pillar lamps and up-down wall sconces framing grand entrances for villas, hotels and gated communities.', p:[['Outdoor Wall Lantern',P+'outdoor-wall-lantern-solar-ac.html'],['Up-Down Solar Wall Light',P+'up-down-solar-wall-light.html'],['PIR Motion Sensor Wall Light',P+'pir-motion-sensor-wall-light.html']]},
-    {t:'Parking Area', k:'app_park', d:[90,56], href:P+'solar-security-street-lights.html', desc:'Street light heads and floodlights for parking lots, industrial parks and commercial compounds. Radar or photocell control, IP65/IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['Split Solar Street Light',P+'split-solar-street-light.html'],['AC Street Light',P+'ac-street-light.html']]},
-    {t:'Landscape & Garden', k:'app_land', d:[33.4,37.8], href:P+'solar-garden-landscape-lights.html', desc:'Stake lights, spike spotlights and bollards shaping flowerbeds, pathways and tree uplighting. 304 stainless steel and cast aluminium. IP65-IP67.', p:[['Garden Spike Spotlight',P+'solar-garden-spike-spotlight.html'],['Garden Stake Light 8-Pack',P+'solar-garden-stake-light-8-pack.html'],['Courtyard Column Light',P+'solar-courtyard-column-light.html']]},
-    {t:'Off-grid & Solar Home', k:'app_offgrid', d:[69,52.4], href:P+'off-grid-portable-solar-lights.html', desc:'Split-panel indoor wall lights, home lighting kits and ceiling fans for off-grid rural homes. Panel outside, light inside. USB phone charging. LiFePO4.', p:[['Solar Home Lighting Kit',P+'solar-home-lighting-kit.html'],['Solar Emergency LED Bulb',P+'solar-emergency-led-bulb.html'],['Indoor Wall Light (Split Panel)',P+'solar-indoor-wall-light-split-panel.html']]},
-    {t:'Camping & Portable', k:'app_camp', d:[18.5,61.2], href:P+'off-grid-portable-solar-lights.html', desc:'Portable camping lanterns, power bank lanterns, bug zappers and work lights for camping, fishing and outdoor exploration. USB-C PD, magnetic base, IP65.', p:[['Portable Camping Lantern',P+'solar-portable-camping-lantern.html'],['Power Bank Lantern Pro',P+'solar-power-bank-lantern-pro.html'],['Emergency UFO Light',P+'emergency-ufo-rechargeable-light.html']]}
+    {t:'Agriculture & Farms', k:'app_agri', d:[17.2,22], href:P+'solar-security-street-lights.html',
+     def:'Farms, rural compounds and agricultural facilities beyond the grid edge — perimeters, yards, barns and access tracks that need light where no cable runs.',
+     feat:['Grid-independent — no trenching out to remote plots','PIR / radar motion triggers full brightness on movement','IP65–IP66 sealed against dust, rain and washdown'],
+     p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html','images/product-02.webp'],['3-Head Motion Flood Light',P+'solar-motion-flood-light-3-head.html','images/product-01.webp'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html','images/product-05.webp']]},
+    {t:'Commercial & Retail', k:'app_comm', d:[61.6,9], href:P+'solar-security-street-lights.html',
+     def:'Shops, showrooms, warehouses and commercial compounds — forecourts, walls and entrances that need deterrent light once the doors close.',
+     feat:['Motion-activated deterrence at entrances and perimeter walls','Keeps working through outages — no grid dependency','IP65–IP66 for year-round outdoor exposure'],
+     p:[['3-Head Motion Flood Light',P+'solar-motion-flood-light-3-head.html','images/product-01.webp'],['PIR Motion Sensor Wall Light',P+'pir-motion-sensor-wall-light.html','images/product-03.webp'],['All-in-One Street Light',P+'all-in-one-solar-street-light.html','images/product-02.webp']]},
+    {t:'Port & Marine', k:'app_port', d:[90,20], href:P+'solar-security-street-lights.html',
+     def:'Ports, container yards, jetties and logistics terminals — large open areas working around the clock in salt air and driving weather.',
+     feat:['High-output flood coverage for wide open yards','IP66 sealing against driving rain and spray','Radar sensing with dusk-to-dawn autonomy'],
+     p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html','images/product-02.webp'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html','images/product-05.webp'],['Solar Warning Beacon Light',P+'solar-warning-beacon-light.html','images/new/product-25.webp']]},
+    {t:'Industrial & Warehouse', k:'app_indus', d:[65,33], href:P+'solar-security-street-lights.html',
+     def:'Factories, warehouses, assembly halls and logistics centres — tall interiors and working yards that run well past daylight.',
+     feat:['100–300W high-bay output for tall interior spans','IP65 housings for dust and industrial environments','AC and solar options for mixed grid / off-grid sites'],
+     p:[['UFO High Bay Light',P+'ufo-high-bay-light.html','images/product-32.webp'],['AC LED Floodlight',P+'ac-led-floodlight.html','images/product-31.webp'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html','images/product-05.webp']]},
+    {t:'Street & Road Lighting', k:'app_street', d:[37.6,57.2], href:P+'solar-security-street-lights.html',
+     def:'Municipal roads, rural highways, estate driveways and access lanes — linear routes that need even, dusk-to-dawn coverage.',
+     feat:['All-in-one or split — bolts to a pole, no trenching','Radar dimming stretches charge through long nights','IP66 with dusk-to-dawn automatic operation'],
+     p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html','images/product-02.webp'],['Split Solar Street Light',P+'split-solar-street-light.html','images/product-27.webp'],['AC Street Light',P+'ac-street-light.html','images/product-33.webp']]},
+    {t:'Sports Lighting', k:'app_sports', d:[80,42], href:P+'solar-security-street-lights.html',
+     def:'Courts, pitches, stadiums and training grounds — play areas that need wide, even light after sunset.',
+     feat:['High-power floodlights with wide beam coverage','6500K daylight rendering for play and cameras','IP65 for permanent open-air mounting'],
+     p:[['AC LED Floodlight',P+'ac-led-floodlight.html','images/product-31.webp'],['UFO High Bay Light',P+'ufo-high-bay-light.html','images/product-32.webp'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html','images/product-05.webp']]},
+    {t:'Villa & Garden', k:'app_villa', d:[24.6,47], href:P+'solar-decorative-wall-lights.html',
+     def:'Villas, gated estates and hotel entrances — gate pillars, façades and boundary walls where the arrival impression is made.',
+     feat:['Cast aluminium and stainless bodies for façade mounting','Up-down and lantern forms that frame entrances','IP65 with warm 3000K ambience'],
+     p:[['Outdoor Wall Lantern',P+'outdoor-wall-lantern-solar-ac.html','images/product-09.webp'],['Up-Down Solar Wall Light',P+'up-down-solar-wall-light.html','images/product-04.webp'],['PIR Motion Sensor Wall Light',P+'pir-motion-sensor-wall-light.html','images/product-03.webp']]},
+    {t:'Parking Area', k:'app_park', d:[90,56], href:P+'solar-security-street-lights.html',
+     def:'Car parks, industrial parks and commercial forecourts — open bays that need even coverage and motion response.',
+     feat:['Street-light heads for pole and canopy mounting','Radar or photocell control to conserve charge','IP65–IP66 for fully exposed installations'],
+     p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html','images/product-02.webp'],['Split Solar Street Light',P+'split-solar-street-light.html','images/product-27.webp'],['AC Street Light',P+'ac-street-light.html','images/product-33.webp']]},
+    {t:'Landscape & Garden', k:'app_land', d:[33.4,37.8], href:P+'solar-garden-landscape-lights.html',
+     def:'Flowerbeds, pathways, borders and specimen trees — decorative accent light that shapes a garden after dusk.',
+     feat:['Spike, stake and bollard forms for soft placement','304 / 316 stainless and cast aluminium bodies','IP65–IP67 against sprinklers and ground water'],
+     p:[['Garden Spike Spotlight',P+'solar-garden-spike-spotlight.html','images/product-14.webp'],['Garden Stake Light 8-Pack',P+'solar-garden-stake-light-8-pack.html','images/product-13.webp'],['Courtyard Column Light',P+'solar-courtyard-column-light.html','images/product-28.webp']]},
+    {t:'Off-grid & Solar Home', k:'app_offgrid', d:[69,52.4], href:P+'off-grid-portable-solar-lights.html',
+     def:'Rural homes and cabins beyond reliable grid supply — indoor light, phone charging and fans running off a panel on the roof.',
+     feat:['Split panel outside, light inside — no house wiring','LiFePO4 storage with USB phone charging','Kits scale from a single room to a whole home'],
+     p:[['Solar Home Lighting Kit',P+'solar-home-lighting-kit.html','images/new/product-17.webp'],['Solar Emergency LED Bulb',P+'solar-emergency-led-bulb.html','images/new/product-16.webp'],['Indoor Wall Light (Split Panel)',P+'solar-indoor-wall-light-split-panel.html','images/new/product-15.webp']]},
+    {t:'Camping & Portable', k:'app_camp', d:[18.5,61.2], href:P+'off-grid-portable-solar-lights.html',
+     def:'Camping, fishing, night markets and field work — light you carry, hang and recharge wherever you are.',
+     feat:['USB-C recharge with power-bank output','Magnetic bases and hooks for hands-free use','IP65 against rain and outdoor knocks'],
+     p:[['Portable Camping Lantern',P+'solar-portable-camping-lantern.html','images/product-10.webp'],['Power Bank Lantern Pro',P+'solar-power-bank-lantern-pro.html','images/new/product-24.webp'],['Emergency UFO Light',P+'emergency-ufo-rechargeable-light.html','images/product-30.webp']]}
   ];
   var host = document.getElementById('swHotspots'), grid = document.getElementById('swGrid'),
+      solGrid = document.getElementById('solGrid'),
       modal = document.getElementById('swModal'), box = document.getElementById('swBox');
   if(!host) return;
   // day/night cycle: cross-fade to night every 10s (day is default)
@@ -6826,13 +6895,15 @@ window.restartQuiz=function(){
   // matchmaker quiz reveal (launched from the contact block)
   (function(){ var b=document.getElementById('conQuizBtn'), m=document.getElementById('engageMatch'); if(b&&m){ b.addEventListener('click',function(){ m.hidden=false; m.scrollIntoView({behavior:'smooth',block:'center'}); }); } })();
   function openModal(h){
-    var lis = h.p.map(function(pr){ return '<li><a href="'+pr[1]+'">'+pr[0]+'<span class="arw">→</span></a></li>'; }).join('');
+    var lis = h.p.map(function(pr){ return '<li><a href="'+pr[1]+'"><img class="bx-pimg" src="'+pr[2]+'" alt="" loading="lazy"><span class="bx-pname">'+pr[0]+'</span><span class="arw">→</span></a></li>'; }).join('');
+    var feats = (h.feat||[]).map(function(f){ return '<li>'+f+'</li>'; }).join('');
     box.innerHTML = '<button class="bx-close" type="button" aria-label="Close">×</button>'+
       '<div class="bx-cat">Application</div>'+
       '<h3>'+h.t+'</h3>'+
-      '<p class="bx-desc">'+h.desc+'</p>'+
+      '<p class="bx-desc">'+h.def+'</p>'+
+      (feats ? '<div class="bx-plabel">What the lighting has to handle</div><ul class="bx-feat">'+feats+'</ul>' : '')+
       '<div class="bx-plabel">Recommended products</div>'+
-      '<ul>'+lis+'</ul>'+
+      '<ul class="bx-prods">'+lis+'</ul>'+
       '<a class="bx-all" href="'+h.href+'">See full range →</a>';
     box.querySelector('.bx-close').addEventListener('click', closeModal);
     modal.classList.add('on'); document.body.style.overflow = 'hidden';
@@ -6849,6 +6920,13 @@ window.restartQuiz=function(){
     b.innerHTML = '<span class="dot"></span><span class="lbl" data-i18n="'+h.k+'">'+h.t+'</span>';
     b.addEventListener('click', function(){ openModal(h); });
     host.appendChild(b);
+    if(solGrid){
+      var sc = document.createElement('button');
+      sc.className = 'sol-card'; sc.type = 'button';
+      sc.innerHTML = '<h3>'+h.t+'</h3><p>'+h.def+'</p><span class="sol-go">View products <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>';
+      sc.addEventListener('click', function(){ openModal(h); });
+      solGrid.appendChild(sc);
+    }
     if(grid){
       var g = document.createElement('button');
       g.className = 'sw-gcard'; g.type = 'button'; g.setAttribute('aria-label', h.t);
