@@ -2028,6 +2028,21 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 .engage-why{ max-width:1120px; margin:0 auto clamp(34px,5vw,54px); padding:0 clamp(16px,3vw,40px); }
 .engage-match{ max-width:940px; margin:clamp(34px,5vw,54px) auto 0; padding:clamp(40px,5vw,58px) clamp(16px,3vw,40px) 0; border-top:1px solid rgba(201,162,78,.14); text-align:center; }
 </style>
+<style>
+/* integrated contact block: why-list + quiz launcher inside the left column */
+.con-why{margin-top:26px;padding-top:22px;border-top:1px solid rgba(201,162,78,.18)}
+.con-why-h{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-lt);font-weight:700;margin-bottom:15px}
+.con-why-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:15px}
+.con-why-item .cw-ic{flex:none;width:23px;height:23px;color:var(--brass-lt);stroke:currentColor;fill:none;margin-top:2px}
+.con-why-item b{display:block;font-family:'Outfit',sans-serif;font-size:.9rem;color:#f2ece0;margin-bottom:2px;font-weight:600}
+.con-why-item span{display:block;font-size:.8rem;line-height:1.45;color:#b8ad9d}
+.con-quiz-btn{display:inline-flex;align-items:center;gap:9px;margin-top:24px;background:rgba(201,162,78,.1);border:1px solid rgba(201,162,78,.4);color:var(--brass-lt);border-radius:10px;padding:12px 18px;font-size:.86rem;font-weight:600;cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s}
+.con-quiz-btn:hover{background:rgba(201,162,78,.18);border-color:var(--brass-lt)}
+.con-quiz-btn svg{width:16px;height:16px;flex:none}
+.engage-match[hidden]{display:none}
+#engageMatch{max-width:940px;margin:clamp(28px,4vw,44px) auto 0;padding:clamp(34px,4vw,48px) clamp(16px,3vw,40px) 0;border-top:1px solid rgba(201,162,78,.14);text-align:center;animation:eng-match-in .45s ease}
+@keyframes eng-match-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+</style>
 </head>
 <body>
 
@@ -4009,33 +4024,6 @@ polygon[fill="url(#vlg-solar)"] {
     <p class="engage-sub" data-i18n="con_p">Share product type, target quantity, and destination port. We respond within 24 hours — pricing, spec sheet, lead time, and certification documents included.</p>
   </div>
 
-  <!-- fused from Partner: why work with JC -->
-  <div class="engage-why reveal">
-    <div class="engage-mini-h" data-i18n="engage_why_h">Why distributors choose JC</div>
-    <div class="partner-benefits reveal">
-    <div class="partner-card">
-      <svg class="pc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-      <h4 data-i18n="partner_b1_t">Volume Tier Pricing</h4>
-      <p data-i18n="partner_b1_d">Transparent 4-tier wholesale pricing from 500 to 5,000+ units. Margin protection on every reorder.</p>
-    </div>
-    <div class="partner-card">
-      <svg class="pc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg>
-      <h4 data-i18n="partner_b2_t">Exclusive Territory</h4>
-      <p data-i18n="partner_b2_d">Lock in your country or region. We won't sell direct to your competitors while your account is active.</p>
-    </div>
-    <div class="partner-card">
-      <svg class="pc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      <h4 data-i18n="partner_b3_t">Marketing &amp; OEM Support</h4>
-      <p data-i18n="partner_b3_d">Free product photography, multi-language datasheets, retail packaging design. Full OEM/ODM available.</p>
-    </div>
-    <div class="partner-card">
-      <svg class="pc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2"/></svg>
-      <h4 data-i18n="partner_b4_t">Dedicated Account Team</h4>
-      <p data-i18n="partner_b4_d">One contact for quotes, shipping, after-sales. English / Spanish / Portuguese / Arabic / Mandarin support.</p>
-    </div>
-  </div>
-  </div>
-
   <div class="contact" id="contact">
     <div class="con-l reveal">
     <div class="con-detail"><svg viewBox="0 0 20 20" fill="none"><path d="M2 5l8 6 8-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/></svg><span><a href="mailto:l488789496@outlook.com" style="color:inherit;text-decoration:none">l488789496@outlook.com</a> &nbsp;·&nbsp; <a href="mailto:qq1781282955@gmail.com" style="color:inherit;text-decoration:none">qq1781282955@gmail.com</a></span></div>
@@ -4049,7 +4037,15 @@ polygon[fill="url(#vlg-solar)"] {
         <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.66 4.88 1.92 7.02L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.1 19.42c-.3.84-1.76 1.6-2.42 1.66-.66.06-1.28.3-4.32-.9-3.66-1.44-6-5.18-6.18-5.42-.18-.24-1.44-1.92-1.44-3.66s.9-2.58 1.24-2.94c.34-.36.72-.44.96-.44l.7.01c.22 0 .52-.08.8.62l1.14 2.8c.1.22.04.48-.06.66l-.42.52-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.96 1.24 2.24 1.38.28.14.44.12.6-.08l.82-1c.16-.2.32-.14.54-.06l2.72 1.28c.28.14.46.2.52.32.06.48-.22 1.96-.52 2.8z"/></svg>
       </a>
     </div>
-  </div>
+      <div class="con-why">
+        <div class="con-why-h" data-i18n="engage_why_h">Why work with JC</div>
+        <div class="con-why-item"><svg class="cw-ic" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><div><b data-i18n="partner_b1_t">Volume Tier Pricing</b><span data-i18n="partner_b1_d">Transparent 4-tier wholesale pricing from 500 to 5,000+ units. Margin protection on every reorder.</span></div></div>
+        <div class="con-why-item"><svg class="cw-ic" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg><div><b data-i18n="partner_b2_t">Exclusive Territory</b><span data-i18n="partner_b2_d">Lock in your country or region. We won't sell direct to your competitors while your account is active.</span></div></div>
+        <div class="con-why-item"><svg class="cw-ic" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><div><b data-i18n="partner_b3_t">Marketing &amp; OEM Support</b><span data-i18n="partner_b3_d">Free product photography, multi-language datasheets, retail packaging design. Full OEM/ODM available.</span></div></div>
+        <div class="con-why-item"><svg class="cw-ic" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2"/></svg><div><b data-i18n="partner_b4_t">Dedicated Account Team</b><span data-i18n="partner_b4_d">One contact for quotes, shipping, after-sales. English / Spanish / Portuguese / Arabic / Mandarin support.</span></div></div>
+      </div>
+      <button type="button" class="con-quiz-btn" id="conQuizBtn"><span data-i18n="engage_match_h">Not sure which product fits? Take the 30-second quiz</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+    </div>
     <form class="con-form reveal" style="transition-delay:.1s" id="contactForm" action="https://formsubmit.co/l488789496@outlook.com" method="POST">
     <!-- Formsubmit security/quality controls -->
     <input type="hidden" name="_subject" value="New JC Lightning enquiry (jclightning.com)">
@@ -4083,9 +4079,8 @@ polygon[fill="url(#vlg-solar)"] {
   </form>
   </div>
 
-  <!-- fused from Matchmaker: not sure? get matched -->
-  <div class="engage-match reveal">
-    <div class="engage-mini-h" data-i18n="engage_match_h">Not sure which product fits? <em>Get matched in 30 seconds.</em></div>
+  <!-- matchmaker quiz — hidden until launched from the contact block -->
+  <div class="engage-match reveal" id="engageMatch" hidden>
     <div class="match-path reveal" id="matchPath">
     <button class="match-path-btn" onclick="startQuiz('biz')">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#a87d2a" stroke-width="1.4"/><path d="M8 21h8M12 17v4" stroke="#a87d2a" stroke-width="1.4" stroke-linecap="round"/><path d="M6 10h12M6 13h8" stroke="#a87d2a" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
@@ -6843,6 +6838,8 @@ window.restartQuiz=function(){
   if(!host) return;
   // day/night cycle: cross-fade to night every 10s (day is default)
   (function(){ var stage=document.querySelector('.sw-stage'); if(stage){ var night=false; setInterval(function(){ night=!night; stage.classList.toggle('is-night',night); },10000); } })();
+  // matchmaker quiz reveal (launched from the contact block)
+  (function(){ var b=document.getElementById('conQuizBtn'), m=document.getElementById('engageMatch'); if(b&&m){ b.addEventListener('click',function(){ m.hidden=false; m.scrollIntoView({behavior:'smooth',block:'center'}); }); } })();
   function openModal(h){
     var lis = h.p.map(function(pr){ return '<li><a href="'+pr[1]+'">'+pr[0]+'<span class="arw">→</span></a></li>'; }).join('');
     box.innerHTML = '<button class="bx-close" type="button" aria-label="Close">×</button>'+
