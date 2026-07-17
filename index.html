@@ -2061,6 +2061,14 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 .sw-box .bx-pimg{width:46px;height:46px;border-radius:8px;object-fit:cover;flex:none;background:#221d17}
 .sw-box .bx-pname{flex:1}
 </style>
+<style>
+/* product card flash when arrived from an application modal */
+.prod-card.prod-flash{animation:prod-flash 2.4s ease;border-radius:14px}
+@keyframes prod-flash{
+  0%,100%{box-shadow:0 0 0 0 rgba(201,162,78,0)}
+  12%,62%{box-shadow:0 0 0 3px rgba(201,162,78,.9),0 0 36px 10px rgba(201,162,78,.42)}
+}
+</style>
 </head>
 <body>
 
@@ -6906,7 +6914,25 @@ window.restartQuiz=function(){
       '<ul class="bx-prods">'+lis+'</ul>'+
       '<a class="bx-all" href="'+h.href+'">See full range →</a>';
     box.querySelector('.bx-close').addEventListener('click', closeModal);
+    // clicking a recommended product jumps to that product's card in #products (not straight to the detail page)
+    Array.prototype.forEach.call(box.querySelectorAll('.bx-prods a[href]'), function(a){
+      a.addEventListener('click', function(e){ e.preventDefault(); gotoProduct(a.getAttribute('href')); });
+    });
     modal.classList.add('on'); document.body.style.overflow = 'hidden';
+  }
+  // find the product card matching a detail-page url, scroll to it and flash it
+  function gotoProduct(url){
+    var link = document.querySelector('.prod-card a.prod-title-link[href="' + url + '"]');
+    if(!link){ location.href = url; return; }
+    var card = link.closest('.prod-card');
+    closeModal();
+    var s = document.getElementById('prodSearch');
+    if(s && s.value){ s.value = ''; s.dispatchEvent(new Event('input', {bubbles:true})); }
+    setTimeout(function(){
+      card.scrollIntoView({behavior:'smooth', block:'center'});
+      card.classList.add('prod-flash');
+      setTimeout(function(){ card.classList.remove('prod-flash'); }, 2400);
+    }, 80);
   }
   function closeModal(){ modal.classList.remove('on'); document.body.style.overflow = ''; }
   if(modal){
