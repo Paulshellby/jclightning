@@ -6926,13 +6926,20 @@ window.restartQuiz=function(){
     if(!link){ location.href = url; return; }
     var card = link.closest('.prod-card');
     closeModal();
+    // clear the search FIRST — its handler re-collapses every category group
     var s = document.getElementById('prodSearch');
     if(s && s.value){ s.value = ''; s.dispatchEvent(new Event('input', {bubbles:true})); }
+    // category groups are collapsed by default — expand the one holding this card
+    var grp = card.closest('.prod-cat-group');
+    if(grp) grp.classList.remove('collapsed');
+    var sub = card.closest('.prod-subcat');
+    if(sub) sub.classList.remove('hidden');
+    card.classList.remove('hidden');
     setTimeout(function(){
-      card.scrollIntoView({behavior:'smooth', block:'center'});
+      card.scrollIntoView({block:'center'});  // instant: smooth scrolling is cancelled by ScrollTrigger on this page
       card.classList.add('prod-flash');
       setTimeout(function(){ card.classList.remove('prod-flash'); }, 2400);
-    }, 80);
+    }, 90);
   }
   function closeModal(){ modal.classList.remove('on'); document.body.style.overflow = ''; }
   if(modal){
