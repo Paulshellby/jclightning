@@ -50,8 +50,8 @@
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- LCP: begin downloading the hero scene image immediately (2K desktop / smaller mobile) -->
-<link rel="preload" href="scene-day-2k.webp" as="image" fetchpriority="high" media="(min-width:769px)">
-<link rel="preload" href="scene-day-m.webp" as="image" fetchpriority="high" media="(max-width:768px)">
+<link rel="preload" href="hero-day-2k.webp" as="image" fetchpriority="high" media="(min-width:769px)">
+<link rel="preload" href="hero-day-m.webp" as="image" fetchpriority="high" media="(max-width:768px)">
 <!-- Warm the CDN connections that serve GSAP/Lenis (they gate reveal animations) -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -2181,8 +2181,10 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   /* ===== Solar World hero — 2K day scene, click-to-detail ===== */
   .sw-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;padding:0;margin:-1px}
   .sw-hero{position:relative;background:#0a0908}
-  .sw-stage{position:relative;aspect-ratio:1672/941;overflow:hidden;background:#0a0908}
-  .sw-scene{position:absolute;inset:0;background:url('scene-day-2k.webp') center/cover no-repeat}
+  .sw-stage{position:relative;aspect-ratio:1672/940;overflow:hidden;background:#0a0908}
+  .sw-scene{position:absolute;inset:0;background:url('hero-day-2k.webp') center/cover no-repeat}
+  .sw-scene-night{position:absolute;inset:0;z-index:1;background:url('hero-night-2k.webp') center/cover no-repeat;opacity:0;transition:opacity 1.2s ease}
+  .sw-stage.is-night .sw-scene-night{opacity:1}
   .sw-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(6,8,12,.58) 0%,rgba(6,8,12,.1) 15%,transparent 32%)}
   /* electric-dot + label hotspots (always lit; markers on the day scene) */
   .sw-hotspots{position:absolute;inset:0;z-index:5}
@@ -2215,7 +2217,8 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   .sw-box .bx-close:hover{background:rgba(255,255,255,.16);color:#fff}
   @media(max-width:768px){
     .sw-stage{aspect-ratio:auto;height:42vh;min-height:270px}
-    .sw-scene{background-image:url('scene-day-m.webp');background-position:center right}
+    .sw-scene{background-image:url('hero-day-m.webp');background-position:center right}
+    .sw-scene-night{background-image:url('hero-night-m.webp');background-position:center right}
     .sw-hotspots{display:none}
     .sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#241f1a;padding:1px}
     .sw-gcard{display:flex;align-items:center;gap:9px;background:#12100e;padding:16px 14px;text-decoration:none;color:#f0ebe2;font-size:.9rem;font-weight:500;line-height:1.25;border:0;text-align:left;cursor:pointer;width:100%;font-family:inherit}
@@ -2229,6 +2232,7 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   <h1 class="sw-sr" data-i18n="hero_hl">Where Sunlight Meets Resilience</h1>
   <div class="sw-stage">
     <div class="sw-scene" aria-hidden="true"></div>
+    <div class="sw-scene-night" aria-hidden="true"></div>
     <div class="sw-scrim" aria-hidden="true"></div>
     <div class="sw-hotspots" id="swHotspots"></div>
   </div>
@@ -6822,21 +6826,23 @@ window.restartQuiz=function(){
 (function(){
   var P = 'products/';
   var SW = [
-    {t:'Agriculture & Farms', k:'app_agri', d:[31.1,28.4], href:P+'solar-security-street-lights.html', desc:'Solar floodlights and PIR wall lights protecting compounds, farms and residential perimeter walls. Motion-activated, grid-independent, IP65/IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['3-Head Motion Flood Light',P+'solar-motion-flood-light-3-head.html'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html']]},
-    {t:'Commercial & Retail', k:'app_comm', d:[60.8,12.9], href:P+'solar-security-street-lights.html', desc:'Solar floodlights and PIR wall lights protecting commercial compounds, warehouses and perimeter walls. Motion-activated, grid-independent, IP65/IP66.', p:[['3-Head Motion Flood Light',P+'solar-motion-flood-light-3-head.html'],['PIR Motion Sensor Wall Light',P+'pir-motion-sensor-wall-light.html'],['All-in-One Street Light',P+'all-in-one-solar-street-light.html']]},
-    {t:'Port & Marine', k:'app_port', d:[82.8,26.1], href:P+'solar-security-street-lights.html', desc:'High-power floodlights and high-mast lighting for ports, container yards and logistics sites. Weatherproof, corrosion-resistant, IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html'],['Solar Warning Beacon Light',P+'solar-warning-beacon-light.html']]},
-    {t:'Industrial & Warehouse', k:'app_indus', d:[62.9,39.7], href:P+'solar-security-street-lights.html', desc:'UFO high bay lights and high-power floodlights for warehouses, factories, assembly lines and logistics centres. 100-300W, IP65, 30,000h.', p:[['30W Flood Security Light',P+'solar-flood-security-light-30w.html'],['UFO High Bay Light',P+'ufo-high-bay-light.html'],['AC LED Floodlight',P+'ac-led-floodlight.html']]},
-    {t:'Street & Road Lighting', k:'app_street', d:[44.2,48.6], href:P+'solar-security-street-lights.html', desc:'All-in-one and split solar street lights for municipal roads, rural highways, parking lots and long driveways. Radar sensing, dusk-to-dawn, IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['Split Solar Street Light',P+'split-solar-street-light.html'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html']]},
-    {t:'Sports Lighting', k:'app_sports', d:[85,50], href:P+'solar-security-street-lights.html', desc:'High-power LED floodlights 200-1000W for sports courts, stadiums, tennis courts and arenas. Wide 120° beam, 6500K daylight, IP65.', p:[['30W Flood Security Light',P+'solar-flood-security-light-30w.html'],['AC LED Floodlight',P+'ac-led-floodlight.html'],['UFO High Bay Light',P+'ufo-high-bay-light.html']]},
-    {t:'Villa & Garden', k:'app_villa', d:[29.7,55.7], href:P+'solar-decorative-wall-lights.html', desc:'Courtyard column lights, gate pillar lamps and up-down wall sconces framing grand entrances for villas, hotels and gated communities.', p:[['Outdoor Wall Lantern',P+'outdoor-wall-lantern-solar-ac.html'],['Up-Down Solar Wall Light',P+'up-down-solar-wall-light.html'],['PIR Motion Sensor Wall Light',P+'pir-motion-sensor-wall-light.html']]},
-    {t:'Parking Area', k:'app_park', d:[59.2,60.8], href:P+'solar-security-street-lights.html', desc:'Street light heads and floodlights for parking lots, industrial parks and commercial compounds. Radar or photocell control, IP65/IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['Split Solar Street Light',P+'split-solar-street-light.html'],['AC Street Light',P+'ac-street-light.html']]},
-    {t:'Landscape & Garden', k:'app_land', d:[12.5,76], href:P+'solar-garden-landscape-lights.html', desc:'Stake lights, spike spotlights and bollards shaping flowerbeds, pathways and tree uplighting. 304 stainless steel and cast aluminium. IP65-IP67.', p:[['Garden Spike Spotlight',P+'solar-garden-spike-spotlight.html'],['Garden Stake Light 8-Pack',P+'solar-garden-stake-light-8-pack.html'],['Courtyard Column Light',P+'solar-courtyard-column-light.html']]},
-    {t:'Off-grid & Solar Home', k:'app_offgrid', d:[63.3,76.9], href:P+'off-grid-portable-solar-lights.html', desc:'Split-panel indoor wall lights, home lighting kits and ceiling fans for off-grid rural homes. Panel outside, light inside. USB phone charging. LiFePO4.', p:[['Solar Home Lighting Kit',P+'solar-home-lighting-kit.html'],['Solar Emergency LED Bulb',P+'solar-emergency-led-bulb.html'],['Indoor Wall Light (Split Panel)',P+'solar-indoor-wall-light-split-panel.html']]},
-    {t:'Camping & Portable', k:'app_camp', d:[81.7,86.6], href:P+'off-grid-portable-solar-lights.html', desc:'Portable camping lanterns, power bank lanterns, bug zappers and work lights for camping, fishing and outdoor exploration. USB-C PD, magnetic base, IP65.', p:[['Portable Camping Lantern',P+'solar-portable-camping-lantern.html'],['Power Bank Lantern Pro',P+'solar-power-bank-lantern-pro.html'],['Emergency UFO Light',P+'emergency-ufo-rechargeable-light.html']]}
+    {t:'Agriculture & Farms', k:'app_agri', d:[17.2,22], href:P+'solar-security-street-lights.html', desc:'Solar floodlights and PIR wall lights protecting compounds, farms and residential perimeter walls. Motion-activated, grid-independent, IP65/IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['3-Head Motion Flood Light',P+'solar-motion-flood-light-3-head.html'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html']]},
+    {t:'Commercial & Retail', k:'app_comm', d:[61.6,9], href:P+'solar-security-street-lights.html', desc:'Solar floodlights and PIR wall lights protecting commercial compounds, warehouses and perimeter walls. Motion-activated, grid-independent, IP65/IP66.', p:[['3-Head Motion Flood Light',P+'solar-motion-flood-light-3-head.html'],['PIR Motion Sensor Wall Light',P+'pir-motion-sensor-wall-light.html'],['All-in-One Street Light',P+'all-in-one-solar-street-light.html']]},
+    {t:'Port & Marine', k:'app_port', d:[90,20], href:P+'solar-security-street-lights.html', desc:'High-power floodlights and high-mast lighting for ports, container yards and logistics sites. Weatherproof, corrosion-resistant, IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html'],['Solar Warning Beacon Light',P+'solar-warning-beacon-light.html']]},
+    {t:'Industrial & Warehouse', k:'app_indus', d:[65,33], href:P+'solar-security-street-lights.html', desc:'UFO high bay lights and high-power floodlights for warehouses, factories, assembly lines and logistics centres. 100-300W, IP65, 30,000h.', p:[['30W Flood Security Light',P+'solar-flood-security-light-30w.html'],['UFO High Bay Light',P+'ufo-high-bay-light.html'],['AC LED Floodlight',P+'ac-led-floodlight.html']]},
+    {t:'Street & Road Lighting', k:'app_street', d:[37.6,57.2], href:P+'solar-security-street-lights.html', desc:'All-in-one and split solar street lights for municipal roads, rural highways, parking lots and long driveways. Radar sensing, dusk-to-dawn, IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['Split Solar Street Light',P+'split-solar-street-light.html'],['30W Flood Security Light',P+'solar-flood-security-light-30w.html']]},
+    {t:'Sports Lighting', k:'app_sports', d:[80,42], href:P+'solar-security-street-lights.html', desc:'High-power LED floodlights 200-1000W for sports courts, stadiums, tennis courts and arenas. Wide 120° beam, 6500K daylight, IP65.', p:[['30W Flood Security Light',P+'solar-flood-security-light-30w.html'],['AC LED Floodlight',P+'ac-led-floodlight.html'],['UFO High Bay Light',P+'ufo-high-bay-light.html']]},
+    {t:'Villa & Garden', k:'app_villa', d:[24.6,47], href:P+'solar-decorative-wall-lights.html', desc:'Courtyard column lights, gate pillar lamps and up-down wall sconces framing grand entrances for villas, hotels and gated communities.', p:[['Outdoor Wall Lantern',P+'outdoor-wall-lantern-solar-ac.html'],['Up-Down Solar Wall Light',P+'up-down-solar-wall-light.html'],['PIR Motion Sensor Wall Light',P+'pir-motion-sensor-wall-light.html']]},
+    {t:'Parking Area', k:'app_park', d:[90,56], href:P+'solar-security-street-lights.html', desc:'Street light heads and floodlights for parking lots, industrial parks and commercial compounds. Radar or photocell control, IP65/IP66.', p:[['All-in-One Street Light',P+'all-in-one-solar-street-light.html'],['Split Solar Street Light',P+'split-solar-street-light.html'],['AC Street Light',P+'ac-street-light.html']]},
+    {t:'Landscape & Garden', k:'app_land', d:[33.4,37.8], href:P+'solar-garden-landscape-lights.html', desc:'Stake lights, spike spotlights and bollards shaping flowerbeds, pathways and tree uplighting. 304 stainless steel and cast aluminium. IP65-IP67.', p:[['Garden Spike Spotlight',P+'solar-garden-spike-spotlight.html'],['Garden Stake Light 8-Pack',P+'solar-garden-stake-light-8-pack.html'],['Courtyard Column Light',P+'solar-courtyard-column-light.html']]},
+    {t:'Off-grid & Solar Home', k:'app_offgrid', d:[69,52.4], href:P+'off-grid-portable-solar-lights.html', desc:'Split-panel indoor wall lights, home lighting kits and ceiling fans for off-grid rural homes. Panel outside, light inside. USB phone charging. LiFePO4.', p:[['Solar Home Lighting Kit',P+'solar-home-lighting-kit.html'],['Solar Emergency LED Bulb',P+'solar-emergency-led-bulb.html'],['Indoor Wall Light (Split Panel)',P+'solar-indoor-wall-light-split-panel.html']]},
+    {t:'Camping & Portable', k:'app_camp', d:[18.5,61.2], href:P+'off-grid-portable-solar-lights.html', desc:'Portable camping lanterns, power bank lanterns, bug zappers and work lights for camping, fishing and outdoor exploration. USB-C PD, magnetic base, IP65.', p:[['Portable Camping Lantern',P+'solar-portable-camping-lantern.html'],['Power Bank Lantern Pro',P+'solar-power-bank-lantern-pro.html'],['Emergency UFO Light',P+'emergency-ufo-rechargeable-light.html']]}
   ];
   var host = document.getElementById('swHotspots'), grid = document.getElementById('swGrid'),
       modal = document.getElementById('swModal'), box = document.getElementById('swBox');
   if(!host) return;
+  // day/night cycle: cross-fade to night every 10s (day is default)
+  (function(){ var stage=document.querySelector('.sw-stage'); if(stage){ var night=false; setInterval(function(){ night=!night; stage.classList.toggle('is-night',night); },10000); } })();
   function openModal(h){
     var lis = h.p.map(function(pr){ return '<li><a href="'+pr[1]+'">'+pr[0]+'<span class="arw">→</span></a></li>'; }).join('');
     box.innerHTML = '<button class="bx-close" type="button" aria-label="Close">×</button>'+
