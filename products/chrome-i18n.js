@@ -93,3 +93,34 @@
 
   document.documentElement.lang = 'zh-CN';
 })();
+
+// Product photography overrides shared by all product detail pages.
+(function () {
+  var replacements = {
+    'images/uploaded-product-photos/three-head-solar-motion-light-main.png': 'images/product-library/3-Head%20Solar%20Motion%20Flood%20Light/3-Head%20Solar%20Motion%20Flood%20Light.png',
+    'images/product-02.webp': 'images/product-library/All-in-One%20Solar%20Street%20Light/68a6647c-3537-48cd-bac5-fba0eb906a03.png',
+    'images/product-04.webp': 'images/product-library/Up-Down%20Solar%20Wall%20Light/622717f8-2083-49f2-a8c3-e9b51ccc7bd2.png',
+    'images/new/product-26.webp': 'images/product-library/solar%20pole%20flag%20lights/3620f839-07a2-4162-b109-a2385968ba79.png',
+    'images/product-28.webp': 'images/product-library/%E5%A4%AA%E9%98%B3%E8%83%BD%E6%9F%B1%E7%81%AF/s.png',
+    'images/product-13.webp': 'images/product-library/Solar%20Lights%20Outdoor%20Waterproof%2C%2012%20Pack%2C%20Stainless%20Steel%20LED%20Solar%20Garden%20Lights/23dfbbdb-4400-4c7b-8a69-d423090b70fb.png',
+    'images/product-14.webp': 'images/product-library/Solar%20Spotlights%20Outdoor/0be844f2-89ff-45d9-bad8-2c9a950d4567.png',
+    'images/product-09.webp': 'images/product-library/Wall%20Lamp/1fd0b658-e1f3-4997-8e59-be610152f6fc.png',
+    'images/product-06.webp': 'images/product-library/LED%20String%20Lights/33323be8-c3f6-4b5f-a673-6d89e9a5ab99.png',
+    'images/new/product-19.webp': 'images/product-library/Solar%20Flame%20Torch%20Light/0ec82fba-26fb-4eba-b0be-ba437fe0b2c5.png',
+    'images/new/product-21.webp': 'images/product-library/Patio%20Umbrella%20Light/6bba0100-614e-4572-a988-2df0dca66733.png',
+    'images/new/product-22.webp': 'images/product-library/Solar%20Outdoor%20Floor%20Lamp/267cd3fb-ea43-456a-9263-aa5e05c0a3d2.png',
+    'images/product-29.webp': 'images/product-library/Solar%20Floating%20Swimming%20Pool%20LED%20Lights/380d8a86-35ab-46a2-85d3-fd78c73a43aa.png',
+    'images/product-10.webp': 'images/product-library/LED%20Camping%20Lanterns%20Portable%20Solar%20Rechargeable%20Lights/00a624b1-f0e1-4264-a22b-1d12a44ab88a.png',
+    'images/product-11.webp': 'images/product-library/Solar%20Bug%20Zapper%20Light/33cbc386-9c99-4afd-a079-e83f19f5870a.png',
+    'images/new/product-23.webp': 'images/product-library/Solar%20Portable%20Work%20Light/16229c88-48d0-4cf5-bfaf-88190fb939f7.png',
+    'images/product-31.webp': 'images/product-library/Stadium%20Lights%20Outdoor%20LED%20Flood%20Light/4b919572-4c95-40ed-a779-b82968f5c51e.png',
+    'images/product-32.webp': 'images/product-library/High%20Bay%20Led%20Shop%20Lights/1119c537-aa9f-4569-b2ec-2778f32dbe62.png'
+  };
+
+  document.querySelectorAll('img.pa-img').forEach(function (img) {
+    var source = img.getAttribute('src') || '';
+    var offset = source.indexOf('images/');
+    var replacement = offset >= 0 ? replacements[source.slice(offset)] : null;
+    if (replacement) img.src = source.slice(0, offset) + replacement;
+  });
+})();
