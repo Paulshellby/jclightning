@@ -123,3 +123,24 @@ h1{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(2.4rem,5
   .pa-pill{position:static;width:auto;margin:9px 0 0;animation-delay:0s!important}
   .pa-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
 }
+
+/* Product gallery: enlarged two-column layout with an accessible lightbox. */
+.product-photo-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:28px 0 38px}
+.product-photo-gallery img{aspect-ratio:1/1;border-radius:10px;cursor:zoom-in;transition:transform .22s ease,box-shadow .22s ease;box-shadow:0 8px 22px rgba(20,18,14,.08)}
+.product-photo-gallery img:hover,.product-photo-gallery img:focus-visible{transform:translateY(-3px) scale(1.015);box-shadow:0 16px 30px rgba(20,18,14,.16);outline:2px solid var(--brass);outline-offset:3px}
+.pg-no-scroll{overflow:hidden}
+.pg-lightbox{position:fixed;z-index:1000;inset:0;display:none;align-items:center;justify-content:center;padding:28px 82px;background:rgba(18,16,14,.88);backdrop-filter:blur(8px)}
+.pg-lightbox.is-open{display:flex}
+.pg-lightbox-image{display:block;max-width:min(1100px,100%);max-height:calc(100vh - 56px);width:auto;height:auto;border-radius:8px;box-shadow:0 28px 70px rgba(0,0,0,.45)}
+.pg-close,.pg-nav{position:absolute;border:0;color:#fff;background:rgba(255,255,255,.12);cursor:pointer;transition:background .2s,transform .2s}
+.pg-close:hover,.pg-close:focus-visible,.pg-nav:hover,.pg-nav:focus-visible{background:var(--brass);transform:scale(1.06);outline:2px solid #fff;outline-offset:3px}
+.pg-close{top:18px;right:22px;width:44px;height:44px;border-radius:50%;font:300 2rem/1 Outfit,sans-serif}
+.pg-nav{top:50%;width:48px;height:64px;transform:translateY(-50%);border-radius:6px;font:300 3rem/.8 Playfair Display,serif}
+.pg-prev{left:20px}.pg-next{right:20px}
+.pg-count{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);margin:0;color:#fff;font-size:.82rem;letter-spacing:.08em}
+@media(max-width:620px){
+  .product-photo-gallery{gap:12px;margin-top:22px}
+  .pg-lightbox{padding:20px 12px}
+  .pg-nav{width:40px;height:52px;font-size:2.4rem}.pg-prev{left:8px}.pg-next{right:8px}
+  .pg-close{top:10px;right:10px}
+}
