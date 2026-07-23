@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>JC Lightning · Hero 热点校准器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#12100e;--paper:#f0ebe2;--chalk:#f7f3ec;--brass:#a87d2a;--line:#d8cdb9;--muted:#70675e}
+    *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:Outfit,system-ui,sans-serif}
+    button,input,textarea{font:inherit}.bar{min-height:72px;background:var(--ink);color:#fff;display:flex;gap:22px;align-items:center;padding:14px 28px;position:sticky;top:0;z-index:20}.brand{min-width:220px}.brand small{display:block;color:#d8bd7d;font-size:10px;letter-spacing:.15em;text-transform:uppercase}.brand strong{font-family:'Playfair Display',serif;font-size:21px}.bar-copy{font-size:13px;color:#d6cfc5;line-height:1.35;max-width:560px}.bar-copy b{color:#fff}.open-site{margin-left:auto;color:#f4dfaa;text-decoration:none;border:1px solid rgba(244,223,170,.4);padding:9px 12px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 350px;min-height:calc(100vh - 72px)}.workspace{padding:28px;min-width:0}.stage-toolbar{display:flex;gap:10px;align-items:center;margin-bottom:13px}.stage-toolbar h1{font:500 24px 'Playfair Display',serif;margin:0 auto 0 0}.stage-toolbar button,.action{border:1px solid var(--line);background:var(--chalk);color:var(--ink);padding:9px 12px;cursor:pointer;font-size:12px;font-weight:600}.stage-toolbar button.active,.action.primary{background:var(--brass);border-color:var(--brass);color:#fff}.hint{font-size:12px;color:var(--muted);margin:0 0 14px}.scene-frame{position:relative;max-width:1400px;margin:auto;box-shadow:0 20px 55px rgba(46,36,23,.2);overflow:hidden;background:#0d1722;line-height:0;user-select:none}.scene{display:block;width:100%;height:auto}.scene.night{position:absolute;inset:0;opacity:0;transition:opacity .25s ease}.scene-frame.night .scene.night{opacity:1}.scene-frame.night .scene.day{opacity:0}.hotspots{position:absolute;inset:0;line-height:normal}.hotspot{position:absolute;transform:translate(-50%,-50%);border:0;background:transparent;padding:0;cursor:grab;touch-action:none}.hotspot.dragging{cursor:grabbing;z-index:5}.hotspot-dot{width:18px;height:18px;border-radius:50%;background:#f4c24f;border:3px solid rgba(255,255,255,.95);box-shadow:0 0 0 5px rgba(168,125,42,.3),0 2px 10px rgba(0,0,0,.45)}.hotspot-label{position:absolute;left:14px;top:-13px;background:rgba(18,16,14,.9);color:#fff;font-size:11px;line-height:1.1;white-space:nowrap;padding:7px 9px;border-radius:3px;border:1px solid rgba(255,255,255,.22);box-shadow:0 3px 12px rgba(0,0,0,.26)}.hotspot.selected .hotspot-dot{background:#fff;box-shadow:0 0 0 6px rgba(244,194,79,.55),0 2px 10px rgba(0,0,0,.45)}.hotspot.selected .hotspot-label{background:var(--brass);border-color:#fff}
+    .panel{border-left:1px solid var(--line);background:#fbf8f2;padding:22px;overflow:auto}.panel h2{font:500 24px 'Playfair Display',serif;margin:0 0 5px}.panel .sub{margin:0 0 17px;color:var(--muted);font-size:12px;line-height:1.5}.hotspot-list{display:grid;gap:6px;max-height:300px;overflow:auto;padding-right:3px}.item{display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:8px;border:1px solid transparent;background:#fff;padding:8px;cursor:pointer}.item:hover{border-color:var(--line)}.item.selected{border-color:var(--brass);background:#fffaf0}.num{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#e8decf;color:#665a4c;font-size:10px;font-weight:700}.item.selected .num{background:var(--brass);color:#fff}.item strong{font-size:12px;font-weight:600;line-height:1.15}.item span{font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums}.editor{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:18px 0;padding:16px 0}.editor label{display:block;font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}.editor input{width:100%;border:1px solid var(--line);background:#fff;padding:9px 10px;color:var(--ink);outline:none}.editor input:focus{border-color:var(--brass)}.coords{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.actions .wide{grid-column:1/-1}.export{margin-top:18px}.export h3{font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px}.export textarea{height:132px;resize:vertical;width:100%;padding:10px;border:1px solid var(--line);background:#fff;color:#453d35;font:11px/1.5 ui-monospace,Consolas,monospace}.status{min-height:18px;margin:10px 0 0;color:#5d513f;font-size:11px}.status.ok{color:#527545}@media(max-width:960px){.bar{padding:12px 16px}.bar-copy{display:none}.layout{grid-template-columns:1fr}.panel{border-left:0;border-top:1px solid var(--line)}.workspace{padding:16px}.open-site{font-size:9px}.hotspot-list{max-height:240px}.scene-frame{overflow:visible}.hotspot-label{font-size:9px;padding:5px 6px;top:-10px;left:11px}.hotspot-dot{width:15px;height:15px}}
+  </style>
+</head>
+<body>
+  <header class="bar"><div class="brand"><small>Internal tool · Not indexed</small><strong>JC Lightning</strong></div><div class="bar-copy"><b>Hero hotspot calibration</b> · 点击列表选择，直接拖动图片上的标记校准。所有坐标均为图像百分比，日景与夜景共用同一套坐标。</div><a class="open-site" href="index.html" target="_blank" rel="noopener">打开官网预览</a></header>
+  <main class="layout">
+    <section class="workspace">
+      <div class="stage-toolbar"><h1>Solar World · 热点定位</h1><button type="button" class="active" data-theme="day">日景</button><button type="button" data-theme="night">夜景</button><button type="button" id="showLabels">隐藏名称</button></div>
+      <p class="hint">拖动圆点即可调整位置。单击图片空白处，可把当前选中的热点移到该位置；使用右侧 X / Y 可微调到 0.1%。</p>
+      <div class="scene-frame" id="sceneFrame" aria-label="Hero hotspot calibration canvas">
+        <img class="scene day" src="hero-day-v2.webp" alt="Hero day scene">
+        <img class="scene night" src="hero-night-v2.webp" alt="Hero night scene">
+        <div class="hotspots" id="hotspots"></div>
+      </div>
+    </section>
+    <aside class="panel">
+      <h2>全部热点 <span id="count"></span></h2><p class="sub">点击名称选择一个场景。浏览器会自动保存你的本次校准；导出后将代码复制回首页。</p>
+      <div class="hotspot-list" id="hotspotList"></div>
+      <div class="editor"><label for="hotspotName">名称</label><input id="hotspotName" autocomplete="off"><div class="coords"><div><label for="coordX">X (%)</label><input id="coordX" inputmode="decimal" type="number" min="0" max="100" step="0.1"></div><div><label for="coordY">Y (%)</label><input id="coordY" inputmode="decimal" type="number" min="0" max="100" step="0.1"></div></div></div>
+      <div class="actions"><button class="action" type="button" id="resetOne">还原此热点</button><button class="action" type="button" id="resetAll">还原全部</button><button class="action primary wide" type="button" id="copyOutput">复制 SW 坐标代码</button></div>
+      <div class="export"><h3>可回填的坐标映射</h3><textarea id="output" readonly spellcheck="false"></textarea><p class="status" id="status" aria-live="polite"></p></div>
+    </aside>
+  </main>
+  <script>
+  (function(){
+    var DEFAULTS=[
+      ['Solar Farm & Rural Estate','app_agri',16,19.4],['City Centre & Business District','app_comm',61.6,9],['Port & Container Terminal','app_port',90,20],['Solar Warehouse & Logistics Hub','app_indus',65,33],['Boulevard & Road Intersection','app_street',37.7,55.6],['Community Sports Field','app_sports',80,42],['Villa & Private Garden','app_villa',33.9,42.1],['Private Pool & Patio','app_pool',24.3,55.8],['Solar Carport & Parking Lot','app_park',83.8,52],['Solar Home Community','app_offgrid',69,52.4],['Outdoor Pavilion & Leisure Lawn','app_camp',22.5,65.9]
+    ];
+    var STORAGE='jc-hero-hotspot-calibration-v2';
+    var state={items:DEFAULTS.map(function(d){return {name:d[0],key:d[1],x:d[2],y:d[3],origin:[d[2],d[3]]};}),selected:0,labels:true};
+    try{var saved=JSON.parse(localStorage.getItem(STORAGE));if(saved&&Array.isArray(saved.items)&&saved.items.length===DEFAULTS.length){state.items=saved.items.map(function(item,i){return {name:item.name||DEFAULTS[i][0],key:DEFAULTS[i][1],x:Number(item.x),y:Number(item.y),origin:[DEFAULTS[i][2],DEFAULTS[i][3]]};});state.selected=Math.max(0,Math.min(Number(saved.selected)||0,state.items.length-1));}}catch(e){}
+    var host=document.getElementById('hotspots'),list=document.getElementById('hotspotList'),frame=document.getElementById('sceneFrame'),nameInput=document.getElementById('hotspotName'),xInput=document.getElementById('coordX'),yInput=document.getElementById('coordY'),output=document.getElementById('output'),status=document.getElementById('status');
+    document.getElementById('count').textContent='('+state.items.length+')';
+    function clamp(v){return Math.max(0,Math.min(100,Math.round(v*10)/10));}
+    function persist(){localStorage.setItem(STORAGE,JSON.stringify({items:state.items.map(function(i){return {name:i.name,x:i.x,y:i.y};}),selected:state.selected}));}
+    function code(){return 'const SW_HOTSPOT_COORDS = {\n'+state.items.map(function(i){return '  '+i.key+':['+i.x+','+i.y+']';}).join(',\n')+'\n};';}
+    function setPos(index,x,y){var item=state.items[index];item.x=clamp(x);item.y=clamp(y);persist();render();}
+    function select(index){state.selected=index;persist();render();}
+    function render(){host.innerHTML='';list.innerHTML='';state.items.forEach(function(item,index){var active=index===state.selected,hot=document.createElement('button');hot.type='button';hot.className='hotspot'+(active?' selected':'');hot.style.left=item.x+'%';hot.style.top=item.y+'%';hot.dataset.index=index;hot.innerHTML='<span class="hotspot-dot"></span><span class="hotspot-label"'+(state.labels?'':' hidden')+'>'+item.name+'</span>';hot.addEventListener('click',function(e){e.stopPropagation();select(index);});hot.addEventListener('pointerdown',startDrag);host.appendChild(hot);
+      var row=document.createElement('button');row.type='button';row.className='item'+(active?' selected':'');row.innerHTML='<span class="num">'+(index+1)+'</span><strong>'+item.name+'</strong><span>'+item.x.toFixed(1)+' / '+item.y.toFixed(1)+'</span>';row.addEventListener('click',function(){select(index);});list.appendChild(row);
+    });var chosen=state.items[state.selected];nameInput.value=chosen.name;xInput.value=chosen.x;yInput.value=chosen.y;output.value=code();document.getElementById('showLabels').textContent=state.labels?'隐藏名称':'显示名称';}
+    function pointFromEvent(e){var r=frame.getBoundingClientRect();return {x:(e.clientX-r.left)/r.width*100,y:(e.clientY-r.top)/r.height*100};}
+    function startDrag(e){e.preventDefault();e.stopPropagation();var index=Number(e.currentTarget.dataset.index);select(index);var target=e.currentTarget;target.classList.add('dragging');target.setPointerCapture(e.pointerId);function move(ev){var p=pointFromEvent(ev);setPos(index,p.x,p.y);}function end(ev){target.classList.remove('dragging');try{target.releasePointerCapture(ev.pointerId);}catch(err){}target.removeEventListener('pointermove',move);target.removeEventListener('pointerup',end);target.removeEventListener('pointercancel',end);status.textContent='已保存 '+state.items[index].name+'：'+state.items[index].x.toFixed(1)+'%, '+state.items[index].y.toFixed(1)+'%';status.className='status ok';}target.addEventListener('pointermove',move);target.addEventListener('pointerup',end);target.addEventListener('pointercancel',end);}
+    frame.addEventListener('click',function(e){if(e.target!==frame&&e.target.className!=='hotspots'&&e.target.tagName!=='IMG')return;var p=pointFromEvent(e);setPos(state.selected,p.x,p.y);status.textContent='已移动当前热点。';status.className='status ok';});
+    function edit(){var item=state.items[state.selected];item.name=nameInput.value.trim()||item.name;item.x=clamp(parseFloat(xInput.value));item.y=clamp(parseFloat(yInput.value));persist();render();}nameInput.addEventListener('change',edit);xInput.addEventListener('change',edit);yInput.addEventListener('change',edit);
+    document.querySelectorAll('[data-theme]').forEach(function(button){button.addEventListener('click',function(){frame.classList.toggle('night',button.dataset.theme==='night');document.querySelectorAll('[data-theme]').forEach(function(b){b.classList.toggle('active',b===button);});});});
+    document.getElementById('showLabels').addEventListener('click',function(){state.labels=!state.labels;render();});
+    document.getElementById('resetOne').addEventListener('click',function(){var item=state.items[state.selected];item.x=item.origin[0];item.y=item.origin[1];item.name=DEFAULTS[state.selected][0];persist();render();status.textContent='当前热点已还原。';});
+    document.getElementById('resetAll').addEventListener('click',function(){state.items=DEFAULTS.map(function(d){return {name:d[0],key:d[1],x:d[2],y:d[3],origin:[d[2],d[3]]};});persist();render();status.textContent='全部热点已还原。';});
+    document.getElementById('copyOutput').addEventListener('click',function(){output.select();navigator.clipboard.writeText(output.value).then(function(){status.textContent='已复制。把这段坐标映射发给我，我会准确回填到首页 SW 数组。';status.className='status ok';},function(){document.execCommand('copy');status.textContent='已复制。';status.className='status ok';});});
+    render();
+  })();
+  </script>
+</body>
+</html>
