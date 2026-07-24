@@ -520,15 +520,6 @@ img, svg {
 .intro-core::after { inset:9%; border-top-color:rgba(251,239,208,.72); border-left-color:rgba(236,199,117,.16); animation-direction:reverse; animation-duration:3.1s; }
 @keyframes introOrbit { to { transform:rotate(360deg); } }
 .intro-grid { position:absolute; inset:0; opacity:.24; background-image:linear-gradient(rgba(219,178,91,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(219,178,91,.09) 1px,transparent 1px); background-size:52px 52px; mask-image:radial-gradient(circle at 50% 47%,#000 0,rgba(0,0,0,.6) 28%,transparent 68%); transform:perspective(680px) rotateX(58deg) translateY(29%); transform-origin:center bottom; }
-.intro-readout { position:absolute; top:52px; left:58px; display:flex; flex-direction:column; gap:7px; font-size:.6rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:rgba(230,197,125,.72); }
-.intro-readout span:first-child { color:var(--brass-pale); }
-.intro-readout span:last-child { color:rgba(240,235,226,.46); font-weight:400; }
-.intro-progress { position:absolute; left:50%; bottom:9.8%; width:min(320px,46vw); transform:translateX(-50%); }
-.intro-progress-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:9px; font-size:.58rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:rgba(240,235,226,.65); }
-.intro-progress-top b { color:var(--brass-pale); font-weight:600; }
-.intro-progress-track { height:2px; overflow:hidden; background:rgba(240,235,226,.18); }
-.intro-progress-bar { width:100%; height:100%; transform:scaleX(0); transform-origin:left center; background:linear-gradient(90deg,var(--brass),#f3ce78,#fff0c4); box-shadow:0 0 16px rgba(231,181,69,.82); }
-.intro-hint { position:absolute; left:50%; top:calc(47% + min(25vw,295px)); transform:translateX(-50%); font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(240,235,226,.42); white-space:nowrap; }
 .intro-tagline {
   position:absolute; left:0; right:0; bottom:15.2%; text-align:center; z-index:2; pointer-events:none;
   font-family:'Outfit',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.26em;
@@ -545,7 +536,7 @@ img, svg {
 }
 .intro-skip:hover { background:var(--brass-lt); color:#0a0807; }
 .preloader.hide { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; animation:none !important; }
-@media (max-width:700px) { .intro-hud::before{inset:16px}.intro-core,.intro-logo-lockup{width:min(66vw,340px);top:45%}.intro-grid{background-size:34px 34px}.intro-readout{top:30px;left:30px;font-size:.5rem}.intro-progress{width:68vw;bottom:13%}.intro-tagline{bottom:18%;font-size:.58rem;letter-spacing:.18em}.intro-hint{top:calc(45% + min(33vw,165px));font-size:.48rem}.intro-skip{bottom:18px;right:18px;padding:8px 11px;font-size:.56rem} }
+@media (max-width:700px) { .intro-hud::before{inset:16px}.intro-core,.intro-logo-lockup{width:min(66vw,340px);top:45%}.intro-grid{background-size:34px 34px}.intro-tagline{bottom:18%;font-size:.58rem;letter-spacing:.18em}.intro-skip{bottom:18px;right:18px;padding:8px 11px;font-size:.56rem} }
 @media (prefers-reduced-motion:reduce) { .intro-core::before,.intro-core::after{animation:none}.intro-grid{display:none} }
 /* Old CSS-animation preloader (light-ray + orb + JC logo) removed — replaced by intro video */
 /* Smart nav hide */
@@ -568,7 +559,7 @@ nav {
   padding:20px 56px; transition:background .35s, padding .3s, transform .4s cubic-bezier(.4,0,.2,1);
 }
 nav.dark  { background:transparent; }
-nav.solid { background:rgba(14,12,10,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--bdk); }
+nav.solid { background:rgba(18,16,14,0.985); backdrop-filter:none; border-bottom:1px solid rgba(201,162,78,0.18); box-shadow:0 8px 22px rgba(14,12,10,0.16); }
 nav.light { background:rgba(247,243,236,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--blt); }
 .logo { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:400; letter-spacing:0.03em; text-decoration:none; white-space:nowrap; }
 nav.dark .logo, nav.solid .logo { color:#fff; }
@@ -990,7 +981,13 @@ h2 em { font-style:italic; color:var(--brass); }
 .global-head h2 em { font-style:italic; color:var(--brass); }
 .global-sub { color:#6b6157; font-size:0.95rem; line-height:1.65; font-weight:300; max-width:620px; margin:0 auto; }
 
-.global-map-wrap { position:relative; max-width:1720px; margin:0 auto; aspect-ratio: 2 / 1; }
+.global-map-wrap { position:relative; max-width:1720px; margin:0 auto; aspect-ratio: 2 / 1; overflow:hidden; }
+/* World map becomes a full-bleed desktop canvas while retaining the complete 2:1 world view. */
+@media (min-width:961px){
+  .global{padding-left:0;padding-right:0}
+  .global-head,.global .gl-stats{padding-left:24px;padding-right:24px}
+  .global-map-wrap{width:100vw;max-width:none;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);aspect-ratio:2 / 1}
+}
 
 /* SVG map — restored to full opacity (no video layer anymore) */
 .global-map-wrap .global-map {
@@ -1079,13 +1076,13 @@ h2 em { font-style:italic; color:var(--brass); }
   100% { transform: translateY(800px); opacity: 0; }
 }
 
-/* Pulse waves emanating from Shenzhen HQ (1280, 380) — added via inline SVG */
+/* Pulse waves emanating from Shenzhen HQ (1307, 301) — added via inline SVG */
 .gl-pulse-circle {
   fill: none;
   stroke: #fde9b9;
   stroke-width: 2;
   opacity: 0;
-  transform-origin: 1269px 301px;
+  transform-origin: 1307px 284px;
   animation: gl-pulse-expand 3.5s ease-out infinite;
 }
 .gl-pulse-circle:nth-child(2) { animation-delay: 1.2s; }
@@ -1108,8 +1105,8 @@ h2 em { font-style:italic; color:var(--brass); }
 }
 .global-map-wrap .map-pin.pin-below { transform-origin:top center; }
 .global-map-wrap .map-pin.pin-left  { transform-origin:right center; }
-@keyframes gl-pin-reveal-below { from { opacity:0; transform:translate(-50%, -8px) scale(0.85); } to { opacity:1; transform:translate(-50%, 0) scale(1); } }
-@keyframes gl-pin-reveal-left  { from { opacity:0; transform:translate(calc(-100% + 8px), -50%) scale(0.85); } to { opacity:1; transform:translate(-100%, -50%) scale(1); } }
+@keyframes gl-pin-reveal-below { from { opacity:0; transform:translate(-50%, calc(-50% + 8px)) scale(0.85); } to { opacity:1; transform:translate(-50%, -50%) scale(1); } }
+@keyframes gl-pin-reveal-left  { from { opacity:0; transform:translate(calc(-50% + 8px), -50%) scale(0.85); } to { opacity:1; transform:translate(-50%, -50%) scale(1); } }
 .global-map-wrap .map-pin.pin-below { animation-name: gl-pin-reveal-below; }
 .global-map-wrap .map-pin.pin-left  { animation-name: gl-pin-reveal-left; }
 
@@ -1187,22 +1184,23 @@ h2 em { font-style:italic; color:var(--brass); }
 }
 .global-map { display:block; width:100%; height:100%; }
 
-.map-pin { position:absolute; display:flex; align-items:center; gap:7px; transform:translate(-50%,-50%); white-space:nowrap; z-index:2; pointer-events:auto; }
-.map-pin.pin-below { flex-direction:column-reverse; transform:translate(-50%,0); gap:5px; }
-.map-pin.pin-left { flex-direction:row-reverse; transform:translate(-100%,-50%); }
+.map-pin { --label-x:0px; --label-y:0px; --label-base:translate(0,-50%); position:absolute; width:11px; height:11px; transform:translate(-50%,-50%); white-space:nowrap; z-index:2; pointer-events:auto; cursor:pointer; }
+.map-pin.pin-below { --label-base:translate(-50%,0); transform:translate(-50%,-50%); }
+.map-pin.pin-left { --label-base:translate(-100%,-50%); transform:translate(-50%,-50%); }
+.map-pin:not(.pin-hq) .pin-dot { display:block; }
 .pin-dot { position:relative; width:11px; height:11px; border-radius:50%; flex-shrink:0; }
 .pin-dot::before { content:''; position:absolute; inset:-5px; border-radius:50%; border:1px solid currentColor; opacity:0.4; animation:pin-ping 2.4s ease-in-out infinite; }
 .pin-dot::after { content:''; position:absolute; inset:-2px; border-radius:50%; background:currentColor; opacity:0.18; }
-.pin-label { font-family:'Outfit',sans-serif; font-size:0.74rem; font-weight:500; letter-spacing:0.04em; padding:5px 11px; background:rgba(14,12,10,0.85); border:1px solid rgba(201,162,78,0.35); border-radius:999px; color:var(--chalk-w); transition:all 0.25s ease; }
-.map-pin:hover .pin-label { background:rgba(168,125,42,0.30); border-color:var(--brass-lt); transform:translateY(-1px); }
+.pin-label { font-family:'Outfit',sans-serif; font-size:0.74rem; font-weight:500; letter-spacing:0.04em; padding:5px 11px; background:rgba(14,12,10,0.85); border:1px solid rgba(201,162,78,0.35); border-radius:999px; color:var(--chalk-w); transition:opacity .2s ease,visibility .2s ease,transform .2s ease,background .2s ease,border-color .2s ease; }
+/* The map stays clean at rest: every market remains a visible dot, but only Shenzhen is named. */
+.map-pin:not(.pin-hq) .pin-label{position:absolute;left:calc(100% + 7px);top:50%;opacity:0;visibility:hidden;pointer-events:none;transform:var(--label-base) translate(var(--label-x),calc(var(--label-y) + 5px)) scale(.94)}
+.map-pin:not(.pin-hq).pin-left .pin-label{left:auto;right:calc(100% + 7px)}
+.map-pin:not(.pin-hq).pin-below .pin-label{left:50%;top:calc(100% + 7px);right:auto}
+.map-pin:not(.pin-hq):hover .pin-label,.map-pin:not(.pin-hq):focus-visible .pin-label,.map-pin:not(.pin-hq).is-selected .pin-label{opacity:1;visibility:visible;transform:var(--label-base) translate(var(--label-x),var(--label-y)) scale(1);background:rgba(168,125,42,.9);border-color:var(--brass-lt)}
+.map-pin.pin-hq .pin-label{opacity:1;visibility:visible;transform:translate(var(--label-x),var(--label-y))}
 /* East / Southeast Asia is label-dense: stagger callouts so market names never collide. */
 .map-pin.pin-east-hq,.map-pin.pin-east-vn,.map-pin.pin-east-ph,.map-pin.pin-east-id,.map-pin.pin-east-jp { z-index:5; }
-.map-pin.pin-east-hq .pin-label { position:relative; transform:translate(-68px,-32px); }
-.map-pin.pin-east-vn .pin-label { position:relative; transform:translate(-44px,9px); }
-.map-pin.pin-east-ph .pin-label { position:relative; transform:translate(16px,-15px); }
-.map-pin.pin-east-id .pin-label { position:relative; transform:translate(-12px,14px); }
-.map-pin.pin-east-jp .pin-label { position:relative; transform:translate(12px,-13px); }
-.map-pin.pin-east-hq:hover .pin-label,.map-pin.pin-east-vn:hover .pin-label,.map-pin.pin-east-ph:hover .pin-label,.map-pin.pin-east-id:hover .pin-label,.map-pin.pin-east-jp:hover .pin-label { transform:translate(var(--label-x,0),calc(var(--label-y,0) - 1px)); }
+.map-pin.pin-east-hq .pin-label,.map-pin.pin-east-vn .pin-label,.map-pin.pin-east-ph .pin-label,.map-pin.pin-east-id .pin-label,.map-pin.pin-east-jp .pin-label { position:relative; }
 .map-pin.pin-east-hq{--label-x:-68px;--label-y:-32px}.map-pin.pin-east-vn{--label-x:-44px;--label-y:9px}.map-pin.pin-east-ph{--label-x:16px;--label-y:-15px}.map-pin.pin-east-id{--label-x:-12px;--label-y:14px}.map-pin.pin-east-jp{--label-x:12px;--label-y:-13px}
 
 /* Core markets — bright brass */
@@ -1221,12 +1219,12 @@ h2 em { font-style:italic; color:var(--brass); }
 }
 
 /* ===== HQ Pin — special clickable marker ===== */
-.pin-hq { position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:8px; background:transparent; border:none; padding:0; cursor:pointer; z-index:6; color:#fde9b9; font-family:inherit; }
+.pin-hq { --label-base:translate(-50%,-100%); position:absolute; width:18px; height:18px; transform:translate(-50%,-50%); display:block; background:transparent; border:none; padding:0; cursor:pointer; z-index:6; color:#fde9b9; font-family:inherit; }
 .pin-hq .pin-dot { width:18px; height:18px; background:radial-gradient(circle, #fde9b9 0%, #c9a24e 70%); box-shadow:0 0 24px rgba(253,233,185,0.9), 0 0 50px rgba(201,162,78,0.5); border:2px solid #fde9b9; }
 .pin-hq .pin-dot::before { animation: pin-ping 1.8s ease-in-out infinite; border:1.5px solid #fde9b9; opacity:0.6; }
 .pin-hq .pin-dot::after { content:''; position:absolute; inset:-9px; border-radius:50%; border:1px solid rgba(253,233,185,0.4); animation: pin-ping 2.6s ease-in-out infinite; }
-.pin-hq .pin-label { background:linear-gradient(135deg, #fde9b9 0%, #c9a24e 100%); color:#0e0c0a; font-weight:700; font-size:0.78rem; letter-spacing:0.08em; padding:7px 16px; border:none; border-radius:6px; box-shadow:0 8px 28px rgba(201,162,78,0.45); text-transform:uppercase; }
-.pin-hq:hover .pin-label { box-shadow:0 12px 36px rgba(201,162,78,0.6); transform:translateY(-2px); }
+.map-pin.pin-hq .pin-label { position:absolute; left:50%; top:-7px; background:linear-gradient(135deg, #fde9b9 0%, #c9a24e 100%); color:#0e0c0a; font-weight:700; font-size:0.78rem; letter-spacing:0.08em; padding:7px 16px; border:none; border-radius:6px; box-shadow:0 8px 28px rgba(201,162,78,0.45); text-transform:uppercase; transform:var(--label-base) translate(var(--label-x),var(--label-y)); }
+.map-pin.pin-hq:hover .pin-label { box-shadow:0 12px 36px rgba(201,162,78,0.6); transform:var(--label-base) translate(var(--label-x),calc(var(--label-y) - 2px)); }
 .pin-hq:hover .pin-dot { transform:scale(1.15); }
 .pin-hq .pin-dot { transition:transform 0.2s ease; }
 .pin-hq .pin-label { transition:transform 0.2s ease, box-shadow 0.2s ease; }
@@ -2149,9 +2147,6 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   <div class="intro-hud" aria-hidden="true">
     <div class="intro-grid"></div>
     <div class="intro-core"></div>
-    <div class="intro-readout"><span>JC // LUMEN SYSTEM</span><span id="introStatus">INITIALISING ENERGY MATRIX</span></div>
-    <div class="intro-progress"><div class="intro-progress-top"><span>System calibration</span><b id="introPercent">00%</b></div><div class="intro-progress-track"><div class="intro-progress-bar" id="introProgressBar"></div></div></div>
-    <div class="intro-hint">Move to scan · Click to pulse</div>
   </div>
   <div class="intro-tagline">Engineered for Off-Grid Markets</div>
   <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro">SKIP &rarr;</button>
@@ -3350,18 +3345,20 @@ polygon[fill="url(#vlg-solar)"] {
 
   <div class="prod-filter reveal" id="prodFilter">
     <button class="prod-filter-btn active" onclick="scrollToCat('all')"><span data-i18n="filter_all">All</span><span class="prod-filter-count">30</span></button>
-    <button class="prod-filter-btn" onclick="scrollToCat('cat-security')"><span data-i18n="filter_security">Security</span><span class="prod-filter-count">8</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-security')"><span data-i18n="filter_security">Security</span><span class="prod-filter-count">4</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-road')"><span data-i18n="filter_road">Road &amp; Signal</span><span class="prod-filter-count">4</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-garden')"><span data-i18n="filter_garden">Garden</span><span class="prod-filter-count">3</span></button>
     <button class="prod-filter-btn" onclick="scrollToCat('cat-decorative')"><span data-i18n="filter_decorative">Decorative</span><span class="prod-filter-count">7</span></button>
-    <button class="prod-filter-btn" onclick="scrollToCat('cat-offgrid')"><span data-i18n="filter_offgrid">Off-Grid</span><span class="prod-filter-count">9</span></button>
-    <button class="prod-filter-btn" onclick="scrollToCat('cat-ac')"><span data-i18n="filter_ac">AC Commercial</span><span class="prod-filter-count">3</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-offgrid')"><span data-i18n="filter_offgrid">Off-Grid Home</span><span class="prod-filter-count">4</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-portable')"><span data-i18n="filter_portable">Portable</span><span class="prod-filter-count">5</span></button>
+    <button class="prod-filter-btn" onclick="scrollToCat('cat-ac')"><span data-i18n="filter_ac">Commercial LED</span><span class="prod-filter-count">3</span></button>
   </div>
 
-  <!-- ========== 大类 01 · Security & Street ========== -->
+  <!-- ========== 大类 01 · Security & Perimeter ========== -->
   <div class="prod-cat-group reveal" id="cat-security">
     <div class="prod-cat-header">
       <span class="prod-cat-num">01</span>
-      <h3 data-i18n="cat1_t">Security &amp; Street</h3><a class="prod-cat-link" href="products/solar-security-street-lights.html">Full range &rarr;</a>
+      <h3 data-i18n="cat1_t">Security &amp; Perimeter</h3><a class="prod-cat-link" href="products/solar-security-street-lights.html">Full range &rarr;</a>
     </div>
 
     <div class="prod-subcat">
@@ -3384,6 +3381,15 @@ polygon[fill="url(#vlg-solar)"] {
           <div class="prod-info"><h4><a class="prod-title-link" href="products/up-down-solar-wall-light.html" data-i18n="p10_n">Up-Down Solar Wall Light</a></h4><p data-i18n="p10_d">Modern dual-beam wall sconce for architectural facades. 2×3W · IP65 · aluminium body · warm white 3000K · 10h runtime. Black/white/grey. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
         </div>
       </div>
+    </div>
+
+  </div>
+
+  <!-- ========== 大类 02 · Roadway & Municipal ========== -->
+  <div class="prod-cat-group reveal" id="cat-road">
+    <div class="prod-cat-header">
+      <span class="prod-cat-num">02</span>
+      <h3 data-i18n="cat2_t">Roadway &amp; Municipal</h3><a class="prod-cat-link" href="products/solar-security-street-lights.html">Full range &rarr;</a>
     </div>
 
     <div class="prod-subcat">
@@ -3415,11 +3421,11 @@ polygon[fill="url(#vlg-solar)"] {
     </div>
   </div>
 
-  <!-- ========== 大类 02 · Garden & Landscape ========== -->
+  <!-- ========== 大类 03 · Garden, Pathway & Landscape ========== -->
   <div class="prod-cat-group reveal" id="cat-garden">
     <div class="prod-cat-header">
-      <span class="prod-cat-num">02</span>
-      <h3 data-i18n="cat2_t">Garden &amp; Landscape</h3><a class="prod-cat-link" href="products/solar-garden-landscape-lights.html">Full range &rarr;</a>
+      <span class="prod-cat-num">03</span>
+      <h3 data-i18n="cat3_t">Garden, Pathway &amp; Landscape</h3><a class="prod-cat-link" href="products/solar-garden-landscape-lights.html">Full range &rarr;</a>
     </div>
 
     <div class="prod-subcat">
@@ -3441,11 +3447,11 @@ polygon[fill="url(#vlg-solar)"] {
     </div>
   </div>
 
-  <!-- ========== 大类 03 · Decorative & Ambiance ========== -->
+  <!-- ========== 大类 04 · Decorative, Hospitality & Leisure ========== -->
   <div class="prod-cat-group reveal" id="cat-decorative">
     <div class="prod-cat-header">
-      <span class="prod-cat-num">03</span>
-      <h3 data-i18n="cat3_t">Decorative &amp; Ambiance</h3><a class="prod-cat-link" href="products/solar-decorative-wall-lights.html">Full range &rarr;</a>
+      <span class="prod-cat-num">04</span>
+      <h3 data-i18n="cat4_t">Decorative, Hospitality &amp; Leisure</h3><a class="prod-cat-link" href="products/solar-decorative-wall-lights.html">Full range &rarr;</a>
     </div>
 
     <div class="prod-subcat">
@@ -3489,11 +3495,11 @@ polygon[fill="url(#vlg-solar)"] {
     </div>
   </div>
 
-  <!-- ========== 大类 04 · Off-Grid & Portable ========== -->
+  <!-- ========== 大类 05 · Off-Grid Home & Emergency ========== -->
   <div class="prod-cat-group reveal" id="cat-offgrid">
     <div class="prod-cat-header">
-      <span class="prod-cat-num">04</span>
-      <h3 data-i18n="cat4_t">Off-Grid &amp; Portable</h3><a class="prod-cat-link" href="products/off-grid-portable-solar-lights.html">Full range &rarr;</a>
+      <span class="prod-cat-num">05</span>
+      <h3 data-i18n="cat5_t">Off-Grid Home &amp; Emergency</h3><a class="prod-cat-link" href="products/off-grid-portable-solar-lights.html">Full range &rarr;</a>
     </div>
 
     <div class="prod-subcat">
@@ -3516,6 +3522,15 @@ polygon[fill="url(#vlg-solar)"] {
           <div class="prod-info"><h4><a class="prod-title-link" href="products/solar-ceiling-fan-with-light.html" data-i18n="p18_n">Solar Ceiling Fan with Light</a></h4><p data-i18n="p18_d">12V DC brushless · 3 speeds · &lt;35dB · 12W LED 900lm · 3000K/6000K · 18V 20W panel · 12.8V 6000mAh LiFePO4 · 48" ABS blades · remote control. CE + RoHS.</p><a href="#contact" class="prod-enq" data-i18n="enq">Enquire →</a></div>
         </div>
       </div>
+    </div>
+
+  </div>
+
+  <!-- ========== 大类 06 · Portable & Field Utility ========== -->
+  <div class="prod-cat-group reveal" id="cat-portable">
+    <div class="prod-cat-header">
+      <span class="prod-cat-num">06</span>
+      <h3 data-i18n="cat6_t">Portable &amp; Field Utility</h3><a class="prod-cat-link" href="products/off-grid-portable-solar-lights.html">Full range &rarr;</a>
     </div>
 
     <div class="prod-subcat">
@@ -3544,11 +3559,11 @@ polygon[fill="url(#vlg-solar)"] {
       </div>
     </div>
   </div>
-  <!-- ========== 大类 05 · AC Commercial ========== -->
+  <!-- ========== 大类 07 · Commercial & Industrial LED ========== -->
   <div class="prod-cat-group reveal" id="cat-ac">
     <div class="prod-cat-header">
-      <span class="prod-cat-num">05</span>
-      <h3 data-i18n="cat_ac_t">AC Commercial</h3>
+      <span class="prod-cat-num">07</span>
+      <h3 data-i18n="cat7_t">Commercial &amp; Industrial LED</h3>
     </div>
 
     <div class="prod-subcat">
@@ -3797,21 +3812,21 @@ polygon[fill="url(#vlg-solar)"] {
 
       <!-- HQ Shenzhen pulse waves (3 staggered concentric rings expanding outward) -->
       <g class="gl-pulse-group" aria-hidden="true">
-        <circle class="gl-pulse-circle" cx="1269" cy="301" r="20"/>
-        <circle class="gl-pulse-circle" cx="1269" cy="301" r="20"/>
-        <circle class="gl-pulse-circle" cx="1269" cy="301" r="20"/>
+        <circle class="gl-pulse-circle" cx="1307" cy="284" r="20"/>
+        <circle class="gl-pulse-circle" cx="1307" cy="284" r="20"/>
+        <circle class="gl-pulse-circle" cx="1307" cy="284" r="20"/>
       </g>
 
-      <!-- Connection arcs from Shenzhen HQ (1280, 380) to core markets -->
+      <!-- Connection arcs from Shenzhen HQ (1307, 284) to core markets -->
       <defs>
-        <path id="arc-1" d="M 1269,301 Q 900,120 470,379" fill="none"/>
-        <path id="arc-2" d="M 1269,301 Q 950,170 570,445" fill="none"/>
-        <path id="arc-3" d="M 1269,301 Q 1080,150 784,222" fill="none"/>
-        <path id="arc-4" d="M 1269,301 Q 1150,470 910,529" fill="none"/>
-        <path id="arc-5" d="M 1269,301 Q 1400,420 1395,511" fill="none"/>
-        <path id="arc-6" d="M 1269,301 Q 1230,350 1150,302" fill="none"/>
-        <path id="arc-7" d="M 1269,301 Q 850,60 365,225" fill="none"/>
-        <path id="arc-8" d="M 1269,301 Q 1370,250 1413,240" fill="none"/>
+        <path id="arc-1" d="M 1307,284 Q 900,120 470,379" fill="none"/>
+        <path id="arc-2" d="M 1307,284 Q 950,170 570,445" fill="none"/>
+        <path id="arc-3" d="M 1307,284 Q 1080,150 784,222" fill="none"/>
+        <path id="arc-4" d="M 1307,284 Q 1150,470 910,529" fill="none"/>
+        <path id="arc-5" d="M 1307,284 Q 1400,420 1395,511" fill="none"/>
+        <path id="arc-6" d="M 1307,284 Q 1230,350 1150,302" fill="none"/>
+        <path id="arc-7" d="M 1307,284 Q 850,60 365,225" fill="none"/>
+        <path id="arc-8" d="M 1307,284 Q 1370,250 1413,240" fill="none"/>
       </defs>
       <g class="gl-arcs" stroke="#c9a24e" stroke-width="1.2" fill="none" opacity="0.7">
         <use href="#arc-1" stroke-dasharray="4,4" class="gl-arc"/>
@@ -3853,35 +3868,51 @@ polygon[fill="url(#vlg-solar)"] {
     </svg>
 
     <!-- Pin markers (HTML overlay) — main = brass, expansion = pale brass -->
-    <div class="map-pin pin-primary" style="left:28.6%;top:47.4%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_co">Colombia</span></div>
-    <div class="map-pin pin-primary pin-below" style="left:27.4%;top:50.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ec">Ecuador</span></div>
-    <div class="map-pin pin-primary" style="left:35.6%;top:58.8%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_br">Brazil</span></div>
-    <div class="map-pin pin-expansion pin-left" style="left:21.8%;top:40%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_mx">Mexico</span></div>
-    <div class="map-pin pin-primary" style="left:47.5%;top:27.5%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_es">Spain</span></div>
-    <div class="map-pin pin-primary pin-below" style="left:56.1%;top:64.6%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_za">South Africa</span></div>
-    <div class="map-pin pin-expansion" style="left:58.5%;top:50.7%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ke">Kenya</span></div>
-    <div class="map-pin pin-expansion pin-left" style="left:50.5%;top:44.8%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ng">Nigeria</span></div>
-    <div class="map-pin pin-expansion pin-below" style="left:58.7%;top:56%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_tz">Tanzania</span></div>
-    <div class="map-pin pin-expansion" style="left:63.2%;top:36.4%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ae">UAE</span></div>
-    <div class="map-pin pin-expansion pin-left" style="left:59%;top:38%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_sa">Saudi Arabia</span></div>
-    <div class="map-pin pin-expansion" style="left:69.4%;top:34.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_in">India</span></div>
-    <div class="map-pin pin-expansion pin-left" style="left:67%;top:31.6%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_pk">Pakistan</span></div>
-    <div class="map-pin pin-expansion" style="left:75.5%;top:39.2%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_th">Thailand</span></div>
-    <div class="map-pin pin-expansion pin-below pin-east-vn" style="left:78.4%;top:42.4%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_vn">Vietnam</span></div>
-    <div class="map-pin pin-expansion pin-east-ph" style="left:82.5%;top:44.4%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ph">Philippines</span></div>
-    <div class="map-pin pin-expansion pin-below pin-east-id" style="left:80.4%;top:52.8%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_id">Indonesia</span></div>
-    <div class="map-pin pin-expansion pin-left" style="left:88.8%;top:69.6%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_au">Australia</span></div>
+    <div class="map-pin pin-primary" style="left:29.83%;top:46.06%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_co">Colombia</span></div>
+    <div class="map-pin pin-primary pin-below" style="left:28.05%;top:49.54%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ec">Ecuador</span></div>
+    <div class="map-pin pin-primary" style="left:36.67%;top:56.42%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_br">Brazil</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:22.5%;top:37.64%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_mx">Mexico</span></div>
+    <div class="map-pin pin-primary" style="left:49.58%;top:25.74%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_es">Spain</span></div>
+    <div class="map-pin pin-primary pin-below" style="left:57.79%;top:64.56%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_za">South Africa</span></div>
+    <div class="map-pin pin-expansion" style="left:60.59%;top:48.32%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ke">Kenya</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:52.45%;top:42.66%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ng">Nigeria</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:60.1%;top:52.53%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_tz">Tanzania</span></div>
+    <div class="map-pin pin-expansion" style="left:65.52%;top:34.56%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ae">UAE</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:61.88%;top:34.48%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_sa">Saudi Arabia</span></div>
+    <div class="map-pin pin-expansion" style="left:71.45%;top:34.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_in">India</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:69.37%;top:31.89%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_pk">Pakistan</span></div>
+    <div class="map-pin pin-expansion" style="left:78.39%;top:39.66%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_th">Thailand</span></div>
+    <div class="map-pin pin-expansion pin-below pin-east-vn" style="left:80.38%;top:41.04%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_vn">Vietnam</span></div>
+    <div class="map-pin pin-expansion pin-east-ph" style="left:84.55%;top:40.88%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ph">Philippines</span></div>
+    <div class="map-pin pin-expansion pin-below pin-east-id" style="left:80.46%;top:52.29%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_id">Indonesia</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:91.34%;top:67.43%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_au">Australia</span></div>
     <!-- New mainstream markets (expansion tier) -->
-    <div class="map-pin pin-expansion" style="left:21.9%;top:27.8%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_us">USA</span></div>
-    <div class="map-pin pin-expansion pin-below" style="left:22.6%;top:18%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ca">Canada</span></div>
-    <div class="map-pin pin-expansion pin-left" style="left:47.8%;top:18.8%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_uk">UK</span></div>
-    <div class="map-pin pin-expansion" style="left:52.4%;top:21.2%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_de">Germany</span></div>
-    <div class="map-pin pin-expansion pin-below" style="left:48.3%;top:24.4%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_fr">France</span></div>
-    <div class="map-pin pin-expansion" style="left:52.4%;top:27.2%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_it">Italy</span></div>
-    <div class="map-pin pin-expansion pin-east-jp" style="left:86.4%;top:31.6%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_jp">Japan</span></div>
+    <div class="map-pin pin-expansion" style="left:28.73%;top:25.34%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_us">USA</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:28.33%;top:22.1%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_ca">Canada</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:49.82%;top:19.35%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_uk">UK</span></div>
+    <div class="map-pin pin-expansion" style="left:53.62%;top:20.07%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_de">Germany</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:50.35%;top:22.58%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_fr">France</span></div>
+    <div class="map-pin pin-expansion" style="left:53.75%;top:24.85%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_it">Italy</span></div>
+    <div class="map-pin pin-expansion pin-east-jp" style="left:88.79%;top:28.09%"><span class="pin-dot"></span><span class="pin-label" data-i18n="gl_jp">Japan</span></div>
+    <!-- Additional mainstream markets — each point is aligned to its national land area. -->
+    <div class="map-pin pin-expansion pin-below" style="left:28.65%;top:54.39%" aria-label="Peru"><span class="pin-dot"></span><span class="pin-label">Peru</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:29.91%;top:67.26%" aria-label="Chile"><span class="pin-dot"></span><span class="pin-label">Chile</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:33.31%;top:67.18%" aria-label="Argentina"><span class="pin-dot"></span><span class="pin-label">Argentina</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:51.6%;top:19.02%" aria-label="Netherlands"><span class="pin-dot"></span><span class="pin-label">Netherlands</span></div>
+    <div class="map-pin pin-expansion" style="left:55.5%;top:20.5%" aria-label="Poland"><span class="pin-dot"></span><span class="pin-label">Poland</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:59.7%;top:27.2%" aria-label="Turkey"><span class="pin-dot"></span><span class="pin-label">Turkey</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:48.24%;top:29.95%" aria-label="Morocco"><span class="pin-dot"></span><span class="pin-label">Morocco</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:58.6%;top:33.75%" aria-label="Egypt"><span class="pin-dot"></span><span class="pin-label">Egypt</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:49.7%;top:43.71%" aria-label="Ghana"><span class="pin-dot"></span><span class="pin-label">Ghana</span></div>
+    <div class="map-pin pin-expansion" style="left:60.87%;top:42.98%" aria-label="Ethiopia"><span class="pin-dot"></span><span class="pin-label">Ethiopia</span></div>
+    <div class="map-pin pin-expansion pin-below" style="left:75.16%;top:34.97%" aria-label="Bangladesh"><span class="pin-dot"></span><span class="pin-label">Bangladesh</span></div>
+    <div class="map-pin pin-expansion pin-east-vn" style="left:77.71%;top:43.31%" aria-label="Malaysia"><span class="pin-dot"></span><span class="pin-label">Malaysia</span></div>
+    <div class="map-pin pin-expansion pin-east-id" style="left:79.12%;top:47.76%" aria-label="Singapore"><span class="pin-dot"></span><span class="pin-label">Singapore</span></div>
+    <div class="map-pin pin-expansion pin-east-jp" style="left:85.56%;top:27.84%" aria-label="South Korea"><span class="pin-dot"></span><span class="pin-label">South Korea</span></div>
+    <div class="map-pin pin-expansion pin-left" style="left:99.12%;top:70.18%" aria-label="New Zealand"><span class="pin-dot"></span><span class="pin-label">New Zealand</span></div>
 
     <!-- Shenzhen HQ pin — special clickable marker -->
-    <button class="map-pin pin-hq pin-east-hq" id="mapHq" style="left:79.3%;top:37.6%" type="button" aria-label="JC Lightning Headquarters in Shenzhen, China">
+    <button class="map-pin pin-hq pin-east-hq" id="mapHq" style="left:81.67%;top:35.53%" type="button" aria-label="JC Lightning Headquarters in Shenzhen, China">
       <span class="pin-dot"></span>
       <span class="pin-label" data-i18n="gl_hq_label">Shenzhen, China</span>
     </button>
@@ -5462,14 +5493,15 @@ window.addEventListener('scroll',()=>{
 
 // 导航滚动 + 智能显隐
 const nav=document.getElementById('mainnav');
+const navHero=document.querySelector('.sw-hero, .hero');
 const has3dHero=!!document.querySelector('.hero-3d-bg');
 // 图片背景模式：初始化为 light（浅色导航，深色文字）
 if(has3dHero){ nav.classList.remove('dark'); nav.classList.add('light'); }
 let lastScrollY=0;
 let navTicking=false;
-window.addEventListener('scroll',()=>{
+function syncNavigation(){
   const y=window.scrollY;
-  const heroH=document.querySelector('.hero').offsetHeight;
+  const heroH=navHero ? navHero.offsetHeight : window.innerHeight;
   // 颜色模式 — 根据是否使用图片背景切换 dark/light
   if(y<heroH-70){
     if(has3dHero){ nav.classList.add('light'); nav.classList.remove('dark','solid'); }
@@ -5487,7 +5519,9 @@ window.addEventListener('scroll',()=>{
     });
     navTicking=true;
   }
-});
+}
+window.addEventListener('scroll',syncNavigation,{passive:true});
+syncNavigation();
 
 // 侧边询盘按钮
 const sideCta=document.getElementById('sideCta');
@@ -6267,23 +6301,13 @@ let lenis=null;
   const forceIntro=new URLSearchParams(location.search).get('intro')==='1';
   if(seen&&!forceIntro){ pl.classList.add('hide'); pl.style.display='none'; window.addEventListener('load',()=>{ heroIn(); if(pl.parentNode) pl.remove(); }); return; }
   if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){ setTimeout(dismiss,80); return; }
-  const introStatus=document.getElementById('introStatus'), introPercent=document.getElementById('introPercent'), introBar=document.getElementById('introProgressBar'), introLogoLockup=document.getElementById('introLogoLockup');
-  function setIntroStatus(label,percent){
-    if(introStatus) introStatus.textContent=label;
-    if(introPercent) introPercent.textContent=String(percent).padStart(2,'0')+'%';
-  }
+  const introLogoLockup=document.getElementById('introLogoLockup');
   if(typeof gsap!=='undefined'){
     const introTl=gsap.timeline({defaults:{ease:'power3.out'}});
     introTl.set('.intro-hud',{autoAlpha:1})
-      .from('.intro-readout',{x:-14,autoAlpha:0,duration:.45})
       .from('.intro-core',{scale:.72,autoAlpha:0,duration:.7,ease:'power2.out'},0)
-      .from('.intro-progress',{y:10,autoAlpha:0,duration:.45},.18)
-      .to(introBar,{scaleX:1,duration:4.35,ease:'none'},.22)
-      .call(()=>setIntroStatus('SOLAR GRID SYNCHRONISED',28),null,.95)
-      .call(()=>setIntroStatus('OPTICS & POWER MODULES ONLINE',61),null,2.25)
-      .to(introLogoLockup,{autoAlpha:.92,scale:1,duration:.85,ease:'power2.out'},2.72)
-      .call(()=>setIntroStatus('SYSTEM READY',100),null,4.24);
-  }else if(introBar){ introBar.style.transform='scaleX(1)'; }
+      .to(introLogoLockup,{autoAlpha:.92,scale:1,duration:.85,ease:'power2.out'},0);
+  }
   setTimeout(dismiss,4800);  // concise opening sequence
   setTimeout(dismiss,6500);  // JS hard failsafe (CSS also auto-hides at 8s)
 
@@ -6977,6 +7001,16 @@ window.restartQuiz=function(){
 <!-- ===== Solar World hero: render hotspots (desktop) + scenario grid (mobile) ===== -->
 <script>
 (function(){
+  // Product range taxonomy — seven buyer-facing routes, kept consistent with the catalogue filters.
+  Object.assign(T.en,{filter_security:'Security',filter_road:'Road & Signal',filter_garden:'Garden',filter_decorative:'Decorative',filter_offgrid:'Off-Grid Home',filter_portable:'Portable',filter_ac:'Commercial LED',cat1_t:'Security & Perimeter',cat2_t:'Roadway & Municipal',cat3_t:'Garden, Pathway & Landscape',cat4_t:'Decorative, Hospitality & Leisure',cat5_t:'Off-Grid Home & Emergency',cat6_t:'Portable & Field Utility',cat7_t:'Commercial & Industrial LED'});
+  Object.assign(T.zh,{filter_security:'安防',filter_road:'道路与信号',filter_garden:'花园',filter_decorative:'装饰',filter_offgrid:'离网家庭',filter_portable:'便携',filter_ac:'商用工业',cat1_t:'安防与周界',cat2_t:'道路与市政',cat3_t:'花园、步道与景观',cat4_t:'装饰、酒店与休闲',cat5_t:'离网家庭与应急',cat6_t:'便携与现场作业',cat7_t:'商用与工业 LED'});
+  Object.assign(T.es,{filter_security:'Seguridad',filter_road:'Vial y señal',filter_garden:'Jardín',filter_decorative:'Decorativo',filter_offgrid:'Hogar sin red',filter_portable:'Portátil',filter_ac:'LED comercial',cat1_t:'Seguridad y perímetro',cat2_t:'Vial y municipal',cat3_t:'Jardín, senderos y paisaje',cat4_t:'Decoración, hostelería y ocio',cat5_t:'Hogar sin red y emergencia',cat6_t:'Portátil y trabajo de campo',cat7_t:'LED comercial e industrial'});
+  Object.assign(T.fr,{filter_security:'Sécurité',filter_road:'Voirie et signal',filter_garden:'Jardin',filter_decorative:'Décoratif',filter_offgrid:'Maison autonome',filter_portable:'Portable',filter_ac:'LED commercial',cat1_t:'Sécurité et périmètre',cat2_t:'Voirie et municipal',cat3_t:'Jardin, allée et paysage',cat4_t:'Décor, hôtellerie et loisirs',cat5_t:'Maison autonome et urgence',cat6_t:'Portable et terrain',cat7_t:'LED commercial et industriel'});
+  Object.assign(T.pt,{filter_security:'Segurança',filter_road:'Vias e sinalização',filter_garden:'Jardim',filter_decorative:'Decorativo',filter_offgrid:'Casa sem rede',filter_portable:'Portátil',filter_ac:'LED comercial',cat1_t:'Segurança e perímetro',cat2_t:'Vias e municípios',cat3_t:'Jardim, caminhos e paisagem',cat4_t:'Decoração, hotelaria e lazer',cat5_t:'Casa sem rede e emergência',cat6_t:'Portátil e trabalho de campo',cat7_t:'LED comercial e industrial'});
+  Object.assign(T.ar,{filter_security:'الأمن',filter_road:'الطرق والإشارات',filter_garden:'الحدائق',filter_decorative:'ديكوري',filter_offgrid:'منزل خارج الشبكة',filter_portable:'محمول',filter_ac:'LED تجاري',cat1_t:'الأمن والمحيط',cat2_t:'الطرق والبلديات',cat3_t:'الحدائق والممرات والمناظر',cat4_t:'الديكور والضيافة والترفيه',cat5_t:'منزل خارج الشبكة والطوارئ',cat6_t:'محمول والعمل الميداني',cat7_t:'LED تجاري وصناعي'});
+  Object.assign(T.ru,{filter_security:'Безопасность',filter_road:'Дороги и сигнал',filter_garden:'Сад',filter_decorative:'Декор',filter_offgrid:'Автономный дом',filter_portable:'Портативные',filter_ac:'Коммерческие LED',cat1_t:'Безопасность и периметр',cat2_t:'Дороги и муниципальные объекты',cat3_t:'Сад, дорожки и ландшафт',cat4_t:'Декор, гостиницы и отдых',cat5_t:'Автономный дом и аварийное освещение',cat6_t:'Портативные и полевые работы',cat7_t:'Коммерческие и промышленные LED'});
+  Object.assign(T.hi,{filter_security:'सुरक्षा',filter_road:'सड़क व सिग्नल',filter_garden:'उद्यान',filter_decorative:'सजावटी',filter_offgrid:'ऑफ-ग्रिड घर',filter_portable:'पोर्टेबल',filter_ac:'कमर्शियल LED',cat1_t:'सुरक्षा और परिधि',cat2_t:'सड़क और नगरपालिका',cat3_t:'उद्यान, पथ और लैंडस्केप',cat4_t:'सजावट, आतिथ्य और अवकाश',cat5_t:'ऑफ-ग्रिड घर और आपातकाल',cat6_t:'पोर्टेबल और फील्ड उपयोग',cat7_t:'कमर्शियल और औद्योगिक LED'});
+
   var P = 'products/';
   var SW = [
     {t:'Solar Farm & Rural Estate', k:'app_agri', d:[16,19.4], href:P+'solar-security-street-lights.html',
@@ -7102,6 +7136,41 @@ window.restartQuiz=function(){
     }
   });
   try{ var l = localStorage.getItem('jc-lang') || 'en'; if(typeof T!=='undefined' && typeof setLang==='function' && T[l]) setLang(l); }catch(e){}
+})();
+</script>
+
+<!-- ===== Global map: country names on demand ===== -->
+<script>
+(function(){
+  var map=document.querySelector('.global-map-wrap');
+  if(!map) return;
+  var pins=Array.prototype.slice.call(map.querySelectorAll('.map-pin:not(.pin-hq)'));
+  function closeOthers(current){
+    pins.forEach(function(pin){
+      if(pin!==current){ pin.classList.remove('is-selected'); pin.setAttribute('aria-pressed','false'); }
+    });
+  }
+  pins.forEach(function(pin){
+    var label=pin.querySelector('.pin-label');
+    pin.tabIndex=0;
+    pin.setAttribute('role','button');
+    pin.setAttribute('aria-pressed','false');
+    if(label) pin.setAttribute('aria-label',label.textContent.trim());
+    pin.addEventListener('click',function(event){
+      event.stopPropagation();
+      var next=!pin.classList.contains('is-selected');
+      closeOthers(pin);
+      pin.classList.toggle('is-selected',next);
+      pin.setAttribute('aria-pressed',String(next));
+    });
+    pin.addEventListener('keydown',function(event){
+      if(event.key==='Enter' || event.key===' '){ event.preventDefault(); pin.click(); }
+      if(event.key==='Escape'){ pin.classList.remove('is-selected'); pin.setAttribute('aria-pressed','false'); pin.blur(); }
+    });
+  });
+  map.addEventListener('click',function(event){
+    if(!event.target.closest('.map-pin')) closeOthers(null);
+  });
 })();
 </script>
 
