@@ -686,6 +686,7 @@ h1 em, h2 em, .text-gold { background:linear-gradient(135deg,#c9a24e 0%,#e2c98a 
 /* Marquee removed — Apple-style sites don't use ticker tape */
 
 .products { padding:160px 56px; background:linear-gradient(180deg,#f0ebe2 0%,#f7f3ec 100%); position:relative; }
+.products.is-application-mode .prod-head,.products.is-application-mode .prod-search,.products.is-application-mode .prod-filter,.products.is-application-mode .prod-cat-group:not(.is-active-application){display:none}
 .products::before { content:''; position:absolute; inset:0; opacity:0.05; background-image:radial-gradient(circle, rgba(168,125,42,1) 1px, transparent 1px); background-size:18px 18px; pointer-events:none; z-index:1; }
 .products::after { content:''; position:absolute; top:0; left:10%; width:800px; height:500px; background:radial-gradient(ellipse, rgba(201,162,78,0.16) 0%, rgba(168,125,42,0.07) 40%, transparent 65%); filter:blur(40px); pointer-events:none; z-index:0; }
 .prod-filter { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:40px; position:sticky; top:56px; z-index:50; background:rgba(247,243,236,0.9); backdrop-filter:blur(16px); padding:12px 16px; border-radius:50px; border:1px solid rgba(168,125,42,0.2); }
@@ -999,6 +1000,12 @@ h2 em { font-style:italic; color:var(--brass); }
 .global-map-wrap .global-map .gl-grid,
 .global-map-wrap .global-map .gl-hud,
 .global-map-wrap .global-map .gl-scanline { display:initial; }
+/* Live market routes are generated from the calibrated HTML hotspot coordinates. */
+.global-map-wrap .gl-all-routes{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible}
+.global-map-wrap .gl-all-routes .gl-route{fill:none;stroke:#c9a24e;stroke-width:1.25;stroke-dasharray:5 7;opacity:.42;vector-effect:non-scaling-stroke}
+.global-map-wrap .gl-all-routes .gl-route-packet{fill:#fde9b9;filter:drop-shadow(0 0 4px #c9a24e) drop-shadow(0 0 9px #a87d2a)}
+.global-map-wrap .map-pin{z-index:4}
+@media(prefers-reduced-motion:reduce){.global-map-wrap .gl-all-routes .gl-route-packet{display:none}}
 
 /* ===== Colored region choropleth (ported from global-market-map.html) ===== */
 .global-map-wrap{ background:#f0ebe2; }
@@ -2342,6 +2349,81 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
   <div class="sw-modal" id="swModal" role="dialog" aria-modal="true"><div class="sw-box" id="swBox"></div></div>
 </section>
 
+<!-- ===== Scroll-open application portal — second Hero ===== -->
+<style>
+.cine-hero{position:relative;min-height:100svh;padding:0;overflow:clip;background:#15120f}
+.cine-hero::before{content:'';position:absolute;width:min(70vw,860px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(201,162,78,.22),rgba(201,162,78,0) 68%);top:-6%;left:-19%;pointer-events:none}
+.cine-shell{position:relative;width:100%;height:100svh;margin:auto;overflow:hidden;border:0;border-radius:0;background:#16120e;box-shadow:none}
+.cine-media,.cine-media::after{position:absolute;inset:0}.cine-media::after{content:'';background:linear-gradient(180deg,rgba(10,9,7,.35) 0%,rgba(10,9,7,.04) 25%,rgba(10,9,7,.24) 66%,rgba(10,9,7,.82) 100%);z-index:1;pointer-events:none}
+.cine-media video,.cine-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease,transform 6s ease;transform:scale(1.03);filter:brightness(1.14) saturate(.92) contrast(1.02);will-change:transform,opacity}
+.cine-media .is-active{opacity:1;transform:scale(1.08)}
+.cine-grid{position:absolute;inset:0;z-index:2;pointer-events:none;background-image:linear-gradient(rgba(253,233,185,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(253,233,185,.07) 1px,transparent 1px);background-size:68px 68px;mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 72%)}
+.cine-content{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;padding:clamp(22px,4vw,56px);color:var(--chalk-w);pointer-events:none}.cine-content>*{pointer-events:auto}
+.cine-top{display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}.cine-brand{display:inline-flex;align-items:center;gap:9px}.cine-brand::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--brass-lt);box-shadow:0 0 14px var(--brass-lt)}.cine-index{color:rgba(247,243,236,.72)}
+.cine-main{width:min(680px,100%);margin:auto 0;padding:clamp(36px,7vw,86px) 0 clamp(22px,3vw,36px);opacity:0;transform:translateY(26px)}.cine-kicker{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border:1px solid rgba(253,233,185,.46);border-radius:999px;background:rgba(14,12,10,.24);backdrop-filter:blur(7px);font-size:.69rem;letter-spacing:.11em;text-transform:uppercase;font-weight:600}
+.cine-main h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.55rem,6.2vw,6rem);font-weight:500;line-height:.96;letter-spacing:-.045em;margin:20px 0 17px;max-width:700px;text-wrap:balance}.cine-main h2 em{font-style:italic;color:var(--brass-pale)}.cine-main p{max-width:570px;margin:0;color:rgba(247,243,236,.86);font-size:clamp(.95rem,1.5vw,1.13rem);line-height:1.68}
+.cine-door{position:absolute;z-index:8;top:0;bottom:0;width:50.6%;overflow:hidden;background-color:#12100e;background-repeat:no-repeat;background-size:200% 100%;filter:brightness(1.1);will-change:transform}.cine-door::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,6,5,.68),rgba(15,12,9,.12));}.cine-door--left{left:0;background-position:left center;transform-origin:left center}.cine-door--right{right:0;background-position:right center;transform-origin:right center}.cine-door--right::after{background:linear-gradient(270deg,rgba(7,6,5,.68),rgba(15,12,9,.12))}
+.cine-door-mark{position:absolute;z-index:2;top:50%;width:min(220px,31vw);color:var(--chalk-w);transform:translateY(-50%);font-family:'Outfit',sans-serif}.cine-door--left .cine-door-mark{left:clamp(20px,4vw,66px)}.cine-door--right .cine-door-mark{right:clamp(20px,4vw,66px);text-align:right}.cine-door-mark small{display:block;margin-bottom:14px;color:var(--brass-pale);font-size:.61rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}.cine-door-mark b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.5rem,3vw,3.2rem);font-weight:500;line-height:1.02}.cine-door-mark i{display:block;margin-top:13px;color:rgba(247,243,236,.68);font-size:.78rem;font-style:normal;line-height:1.55}
+.cine-seam{display:none}.cine-open-control{position:absolute;z-index:11;left:50%;bottom:clamp(28px,5vh,54px);transform:translateX(-50%);display:inline-flex;align-items:center;gap:11px;border:1px solid rgba(253,233,185,.5);border-radius:999px;padding:11px 16px;background:rgba(14,12,10,.34);color:var(--chalk-w);font:600 .66rem 'Outfit',sans-serif;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;cursor:pointer;backdrop-filter:blur(10px);transition:background .25s,color .25s}.cine-open-control::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--brass-lt);box-shadow:0 0 12px var(--brass-lt)}.cine-open-control:hover{background:var(--brass-lt);color:var(--ink)}
+.cine-cards{position:absolute;z-index:5;right:clamp(22px,4vw,56px);bottom:clamp(22px,4vw,52px);width:min(1040px,74%);display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;opacity:0;transform:translateY(58px);will-change:transform,opacity}.cine-card{position:relative;min-height:154px;padding:10px;overflow:hidden;border:1px solid rgba(253,233,185,.36);border-radius:10px;background:rgba(18,15,11,.42);color:var(--chalk-w);text-align:left;cursor:pointer;box-shadow:0 14px 34px rgba(0,0,0,.22);backdrop-filter:blur(7px);transition:border-color .25s,transform .25s,background .25s}.cine-card:hover{border-color:var(--brass-lt);background:rgba(18,15,11,.6);transform:translateY(-6px)}.cine-card img{width:100%;height:54px;object-fit:contain;display:block;margin:0 auto 10px;padding:5px;background:rgba(247,243,236,.94);border-radius:5px}.cine-card span{display:block;color:var(--brass-pale);font-size:.56rem;font-weight:700;letter-spacing:.13em}.cine-card b{display:block;margin-top:6px;font-size:clamp(.61rem,.76vw,.74rem);line-height:1.24}.cine-card em{position:absolute;right:10px;bottom:8px;color:var(--brass-pale);font-size:.82rem;font-style:normal}
+.cine-focus-layer{position:absolute;z-index:7;inset:0;overflow:hidden;pointer-events:none}.cine-focus-panel{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(28px,5vw,84px);padding:clamp(72px,10vw,150px) clamp(34px,8vw,128px) clamp(46px,7vw,90px);overflow:hidden;border:1px solid rgba(253,233,185,.22);background-color:#111;background-image:linear-gradient(100deg,rgba(9,8,7,.56) 0%,rgba(14,12,10,.32) 45%,rgba(14,12,10,.12) 100%),var(--cine-scene);background-position:center;background-size:cover;color:var(--chalk-w);visibility:hidden;opacity:0;transform-origin:top left;will-change:transform,opacity;appearance:none;text-align:left;font:inherit;cursor:pointer;pointer-events:auto}.cine-focus-panel::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 68%,rgba(6,5,4,.2));pointer-events:none}.cine-focus-product,.cine-focus-copy{position:relative;z-index:1}.cine-focus-product{display:grid;place-items:center;min-height:clamp(300px,44vw,640px);padding:clamp(24px,4vw,56px);border:1px solid rgba(253,233,185,.28);background:rgba(247,243,236,.95);box-shadow:0 28px 80px rgba(0,0,0,.34)}.cine-focus-product img{width:100%;height:100%;max-height:520px;object-fit:contain}.cine-focus-copy{max-width:680px;text-shadow:0 2px 18px rgba(0,0,0,.55)}.cine-focus-copy span{display:block;color:var(--brass-pale);font:700 .72rem 'Outfit',sans-serif;letter-spacing:.2em;text-transform:uppercase}.cine-focus-copy h3{margin:18px 0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(3.6rem,8vw,8.6rem);font-weight:500;line-height:.88;letter-spacing:-.06em}.cine-focus-copy p{max-width:520px;margin:0;color:rgba(247,243,236,.94);font-size:clamp(1.04rem,1.5vw,1.3rem);line-height:1.65}.cine-focus-link{display:inline-flex;align-items:center;gap:10px;margin-top:34px;padding:14px 18px;border:1px solid var(--brass-lt);background:var(--brass-lt);color:var(--ink);font:700 .72rem 'Outfit',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-shadow:none}.cine-focus-link::after{content:'↗';font-size:1rem}
+.cine-progress{position:absolute;z-index:5;left:clamp(22px,4vw,56px);bottom:clamp(24px,4vw,52px);display:flex;align-items:center;gap:12px;color:rgba(247,243,236,.74);font-size:.64rem;letter-spacing:.11em;text-transform:uppercase;opacity:0}.cine-progress::before{content:'';width:40px;height:1px;background:var(--brass-lt)}
+.cine-shell.is-open .cine-door--left{transform:translateX(-102%)}.cine-shell.is-open .cine-door--right{transform:translateX(102%)}.cine-shell.is-open .cine-seam,.cine-shell.is-open .cine-open-control{opacity:0;visibility:hidden}.cine-shell.is-open .cine-main,.cine-shell.is-open .cine-cards{opacity:1;transform:none}.cine-shell.is-open .cine-progress{opacity:1}
+@media(max-width:720px){.cine-hero{min-height:138svh;padding:0;background:#15120f}.cine-shell{height:100svh;border-radius:0;border-left:0;border-right:0}.cine-content{padding:22px 18px}.cine-main{margin:auto 0;padding:48px 0 142px}.cine-main h2{font-size:clamp(2.45rem,11vw,4rem)}.cine-door-mark{width:40vw}.cine-door-mark b{font-size:1.52rem}.cine-door-mark i{display:none}.cine-door--left .cine-door-mark{left:18px}.cine-door--right .cine-door-mark{right:18px}.cine-cards{left:18px;right:0;bottom:22px;width:auto;display:flex;overflow-x:auto;padding-right:18px;gap:8px;scrollbar-width:none}.cine-cards::-webkit-scrollbar{display:none}.cine-card{flex:0 0 136px;min-height:106px;padding:9px}.cine-card img{display:none}.cine-card span{font-size:.52rem}.cine-card b{font-size:.68rem}.cine-card em{bottom:8px}.cine-progress{display:none}.cine-grid{background-size:46px 46px}.cine-focus-layer{display:none}}
+@media(prefers-reduced-motion:reduce){.cine-hero{min-height:100svh}.cine-media video,.cine-media img{transition:none;transform:none}.cine-media .is-active{transform:none}.cine-main,.cine-cards{opacity:1;transform:none}.cine-door{display:none}.cine-seam,.cine-open-control{display:none}}
+</style>
+<style>
+/* Each focus state combines a clean scene with one transparent, scene-placed product foreground. */
+.cine-card img{height:54px;padding:0;object-fit:cover;background:#171411;border:0;border-radius:5px}
+.cine-focus-panel{background-image:linear-gradient(90deg,rgba(7,7,7,.08) 0%,rgba(7,7,7,.04) 44%,rgba(7,7,7,.42) 100%),var(--cine-scene);background-blend-mode:normal}
+.cine-focus-product{display:flex;align-items:center;justify-content:center;min-height:clamp(300px,44vw,640px);padding:clamp(12px,2vw,34px);overflow:visible;border:0;background:transparent;box-shadow:none;pointer-events:none}
+.cine-focus-product::after{content:'';position:absolute;z-index:-1;left:19%;bottom:12%;width:56%;height:22%;background:radial-gradient(ellipse,rgba(0,0,0,.42),transparent 68%);filter:blur(20px);opacity:.62;transform:translateY(12px)}
+.cine-focus-product img{display:block;width:100%;height:100%;max-height:clamp(340px,52vw,680px);object-fit:contain;filter:drop-shadow(0 28px 24px rgba(0,0,0,.38)) drop-shadow(0 0 22px rgba(255,207,105,.16));transform:translate(var(--cutout-x,0),var(--cutout-y,0)) scale(var(--cutout-scale,1));transform-origin:center}
+.cine-focus-panel[data-cine-card="cat-security"] .cine-focus-product img{--cutout-x:-10%;--cutout-y:-9%;--cutout-scale:1.04}
+.cine-focus-panel[data-cine-card="cat-road"] .cine-focus-product img{--cutout-x:-7%;--cutout-y:-3%;--cutout-scale:.9}
+.cine-focus-panel[data-cine-card="cat-garden"] .cine-focus-product{align-items:flex-end}.cine-focus-panel[data-cine-card="cat-garden"] .cine-focus-product img{--cutout-x:-7%;--cutout-y:4%;--cutout-scale:.82}
+.cine-focus-panel[data-cine-card="cat-decorative"] .cine-focus-product img{--cutout-x:-11%;--cutout-y:-3%;--cutout-scale:.88}
+.cine-focus-panel[data-cine-card="cat-portable"] .cine-focus-product{align-items:flex-end}.cine-focus-panel[data-cine-card="cat-portable"] .cine-focus-product img{--cutout-x:-5%;--cutout-y:5%;--cutout-scale:.84}
+.cine-focus-panel[data-cine-card="cat-ac"] .cine-focus-product img{--cutout-x:-8%;--cutout-y:-10%;--cutout-scale:.93}
+.cine-focus-panel[data-cine-card="cat-offgrid"] .cine-focus-product{align-items:flex-end}.cine-focus-panel[data-cine-card="cat-offgrid"] .cine-focus-product img{--cutout-x:-6%;--cutout-y:1%;--cutout-scale:.9}
+</style>
+<section class="cine-hero" id="solutions" aria-labelledby="cineTitle">
+  <div class="cine-shell" data-cine-shell>
+    <div class="cine-media" aria-hidden="true">
+      <img class="is-active" data-cine-media src="images/jc-portal-scene-01-security-v2.png" alt="" loading="eager">
+      <img data-cine-media src="images/jc-portal-scene-02-road-v2.png" alt="" loading="eager">
+      <img data-cine-media src="images/jc-portal-scene-03-garden-v2.png" alt="" loading="eager">
+      <img data-cine-media src="images/jc-portal-scene-04-decorative-v2.png" alt="" loading="eager">
+      <img data-cine-media src="images/jc-portal-scene-05-portable-v2.png" alt="" loading="eager">
+      <img data-cine-media src="images/jc-portal-scene-06-commercial-v2.png" alt="" loading="eager">
+      <img data-cine-media src="images/jc-portal-scene-07-offgrid-v2.png" alt="" loading="eager">
+      <div class="cine-grid"></div>
+    </div>
+    <div class="cine-content">
+      <div class="cine-top"><span class="cine-brand" data-i18n="cine_brand">JC Lighting · Application Viewer</span><span class="cine-index" data-cine-index>01 / 07</span></div>
+      <div class="cine-main" data-cine-copy>
+        <span class="cine-kicker" data-i18n="cine_kicker">Solar lighting · built for reliability</span>
+        <h2 id="cineTitle" data-i18n="cine_h2">When daylight leaves,<br><em>certainty remains.</em></h2>
+        <p data-i18n="cine_copy">JC Lighting brings dependable solar performance to the spaces people rely on every day.</p>
+      </div>
+      <div class="cine-progress" data-i18n="cine_progress">Scroll to open</div>
+    </div>
+    <div class="cine-door cine-door--left" data-cine-door style="background-image:url('images/jc-portal-day-v1.png')"><div class="cine-door-mark"><small>Daylight charge</small><b data-i18n="cine_tab_1">Security &amp; Perimeter</b><i data-i18n="cine_door_left">Built for reliable light after dark.</i></div></div>
+    <div class="cine-door cine-door--right" data-cine-door style="background-image:url('images/jc-portal-day-v1.png')"><div class="cine-door-mark"><small>JC Lighting</small><b data-i18n="cine_door_right">Open the scene</b><i data-i18n="cine_hint">Scroll slowly or click to enter.</i></div></div>
+    <div class="cine-seam" data-cine-seam></div>
+    <button class="cine-open-control" type="button" data-cine-open data-i18n="cine_open">Open application scenes</button>
+    <div class="cine-cards" data-cine-cards aria-label="Application product ranges">
+      <button class="cine-card" type="button" data-cine-card="cat-security"><img src="images/jc-portal-card-01-security-v1.png" alt=""><span>01</span><b data-i18n="filter_security">Security</b><em>↗</em></button>
+      <button class="cine-card" type="button" data-cine-card="cat-road"><img src="images/jc-portal-card-02-road-v1.png" alt=""><span>02</span><b data-i18n="filter_road">Road &amp; Signal</b><em>↗</em></button>
+      <button class="cine-card" type="button" data-cine-card="cat-garden"><img src="images/jc-portal-card-03-garden-v1.png" alt=""><span>03</span><b data-i18n="filter_garden">Garden</b><em>↗</em></button>
+      <button class="cine-card" type="button" data-cine-card="cat-decorative"><img src="images/jc-portal-card-04-decorative-v1.png" alt=""><span>04</span><b data-i18n="filter_decorative">Decorative</b><em>↗</em></button>
+      <button class="cine-card" type="button" data-cine-card="cat-portable"><img src="images/jc-portal-card-05-portable-v1.png" alt=""><span>05</span><b data-i18n="filter_portable">Portable</b><em>↗</em></button>
+      <button class="cine-card" type="button" data-cine-card="cat-ac"><img src="images/jc-portal-card-06-commercial-v1.png" alt=""><span>06</span><b data-i18n="filter_ac">Commercial LED</b><em>↗</em></button>
+      <button class="cine-card" type="button" data-cine-card="cat-offgrid"><img src="images/jc-portal-card-07-offgrid-v1.png" alt=""><span>07</span><b data-i18n="filter_offgrid">Off-Grid Home</b><em>↗</em></button>
+    </div>
+  </div>
+</section>
+
 <!-- scenarios section removed — absorbed into hero hotspots -->
 
 <!-- ===== PRODUCT ANATOMY (SolEase-style annotated centerpiece) ===== -->
@@ -3333,7 +3415,7 @@ polygon[fill="url(#vlg-solar)"] {
 
 <!-- certs removed — content absorbed into insights/why-jc-lightning.html -->
 
-<section class="products" id="products">
+<section class="products" id="products" hidden>
   <div class="prod-head reveal">
     <div>
       <div class="sec-label" data-i18n="prod_lbl">Full Catalogue</div>
@@ -3598,7 +3680,7 @@ polygon[fill="url(#vlg-solar)"] {
 <!-- (numbers section removed — stats now live inside <section class="global"> below) -->
 
 <!-- ===== SOLUTIONS — application scenarios ===== -->
-<section class="solutions" id="solutions">
+<section class="solutions" id="solutions-archive" hidden>
   <div class="sol-head reveal">
     <div class="sec-label" data-i18n="sol_lbl">Solutions</div>
     <h2 data-i18n="sol_h2">Every application. <em>The right light.</em></h2>
@@ -5935,8 +6017,33 @@ if(prodSearch){
   });
 }
 
+// 应用门户唤出对应产品分类；目录本身不在常规页面流中展示
+function revealApplicationProducts(id){
+  const products=document.getElementById('products');
+  if(!products) return;
+  products.hidden=false;
+  products.classList.add('is-application-mode');
+  document.querySelectorAll('.prod-cat-group').forEach(group=>{
+    group.classList.toggle('is-active-application',group.id===id);
+    group.classList.toggle('collapsed',group.id!==id);
+  });
+}
+
+function revealFullCatalogue(){
+  const products=document.getElementById('products');
+  if(!products) return;
+  products.hidden=false;
+  products.classList.remove('is-application-mode');
+  document.querySelectorAll('.prod-cat-group').forEach(group=>group.classList.remove('is-active-application','collapsed'));
+}
+
+document.querySelectorAll('a[href="#products"]').forEach(link=>{
+  link.addEventListener('click',()=>revealFullCatalogue());
+});
+
 // 分类筛选栏 — 点击 chip 时同步展开目标分类(All 展开全部)
 function scrollToCat(id){
+  revealFullCatalogue();
   document.querySelectorAll('.prod-filter-btn').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
   if(id==='all'){
@@ -5974,12 +6081,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQV();});
 document.querySelectorAll('.prod-card').forEach(card=>{
   card.addEventListener('click',function(e){
     if(e.target.closest('a')) return;
-    const img=this.querySelector('.prod-img img');
-    const h4=this.querySelector('.prod-info h4');
-    const p=this.querySelector('.prod-info p');
-    const badge=this.querySelector('.prod-badge');
-    const specs=badge?badge.textContent:'Solar LED Light';
-    if(img && h4) openQV(img.src, h4.textContent, specs, p?p.textContent:'');
+    const detail=this.querySelector('.prod-title-link');
+    if(detail && detail.href) window.location.assign(detail.href);
   });
 });
 
@@ -7171,6 +7274,219 @@ window.restartQuiz=function(){
   map.addEventListener('click',function(event){
     if(!event.target.closest('.map-pin')) closeOthers(null);
   });
+})();
+</script>
+
+<!-- ===== Global map: live routes from Shenzhen to every calibrated market hotspot ===== -->
+<script>
+(function(){
+  var wrap=document.querySelector('.global-map-wrap');
+  if(!wrap) return;
+  var hq=wrap.querySelector('.map-pin.pin-hq');
+  var map=wrap.querySelector('.global-map');
+  if(!hq || !map) return;
+  var oldRoutes=wrap.querySelector('.gl-all-routes');
+  if(oldRoutes) oldRoutes.remove();
+  var source={x:parseFloat(hq.style.left)*10,y:parseFloat(hq.style.top)*5};
+  if(!Number.isFinite(source.x) || !Number.isFinite(source.y)) return;
+  var ns='http://www.w3.org/2000/svg';
+  var xlink='http://www.w3.org/1999/xlink';
+  var routes=document.createElementNS(ns,'svg');
+  routes.setAttribute('class','gl-all-routes');
+  routes.setAttribute('viewBox','0 0 1000 500');
+  routes.setAttribute('preserveAspectRatio','none');
+  routes.setAttribute('aria-hidden','true');
+  Array.prototype.slice.call(wrap.querySelectorAll('.map-pin:not(.pin-hq)')).forEach(function(pin,index){
+    var end={x:parseFloat(pin.style.left)*10,y:parseFloat(pin.style.top)*5};
+    if(!Number.isFinite(end.x) || !Number.isFinite(end.y)) return;
+    var dx=end.x-source.x,dy=end.y-source.y,dist=Math.hypot(dx,dy)||1;
+    var bend=Math.min(82,Math.max(18,dist*.16))*(index%2?1:-1);
+    var control={x:(source.x+end.x)/2+(-dy/dist)*bend,y:(source.y+end.y)/2+(dx/dist)*bend};
+    var id='gl-live-route-'+index;
+    var path=document.createElementNS(ns,'path');
+    path.setAttribute('id',id);
+    path.setAttribute('class','gl-route');
+    path.setAttribute('d','M '+source.x.toFixed(2)+' '+source.y.toFixed(2)+' Q '+control.x.toFixed(2)+' '+control.y.toFixed(2)+' '+end.x.toFixed(2)+' '+end.y.toFixed(2));
+    routes.appendChild(path);
+    var packet=document.createElementNS(ns,'circle');
+    packet.setAttribute('class','gl-route-packet');
+    packet.setAttribute('r',index%3===0?'3.9':'3.1');
+    var motion=document.createElementNS(ns,'animateMotion');
+    motion.setAttribute('dur',(4.8+(index%5)*.42)+'s');
+    motion.setAttribute('begin',(index*.17)+'s');
+    motion.setAttribute('repeatCount','indefinite');
+    motion.setAttribute('calcMode','paced');
+    var motionPath=document.createElementNS(ns,'mpath');
+    motionPath.setAttribute('href','#'+id);
+    motionPath.setAttributeNS(xlink,'xlink:href','#'+id);
+    motion.appendChild(motionPath);
+    packet.appendChild(motion);
+    routes.appendChild(packet);
+  });
+  var legacyArcs=map.querySelector('.gl-arcs');
+  var legacyPackets=map.querySelector('.gl-packets');
+  if(legacyArcs) legacyArcs.style.display='none';
+  if(legacyPackets) legacyPackets.style.display='none';
+  wrap.appendChild(routes);
+})();
+</script>
+
+<!-- ===== Cinematic application viewer ===== -->
+<script>
+(function(){
+  Object.assign(T.en,{cine_brand:'JC Lighting · Application Viewer',cine_kicker:'Built for the hours after daylight',cine_h2:'Light where life<br><em>keeps moving.</em>',cine_copy:'See solar lighting in the places that need it most — from perimeter security and roads to hospitality, gardens and independent off-grid sites.',cine_cta_explore:'Explore applications',cine_cta_quote:'Plan a project',cine_tab_1:'Security & Perimeter',cine_tab_2:'Road & Municipal',cine_tab_3:'Garden & Hospitality',cine_tab_4:'Off-Grid & Field',cine_stat_1:'Solar-first lighting',cine_stat_2:'OEM / ODM available',cine_stat_3:'Ship from Shenzhen'});
+  Object.assign(T.zh,{cine_brand:'JC Lighting · 应用场景',cine_kicker:'为日落之后仍在运转的场所而设',cine_h2:'让光照亮<br><em>持续前行的生活。</em>',cine_copy:'探索太阳能照明最需要它的地方——从周界安防和道路，到酒店花园与独立离网场所。',cine_cta_explore:'探索应用场景',cine_cta_quote:'规划项目',cine_tab_1:'安防与周界',cine_tab_2:'道路与市政',cine_tab_3:'花园与酒店',cine_tab_4:'离网与现场',cine_stat_1:'太阳能优先照明',cine_stat_2:'支持 OEM / ODM',cine_stat_3:'深圳发货'});
+  Object.assign(T.es,{cine_brand:'JC Lighting · Visor de aplicaciones',cine_kicker:'Diseñado para las horas después de la luz solar',cine_h2:'Luz donde la vida<br><em>sigue avanzando.</em>',cine_copy:'Descubra iluminación solar donde más se necesita: perímetros, vías, hospitalidad, jardines y proyectos autónomos.',cine_cta_explore:'Explorar aplicaciones',cine_cta_quote:'Planificar un proyecto',cine_tab_1:'Seguridad y perímetro',cine_tab_2:'Vial y municipal',cine_tab_3:'Jardín y hostelería',cine_tab_4:'Sin red y campo',cine_stat_1:'Iluminación solar',cine_stat_2:'OEM / ODM disponible',cine_stat_3:'Envío desde Shenzhen'});
+  Object.assign(T.fr,{cine_brand:'JC Lighting · Applications',cine_kicker:'Conçu pour les heures après la lumière du jour',cine_h2:'La lumière là où la vie<br><em>continue d’avancer.</em>',cine_copy:'Découvrez l’éclairage solaire là où il compte: périmètres, routes, hôtellerie, jardins et sites autonomes.',cine_cta_explore:'Voir les applications',cine_cta_quote:'Planifier un projet',cine_tab_1:'Sécurité et périmètre',cine_tab_2:'Voirie et municipal',cine_tab_3:'Jardin et hôtellerie',cine_tab_4:'Autonome et terrain',cine_stat_1:'Éclairage solaire',cine_stat_2:'OEM / ODM disponible',cine_stat_3:'Expédié depuis Shenzhen'});
+  Object.assign(T.pt,{cine_brand:'JC Lighting · Cenários de aplicação',cine_kicker:'Feito para as horas depois da luz do dia',cine_h2:'Luz onde a vida<br><em>continua em movimento.</em>',cine_copy:'Veja a iluminação solar nos lugares que mais precisam: perímetros, vias, hospitalidade, jardins e áreas fora da rede.',cine_cta_explore:'Explorar aplicações',cine_cta_quote:'Planejar um projeto',cine_tab_1:'Segurança e perímetro',cine_tab_2:'Vias e municípios',cine_tab_3:'Jardim e hotelaria',cine_tab_4:'Fora da rede e campo',cine_stat_1:'Iluminação solar',cine_stat_2:'OEM / ODM disponível',cine_stat_3:'Envio de Shenzhen'});
+  var root=document.querySelector('[data-cine-shell]');
+  if(!root) return;
+  var media=Array.prototype.slice.call(root.querySelectorAll('[data-cine-media]'));
+  var tabs=Array.prototype.slice.call(root.querySelectorAll('[data-cine-tab]'));
+  var index=root.querySelector('[data-cine-index]');
+  var changing=false;
+  function activate(next){
+    if(changing || !media[next] || media[next].classList.contains('is-active')) return;
+    changing=true;
+    media.forEach(function(item,i){
+      var isActive=i===next; item.classList.toggle('is-active',isActive);
+      if(item.tagName==='VIDEO'){
+        if(isActive){ var play=item.play(); if(play) play.catch(function(){}); }
+        else item.pause();
+      }
+    });
+    tabs.forEach(function(tab,i){tab.setAttribute('aria-pressed',String(i===next));});
+    index.textContent='0'+(next+1)+' / 04';
+    window.setTimeout(function(){changing=false;},820);
+  }
+  media.forEach(function(item,i){if(item.tagName==='VIDEO'&&i===0){var play=item.play();if(play)play.catch(function(){});}});
+  tabs.forEach(function(tab){tab.addEventListener('click',function(){activate(Number(tab.dataset.cineTab));});});
+  try{ if(typeof setLang==='function') setLang(localStorage.getItem('jc-lang')||'en'); }catch(e){}
+})();
+</script>
+
+<!-- ===== Scroll-open application portal ===== -->
+<script>
+(function(){
+  Object.assign(T.en,{cine_kicker:'Solar lighting · built for reliability',cine_h2:'When daylight leaves,<br><em>certainty remains.</em>',cine_copy:'JC Lighting brings dependable solar performance to the spaces people rely on every day.',cine_progress:'7 application systems',cine_open:'Explore application systems',cine_door_left:'Confidence, after daylight.',cine_door_right:'JC Lighting',cine_hint:'A complete lighting system for every setting.',cine_daynight:'Day → Night',cine_focus_cta:'View products',cine_focus_1:'Perimeter visibility for gates, drives and exterior walls.',cine_focus_2:'Reliable coverage for access roads, junctions and public routes.',cine_focus_3:'Warm, composed light for paths, entrances and outdoor stays.',cine_focus_4:'Atmosphere that carries from facade to patio.',cine_focus_5:'Independent light for homes beyond reliable grid supply.',cine_focus_6:'Take power and light wherever work moves.',cine_focus_7:'High-output light for yards, halls and operational sites.'});
+  Object.assign(T.zh,{cine_kicker:'太阳能照明 · 为可靠而生',cine_h2:'日光退场之后，<br><em>可靠依然在场。</em>',cine_copy:'JC 为人们日常依赖的重要空间，提供稳定可靠的太阳能照明体系。',cine_progress:'7 个应用体系',cine_open:'探索应用体系',cine_door_left:'日落之后，依然笃定。',cine_door_right:'JC Lighting',cine_hint:'为每一种场景配置完整的照明体系。',cine_daynight:'白天 → 夜晚',cine_focus_cta:'查看产品',cine_focus_1:'为大门、车道与周界外墙提供清晰可见的照明。',cine_focus_2:'服务道路、路口与公共通行空间的稳定覆盖。',cine_focus_3:'让路径、入口与户外停留空间呈现温暖秩序。',cine_focus_4:'从建筑立面到庭院露台，延续空间氛围。',cine_focus_5:'为供电不稳定的住宅提供独立照明选择。',cine_focus_6:'让光与电源随工作地点一起移动。',cine_focus_7:'服务厂区、库房与运营场地的高输出照明。'});
+  Object.assign(T.es,{cine_kicker:'Iluminación solar · creada para la fiabilidad',cine_h2:'Cuando se va la luz del día,<br><em>la certeza permanece.</em>',cine_copy:'JC Lighting lleva un rendimiento solar fiable a los espacios de los que las personas dependen cada día.',cine_progress:'7 sistemas de aplicación',cine_open:'Explorar sistemas',cine_door_left:'Confianza después de la luz del día.',cine_door_right:'JC Lighting',cine_hint:'Un sistema de iluminación para cada entorno.',cine_daynight:'Día → Noche',cine_focus_cta:'Ver productos',cine_focus_1:'Visibilidad perimetral para accesos, entradas y muros exteriores.',cine_focus_2:'Cobertura fiable para vías, cruces y rutas públicas.',cine_focus_3:'Luz cálida y ordenada para caminos, entradas y estancias al aire libre.',cine_focus_4:'Atmósfera que se extiende de la fachada al patio.',cine_focus_5:'Luz independiente para hogares con una red poco fiable.',cine_focus_6:'Luz y energía dondequiera que se mueva el trabajo.',cine_focus_7:'Luz de alta potencia para patios, naves y espacios operativos.'});
+  Object.assign(T.fr,{cine_kicker:'Éclairage solaire · conçu pour la fiabilité',cine_h2:'Quand la lumière du jour s’efface,<br><em>la fiabilité demeure.</em>',cine_copy:'JC Lighting apporte une performance solaire fiable aux lieux dont chacun dépend au quotidien.',cine_progress:'7 systèmes d’application',cine_open:'Explorer les systèmes',cine_door_left:'La confiance après le jour.',cine_door_right:'JC Lighting',cine_hint:'Un système d’éclairage pour chaque environnement.',cine_daynight:'Jour → Nuit',cine_focus_cta:'Voir les produits',cine_focus_1:'Une visibilité périmétrique pour portails, allées et murs extérieurs.',cine_focus_2:'Une couverture fiable pour routes, carrefours et voies publiques.',cine_focus_3:'Une lumière chaleureuse pour chemins, entrées et espaces extérieurs.',cine_focus_4:'Une ambiance qui relie façade et terrasse.',cine_focus_5:'Une lumière autonome pour les foyers hors réseau fiable.',cine_focus_6:'De la lumière et de l’énergie partout où le travail se déplace.',cine_focus_7:'Un éclairage puissant pour cours, halls et sites opérationnels.'});
+  Object.assign(T.pt,{cine_kicker:'Iluminação solar · feita para a confiabilidade',cine_h2:'Quando a luz do dia parte,<br><em>a segurança permanece.</em>',cine_copy:'A JC Lighting leva desempenho solar confiável aos espaços dos quais as pessoas dependem todos os dias.',cine_progress:'7 sistemas de aplicação',cine_open:'Explorar sistemas',cine_door_left:'Confiança depois da luz do dia.',cine_door_right:'JC Lighting',cine_hint:'Um sistema de iluminação para cada ambiente.',cine_daynight:'Dia → Noite',cine_focus_cta:'Ver produtos',cine_focus_1:'Visibilidade de perímetro para portões, acessos e paredes externas.',cine_focus_2:'Cobertura confiável para vias, cruzamentos e rotas públicas.',cine_focus_3:'Luz acolhedora para caminhos, entradas e áreas externas.',cine_focus_4:'Atmosfera que vai da fachada ao pátio.',cine_focus_5:'Luz independente para casas além de uma rede confiável.',cine_focus_6:'Leve energia e luz para onde o trabalho se move.',cine_focus_7:'Luz de alta potência para pátios, galpões e áreas operacionais.'});
+
+  var root=document.querySelector('[data-cine-shell]');
+  if(!root || typeof gsap==='undefined' || typeof ScrollTrigger==='undefined') return;
+  var media=Array.prototype.slice.call(root.querySelectorAll('[data-cine-media]'));
+  var cards=Array.prototype.slice.call(root.querySelectorAll('[data-cine-card]'));
+  var sceneUrls=media.map(function(item){return item.getAttribute('src');});
+  sceneUrls.forEach(function(src){var preload=new Image();preload.decoding='async';preload.src=src;});
+  var sceneIndex=root.querySelector('[data-cine-index]');
+  function goToCategory(target){
+    if(typeof revealApplicationProducts==='function') revealApplicationProducts(target);
+    var filter=Array.prototype.slice.call(document.querySelectorAll('.prod-filter-btn')).find(function(btn){return (btn.getAttribute('onclick')||'').indexOf("'"+target+"'")>-1;});
+    document.querySelectorAll('.prod-filter-btn').forEach(function(btn){btn.classList.remove('active');});
+    if(filter) filter.classList.add('active');
+    var destination=document.getElementById(target);
+    if(destination) window.setTimeout(function(){destination.scrollIntoView({behavior:'smooth',block:'start'});},0);
+  }
+  cards.forEach(function(card){
+    card.addEventListener('click',function(){
+      goToCategory(card.dataset.cineCard);
+    });
+  });
+  var focusSceneUrls=[
+    'images/jc-portal-focus-bg-01-security-v1.png',
+    'images/jc-portal-focus-bg-02-road-v1.png',
+    'images/jc-portal-focus-bg-03-garden-v1.png',
+    'images/jc-portal-focus-bg-04-decorative-v1.png',
+    'images/jc-portal-focus-bg-05-portable-v1.png',
+    'images/jc-portal-focus-bg-06-commercial-v1.png',
+    'images/jc-portal-focus-bg-07-offgrid-v1.png'
+  ];
+  var focusCutoutUrls=[
+    'images/jc-portal-cutout-01-security-v1.png',
+    'images/jc-portal-cutout-02-road-v1.png',
+    'images/jc-portal-cutout-03-garden-v1.png',
+    'images/jc-portal-cutout-04-decorative-v1.png',
+    'images/jc-portal-cutout-05-portable-v1.png',
+    'images/jc-portal-cutout-06-commercial-v1.png',
+    'images/jc-portal-cutout-07-offgrid-v1.png'
+  ];
+  var focusDescriptions=['cine_focus_1','cine_focus_2','cine_focus_3','cine_focus_4','cine_focus_6','cine_focus_7','cine_focus_5'];
+  var focusLayer=document.createElement('div');
+  focusLayer.className='cine-focus-layer';
+  cards.forEach(function(card,index){
+    var title=card.querySelector('b');
+    var panel=document.createElement('button');
+    panel.type='button';
+    panel.className='cine-focus-panel';
+    panel.dataset.cineCard=card.dataset.cineCard;
+    panel.style.setProperty('--cine-scene','url("'+focusSceneUrls[index]+'")');
+    panel.innerHTML='<div class="cine-focus-product" aria-hidden="true"><img src="'+focusCutoutUrls[index]+'" alt=""></div><div class="cine-focus-copy"><span>0'+(index+1)+' / 07</span><h3 data-i18n="'+title.getAttribute('data-i18n')+'">'+title.textContent+'</h3><p data-i18n="'+focusDescriptions[index]+'"></p><span class="cine-focus-link" data-i18n="cine_focus_cta">View products</span></div>';
+    panel.addEventListener('click',function(){goToCategory(panel.dataset.cineCard);});
+    focusLayer.appendChild(panel);
+  });
+  root.appendChild(focusLayer);
+  var focusPanels=Array.prototype.slice.call(focusLayer.querySelectorAll('.cine-focus-panel'));
+  function positionFocusPanels(){
+    var rootRect=root.getBoundingClientRect();
+    var cardWrapY=Number(gsap.getProperty(root.querySelector('[data-cine-cards]'),'y'))||0;
+    focusPanels.forEach(function(panel,index){
+      var cardRect=cards[index].getBoundingClientRect();
+      gsap.set(panel,{x:cardRect.left-rootRect.left,y:cardRect.top-rootRect.top-cardWrapY,scaleX:cardRect.width/rootRect.width,scaleY:cardRect.height/rootRect.height,transformOrigin:'top left'});
+    });
+  }
+  var openControl=root.querySelector('[data-cine-open]');
+  function openPortal(){
+    root.classList.add('is-open');
+    var trigger=ScrollTrigger.getById('cine-portal');
+    if(trigger) window.scrollTo({top:trigger.start+(trigger.end-trigger.start)*.18,behavior:'smooth'});
+  }
+  if(openControl) openControl.addEventListener('click',openPortal);
+  var mm=gsap.matchMedia();
+  mm.add({desktop:'(min-width:721px)',mobile:'(max-width:720px)',reduce:'(prefers-reduced-motion: reduce)'},function(context){
+    var c=context.conditions;
+    if(c.reduce){
+      root.classList.add('is-open');
+      gsap.set(media.slice(1),{autoAlpha:0});
+      gsap.set(media[0],{autoAlpha:1,scale:1});
+      if(sceneIndex) sceneIndex.textContent='01 / 07';
+      return;
+    }
+    if(c.mobile){
+      ScrollTrigger.create({trigger:root,start:'top 30%',onEnter:openPortal,onEnterBack:function(){root.classList.remove('is-open');}});
+      return;
+    }
+    var left=root.querySelector('.cine-door--left');
+    var right=root.querySelector('.cine-door--right');
+    var seam=root.querySelector('[data-cine-seam]');
+    var main=root.querySelector('[data-cine-copy]');
+    var cardWrap=root.querySelector('[data-cine-cards]');
+    var progress=root.querySelector('.cine-progress');
+    positionFocusPanels();
+    var timeline=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{id:'cine-portal',trigger:root.parentElement,start:'top top',end:function(){return '+='+Math.max(6200,window.innerHeight*8.4);},pin:root,scrub:.75,invalidateOnRefresh:true,refreshPriority:2,onRefresh:positionFocusPanels}});
+    timeline.to(openControl,{autoAlpha:0,y:18,duration:.14},0)
+      .to(left,{xPercent:-102,duration:.58},.1)
+      .to(right,{xPercent:102,duration:.58},.1)
+      .to(seam,{autoAlpha:0,scaleY:.45,duration:.36},.18)
+      .to(main,{autoAlpha:1,y:0,duration:.28,ease:'power2.out'},.43)
+      .to(progress,{autoAlpha:1,duration:.16},.56)
+      .to(cardWrap,{autoAlpha:1,y:0,duration:.3,ease:'power2.out'},.64)
+      .from(cards,{y:24,autoAlpha:0,stagger:.06,duration:.24,ease:'power2.out',immediateRender:false},.69);
+    timeline.to(cardWrap,{autoAlpha:0,duration:.16},1.14);
+    focusPanels.forEach(function(panel,index){
+      var start=1.14+index*1.14;
+      timeline.call(function(){if(sceneIndex) sceneIndex.textContent=String(index+1).padStart(2,'0')+' / 07';},null,start)
+        .set(panel,{autoAlpha:1},start)
+        .to(panel,{x:0,y:0,scaleX:1,scaleY:1,duration:.72},start)
+        .to(panel,{autoAlpha:index===focusPanels.length-1?1:0,duration:index===focusPanels.length-1?.24:.18},start+.96);
+      if(index>0){
+        timeline.to(media[index],{autoAlpha:1,scale:1.045,duration:.34,ease:'power1.inOut'},start)
+          .to(media[index-1],{autoAlpha:0,duration:.34,ease:'power1.inOut'},start+.02);
+      }
+    });
+  });
+  try{if(typeof setLang==='function') setLang(localStorage.getItem('jc-lang')||'en');}catch(e){}
 })();
 </script>
 
