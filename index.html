@@ -512,7 +512,6 @@ img, svg {
 .preloader::after { content:''; position:absolute; inset:0; z-index:0; pointer-events:none; background:radial-gradient(260px circle at var(--intro-x,50%) var(--intro-y,50%),rgba(239,190,82,.13),transparent 70%); mix-blend-mode:screen; transition:background .12s linear; }
 @keyframes introFailsafe { to { opacity:0; visibility:hidden; pointer-events:none; } }
 .intro-canvas { position:relative; z-index:0; display:block; width:100%; height:100%; }
-.intro-logo-lockup { position:absolute; z-index:1; left:50%; top:47%; width:min(34vw,390px); aspect-ratio:1; object-fit:contain; transform:translate(-50%,-50%) scale(.94); opacity:0; mix-blend-mode:screen; pointer-events:none; filter:contrast(1.12) brightness(1.08); }
 .intro-hud { position:absolute; inset:0; pointer-events:none; z-index:1; color:rgba(229,193,116,.82); font-family:'Outfit',sans-serif; }
 .intro-hud::before { content:''; position:absolute; inset:28px; border:1px solid rgba(201,162,78,.11); clip-path:polygon(0 0,36px 0,36px 1px,calc(100% - 36px) 1px,calc(100% - 36px) 0,100% 0,100% 36px,calc(100% - 1px) 36px,calc(100% - 1px) calc(100% - 36px),100% calc(100% - 36px),100% 100%,calc(100% - 36px) 100%,calc(100% - 36px) calc(100% - 1px),36px calc(100% - 1px),36px 100%,0 100%,0 calc(100% - 36px),1px calc(100% - 36px),1px 36px,0 36px); }
 .intro-core { position:absolute; left:50%; top:47%; width:min(36vw,430px); aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%; border:1px solid rgba(222,185,106,.22); box-shadow:0 0 0 20px rgba(207,163,77,.035),0 0 0 68px rgba(207,163,77,.025),0 0 90px rgba(193,132,35,.13); }
@@ -536,7 +535,7 @@ img, svg {
 }
 .intro-skip:hover { background:var(--brass-lt); color:#0a0807; }
 .preloader.hide { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; animation:none !important; }
-@media (max-width:700px) { .intro-hud::before{inset:16px}.intro-core,.intro-logo-lockup{width:min(66vw,340px);top:45%}.intro-grid{background-size:34px 34px}.intro-tagline{bottom:18%;font-size:.58rem;letter-spacing:.18em}.intro-skip{bottom:18px;right:18px;padding:8px 11px;font-size:.56rem} }
+@media (max-width:700px) { .intro-hud::before{inset:16px}.intro-core{width:min(66vw,340px);top:45%}.intro-grid{background-size:34px 34px}.intro-tagline{bottom:18%;font-size:.58rem;letter-spacing:.18em}.intro-skip{bottom:18px;right:18px;padding:8px 11px;font-size:.56rem} }
 @media (prefers-reduced-motion:reduce) { .intro-core::before,.intro-core::after{animation:none}.intro-grid{display:none} }
 /* Old CSS-animation preloader (light-ray + orb + JC logo) removed — replaced by intro video */
 /* Smart nav hide */
@@ -2150,7 +2149,6 @@ html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-a
 
 <div class="preloader" id="preloader">
   <canvas class="intro-canvas" id="introCanvas"></canvas>
-  <img class="intro-logo-lockup" id="introLogoLockup" src="images/logo.png" alt="JC Lightning">
   <div class="intro-hud" aria-hidden="true">
     <div class="intro-grid"></div>
     <div class="intro-core"></div>
@@ -6521,12 +6519,10 @@ let lenis=null;
   const forceIntro=new URLSearchParams(location.search).get('intro')==='1';
   if(seen&&!forceIntro){ pl.classList.add('hide'); pl.style.display='none'; window.addEventListener('load',()=>{ heroIn(); if(pl.parentNode) pl.remove(); }); return; }
   if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){ setTimeout(dismiss,80); return; }
-  const introLogoLockup=document.getElementById('introLogoLockup');
   if(typeof gsap!=='undefined'){
     const introTl=gsap.timeline({defaults:{ease:'power3.out'}});
     introTl.set('.intro-hud',{autoAlpha:1})
-      .from('.intro-core',{scale:.72,autoAlpha:0,duration:.7,ease:'power2.out'},0)
-      .to(introLogoLockup,{autoAlpha:.92,scale:1,duration:.85,ease:'power2.out'},0);
+      .from('.intro-core',{scale:.72,autoAlpha:0,duration:.7,ease:'power2.out'},0);
   }
   setTimeout(dismiss,4800);  // concise opening sequence
   setTimeout(dismiss,6500);  // JS hard failsafe (CSS also auto-hides at 8s)
