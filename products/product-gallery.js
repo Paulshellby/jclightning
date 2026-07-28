@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  initProductMotion();
   const galleries = [...document.querySelectorAll('.product-photo-gallery')];
   if (!galleries.length) return;
 
@@ -75,3 +76,58 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'ArrowRight') move(1);
   });
 });
+
+function initProductMotion() {
+  const wraps = [...document.querySelectorAll('.pa-wrap')];
+  if (!wraps.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const path = window.location.pathname.toLowerCase();
+  const groups = {
+    water: ['solar-pool-float-light'],
+    industrial: ['ufo-high-bay-light', 'ac-led-floodlight'],
+    road: ['all-in-one-solar-street-light', 'split-solar-street-light', 'ac-street-light', 'solar-flag-pole-light'],
+    security: ['solar-motion-flood-light', 'solar-flood-security-light', 'pir-motion-sensor-wall-light', 'solar-bug-zapper-light'],
+    garden: ['solar-garden-', 'solar-courtyard-column-light', 'solar-deck-step-light', 'solar-flame-torch-light'],
+    decorative: ['outdoor-wall-lantern', 'solar-umbrella-light', 'solar-edison-string', 'solar-fairy-copper', 'solar-string-'],
+    portable: ['solar-home-lighting-kit', 'solar-indoor-wall-light', 'solar-portable', 'solar-power-bank', 'emergency-', 'solar-emergency', 'solar-ceiling-fan']
+  };
+  const group = Object.keys(groups).find(key => groups[key].some(slug => path.includes(slug))) || 'garden';
+  const supportsPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  wraps.forEach(wrap => {
+    const stage = wrap.querySelector('.pa-stage');
+    if (!stage) return;
+    wrap.classList.add('pm-ready', `pm-${group}`);
+    stage.tabIndex = 0;
+    stage.setAttribute('role', 'button');
+    stage.setAttribute('aria-label', 'Play product interaction');
+
+    const fx = document.createElement('div');
+    fx.className = 'pm-fx';
+    fx.setAttribute('aria-hidden', 'true');
+    fx.innerHTML = '<span class="pm-aura"></span><span class="pm-scan"></span><span class="pm-ripple"></span><span class="pm-spark"></span>';
+    stage.prepend(fx);
+
+    const pulse = () => {
+      wrap.classList.remove('pm-pulse');
+      requestAnimationFrame(() => wrap.classList.add('pm-pulse'));
+      window.setTimeout(() => wrap.classList.remove('pm-pulse'), 850);
+    };
+    stage.addEventListener('click', pulse);
+    stage.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        pulse();
+      }
+    });
+
+    if (!supportsPointer) return;
+    stage.addEventListener('pointermove', event => {
+      const rect = stage.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - .5;
+      const y = (event.clientY - rect.top) / rect.height - .5;
+      stage.style.transform = `perspective(1100px) rotateX(${-y * 3}deg) rotateY(${x * 4}deg) translateZ(0)`;
+    });
+    stage.addEventListener('pointerleave', () => { stage.style.transform = ''; });
+  });
+}
