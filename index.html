@@ -6260,6 +6260,24 @@ document.querySelectorAll('.prod-card').forEach(card=>{
   });
 });
 
+// Product cards: make the entire card enter its linked detail page. This capture
+// handler runs before legacy image-preview listeners, so product-image clicks
+// cannot be intercepted by the lightbox instead of opening the product page.
+(function enableProductCardDetailNavigation(){
+  document.addEventListener('click',function(event){
+    if(event.button!==0) return;
+    const target=event.target;
+    const card=target&&target.closest?target.closest('.prod-card'):null;
+    if(!card) return;
+    if(target.closest('a, button, input, select, textarea, label, .gal-hint, [data-no-card-link]')) return;
+    const detail=card.querySelector('.prod-title-link[href]');
+    if(!detail) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    window.location.assign(detail.href);
+  },true);
+})();
+
 // 产品图灯箱
 const lb=document.getElementById('lightbox');
 const lbImg=document.getElementById('lbImg');
